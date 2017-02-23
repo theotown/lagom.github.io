@@ -1,0 +1,56 @@
+@import com.lightbend.lagom.docs.svg.html._
+@import com.lightbend.lagom.docs.LagomContext
+
+@(implicit context: LagomContext)
+
+@main(None)()() {
+    <div class="fw-wrapper lgm-purple hero-banner">
+        <div class="row">
+            <div class="small-12 columns">
+                <a href="@context.path/" class="logo"><img src="@context.path/images/logos/lagom-reverse.svg"></a>
+                <h1>Get started with<br/>
+                    Lagom @context.currentLagomVersion today</h1>
+                <a href="@context.path/changelog.html">Change log</a>
+            </div>
+        </div>
+    </div>
+    <article class="download-content">
+        <section class="fw-wrapper">
+            <div class="row">
+                <div class="small-12 columns">
+                    <h2>It’s quick and easy</h2>
+                    <p>
+                        Industry-standard build tools automatically download what you need to get started developing a Lagom system.
+                        Use a Maven archetype or an sbt template to create a new project with two simple Hello World services.
+                        No need to download or set up anything else!
+                    </p>
+
+                    <p>
+                        One simple command runs the following:
+                    </p>
+
+                    <ul>
+                        <li>Cassandra</li>
+                        <li>Kafka</li>
+                        <li>A service locator</li>
+                        <li>A service gateway</li>
+                        <li>Your Lagom services</li>
+                    </ul>
+
+                    <p>
+                        Lagom provides APIs for Java and Scala.
+                        Both support the full range of Lagom features to provide a great microservice development experience.
+                    </p>
+
+                    <h3>Choose your language:</h3>
+
+                    <div class="get-started-buttons">
+                        <a class="lagom-logo-button" href="@context.path/get-started-java.html">Java</a>
+                        <a class="lagom-logo-button" href="@context.path/get-started-scala.html">Scala</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+
+}

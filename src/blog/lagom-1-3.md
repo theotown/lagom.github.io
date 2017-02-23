@@ -1,6 +1,6 @@
 ---
 title: Lagom 1.3.0 is released!
-date: 2017-02-24
+date: 2017-02-23
 author_github: jroper
 tags: news
 summary: >

@@ -2,7 +2,7 @@
 
 ## Lagom 1.3.0
 
-*Released 24 February 2017*
+*Released 23 February 2017*
 
 The main features of this release are:
 

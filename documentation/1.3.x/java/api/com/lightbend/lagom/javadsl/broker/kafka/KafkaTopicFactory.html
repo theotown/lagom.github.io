@@ -133,10 +133,11 @@ implements com.lightbend.lagom.internal.javadsl.api.broker.TopicFactory</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/broker/kafka/KafkaTopicFactory.html#KafkaTopicFactory-com.lightbend.lagom.javadsl.api.ServiceInfo-akka.actor.ActorSystem-akka.stream.Materializer-scala.concurrent.ExecutionContext-">KafkaTopicFactory</a></span>(<a href="../../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api">ServiceInfo</a>&nbsp;serviceInfo,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/broker/kafka/KafkaTopicFactory.html#KafkaTopicFactory-com.lightbend.lagom.javadsl.api.ServiceInfo-akka.actor.ActorSystem-akka.stream.Materializer-scala.concurrent.ExecutionContext-com.lightbend.lagom.javadsl.api.ServiceLocator-">KafkaTopicFactory</a></span>(<a href="../../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api">ServiceInfo</a>&nbsp;serviceInfo,
                  akka.actor.ActorSystem&nbsp;system,
                  akka.stream.Materializer&nbsp;materializer,
-                 scala.concurrent.ExecutionContext&nbsp;executionContext)</code>&nbsp;</td>
+                 scala.concurrent.ExecutionContext&nbsp;executionContext,
+                 <a href="../../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceLocator</a>&nbsp;serviceLocator)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -179,7 +180,7 @@ implements com.lightbend.lagom.internal.javadsl.api.broker.TopicFactory</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="KafkaTopicFactory-com.lightbend.lagom.javadsl.api.ServiceInfo-akka.actor.ActorSystem-akka.stream.Materializer-scala.concurrent.ExecutionContext-">
+<a name="KafkaTopicFactory-com.lightbend.lagom.javadsl.api.ServiceInfo-akka.actor.ActorSystem-akka.stream.Materializer-scala.concurrent.ExecutionContext-com.lightbend.lagom.javadsl.api.ServiceLocator-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -189,7 +190,8 @@ implements com.lightbend.lagom.internal.javadsl.api.broker.TopicFactory</pre>
 public&nbsp;KafkaTopicFactory(<a href="../../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api">ServiceInfo</a>&nbsp;serviceInfo,
                                  akka.actor.ActorSystem&nbsp;system,
                                  akka.stream.Materializer&nbsp;materializer,
-                                 scala.concurrent.ExecutionContext&nbsp;executionContext)</pre>
+                                 scala.concurrent.ExecutionContext&nbsp;executionContext,
+                                 <a href="../../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceLocator</a>&nbsp;serviceLocator)</pre>
 </li>
 </ul>
 </li>

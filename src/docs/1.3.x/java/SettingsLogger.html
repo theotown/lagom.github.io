@@ -211,11 +211,13 @@
 <p>If you&rsquo;re using Maven, you simply need to remove the logback dependency from your projects dependencies. If using sbt, you need to disable the <code>LagomLogback</code> plugin in your sbt project:</p>
 <pre class="prettyprint"><code class="language-sbt">lazy val portfolioImpl = (project in file(&quot;portfolioImpl&quot;))
   .enablePlugins(LagomJava)
-  .disablePlugins(LagomLogback) // this avoids that the Lagom logging module is addedd to the classpath</code></pre>
+  // This avoids adding the Lagom logging module to the classpath
+  .disablePlugins(LagomLogback)</code></pre>
 <p>From there, a custom logging framework can be used. Here, Log4J 2 is used as an example.</p>
-<pre class="prettyprint"><code class="language-sbt">lazy val portfolioImpl = (project in file(&quot;portfolioImpl&quot;))
+<pre class="prettyprint"><code class="language-sbt">lazy val orderImpl = (project in file(&quot;orderImpl&quot;))
   .enablePlugins(LagomJava)
-  .disablePlugins(LagomLogback) // this avoids that the Lagom logging module is added to the classpath
+  // This avoids adding the Lagom logging module to the classpath
+  .disablePlugins(LagomLogback)
   .settings(
     libraryDependencies ++= Seq(
       &quot;org.apache.logging.log4j&quot; % &quot;log4j-slf4j-impl&quot; % &quot;2.7&quot;,

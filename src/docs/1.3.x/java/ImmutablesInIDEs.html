@@ -2,16 +2,16 @@
 <p><a href="https://immutables.github.io">Immutables</a> is a library we recommend to create immutable objects and reduce boilerplate code to a minimum. We believe you will find this library handy, but because immutables generates sources from annotations, you need to enable the Java compiler annotation processor.</p><h2 id="Eclipse"><a class="section-marker" href="#Eclipse">§</a>Eclipse</h2>
 <p>To setup the Immutables annotation processor in Eclipse you need to configure the following for each project that is using the <a href="https://immutables.github.io">Immutables</a> tool to generate <a href="Immutable.html">immutable objects</a>. </p>
 <p>Open project Properties &gt; Java Compiler &gt; <strong>Annotation Processing</strong></p>
-<p><a href="resources/appendix/eclipse-immutables1.png"><img src="resources/appendix/eclipse-immutables1.png"/></a></p>
+<p><a href="resources/guide/build/eclipse-immutables1.png"><img src="resources/guide/build/eclipse-immutables1.png"/></a></p>
 <p>Enable project specific settings.</p>
 <p>Enter <code>target/apt_generated</code> in the <strong>souce directory</strong> field.</p>
 <p>Open project Properties &gt; Java Compiler &gt; Annotation Processing &gt; <strong>Factory Path</strong></p>
 <p>Enable project specific settings.</p>
 <p>Click <strong>Add Variable&hellip;</strong> </p>
 <p>The first time you should click <strong>Configure Variables</strong> and enter a new variable named <code>immutables</code> with the path <code>/&lt;user home directory&gt;/.ivy2/cache/org.immutables/value/jars/value-&lt;version&gt;.jar</code> (replace <code>&lt;user home directory&gt;</code> with your real home directory, which contains the <code>.ivy2</code> directory, and <code>&lt;version&gt;</code> with the version of immutables in use).</p>
-<p><a href="resources/appendix/eclipse-immutables2.png"><img src="resources/appendix/eclipse-immutables2.png"/></a></p>
+<p><a href="resources/guide/build/eclipse-immutables2.png"><img src="resources/guide/build/eclipse-immutables2.png"/></a></p>
 <p>Select the <code>immutables</code> variable.</p>
-<p><a href="resources/appendix/eclipse-immutables3.png"><img src="resources/appendix/eclipse-immutables3.png"/></a></p>
+<p><a href="resources/guide/build/eclipse-immutables3.png"><img src="resources/guide/build/eclipse-immutables3.png"/></a></p>
 <p>For next project you can simply select the <code>immutables</code> variable in the Factory Path dialog.</p>
 <p>If you are importing many projects and you find the above configuration dialogs tedious you can do the changes for one project and then copy the following settings files to the other projects:</p>
 <pre class="prettyprint"><code>.factorypath

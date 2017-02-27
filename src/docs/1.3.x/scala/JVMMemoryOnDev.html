@@ -1,4 +1,4 @@
-<h1 id="Increase-Memory-in-sbt-and-Maven"><a class="section-marker" href="#Increase-Memory-in-sbt-and-Maven">§</a>Increase Memory in sbt and Maven</h1>
+<h1 id="Increase-Memory-for-sbt-and-Maven"><a class="section-marker" href="#Increase-Memory-for-sbt-and-Maven">§</a>Increase Memory for sbt and Maven</h1>
 <p>Lagom in dev mode starts all your services plus some internal Lagom services in a single JVM. This can cause <code>OutOfMemoryError</code>s depending on your JVM setup. It is possible to start Maven and sbt with increased memory.</p>
 <p>We recommend you increase the Maximum Metaspace size and the Thread Stack size. These values can be set using <code>-Xss2M -XX:MaxMetaspaceSize=1024M</code>. The exact values may depend on your hardware and your code base.</p><h2 id="Maven"><a class="section-marker" href="#Maven">§</a>Maven</h2>
 <p>You can start Maven with extra memory using <code>MAVEN_OPTS</code> environment variable.</p>

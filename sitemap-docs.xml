@@ -1,10 +1,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.lagomframework.com/documentation/1.3.x/java/MavenIDEs.html</loc>
+    <loc>http://www.lagomframework.com/documentation/1.3.x/java/Migration13.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://www.lagomframework.com/documentation/1.3.x/java/Migration13.html</loc>
+    <loc>http://www.lagomframework.com/documentation/1.3.x/java/WhatsNext.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
@@ -13,10 +13,6 @@
   </url>
   <url>
     <loc>http://www.lagomframework.com/documentation/1.3.x/java/ReferenceGuide.html</loc>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>http://www.lagomframework.com/documentation/1.3.x/java/IntellijSbt.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
@@ -53,6 +49,14 @@
   </url>
   <url>
     <loc>http://www.lagomframework.com/documentation/1.3.x/java/EclipseSbt.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://www.lagomframework.com/documentation/1.3.x/java/EclipseMavenNew.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://www.lagomframework.com/documentation/1.3.x/java/IntellijSbtJava.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
@@ -224,7 +228,15 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>http://www.lagomframework.com/documentation/1.3.x/java/WhereToStart.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>http://www.lagomframework.com/documentation/1.3.x/java/PersistentEntity.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://www.lagomframework.com/documentation/1.3.x/java/EclipseMavenInt.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
@@ -237,6 +249,10 @@
   </url>
   <url>
     <loc>http://www.lagomframework.com/documentation/1.3.x/java/ServiceDescriptors.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://www.lagomframework.com/documentation/1.3.x/java/IntellijMaven.html</loc>
     <priority>0.9</priority>
   </url>
   <url>

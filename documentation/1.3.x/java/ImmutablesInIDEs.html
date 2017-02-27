@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/0d9bb9135d30a2c524b42c1dbd14feec4f31a56c-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/90ced646ecb9af8408ec73413f5ddf99c0592253-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -120,7 +120,9 @@
                     <nav class="breadcrumbs">
                         <a href="Home.html">Java Home</a>
                         
-                            &raquo; <a href="ImmutablesInIDEs.html">Appendix</a>
+                            &raquo; <a href="ReferenceGuide.html">Lagom reference guide</a>
+                        
+                            &raquo; <a href="LagomBuild.html">Configuring builds and the development environment</a>
                         
                     </nav>
                 
@@ -130,16 +132,16 @@
 <p><a href="https://immutables.github.io">Immutables</a> is a library we recommend to create immutable objects and reduce boilerplate code to a minimum. We believe you will find this library handy, but because immutables generates sources from annotations, you need to enable the Java compiler annotation processor.</p><h2 id="Eclipse"><a class="section-marker" href="#Eclipse">§</a>Eclipse</h2>
 <p>To setup the Immutables annotation processor in Eclipse you need to configure the following for each project that is using the <a href="https://immutables.github.io">Immutables</a> tool to generate <a href="Immutable.html">immutable objects</a>. </p>
 <p>Open project Properties &gt; Java Compiler &gt; <strong>Annotation Processing</strong></p>
-<p><a href="resources/appendix/eclipse-immutables1.png"><img src="resources/appendix/eclipse-immutables1.png"/></a></p>
+<p><a href="resources/guide/build/eclipse-immutables1.png"><img src="resources/guide/build/eclipse-immutables1.png"/></a></p>
 <p>Enable project specific settings.</p>
 <p>Enter <code>target/apt_generated</code> in the <strong>souce directory</strong> field.</p>
 <p>Open project Properties &gt; Java Compiler &gt; Annotation Processing &gt; <strong>Factory Path</strong></p>
 <p>Enable project specific settings.</p>
 <p>Click <strong>Add Variable&hellip;</strong> </p>
 <p>The first time you should click <strong>Configure Variables</strong> and enter a new variable named <code>immutables</code> with the path <code>/&lt;user home directory&gt;/.ivy2/cache/org.immutables/value/jars/value-&lt;version&gt;.jar</code> (replace <code>&lt;user home directory&gt;</code> with your real home directory, which contains the <code>.ivy2</code> directory, and <code>&lt;version&gt;</code> with the version of immutables in use).</p>
-<p><a href="resources/appendix/eclipse-immutables2.png"><img src="resources/appendix/eclipse-immutables2.png"/></a></p>
+<p><a href="resources/guide/build/eclipse-immutables2.png"><img src="resources/guide/build/eclipse-immutables2.png"/></a></p>
 <p>Select the <code>immutables</code> variable.</p>
-<p><a href="resources/appendix/eclipse-immutables3.png"><img src="resources/appendix/eclipse-immutables3.png"/></a></p>
+<p><a href="resources/guide/build/eclipse-immutables3.png"><img src="resources/guide/build/eclipse-immutables3.png"/></a></p>
 <p>For next project you can simply select the <code>immutables</code> variable in the Factory Path dialog.</p>
 <p>If you are importing many projects and you find the above configuration dialogs tedious you can do the changes for one project and then copy the following settings files to the other projects:</p>
 <pre class="prettyprint"><code>.factorypath
@@ -154,7 +156,7 @@
                     
                         
                             <nav class="next-link">
-                                <a href="JVMMemoryOnDev.html"><strong>Next: </strong> Increase Memory in sbt and Maven</a>
+                                <a href="JVMMemoryOnDev.html"><strong>Next: </strong> Increase memory for sbt and Maven</a>
                             </nav>
                         
                     
@@ -162,7 +164,7 @@
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/java/appendix/ImmutablesInIDEs.md">here</a>. Please feel free to edit and contribute a pull request.</p>
+                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/java/guide/build/ImmutablesInIDEs.md">here</a>. Please feel free to edit and contribute a pull request.</p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -186,15 +188,84 @@
                     <a href="/documentation/1.3.x/java/api/index.html" class="api-docs">API Documentation</a>
 
                     
-                        <h3>Appendix</h3>
+                        <h3>Configuring builds and the development environment</h3>
                         <ul>
+                        
+                            
+                                <li><a href="LagomBuild.html">Defining a Lagom build</a></li>
+                            
+                        
+                            
+                                <li><a href="MultipleBuilds.html">Splitting a system into multiple builds</a></li>
+                            
+                        
+                            
+                                <li><a href="EclipseMavenInt.html">Importing an existing Maven project into Eclipse</a></li>
+                            
+                        
+                            
+                                <li><a href="EclipseMavenNew.html">Creating a new Maven Eclipse project with the Lagom archetype</a></li>
+                            
+                        
+                            
+                                <li><a href="EclipseSbt.html">Importing an sbt project into Eclipse</a></li>
+                            
+                        
+                            
+                                <li><a href="IntellijMaven.html">Importing an existing Maven Project into Intellij</a></li>
+                            
+                        
+                            
+                                <li><a href="IntellijSbtJava.html">Importing an sbt project into Intellij</a></li>
+                            
                         
                             
                                 <li class="current-page"><a href="ImmutablesInIDEs.html">Set up Immutables in your IDE</a></li>
                             
                         
                             
-                                <li><a href="JVMMemoryOnDev.html">Increase Memory in sbt and Maven</a></li>
+                                <li><a href="JVMMemoryOnDev.html">Increase memory for sbt and Maven</a></li>
+                            
+                        
+                        </ul>
+                    
+                        <h3>Lagom reference guide</h3>
+                        <ul>
+                        
+                            
+                                <li><a href="ReferenceGuide.html">Reference Guide</a></li>
+                            
+                        
+                            
+                                <li class="current-page"><a href="LagomBuild.html">Configuring builds and the development environment</a></li>
+                            
+                        
+                            
+                                <li><a href="DevEnvironment.html">Running Lagom in development</a></li>
+                            
+                        
+                            
+                                <li><a href="ServiceDescriptors.html">Writing Lagom services</a></li>
+                            
+                        
+                            
+                                <li><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
+                            
+                        
+                            
+                                <li><a href="MessageBroker.html">Decouple services with a message broker</a></li>
+                            
+                        
+                            
+                                <li><a href="ProductionOverview.html">Running Lagom in production</a></li>
+                            
+                        
+                            
+                                <li><a href="Logging.html">Logging</a></li>
+                            
+                        
+                            
+                                <li><a href="Akka.html">Advanced topics</a></li>
                             
                         
                         </ul>
@@ -219,11 +290,7 @@
                             
                         
                             
-                                <li><a href="ReferenceGuide.html">Lagom reference guide</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="ImmutablesInIDEs.html">Appendix</a></li>
+                                <li class="current-page"><a href="ReferenceGuide.html">Lagom reference guide</a></li>
                             
                         
                             
@@ -325,7 +392,7 @@
             </div>
         </div>
     </body>
-    <script src="/0d9bb9135d30a2c524b42c1dbd14feec4f31a56c-all-scripts-concat.js"></script>
+    <script src="/90ced646ecb9af8408ec73413f5ddf99c0592253-all-scripts-concat.js"></script>
 
     <script>
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

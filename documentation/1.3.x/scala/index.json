@@ -15,9 +15,9 @@
       "url" : "WhatDoesLagomMean.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/welcome/WhatDoesLagomMean.md"
     }, {
-      "title" : "Lagom design philosophy",
-      "url" : "LagomDesignPhilosophy.html",
-      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/welcome/LagomDesignPhilosophy.md"
+      "title" : "Where to begin",
+      "url" : "WhereToStart.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/welcome/WhereToStart.md"
     } ]
   }, {
     "title" : "Getting started with Lagom",
@@ -27,23 +27,13 @@
       "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/gettingstarted/Installation.md"
     }, {
       "title" : "Creating and running Hello World",
-      "url" : "GettingStarted.html",
-      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/gettingstarted/GettingStarted.md"
+      "url" : "IntroGetStarted.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/gettingstarted/IntroGetStarted.md"
     }, {
       "title" : "Understanding Hello World",
       "url" : "UnderstandHelloScala.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/gettingstarted/UnderstandHelloScala.md",
       "nextUrls" : [ "EclipseScala.html", "IntellijSbt.html" ]
-    }, {
-      "title" : "Integrating sbt builds with IntelliJ",
-      "url" : "IntellijSbt.html",
-      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/gettingstarted/IntellijSbt.md",
-      "nextUrls" : [ "LagomExamples.html" ]
-    }, {
-      "title" : "Integrating sbt builds with Eclipse",
-      "url" : "EclipseScala.html",
-      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/gettingstarted/EclipseScala.md",
-      "nextUrls" : [ "LagomExamples.html" ]
     }, {
       "title" : "Learning more from Lagom examples",
       "url" : "LagomExamples.html",
@@ -55,6 +45,10 @@
       "title" : "Lagom core concepts",
       "url" : "CoreConcepts.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/CoreConcepts.md"
+    }, {
+      "title" : "Lagom design philosophy",
+      "url" : "LagomDesignPhilosophy.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/LagomDesignPhilosophy.md"
     }, {
       "title" : "Microservices in Lagom",
       "url" : "Microservices.html",
@@ -91,7 +85,7 @@
       "url" : "ReferenceGuide.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/guide/ReferenceGuide.md"
     }, {
-      "title" : "Defining a Lagom build",
+      "title" : "Configuring builds and the development environment",
       "children" : [ {
         "title" : "Defining a Lagom build",
         "url" : "LagomBuild.html",
@@ -100,6 +94,20 @@
         "title" : "Splitting a system into multiple builds",
         "url" : "MultipleBuilds.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/guide/build/MultipleBuilds.md"
+      }, {
+        "title" : "Import an sbt project into Intellij",
+        "url" : "IntellijSbt.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/guide/build/IntellijSbt.md",
+        "nextUrls" : [ "RunningServices.html", "TestingServices.html" ]
+      }, {
+        "title" : "Import an sbt project into Eclipse",
+        "url" : "EclipseSbt.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/guide/build/EclipseSbt.md",
+        "nextUrls" : [ "RunningServices.html", "TestingServices.html" ]
+      }, {
+        "title" : "Increase Memory in sbt",
+        "url" : "JVMMemoryOnDev.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/guide/build/JVMMemoryOnDev.md"
       } ]
     }, {
       "title" : "Running Lagom in development",
@@ -258,13 +266,6 @@
         "url" : "IntegratingNonLagom.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/guide/advanced/IntegratingNonLagom.md"
       } ]
-    } ]
-  }, {
-    "title" : "Appendix",
-    "children" : [ {
-      "title" : "Increase Memory in sbt and Maven",
-      "url" : "JVMMemoryOnDev.html",
-      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/appendix/JVMMemoryOnDev.md"
     } ]
   }, {
     "title" : "Lagom releases",

@@ -6,14 +6,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Integrating sbt with Eclipse</title>
+        <title>Lagom - Importing an sbt project into Eclipse</title>
         <meta name="description" content="Lagom">
         
             <link rel="canonical" href="http://www.lagomframework.com/documentation/1.3.x/java/EclipseSbt.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/0d9bb9135d30a2c524b42c1dbd14feec4f31a56c-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/90ced646ecb9af8408ec73413f5ddf99c0592253-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -108,7 +108,7 @@
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Integrating sbt with Eclipse</h1>
+                <h1>Importing an sbt project into Eclipse</h1>
             </div>
         </div>
     </header>
@@ -120,27 +120,25 @@
                     <nav class="breadcrumbs">
                         <a href="Home.html">Java Home</a>
                         
-                            &raquo; <a href="IntroGetStarted.html">Getting started with Lagom</a>
+                            &raquo; <a href="ReferenceGuide.html">Lagom reference guide</a>
+                        
+                            &raquo; <a href="LagomBuild.html">Configuring builds and the development environment</a>
                         
                     </nav>
                 
 
                 <article>
-                <h1 id="Integrating-sbt-builds-with-Eclipse"><a class="section-marker" href="#Integrating-sbt-builds-with-Eclipse">§</a>Integrating sbt builds with Eclipse</h1>
-<p>If you worked through the command line example for <a href="GettingStartedSbt.html">sbt</a>, you have an sbt build. This page describes how to integrate with Eclipse.</p>
-<p>Before integrating a Lagom sbt build with Eclipse, you must download and install <a href="https://github.com/typesafehub/sbteclipse">sbt-eclipse</a>. This plugin provides the support to generate Eclipse project files, which are required to import Lagom builds into Eclipse.</p>
-<p>If your Lagom build file is in directory <code>hello</code>, create a <code>project/eclipse.sbt</code> with the following content:</p>
-<pre class="prettyprint"><code>addSbtPlugin(&quot;com.typesafe.sbteclipse&quot; % &quot;sbteclipse-plugin&quot; % &quot;5.1.0&quot;)
-</code></pre>
-<p>Save the file. Now, open the terminal, and <code>cd</code> to the <code>hello</code> directory, and type <code>sbt</code>:</p>
-<pre class="prettyprint"><code>$ cd hello
-$ sbt
-... (booting up)
-&gt;
-</code></pre>
-<p>If you have configured things correctly, typing <code>eclipse</code> will generate the Eclipse project files for all projects in your build:</p>
-<pre class="prettyprint"><code>&gt; eclipse
-...
+                <h1 id="Importing-an-sbt-project-into-Eclipse"><a class="section-marker" href="#Importing-an-sbt-project-into-Eclipse">§</a>Importing an sbt project into Eclipse</h1>
+<p>If you used the Giter8 template to create a build as described in the <a href="GettingStartedSbt.html">Getting Started</a> section, you will have an sbt build project. To make it possible to import the project into Eclipse, sbt provides an <a href="https://github.com/typesafehub/sbteclipse">sbt-eclipse</a> plugin that generates Eclipse project artifacts for each of the subprojects.</p>
+<p>Follow these steps to integrate your project with Eclipse:</p>
+<ol>
+  <li><a href="#Import-the-project">Import the project</a></li>
+  <li><a href="#Create-an-External-Tool-Configuration">Create an External Tool Configuration</a></li>
+</ol><h1 id="Import-the-project"><a class="section-marker" href="#Import-the-project">§</a>Import the project</h1>
+<ol>
+  <li>
+    <p>In a console, <code>cd</code> to the top-level folder of your existing sbt project, and enter <code>sbt eclipse</code> to generate the Eclipse project files for all projects in your build.<br/>The sbt plugin creates <code>.project</code> and <code>.classpath</code> files for the subprojects. The last few lines of output confirm success:</p>
+    <pre class="prettyprint"><code>...
 [info] Successfully created Eclipse project files for project(s):
 [info] hello-impl
 [info] hello-api
@@ -148,58 +146,63 @@ $ sbt
 [info] hello-stream-api
 [info] lagom-internal-meta-project-service-locator
 [info] lagom-internal-meta-project-cassandra
-&gt;
-</code></pre>
-<p>Open Eclipse and follow the <a href="http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.platform.doc.user%2Ftasks%2Ftasks-importproject.htm">Eclipse instructions</a> for importing existing projects. Also, mind that <code>lagom-internal-meta-project-service-locator</code> and <code>lagom-internal-meta-project-cassandra</code> are internal projects that you don&rsquo;t need to import, so just unselect them:</p>
-<p><a href="resources/gettingstarted/eclipse_import_unselect_synthetic_projects.png"><img src="resources/gettingstarted/eclipse_import_unselect_synthetic_projects.png"/></a></p>
-<p>One thing you&rsquo;ll notice after opening the imported projects in Eclipse is that a few unneeded source directories such as <code>src/main/scala</code> and <code>src/test/scala</code> have been created. It is possible to correct this behavior, but you will need to make a few changes in your Lagom build file. First, add the following definitions in your build (anywhere):</p>
-<pre class="prettyprint"><code>// All projects that you would like to import in Eclipse should use 
-// this factory.
-// Here is an usage example:
-// {{{
-//   lazy val userApi = project(&quot;user-api&quot;)
-//     .settings(libraryDependencies += lagomJavadslApi)
-//
-//   lazy val userImpl = project(&quot;user-impl&quot;)
-//     .settings(libraryDependencies += lagomJavadslServer)
-//     .dependsOn(userApi)
-// }}}
-def project(id: String) = Project(id, base = file(id))
-  .settings(eclipseSettings: _*)
 
-// Configuration of sbteclipse
-// Needed for importing the project into Eclipse
-lazy val eclipseSettings = Seq(
-  EclipseKeys.projectFlavor := EclipseProjectFlavor.Java,
-  EclipseKeys.withBundledScalaContainers := false,
-  EclipseKeys.createSrc := EclipseCreateSrc.Default + EclipseCreateSrc.Resource,
-  EclipseKeys.eclipseOutput := Some(&quot;.target&quot;),
-  // will automatically download and attach sources if available
-  EclipseKeys.withSource := true,
-  // will automatically download and attach javadoc if available
-  EclipseKeys.withJavadoc := true,
-  // avoid some scala specific source directories
-  unmanagedSourceDirectories in Compile := Seq((javaSource in Compile).value),
-  unmanagedSourceDirectories in Test := Seq((javaSource in Test).value)
-)
 </code></pre>
-<p>Now update all projects declarations in your Lagom build to use the newly created <code>project</code> method, so that the defined <code>eclipseSettings</code> are successfully applied to all projects.</p>
-<p>Finally, you will need to regenerate the Eclipse project files to account for the changes made in the build file. Go back to the sbt console, type <code>reload</code> to reload the build file, and type <code>eclipse</code>. Once the <code>eclipse</code> task completes, go back to Eclipse, hit F5 to refresh all previously imported projects, and you are done.</p>
+  </li>
+  <li>
+  <p>Start Eclipse and switch to the Workspace you want to use for your Lagom project.</p></li>
+  <li>
+  <p>From the <strong>File</strong> menu, select <strong>Import</strong>.<br/> The <strong>Select</strong> screen opens. </p></li>
+  <li>
+  <p>Expand <strong>General</strong>, select <strong>Existing Projects into Workspace</strong> and click <strong>Next</strong>.<br/> The <strong>Import Projects</strong> page opens.</p></li>
+  <li>
+  <p>Click <strong>Browse</strong>, select the top-level sbt project folder, and click <strong>OK</strong>.<br/>The sub-projects display in the dialog. For example:<br/><a href="resources/guide/build/EclBrowseToSbt.png"><img src="resources/guide/build/EclBrowseToSbt.png"/></a></p></li>
+  <li>Optionally, select <strong>Copy projects into workspace</strong>.</li>
+  <li>Click <strong>Finish</strong>.</li>
+</ol><h1 id="Create-an-External-Tool-Configuration"><a class="section-marker" href="#Create-an-External-Tool-Configuration">§</a>Create an External Tool Configuration</h1>
+<ol>
+  <li>From the Eclipse toolbar, click <strong>External Tools</strong> and select <strong>External Tools Configurations</strong>.<br/><a href="resources/guide/build/EclExternalConfig.png"><img src="resources/guide/build/EclExternalConfig.png"/></a></li>
+  <li>In the left pane, select <strong>Program</strong> and click <strong>New Launch Configuration</strong>.<br/><a href="resources/guide/build/EclNewLaunch.png"><img src="resources/guide/build/EclNewLaunch.png"/></a></li>
+  <li>Create your configuration as follows:
+    <ol>
+      <li>Enter a name.</li>
+      <li>On the <strong>Main</strong> tab in the <strong>Location</strong> field, enter the location of your sbt installation.<br/>For Windows, browse to the location where you installed sbt and select <code>sbt.bat</code>. On Linux, you can find the location of sbt by opening a terminal and entering <code>which sbt</code>.</li>
+      <li>For <strong>Working Directory</strong> browse to the top-level sbt project folder. (This is the folder containing the <code>build.sbt</code> file.)</li>
+      <li>In the <strong>Arguments</strong> field, enter <code>runAll</code>.</li>
+      <li>Click <strong>Apply</strong>. Your screen should look similar to the following:<br/><a href="resources/guide/build/EclSbtConfig.png"><img src="resources/guide/build/EclSbtConfig.png"/></a></li>
+    </ol>
+  </li>
+  <li>Click <strong>Run</strong>.<br/>On success, the console shows that the services are running.<br/><a href="resources/guide/build/EclSbtSuccess.png"><img src="resources/guide/build/EclSbtSuccess.png"/></a>
+    <p>Verify that the services are indeed up and running by invoking the <code>hello</code> service endpoint from any HTTP client, such as a browser: </p>
+    <pre class="prettyprint"><code>```
+http://localhost:9000/api/hello/World
+```
+</code></pre>
+    <p>The request returns the message <code>Hello, World!</code>.</p>
+  </li>
+</ol>
                 </article>
 
                 
                     
-                        
-                            <nav class="next-link">
-                                <a href="LagomExamples.html"><strong>Next: </strong> Lagom examples</a>
-                            </nav>
-                        
+                        <nav class="next-links">
+                            <strong>Next:</strong>
+                            <ul>
+                            
+                                <li><a href="ImmutablesInIDEs.html">Set up Immutables in your IDE</a></li>
+                            
+                                <li><a href="JVMMemoryOnDev.html">Increase memory for sbt and Maven</a></li>
+                            
+                                <li><a href="RunningServices.html">Running Services</a></li>
+                            
+                            </ul>
+                        </nav>
                     
                 
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/java/gettingstarted/EclipseSbt.md">here</a>. Please feel free to edit and contribute a pull request.</p>
+                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/java/guide/build/EclipseSbt.md">here</a>. Please feel free to edit and contribute a pull request.</p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -223,43 +226,84 @@ lazy val eclipseSettings = Seq(
                     <a href="/documentation/1.3.x/java/api/index.html" class="api-docs">API Documentation</a>
 
                     
-                        <h3>Getting started with Lagom</h3>
+                        <h3>Configuring builds and the development environment</h3>
                         <ul>
                         
                             
-                                <li><a href="IntroGetStarted.html">Introduction</a></li>
+                                <li><a href="LagomBuild.html">Defining a Lagom build</a></li>
                             
                         
                             
-                                <li><a href="JavaPrereqs.html">Lagom Java prerequisites</a></li>
+                                <li><a href="MultipleBuilds.html">Splitting a system into multiple builds</a></li>
                             
                         
                             
-                                <li><a href="GettingStartedMaven.html">Creating and running Hello World with Maven</a></li>
+                                <li><a href="EclipseMavenInt.html">Importing an existing Maven project into Eclipse</a></li>
                             
                         
                             
-                                <li><a href="GettingStartedSbt.html">Creating and running Hello World with sbt</a></li>
+                                <li><a href="EclipseMavenNew.html">Creating a new Maven Eclipse project with the Lagom archetype</a></li>
                             
                         
                             
-                                <li><a href="UnderstandHello.html">Understanding Hello World</a></li>
+                                <li class="current-page"><a href="EclipseSbt.html">Importing an sbt project into Eclipse</a></li>
                             
                         
                             
-                                <li><a href="MavenIDEs.html">Integrating Maven projects with an IDE</a></li>
+                                <li><a href="IntellijMaven.html">Importing an existing Maven Project into Intellij</a></li>
                             
                         
                             
-                                <li class="current-page"><a href="EclipseSbt.html">Integrating sbt with Eclipse</a></li>
+                                <li><a href="IntellijSbtJava.html">Importing an sbt project into Intellij</a></li>
                             
                         
                             
-                                <li><a href="IntellijSbt.html">Integrating sbt with IntelliJ</a></li>
+                                <li><a href="ImmutablesInIDEs.html">Set up Immutables in your IDE</a></li>
                             
                         
                             
-                                <li><a href="LagomExamples.html">Lagom examples</a></li>
+                                <li><a href="JVMMemoryOnDev.html">Increase memory for sbt and Maven</a></li>
+                            
+                        
+                        </ul>
+                    
+                        <h3>Lagom reference guide</h3>
+                        <ul>
+                        
+                            
+                                <li><a href="ReferenceGuide.html">Reference Guide</a></li>
+                            
+                        
+                            
+                                <li class="current-page"><a href="LagomBuild.html">Configuring builds and the development environment</a></li>
+                            
+                        
+                            
+                                <li><a href="DevEnvironment.html">Running Lagom in development</a></li>
+                            
+                        
+                            
+                                <li><a href="ServiceDescriptors.html">Writing Lagom services</a></li>
+                            
+                        
+                            
+                                <li><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
+                            
+                        
+                            
+                                <li><a href="MessageBroker.html">Decouple services with a message broker</a></li>
+                            
+                        
+                            
+                                <li><a href="ProductionOverview.html">Running Lagom in production</a></li>
+                            
+                        
+                            
+                                <li><a href="Logging.html">Logging</a></li>
+                            
+                        
+                            
+                                <li><a href="Akka.html">Advanced topics</a></li>
                             
                         
                         </ul>
@@ -276,7 +320,7 @@ lazy val eclipseSettings = Seq(
                             
                         
                             
-                                <li class="current-page"><a href="IntroGetStarted.html">Getting started with Lagom</a></li>
+                                <li><a href="IntroGetStarted.html">Getting started with Lagom</a></li>
                             
                         
                             
@@ -284,11 +328,7 @@ lazy val eclipseSettings = Seq(
                             
                         
                             
-                                <li><a href="ReferenceGuide.html">Lagom reference guide</a></li>
-                            
-                        
-                            
-                                <li><a href="ImmutablesInIDEs.html">Appendix</a></li>
+                                <li class="current-page"><a href="ReferenceGuide.html">Lagom reference guide</a></li>
                             
                         
                             
@@ -390,7 +430,7 @@ lazy val eclipseSettings = Seq(
             </div>
         </div>
     </body>
-    <script src="/0d9bb9135d30a2c524b42c1dbd14feec4f31a56c-all-scripts-concat.js"></script>
+    <script src="/90ced646ecb9af8408ec73413f5ddf99c0592253-all-scripts-concat.js"></script>
 
     <script>
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

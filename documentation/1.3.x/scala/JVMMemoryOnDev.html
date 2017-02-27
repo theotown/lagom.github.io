@@ -6,14 +6,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Increase Memory in sbt and Maven</title>
+        <title>Lagom - Increase Memory in sbt</title>
         <meta name="description" content="Lagom">
         
             <link rel="canonical" href="http://www.lagomframework.com/documentation/1.3.x/scala/JVMMemoryOnDev.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/0d9bb9135d30a2c524b42c1dbd14feec4f31a56c-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/90ced646ecb9af8408ec73413f5ddf99c0592253-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -108,7 +108,7 @@
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Increase Memory in sbt and Maven</h1>
+                <h1>Increase Memory in sbt</h1>
             </div>
         </div>
     </header>
@@ -120,13 +120,15 @@
                     <nav class="breadcrumbs">
                         <a href="Home.html">Scala Home</a>
                         
-                            &raquo; <a href="JVMMemoryOnDev.html">Appendix</a>
+                            &raquo; <a href="ReferenceGuide.html">Lagom reference guide</a>
+                        
+                            &raquo; <a href="LagomBuild.html">Configuring builds and the development environment</a>
                         
                     </nav>
                 
 
                 <article>
-                <h1 id="Increase-Memory-in-sbt-and-Maven"><a class="section-marker" href="#Increase-Memory-in-sbt-and-Maven">§</a>Increase Memory in sbt and Maven</h1>
+                <h1 id="Increase-Memory-for-sbt-and-Maven"><a class="section-marker" href="#Increase-Memory-for-sbt-and-Maven">§</a>Increase Memory for sbt and Maven</h1>
 <p>Lagom in dev mode starts all your services plus some internal Lagom services in a single JVM. This can cause <code>OutOfMemoryError</code>s depending on your JVM setup. It is possible to start Maven and sbt with increased memory.</p>
 <p>We recommend you increase the Maximum Metaspace size and the Thread Stack size. These values can be set using <code>-Xss2M -XX:MaxMetaspaceSize=1024M</code>. The exact values may depend on your hardware and your code base.</p><h2 id="Maven"><a class="section-marker" href="#Maven">§</a>Maven</h2>
 <p>You can start Maven with extra memory using <code>MAVEN_OPTS</code> environment variable.</p>
@@ -151,7 +153,7 @@
                     
                         
                             <nav class="next-link">
-                                <a href="Migration13.html"><strong>Next: </strong> Lagom releases</a>
+                                <a href="DevEnvironment.html"><strong>Next: </strong> Running Lagom in development</a>
                             </nav>
                         
                     
@@ -159,7 +161,7 @@
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/appendix/JVMMemoryOnDev.md">here</a>. Please feel free to edit and contribute a pull request.</p>
+                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/guide/build/JVMMemoryOnDev.md">here</a>. Please feel free to edit and contribute a pull request.</p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -177,11 +179,68 @@
                     <a href="/documentation/1.3.x/scala/api/index.html" class="api-docs">API Documentation</a>
 
                     
-                        <h3>Appendix</h3>
+                        <h3>Configuring builds and the development environment</h3>
                         <ul>
                         
                             
-                                <li class="current-page"><a href="JVMMemoryOnDev.html">Increase Memory in sbt and Maven</a></li>
+                                <li><a href="LagomBuild.html">Defining a Lagom build</a></li>
+                            
+                        
+                            
+                                <li><a href="MultipleBuilds.html">Splitting a system into multiple builds</a></li>
+                            
+                        
+                            
+                                <li><a href="IntellijSbt.html">Import an sbt project into Intellij</a></li>
+                            
+                        
+                            
+                                <li><a href="EclipseSbt.html">Import an sbt project into Eclipse</a></li>
+                            
+                        
+                            
+                                <li class="current-page"><a href="JVMMemoryOnDev.html">Increase Memory in sbt</a></li>
+                            
+                        
+                        </ul>
+                    
+                        <h3>Lagom reference guide</h3>
+                        <ul>
+                        
+                            
+                                <li><a href="ReferenceGuide.html">Reference Guide</a></li>
+                            
+                        
+                            
+                                <li class="current-page"><a href="LagomBuild.html">Configuring builds and the development environment</a></li>
+                            
+                        
+                            
+                                <li><a href="DevEnvironment.html">Running Lagom in development</a></li>
+                            
+                        
+                            
+                                <li><a href="ServiceDescriptors.html">Writing Lagom services</a></li>
+                            
+                        
+                            
+                                <li><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
+                            
+                        
+                            
+                                <li><a href="MessageBroker.html">Decouple services with a message broker</a></li>
+                            
+                        
+                            
+                                <li><a href="ProductionOverview.html">Running Lagom in production</a></li>
+                            
+                        
+                            
+                                <li><a href="Logging.html">Logging</a></li>
+                            
+                        
+                            
+                                <li><a href="Akka.html">Advanced topics</a></li>
                             
                         
                         </ul>
@@ -206,11 +265,7 @@
                             
                         
                             
-                                <li><a href="ReferenceGuide.html">Lagom reference guide</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="JVMMemoryOnDev.html">Appendix</a></li>
+                                <li class="current-page"><a href="ReferenceGuide.html">Lagom reference guide</a></li>
                             
                         
                             
@@ -312,7 +367,7 @@
             </div>
         </div>
     </body>
-    <script src="/0d9bb9135d30a2c524b42c1dbd14feec4f31a56c-all-scripts-concat.js"></script>
+    <script src="/90ced646ecb9af8408ec73413f5ddf99c0592253-all-scripts-concat.js"></script>
 
     <script>
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

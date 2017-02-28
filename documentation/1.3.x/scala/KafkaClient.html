@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/2cb7ae897fce1063fd873910249a82925412c2fe-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/d76e995bed863bb7539a7fbd20f3ea4475cf9cad-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -133,6 +133,7 @@
 <p>To use this feature add the following in your project&rsquo;s build. </p>
 <pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomScaladslKafkaBroker</code></pre>
 <p>When importing the Lagom Kafka Broker module keep in mind that the Lagom Kafka Broker module requires one implementation of a Lagom Persistence so make sure your dependencies include either <a href="PersistentEntityCassandra.html">Lagom Persistence Cassandra</a> or <a href="PersistentEntityRDBMS.html">Lagom Persistence JDBC</a></p><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
+<p>After adding the dependency you also need to mix-in the <code>LagomKafkaComponents</code> trait on your <code>Application</code> to ensure it is enabled and usable at runtime.</p>
 <p>The Lagom Kafka Client implementation is built using <a href="https://github.com/akka/reactive-kafka">akka-stream-kafka</a>. The akka-stream-kafka library wraps the official <a href="http://kafka.apache.org/documentation.html">Apache Java Kafka client</a> and exposes a (Akka) stream based API to publish/consume messages to/from Kafka. Therefore, we have effectively three libraries at play, with each of them exposing its own configuration. Let&rsquo;s explore the configuration keys exposed by each layer, starting with the one sitting at the top, i.e., the Lagom Kafka Client.</p><h3 id="Lagom-Kafka-Client1"><a class="section-marker" href="#Lagom-Kafka-Client1">§</a>Lagom Kafka Client</h3>
 <pre class="prettyprint"><code class="language-conf">lagom.broker.kafka {
   # The name of the Kafka service to look up out of the service locator.
@@ -195,6 +196,7 @@
 </code></pre><h2 id="Subscriber-only-Services"><a class="section-marker" href="#Subscriber-only-Services">§</a>Subscriber only Services</h2>
 <p>Sometimes you will implement a Lagom Service that will only consume from the Kafka Topic. In that case you can import the Lagom Kafka Client alone (instead of importing the Lagom Kafka Broker and a Lagom Persistence implementation).</p>
 <pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomScaladslKafkaClient</code></pre>
+<p>After adding the dependency you also need to mix-in the <code>LagomKafkaClientComponents</code> trait on your <code>Application</code> to ensure it is enabled and usable at runtime.</p>
 <p>If/when your subscriber-only service evolves to include features that publish data to a topic, you will need to depend on Lagom Kafka Broker and remove the dependency to Lagom Kafka Client. The Lagom Kafka Broker module includes the Lagom Kafka Client module. </p><h3 id="Consuming-Topics-from-3rd-parties"><a class="section-marker" href="#Consuming-Topics-from-3rd-parties">§</a>Consuming Topics from 3rd parties</h3>
 <p>You may want your Lagom service to consume data produced on services not implemented in Lagom. In that case, as described in the <a href="ServiceClients.html">Service Clients</a> section, you can create a <code>third-party-service-api</code> module in your Lagom project. That module will contain a Service Descriptor <a href="MessageBrokerApi.html#Declaring-a-topic">declaring the topic</a> you will consume from. Once you have your <code>ThirdPartyService</code> interface and related classes implemented, you should add <code>third-party-service-api</code> as a dependency on your <code>fancy-service-impl</code>. Finally, you can consume from the topic described in <code>ThirdPartyService</code> as documented in the <a href="MessageBrokerApi.html#Subscribe-to-a-topic">Subscribe to a topic</a> section.</p>
                 </article>
@@ -413,7 +415,7 @@
             </div>
         </div>
     </body>
-    <script src="/2cb7ae897fce1063fd873910249a82925412c2fe-all-scripts-concat.js"></script>
+    <script src="/d76e995bed863bb7539a7fbd20f3ea4475cf9cad-all-scripts-concat.js"></script>
 
     <script>
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

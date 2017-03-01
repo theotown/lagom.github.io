@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/d76e995bed863bb7539a7fbd20f3ea4475cf9cad-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/563d8e29ab953cb0ee713938a500e6e9e25be5f5-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -138,7 +138,7 @@
   <li>Creating a Maven assembly plugin descriptor to create the bundle zip</li>
   <li>Binding the Maven assembly plugin and Lagom <code>renameConductRBundle</code> goals to your projects lifecycle</li>
 </ul><h3 id="Creating-a-bundle-configuration-file"><a class="section-marker" href="#Creating-a-bundle-configuration-file">§</a><a href="#creating-a-bundle-configuration-file" name="creating-a-bundle-configuration-file">Creating a bundle configuration file</a></h3>
-<p>For a full reference for how to create a ConductR bundle configuration file, see <a href="https://conductr.lightbend.com/docs/1.0.x/BundleConfiguration">ConductR Bundle Configuration</a> documentation.</p>
+<p>For a full reference for how to create a ConductR bundle configuration file, see <a href="https://conductr.lightbend.com/docs/2.0.x/BundleConfiguration">ConductR Bundle Configuration</a> documentation.</p>
 <p>The bundle configuration file should be called <code>bundle.conf</code>, and you can put it in a folder called <code>src/bundle</code> in your service. This location is only conventional, it can live anywhere, but where it lives will impact the Maven assembly descriptor that you create.</p>
 <p>Here is an example <code>bundle.conf</code>:</p>
 <pre class="prettyprint"><code>version = &quot;1&quot;
@@ -296,16 +296,16 @@ Print ConductR info with: conduct info --ip 192.168.99.100
 <p>To stop the ConductR sandbox use:</p>
 <pre class="prettyprint"><code class="language-console">$ sandbox stop
 </code></pre><h2 id="Loading-and-running-your-services-outside-of-development"><a class="section-marker" href="#Loading-and-running-your-services-outside-of-development">§</a><a href="#loading-and-running-your-services-outside-of-development" name="loading-and-running-your-services-outside-of-development">Loading and running your services outside of development</a></h2>
-<p>The sandbox is useful to validate that the packaging of your service is correct. However, at some point you want to load and run your bundle on a real ConductR cluster. While it is beyond the scope of this document to describe how to set up such a cluster (please refer to the <a href="https://conductr.lightbend.com/docs/1.1.x/Install">ConductR installation guide</a> for that), you generally interact with a real cluster through <a href="https://github.com/typesafehub/conductr-cli#command-line-interface-cli-for-typesafe-conductr">the ConductR CLI</a>. You have already downloaded the CLI as part of the sandbox. The CLI commands are identical to their activator console counterparts. Type <code>conduct --help</code> for more information on what commands are available.</p><h2 id="Running-Cassandra"><a class="section-marker" href="#Running-Cassandra">§</a><a href="#running-cassandra" name="running-cassandra">Running Cassandra</a></h2>
-<p>If your Lagom service uses Cassandra for persistence then you can generate what is known as a &ldquo;bundle configuration&rdquo; for Cassandra. While ConductR already provides prebuilt Cassandra bundles, a bundle configuration is necessary to, for example, tell ConductR what name to use to expose Cassandra in the service locator.</p>
-<p>The default Maven Lagom java archetype generates a project that creates a Cassandra configuration bundle for you, this is the <code>cassandra-config</code> module, this can be used as is. When you run <code>mvn package</code>, it will produce a bundle in its target directory that you can load and run into Cassandra.</p>
-<pre class="prettyprint"><code class="language-console">$ conduct load cassandra cassandra-config/target/cassandra-config-v1-101ea24d4f58dd74b2b58608490ea119be21c71e6f0856ae4dee9253c811e3b5.zip
+<p>The sandbox is useful to validate that the packaging of your service is correct. However, at some point you want to load and run your bundle on a real ConductR cluster. While it is beyond the scope of this document to describe how to set up such a cluster (please refer to the <a href="https://conductr.lightbend.com/docs/2.0.x/Install">ConductR installation guide</a> for that), you generally interact with a real cluster through <a href="https://github.com/typesafehub/conductr-cli#command-line-interface-cli-for-typesafe-conductr">the ConductR CLI</a>. You have already downloaded the CLI as part of the sandbox. The CLI commands are identical to their sbt console counterparts. Type <code>conduct --help</code> for more information on what commands are available.</p><h2 id="Running-Cassandra"><a class="section-marker" href="#Running-Cassandra">§</a><a href="#running-cassandra" name="running-cassandra">Running Cassandra</a></h2>
+<p>If your Lagom service uses Cassandra for persistence then you use a pre-configured bundle to run Cassandra inside of ConductR.</p>
+<p>First, load the Cassandra on to ConductR:</p>
+<pre class="prettyprint"><code class="language-console">$ conduct load cassandra
 </code></pre>
 <p>To run the cassandra bundle execute:</p>
 <pre class="prettyprint"><code>&gt; conduct run cassandra
 </code></pre>
 <p>If the Cassandra bundle has been started on ConductR after the Lagom service itself then it will take a couple of seconds until the Lagom service connects to Cassandra.</p>
-<p>For convenience we recommend that you start with one Cassandra cluster per root sbt project, which of course can contain many Lagom projects (and therefore services). Bounded contexts are always maintained via separate key-spaces, and so having one Cassandra cluster is viable for supporting many microservices. The actual number of Cassandra clusters required will be the <em>Lagom amount</em> i.e. &ldquo;just the right amount&rdquo; for your system. For more information on configuring Cassandra for ConductR please visit <a href="https://github.com/typesafehub/conductr-cassandra#conductr-cassandra">the bundle&rsquo;s website</a>.</p>
+<p>For convenience we recommend that you start with one Cassandra cluster per root sbt project, which of course can contain many Lagom projects (and therefore services). Bounded contexts are always maintained via separate key-spaces, and so having one Cassandra cluster is viable for supporting many microservices. The actual number of Cassandra clusters required will be the <em>Lagom amount</em> i.e. &ldquo;just the right amount&rdquo; for your system. For more information on configuring Cassandra for ConductR please visit <a href="https://github.com/typesafehub/conductr-cassandra">the bundle&rsquo;s website</a>.</p>
                 </article>
 
                 
@@ -536,7 +536,7 @@ Print ConductR info with: conduct info --ip 192.168.99.100
             </div>
         </div>
     </body>
-    <script src="/d76e995bed863bb7539a7fbd20f3ea4475cf9cad-all-scripts-concat.js"></script>
+    <script src="/563d8e29ab953cb0ee713938a500e6e9e25be5f5-all-scripts-concat.js"></script>
 
     <script>
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

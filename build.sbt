@@ -92,19 +92,21 @@ generateHtml <<= Def.taskDyn {
   }
 }
 
+def path(segments: String*): String =  segments.mkString(java.io.File.separator)
+
 Concat.groups := Seq(
   s"$assetFingerPrint-all-styles-concat.css" -> group(Seq(
-      "lib/foundation/dist/foundation.min.css",
-      "lib/prettify/prettify.css",
+      path("lib", "foundation", "dist", "foundation.min.css"),
+      path("lib", "prettify", "prettify.css"),
       "main.min.css"
   )),
   s"$assetFingerPrint-all-scripts-concat.js" -> group(Seq(
-    "lib/jquery/jquery.min.js",
-    "lib/foundation/dist/foundation.min.js",
-    "lib/waypoints/lib/jquery.waypoints.min.js",
-    "lib/waypoints/lib/shortcuts/sticky.min.js",
-    "lib/prettify/prettify.js",
-    "lib/prettify/lang-scala.js",
+    path("lib", "jquery", "jquery.min.js"),
+    path("lib", "foundation", "dist", "foundation.min.js"),
+    path("lib", "waypoints", "lib", "jquery.waypoints.min.js"),
+    path("lib", "waypoints", "lib", "shortcuts", "sticky.min.js"),
+    path("lib", "prettify", "prettify.js"),
+    path("lib", "prettify", "lang-scala.js"),
     "main.min.js"
   ))
 )

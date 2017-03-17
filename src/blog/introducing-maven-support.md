@@ -170,6 +170,6 @@ Hello, Maven! <- that's the message
 
 ## Want to learn more?
 
-Of course, there's much more to Lagom's Maven support, which you can find in the [Lagom documentation](http://www.lagomframework.com/documentation/1.1.x/java/Home.html).
+Of course, there's much more to Lagom's Maven support, which you can find in the [Lagom documentation](/documentation/1.1.x/java/Home.html).
 
 Why not get started today, all you need is JDK8 and Maven installed, and you're set to start developing a reactive microservices system.

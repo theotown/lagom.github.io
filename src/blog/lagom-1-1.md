@@ -20,4 +20,4 @@ mvn archetype:generate -DarchetypeGroupId=com.lightbend.lagom \
   -DarchetypeArtifactId=maven-archetype-lagom-java -DarchetypeVersion=1.1.0
 ```
 
-For more details, read the documentation on [Getting started with Maven](http://www.lagomframework.com/documentation/1.1.x/java/GettingStartedMaven.html).  Enjoy!
+For more details, read the documentation on [Getting started with Maven](/documentation/1.1.x/java/GettingStartedMaven.html).  Enjoy!

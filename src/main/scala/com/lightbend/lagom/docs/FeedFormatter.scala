@@ -41,10 +41,16 @@ object FeedFormatter {
           <id>{postUrl}</id>
           <updated>{postDate}</updated>
           <published>{postDate}</published>
-          <content type="html">{PCData(content.body)}</content>
+          <content type="html">{PCData(makeAbsoluteLinks(content, context.baseUrl).body)}</content>
           <dc:date>{postDate}</dc:date>
         </entry>
     }}
     </feed>
   }
+
+  def makeAbsoluteLinks(html: Html, baseUrl: String): Html = {
+    Html(linkFinder.replaceAllIn(html.body, "$1" + baseUrl + "/"))
+  }
+
+  val linkFinder = """(<a [^>]*href=")/(?![/"])""".r
 }

@@ -46,6 +46,6 @@ To create a new Lagom Scala project, using sbt 0.13.13, run:
 $ sbt new lagom/lagom-scala.g8
 ```
 
-For a reasonably comprehensive demonstration of the Lagom Scala API, you can checkout the [online auction sample app](https://github.com/lagom/online-auction-scala). Note that this is a work in progress, some things aren't complete yet. Of course, the [documentation](http://www.lagomframework.com/documentation/1.3.x/scala/Home.html) is also a good place to go.
+For a reasonably comprehensive demonstration of the Lagom Scala API, you can checkout the [online auction sample app](https://github.com/lagom/online-auction-scala). Note that this is a work in progress, some things aren't complete yet. Of course, the [documentation](/documentation/1.3.x/scala/Home.html) is also a good place to go.
 
 As this is a milestone release, the API is still considered experimental, and will likely change before the final release. Hence, we recommend not using it for any production services yet.

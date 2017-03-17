@@ -15,7 +15,7 @@ Until now.
 
 [![sbt to install microservices](http://img.youtube.com/vi/5qbX7UwuMYM/0.jpg)](http://www.youtube.com/watch?v=5qbX7UwuMYM)
 
-Whatever you think of [sbt](http://www.scala-sbt.org/), the primary build tool of [Lagom](http://www.lagomframework.com/documentation/1.0.x/java/Home.html), it is a powerful beast. As such we've made it do the heavy lifting of packaging, loading and running your entire Lagom system, including Cassandra, with just one simple command:
+Whatever you think of [sbt](http://www.scala-sbt.org/), the primary build tool of [Lagom](/documentation/1.0.x/java/Home.html), it is a powerful beast. As such we've made it do the heavy lifting of packaging, loading and running your entire Lagom system, including Cassandra, with just one simple command:
 
 
 ```
@@ -30,6 +30,6 @@ Lower level commands also remain available so that you can package, load and run
 
 Lagom is aimed at making the developer productive when developing microservices. The ConductR integration now carries that same goal through to production.
 
-Please watch the 8 minute video for a comprehensive demonstration, and be sure to [visit the "Lagom for production" documentation](http://www.lagomframework.com/documentation/1.0.x/java/ConductR.html) in order to keep up to date with your production options. While we aim for Lagom to run with your favourite orchestration tool, we think you'll find the build integration for ConductR hard to beat. Finally, you can focus on your business problem, and not the infrastructure to support it in production.
+Please watch the 8 minute video for a comprehensive demonstration, and be sure to [visit the "Lagom for production" documentation](/documentation/1.0.x/java/ConductR.html) in order to keep up to date with your production options. While we aim for Lagom to run with your favourite orchestration tool, we think you'll find the build integration for ConductR hard to beat. Finally, you can focus on your business problem, and not the infrastructure to support it in production.
 
 Enjoy!

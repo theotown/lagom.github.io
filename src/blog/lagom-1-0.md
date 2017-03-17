@@ -54,4 +54,4 @@ Support has also been implemented for a configuration based service locator, for
 
 ## Get started
 
-So why not try Lagom today! You can get started with the [documentation](http://www.lagomframework.com/documentation/1.0.x/java/Home.html), and be immediately productive with confidence as the framework guides you to implement your microservices.
+So why not try Lagom today! You can get started with the [documentation](/documentation/1.0.x/java/Home.html), and be immediately productive with confidence as the framework guides you to implement your microservices.

@@ -8,11 +8,11 @@
         canonical: Option[String], nextLinks: Seq[NavLink])(implicit ctx: LagomContext)
 
 @main(Some(context.title), canonical) { @* Header *@
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     @for(css <- context.resources.stylesheets) {<link rel="stylesheet" type="text/css" href="@css"/>
     }
 } { @* Footer *@
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
     <script type="text/javascript"> docsearch({
         apiKey: "77ef1e29e6bddfca861f7a42cc51725e",
         indexName: "lagomframework",

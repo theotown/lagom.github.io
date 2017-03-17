@@ -46,7 +46,7 @@ object DocumentationGenerator extends App {
 
   val (baseUrl, context) = gitHubAccount match {
     case Some(account) => (s"http://$account.github.io/lagom.github.io", "/lagom.github.io")
-    case None => ("http://www.lagomframework.com", "")
+    case None => ("https://www.lagomframework.com", "")
   }
 
   // Templated pages to generate
@@ -144,7 +144,8 @@ object DocumentationGenerator extends App {
 
     renderedBlogPosts.map {
       case (post, renderedPost) =>
-        val page = html.blogPost(post, renderedPost)
+        val fixedLinks = if (context.nonEmpty) FeedFormatter.makeAbsoluteLinks(renderedPost, context) else renderedPost
+        val page = html.blogPost(post, fixedLinks)
         savePage(s"blog/${post.id}.html", page, sitemapPriority = "0.8")
     } ++ blogPostsByTag.map {
       // Tag pages

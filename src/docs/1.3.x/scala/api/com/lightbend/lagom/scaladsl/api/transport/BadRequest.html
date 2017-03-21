@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>TransportException - com.lightbend.lagom.scaladsl.api.transport.TransportException</title>
-          <meta name="description" content="TransportException - com.lightbend.lagom.scaladsl.api.transport.TransportException" />
-          <meta name="keywords" content="TransportException com.lightbend.lagom.scaladsl.api.transport.TransportException" />
+          <title>BadRequest - com.lightbend.lagom.scaladsl.api.transport.BadRequest</title>
+          <meta name="description" content="BadRequest - com.lightbend.lagom.scaladsl.api.transport.BadRequest" />
+          <meta name="keywords" content="BadRequest com.lightbend.lagom.scaladsl.api.transport.BadRequest" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -16,7 +16,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../../../../index.html';
-            var hash = 'com.lightbend.lagom.scaladsl.api.transport.TransportException';
+            var hash = 'com.lightbend.lagom.scaladsl.api.transport.BadRequest';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -28,14 +28,14 @@
         </head>
         <body class="type">
       <div id="definition">
-        <a href="TransportException$.html" title="See companion object"><img alt="Class/Object" src="../../../../../../lib/class_to_object_big.png" /></a>
+        <a href="BadRequest$.html" title="See companion object"><img alt="Class/Object" src="../../../../../../lib/class_to_object_big.png" /></a>
         <p id="owner"><a href="../../../../../package.html" class="extype" name="com">com</a>.<a href="../../../../package.html" class="extype" name="com.lightbend">lightbend</a>.<a href="../../../package.html" class="extype" name="com.lightbend.lagom">lagom</a>.<a href="../../package.html" class="extype" name="com.lightbend.lagom.scaladsl">scaladsl</a>.<a href="../package.html" class="extype" name="com.lightbend.lagom.scaladsl.api">api</a>.<a href="package.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport">transport</a></p>
-        <h1><a href="TransportException$.html" title="See companion object">TransportException</a></h1><h3><span class="morelinks"><div>
+        <h1><a href="BadRequest$.html" title="See companion object">BadRequest</a></h1><h3><span class="morelinks"><div>
             Related Docs:
-            <a href="TransportException$.html" title="See companion object">object TransportException</a>
+            <a href="BadRequest$.html" title="See companion object">object BadRequest</a>
             | <a href="package.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport">package transport</a>
           </div></span></h3><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -43,25 +43,18 @@
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
-        <span class="modifier"></span>
+        <span class="modifier">final </span>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">TransportException</span><span class="result"> extends <span class="extype" name="scala.RuntimeException">RuntimeException</span></span>
+        <span class="name">BadRequest</span><span class="result"> extends <a href="TransportException.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>An exception that can be translated down to a specific error in the transport.</p><p>Transport exceptions describe the HTTP/WebSocket error code associated with them, allowing Lagom to send an error
-code specific to the type of error. They also have an exception message, which is used both to capture exception
-details, as well as to identify the exception, so that the right type of exception can be deserialized at the other
-end.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/master//service/scaladsl/api/src/main/scala/com/lightbend/lagom/scaladsl/api/transport/Exceptions.scala" target="_blank">Exceptions.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/master//service/scaladsl/api/src/main/scala/com/lightbend/lagom/scaladsl/api/transport/Exceptions.scala" target="_blank">Exceptions.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="java.lang.RuntimeException">RuntimeException</span>, <span class="extype" name="java.lang.Exception">Exception</span>, <span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div><div class="toggleContainer block">
-            <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="BadRequest.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>, <a href="DeserializationException.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.DeserializationException">DeserializationException</a>, <a href="Forbidden.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.Forbidden">Forbidden</a>, <a href="NotAcceptable.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.NotAcceptable">NotAcceptable</a>, <a href="NotFound.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.NotFound">NotFound</a>, <a href="PayloadTooLarge.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.PayloadTooLarge">PayloadTooLarge</a>, <a href="PolicyViolation.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.PolicyViolation">PolicyViolation</a>, <a href="SerializationException.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.SerializationException">SerializationException</a>, <a href="UnsupportedMediaType.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.UnsupportedMediaType">UnsupportedMediaType</a></div>
-          </div></div>
+          <div class="superTypes hiddenContent"><a href="TransportException.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>, <span class="extype" name="java.lang.RuntimeException">RuntimeException</span>, <span class="extype" name="java.lang.Exception">Exception</span>, <span class="extype" name="java.lang.Throwable">Throwable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
         
 
       <div id="mbrsel">
@@ -78,7 +71,7 @@ end.
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.lightbend.lagom.scaladsl.api.transport.TransportException"><span>TransportException</span></li><li class="in" name="java.lang.RuntimeException"><span>RuntimeException</span></li><li class="in" name="java.lang.Exception"><span>Exception</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest"><span>BadRequest</span></li><li class="in" name="com.lightbend.lagom.scaladsl.api.transport.TransportException"><span>TransportException</span></li><li class="in" name="java.lang.RuntimeException"><span>RuntimeException</span></li><li class="in" name="java.lang.Exception"><span>Exception</span></li><li class="in" name="java.lang.Throwable"><span>Throwable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -102,70 +95,36 @@ end.
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="com.lightbend.lagom.scaladsl.api.transport.TransportException#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(errorCode:com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode,exceptionMessage:com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage):com.lightbend.lagom.scaladsl.api.transport.TransportException"></a>
-      <a id="&lt;init&gt;:TransportException"></a>
+              <ol><li name="com.lightbend.lagom.scaladsl.api.transport.BadRequest#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(errorCode:com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode,exceptionMessage:com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage):com.lightbend.lagom.scaladsl.api.transport.BadRequest"></a>
+      <a id="&lt;init&gt;:BadRequest"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">TransportException</span><span class="params">(<span name="errorCode">errorCode: <a href="TransportErrorCode.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode">TransportErrorCode</a></span>, <span name="exceptionMessage">exceptionMessage: <a href="ExceptionMessage.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage">ExceptionMessage</a></span>)</span>
+        <span class="name">BadRequest</span><span class="params">(<span name="errorCode">errorCode: <a href="TransportErrorCode.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode">TransportErrorCode</a></span>, <span name="exceptionMessage">exceptionMessage: <a href="ExceptionMessage.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage">ExceptionMessage</a></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@&lt;init&gt;(errorCode:com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode,exceptionMessage:com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage):com.lightbend.lagom.scaladsl.api.transport.TransportException" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@&lt;init&gt;(errorCode:com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode,exceptionMessage:com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage):com.lightbend.lagom.scaladsl.api.transport.BadRequest" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
-    </li><li name="com.lightbend.lagom.scaladsl.api.transport.TransportException#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(errorCode:com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode,cause:Throwable):com.lightbend.lagom.scaladsl.api.transport.TransportException"></a>
-      <a id="&lt;init&gt;:TransportException"></a>
+    </li><li name="com.lightbend.lagom.scaladsl.api.transport.BadRequest#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(errorCode:com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode,exceptionMessage:com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage,cause:Throwable):com.lightbend.lagom.scaladsl.api.transport.BadRequest"></a>
+      <a id="&lt;init&gt;:BadRequest"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">TransportException</span><span class="params">(<span name="errorCode">errorCode: <a href="TransportErrorCode.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode">TransportErrorCode</a></span>, <span name="cause">cause: <span class="extype" name="scala.Throwable">Throwable</span></span>)</span>
+        <span class="name">BadRequest</span><span class="params">(<span name="errorCode">errorCode: <a href="TransportErrorCode.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode">TransportErrorCode</a></span>, <span name="exceptionMessage">exceptionMessage: <a href="ExceptionMessage.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage">ExceptionMessage</a></span>, <span name="cause">cause: <span class="extype" name="scala.Throwable">Throwable</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@&lt;init&gt;(errorCode:com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode,cause:Throwable):com.lightbend.lagom.scaladsl.api.transport.TransportException" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.lightbend.lagom.scaladsl.api.transport.TransportException#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(errorCode:com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode,message:String):com.lightbend.lagom.scaladsl.api.transport.TransportException"></a>
-      <a id="&lt;init&gt;:TransportException"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">new</span>
-      </span>
-      <span class="symbol">
-        <span class="name">TransportException</span><span class="params">(<span name="errorCode">errorCode: <a href="TransportErrorCode.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode">TransportErrorCode</a></span>, <span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>)</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@&lt;init&gt;(errorCode:com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode,message:String):com.lightbend.lagom.scaladsl.api.transport.TransportException" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.lightbend.lagom.scaladsl.api.transport.TransportException#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(errorCode:com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode,exceptionMessage:com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage,cause:Throwable):com.lightbend.lagom.scaladsl.api.transport.TransportException"></a>
-      <a id="&lt;init&gt;:TransportException"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">new</span>
-      </span>
-      <span class="symbol">
-        <span class="name">TransportException</span><span class="params">(<span name="errorCode">errorCode: <a href="TransportErrorCode.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode">TransportErrorCode</a></span>, <span name="exceptionMessage">exceptionMessage: <a href="ExceptionMessage.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage">ExceptionMessage</a></span>, <span name="cause">cause: <span class="extype" name="scala.Throwable">Throwable</span></span>)</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@&lt;init&gt;(errorCode:com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode,exceptionMessage:com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage,cause:Throwable):com.lightbend.lagom.scaladsl.api.transport.TransportException" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@&lt;init&gt;(errorCode:com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode,exceptionMessage:com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage,cause:Throwable):com.lightbend.lagom.scaladsl.api.transport.BadRequest" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -191,7 +150,7 @@ end.
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@!=(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -208,7 +167,7 @@ end.
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@##():Int" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@##():Int" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -225,34 +184,34 @@ end.
         <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@+(other:String):String" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@+(other:String):String" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> to
-            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>] performed by method any2stringadd in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a> to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>] performed by method any2stringadd in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="-&gt;[B](y:B):(A,B)"></a>
-      <a id="-&gt;[B](B):(TransportException,B)"></a>
+      <a id="-&gt;[B](B):(BadRequest,B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -270,7 +229,7 @@ end.
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@==(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@==(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -287,7 +246,7 @@ end.
         <span class="name">addSuppressed</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.lang.Throwable">Throwable</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@addSuppressed(x$1:Throwable):Unit" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@addSuppressed(x$1:Throwable):Unit" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -304,7 +263,7 @@ end.
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@asInstanceOf[T0]:T0" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -321,7 +280,7 @@ end.
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@clone():Object" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@clone():Object" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -334,86 +293,86 @@ end.
         </dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring((TransportException)⇒Boolean,⇒Any):TransportException"></a>
+      <a id="ensuring((BadRequest)⇒Boolean,⇒Any):BadRequest"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean):A"></a>
-      <a id="ensuring((TransportException)⇒Boolean):TransportException"></a>
+      <a id="ensuring((BadRequest)⇒Boolean):BadRequest"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring(Boolean,⇒Any):TransportException"></a>
+      <a id="ensuring(Boolean,⇒Any):BadRequest"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean):A"></a>
-      <a id="ensuring(Boolean):TransportException"></a>
+      <a id="ensuring(Boolean):BadRequest"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@ensuring(cond:Boolean):A" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@ensuring(cond:Boolean):A" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -428,7 +387,7 @@ end.
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -445,12 +404,12 @@ end.
         <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@equals(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.api.transport.TransportException#errorCode" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="com.lightbend.lagom.scaladsl.api.transport.TransportException#errorCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="errorCode:com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode"></a>
       <a id="errorCode:TransportErrorCode"></a>
       <h4 class="signature">
@@ -462,12 +421,12 @@ end.
         <span class="name">errorCode</span><span class="result">: <a href="TransportErrorCode.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode">TransportErrorCode</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@errorCode:com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@errorCode:com.lightbend.lagom.scaladsl.api.transport.TransportErrorCode" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.lightbend.lagom.scaladsl.api.transport.TransportException#exceptionMessage" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TransportException.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.api.transport.TransportException#exceptionMessage" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="exceptionMessage:com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage"></a>
       <a id="exceptionMessage:ExceptionMessage"></a>
       <h4 class="signature">
@@ -479,11 +438,11 @@ end.
         <span class="name">exceptionMessage</span><span class="result">: <a href="ExceptionMessage.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage">ExceptionMessage</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@exceptionMessage:com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@exceptionMessage:com.lightbend.lagom.scaladsl.api.transport.ExceptionMessage" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TransportException.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a></dd></dl></div>
     </li><li name="java.lang.Throwable#fillInStackTrace" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="fillInStackTrace():Throwable"></a>
       <a id="fillInStackTrace():Throwable"></a>
@@ -496,7 +455,7 @@ end.
         <span class="name">fillInStackTrace</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Throwable">Throwable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@fillInStackTrace():Throwable" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@fillInStackTrace():Throwable" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -513,7 +472,7 @@ end.
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@finalize():Unit" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@finalize():Unit" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -536,13 +495,13 @@ end.
         <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@formatted(fmtstr:String):String" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@formatted(fmtstr:String):String" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> to
-            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>] performed by method StringFormat in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a> to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>] performed by method StringFormat in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -560,7 +519,7 @@ end.
         <span class="name">getCause</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Throwable">Throwable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@getCause():Throwable" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@getCause():Throwable" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -577,7 +536,7 @@ end.
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@getClass():Class[_]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@getClass():Class[_]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -594,7 +553,7 @@ end.
         <span class="name">getLocalizedMessage</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@getLocalizedMessage():String" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@getLocalizedMessage():String" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -611,7 +570,7 @@ end.
         <span class="name">getMessage</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@getMessage():String" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@getMessage():String" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -628,7 +587,7 @@ end.
         <span class="name">getStackTrace</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="java.lang.StackTraceElement">StackTraceElement</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@getStackTrace():Array[StackTraceElement]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@getStackTrace():Array[StackTraceElement]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -645,7 +604,7 @@ end.
         <span class="name">getSuppressed</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="java.lang.Throwable">Throwable</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@getSuppressed():Array[Throwable]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@getSuppressed():Array[Throwable]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -662,7 +621,7 @@ end.
         <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@hashCode():Int" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@hashCode():Int" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -679,7 +638,7 @@ end.
         <span class="name">initCause</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.lang.Throwable">Throwable</span></span>)</span><span class="result">: <span class="extype" name="java.lang.Throwable">Throwable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@initCause(x$1:Throwable):Throwable" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@initCause(x$1:Throwable):Throwable" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -696,7 +655,7 @@ end.
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -713,7 +672,7 @@ end.
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -730,7 +689,7 @@ end.
         <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@notify():Unit" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@notify():Unit" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -747,7 +706,7 @@ end.
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@notifyAll():Unit" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@notifyAll():Unit" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -764,7 +723,7 @@ end.
         <span class="name">printStackTrace</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.io.PrintWriter">PrintWriter</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@printStackTrace(x$1:java.io.PrintWriter):Unit" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@printStackTrace(x$1:java.io.PrintWriter):Unit" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -781,7 +740,7 @@ end.
         <span class="name">printStackTrace</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.io.PrintStream">PrintStream</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@printStackTrace(x$1:java.io.PrintStream):Unit" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@printStackTrace(x$1:java.io.PrintStream):Unit" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -798,7 +757,7 @@ end.
         <span class="name">printStackTrace</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@printStackTrace():Unit" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@printStackTrace():Unit" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -815,7 +774,7 @@ end.
         <span class="name">setStackTrace</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="java.lang.StackTraceElement">StackTraceElement</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@setStackTrace(x$1:Array[StackTraceElement]):Unit" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@setStackTrace(x$1:Array[StackTraceElement]):Unit" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -832,7 +791,7 @@ end.
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -849,11 +808,11 @@ end.
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@toString():String" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@toString():String" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> → Throwable → AnyRef → Any</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TransportException.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> → Throwable → AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -866,7 +825,7 @@ end.
         <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@wait():Unit" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@wait():Unit" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -889,7 +848,7 @@ end.
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -912,7 +871,7 @@ end.
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@wait(x$1:Long):Unit" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@wait(x$1:Long):Unit" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -925,23 +884,23 @@ end.
         </dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="→[B](y:B):(A,B)"></a>
-      <a id="→[B](B):(TransportException,B)"></a>
+      <a id="→[B](B):(BadRequest,B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@→[B](y:B):(A,B)" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@→[B](y:B):(A,B)" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li></ol>
@@ -963,12 +922,12 @@ end.
         <span class="implicit deprecated" title="Deprecated: (Since version 2.11.0) Use Throwable#getStackTrace">getStackTraceString</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.TransportException@getStackTraceString:String" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.api.transport.BadRequest@getStackTraceString:String" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> to
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a> to
             <span class="extype" name="scala.Predef.RichException">RichException</span> performed by method RichException in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>RichException</dd><dt>Annotations</dt><dd>
@@ -980,7 +939,9 @@ end.
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="java.lang.RuntimeException">
+        <div class="parent" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">
+              <h3>Inherited from <a href="TransportException.html" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a></h3>
+            </div><div class="parent" name="java.lang.RuntimeException">
               <h3>Inherited from <span class="extype" name="java.lang.RuntimeException">RuntimeException</span></h3>
             </div><div class="parent" name="java.lang.Exception">
               <h3>Inherited from <span class="extype" name="java.lang.Exception">Exception</span></h3>
@@ -995,23 +956,23 @@ end.
             </div>
         <div class="conversion" name="scala.Predef.RichException">
               <h3>Inherited by implicit conversion RichException from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> to <span class="extype" name="scala.Predef.RichException">RichException</span>
+                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a> to <span class="extype" name="scala.Predef.RichException">RichException</span>
               </h3>
             </div><div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>]
+                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.StringFormat">
               <h3>Inherited by implicit conversion StringFormat from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>]
+                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.Ensuring">
               <h3>Inherited by implicit conversion Ensuring from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>]
+                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.ArrowAssoc">
               <h3>Inherited by implicit conversion ArrowAssoc from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.TransportException">TransportException</a>]
+                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.api.transport.BadRequest">BadRequest</a>]
               </h3>
             </div>
         </div>

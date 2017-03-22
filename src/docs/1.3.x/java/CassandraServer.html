@@ -1,5 +1,5 @@
 <h1 id="Cassandra-Server"><a class="section-marker" href="#Cassandra-Server">§</a>Cassandra Server</h1>
-<p>By default, Lagom services needing to persist data use Cassandra as database. Therefore, for conveniency, we have embedded a Cassandra server in the development environment, so that you don&rsquo;t have to worry about installing it. There are a number of settings and tasks available to tune the Cassandra server to your liking, let&rsquo;s explore them:</p><h2 id="Default-port"><a class="section-marker" href="#Default-port">§</a>Default port</h2>
+<p>By default, Lagom services needing to persist data use Cassandra as database. For convenience, we have embedded a Cassandra server in the development environment, so that you don&rsquo;t have to worry about installing it. There are a number of settings and tasks available to tune the Cassandra server to your liking, let&rsquo;s explore them:</p><h2 id="Default-port"><a class="section-marker" href="#Default-port">§</a>Default port</h2>
 <p>By default, the Cassandra server is started on port <code>4000</code>. We are aware that Cassandra is usually run on port <code>9042</code>, and that is precisely the reason why we picked a different port: we do not want to interfere with your locally running Cassandra, if you happen to have one. If the current default port doesn&rsquo;t suit you, and for instance you would prefer to have the embedded Cassandra server running on port <code>9042</code>, you can do so by adding the following in your build.</p>
 <p>In the Maven root project pom:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
@@ -25,9 +25,9 @@
 &lt;/plugin&gt;
 </code></pre>
 <p>In sbt:</p>
-<pre class="prettyprint"><code class="language-sbt">lagomCassandraCleanOnStart in ThisBuild := false</code></pre><h1 id="Keyspace"><a class="section-marker" href="#Keyspace">§</a>Keyspace</h1>
-<p>A keyspace in Cassandra is a namespace that defines data replication on nodes. Each service should use a unique keyspace name so that the tables of different services are not conflicting with each other. But don&rsquo;t worry, we have already taken care of that and, by default, the keyspace is automatically set to be the project&rsquo;s name (after possibly having replaced a few characters that aren&rsquo;t allowed). If the generated keyspace doesn&rsquo;t suit you, you are free to provide a custom one.</p>
-<p>In Maven, you can do this by modifying the service implementations pom configuration:</p>
+<pre class="prettyprint"><code class="language-sbt">lagomCassandraCleanOnStart in ThisBuild := false</code></pre><h2 id="Keyspace-(deprecated)"><a class="section-marker" href="#Keyspace-(deprecated)">§</a>Keyspace <em>(deprecated)</em></h2>
+<p>A keyspace in Cassandra is a namespace that defines data replication on nodes. Each service should use a unique keyspace name so that the tables of different services do not conflict with each other. In the development environment, the keyspace is automatically set to be the project&rsquo;s name by default (after possibly having replaced a few characters that aren&rsquo;t allowed). If the generated keyspace doesn&rsquo;t suit you, you are free to provide a custom one.</p>
+<p>In Maven, you can do this by modifying the service implementation&rsquo;s pom configuration:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
     &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
     &lt;artifactId&gt;lagom-maven-plugin&lt;/artifactId&gt;
@@ -37,10 +37,7 @@
     &lt;/configuration&gt;
 &lt;/plugin&gt;
 </code></pre>
-<p>In sbt, let&rsquo;s assume you have the following Lagom project in your build:</p>
-<pre class="prettyprint"><code class="language-sbt">lazy val usersImpl = (project in file(&quot;usersImpl&quot;)).enablePlugins(LagomJava)
-  .settings(name := &quot;users-impl&quot;)</code></pre>
-<p>Because the project&rsquo;s name is <code>users-impl</code>, the generated Cassandra keyspace will be <code>users_impl</code> (note that dashes are replaced with underscores). If you&rsquo;d prefer the keyspace to be named simply <code>users</code>, you could either change the project&rsquo;s <code>name</code> to be <code>users</code>, or alternatively add the following setting:</p>
+<p>In sbt, add the <code>lagomCassandraKeyspace</code> setting to the service implementation project:</p>
 <pre class="prettyprint"><code class="language-sbt">lazy val usersImplKeyspaced = (project in file(&quot;usersImpl&quot;)).enablePlugins(LagomJava)
   .settings(
     name := &quot;users-impl&quot;,
@@ -52,7 +49,8 @@
 cassandra-snapshot-store.keyspace=users
 lagom.persistence.read-side.cassandra.keyspace=users
 </code></pre>
-<p>Note that the keyspace values provided via the <code>application.conf</code> will always win over any keyspace name that may be set in the build.</p><h2 id="JVM-options"><a class="section-marker" href="#JVM-options">§</a>JVM options</h2>
+<p>Note that Cassandra uses keyspace values from the <code>application.conf</code> file instead of any you might define in the build. For that reason, overriding the keyspace in the build is deprecated, and will be removed in a future version of Lagom.</p>
+<p>See <a href="PersistentEntityCassandra.html#Configuration">Cassandra persistent entity configuration</a> for more information about configuring keyspaces.</p><h2 id="JVM-options"><a class="section-marker" href="#JVM-options">§</a>JVM options</h2>
 <p>The Cassandra server is run on a separate process, and a JVM is started with sensible memory defaults. However, if the default JVM options don&rsquo;t suit you, you can override them by adding the following in your build.</p>
 <p>In the Maven root project pom:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;

@@ -15,51 +15,7 @@ class HelloServiceImpl extends HelloService {
   def invoke(request: Request): Future[Response]
 }</code></pre>
 <p>It will take the request, and return the response as a <a href="http://www.scala-lang.org/api/2.12.x/scala/concurrent/Future.html"><code>Future</code></a>. If you&rsquo;ve never seen <code>Future</code> before, it is a value that may not be available until later. When an API returns a future, that value might not yet be computed, but the API promises that at some point in future, it will be. Since the value isn&rsquo;t computed yet, you can&rsquo;t interact with it immediately. What you can do though is attach callbacks that transform the promise to a promise of a new value, using the <code>map</code> and <code>flatMap</code> methods. <code>Future</code> with its <code>map</code> and <code>flatMap</code> methods are fundamental building blocks for doing reactive programming in Scala, they allow your code to be asynchronous, not waiting for things to happen, but attaching callbacks that react to computations being completed.</p>
-<p>Of course, a simple hello world computation is not asynchronous, all it needs to do is build a String, and that returns immediately. In this case, we need to wrap the result of that in a <code>Future</code>. This can be done by calling <code>Future.successful()</code>, which returns a future that has an immediately available value.</p><h2 id="Wiring-together-a-Lagom-application"><a class="section-marker" href="#Wiring-together-a-Lagom-application">§</a>Wiring together a Lagom application</h2>
-<p>Having provided an implementation of the service, we can now register that with the Lagom framework. Lagoms Scala API is built on top of Play Framework, and uses Play&rsquo;s <a href="https://www.playframework.com/documentation/2.5.x/ScalaCompileTimeDependencyInjection">compile time dependency injection support</a> to wire together a Lagom application.</p>
-<p>Although it&rsquo;s not strictly necessary, we recommend that you use <a href="https://github.com/adamw/macwire">Macwire</a> to assist in wiring dependencies together. Macwire provides some very lightweight macros that locate dependencies for the components you wish to create so that you don&rsquo;t have to manually wire them together yourself. Macwire can be added to your service by adding the following to your service implementations dependencies:</p>
-<pre class="prettyprint"><code class="language-sbt">libraryDependencies += &quot;com.softwaremill.macwire&quot; %% &quot;macros&quot; % &quot;2.2.5&quot; % &quot;provided&quot;</code></pre>
-<p>Next we need to create an application cake. The simplest way of doing this is by creating an abstract class that extends <a href="api/com/lightbend/lagom/scaladsl/server/LagomApplication.html"><code>LagomApplication</code></a>:</p>
-<pre class="prettyprint"><code class="language-scala">import com.lightbend.lagom.scaladsl.server._
-import play.api.libs.ws.ahc.AhcWSComponents
-import com.softwaremill.macwire._
-
-abstract class HelloApplication(context: LagomApplicationContext)
-  extends LagomApplication(context)
-    with AhcWSComponents {
-
-  override lazy val lagomServer = LagomServer.forServices(
-    bindService[HelloService].to(wire[HelloServiceImpl])
-  )
-}</code></pre>
-<p>The important method to implement here is the <code>lagomServer</code> method. Lagom will use this to discover your service bindings and create a Play router for handling your service calls. You can see that we&rsquo;ve bound one service descriptor, the <code>HelloService</code>, to our <code>HelloServiceImpl</code> implementation. <code>LagomServer.forServices()</code> takes an variable number of arguments so you can build a server with many <code>Service</code>s in it (this is often useful to include admin or metrics services with your primary service). When you create a server with many services the first parameter in <code>LagomServer.forServices()</code> will be considered the <code>primary service</code> and Lagom will use it&rsquo;s name as the server name. So if you create a server with the services <code>Orders</code>, <code>Metrics</code> and <code>FraudDetection</code> then your server will be named <code>Orders</code> as that is the primary service.</p>
-<p>We&rsquo;ve used Macwire&rsquo;s <code>wire</code> macro to wire the dependencies - at the moment our service actually has no dependencies so we could just construct it manually ourselves, but it&rsquo;s not likely that a real service implementation would have no dependencies.</p>
-<p>You can see that we&rsquo;ve also mixed in the Play <code>AhcWSComponents</code> trait. Play&rsquo;s HTTP client, the WS API, which is used by Lagom for making service calls, is pluggable, and so an implementation needs to be selected when we wire our application together. We&rsquo;ve selected Play&rsquo;s async-http-client implementation, provided by <code>AhcWSComponents</code>.</p>
-<p>The <code>HelloApplication</code> is an abstract class, the reason for this is that there is still one method that hasn&rsquo;t been implemented, the <code>serviceLocator</code> method. A typical application will use different service locators in different environments, in development, it will use the service locator provided by the Lagom development environment, while in production it will use whatever is appropriate for your production environment, such as the <code>ConductR</code> service locator implementation. So our main application cake leaves this method abstract so that it can mix in the right one depending on which mode it is in when the application gets loaded.</p>
-<p>Having created our application cake, we can now write an application loader. Play&rsquo;s mechanism for loading an application is for the application to provide an application loader. Play will pass some context information to this loader, such as a classloader, the running mode, and any extra configuration, so that the application can bootstrap itself. Lagom provides a convenient mechanism for implementing this, the <a href="api/com/lightbend/lagom/scaladsl/server/LagomApplicationLoader.html"><code>LagomApplicationLoader</code></a>:</p>
-<pre class="prettyprint"><code class="language-scala">import com.lightbend.lagom.scaladsl.server._
-import com.lightbend.lagom.scaladsl.api.ServiceLocator
-import com.lightbend.lagom.scaladsl.devmode.LagomDevModeComponents
-
-class HelloApplicationLoader extends LagomApplicationLoader {
-
-  override def loadDevMode(context: LagomApplicationContext) =
-    new HelloApplication(context) with LagomDevModeComponents
-
-  override def load(context: LagomApplicationContext) =
-    new HelloApplication(context) {
-      override def serviceLocator = ServiceLocator.NoServiceLocator
-    }
-
-  override def describeServices = List(
-    readDescriptor[HelloService]
-  )
-}</code></pre>
-<p>The loader has two methods that must be implemented, <code>load</code> and <code>loadDevMode</code>. You can see that we&rsquo;ve mixed in different service locators for each method, we&rsquo;ve mixed in <a href="api/com/lightbend/lagom/scaladsl/devmode/LagomDevModeComponents.html"><code>LagomDevModeComponents</code></a> that provides the dev mode service locator and registers the services with it in dev mode, and in prod mode, for now, we&rsquo;ve simply provided <a href="api/com/lightbend/lagom/scaladsl/api/ServiceLocator$$NoServiceLocator$.html"><code>NoServiceLocator</code></a> as the service locator - this is a service locator that will return nothing for every lookup. We&rsquo;ll see in the <a href="ProductionOverview.html">deploying to production</a> documentation how to select the right service locator for production.</p>
-<p>A third method, <code>describeServices</code>, is optional, but may be used by tooling, for example by <a href="ConductR.html">ConductR</a>, to discover what service APIs are offered by this service. The meta data read from here may in turn be used to configure service gateways and other components.</p>
-<p>Finally, we need to tell Play about our application loader. We can do that by adding the following configuration to <code>application.conf</code>:</p>
-<pre class="prettyprint"><code>play.application.loader = com.example.HelloLoader
-</code></pre><h2 id="Working-with-streams"><a class="section-marker" href="#Working-with-streams">§</a>Working with streams</h2>
+<p>Of course, a simple hello world computation is not asynchronous, all it needs to do is build a String, and that returns immediately. In this case, we need to wrap the result of that in a <code>Future</code>. This can be done by calling <code>Future.successful()</code>, which returns a future that has an immediately available value.</p><h2 id="Working-with-streams"><a class="section-marker" href="#Working-with-streams">§</a>Working with streams</h2>
 <p>When the request and response bodies are strict, working with them is straightforward. If they are streamed, however, you&rsquo;ll need to use Akka streams to work with them. Let&rsquo;s take a look at how some of the streamed service calls in the <a href="ServiceDescriptors.html#Streamed-messages">service descriptors</a> examples might be implemented.</p>
 <p>The <code>tick</code> service call is going to return a <code>Source</code> that sends messages at the specified interval. Akka streams has a helpful constructor for such a stream:</p>
 <pre class="prettyprint"><code class="language-scala">import scala.concurrent.duration._

@@ -147,6 +147,15 @@
         "url" : "ServiceImplementation.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/guide/services/ServiceImplementation.md"
       }, {
+        "title" : "Dependency Injection",
+        "url" : "DependencyInjection.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/guide/services/DependencyInjection.md",
+        "nextUrls" : [ "ServiceInfo.html" ]
+      }, {
+        "title" : "Scala Components",
+        "url" : "ScalaComponents.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/guide/services/ScalaComponents.md"
+      }, {
         "title" : "Service Metadata",
         "url" : "ServiceInfo.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/guide/services/ServiceInfo.md"

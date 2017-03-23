@@ -20,9 +20,12 @@ class SimpleHTTPServer(webDirectory: File, port: Int) extends Closeable {
   // needed for the future flatMap/onComplete in the end
   private implicit val executionContext = system.dispatcher
 
-  private val route = pathPrefix("") {
-    getFromDirectory(webDirectory.getAbsolutePath) ~ getFromFile(new File(webDirectory, "index.html"))
-  }
+  private val route =
+    getFromDirectory(webDirectory.getAbsolutePath) ~
+      pathPrefix(Segments) { folderNameSeq =>
+        val absoluteFolder = folderNameSeq.foldLeft(webDirectory)((acc, subfolder) => new File(acc, subfolder))
+        getFromFile(new File(absoluteFolder, "index.html"))
+      }
 
   val bindingFuture: Future[ServerBinding] = Http().bindAndHandle(route, "localhost", port)
 

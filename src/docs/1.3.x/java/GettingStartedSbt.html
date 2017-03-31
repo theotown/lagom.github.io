@@ -7,15 +7,22 @@
   <li><a href="#Browse-the-build">Browse the build</a></li>
   <li><a href="#Run-Hello-World">Run Hello World</a></li>
 </ol><h2 id="Create-a-new-Lagom-build"><a class="section-marker" href="#Create-a-new-Lagom-build">§</a>Create a new Lagom build</h2>
-<p>From the command line, invoke <code>sbt new</code> and specify the Lagom Giter8 template:</p>
-<pre class="prettyprint"><code>sbt new lagom/lagom-java.g8
-</code></pre>
-<p>The sbt Lagom template prompts for the following parameters. Press <code>Enter</code> to accept the defaults or specify your own values:</p>
+<p>Choose a location on your file system for your Lagom projects. The template will prompt you for a project name and will create a directory with that name that contains the build structure and Lagom example services. </p>
+<p>To create your project, follow these steps:</p>
+<ol>
+  <li>
+  <p>Open a console and change into the directory you selected for your project.</p></li>
+  <li>
+  <p>Enter the following command to invoke <code>sbt new</code> using the Lagom Giter8 template:<br/> <code>
+   sbt new -Dsbt.version=0.13.13 lagom/lagom-java.g8
+</code></p></li>
+  <li>The sbt Lagom template prompts for the following parameters. Press <code>Enter</code> to accept the defaults or specify your own values:</li>
+</ol>
 <ul>
   <li><code>name</code> - Becomes the name of the top-level directory.</li>
   <li><code>organization</code> - Used as a package name.</li>
   <li><code>version</code> - A version number for your system.</li>
-  <li><code>lagom-version</code> - The version number of Lagom, such as 1.3.0. Be sure to use the <a href="http://www.lagomframework.com/documentation/">current stable release</a>.</li>
+  <li><code>lagom-version</code> - The version number of Lagom, such as 1.3.0. Be sure to use the <a href="https://www.lagomframework.com/documentation/">current stable release</a>.</li>
 </ul><h2 id="Browse-the-build"><a class="section-marker" href="#Browse-the-build">§</a>Browse the build</h2>
 <p>The build created by the template contains the following elements:</p>
 <pre class="prettyprint"><code>hello                   → Project root

@@ -1,6 +1,6 @@
 <h1 id="Consuming-services"><a class="section-marker" href="#Consuming-services">§</a>Consuming services</h1>
 <p>We&rsquo;ve seen how to define service descriptors and how to implement them, now we need to consume them. The service descriptor contains everything Lagom needs to know about how to invoke a service, consequently, Lagom is able to implement service descriptor interfaces for you.</p><h2 id="Binding-a-service-client"><a class="section-marker" href="#Binding-a-service-client">§</a>Binding a service client</h2>
-<p>The first thing necessary to consume a service is to bind it, so that Lagom can provide an implementation for your application to use. This can be done using the <code>bindClient</code> method on <a href="api/index.html?com/lightbend/lagom/javadsl/client/ServiceClientGuiceSupport.html">ServiceClientGuiceSupport</a>. </p>
+<p>The first thing necessary to consume a service is to bind it, so that Lagom can provide an implementation for your application to use. This can be done using the <code>bindClient</code> method on <a href="api/index.html?com/lightbend/lagom/javadsl/client/ServiceClientGuiceSupport.html">ServiceClientGuiceSupport</a>.</p>
 <pre class="prettyprint"><code class="language-java">import com.google.inject.AbstractModule;
 import com.lightbend.lagom.javadsl.client.ServiceClientGuiceSupport;
 import docs.services.HelloService;
@@ -13,7 +13,7 @@ public class Module extends AbstractModule implements ServiceClientGuiceSupport 
         bindClient(HelloService.class);
     }
 }</code></pre>
-<p>When using a client Lagom will need a <a href="api/com/lightbend/lagom/javadsl/api/ServiceInfo.html"><code>ServiceInfo</code></a> implementation and use it to identify itself to the remote service. When you are developing an application that&rsquo;s only implementing <code>ServiceClientGuiceSupport</code> to consume Lagom services you will need to invoke <code>bindServiceInfo()</code> and provide a <code>ServiceInfo</code> instance describing your app. </p>
+<p>When using a client Lagom will need a <a href="api/com/lightbend/lagom/javadsl/api/ServiceInfo.html"><code>ServiceInfo</code></a> implementation and use it to identify itself to the remote service. When you are developing an application that&rsquo;s only implementing <code>ServiceClientGuiceSupport</code> to consume Lagom services you will need to invoke <code>bindServiceInfo()</code> and provide a <code>ServiceInfo</code> instance describing your app.</p>
 <p>If you&rsquo;re already binding a service implementation using <a href="api/index.html?com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html">ServiceGuiceSupport</a>, this interface extends <code>ServiceClientGuiceSupport</code>, so your existing module can be used as is:</p>
 <pre class="prettyprint"><code class="language-java">import com.google.inject.AbstractModule;
 import com.lightbend.lagom.javadsl.server.ServiceGuiceSupport;
@@ -45,7 +45,7 @@ public class ServiceModule extends AbstractModule implements ServiceGuiceSupport
     };
   }
 }</code></pre><h2 id="Circuit-Breakers"><a class="section-marker" href="#Circuit-Breakers">§</a>Circuit Breakers</h2>
-<p>A <a href="http://martinfowler.com/bliki/CircuitBreaker.html">circuit breaker</a> is used to provide stability and prevent cascading failures in distributed systems. These should be used in conjunction with judicious timeouts at the interfaces between services to prevent the failure of a single service from bringing down other services.</p>
+<p>A <a href="https://martinfowler.com/bliki/CircuitBreaker.html">circuit breaker</a> is used to provide stability and prevent cascading failures in distributed systems. These should be used in conjunction with judicious timeouts at the interfaces between services to prevent the failure of a single service from bringing down other services.</p>
 <p>As an example, we have a web application interacting with a third-party web service. Let&rsquo;s say the third-party has oversold their capacity and their database melts down under load. Assume that the database fails in such a way that it takes a very long time to hand back an error to the third-party web service. This in turn makes calls fail after a long period of time. Back to our web application, the users have noticed that their form submissions take much longer seeming to hang. The users do what they know to do which is use the refresh button, adding more requests to their already running requests. This eventually causes the failure of the web application due to resource exhaustion.</p>
 <p>Introducing circuit breakers on the web service call would cause the requests to begin to fail-fast, letting the user know that something is wrong and that they need not refresh their request. This also confines the failure behavior to only those users that are using functionality dependent on the third-party, other users are no longer affected as there is no resource exhaustion. Circuit breakers can also allow savvy developers to mark portions of the site that use the functionality unavailable, or perhaps show some cached content as appropriate while the breaker is open.</p>
 <p>A circuit breaker has 3 states:</p>
@@ -102,7 +102,7 @@ lagom.circuit-breaker {
     reset-timeout = 15s
   }
 }</code></pre>
-<p>That configuration will be used if you don&rsquo;t define any configuration yourself. </p>
+<p>That configuration will be used if you don&rsquo;t define any configuration yourself.</p>
 <p>With the above &ldquo;hello&rdquo; example we could adjust the configuration by defining properties in <code>application.conf</code> such as:</p>
 <pre class="prettyprint"><code>lagom.circuit-breaker {
 

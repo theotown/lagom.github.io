@@ -56,7 +56,7 @@
   }, {
     "title" : "Lagom core concepts",
     "children" : [ {
-      "title" : "Lagom core concepts",
+      "title" : "Introduction to Lagom concepts",
       "url" : "CoreConcepts.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/CoreConcepts.md"
     }, {
@@ -64,33 +64,61 @@
       "url" : "LagomDesignPhilosophy.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/LagomDesignPhilosophy.md"
     }, {
-      "title" : "Microservices in Lagom",
-      "url" : "Microservices.html",
-      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/Microservices.md"
-    }, {
       "title" : "Polyglot systems with Lagom",
       "url" : "PolyglotSystems.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/PolyglotSystems.md"
     }, {
-      "title" : "Lagom component technologies",
-      "url" : "Technologies.html",
-      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/Technologies.md"
+      "title" : "Development environment overview",
+      "url" : "DevelopmentEnvironmentOverview.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/DevelopmentEnvironmentOverview.md"
     }, {
       "title" : "Lagom build philosophy",
       "url" : "BuildConcepts.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/BuildConcepts.md"
     }, {
-      "title" : "Immutable Objects",
+      "title" : "Component technologies",
+      "url" : "ComponentTechnologies.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/ComponentTechnologies.md"
+    }, {
+      "title" : "API Overview",
+      "url" : "APIOverview.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/APIOverview.md"
+    }, {
+      "title" : "Designing your microservices system",
+      "url" : "MicroserviceSystemDesign.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/MicroserviceSystemDesign.md"
+    }, {
+      "title" : "Sizing individual microservices",
+      "url" : "MicroserviceDesign.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/MicroserviceDesign.md"
+    }, {
+      "title" : "Internal and external communication",
+      "url" : "InternalAndExternalCommunication.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/InternalAndExternalCommunication.md"
+    }, {
+      "title" : " Registering and discovering services",
+      "url" : "ServiceDiscovery.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/ServiceDiscovery.md"
+    }, {
+      "title" : "Using Immutable Objects",
       "url" : "Immutable.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/java/concepts/Immutable.md"
     }, {
-      "title" : "Event Sourcing and CQRS",
+      "title" : "Managing data persistence",
       "url" : "ES_CQRS.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/ES_CQRS.md"
     }, {
-      "title" : " Service Discovery",
-      "url" : "ServiceDiscovery.html",
-      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/ServiceDiscovery.md"
+      "title" : "Advantages of Event Sourcing",
+      "url" : "ESAdvantage.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/ESAdvantage.md"
+    }, {
+      "title" : "Separating reads from writes",
+      "url" : "ReadVsWrite.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/ReadVsWrite.md"
+    }, {
+      "title" : "Deploying scalable, resilient systems",
+      "url" : "ScalableDeployment.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/concepts/ScalableDeployment.md"
     } ]
   }, {
     "title" : "Lagom reference guide",

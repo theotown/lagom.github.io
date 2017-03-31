@@ -1,7 +1,7 @@
 <h1 id="Persistent-Entity"><a class="section-marker" href="#Persistent-Entity">§</a>Persistent Entity</h1>
 <p><a href="ES_CQRS.html">Event Sourcing and CQRS</a> is a recommended introduction to this section.</p>
 <p>A <code>PersistentEntity</code> has a stable entity identifier, with which it can be accessed from the service implementation or other places. The state of an entity is persistent (durable) using <a href="https://msdn.microsoft.com/en-us/library/jj591559.aspx">Event Sourcing</a>. We represent all state changes as events and those immutable facts are appended to an event log. To recreate the current state of an entity when it is started we replay these events.</p>
-<p>A persistent entity corresponds to an <a href="http://martinfowler.com/bliki/DDD_Aggregate.html">Aggregate Root</a> in Domain-Driven Design terms. Each instance has a stable identifier and for a given id there will only be one instance of the entity. Lagom takes care of distributing those instances across the cluster of the service. If you know the identifier you can send messages, so called commands, to the entity.</p>
+<p>A persistent entity corresponds to an <a href="https://martinfowler.com/bliki/DDD_Aggregate.html">Aggregate Root</a> in Domain-Driven Design terms. Each instance has a stable identifier and for a given id there will only be one instance of the entity. Lagom takes care of distributing those instances across the cluster of the service. If you know the identifier you can send messages, so called commands, to the entity.</p>
 <p>The persistent entity is also a transaction boundary. Invariants can be maintained within one entity but not across several entities.</p>
 <p>If you are familiar with <a href="https://en.wikipedia.org/wiki/Java_Persistence_API">JPA</a> it is worth noting that a <code>PersistentEntity</code> can be used for similar things as a JPA <code>@Entity</code> but several aspects are rather different. For example, a JPA <code>@Entity</code> is loaded from the database from wherever it is needed, i.e. there may be many Java object instances with the same entity identifier. In contrast, there is only one instance of <code>PersistentEntity</code> with a given identifier. With JPA you typically only store current state and the history of how the state was reached is not captured.</p>
 <p>You interact with a <code>PersistentEntity</code> by sending command messages to it. Commands are processed sequentially, one at a time, for a specific entity instance. A command may result in state changes that are persisted as events, representing the effect of the command. The current state is not stored for every change, since it can be derived from the events. These events are only ever appended to storage, nothing is ever mutated, which allows for very high transaction rates and efficient replication.</p>
@@ -40,7 +40,7 @@ final class Post1 extends PersistentEntity {
   <li><code>State</code> - the class of the state</li>
 </ul>
 <p><code>initialState</code> is an abstract method that your concrete subclass must implement to define the <code>State</code> when the entity is first created.</p>
-<p><code>behavior</code> is an abstract method that your concrete subclass must implement. It returns the <code>Behavior</code> of the entity. <code>Behavior</code> is a function from current <code>State</code> to <code>Actions</code>, which defines command and event handlers. </p>
+<p><code>behavior</code> is an abstract method that your concrete subclass must implement. It returns the <code>Behavior</code> of the entity. <code>Behavior</code> is a function from current <code>State</code> to <code>Actions</code>, which defines command and event handlers.</p>
 <p>Use <code>Actions()</code> to create an immutable builder for defining the behavior. The behavior functions process incoming commands and persisted events as described in the following sections.</p><h2 id="Command-Handlers"><a class="section-marker" href="#Command-Handlers">§</a>Command Handlers</h2>
 <p>The functions that process incoming commands are registered using <code>onCommand</code> of the <code>Actions</code>.</p>
 <pre class="prettyprint"><code class="language-scala">// Command handlers are invoked for incoming messages (commands).
@@ -54,7 +54,7 @@ Actions()
       }
   }</code></pre>
 <p>You should define one command handler for each command class that the entity can receive.</p>
-<p>A command handler is a partial function with 3 parameters (<code>Tuple3</code>) for the <code>Command</code>, the <code>CommandContext</code> and current <code>State</code>. </p>
+<p>A command handler is a partial function with 3 parameters (<code>Tuple3</code>) for the <code>Command</code>, the <code>CommandContext</code> and current <code>State</code>.</p>
 <p>A command handler returns a <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/PersistentEntity@Persist">Persist</a> directive that defines what event or events, if any, to persist. Use the <code>thenPersist</code>, <code>thenPersistAll</code> or <code>done</code> methods of the context that is passed to the command handler function to create the <code>Persist</code> directive.</p>
 <ul>
   <li><code>thenPersist</code> will persist one single event</li>
@@ -70,14 +70,14 @@ Actions()
     if (content.title == null || content.title.equals(&quot;&quot;)) {
       ctx.invalidCommand(&quot;Title must be defined&quot;)
       ctx.done</code></pre>
-<p>A <code>PersistentEntity</code> may also process commands that do not change application state, such as query commands or commands that are not valid in the entity&rsquo;s current state (such as a bid placed after the auction closed). Such command handlers are registered using <code>onReadOnlyCommand</code> of the <code>Actions</code>. Replies are sent with the <code>reply</code> method of the context that is passed to the command handler function. </p>
+<p>A <code>PersistentEntity</code> may also process commands that do not change application state, such as query commands or commands that are not valid in the entity&rsquo;s current state (such as a bid placed after the auction closed). Such command handlers are registered using <code>onReadOnlyCommand</code> of the <code>Actions</code>. Replies are sent with the <code>reply</code> method of the context that is passed to the command handler function.</p>
 <p>The <code>onReadOnlyCommand</code> is simply a convenience function that avoids you having to return no events followed by a side effect.</p>
 <pre class="prettyprint"><code class="language-scala">.onReadOnlyCommand[GetPost.type, PostContent] {
   case (GetPost, ctx, state) =&gt;
     ctx.reply(state.content.get)
 }</code></pre>
 <p>The commands must be immutable to avoid concurrency issues that may occur from changing a command instance that has been sent.</p>
-<p>The section <a href="Immutable.html">Immutable Objects</a> describes how to define immutable command classes. </p><h2 id="Event-Handlers"><a class="section-marker" href="#Event-Handlers">§</a>Event Handlers</h2>
+<p>The section <a href="Immutable.html">Immutable Objects</a> describes how to define immutable command classes.</p><h2 id="Event-Handlers"><a class="section-marker" href="#Event-Handlers">§</a>Event Handlers</h2>
 <p>When an event has been persisted successfully the current state is updated by applying the event to the current state. The functions for updating the state are registered with the <code>onEvent</code> method of the <code>Actions</code>.</p>
 <pre class="prettyprint"><code class="language-scala">// Event handlers are used both when persisting new events and when replaying
 // events.

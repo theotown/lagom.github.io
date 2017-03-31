@@ -6,8 +6,10 @@
   <li><a href="#Browse-the-project-structure">Browse the project structure</a></li>
   <li><a href="#Run-Hello-World">Run Hello World</a></li>
 </ol><h2 id="Generate-a-project-with-the-Lagom-archetype"><a class="section-marker" href="#Generate-a-project-with-the-Lagom-archetype">§</a>Generate a project with the Lagom archetype</h2>
-<p>To create a project, follow these steps: </p>
+<p>Choose a location on your file system for your Lagom projects. Maven will prompt you for a project name and will create a directory with that name that contains the build structure and Lagom example services. </p>
+<p>To create your project, follow these steps:</p>
 <ol>
+  <li>Open a console and change into the directory you selected for your project.</li>
   <li>
   <p>Invoke <code>mvn archetype:generate</code> from the command line:</p>
   <pre class="prettyprint"><code>mvn archetype:generate -Dfilter=com.lightbend.lagom:maven-archetype-lagom-java
@@ -18,7 +20,7 @@
 Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): :
 </code></pre></li>
   <li>Enter the number that corresponds with <code>com.lightbend.lagom:maven-archetype-lagom-java</code> (at time of writing, the number <code>1</code>, and the only one available).<br/>Maven prompts you for the version.</li>
-  <li>Enter the number corresponding with the version of Lagom you want to use. We recommend using the <a href="http://www.lagomframework.com/documentation/">current stable release</a>).<br/>The template prompts you for POM values.</li>
+  <li>Enter the number corresponding with the version of Lagom you want to use. We recommend using the <a href="https://www.lagomframework.com/documentation/">current stable release</a>).<br/>The template prompts you for POM values.</li>
   <li>Specify values for:
     <ul>
       <li><code>groupId</code> - Usually a reversed domain name, such as <code>com.example.hello</code>.</li>

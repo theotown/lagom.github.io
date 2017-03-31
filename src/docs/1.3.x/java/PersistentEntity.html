@@ -1,7 +1,7 @@
 <h1 id="Persistent-Entity"><a class="section-marker" href="#Persistent-Entity">§</a>Persistent Entity</h1>
 <p><a href="ES_CQRS.html">Event Sourcing and CQRS</a> is a recommended introduction to this section.</p>
 <p>A <code>PersistentEntity</code> has a stable entity identifier, with which it can be accessed from the service implementation or other places. The state of an entity is persistent (durable) using <a href="https://msdn.microsoft.com/en-us/library/jj591559.aspx">Event Sourcing</a>. We represent all state changes as events and those immutable facts are appended to an event log. To recreate the current state of an entity when it is started we replay these events.</p>
-<p>A persistent entity corresponds to an <a href="http://martinfowler.com/bliki/DDD_Aggregate.html">Aggregate Root</a> in Domain-Driven Design terms. Each instance has a stable identifier and for a given id there will only be one instance of the entity. Lagom takes care of distributing those instances across the cluster of the service. If you know the identifier you can send messages, so called commands, to the entity.</p>
+<p>A persistent entity corresponds to an <a href="https://martinfowler.com/bliki/DDD_Aggregate.html">Aggregate Root</a> in Domain-Driven Design terms. Each instance has a stable identifier and for a given id there will only be one instance of the entity. Lagom takes care of distributing those instances across the cluster of the service. If you know the identifier you can send messages, so called commands, to the entity.</p>
 <p>The persistent entity is also a transaction boundary. Invariants can be maintained within one entity but not across several entities.</p>
 <p>If you are familiar with <a href="https://en.wikipedia.org/wiki/Java_Persistence_API">JPA</a> it is worth noting that a <code>PersistentEntity</code> can be used for similar things as a JPA <code>@Entity</code> but several aspects are rather different. For example, a JPA <code>@Entity</code> is loaded from the database from wherever it is needed, i.e. there may be many Java object instances with the same entity identifier. In contrast, there is only one instance of <code>PersistentEntity</code> with a given identifier. With JPA you typically only store current state and the history of how the state was reached is not captured.</p>
 <p>You interact with a <code>PersistentEntity</code> by sending command messages to it. Commands are processed sequentially, one at a time, for a specific entity instance. A command may result in state changes that are persisted as events, representing the effect of the command. The current state is not stored for every change, since it can be derived from the events. These events are only ever appended to storage, nothing is ever mutated, which allows for very high transaction rates and efficient replication.</p>
@@ -71,7 +71,7 @@ b.setCommandHandler(AddPost.class, (AddPost cmd, CommandContext&lt;AddPostDone&g
 <pre class="prettyprint"><code class="language-java">b.setReadOnlyCommandHandler(GetPost.class, (cmd, ctx) -&gt;
   ctx.reply(state().getContent().get()));</code></pre>
 <p>The commands must be immutable to avoid concurrency issues that may occur from changing a command instance that has been sent.</p>
-<p>The section <a href="Immutable.html">Immutable Objects</a> describes how to define immutable command classes. </p><h2 id="Event-Handlers"><a class="section-marker" href="#Event-Handlers">§</a>Event Handlers</h2>
+<p>The section <a href="Immutable.html">Immutable Objects</a> describes how to define immutable command classes.</p><h2 id="Event-Handlers"><a class="section-marker" href="#Event-Handlers">§</a>Event Handlers</h2>
 <p>When an event has been persisted successfully the current state is updated by applying the event to the current state. The functions for updating the state are registered with the <code>setEventHandler</code> method of the <code>BehaviorBuilder</code>.</p>
 <pre class="prettyprint"><code class="language-java">// Event handlers are used both when persisting new events
 // and when replaying events.
@@ -110,7 +110,7 @@ b.setEventHandler(PostAdded.class, evt -&gt;
     return content.hashCode();
   }
 }</code></pre>
-<p>You send the reply message using the <code>reply</code> method of the context that is passed to the command handler function. </p>
+<p>You send the reply message using the <code>reply</code> method of the context that is passed to the command handler function.</p>
 <p>Typically the reply will be an acknowledgment that the entity processed the command successfully, i.e. you send it after persist.</p>
 <pre class="prettyprint"><code class="language-java">b.setCommandHandler(ChangeBody.class,
     (cmd, ctx) -&gt; ctx.thenPersist(new BodyChanged(entityId(), cmd.getBody()), evt -&gt;

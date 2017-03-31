@@ -1,14 +1,44 @@
-<h1 id="Lagom-core-concepts"><a class="section-marker" href="#Lagom-core-concepts">§</a>Lagom core concepts</h1>
-<p>Lagom is a framework for creating microservice-based systems. It offers four main features:</p>
+<h1 id="Introduction-to-Lagom-concepts"><a class="section-marker" href="#Introduction-to-Lagom-concepts">§</a>Introduction to Lagom concepts</h1>
+<p>The Lagom framework includes libraries and a development environment that support you from development to deployment:</p>
 <ul>
-  <li><a href="ServiceDescriptors.html">Service API</a></li>
-  <li><a href="PersistentEntity.html">Persistence API</a></li>
-  <li><a href="DevEnvironment.html">Development Environment</a></li>
-  <li><a href="ConductR.html">Production Environment</a></li>
+  <li>During development, a single command builds your project and starts all of your services and the supporting Lagom infrastructure. It hot-reloads when you modify code. The development environment allows you to bring up a new service or join an existing Lagom development team in just minutes.</li>
+  <li>You can create microservices using Java or Scala. Lagom offers an especially seamless experience for communication between microservices. Service location, communication protocols, and other issues are handled by Lagom transparently, maximizing convenience and productivity. Lagom supports Event sourcing and CQRS (Command Query Responsibility Segregation) for persistence.</li>
+  <li>Deploy on your platform of choice. To simplify deployment, Lagom supports <a href="http://lightbend.com/platform/production">the Lightbend Production Suite</a> out-of-the-box. The Production Suite provides a simple way to deploy, scale, monitor, and manage Lagom services in a container environment.</li>
 </ul>
-<p>The <a href="ServiceDescriptors.html">Service API</a> provides a way to declare and implement service interfaces, to be consumed by clients. For location transparency, clients discover services through a Service Locator. The Service API supports synchronous request-response calls as well as asynchronous streaming between services.</p>
-<p>The <a href="PersistentEntity.html">Persistence API</a> provides event-sourced persistent entities for services that store data. Command Query Responsibility Segregation (CQRS) read-side support is provided as well. Lagom manages the distribution of persisted entities across a cluster of nodes, enabling sharding and horizontal scaling. Cassandra is provided as a database out-of-the-box.</p>
-<p>The <a href="DevEnvironment.html">Development Environment</a> allows running all your services, and the supporting Lagom infrastructure, with one command. It hot-reloads your services when code changes; no fragile scripts are needed to set up and maintain a development environment. With Lagom, a developer can bring up a new service or join an existing Lagom development team in just a few minutes.</p>
-<p><a href="ConductR.html">Lightbend ConductR</a> is the out-of-the-box supported production environment. Lightbend ConductR allows simple deployment, monitoring, and scaling, of Lagom services in a container environment.</p>
+<p>Designing a microservices system that achieves high scalability and manifests resilience in the face of unexpected failures is extremely difficult. Without a framework such as Lagom, you would need to deal with all of the complex threading and concurrency issues inherent in highly distributed systems. By using Lagom as it was designed to be used, you can avoid many of these pitfalls and increase productivity at the same time. But, rather than throwing everything out and starting anew, Lagom allows you to adopt a <a href="https://info.lightbend.com/COLL-20XX-Reactive-Microservices-Architecture-RES-LP.html">reactive architecture</a> within existing constraints. For example, you can create microservices that:</p>
+<ul>
+  <li>Interact with legacy systems and/or replace monolithic application functionality.</li>
+  <li>Use Cassandra for persistence or your database of choice and/or integrate with other data stores. (Lagom&rsquo;s persistence APIs support Cassandra by default because it provides functionality such as sharding and read-side support that work well in a microservices system)</li>
+</ul>
+<p>The remaining topics in this section further introduce:</p>
+<ul>
+  <li>Lagom system architecture:
+    <ul>
+      <li><a href="LagomDesignPhilosophy.html">Lagom design philosophy</a></li>
+      <li><a href="PolyglotSystems.html">Polyglot systems</a></li>
+    </ul>
+  </li>
+  <li>Lagom development environment:
+    <ul>
+      <li><a href="DevelopmentEnvironmentOverview.html">Overview</a></li>
+      <li><a href="BuildConcepts.html">Build philosophy</a></li>
+      <li><a href="ComponentTechnologies.html">Component technologies</a></li>
+      <li><a href="APIOverview.html">API Overview</a></li>
+    </ul>
+  </li>
+  <li>Patterns to use in your system:
+    <ul>
+      <li><a href="MicroserviceSystemDesign.html">Designing your microservices system</a></li>
+      <li><a href="MicroserviceDesign.html">Sizing individual microservices</a></li>
+      <li><a href="InternalAndExternalCommunication.html">Internal and external communication</a></li>
+      <li><a href="ServiceDiscovery.html">Registering and discovering services</a></li>
+      <li><a href="Immutable.html">Using immutable objects</a></li>
+      <li><a href="ES_CQRS.html">Managing data persistence</a></li>
+      <li><a href="ESAdvantage.html">Advantages of Event Sourcing</a></li>
+      <li><a href="ReadVsWrite.html">Separating reads from writes</a></li>
+      <li><a href="ScalableDeployment.html">Deploying resilient, scalable systems</a></li>
+    </ul>
+  </li>
+</ul>
 
 

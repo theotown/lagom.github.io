@@ -22,7 +22,7 @@ public interface HelloService extends Service {
     }
 }</code></pre>
 <p>If Greetings Service packaged <code>HelloService</code> and Greetings Service was invoking I18n Service (not in the snippet) those calls would include the identity <code>hello</code> since that is the <code>HelloService</code> name (see <code>named(&quot;hello&quot;)</code>).</p>
-<p>Services may publish ACLs in a Service Gateway to list what endpoints are provided by the service. These ACLs will allow you to develop <a href="ServiceDiscovery.html#Server-Side-Service-Discovery">Server-Side Service Discovery</a> via a Service Gateway.</p>
+<p>Services may publish ACLs in a Service Gateway to list what endpoints are provided by the service. These ACLs will allow you to develop <a href="ServiceDiscovery.html#Server-side-service-discovery">Server-Side Service Discovery</a> via a Service Gateway.</p>
 <pre class="prettyprint"><code class="language-java">default Descriptor descriptor() {
     return named(&quot;users&quot;)
             .withCalls(

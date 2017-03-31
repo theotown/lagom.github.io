@@ -16,7 +16,7 @@ public interface AbstractUser extends Jsonable {
 
   String getEmail();
 }</code></pre>
-<p>Note that we&rsquo;re using the <a href="Immutable.html#Immutables">Immutables</a> library here, so this will generate an immutable <code>User</code> class. This is the reason for adding the <code>@JsonDeserialize</code> annotation.</p><h3 id="Jackson-Modules"><a class="section-marker" href="#Jackson-Modules">§</a>Jackson Modules</h3>
+<p>Note that we&rsquo;re using the <a href="Immutable.html">Immutables</a> library here, so this will generate an immutable <code>User</code> class. This is the reason for adding the <code>@JsonDeserialize</code> annotation.</p><h3 id="Jackson-Modules"><a class="section-marker" href="#Jackson-Modules">§</a>Jackson Modules</h3>
 <p>The following Jackson modules are enabled by default:</p>
 <pre class="prettyprint"><code class="language-conf"># The Jackson JSON serializer will register these modules.
 # It is also possible to use jackson-modules = [&quot;*&quot;] to dynamically

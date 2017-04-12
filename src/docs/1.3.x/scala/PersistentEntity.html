@@ -106,7 +106,7 @@ Actions()
 <p>You can use <code>ctx.invalidCommand</code> to reject an invalid command, which will fail the <code>Future</code> with <code>PersistentEntity.InvalidCommandException</code> on the sender side.</p>
 <p>You can send a negative acknowledgment with <code>ctx.commandFailed</code>, which will fail the <code>Future</code> on the sender side with the given exception.</p>
 <p>If persisting the events fails a negative acknowledgment is automatically sent, which will fail the <code>Future</code> on the sender side with <code>PersistentEntity.PersistException</code>.</p>
-<p>If the <code>PersistentEntity</code> receives a command for which there is no registered command handler a negative acknowledgment is automatically sent, which will fail the the <code>Future</code> on the sender side with <code>PersistentEntity.UnhandledCommandException</code>.</p>
+<p>If the <code>PersistentEntity</code> receives a command for which there is no registered command handler a negative acknowledgment is automatically sent, which will fail the <code>Future</code> on the sender side with <code>PersistentEntity.UnhandledCommandException</code>.</p>
 <p>If you don&rsquo;t reply to a command the <code>Future</code> on the sender side will be completed with a <code>akka.pattern.AskTimeoutException</code> after a timeout.</p><h2 id="Changing-Behavior"><a class="section-marker" href="#Changing-Behavior">§</a>Changing Behavior</h2>
 <p>For simple entities you can use the same set of command and event handlers independent of what state the entity is in. The actions can then be defined like this:</p>
 <pre class="prettyprint"><code class="language-scala">override def behavior: Behavior =

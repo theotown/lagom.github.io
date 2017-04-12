@@ -71,7 +71,7 @@ lagom.persistence.read-side.cassandra.keyspace=users
 <pre class="prettyprint"><code class="language-sbt">lagomCassandraJvmOptions in ThisBuild :=
   Seq(&quot;-Xms256m&quot;, &quot;-Xmx1024m&quot;, &quot;-Dcassandra.jmx.local.port=4099&quot;,
     &quot;-DCassandraLauncher.configResource=dev-embedded-cassandra.yaml&quot;) // these are actually the default jvm options</code></pre><h2 id="Yaml-configuration"><a class="section-marker" href="#Yaml-configuration">§</a>Yaml configuration</h2>
-<p>As shown above, the the YAML configuration file can be configured by modifying the Cassandra JVM options to include a <code>-DCassandraLauncher.configResource</code> system property that points to a resource in your <code>src/main/resources</code> directory.</p><h2 id="Logging"><a class="section-marker" href="#Logging">§</a>Logging</h2>
+<p>As shown above, the YAML configuration file can be configured by modifying the Cassandra JVM options to include a <code>-DCassandraLauncher.configResource</code> system property that points to a resource in your <code>src/main/resources</code> directory.</p><h2 id="Logging"><a class="section-marker" href="#Logging">§</a>Logging</h2>
 <p>Logging is configured such that it goes to the standard output, and the log level for <code>org.apache.cassandra</code> is set to <code>ERROR</code>. Here is the used <code>logback.xml</code> file:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;configuration&gt;

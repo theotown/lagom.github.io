@@ -45,7 +45,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">LocalServiceLocator</span><span class="result"> extends <a href="RequiresLagomServicePort.html" class="extype" name="com.lightbend.lagom.scaladsl.server.RequiresLagomServicePort">RequiresLagomServicePort</a></span>
+        <span class="name">LocalServiceLocator</span><span class="result"> extends <a href="RequiresLagomServicePort.html" class="extype" name="com.lightbend.lagom.scaladsl.server.RequiresLagomServicePort">RequiresLagomServicePort</a> with <a href="../client/CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></span>
       </span>
       </h4>
       
@@ -53,7 +53,7 @@
 provide the local service locator.
 </p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/master//service/scaladsl/server/src/main/scala/com/lightbend/lagom/scaladsl/server/LagomApplicationLoader.scala" target="_blank">LagomApplicationLoader.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="RequiresLagomServicePort.html" class="extype" name="com.lightbend.lagom.scaladsl.server.RequiresLagomServicePort">RequiresLagomServicePort</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="../client/CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a>, <a href="RequiresLagomServicePort.html" class="extype" name="com.lightbend.lagom.scaladsl.server.RequiresLagomServicePort">RequiresLagomServicePort</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -71,7 +71,7 @@ provide the local service locator.
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator"><span>LocalServiceLocator</span></li><li class="in" name="com.lightbend.lagom.scaladsl.server.RequiresLagomServicePort"><span>RequiresLagomServicePort</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator"><span>LocalServiceLocator</span></li><li class="in" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents"><span>CircuitBreakerComponents</span></li><li class="in" name="com.lightbend.lagom.scaladsl.server.RequiresLagomServicePort"><span>RequiresLagomServicePort</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -99,7 +99,7 @@ provide the local service locator.
 
         <div id="values" class="values members">
               <h3>Abstract Value Members</h3>
-              <ol><li name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator#actorSystem" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+              <ol><li name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator#actorSystem" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="actorSystem:akka.actor.ActorSystem"></a>
       <a id="actorSystem:ActorSystem"></a>
       <h4 class="signature">
@@ -115,8 +115,25 @@ provide the local service locator.
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator#configuration" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator">LocalServiceLocator</a> → <a href="../client/CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator#circuitBreakerMetricsProvider" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="circuitBreakerMetricsProvider:com.lightbend.lagom.internal.spi.CircuitBreakerMetricsProvider"></a>
+      <a id="circuitBreakerMetricsProvider:CircuitBreakerMetricsProvider"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">circuitBreakerMetricsProvider</span><span class="result">: <span class="extype" name="com.lightbend.lagom.internal.spi.CircuitBreakerMetricsProvider">CircuitBreakerMetricsProvider</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.server.LocalServiceLocator@circuitBreakerMetricsProvider:com.lightbend.lagom.internal.spi.CircuitBreakerMetricsProvider" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator">LocalServiceLocator</a> → <a href="../client/CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator#configuration" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="configuration:play.api.Configuration"></a>
       <a id="configuration:Configuration"></a>
       <h4 class="signature">
@@ -132,8 +149,8 @@ provide the local service locator.
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator#executionContext" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator">LocalServiceLocator</a> → <a href="../client/CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator#executionContext" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="executionContext:scala.concurrent.ExecutionContext"></a>
       <a id="executionContext:ExecutionContext"></a>
       <h4 class="signature">
@@ -149,7 +166,7 @@ provide the local service locator.
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator">LocalServiceLocator</a> → <a href="../client/CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
     </li><li name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator#lagomServer" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="lagomServer:com.lightbend.lagom.scaladsl.server.LagomServer"></a>
       <a id="lagomServer:LagomServer"></a>
@@ -285,7 +302,7 @@ provide the local service locator.
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator#circuitBreakerConfig" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents#circuitBreakerConfig" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="circuitBreakerConfig:com.lightbend.lagom.internal.client.CircuitBreakerConfig"></a>
       <a id="circuitBreakerConfig:CircuitBreakerConfig"></a>
       <h4 class="signature">
@@ -301,8 +318,8 @@ provide the local service locator.
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.lightbend.lagom.scaladsl.server.LocalServiceLocator#circuitBreakers" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../client/CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents#circuitBreakers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="circuitBreakers:com.lightbend.lagom.internal.client.CircuitBreakers"></a>
       <a id="circuitBreakers:CircuitBreakers"></a>
       <h4 class="signature">
@@ -318,7 +335,7 @@ provide the local service locator.
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../client/CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -795,7 +812,9 @@ provide the local service locator.
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="com.lightbend.lagom.scaladsl.server.RequiresLagomServicePort">
+        <div class="parent" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">
+              <h3>Inherited from <a href="../client/CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></h3>
+            </div><div class="parent" name="com.lightbend.lagom.scaladsl.server.RequiresLagomServicePort">
               <h3>Inherited from <a href="RequiresLagomServicePort.html" class="extype" name="com.lightbend.lagom.scaladsl.server.RequiresLagomServicePort">RequiresLagomServicePort</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>

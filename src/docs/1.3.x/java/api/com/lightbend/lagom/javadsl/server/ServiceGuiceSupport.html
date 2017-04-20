@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],16:["t5","Default Methods"]};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":50,"i4":18,"i5":18};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],16:["t5","Default Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -105,6 +105,14 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public interface <span class="typeNameLabel">ServiceGuiceSupport</span>
 extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClientGuiceSupport.html" title="interface in com.lightbend.lagom.javadsl.client">ServiceClientGuiceSupport</a></pre>
+<div class="block">Lagom service implementations must create one implementation of this interface and use it to bind Service
+ implementations.
+ <p>
+ Implementors of this interface must invoke <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-"><code>bindService(java.lang.Class&lt;T&gt;, java.lang.Class&lt;? extends T&gt;)</code></a>,
+ <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-"><code>bindServices(ServiceBinding[])</code></a> or
+ <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServiceInfo-com.lightbend.lagom.javadsl.api.ServiceInfo-"><code>bindServiceInfo(ServiceInfo)</code></a> exactly-once depending on the type of Lagom service being
+ implemented (1 service, many services, consume-only). These methods setup the service and may transparently add
+ cross-cutting services like <a href="../../../../../com/lightbend/lagom/javadsl/server/status/MetricsService.html" title="interface in com.lightbend.lagom.javadsl.server.status"><code>MetricsService</code></a> (allows monitoring circuit-breakers from the outside).</div>
 </li>
 </ul>
 </div>
@@ -145,30 +153,53 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClient
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>default void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServiceInfo-com.lightbend.lagom.javadsl.api.ServiceInfo-">bindServiceInfo</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api">ServiceInfo</a>&nbsp;serviceInfo)</code>
-<div class="block">Provides the ServiceInfo to use Lagom service clients.</div>
+<td class="colFirst"><code>default &lt;T extends <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api">Service</a>&gt;<br>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-">bindService</a></span>(Class&lt;T&gt;&nbsp;serviceInterface,
+           Class&lt;? extends T&gt;&nbsp;serviceImplementation)</code>
+<div class="block">Binds a Service interface with its implementation.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>default void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-">bindServices</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;?&gt;...&nbsp;serviceBindings)</code>&nbsp;</td>
+<td class="colFirst"><code>default &lt;T extends <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api">Service</a>&gt;<br>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-T-">bindService</a></span>(Class&lt;T&gt;&nbsp;serviceInterface,
+           T&nbsp;service)</code>
+<div class="block">Binds a Service interface with an instance that implements it.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>default &lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;T&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#serviceBinding-java.lang.Class-java.lang.Class-">serviceBinding</a></span>(Class&lt;T&gt;&nbsp;serviceInterface,
-              Class&lt;? extends T&gt;&nbsp;serviceImplementation)</code>&nbsp;</td>
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServiceInfo-com.lightbend.lagom.javadsl.api.ServiceInfo-">bindServiceInfo</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api">ServiceInfo</a>&nbsp;serviceInfo)</code>
+<div class="block">Creates a custom <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> for this Lagom service.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-">bindServices</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;?&gt;...&nbsp;serviceBindings)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">support for multiple locatable ServiceDescriptors per Lagom service will be removed.
+ Use <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-"><code>bindService(java.lang.Class&lt;T&gt;, java.lang.Class&lt;? extends T&gt;)</code></a> instead</span></div>
+</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>default &lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#serviceBinding-java.lang.Class-java.lang.Class-">serviceBinding</a></span>(Class&lt;T&gt;&nbsp;serviceInterface,
+              Class&lt;? extends T&gt;&nbsp;serviceImplementation)</code>
+<div class="block">Convenience method to create <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a> when using <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-"><code>bindServices(ServiceBinding[])</code></a>.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>default &lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#serviceBinding-java.lang.Class-T-">serviceBinding</a></span>(Class&lt;T&gt;&nbsp;serviceInterface,
-              T&nbsp;service)</code>&nbsp;</td>
+              T&nbsp;service)</code>
+<div class="block">Convenience method to create <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a> when using <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-"><code>bindServices(ServiceBinding[])</code></a>.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -199,11 +230,14 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClient
 <li class="blockList">
 <h4>bindServiceInfo</h4>
 <pre>default&nbsp;void&nbsp;bindServiceInfo(<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api">ServiceInfo</a>&nbsp;serviceInfo)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClientGuiceSupport.html#bindServiceInfo-com.lightbend.lagom.javadsl.api.ServiceInfo-">ServiceClientGuiceSupport</a></code></span></div>
-<div class="block">Provides the ServiceInfo to use Lagom service clients.</div>
+<div class="block">Creates a custom <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> for this Lagom service. This method overrides
+ <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClientGuiceSupport.html#bindServiceInfo-com.lightbend.lagom.javadsl.api.ServiceInfo-"><code>ServiceClientGuiceSupport.bindServiceInfo(ServiceInfo)</code></a> with custom behavior for consume-only Lagom
+ services.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClientGuiceSupport.html#bindServiceInfo-com.lightbend.lagom.javadsl.api.ServiceInfo-">bindServiceInfo</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClientGuiceSupport.html" title="interface in com.lightbend.lagom.javadsl.client">ServiceClientGuiceSupport</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>serviceInfo</code> - the metadata identifying this Lagom Service.</dd>
 </dl>
 </li>
 </ul>
@@ -214,6 +248,66 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClient
 <li class="blockList">
 <h4>bindServices</h4>
 <pre>default&nbsp;void&nbsp;bindServices(<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;?&gt;...&nbsp;serviceBindings)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">support for multiple locatable ServiceDescriptors per Lagom service will be removed.
+ Use <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-"><code>bindService(java.lang.Class&lt;T&gt;, java.lang.Class&lt;? extends T&gt;)</code></a> instead</span></div>
+<div class="block">Binds Service interfaces with their implementations and registers them for publishing.
+ <p>
+ Inspects all bindings and creates routes to serve every call described in the bound services.
+ <p>
+ Builds the <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> metadata using only the <code>locatable</code> services.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>serviceBindings</code> - an arbitrary list of <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a>s. Use the convenience method
+                        <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#serviceBinding-java.lang.Class-java.lang.Class-"><code>serviceBinding(Class, Class)</code></a> to build the
+                        <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a>s. Despite being a <code>varargs</code> argument, it is required to
+                        provide at least one <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a> as argument.</dd>
+</dl>
+</li>
+</ul>
+<a name="bindService-java.lang.Class-java.lang.Class-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>bindService</h4>
+<pre>default&nbsp;&lt;T extends <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api">Service</a>&gt;&nbsp;void&nbsp;bindService(Class&lt;T&gt;&nbsp;serviceInterface,
+                                             Class&lt;? extends T&gt;&nbsp;serviceImplementation)</pre>
+<div class="block">Binds a Service interface with its implementation.
+ <p>
+ Inspects the service descriptor and creates routes to serve every call described.
+ <p>
+ Builds the <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> metadata.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - type constraint ensuring <code>serviceImplementation</code> implements <code>serviceInterface</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>serviceInterface</code> - the interface class for a <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api"><code>Service</code></a></dd>
+<dd><code>serviceImplementation</code> - the implementation class for the <code>serviceInterface</code></dd>
+</dl>
+</li>
+</ul>
+<a name="bindService-java.lang.Class-com.lightbend.lagom.javadsl.api.Service-">
+<!--   -->
+</a><a name="bindService-java.lang.Class-T-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>bindService</h4>
+<pre>default&nbsp;&lt;T extends <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api">Service</a>&gt;&nbsp;void&nbsp;bindService(Class&lt;T&gt;&nbsp;serviceInterface,
+                                             T&nbsp;service)</pre>
+<div class="block">Binds a Service interface with an instance that implements it.
+ <p>
+ Inspects the service descriptor and creates routes to serve every call described.
+ <p>
+ Builds the <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> metadata.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - type constraint ensuring <code>serviceImplementation</code> implements <code>serviceInterface</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>serviceInterface</code> - the interface class for a <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api"><code>Service</code></a></dd>
+<dd><code>service</code> - an instance of a class implementing <code>serviceInterface</code></dd>
+</dl>
 </li>
 </ul>
 <a name="serviceBinding-java.lang.Class-java.lang.Class-">
@@ -224,6 +318,11 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClient
 <h4>serviceBinding</h4>
 <pre>default&nbsp;&lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;T&gt;&nbsp;serviceBinding(Class&lt;T&gt;&nbsp;serviceInterface,
                                                                  Class&lt;? extends T&gt;&nbsp;serviceImplementation)</pre>
+<div class="block">Convenience method to create <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a> when using <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-"><code>bindServices(ServiceBinding[])</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a> to be used as argument in <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-"><code>bindServices(ServiceBinding[])</code></a>.</dd>
+</dl>
 </li>
 </ul>
 <a name="serviceBinding-java.lang.Class-java.lang.Object-">
@@ -236,6 +335,16 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClient
 <h4>serviceBinding</h4>
 <pre>default&nbsp;&lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;T&gt;&nbsp;serviceBinding(Class&lt;T&gt;&nbsp;serviceInterface,
                                                                  T&nbsp;service)</pre>
+<div class="block">Convenience method to create <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a> when using <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-"><code>bindServices(ServiceBinding[])</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - type constraint ensuring <code>service</code> implements <code>serviceInterface</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>serviceInterface</code> - the interface class for a service</dd>
+<dd><code>service</code> - an instance of the service</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a> to be used as argument in <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-"><code>bindServices(ServiceBinding[])</code></a>.</dd>
+</dl>
 </li>
 </ul>
 </li>

@@ -45,15 +45,18 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">MetricsServiceComponents</span><span class="result"> extends <a href="../LagomServerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">LagomServerComponents</a></span>
+        <span class="name">MetricsServiceComponents</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Provides an in-built metrics service.
 </p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/master//service/scaladsl/server/src/main/scala/com/lightbend/lagom/scaladsl/server/status/MetricsService.scala" target="_blank">MetricsService.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="../LagomServerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">LagomServerComponents</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">Known Subclasses</span>
+            <div class="subClasses hiddenContent"><a href="../LagomApplication.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomApplication">LagomApplication</a>, <a href="../LagomServerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">LagomServerComponents</a></div>
+          </div></div>
         
 
       <div id="mbrsel">
@@ -70,7 +73,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents"><span>MetricsServiceComponents</span></li><li class="in" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents"><span>LagomServerComponents</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents"><span>MetricsServiceComponents</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -98,7 +101,24 @@
 
         <div id="values" class="values members">
               <h3>Abstract Value Members</h3>
-              <ol><li name="com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents#circuitBreakerMetricsProvider" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+              <ol><li name="com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents#actorSystem" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="actorSystem:akka.actor.ActorSystem"></a>
+      <a id="actorSystem:ActorSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">actorSystem</span><span class="result">: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents@actorSystem:akka.actor.ActorSystem" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents#circuitBreakerMetricsProvider" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="circuitBreakerMetricsProvider:com.lightbend.lagom.internal.spi.CircuitBreakerMetricsProvider"></a>
       <a id="circuitBreakerMetricsProvider:CircuitBreakerMetricsProvider"></a>
       <h4 class="signature">
@@ -115,7 +135,7 @@
       </a>
     </span>
       
-    </li><li name="com.lightbend.lagom.scaladsl.server.LagomServerComponents#executionContext" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+    </li><li name="com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents#executionContext" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="executionContext:scala.concurrent.ExecutionContext"></a>
       <a id="executionContext:ExecutionContext"></a>
       <h4 class="signature">
@@ -131,75 +151,24 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../LagomServerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">LagomServerComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.server.LagomServerComponents#httpConfiguration" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="httpConfiguration:play.api.http.HttpConfiguration"></a>
-      <a id="httpConfiguration:HttpConfiguration"></a>
+      
+    </li><li name="com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents#lagomServerBuilder" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="lagomServerBuilder:com.lightbend.lagom.scaladsl.server.LagomServerBuilder"></a>
+      <a id="lagomServerBuilder:LagomServerBuilder"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">httpConfiguration</span><span class="result">: <span class="extype" name="play.api.http.HttpConfiguration">HttpConfiguration</span></span>
+        <span class="name">lagomServerBuilder</span><span class="result">: <a href="../LagomServerBuilder.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerBuilder">LagomServerBuilder</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents@httpConfiguration:play.api.http.HttpConfiguration" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents@lagomServerBuilder:com.lightbend.lagom.scaladsl.server.LagomServerBuilder" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../LagomServerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">LagomServerComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.server.LagomServerComponents#lagomServer" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="lagomServer:com.lightbend.lagom.scaladsl.server.LagomServer"></a>
-      <a id="lagomServer:LagomServer"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">lagomServer</span><span class="result">: <a href="../LagomServer.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServer">LagomServer</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents@lagomServer:com.lightbend.lagom.scaladsl.server.LagomServer" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../LagomServerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">LagomServerComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.server.LagomServerComponents#materializer" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="materializer:akka.stream.Materializer"></a>
-      <a id="materializer:Materializer"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">materializer</span><span class="result">: <span class="extype" name="akka.stream.Materializer">Materializer</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents@materializer:akka.stream.Materializer" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../LagomServerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">LagomServerComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.server.LagomServerComponents#serviceResolver" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="serviceResolver:com.lightbend.lagom.scaladsl.client.ServiceResolver"></a>
-      <a id="serviceResolver:ServiceResolver"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">serviceResolver</span><span class="result">: <a href="../../client/ServiceResolver.html" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceResolver">ServiceResolver</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents@serviceResolver:com.lightbend.lagom.scaladsl.client.ServiceResolver" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../LagomServerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">LagomServerComponents</a></dd></dl></div>
+      
     </li></ol>
             </div>
 
@@ -318,23 +287,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.server.LagomServerComponents#bindService" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="bindService[T&lt;:com.lightbend.lagom.scaladsl.api.Service]:com.lightbend.lagom.scaladsl.server.LagomServiceBinder[T]"></a>
-      <a id="bindService[T&lt;:Service]:LagomServiceBinder[T]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">macro </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">bindService</span><span class="tparams">[<span name="T">T &lt;: <a href="../../api/Service.html" class="extype" name="com.lightbend.lagom.scaladsl.api.Service">Service</a></span>]</span><span class="result">: <a href="../LagomServiceBinder.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServiceBinder">LagomServiceBinder</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents.bindService.T">T</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents@bindService[T&lt;:com.lightbend.lagom.scaladsl.api.Service]:com.lightbend.lagom.scaladsl.server.LagomServiceBinder[T]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../LagomServerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">LagomServerComponents</a></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -574,23 +526,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.server.LagomServerComponents#lagomServerBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="lagomServerBuilder:com.lightbend.lagom.scaladsl.server.LagomServerBuilder"></a>
-      <a id="lagomServerBuilder:LagomServerBuilder"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">lazy val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">lagomServerBuilder</span><span class="result">: <a href="../LagomServerBuilder.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerBuilder">LagomServerBuilder</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents@lagomServerBuilder:com.lightbend.lagom.scaladsl.server.LagomServerBuilder" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../LagomServerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">LagomServerComponents</a></dd></dl></div>
     </li><li name="com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents#metricsServiceBinding" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="metricsServiceBinding:com.lightbend.lagom.scaladsl.server.LagomServiceBinding[com.lightbend.lagom.scaladsl.server.status.MetricsService]"></a>
       <a id="metricsServiceBinding:LagomServiceBinding[MetricsService]"></a>
@@ -659,40 +594,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.server.LagomServerComponents#router" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="router:play.api.routing.Router"></a>
-      <a id="router:Router"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">lazy val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">router</span><span class="result">: <span class="extype" name="play.api.routing.Router">Router</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents@router:play.api.routing.Router" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../LagomServerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">LagomServerComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.server.LagomServerComponents#serviceInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="serviceInfo:com.lightbend.lagom.scaladsl.api.ServiceInfo"></a>
-      <a id="serviceInfo:ServiceInfo"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">lazy val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">serviceInfo</span><span class="result">: <a href="../../api/ServiceInfo.html" class="extype" name="com.lightbend.lagom.scaladsl.api.ServiceInfo">ServiceInfo</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents@serviceInfo:com.lightbend.lagom.scaladsl.api.ServiceInfo" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../LagomServerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">LagomServerComponents</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -826,9 +727,7 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">
-              <h3>Inherited from <a href="../LagomServerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">LagomServerComponents</a></h3>
-            </div><div class="parent" name="scala.AnyRef">
+        <div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>

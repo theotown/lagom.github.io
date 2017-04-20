@@ -9,9 +9,9 @@
 &lt;/dependency&gt;
 </code></pre>
 <p>In sbt:</p>
-<pre class="prettyprint"><code class="language-sbt">// FIXME
-//libraryDependencies += lagomScaladslPersistenceJdbc</code></pre>
-<p>You will also need to add the jar for your JDBC database driver.</p><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
+<pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomScaladslPersistenceJdbc</code></pre>
+<p>You will also need to add the jar for your JDBC database driver.</p>
+<p>To enable the RDBMS Persistence on your Application you will have to mix in | <a href="api/com/lightbend/lagom/scaladsl/persistence/jdbc/JdbcPersistenceComponents.html">JdbcPersistenceComponents</a> and <a href="https://www.playframework.com/documentation/2.5.x/api/scala/play/api/db/HikariCPComponents.html">HikariCPComponents</a> as described in <a href="DependencyInjection.html#Wiring-together-a-Lagom-application">Dependency Injection</a>.</p><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
 <p>Lagom uses the <a href="https://github.com/dnvriend/akka-persistence-jdbc"><code>akka-persistence-jdbc</code></a> plugin to persist entities to the database. This supports four different relational databases:</p>
 <ul>
   <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
@@ -28,7 +28,7 @@
   url = &quot;jdbc:postgresql://database.example.com/playdb&quot;
 }
 
-jdbc-defaults.slick.driver = &quot;slick.driver.PostgresDriver$&quot;
+jdbc-defaults.slick.driver = &quot;slick.jdbc.PostgresProfile$&quot;
 </code></pre><h2 id="Table-creation"><a class="section-marker" href="#Table-creation">§</a>Table creation</h2>
 <p>By default, Lagom will automatically create the tables it needs for you if they don&rsquo;t already exist. This is great for development and testing, but in some circumstances may not be appropriate for production. The table auto creation feature can be disabled by using the following configuration:</p>
 <pre class="prettyprint"><code>lagom.persistence.jdbc.create-tables.auto = false
@@ -39,7 +39,7 @@ jdbc-defaults.slick.driver = &quot;slick.driver.PostgresDriver$&quot;
 jdbc-defaults.slick {
 
   # The driver to use
-  driver = &quot;slick.driver.H2Driver$&quot;
+  driver = &quot;slick.jdbc.H2Profile$&quot;
 
   # The JNDI name
   jndiName = &quot;DefaultDS&quot;

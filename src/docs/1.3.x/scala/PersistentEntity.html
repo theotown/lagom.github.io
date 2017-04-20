@@ -232,8 +232,7 @@ class PostSpec extends WordSpecLike with Matchers with BeforeAndAfterAll
 <p><code>run</code> may be invoked multiple times to divide the sequence of commands into manageable steps. The <a href="api/index.html#com/lightbend/lagom/scaladsl/testkit/PersistentEntityTestDriver@Outcome">Outcome</a> contains the events and side-effects of the last <code>run</code>, but the state is not reset between different runs.</p>
 <p>Note that it also verifies that all commands, events, replies and state are <a href="Serialization.html">serializable</a>, and reports any such problems in the <code>issues</code> of the <code>Outcome</code>.</p>
 <p>To use this feature add the following in your project&rsquo;s build:</p>
-<pre class="prettyprint"><code class="language-sbt">// FIXME
-//libraryDependencies += lagomScaladslTestKit</code></pre><h2 id="Full-Example"><a class="section-marker" href="#Full-Example">§</a>Full Example</h2>
+<pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomScaladslTestKit</code></pre><h2 id="Full-Example"><a class="section-marker" href="#Full-Example">§</a>Full Example</h2>
 <pre class="prettyprint"><code class="language-scala">import akka.Done
 import com.lightbend.lagom.scaladsl.persistence.PersistentEntity
 

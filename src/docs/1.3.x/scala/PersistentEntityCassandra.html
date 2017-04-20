@@ -9,8 +9,7 @@
 &lt;/dependency&gt;
 </code></pre>
 <p>In sbt:</p>
-<pre class="prettyprint"><code class="language-sbt">// FIXME
-//libraryDependencies += lagomScaladslPersistenceCassandra</code></pre><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
+<pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomScaladslPersistenceCassandra</code></pre><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
 <p>Lagom&rsquo;s persistence needs a few tables to store its data. These tables are stored in Cassandra keyspaces. A keyspace in Cassandra is a namespace that defines data replication on Cassandra nodes. Each service should use a unique keyspace name so that the tables of different services do not conflict with each other. You need to configure the keyspaces that are used for these tables in each of your service implementation projects.</p>
 <p>Cassandra keyspace names must start with an alphanumeric character and contain only alphanumeric and underscore characters. They are case-insensitive and stored in lowercase.</p>
 <p>Lagom has three internal components that require keyspace configuration:</p>

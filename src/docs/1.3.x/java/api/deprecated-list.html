@@ -87,6 +87,17 @@
 </tr>
 <tbody>
 <tr class="altColor">
+<td class="colOne"><a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-">com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.bindServices(ServiceGuiceSupport.ServiceBinding&lt;?&gt;...)</a>
+<div class="block"><span class="deprecationComment">support for multiple locatable ServiceDescriptors per Lagom service will be removed.
+ Use <a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-"><code>ServiceGuiceSupport.bindService(java.lang.Class&lt;T&gt;, java.lang.Class&lt;? extends T&gt;)</code></a> instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html#getLocatableServices--">com.lightbend.lagom.javadsl.api.ServiceInfo.getLocatableServices()</a>
+<div class="block"><span class="deprecationComment">this method will be removed when dropping support for multiple locatable service descriptors per service.</span></div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html#register-java.lang.Class-">com.lightbend.lagom.javadsl.persistence.cassandra.CassandraReadSide.register(Class&lt;? extends CassandraReadSideProcessor&lt;Event&gt;&gt;)</a>
 <div class="block"><span class="deprecationComment">Use the builder method to create and register a Cassandra read side processor.</span></div>
 </td>
@@ -109,6 +120,11 @@
 <tr class="altColor">
 <td class="colOne"><a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html#ServiceInfo-java.lang.String-">com.lightbend.lagom.javadsl.api.ServiceInfo(String)</a>
 <div class="block"><span class="deprecationComment">use <a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html#ServiceInfo-java.lang.String-org.pcollections.PMap-"><code>ServiceInfo.ServiceInfo(String, PMap)</code></a> instead.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html#ServiceInfo-java.lang.String-org.pcollections.PMap-">com.lightbend.lagom.javadsl.api.ServiceInfo(String, PMap&lt;String, PSequence&lt;ServiceAcl&gt;&gt;)</a>
+<div class="block"><span class="deprecationComment">use <a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html#of-java.lang.String-com.lightbend.lagom.javadsl.api.ServiceAcl...-"><code>ServiceInfo.of(String, ServiceAcl...)</code></a> instead.</span></div>
 </td>
 </tr>
 </tbody>

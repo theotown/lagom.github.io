@@ -12,8 +12,7 @@
 &lt;/dependency&gt;
 </code></pre>
 <p>In sbt:</p>
-<pre class="prettyprint"><code class="language-sbt">// FIXME
-//libraryDependencies += lagomScaladslCluster</code></pre><h2 id="Cluster-composition"><a class="section-marker" href="#Cluster-composition">§</a>Cluster composition</h2>
+<pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomScaladslCluster</code></pre><h2 id="Cluster-composition"><a class="section-marker" href="#Cluster-composition">§</a>Cluster composition</h2>
 <p>A cluster should only span nodes that are running the same service.</p>
 <p>You could imagine using cluster features across different services, but we recommend against that, because it would couple the services too tightly. Different services should only interact with each other through each service&rsquo;s API.</p><h2 id="Joining"><a class="section-marker" href="#Joining">§</a>Joining</h2>
 <p>A service instance joins a cluster when the service starts up.</p><h3 id="Joining-during-development"><a class="section-marker" href="#Joining-during-development">§</a>Joining during development</h3>

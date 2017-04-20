@@ -21,11 +21,11 @@ import com.lightbend.lagom.javadsl.server.ServiceGuiceSupport;
 public class ServiceModule extends AbstractModule implements ServiceGuiceSupport {
 
     protected void configure() {
-        bindServices(serviceBinding(HelloService.class, HelloServiceImpl.class));
+        bindService(HelloService.class, HelloServiceImpl.class);
         bindClient(EchoService.class);
     }
 }</code></pre>
-<p>Note that when you bind a server using <code>bindServices</code>, this will automatically bind a client for that service as well. So in the previous example, when we start the application there will be one service (<code>HelloService</code>) and two clients (<code>HelloService</code> and <code>EchoService</code>) available.</p><h2 id="Using-a-service-client"><a class="section-marker" href="#Using-a-service-client">§</a>Using a service client</h2>
+<p>Note that when you bind a server using <code>bindService</code>, this will automatically bind a client for that service as well. So in the previous example, when we start the application there will be one service (<code>HelloService</code>) and two clients (<code>HelloService</code> and <code>EchoService</code>) available.</p><h2 id="Using-a-service-client"><a class="section-marker" href="#Using-a-service-client">§</a>Using a service client</h2>
 <p>Having bound the client, you can now have it injected into any Lagom component using <code>@Inject</code> annotations. Here&rsquo;s an example of consuming one service from another service:</p>
 <pre class="prettyprint"><code class="language-java">public class MyServiceImpl implements MyService {
   private final HelloService helloService;

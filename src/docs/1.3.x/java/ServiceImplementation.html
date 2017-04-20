@@ -27,10 +27,10 @@ import com.lightbend.lagom.javadsl.server.ServiceGuiceSupport;
 public class Module extends AbstractModule implements ServiceGuiceSupport {
 
     protected void configure() {
-        bindServices(serviceBinding(HelloService.class, HelloServiceImpl.class));
+        bindService(HelloService.class, HelloServiceImpl.class);
     }
 }</code></pre>
-<p>As you can see, the module extends Guice&rsquo;s <code>AbstractModule</code>, as well as Lagom&rsquo;s <code>ServiceGuiceSupport</code>. In this module, you can provide any Guice bindings you like. In this case, we&rsquo;re just providing a binding for the <code>HelloService</code>. Lagom allows you to bind multiple services, however, <code>bindServices()</code> may only be invoked once, as this will bind a router for Play to use to route Lagom service calls, which if bound multiple times, will cause a Guice configuration error. The first binding you specify will be considered the <code>primaryServiceBinding</code> and its Descriptor&rsquo;s name will be used to name your Service. This name will be used by Lagom as the default value to identify your microservice when interacting with other microservices.</p>
+<p>As you can see, the module extends Guice&rsquo;s <code>AbstractModule</code>, as well as Lagom&rsquo;s <code>ServiceGuiceSupport</code>. In this module, you can provide any Guice bindings you like. In this case, we&rsquo;re just providing a binding for the <code>HelloService</code>. <code>bindService()</code> may only be invoked once, as this will bind a router for Play to use to route Lagom service calls, which if bound multiple times, will cause a Guice configuration error. The name in the Descriptor bound will be used to name your Service. This name will be used by Lagom as the default value to identify your microservice when interacting with other microservices.</p>
 <p>By convention, Play will automatically load a module called <code>Module</code> in the root package if it can find one, however if you&rsquo;d prefer to call your module another name, or not put it in the root package, then you can manually add your module to Play&rsquo;s list of enabled modules by adding the following to <code>application.conf</code>:</p>
 <pre class="prettyprint"><code>play.modules.enabled += com.example.MyModule
 </code></pre><h2 id="Working-with-streams"><a class="section-marker" href="#Working-with-streams">§</a>Working with streams</h2>

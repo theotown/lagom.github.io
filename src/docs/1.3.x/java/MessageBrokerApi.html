@@ -114,7 +114,7 @@ public interface BlogPostEvent {
         }
     }
 }</code></pre>
-<p>The <code>@JsonTypeInfo</code> annotation describes how the type of the event will be serialised. In this case, it&rsquo;s saying each event type will be identified by it&rsquo;s name, and that name will go into a property called <code>type</code>. The <code>@JsonTypeName</code> on each event subclass says what the name of that event should be. And the <code>@JsonSubTypes</code> annotation is used to tell Jackson what the possible sub types of the event are, so that it knows where to look when deserializing.</p>
+<p>The <code>@JsonTypeInfo</code> annotation describes how the type of the event will be serialised. In this case, it&rsquo;s saying each event type will be identified by its name, and that name will go into a property called <code>type</code>. The <code>@JsonTypeName</code> on each event subclass says what the name of that event should be. And the <code>@JsonSubTypes</code> annotation is used to tell Jackson what the possible sub types of the event are, so that it knows where to look when deserializing.</p>
 <p>The resulting JSON for the <code>BlogPostCreated</code> event will look like this:</p>
 <pre class="prettyprint"><code class="language-json">{
   &quot;type&quot;: &quot;created&quot;,

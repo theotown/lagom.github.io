@@ -77,7 +77,7 @@ b.setCommandHandler(AddPost.class, (AddPost cmd, CommandContext&lt;AddPostDone&g
 // and when replaying events.
 b.setEventHandler(PostAdded.class, evt -&gt;
   new BlogState(Optional.of(evt.getContent()), false));</code></pre>
-<p>You should define one event handler for each event class that the entity can persists.</p>
+<p>You should define one event handler for each event class that the entity can persist.</p>
 <p>The event handler returns the new state. The state must be immutable, so you return a new instance of the state. Current state can be accessed from the event handler with the <code>state</code> method of the <code>PersistentEntity</code>. The same event handlers are also used when the entity is started up to recover its state from the stored events.</p>
 <p>The events must be immutable to avoid concurrency issues that may occur from changing an event instance that is about to be persisted.</p>
 <p>The section <a href="Immutable.html">Immutable Objects</a> describes how to define immutable event classes.</p><h2 id="Replies"><a class="section-marker" href="#Replies">§</a>Replies</h2>

@@ -55,7 +55,7 @@ def descriptor: Descriptor = {
       .withCircuitBreaker(CircuitBreaker.identifiedBy(&quot;hello2&quot;))
   )
 }</code></pre>
-<p>In the above example the default identifer is used for the <code>sayHi</code> method, since no specific identifier is given. The default identifier is the same as the service name, i.e. <code>&quot;hello&quot;</code> in this example. The <code>hiAgain</code> method will use another circuit breaker instance, since <code>&quot;hello2&quot;</code> is specified as circuit breaker identifier.</p>
+<p>In the above example the default identifier is used for the <code>sayHi</code> method, since no specific identifier is given. The default identifier is the same as the service name, i.e. <code>&quot;hello&quot;</code> in this example. The <code>hiAgain</code> method will use another circuit breaker instance, since <code>&quot;hello2&quot;</code> is specified as circuit breaker identifier.</p>
 <p>On the client side you can configure the circuit breakers. The default configuration is:</p>
 <pre class="prettyprint"><code class="language-conf"># Circuit breakers for calls to other services are configured
 # in this section. A child configuration section with the same

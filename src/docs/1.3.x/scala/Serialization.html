@@ -97,7 +97,7 @@ object Fruit {
     }
   )
 }</code></pre><h2 id="Schema-Evolution"><a class="section-marker" href="#Schema-Evolution">§</a>Schema Evolution</h2>
-<p>When working on long running projects using <a href="PersistentEntity.html">Persistence</a>, or any kind of Event Sourcing, schema evolution becomes an important aspects of developing your application. The requirements as well as our own understanding of the business domain may (and will) change over time.</p>
+<p>When working on long running projects using <a href="PersistentEntity.html">Persistence</a>, or any kind of Event Sourcing, schema evolution becomes an important aspect of developing your application. The requirements as well as our own understanding of the business domain may (and will) change over time.</p>
 <p>Lagom provides a way to perform transformations of the JSON tree model during deserialization. To do those transformations you can either modify the json imperatively or use the <a href="https://www.playframework.com/documentation/2.5.x/ScalaJsonTransformers">Play JSON transformers</a></p>
 <p>We will look at a few scenarios of how the classes may be evolved.</p><h3 id="Remove-Field"><a class="section-marker" href="#Remove-Field">§</a>Remove Field</h3>
 <p>Removing a field can be done without any migration code. Both manual and automatic mappings will ignore properties that does not exist in the class.</p><h3 id="Add-Field"><a class="section-marker" href="#Add-Field">§</a>Add Field</h3>

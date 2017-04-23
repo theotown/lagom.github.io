@@ -3,7 +3,7 @@
 <p>There are several scenarios supported by Lagom:</p>
 <ol>
   <li>When you create a Lagom Service and you <a href="DependencyInjection.html#Wiring-together-a-Lagom-application">wire together the application</a> Lagom will bundle the <code>name</code> and the ACLs into a <code>ServiceInfo</code>.</li>
-  <li>When you consume Lagom Services and mix-in <code>LagomServiceClientComponents</code> to <a href="ServiceClients.html#Binding-a-service-client">bind clients</a> Lagom is not wiring a ServiceInfo under the covers and you will have to provide one programatically.</li>
+  <li>When you consume Lagom Services and mix-in <code>LagomServiceClientComponents</code> to <a href="ServiceClients.html#Binding-a-service-client">bind clients</a> Lagom is not wiring a ServiceInfo under the covers and you will have to provide one programmatically.</li>
   <li>The final scenario is that where the client app is not using Guice and connect to Lagom via the <a href="IntegratingNonLagom.html">Lagom Client Factory</a>. In this scenario, Lagom will also create the metadata on your behalf.</li>
 </ol><h2 id="Service-Name-and-Service-ACLs"><a class="section-marker" href="#Service-Name-and-Service-ACLs">§</a>Service Name and Service ACLs</h2>
 <p>Services interact with each other. This interaction requires each service to identify itself when acting as a client to another service. When this identity is required, the <code>ServiceInfo</code>&rsquo;s name is used by default. Take for example <code>HelloService</code>:</p>

@@ -13,7 +13,7 @@
   <p>Open a console and change into the directory you selected for your project.</p></li>
   <li>
   <p>Enter the following command:<br/> <code>
-   sbt new -Dsbt.version=0.13.13 lagom/lagom-scala.g8
+   sbt -Dsbt.version=0.13.15 new https://github.com/lagom/lagom-scala.g8
 </code></p></li>
   <li>
   <p>The template prompts for the following parameters. Press <code>Enter</code> to accept the defaults or specify your own values:</p></li>
@@ -22,7 +22,7 @@
   <li><code>name</code> - Becomes the name of the top-level project directory.</li>
   <li><code>organization</code> - Used as a package name.</li>
   <li><code>version</code> - A version number for your system.</li>
-  <li><code>lagom-version</code> - The version number of Lagom, such as 1.3.0. Be sure to use the <a href="https://www.lagomframework.com/documentation/">current stable release</a>.</li>
+  <li><code>lagom-version</code> - The version number of Lagom, such as 1.3.2. Be sure to use the <a href="https://www.lagomframework.com/documentation/">current stable release</a>.</li>
 </ul><h2 id="Browse-the-build"><a class="section-marker" href="#Browse-the-build">§</a>Browse the build</h2>
 <p>The created project contains the following elements:</p>
 <pre class="prettyprint"><code>hello                   → Project root

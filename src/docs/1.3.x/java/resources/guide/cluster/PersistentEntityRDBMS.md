@@ -45,7 +45,7 @@ db.default {
   url = "jdbc:postgresql://database.example.com/playdb"
 }
 
-jdbc-defaults.slick.driver = "slick.jdbc.PostgresProfile$"
+jdbc-defaults.slick.driver = "slick.driver.PostgresDriver$"
 ```
 
 ## Table creation

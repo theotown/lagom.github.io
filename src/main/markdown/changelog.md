@@ -1,5 +1,18 @@
 # Lagom Change Log
 
+## Lagom 1.3.3
+
+*Released 28 April 2017*
+
+* [435](https://github.com/lagom/lagom/issues/435) Fixed running embedded Cassandra in tests on Windows
+* [633](https://github.com/lagom/lagom/pull/633) Deprecated multiple descriptors per service
+* [637](https://github.com/lagom/lagom/pull/637) Enable metrics delivery by default in Scala
+* [664](https://github.com/lagom/lagom/issues/664) Allow tests to share JVMs when running embedded Cassandra
+* [690](https://github.com/lagom/lagom/pull/690) Fix connecting to Cassandra on non default ports
+* [694](https://github.com/lagom/lagom/issues/694) Fix customising the groupId for Kafka subscriptions
+
+Migration notes can be found [here](blog/lagom-1-3-3.html).
+
 ## Lagom 1.3.2
 
 *Released 19 April 2017*
@@ -18,6 +31,8 @@
 * [632](https://github.com/lagom/lagom/pull/632) Warn on implicit keyspace config
 * [636](https://github.com/lagom/lagom/pull/636) Remove reference to Cassandra in the `JdbcReadside` API documentation
 * [684](https://github.com/lagom/lagom/pull/684) Ensure maven plugin adds right dependency for Play integration
+
+Migration notes can be found [here](blog/lagom-1-3-2.html).
 
 ## Lagom 1.3.1
 

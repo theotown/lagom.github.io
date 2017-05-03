@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/baa383f7125b88cfe71ec5dc9ae6279c3bcdfb4c-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/2a63ad2e8d26906cf3b71814abfbf69d668fce07-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -267,7 +267,8 @@ lagomCassandraMaxBootWaitingTime in ThisBuild := 0.seconds</code></pre>
 <p>In sbt:</p>
 <pre class="prettyprint"><code class="language-sbt">lagomCassandraEnabled in ThisBuild := false
 lagomUnmanagedServices in ThisBuild := Map(&quot;cas_native&quot; -&gt; &quot;http://localhost:9042&quot;)</code></pre>
-<p>Assuming your local Cassandra instance is running on port <code>9042</code>.</p>
+<p>These two settings will only be used when running Lagom in DevMode. The purpose of these two settings is to disable the embedded Cassandra server and configure the Service Locator in DevMode to still be able to locate Cassandra when looking for <code>cas_native</code>. You may want to disable the Lagom-managed Cassandra server if you already have a Cassandra server running locally or in your company infrastructure and prefer using that. In that scenario it doesn&rsquo;t make sense for Lagom to start a Cassandra server and you will also gain few seconds of bootup time.</p>
+<p>The service locator setup in these examples assumes your local Cassandra instance is running on port <code>9042</code>.</p>
                 </article>
 
                 
@@ -492,7 +493,7 @@ lagomUnmanagedServices in ThisBuild := Map(&quot;cas_native&quot; -&gt; &quot;ht
             </div>
         </div>
     </body>
-    <script src="/baa383f7125b88cfe71ec5dc9ae6279c3bcdfb4c-all-scripts-concat.js"></script>
+    <script src="/2a63ad2e8d26906cf3b71814abfbf69d668fce07-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

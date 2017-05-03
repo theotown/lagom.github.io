@@ -137,4 +137,5 @@ lagomCassandraMaxBootWaitingTime in ThisBuild := 0.seconds</code></pre>
 <p>In sbt:</p>
 <pre class="prettyprint"><code class="language-sbt">lagomCassandraEnabled in ThisBuild := false
 lagomUnmanagedServices in ThisBuild := Map(&quot;cas_native&quot; -&gt; &quot;http://localhost:9042&quot;)</code></pre>
-<p>Assuming your local Cassandra instance is running on port <code>9042</code>.</p>
+<p>These two settings will only be used when running Lagom in DevMode. The purpose of these two settings is to disable the embedded Cassandra server and configure the Service Locator in DevMode to still be able to locate Cassandra when looking for <code>cas_native</code>. You may want to disable the Lagom-managed Cassandra server if you already have a Cassandra server running locally or in your company infrastructure and prefer using that. In that scenario it doesn&rsquo;t make sense for Lagom to start a Cassandra server and you will also gain few seconds of bootup time.</p>
+<p>The service locator setup in these examples assumes your local Cassandra instance is running on port <code>9042</code>.</p>

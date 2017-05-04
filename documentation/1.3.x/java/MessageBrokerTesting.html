@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/2a63ad2e8d26906cf3b71814abfbf69d668fce07-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/d600360a319f826a225f6087ecc2c8e4cd9f2d17-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -192,6 +192,12 @@ public void shouldEmitGreetingsMessageWhenHelloEntityEmitsEnEvent() {
             // use a service client instance to interact with the service
             // and assert the message was processed as expected.
             // ...
+
+            // You will probably need to wrap your assertion in an
+            // `eventually()` clause so you can retry your assertion
+            // since your invocation via the service client may arrive
+            // before the message was consumed.
+
         });
     }
 
@@ -443,7 +449,7 @@ public void shouldEmitGreetingsMessageWhenHelloEntityEmitsEnEvent() {
             </div>
         </div>
     </body>
-    <script src="/2a63ad2e8d26906cf3b71814abfbf69d668fce07-all-scripts-concat.js"></script>
+    <script src="/d600360a319f826a225f6087ecc2c8e4cd9f2d17-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

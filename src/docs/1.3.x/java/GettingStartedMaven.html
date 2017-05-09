@@ -42,14 +42,12 @@ Choose a number or apply filter (format: [groupId:]artifactId, case sensitive co
 </code></pre><h2 id="Browse-the-project-structure"><a class="section-marker" href="#Browse-the-project-structure">§</a>Browse the project structure</h2>
 <p>The structure for a project created with the Maven archetype generate command will look similar to the following (assuming <code>my-first-system</code> as an <code>artifactId</code>):</p>
 <pre class="prettyprint"><code>my-first-system 
- └ cassandra-config      
- └ hello-api             → hello world api project dir
- └ hello-impl            → hello world implementation dir 
- └ integration-tests    
- └ stream-api            → stream api project dir
- └ stream-impl           → stream implementation project dir
- 
- └ pom.xml               → Project group build file
+ └ hello-api/             → hello world api project dir
+ └ hello-impl/            → hello world implementation dir 
+ └ integration-tests/
+ └ stream-api/            → stream api project dir
+ └ stream-impl/           → stream implementation project dir
+ └ pom.xml                → Project group build file
 </code></pre>
 <p>Note that the <code>hello</code> and <code>stream</code> services each have: </p>
 <ul>

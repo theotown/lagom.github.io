@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/5da8ed9df6e2ebeea843a5d66f2545f37cad0647-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/9906b2014a208197e22a3980db68786aef117c47-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -170,14 +170,12 @@ Choose a number or apply filter (format: [groupId:]artifactId, case sensitive co
 </code></pre><h2 id="Browse-the-project-structure"><a class="section-marker" href="#Browse-the-project-structure">§</a>Browse the project structure</h2>
 <p>The structure for a project created with the Maven archetype generate command will look similar to the following (assuming <code>my-first-system</code> as an <code>artifactId</code>):</p>
 <pre class="prettyprint"><code>my-first-system 
- └ cassandra-config      
- └ hello-api             → hello world api project dir
- └ hello-impl            → hello world implementation dir 
- └ integration-tests    
- └ stream-api            → stream api project dir
- └ stream-impl           → stream implementation project dir
- 
- └ pom.xml               → Project group build file
+ └ hello-api/             → hello world api project dir
+ └ hello-impl/            → hello world implementation dir 
+ └ integration-tests/
+ └ stream-api/            → stream api project dir
+ └ stream-impl/           → stream implementation project dir
+ └ pom.xml                → Project group build file
 </code></pre>
 <p>Note that the <code>hello</code> and <code>stream</code> services each have: </p>
 <ul>
@@ -396,7 +394,7 @@ mvn lagom:runAll
             </div>
         </div>
     </body>
-    <script src="/5da8ed9df6e2ebeea843a5d66f2545f37cad0647-all-scripts-concat.js"></script>
+    <script src="/9906b2014a208197e22a3980db68786aef117c47-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

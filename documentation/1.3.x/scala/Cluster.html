@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/9906b2014a208197e22a3980db68786aef117c47-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/69371c097890f7f0195c260e10e094ce3997d7f0-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -164,9 +164,9 @@
 <p>When operating a Lagom service cluster you must consider how to handle network partitions (a.k.a. split brain scenarios) and machine crashes (including JVM and hardware failures). This is crucial for correct behavior when using <a href="PersistentEntity.html">Persistent Entities</a>. Persistent entities must be single-writers, i.e. there must only be one active entity with a given entity identity. If the cluster is split in two halves and the wrong downing strategy is used there will be active entities with the same identifiers in both clusters, writing to the same database. That will result in corrupt data.</p>
 <p>The naïve approach is to remove an unreachable node from the cluster membership after a timeout. This works great for crashes and short transient network partitions, but not for long network partitions. Both sides of the network partition will see the other side as unreachable and after a while remove it from its cluster membership. Since this happens on both sides the result is that two separate disconnected clusters have been created. This approach is provided by the opt-in (off by default) auto-down feature in the OSS version of Akka Cluster. Because of this auto-down should not be used in production systems.</p>
 <p><strong>We strongly recommend against using the auto-down feature of Akka Cluster.</strong></p>
-<p>A pre-packaged solution for the downing problem is provided by <a href="http://doc.akka.io/docs/akka/akka-commercial-addons-1.0/scala/split-brain-resolver.html">Split Brain Resolver</a>, which is part of the <a href="https://www.lightbend.com/products/lightbend-reactive-platform">Lightbend Reactive Platform</a>. The <code>keep-majority</code> strategy is configured to be enabled by default if you use Lagom with the Reactive Platform.</p>
-<p>See <a href="http://doc.akka.io/docs/akka/akka-commercial-addons-1.0/scala/split-brain-resolver.html">Split Brain Resolver documentation</a> and <a href="ReactivePlatform.html">Reactive Platform instructions</a> for how to enable it in the build of your project.</p>
-<p>If you don&rsquo;t use RP, you should anyway carefully read the documentation of the <a href="http://doc.akka.io/docs/akka/akka-commercial-addons-1.0/scala/split-brain-resolver.html">Split Brain Resolver</a> and make sure that the solution you are using handles the concerns described there.</p><h2 id="Leaving"><a class="section-marker" href="#Leaving">§</a>Leaving</h2>
+<p>A pre-packaged solution for the downing problem is provided by <a href="http://tech-hub.lightbend.com/docs/akka-commercial-addons/current/split-brain-resolver.html">Split Brain Resolver</a>, which is part of the <a href="https://www.lightbend.com/platform/production">Lightbend Enterprise Suite</a>. The <code>keep-majority</code> strategy is configured to be enabled by default if you use Lagom with the Enterprise Suite.</p>
+<p>See <a href="http://tech-hub.lightbend.com/docs/akka-commercial-addons/current/split-brain-resolver.html">Split Brain Resolver documentation</a> and <a href="ReactivePlatform.html">Reactive Platform instructions</a> for how to enable it in the build of your project.</p>
+<p>Even if you don&rsquo;t use the commercial Enterprise Suite, you should still read &amp; understand the concepts behind <a href="http://tech-hub.lightbend.com/docs/akka-commercial-addons/current/split-brain-resolver.html">Split Brain Resolver</a> to ensure your solution handles the concerns described there.</p><h2 id="Leaving"><a class="section-marker" href="#Leaving">§</a>Leaving</h2>
 <p>When using <a href="PersistentEntity.html">Persistent Entities</a> you can use <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/PersistentEntityRegistry@gracefulShutdown">PersistentEntityRegistry.gracefulShutdown</a> to stop the persistent entities and leave the cluster in a graceful way. This is not mandatory but it can be good when you are doing a controlled shutdown of a service node. It will reduce the number of lost in-flight messages during the failover to another node.</p>
                 </article>
 
@@ -404,7 +404,7 @@
             </div>
         </div>
     </body>
-    <script src="/9906b2014a208197e22a3980db68786aef117c47-all-scripts-concat.js"></script>
+    <script src="/69371c097890f7f0195c260e10e094ce3997d7f0-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

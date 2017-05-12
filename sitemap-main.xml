@@ -48,6 +48,10 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.lagomframework.com/404.html</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://www.lagomframework.com/outreachy/round14.html</loc>
     <priority>1.0</priority>
   </url>

@@ -1,23 +1,20 @@
 
 
 
+
+
 <!DOCTYPE html>
 <html class="noios">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Set up Immutables in your IDE</title>
+        <title>Lagom - 404 - Not Found</title>
         <meta name="description" content="Lagom">
-        
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.3.x/java/ImmutablesInIDEs.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="/24b135d2225a18d29d74b66d76510301cecd4bbd-all-styles-concat.css" type="text/css">
-         
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-    
-
+        
     </head>
     <body>
         <div class="off-canvas-wrapper">
@@ -104,134 +101,56 @@
                         </div>
                     </div>
 
-                      
+                    
+
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Set up Immutables in your IDE</h1>
+                <h1>404 - Not Found</h1>
             </div>
         </div>
     </header>
 
-    <div class="fw-wrapper documentation-content">
+    <article class="fw-wrapper page-content">
         <div class="row">
             <div class="small-12 large-7 columns">
                 
-                    <nav class="breadcrumbs">
-                        <a href="Home.html">Home</a>
-                        
-                            &raquo; <a href="ImmutablesInIDEs.html">Appendix</a>
-                        
-                    </nav>
-                
+    <p>The Lagom website does not contain too many pages, nor does it contain too few pages. It contains just the right amount of pages. The page you have requested is not one of them.</p>
 
-                <article>
-                <h1 id="Set-up-Immutables-in-your-IDE"><a class="section-marker" href="#Set-up-Immutables-in-your-IDE">§</a><a href="#set-up-immutables-in-your-ide" name="set-up-immutables-in-your-ide">Set up Immutables in your IDE</a></h1>
-<p><a href="https://immutables.github.io">Immutables</a> is a library we recommend to create immutable objects and reduce boilerplate code to a minimum. We believe you will find this library handy, but because immutables generates sources from annotations, you need to enable the Java compiler annotation processor.</p><h2 id="Eclipse"><a class="section-marker" href="#Eclipse">§</a><a href="#eclipse" name="eclipse">Eclipse</a></h2>
-<p>To setup the Immutables annotation processor in Eclipse you need to configure the following for each project that is using the <a href="https://immutables.github.io">Immutables</a> tool to generate <a href="Immutable.html">immutable objects</a>. </p>
-<p>Open project Properties &gt; Java Compiler &gt; <strong>Annotation Processing</strong></p>
-<p><a href="resources/appendix/eclipse-immutables1.png"><img src="resources/appendix/eclipse-immutables1.png"/></a></p>
-<p>Enable project specific settings.</p>
-<p>Enter <code>target/apt_generated</code> in the <strong>souce directory</strong> field.</p>
-<p>Open project Properties &gt; Java Compiler &gt; Annotation Processing &gt; <strong>Factory Path</strong></p>
-<p>Enable project specific settings.</p>
-<p>Click <strong>Add Variable&hellip;</strong> </p>
-<p>The first time you should click <strong>Configure Variables</strong> and enter a new variable named <code>immutables</code> with the path <code>/&lt;user home directory&gt;/.ivy2/cache/org.immutables/value/jars/value-&lt;version&gt;.jar</code> (replace <code>&lt;user home directory&gt;</code> with your real home directory, which contains the <code>.ivy2</code> directory, and <code>&lt;version&gt;</code> with the version of immutables in use).</p>
-<p><a href="resources/appendix/eclipse-immutables2.png"><img src="resources/appendix/eclipse-immutables2.png"/></a></p>
-<p>Select the <code>immutables</code> variable.</p>
-<p><a href="resources/appendix/eclipse-immutables3.png"><img src="resources/appendix/eclipse-immutables3.png"/></a></p>
-<p>For next project you can simply select the <code>immutables</code> variable in the Factory Path dialog.</p>
-<p>If you are importing many projects and you find the above configuration dialogs tedious you can do the changes for one project and then copy the following settings files to the other projects:</p>
-<pre class="prettyprint"><code>.factorypath
-.settings/org.eclipse.jdt.apt.core.prefs
-.settings/org.eclipse.jdt.core.prefs
-</code></pre><h2 id="IntelliJ-IDEA"><a class="section-marker" href="#IntelliJ-IDEA">§</a><a href="#intellij-idea" name="intellij-idea">IntelliJ IDEA</a></h2>
-<p>To setup the Immutables annotation processor in IntelliJ you need to follow <a href="https://immutables.github.io/apt.html#intellij-idea">these instructions</a> (there is one caveat though, please make sure to read the next paragraph) for each project that is using the <a href="https://immutables.github.io">Immutables</a> tool to generate <a href="Immutable.html">immutable objects</a>.</p>
-<p>The one caveat is that you should set the &ldquo;Production sources directory&rdquo; to <code>target/scala-2.11/src_managed/main</code> and the &ldquo;Test source directory&rdquo; to <code>target/src_managed/test</code>, instead of using the ones recommended in the linked instructions. The reason is that there are a couple of issues related to using immutables in IntelliJ with the IntelliJ sbt plugin (specifically, <a href="https://youtrack.jetbrains.com/issue/SCL-8543">SCL-8543</a> and <a href="https://youtrack.jetbrains.com/issue/IDEA-117540">IDEA-117540</a>).<br/>Finally, under &ldquo;Project Structure&rdquo; you should undo the exclusion of the <code>target</code>-directory and verify whether <code>target/scala-2.11/src_managed/main</code> is marked as &lsquo;Sources&rsquo; for each module.</p>
-                </article>
-
-                
-                    
-                        
-                            <nav class="next-link">
-                                <a href="Migration12.html"><strong>Next: </strong> Lagom Releases</a>
-                            </nav>
-                        
-                    
-                
-
-                
-                    <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/tree/1.2.x/docs/manual/appendix/ImmutablesInIDEs.md">here</a>. Please feel free to edit and contribute a pull request.</p>
-                
             </div>
-            <aside class="small-12 large-4 columns">
+            <aside class="show-for-medium small-12 large-4 columns">
                 <nav class="side-menu">
+                    
 
-                    <input type="text" id="docs-search" placeholder="Search"/>
+<h3>Documentation</h3>
+<ul>
+    <li><a href="/get-started.html">Get started</a></li>
+    <li><a href="/documentation/">Full documentation</a></li>
+    <li><a href="/blog">Blog</a></li>
+</ul>
+<h3>Find help</h3>
+<ul>
+    <li><a href="https://gitter.im/lagom/lagom">Gitter channel</a></li>
+    <li><a href="https://stackoverflow.com/questions/tagged/lagom">Stack overflow</a></li>
+    <li><a href="https://www.lightbend.com/services/expert-support">Professional support</a></li>
+</ul>
+<h3>Contribute</h3>
+<ul>
+    <li><a href="/get-involved.html">Get involved</a></li>
+    <li><a href="/conduct.html">Code of conduct</a></li>
+    <li><a href="/community-process.html">Community process</a></li>
+    <li><a href="/contributing.html">Contributor guidelines</a></li>
+</ul>
+<h3>Programs</h3>
+<ul>
+    <li><a href="/outreachy/round14.html">Outreachy</a></li>
+</ul>
 
-                    <label for="docs-version">Version:</label>
-                    <select id="docs-version">
-                    
-                        <option value="/documentation/1.0.x/java/ImmutablesInIDEs.html">1.0.x</option>
-                    
-                        <option value="/documentation/1.1.x/java/ImmutablesInIDEs.html">1.1.x</option>
-                    
-                        <option value="/documentation/1.2.x/java/ImmutablesInIDEs.html" selected="selected">1.2.x</option>
-                    
-                        <option value="/documentation/1.3.x/java/ImmutablesInIDEs.html">1.3.x</option>
-                    
-                    </select>
-
-                    <a href="/documentation/1.2.x/java/api/index.html" class="api-docs">API Documentation</a>
-
-                    
-                        <h3>Appendix</h3>
-                        <ul>
-                        
-                            
-                                <li class="current-page"><a href="ImmutablesInIDEs.html">Set up Immutables in your IDE</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Home</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="Home.html">Home</a></li>
-                            
-                        
-                            
-                                <li><a href="WhatIsLagom.html">Welcome to Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="CoreConcepts.html">Lagom core concepts</a></li>
-                            
-                        
-                            
-                                <li><a href="Installation.html">Getting started with Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="ReferenceGuide.html">Lagom reference guide</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="ImmutablesInIDEs.html">Appendix</a></li>
-                            
-                        
-                            
-                                <li><a href="Migration12.html">Lagom Releases</a></li>
-                            
-                        
-                        </ul>
-                    
                 </nav>
             </aside>
         </div>
-   </div>
+    </article>
+
 
 
                     <footer>
@@ -323,19 +242,7 @@
     </body>
     <script src="/24b135d2225a18d29d74b66d76510301cecd4bbd-all-scripts-concat.js"></script>
     
-     
-    <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
-    <script type="text/javascript"> docsearch({
-        apiKey: "77ef1e29e6bddfca861f7a42cc51725e",
-        indexName: "lagomframework",
-        inputSelector: "#docs-search",
-        algoliaOptions: {
-            facetFilters: ["version:1.2.x", "language:java"]
-        }
-    });
-    </script>
     
-
     <script>
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -346,4 +253,3 @@
   		ga('send', 'pageview');
 	</script>
 </html>
-

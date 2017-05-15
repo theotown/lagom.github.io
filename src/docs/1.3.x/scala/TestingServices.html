@@ -6,7 +6,7 @@
   <li>To run only the tests that cover code that has changed, run <code>testQuick</code>.</li>
   <li>To run tests continually, run a command with a tilde in front, i.e. <code>~testQuick</code>.</li>
 </ul><h2 id="Testing-libraries"><a class="section-marker" href="#Testing-libraries">§</a>Testing libraries</h2>
-<p>You can use any testing framework with Lagom, popular ones include <a href="http://www.scalatest.org/">ScalaTest</a> and <a href="http://etorreborre.github.io/specs2/">Specs2</a>. If you&rsquo;re not sure which to use, or don&rsquo;t have a preference, we use ScalaTest for testing Lagom itself, and we&rsquo;ll document it here.</p>
+<p>You can use any testing framework with Lagom, popular ones include <a href="http://www.scalatest.org/">ScalaTest</a> and <a href="https://etorreborre.github.io/specs2/">Specs2</a>. If you&rsquo;re not sure which to use, or don&rsquo;t have a preference, we use ScalaTest for testing Lagom itself, and we&rsquo;ll document it here.</p>
 <p>In addition to a test framework, Lagom also provides a helper library for testing common Lagom components, called the Lagom testkit.</p>
 <p>To use your preferred test framework and the Lagom testkit, you&rsquo;ll need to add them to your library dependencies, like so:</p>
 <pre class="prettyprint"><code class="language-sbt">libraryDependencies ++= Seq(

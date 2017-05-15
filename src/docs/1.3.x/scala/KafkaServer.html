@@ -1,6 +1,6 @@
 <h1 id="Kafka-Server"><a class="section-marker" href="#Kafka-Server">§</a>Kafka Server</h1>
 <p>By default, Lagom services needing to share information between each others use Kafka as a message broker. In a microservice architecture, using a message broker is paramount to avoid coupling services too strongly. Therefore, for conveniency, we have embedded a Kafka server in the development environment, so that you don&rsquo;t have to worry about installing it. There are a number of settings and tasks available to tune the Kafka server to your liking, let&rsquo;s explore them:</p><h2 id="Default-port"><a class="section-marker" href="#Default-port">§</a>Default port</h2>
-<p>By default, the <a href="http://kafka.apache.org/">Kafka</a> server is started on port <code>9092</code>. Kafka uses <a href="https://zookeeper.apache.org/">ZooKeeper</a>, and hence a ZooKeeper server is also started on port <code>2181</code>. If the current default ports don&rsquo;t suit you, you can change either by adding the following in your build.</p>
+<p>By default, the <a href="https://kafka.apache.org/">Kafka</a> server is started on port <code>9092</code>. Kafka uses <a href="https://zookeeper.apache.org/">ZooKeeper</a>, and hence a ZooKeeper server is also started on port <code>2181</code>. If the current default ports don&rsquo;t suit you, you can change either by adding the following in your build.</p>
 <p>In the Maven root project pom:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
     &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;

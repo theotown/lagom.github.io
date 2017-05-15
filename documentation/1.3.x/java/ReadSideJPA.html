@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/9ccc6bef00fccb9591284cafb7fe40f4e21e561f-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/41824b59dcb6f183f3c6b1d21d13c85f1d3f0b5f-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -140,10 +140,10 @@
 </code></pre>
 <p>In sbt:</p>
 <pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomJavadslPersistenceJpa</code></pre>
-<p>You will also need to add dependencies on your JPA provider (such as <a href="http://hibernate.org/orm/">Hibernate ORM</a> or <a href="http://www.eclipse.org/eclipselink/">EclipseLink</a>) and database driver.</p><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
+<p>You will also need to add dependencies on your JPA provider (such as <a href="http://hibernate.org/orm/">Hibernate ORM</a> or <a href="https://www.eclipse.org/eclipselink/">EclipseLink</a>) and database driver.</p><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
 <p>JPA support builds on top of Lagom&rsquo;s support for <a href="PersistentEntityRDBMS.html">storing persistent entities in a relational database</a>. See that guide for instructions on configuring Lagom to use the correct JDBC driver and database URL.</p>
 <p>Next, we need to configure JPA to communicate with our database, and optionally configure Lagom to initialize a JPA persistence unit.</p>
-<p>JPA is configured using a file called <a href="http://docs.oracle.com/javaee/7/tutorial/persistence-intro003.htm#JEETT01162"><code>persistence.xml</code></a>. Create a file at <code>src/main/resources/META-INF/persistence.xml</code> in your service implementation project using this template as a guide:</p>
+<p>JPA is configured using a file called <a href="https://docs.oracle.com/javaee/7/tutorial/persistence-intro003.htm#JEETT01162"><code>persistence.xml</code></a>. Create a file at <code>src/main/resources/META-INF/persistence.xml</code> in your service implementation project using this template as a guide:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;persistence xmlns=&quot;http://xmlns.jcp.org/xml/ns/persistence&quot;
              xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
              xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/persistence
@@ -184,7 +184,7 @@
     max-retries = 10
   }
 }</code></pre><h2 id="Write-a-JPA-entity-class"><a class="section-marker" href="#Write-a-JPA-entity-class">§</a>Write a JPA entity class</h2>
-<p>JPA <a href="http://docs.oracle.com/javaee/7/tutorial/persistence-intro001.htm#BNBQA">entities</a> represent tables in the read-side database. Here is an example of a JPA entity representing a summary of a blog post, which could be used to query for an index of all blog entries:</p>
+<p>JPA <a href="https://docs.oracle.com/javaee/7/tutorial/persistence-intro001.htm#BNBQA">entities</a> represent tables in the read-side database. Here is an example of a JPA entity representing a summary of a blog post, which could be used to query for an index of all blog entries:</p>
 <pre class="prettyprint"><code class="language-java">import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
@@ -252,7 +252,7 @@ import java.util.concurrent.CompletionStage;</code></pre>
     }
 }</code></pre>
 <p>Note that the <a href="api/index.html?com/lightbend/lagom/javadsl/persistence/jpa/JpaSession.html"><code>JpaSession</code></a> is injected in the constructor. <code>JpaSession</code> allows access to the JPA <code>EntityManager</code>, and will manage transactions using the <code>withTransaction</code> method. Importantly, <code>JpaSession</code> also manages execution of the blocking JPA calls in a thread pool designed to handle it, which is why the <code>withTransaction</code> method returns <code>CompletionStage</code>.</p>
-<p>As noted above, it&rsquo;s important to prevent mutable JPA entity instances from escaping the thread used to execute the blocking JPA calls. To achieve this, in the query itself, we use a JPQL <a href="http://docs.oracle.com/javaee/7/tutorial/persistence-querylanguage005.htm#JEETT00746">constructor expression</a> to return immutable <code>PostSummary</code> instances from the query instead of mutable <code>BlogSummaryJpaEntity</code> instances. JPA requires constructor expressions to use the fully-qualified name of the class to construct. You could also convert to immutable data in other ways, such as by returning JPA entities from your query and then converting them explicitly, but use of constructor expressions is a convenient way to do this that avoids extra code and object allocation.</p><h2 id="Update-the-Read-Side"><a class="section-marker" href="#Update-the-Read-Side">§</a>Update the Read-Side</h2>
+<p>As noted above, it&rsquo;s important to prevent mutable JPA entity instances from escaping the thread used to execute the blocking JPA calls. To achieve this, in the query itself, we use a JPQL <a href="https://docs.oracle.com/javaee/7/tutorial/persistence-querylanguage005.htm#JEETT00746">constructor expression</a> to return immutable <code>PostSummary</code> instances from the query instead of mutable <code>BlogSummaryJpaEntity</code> instances. JPA requires constructor expressions to use the fully-qualified name of the class to construct. You could also convert to immutable data in other ways, such as by returning JPA entities from your query and then converting them explicitly, but use of constructor expressions is a convenient way to do this that avoids extra code and object allocation.</p><h2 id="Update-the-Read-Side"><a class="section-marker" href="#Update-the-Read-Side">§</a>Update the Read-Side</h2>
 <p>We need to transform the events generated by the <a href="PersistentEntity.html">Persistent Entities</a> into database tables that can be queried as illustrated in the previous section. For that we will implement a <a href="api/index.html?com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.html"><code>ReadSideProcessor</code></a> with assistance from the <a href="api/index.html?com/lightbend/lagom/javadsl/persistence/jpa/JpaReadSide.html"><code>JpaReadSide</code></a> support component. It will consume events produced by persistent entities and update one or more database tables that are optimized for queries.</p>
 <p>This is how a <code>ReadSideProcessor</code> class looks like before filling in the implementation details:</p>
 <pre class="prettyprint"><code class="language-java">import com.google.common.collect.ImmutableMap;
@@ -580,7 +580,7 @@ public PSequence&lt;AggregateEventTag&lt;BlogEvent&gt;&gt; aggregateTags() {
             </div>
         </div>
     </body>
-    <script src="/9ccc6bef00fccb9591284cafb7fe40f4e21e561f-all-scripts-concat.js"></script>
+    <script src="/41824b59dcb6f183f3c6b1d21d13c85f1d3f0b5f-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

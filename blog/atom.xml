@@ -4,12 +4,32 @@
       <link rel="self" type="application/atom+xml" href="https://www.lagomframework.com/blog/atom.xml"/>
       <id>https://www.lagomframework.com/blog</id>
       <rights>Copyright 2017, Lightbend</rights>
-      <updated>2017-05-04T17:00:00.000-07:00</updated>
+      <updated>2017-05-15T17:00:00.000-07:00</updated>
       <dc:creator>Lightbend</dc:creator>
-      <dc:date>2017-05-04T17:00:00.000-07:00</dc:date>
+      <dc:date>2017-05-15T17:00:00.000-07:00</dc:date>
       <dc:language>en</dc:language>
       <dc:rights>Copyright 2017, Lightbend</dc:rights>
       <entry>
+          <title>Introducing the Lagom code generator</title>
+          <link rel="alternate" href="https://www.lagomframework.com/blog/announcing-lagom-code-generator.html"/>
+          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/><category term="scala" scheme="https://www.lagomframework.com/blog/tags/scala.html"/><category term="java" scheme="https://www.lagomframework.com/blog/tags/java.html"/><category term="generator" scheme="https://www.lagomframework.com/blog/tags/generator.html"/>
+          <author>
+            <name>Ignasi Marimon-Clos</name>
+            <uri>https://github.com/ignasi35</uri>
+          </author>
+          <id>https://www.lagomframework.com/blog/announcing-lagom-code-generator.html</id>
+          <updated>2017-05-15T17:00:00.000-07:00</updated>
+          <published>2017-05-15T17:00:00.000-07:00</published>
+          <content type="html"><![CDATA[<p>We&rsquo;re happy to announce the first <em>alpha</em> release of the <a href="https://github.com/lagom/sbt-lagom-descriptor-generator">Lagom Descriptor Generator</a> a project started as a proof-of-concept and that we&rsquo;ve recently improved. The motivation is to ease consuming third party APIs (be it lagom services, other services on your organization or public APIs in the wild) reducing the amount of code required.</p>
+<p>We want Lagom to increase the types of services it can talk to. Until now Lagom was focused on providing RPC via HTTP/JSON as default and we already started working on an gRPC transport for Lagom both for producing services and consuming 3rd party gRPC endpoints. </p>
+<p>We had to make a decision since working in both (1) a fully featured code generator from OpenAPI specs to Lagom source code and (a) adding gRPC support into Lagom was beyond our capacity. Today we are calling the community to continue our work in the Lagom code generator while we focus our attention to gRPC. The <em>Lagom Descriptor Generator</em> project may eventually generate Lagom API descriptor sources from seveal API specification format. At the moment only OpenaAPI v2 (aka <em>Swagger specs</em>) is supported.</p>
+<p>The <a href="https://github.com/lagom/sbt-lagom-descriptor-generator">Lagom Descriptor Generator</a> is open to community contributions &ndash;frequent and infrequent&ndash;, everyone helps out. It&rsquo;s a repo that loves new code and fixes. The Lagom core team will remain in an <a href="https://www.lagomframework.com/community-process.html#definitions">integrator</a> role, the team will keep an eye on the project to assure its overall coherence but does not fully support it.</p>
+<h3><a href="#project-status" name="project-status">Project Status</a></h3>
+<p>The current implementation is a <em>crude</em> generator that will convert a <code>swagger.json</code> (or yaml) into Lagom API source code. It is currently available as an <code>sbt</code> plugin but it could be <a href="https://github.com/lagom/sbt-lagom-descriptor-generator/issues/11">extended into a Maven plugin</a> too. The GitHub repository includes <code>sbt-</code> on the name but that is a <a href="https://github.com/lagom/sbt-lagom-descriptor-generator/issues/4">mistake</a>.</p>
+<p>The current implementation will read <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md">OpenAPI v2</a> files but we think other API specification formats (e.g. RAML) should be supported too. We added some <a href="https://github.com/lagom/sbt-lagom-descriptor-generator#supported-specs">tips</a> on what should be done to add support for new specification formats.</p>
+<p>Finally, this first available release is demoed in the <a href="https://github.com/ignasi35/lagom-pet-store/">Pet Store application</a>. That sample application adapts the famous Open API <a href="http://petstore.swagger.io/">Pet Store</a> example into a Lagom application. The Lagom version is made of a LagomJava Pet Service, a LagomScala Store Service and a PlayJava web frontend. Each of the lagom services in the sample application describes its API using an OpenAPI v2 file located in <code>src/main/openapi/</code> instead of including the usual <code>xxx-service-api</code> project separately. Finally, the web frontend uses copies of each of the OpenAPi files it wants to consume. Read the project <a href="https://github.com/ignasi35/lagom-pet-store/blob/master/README.md">README.md</a> for more details.</p>]]></content>
+          <dc:date>2017-05-15T17:00:00.000-07:00</dc:date>
+        </entry><entry>
           <title>Welcome Outreachy Interns Ruchika Lakhina and Yuliana Apaza</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/welcome-outreachy-interns-2017-May-Aug.html"/>
           <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/><category term="outreachy" scheme="https://www.lagomframework.com/blog/tags/outreachy.html"/>
@@ -307,22 +327,5 @@ lagom.persistence.read-side.cassandra.keyspace = ${my-service.cassandra.keyspace
 <p>For a reasonably comprehensive demonstration of the Lagom Scala API, you can checkout the <a href="https://github.com/lagom/online-auction-scala">online auction sample app</a>. Note that this is a work in progress, some things aren&rsquo;t complete yet. Of course, the <a href="https://www.lagomframework.com/documentation/1.3.x/scala/Home.html">documentation</a> is also a good place to go.</p>
 <p>As this is a milestone release, the API is still considered experimental, and will likely change before the final release. Hence, we recommend not using it for any production services yet.</p>]]></content>
           <dc:date>2016-12-08T16:00:00.000-08:00</dc:date>
-        </entry><entry>
-          <title>Lagom 1.2.1 is ready!</title>
-          <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-2-1.html"/>
-          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
-          <author>
-            <name>Ignasi Marimon-Clos</name>
-            <uri>https://github.com/ignasi35</uri>
-          </author>
-          <id>https://www.lagomframework.com/blog/lagom-1-2-1.html</id>
-          <updated>2016-12-06T16:00:00.000-08:00</updated>
-          <published>2016-12-06T16:00:00.000-08:00</published>
-          <content type="html"><![CDATA[<p>The Lagom team is proud to announce the availability of the 1.2.1 version. This release provides several bugfixes and a performance enhancement.</p>
-<p>It&rsquo;s been a month since releasing 1.2.0 and the <a href="https://github.com/lagom/lagom/issues">mailing list</a> and Lagom&rsquo;s <a href="https://gitter.im/lagom/lagom">Gitter channel</a> have been <em>on fire</em>. Many are already developing their microservice-based solutions using Lagom, but Lagom is not (yet) free of bugs and the community has been great at helping spot some of these bugs both on documentation or the code itself. This release addresses <a href="https://github.com/lagom/lagom/milestone/5?closed=1">some of these issues</a> improving documentation and performance, and fixing a regression introduced when releasing 1.2.0. Don&rsquo;t forget to use Lagom&rsquo;s <a href="https://github.com/lagom/lagom/issues">issue tracker</a> to report and contribute to fixing issues.</p>
-<p>Thanks to all of you that reported and contributed on making this release possible.</p>
-<hr/>
-<p>Lagom 1.3 is almost here with a ton of <a href="https://github.com/lagom/lagom/milestone/4">new features</a>, so continue <a href="https://www.lagomframework.com/get-involved.html">shaping</a> the future of Lagom.</p>]]></content>
-          <dc:date>2016-12-06T16:00:00.000-08:00</dc:date>
         </entry>
     </feed>

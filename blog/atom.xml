@@ -4,12 +4,30 @@
       <link rel="self" type="application/atom+xml" href="https://www.lagomframework.com/blog/atom.xml"/>
       <id>https://www.lagomframework.com/blog</id>
       <rights>Copyright 2017, Lightbend</rights>
-      <updated>2017-05-15T17:00:00.000-07:00</updated>
+      <updated>2017-05-16T17:00:00.000-07:00</updated>
       <dc:creator>Lightbend</dc:creator>
-      <dc:date>2017-05-15T17:00:00.000-07:00</dc:date>
+      <dc:date>2017-05-16T17:00:00.000-07:00</dc:date>
       <dc:language>en</dc:language>
       <dc:rights>Copyright 2017, Lightbend</dc:rights>
       <entry>
+          <title>Lagom 1.3.4 is released!</title>
+          <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-3-4.html"/>
+          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
+          <author>
+            <name>Ignasi Marimon-Clos</name>
+            <uri>https://github.com/ignasi35</uri>
+          </author>
+          <id>https://www.lagomframework.com/blog/lagom-1-3-4.html</id>
+          <updated>2017-05-16T17:00:00.000-07:00</updated>
+          <published>2017-05-16T17:00:00.000-07:00</published>
+          <content type="html"><![CDATA[<p>The Lagom team is proud to announce the release of Lagom 1.3.4. This is a bugfix release with a couple of community contributions.</p>
+<h2><a href="#updating" name="updating">Updating</a></h2>
+<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
+<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
+<h2><a href="#change-log" name="change-log">Change log</a></h2>
+<p>See the <a href="https://www.lagomframework.com/changelog.html">change log</a> for more details on exactly what has been fixed in each release.</p>]]></content>
+          <dc:date>2017-05-16T17:00:00.000-07:00</dc:date>
+        </entry><entry>
           <title>Introducing the Lagom code generator</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/announcing-lagom-code-generator.html"/>
           <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/><category term="scala" scheme="https://www.lagomframework.com/blog/tags/scala.html"/><category term="java" scheme="https://www.lagomframework.com/blog/tags/java.html"/><category term="generator" scheme="https://www.lagomframework.com/blog/tags/generator.html"/>
@@ -284,48 +302,5 @@ lagom.persistence.read-side.cassandra.keyspace = ${my-service.cassandra.keyspace
 <hr/>
 <p>Lagom 1.3 is almost here with a ton of <a href="https://github.com/lagom/lagom/milestone/4">new features</a>, so continue <a href="https://www.lagomframework.com/get-involved.html">shaping</a> the future of Lagom.</p>]]></content>
           <dc:date>2017-01-11T16:00:00.000-08:00</dc:date>
-        </entry><entry>
-          <title>Introducing the Lagom Scala API</title>
-          <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-scala-api-preview.html"/>
-          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/><category term="scala" scheme="https://www.lagomframework.com/blog/tags/scala.html"/>
-          <author>
-            <name>James Roper</name>
-            <uri>https://github.com/jroper</uri>
-          </author>
-          <id>https://www.lagomframework.com/blog/lagom-scala-api-preview.html</id>
-          <updated>2016-12-08T16:00:00.000-08:00</updated>
-          <published>2016-12-08T16:00:00.000-08:00</published>
-          <content type="html"><![CDATA[<p>The Lagom team are proud to announce the first milestone release of the Lagom Scala API, Lagom 1.3.0-M1! This release has been many months in the making, and we&rsquo;ve cut this milestone as a preview release in the hope that we can get some early feedback before we cut the final release.</p>
-<h2><a href="#design-philosophy" name="design-philosophy">Design philosophy</a></h2>
-<p>In Lagom, we want both the Java API and the Scala API to be first class citizens, not one API built on the other, or one API augmented so that it works with the other language. For this reason, we have created two completely separate APIs, these APIs are provided by completely separate libraries, and typically will not be on the classpath at the same time. The namespaces selected for these APIs follow the convention introduced by Akka streams, namely that the Java API has a package name of <code>javadsl</code>, while the Scala API has a package name of <code>scaladsl</code>.</p>
-<p>In general, when creating the Scala API, we have typically started with the Java API, and then worked from there to make it more idiomatic for Scala use. Some of the major differences from the Java API include:</p>
-<ul>
-  <li>Compile time dependency injection. Lagom&rsquo;s Java API builds on Play&rsquo;s Guice support. Lagom&rsquo;s Scala API however uses a lightweight form of the cake pattern to wire dependencies together. This API is designed to work well with <a href="https://github.com/adamw/macwire">Macwire</a>, though Macwire is not required to use it.</li>
-  <li>Stronger typed APIs where Scala allows, particularly in the persistent entity API.</li>
-  <li>Use of type classes to provide serializers and path parameter extractors, rather than using reflection.</li>
-  <li>Use of <a href="https://playframework.com/documentation/2.5.x/ScalaJson">play-json</a> for JSON serialization support.</li>
-  <li>Use of macros to implement service clients, rather than dynamic proxies.</li>
-</ul>
-<h2><a href="#status" name="status">Status</a></h2>
-<p>The following APIs and features are complete:</p>
-<ul>
-  <li>Service API</li>
-  <li>Message broker API with Kafka implementation</li>
-  <li>Persistence API with both Cassandra and JDBC implmentations</li>
-  <li>Dev mode</li>
-  <li>Play integration</li>
-</ul>
-<p>Meanwhile, the following things are left to be done:</p>
-<ul>
-  <li>ConductR integration</li>
-  <li>Some testkit APIs</li>
-  <li>Much of the documentation</li>
-</ul>
-<p>To create a new Lagom Scala project, using sbt 0.13.13, run:</p>
-<pre class="prettyprint"><code>$ sbt new lagom/lagom-scala.g8
-</code></pre>
-<p>For a reasonably comprehensive demonstration of the Lagom Scala API, you can checkout the <a href="https://github.com/lagom/online-auction-scala">online auction sample app</a>. Note that this is a work in progress, some things aren&rsquo;t complete yet. Of course, the <a href="https://www.lagomframework.com/documentation/1.3.x/scala/Home.html">documentation</a> is also a good place to go.</p>
-<p>As this is a milestone release, the API is still considered experimental, and will likely change before the final release. Hence, we recommend not using it for any production services yet.</p>]]></content>
-          <dc:date>2016-12-08T16:00:00.000-08:00</dc:date>
         </entry>
     </feed>

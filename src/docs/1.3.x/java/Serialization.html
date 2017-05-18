@@ -21,12 +21,11 @@ public interface AbstractUser extends Jsonable {
 <pre class="prettyprint"><code class="language-conf"># The Jackson JSON serializer will register these modules.
 # It is also possible to use jackson-modules = [&quot;*&quot;] to dynamically
 # find and register all modules in the classpath.  
-jackson-modules = [
-  &quot;com.fasterxml.jackson.module.paramnames.ParameterNamesModule&quot;,
-  &quot;com.fasterxml.jackson.datatype.jdk8.Jdk8Module&quot;,
-  &quot;com.fasterxml.jackson.datatype.jsr310.JavaTimeModule&quot;,
-  &quot;com.fasterxml.jackson.datatype.pcollections.PCollectionsModule&quot;,
-  &quot;com.fasterxml.jackson.datatype.guava.GuavaModule&quot;]</code></pre>
+jackson-modules += &quot;com.fasterxml.jackson.module.paramnames.ParameterNamesModule&quot;
+jackson-modules += &quot;com.fasterxml.jackson.datatype.jdk8.Jdk8Module&quot;
+jackson-modules += &quot;com.fasterxml.jackson.datatype.jsr310.JavaTimeModule&quot;
+jackson-modules += &quot;com.fasterxml.jackson.datatype.pcollections.PCollectionsModule&quot;
+jackson-modules += &quot;com.fasterxml.jackson.datatype.guava.GuavaModule&quot;</code></pre>
 <p>You can amend the configuration <code>lagom.serialization.json.jackson-modules</code> to enable other modules.</p>
 <p>The <a href="https://github.com/FasterXML/jackson-module-parameter-names">ParameterNamesModule</a> requires that the <code>-parameters</code> Java compiler option is enabled.</p>
 <p>The section <a href="Immutable.html">Immutable Objects</a> contains more examples of classes that are <code>Jsonable</code>.</p>

@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/feae010727916ec41005ff0122ce8b15b348c1ef-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/6905d0aaf2f28f82002330b3b5f0d18e1f5b5cce-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -176,6 +176,13 @@
     # configuration used by the Lagom Kafka consumer
     consumer {
       failure-exponential-backoff = ${lagom.broker.kafka.client.default.failure-exponential-backoff}
+
+      # The number of offsets that will be buffered to allow the consumer flow to
+      # do its own buffering. This should be set to a number that is at least as
+      # large as the maximum amount of buffering that the consumer flow will do,
+      # if the consumer buffer buffers more than this, the offset buffer will
+      # backpressure and cause the stream to stop.
+      offset-buffer = 100
 
       # Number of messages batched together by the consumer before the related messages&#39;
       # offsets are committed to Kafka.
@@ -436,7 +443,7 @@
             </div>
         </div>
     </body>
-    <script src="/feae010727916ec41005ff0122ce8b15b348c1ef-all-scripts-concat.js"></script>
+    <script src="/6905d0aaf2f28f82002330b3b5f0d18e1f5b5cce-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

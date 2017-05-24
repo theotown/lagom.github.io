@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/eb30e4fdc04195d112685ff20f36a3072267c909-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/622f9904d3e7e9fb58b8ffbad928395131175445-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -174,9 +174,9 @@ trait HelloService extends Service {
 <p>Here&rsquo;s an example of publishing a single, non sharded event stream:</p>
 <pre class="prettyprint"><code class="language-scala">override def greetingsTopic(): Topic[GreetingMessage] =
   TopicProducer.singleStreamWithOffset {
-    offset =&gt;
-      persistentEntityRegistry.eventStream(HelloEventTag.INSTANCE, offset)
-        .map(ev =&gt; (convertEvent(ev), offset))
+    fromOffset =&gt;
+      persistentEntityRegistry.eventStream(HelloEventTag.INSTANCE, fromOffset)
+        .map(ev =&gt; (convertEvent(ev), ev.offset))
   }
 
 private def convertEvent(helloEvent: EventStreamElement[HelloEvent]): GreetingMessage = {
@@ -464,7 +464,7 @@ case object BlogPostPublished {
             </div>
         </div>
     </body>
-    <script src="/eb30e4fdc04195d112685ff20f36a3072267c909-all-scripts-concat.js"></script>
+    <script src="/622f9904d3e7e9fb58b8ffbad928395131175445-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

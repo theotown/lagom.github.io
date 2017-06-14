@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":38,"i7":38};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -117,7 +117,7 @@ var activeTableTab = "activeTableTab";
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -160,11 +160,19 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#withConfigureBuilder-java.util.function.Function-">withConfigureBuilder</a></span>(java.util.function.Function&lt;play.inject.guice.GuiceApplicationBuilder,play.inject.guice.GuiceApplicationBuilder&gt;&nbsp;configureBuilder)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#withConfigureBuilder-java.util.function.Function-">withConfigureBuilder</a></span>(java.util.function.Function&lt;play.inject.guice.GuiceApplicationBuilder,play.inject.guice.GuiceApplicationBuilder&gt;&nbsp;configureBuilder)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">Use configureBuilder instead. Since 1.2.0.</span></div>
+</div>
+</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#withPersistence-boolean-">withPersistence</a></span>(boolean&nbsp;enabled)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#withPersistence-boolean-">withPersistence</a></span>(boolean&nbsp;enabled)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">Use withCassandra instead. Since 1.2.0.</span></div>
+</div>
+</td>
 </tr>
 </table>
 </li>
@@ -188,6 +196,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>withPersistence</h4>
 <pre><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a>&nbsp;withPersistence(boolean&nbsp;enabled)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Use withCassandra instead. Since 1.2.0.</span></div>
 </li>
 </ul>
 <a name="withCassandra-boolean-">
@@ -218,6 +227,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>withConfigureBuilder</h4>
 <pre><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a>&nbsp;withConfigureBuilder(java.util.function.Function&lt;play.inject.guice.GuiceApplicationBuilder,play.inject.guice.GuiceApplicationBuilder&gt;&nbsp;configureBuilder)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Use configureBuilder instead. Since 1.2.0.</span></div>
 </li>
 </ul>
 <a name="configureBuilder-java.util.function.Function-">

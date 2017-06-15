@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":42,"i1":42};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var methods = {"i0":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -47,11 +47,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../com/lightbend/lagom/javadsl/api/CircuitBreaker.NamedCircuitBreaker.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../com/lightbend/lagom/javadsl/client/CircuitBreakingServiceLocator.html" title="class in com.lightbend.lagom.javadsl.client"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClientGuiceSupport.html" title="interface in com.lightbend.lagom.javadsl.client"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?com/lightbend/lagom/javadsl/api/ConfigurationServiceLocator.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?com/lightbend/lagom/javadsl/client/ConfigurationServiceLocator.html" target="_top">Frames</a></li>
 <li><a href="ConfigurationServiceLocator.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
@@ -90,7 +90,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">com.lightbend.lagom.javadsl.api</div>
+<div class="subTitle">com.lightbend.lagom.javadsl.client</div>
 <h2 title="Class ConfigurationServiceLocator" class="title">Class ConfigurationServiceLocator</h2>
 </div>
 <div class="contentContainer">
@@ -98,7 +98,12 @@ var activeTableTab = "activeTableTab";
 <li>Object</li>
 <li>
 <ul class="inheritance">
-<li>com.lightbend.lagom.javadsl.api.ConfigurationServiceLocator</li>
+<li><a href="../../../../../com/lightbend/lagom/javadsl/client/CircuitBreakingServiceLocator.html" title="class in com.lightbend.lagom.javadsl.client">com.lightbend.lagom.javadsl.client.CircuitBreakingServiceLocator</a></li>
+<li>
+<ul class="inheritance">
+<li>com.lightbend.lagom.javadsl.client.ConfigurationServiceLocator</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -110,16 +115,11 @@ var activeTableTab = "activeTableTab";
 <dd><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceLocator</a></dd>
 </dl>
 <hr>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">use <a href="../../../../../com/lightbend/lagom/javadsl/client/ConfigurationServiceLocator.html" title="class in com.lightbend.lagom.javadsl.client"><code>ConfigurationServiceLocator</code></a> instead.</span></div>
-</div>
 <br>
-<pre>@Deprecated
- @Singleton
+<pre>@Singleton
 public class <span class="typeNameLabel">ConfigurationServiceLocator</span>
-extends Object
-implements <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceLocator</a></pre>
-<div class="block">A service locator that uses static configuration.</div>
+extends <a href="../../../../../com/lightbend/lagom/javadsl/client/CircuitBreakingServiceLocator.html" title="class in com.lightbend.lagom.javadsl.client">CircuitBreakingServiceLocator</a></pre>
+<div class="block">A service locator that uses static configuration and provides circuit breaker</div>
 </li>
 </ul>
 </div>
@@ -138,9 +138,8 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocato
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/ConfigurationServiceLocator.html#ConfigurationServiceLocator-play.Configuration-">ConfigurationServiceLocator</a></span>(play.Configuration&nbsp;configuration)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
-&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/client/ConfigurationServiceLocator.html#ConfigurationServiceLocator-play.Configuration-com.lightbend.lagom.internal.client.CircuitBreakers-">ConfigurationServiceLocator</a></span>(play.Configuration&nbsp;configuration,
+                           com.lightbend.lagom.internal.client.CircuitBreakers&nbsp;circuitBreakers)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -152,29 +151,26 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocato
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>&lt;T&gt;&nbsp;java.util.concurrent.CompletionStage&lt;java.util.Optional&lt;T&gt;&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/ConfigurationServiceLocator.html#doWithService-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-java.util.function.Function-">doWithService</a></span>(String&nbsp;name,
-             <a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Call</a>&lt;?,?&gt;&nbsp;serviceCall,
-             java.util.function.Function&lt;java.net.URI,java.util.concurrent.CompletionStage&lt;T&gt;&gt;&nbsp;block)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
-<div class="block">Do the given action with the given service.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.util.concurrent.CompletionStage&lt;java.util.Optional&lt;java.net.URI&gt;&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/ConfigurationServiceLocator.html#locate-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-">locate</a></span>(String&nbsp;name,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/client/ConfigurationServiceLocator.html#locate-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-">locate</a></span>(String&nbsp;name,
       <a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Call</a>&lt;?,?&gt;&nbsp;serviceCall)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Locate a service with the given name.</div>
 </td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.com.lightbend.lagom.javadsl.client.CircuitBreakingServiceLocator">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;com.lightbend.lagom.javadsl.client.<a href="../../../../../com/lightbend/lagom/javadsl/client/CircuitBreakingServiceLocator.html" title="class in com.lightbend.lagom.javadsl.client">CircuitBreakingServiceLocator</a></h3>
+<code><a href="../../../../../com/lightbend/lagom/javadsl/client/CircuitBreakingServiceLocator.html#doWithService-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-java.util.function.Function-">doWithService</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.Object">
 <!--   -->
@@ -203,15 +199,15 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocato
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="ConfigurationServiceLocator-play.Configuration-">
+<a name="ConfigurationServiceLocator-play.Configuration-com.lightbend.lagom.internal.client.CircuitBreakers-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ConfigurationServiceLocator</h4>
 <pre>@Inject
-public&nbsp;ConfigurationServiceLocator(play.Configuration&nbsp;configuration)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+public&nbsp;ConfigurationServiceLocator(play.Configuration&nbsp;configuration,
+                                           com.lightbend.lagom.internal.client.CircuitBreakers&nbsp;circuitBreakers)</pre>
 </li>
 </ul>
 </li>
@@ -225,53 +221,19 @@ public&nbsp;ConfigurationServiceLocator(play.Configuration&nbsp;configuration)</
 <a name="locate-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>locate</h4>
 <pre>public&nbsp;java.util.concurrent.CompletionStage&lt;java.util.Optional&lt;java.net.URI&gt;&gt;&nbsp;locate(String&nbsp;name,
                                                                                      <a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Call</a>&lt;?,?&gt;&nbsp;serviceCall)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html#locate-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-">ServiceLocator</a></code></span></div>
 <div class="block">Locate a service with the given name.</div>
 <dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html#locate-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-">locate</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceLocator</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The name of the service.</dd>
 <dd><code>serviceCall</code> - The service call descriptor that this lookup is for.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The URI for that service, if it exists.</dd>
-</dl>
-</li>
-</ul>
-<a name="doWithService-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-java.util.function.Function-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>doWithService</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;java.util.concurrent.CompletionStage&lt;java.util.Optional&lt;T&gt;&gt;&nbsp;doWithService(String&nbsp;name,
-                                                                                     <a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Call</a>&lt;?,?&gt;&nbsp;serviceCall,
-                                                                                     java.util.function.Function&lt;java.net.URI,java.util.concurrent.CompletionStage&lt;T&gt;&gt;&nbsp;block)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html#doWithService-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-java.util.function.Function-">ServiceLocator</a></code></span></div>
-<div class="block">Do the given action with the given service.
-
- This should be used in preference to <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html#locate-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-"><code>ServiceLocator.locate(String, Descriptor.Call)</code></a> when possible as it will allow the
- service locator to add in things like circuit breakers.
-
- It is required that the service locator will, based on the service call circuit breaker configuration, wrap the
- invocation of the passed in block with a circuit breaker.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html#doWithService-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-java.util.function.Function-">doWithService</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceLocator</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>name</code> - The name of the service.</dd>
-<dd><code>serviceCall</code> - The service call descriptor that this lookup is for.</dd>
-<dd><code>block</code> - A block of code that takes the URI for the service, and returns a future of some work done on the
-              service. This will only be executed if the service was found.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The result of the executed block, if the service was found.</dd>
 </dl>
 </li>
 </ul>
@@ -307,11 +269,11 @@ public&nbsp;ConfigurationServiceLocator(play.Configuration&nbsp;configuration)</
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../com/lightbend/lagom/javadsl/api/CircuitBreaker.NamedCircuitBreaker.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../com/lightbend/lagom/javadsl/client/CircuitBreakingServiceLocator.html" title="class in com.lightbend.lagom.javadsl.client"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClientGuiceSupport.html" title="interface in com.lightbend.lagom.javadsl.client"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?com/lightbend/lagom/javadsl/api/ConfigurationServiceLocator.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?com/lightbend/lagom/javadsl/client/ConfigurationServiceLocator.html" target="_top">Frames</a></li>
 <li><a href="ConfigurationServiceLocator.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">

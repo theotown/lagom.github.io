@@ -17,7 +17,7 @@
 <p>If using Maven, there are many plugins for Maven to produce artifacts for various platforms.</p>
 <p>Running a package requires the provision of a service locator implementation i.e. something that provides the ability for your service to be able to lookup the location of another dynamically at runtime. At a technical level, you provide an implementation of a <a href="api/index.html?com/lightbend/lagom/javadsl/api/ServiceLocator.html">ServiceLocator</a>.</p><h3 id="Deploying-using-static-service-locations"><a class="section-marker" href="#Deploying-using-static-service-locations">§</a>Deploying using static service locations</h3>
 <p>While we would never advise using static service locations in any production situation, as a means to demonstrating a working Lagom system in the absence of a managed runtime, you may decide to deploy Lagom systems to static locations with a static configuration saying where the systems live.</p>
-<p>To aid in achieving this, a <a href="api/index.html?com/lightbend/lagom/javadsl/api/ConfigurationServiceLocator.html"><code>ConfigurationServiceLocator</code></a> is provided that reads the service locator configuration out of Lagom&rsquo;s <code>application.conf</code> file. Here is an example of the configuration for it:</p>
+<p>To aid in achieving this, a <a href="api/index.html?com/lightbend/lagom/javadsl/client/ConfigurationServiceLocator.html"><code>ConfigurationServiceLocator</code></a> is provided that reads the service locator configuration out of Lagom&rsquo;s <code>application.conf</code> file. Here is an example of the configuration for it:</p>
 <pre class="prettyprint"><code>lagom.services {
   serviceA = &quot;http://10.1.2.3:8080&quot;
   serviceB = &quot;http://10.1.2.4:8080&quot;
@@ -25,8 +25,8 @@
 </code></pre>
 <p>To instruct Lagom to use the <code>ConfigurationServiceLocator</code>, you need to bind it to the <a href="api/index.html?com/lightbend/lagom/javadsl/api/ServiceLocator.html"><code>ServiceLocator</code></a> class in your Guice module. Since Lagom already provides a service locator in dev mode, you will likely only want to bind this when Lagom is in production mode. Play supports passing its <code>Environment</code> and <code>Configuration</code> objects to module constructors, so you&rsquo;ll need to add those to your module:</p>
 <pre class="prettyprint"><code class="language-java">import com.google.inject.AbstractModule;
-import com.lightbend.lagom.javadsl.api.ConfigurationServiceLocator;
 import com.lightbend.lagom.javadsl.api.ServiceLocator;
+import com.lightbend.lagom.javadsl.client.ConfigurationServiceLocator;
 import play.Configuration;
 import play.Environment;
 

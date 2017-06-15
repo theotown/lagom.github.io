@@ -6,17 +6,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Development Environment</title>
+        <title>Lagom - Lagom 1.3.5 is released!</title>
         <meta name="description" content="Lagom">
-        
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.3.x/scala/DevEnvironment.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="/5a251f61bdb8359468d03fc6dd2c57683654b06d-all-styles-concat.css" type="text/css">
          
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-    
+    <link href="/blog/atom.xml" type="application/atom+xml" rel="home" title="ATOM Feed" />
 
     </head>
     <body>
@@ -104,217 +101,137 @@
                         </div>
                     </div>
 
-                      
+                    
+
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Development Environment</h1>
+                <div class="blog-meta">
+                    <div class="blog-author-image">
+                        <a href="https://github.com/ignasi35">
+                            <img src="https://avatars1.githubusercontent.com/u/762126?v=3"/>
+                        </a>
+                    </div>
+                    <div class="blog-meta-details">
+                        <a class="blog-author-name" href="https://github.com/ignasi35">Ignasi Marimon-Clos</a>
+                        |
+                        <span class="blog-post-date">June 12, 2017</span>
+                        <div class="blog-meta-tags">
+                            
+                                <img src="/images/entypo/white/entypo_tag.svg" class="svg-icon"/>
+                                
+                                    <span class="blog-tag"><a href="tags/news.html">news</a></span>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                <h1>Lagom 1.3.5 is released!</h1>
             </div>
         </div>
     </header>
 
-    <div class="fw-wrapper documentation-content">
+    <article class="fw-wrapper page-content">
         <div class="row">
             <div class="small-12 large-7 columns">
-                
-                    <nav class="breadcrumbs">
-                        <a href="Home.html">Scala Home</a>
-                        
-                            &raquo; <a href="ReferenceGuide.html">Lagom reference guide</a>
-                        
-                            &raquo; <a href="DevEnvironment.html">Running Lagom in development</a>
-                        
-                    </nav>
-                
+                <p>This has been quite a busy month since we released 1.3.4. <a href="http://event.scaladays.org/scaladays-cph-2017">Scala Days Copenhagen</a> took a lot of time from our schedules and thus 1.3.5 was delayed more than we&rsquo;d hoped for.</p>
+<p>This release is a bugfix release with a couple of community contributions. We&rsquo;re seeing a constant flow of community contributions in the past few releases and that is great news! Special thanks to <a href="https://github.com/crfeliz">crfeliz</a>, <a href="https://github.com/guizmaii">guizmaii</a>, <a href="https://github.com/edouardKaiser">edouardKaiser</a> and <a href="https://github.com/jaiew">jaiew</a> for their great work.</p>
+<h2><a href="#updating" name="updating">Updating</a></h2>
+<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
+<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
+<h2><a href="#change-log" name="change-log">Change log</a></h2>
+<p>See the <a href="/changelog.html">change log</a> for more details on exactly what has been fixed in each release.</p>
 
-                <article>
-                <h1 id="Development-Environment"><a class="section-marker" href="#Development-Environment">§</a>Development Environment</h1>
-<p>Lagom&rsquo;s sbt and Maven based development environments allow running any number of services together with a single command.</p>
-<p>The same command also reloads your services when the code changes, so that you don&rsquo;t have to manually restart them. You can stay focused on your work and let Lagom do the compiling and reloading.</p><h2 id="Running-all-services-in-Maven"><a class="section-marker" href="#Running-all-services-in-Maven">§</a>Running all services in Maven</h2>
-<p>To run all services in Maven, simply run the <code>lagom:runAll</code> command:</p>
-<pre class="prettyprint"><code class="language-console">$ cd &lt;path to your Lagom project&gt;
-$ mvn lagom:runAll
-INFO ...
-INFO Service hello-impl listening for HTTP on 0:0:0:0:0:0:0:0:23966
-INFO Service hello-stream-impl listening for HTTP on 0:0:0:0:0:0:0:0:27462
-(Services started, press enter to stop and go back to the console...)
-</code></pre>
-<p>This may take a while if you have a lot of services or if dependencies are being retrieved for the first time.</p><h2 id="Starting-the-sbt-development-console"><a class="section-marker" href="#Starting-the-sbt-development-console">§</a>Starting the sbt development console</h2>
-<p>Assuming you have an sbt project, it&rsquo;s now time to fire up the console on your Lagom project directory:</p>
-<pre class="prettyprint"><code class="language-console">$ cd &lt;path to your Lagom project&gt;
-$ sbt
-[info] ...
-&gt;
-</code></pre>
-<p>To run all Lagom services together, with automatic reloading, just enter <code>runAll</code> in the sbt console:</p>
-<pre class="prettyprint"><code class="language-console">&gt; runAll
-[info] ...
-[info] Service hello-impl listening for HTTP on 0:0:0:0:0:0:0:0:23966
-[info] Service stream-impl listening for HTTP on 0:0:0:0:0:0:0:0:27462
-(Services started, press enter to stop and go back to the console...)
-</code></pre>
-<p>This may take a while if you have a lot of services or if dependencies are being retrieved for the first time.</p><h2 id="Hot-reloading"><a class="section-marker" href="#Hot-reloading">§</a>Hot reloading</h2>
-<p>Once the &ldquo;Services started&rdquo; message has appeared, if you make a change to your source code, you&rsquo;ll see output like this in the console:</p>
-<pre class="prettyprint"><code class="language-console">[info] Compiling 1 Java source to /&lt;project-path&gt;/target/scala-2.11/classes...
+                <h2>Share</h2>
+                <div class="addthis_sharing_toolbox"></div>
 
---- (RELOAD) ---
-</code></pre><h2 id="Behind-the-scenes"><a class="section-marker" href="#Behind-the-scenes">§</a>Behind the scenes</h2>
-<!-- copied this section to concepts, perhaps it can be removed later -->
-<p>What&rsquo;s happening behind the scenes when you <code>runAll</code>?</p>
-<ul>
-  <li>an embedded Service Locator is started</li>
-  <li>a Cassandra server is started</li>
-  <li>a Kafka server is started</li>
-  <li>your services start
-    <ul>
-      <li>&hellip;and register with the Service Locator</li>
-    </ul>
-  </li>
-</ul>
-<p>This all happens automatically without special code or additional configuration.</p>
-<!--end copied section -->
-<p>You can verify that your services are running by viewing <code>http://localhost:8000/services</code> in a web browser (or with a command line tool such as <code>curl</code>). The Service Locator, running on port 8000, will return JSON such as:</p>
-<pre class="prettyprint"><code>[{&quot;name&quot;:&quot;hello-stream&quot;,&quot;url&quot;:&quot;http://0.0.0.0:26230&quot;},
- {&quot;name&quot;:&quot;cas_native&quot;,&quot;url&quot;:&quot;tcp://127.0.0.1:4000/cas_native&quot;},
- {&quot;name&quot;:&quot;hello&quot;,&quot;url&quot;:&quot;http://0.0.0.0:24266&quot;}]
-</code></pre>
-<p><code>cas_native</code> is the <a href="https://cassandra.apache.org/">Cassandra</a> server. As you will learn in the <a href="PersistentEntity.html">documentation for writing persistent and clustered services</a>, Cassandra is the default database in Lagom, and it&rsquo;s an integral part of the development environment.</p>
-<p>The Service Locator, Cassandra, and Kafka are covered in more detail in the sections that follow.</p>
-                </article>
+                <br/>
 
-                
-                    
-                        
-                            <nav class="next-link">
-                                <a href="RunningServices.html"><strong>Next: </strong> Running Services</a>
-                            </nav>
-                        
-                    
-                
+                <h2>Discuss</h2>
+                <div id="disqus_thread"></div>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-                
-                    <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/guide/devmode/DevEnvironment.md">here</a>. Please feel free to edit and contribute a pull request.</p>
-                
             </div>
-            <aside class="small-12 large-4 columns">
-                <nav class="side-menu">
+            <aside class="show-for-medium small-12 large-4 columns">
+            
 
-                    <input type="text" id="docs-search" placeholder="Search"/>
+<nav class="side-menu">
+    
+        <h3>Recent posts</h3>
 
-                    <label for="docs-version">Version:</label>
-                    <select id="docs-version">
-                    
-                        <option value="/documentation/1.3.x/scala/DevEnvironment.html" selected="selected">1.3.x</option>
-                    
-                    </select>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars1.githubusercontent.com/u/762126?v=3"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-3-5.html">Lagom 1.3.5 is released!</a>
+                    <br/>
+                    June 12, 2017
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars1.githubusercontent.com/u/762126?v=3"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-3-4.html">Lagom 1.3.4 is released!</a>
+                    <br/>
+                    May 16, 2017
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars1.githubusercontent.com/u/762126?v=3"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/announcing-lagom-code-generator.html">Introducing the Lagom code generator</a>
+                    <br/>
+                    May 15, 2017
+                </div>
+            </div>
+        
 
-                    <a href="/documentation/1.3.x/scala/api/index.html" class="api-docs">API Documentation</a>
+    
 
-                    
-                        <h3>Running Lagom in development</h3>
-                        <ul>
-                        
-                            
-                                <li class="current-page"><a href="DevEnvironment.html">Development Environment</a></li>
-                            
-                        
-                            
-                                <li><a href="RunningServices.html">Running Services</a></li>
-                            
-                        
-                            
-                                <li><a href="ServicePort.html">How are ports assigned to services?</a></li>
-                            
-                        
-                            
-                                <li><a href="ServiceLocator.html">Service Locator</a></li>
-                            
-                        
-                            
-                                <li><a href="CassandraServer.html">Cassandra Server</a></li>
-                            
-                        
-                            
-                                <li><a href="KafkaServer.html">Kafka Server</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Lagom reference guide</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="ReferenceGuide.html">Reference Guide</a></li>
-                            
-                        
-                            
-                                <li><a href="LagomBuild.html">Configuring builds and the development environment</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="DevEnvironment.html">Running Lagom in development</a></li>
-                            
-                        
-                            
-                                <li><a href="ServiceDescriptors.html">Writing Lagom services</a></li>
-                            
-                        
-                            
-                                <li><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
-                            
-                        
-                            
-                                <li><a href="MessageBroker.html">Decouple services with a message broker</a></li>
-                            
-                        
-                            
-                                <li><a href="ProductionOverview.html">Running Lagom in production</a></li>
-                            
-                        
-                            
-                                <li><a href="Logging.html">Logging</a></li>
-                            
-                        
-                            
-                                <li><a href="Akka.html">Advanced topics</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Scala Home</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="Home.html">Home</a></li>
-                            
-                        
-                            
-                                <li><a href="WhatIsLagom.html">Welcome to Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="Installation.html">Getting started with Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="CoreConcepts.html">Lagom core concepts</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="ReferenceGuide.html">Lagom reference guide</a></li>
-                            
-                        
-                            
-                                <li><a href="Migration13.html">Lagom releases</a></li>
-                            
-                        
-                        </ul>
-                    
-                </nav>
+    <h3>Tags</h3>
+
+    <div class="blog-tag-box">
+    
+        <a href="/blog/tags/conductr.html" data-count="1">conductr</a>
+    
+        <a href="/blog/tags/generator.html" data-count="1">generator</a>
+    
+        <a href="/blog/tags/java.html" data-count="1">java</a>
+    
+        <a href="/blog/tags/maven.html" data-count="1">maven</a>
+    
+        <a href="/blog/tags/news.html" data-count="19">news</a>
+    
+        <a href="/blog/tags/outreachy.html" data-count="1">outreachy</a>
+    
+        <a href="/blog/tags/scala.html" data-count="2">scala</a>
+    
+        <a href="/blog/tags/screencast.html" data-count="1">screencast</a>
+    
+    </div>
+
+</nav>
+
+
             </aside>
         </div>
-   </div>
+    </article>
+
+
 
 
                     <footer>
@@ -407,17 +324,20 @@ $ sbt
     <script src="/5a251f61bdb8359468d03fc6dd2c57683654b06d-all-scripts-concat.js"></script>
     
      
-    <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
-    <script type="text/javascript"> docsearch({
-        apiKey: "77ef1e29e6bddfca861f7a42cc51725e",
-        indexName: "lagomframework",
-        inputSelector: "#docs-search",
-        algoliaOptions: {
-            facetFilters: ["version:1.3.x", "language:scala"]
-        }
-    });
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://www.lagomframework.com/blog/lagom-1-3-5.html";
+            this.page.identifier = "lagom-1-3-5";
+            this.page.title = "Lagom 1.3.5 is released!";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//lagomframework.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
-    
 
     <script>
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

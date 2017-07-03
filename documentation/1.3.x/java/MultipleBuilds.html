@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/8dd7ae09b03ae3ac17f29173c48ad4f40edc8567-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/ba43c6e73749e249a9f6fa5d082b13a250d93399-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -171,7 +171,7 @@ bintrayOmitLicense in ThisBuild := false</code></pre><h2 id="Importing-a-service
   <li><code>servicePort</code> - Allows the port that the service is run on to be overridden. Defaults to automatic selection of a port by Lagom.</li>
   <li><code>cassandraEnabled</code> - Configures whether this service needs Cassandra or not. Defaults to <code>true</code>.</li>
 </ul><h3 id="Using-sbt"><a class="section-marker" href="#Using-sbt">§</a>Using sbt</h3>
-<p>The <code>hellowold</code> Lagom service can be imported by adding the following declaration to your build:</p>
+<p>The <code>helloworld</code> Lagom service can be imported by adding the following declaration to your build:</p>
 <pre class="prettyprint"><code class="language-sbt">lazy val hello = lagomExternalJavadslProject(&quot;hello&quot;, &quot;com.example&quot; %% &quot;hello-impl&quot; % &quot;1.0&quot;)</code></pre>
 <p>The first argument passed to <code>lagomExternalJavadslProject</code> is the name that will be used in your build to refer to this externally defined project. While, the second argument provides the dependency to the <code>hello-impl</code> JAR, using the conventional sbt syntax for declaring dependencies. Note in fact that the <code>lagomExternalJavadslProject</code> method returns a sbt <code>Project</code>, which you can further customize if needed.</p>
 <p>After having added the external Lagom project to your build, just type <code>reload</code> in the sbt console. Then, when executing <code>runAll</code>, you should see that the <code>hello</code> service is started, together with all other services defined in the build:</p>
@@ -230,6 +230,12 @@ lazy val `greetings-impl` = (project in file(&quot;greetings-impl&quot;))
                         <option value="/documentation/1.2.x/java/MultipleBuilds.html">1.2.x</option>
                     
                         <option value="/documentation/1.3.x/java/MultipleBuilds.html" selected="selected">1.3.x</option>
+                    
+                        <option value="/documentation/1.4.x/java/MultipleBuilds.html">1.4.x</option>
+                    
+                        <option value="/documentation/current/java/MultipleBuilds.html">current</option>
+                    
+                        <option value="/documentation/latest/java/MultipleBuilds.html">latest</option>
                     
                     </select>
 
@@ -440,7 +446,7 @@ lazy val `greetings-impl` = (project in file(&quot;greetings-impl&quot;))
             </div>
         </div>
     </body>
-    <script src="/8dd7ae09b03ae3ac17f29173c48ad4f40edc8567-all-scripts-concat.js"></script>
+    <script src="/ba43c6e73749e249a9f6fa5d082b13a250d93399-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

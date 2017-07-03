@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/8dd7ae09b03ae3ac17f29173c48ad4f40edc8567-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/ba43c6e73749e249a9f6fa5d082b13a250d93399-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -144,7 +144,7 @@
 </code></pre>
 <p>In sbt:</p>
 <pre class="prettyprint"><code class="language-sbt">lagomKafkaPort in ThisBuild := 10000
-lagomKafkaZookeperPort in ThisBuild := 9999</code></pre><h2 id="Kafka-properties-file"><a class="section-marker" href="#Kafka-properties-file">§</a>Kafka properties file</h2>
+lagomKafkaZookeeperPort in ThisBuild := 9999</code></pre><h2 id="Kafka-properties-file"><a class="section-marker" href="#Kafka-properties-file">§</a>Kafka properties file</h2>
 <p>The Kafka server can be configured with a property file. By default, we are using the stock <code>server.properties</code> file provided with Kafka 0.10, with only one change to allow auto creation of topics on the server. This is a good default to quickly get started, but if you find yourself needing to start Kafka with a different configuration, you can easily do so by adding the following in your build. </p>
 <p>In the Maven root project pom:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
@@ -254,6 +254,12 @@ lagomKafkaPort in ThisBuild := 10000</code></pre>
                         <option value="/documentation/1.2.x/java/KafkaServer.html">1.2.x</option>
                     
                         <option value="/documentation/1.3.x/java/KafkaServer.html" selected="selected">1.3.x</option>
+                    
+                        <option value="/documentation/1.4.x/java/KafkaServer.html">1.4.x</option>
+                    
+                        <option value="/documentation/current/java/KafkaServer.html">current</option>
+                    
+                        <option value="/documentation/latest/java/KafkaServer.html">latest</option>
                     
                     </select>
 
@@ -452,7 +458,7 @@ lagomKafkaPort in ThisBuild := 10000</code></pre>
             </div>
         </div>
     </body>
-    <script src="/8dd7ae09b03ae3ac17f29173c48ad4f40edc8567-all-scripts-concat.js"></script>
+    <script src="/ba43c6e73749e249a9f6fa5d082b13a250d93399-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

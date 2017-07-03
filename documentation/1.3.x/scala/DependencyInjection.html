@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/8dd7ae09b03ae3ac17f29173c48ad4f40edc8567-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/ba43c6e73749e249a9f6fa5d082b13a250d93399-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -165,12 +165,10 @@ class HelloApplicationLoader extends LagomApplicationLoader {
       override def serviceLocator = ServiceLocator.NoServiceLocator
     }
 
-  override def describeServices = List(
-    readDescriptor[HelloService]
-  )
+  override def describeService = Some(readDescriptor[HelloService])
 }</code></pre>
 <p>The loader has two methods that must be implemented, <code>load</code> and <code>loadDevMode</code>. You can see that we&rsquo;ve mixed in different service locators for each method, we&rsquo;ve mixed in <a href="api/com/lightbend/lagom/scaladsl/devmode/LagomDevModeComponents.html"><code>LagomDevModeComponents</code></a> that provides the dev mode service locator and registers the services with it in dev mode, and in prod mode, for now, we&rsquo;ve simply provided <a href="api/com/lightbend/lagom/scaladsl/api/ServiceLocator$$NoServiceLocator$.html"><code>NoServiceLocator</code></a> as the service locator - this is a service locator that will return nothing for every lookup. We&rsquo;ll see in the <a href="ProductionOverview.html">deploying to production</a> documentation how to select the right service locator for production.</p>
-<p>A third method, <code>describeServices</code>, is optional, but may be used by tooling, for example by <a href="ConductR.html">ConductR</a>, to discover what service APIs are offered by this service. The meta data read from here may in turn be used to configure service gateways and other components.</p>
+<p>A third method, <code>describeService</code>, is optional, but may be used by tooling, for example by <a href="ConductR.html">ConductR</a>, to discover what service APIs are offered by this service. The metadata read from here may in turn be used to configure service gateways and other components.</p>
 <p>Finally, we need to tell Play about our application loader. We can do that by adding the following configuration to <code>application.conf</code>:</p>
 <pre class="prettyprint"><code>play.application.loader = com.example.HelloLoader
 </code></pre><h2 id="Defining-your-own-components"><a class="section-marker" href="#Defining-your-own-components">§</a>Defining your own components</h2>
@@ -210,6 +208,12 @@ class HelloApplicationLoader extends LagomApplicationLoader {
                     <select id="docs-version">
                     
                         <option value="/documentation/1.3.x/scala/DependencyInjection.html" selected="selected">1.3.x</option>
+                    
+                        <option value="/documentation/1.4.x/scala/DependencyInjection.html">1.4.x</option>
+                    
+                        <option value="/documentation/current/scala/DependencyInjection.html">current</option>
+                    
+                        <option value="/documentation/latest/scala/DependencyInjection.html">latest</option>
                     
                     </select>
 
@@ -424,7 +428,7 @@ class HelloApplicationLoader extends LagomApplicationLoader {
             </div>
         </div>
     </body>
-    <script src="/8dd7ae09b03ae3ac17f29173c48ad4f40edc8567-all-scripts-concat.js"></script>
+    <script src="/ba43c6e73749e249a9f6fa5d082b13a250d93399-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

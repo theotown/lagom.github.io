@@ -47,7 +47,7 @@ object DocumentationGenerator extends App {
       "Knoldus"),
     CommunityContent("Tour de Lagom (blog post series)",
       "https://manuel.bernhardt.io/2017/06/05/tour-de-lagom-part-1-lagom-microservices/",
-      "Manuel Bernhardt")
+      "Manuel Bernhardt"),
     CommunityContent("Guide to Reactive Microservices Using Lagom Framework",
       "http://www.baeldung.com/lagom-reactive-microservices",
       "Baeldung"),

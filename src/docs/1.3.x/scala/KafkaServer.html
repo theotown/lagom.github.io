@@ -14,7 +14,7 @@
 </code></pre>
 <p>In sbt:</p>
 <pre class="prettyprint"><code class="language-sbt">lagomKafkaPort in ThisBuild := 10000
-lagomKafkaZookeperPort in ThisBuild := 9999</code></pre><h2 id="Kafka-properties-file"><a class="section-marker" href="#Kafka-properties-file">§</a>Kafka properties file</h2>
+lagomKafkaZookeeperPort in ThisBuild := 9999</code></pre><h2 id="Kafka-properties-file"><a class="section-marker" href="#Kafka-properties-file">§</a>Kafka properties file</h2>
 <p>The Kafka server can be configured with a property file. By default, we are using the stock <code>server.properties</code> file provided with Kafka 0.10, with only one change to allow auto creation of topics on the server. This is a good default to quickly get started, but if you find yourself needing to start Kafka with a different configuration, you can easily do so by adding the following in your build. </p>
 <p>In the Maven root project pom:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;

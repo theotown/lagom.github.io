@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/031a0d85d704f28ff9b9b447680c94ac96f08d92-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/f4769a6c7cec635b41270765c37470a2371f2566-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -174,7 +174,7 @@ done
 <p>The internal upgrade to latest major versions of Play and Akka may need some changes in your code if you are using either of them directly. Please refer to the <a href="https://www.playframework.com/documentation/2.6.x/Migration26">Play 2.6 migration guide</a> and the <a href="http://doc.akka.io/docs/akka/current/scala/project/migration-guide-2.4.x-2.5.x.html">Akka 2.5 migration guide</a> for more details.</p><h3 id="Deprecations"><a class="section-marker" href="#Deprecations">§</a>Deprecations</h3>
 <p>Lagom uses Play and Akka under the covers and in occasions Lagom exposes the API provided by Play or Akka. In general this is a good enough solution to avoid adding extra layers of abstraction and wrapping. Sometimes, changes in Play or Akka can leak into our users. One such change is the <a href="https://www.playframework.com/documentation/2.6.x/JavaConfigMigration26">deprecation of <code>play.Configuration</code></a> in favour of Typesafe-Config. You may need to review your code to fix these deprecation warnings.</p><h3 id=" Rolling-upgrade"><a class="section-marker" href="# Rolling-upgrade">§</a> Rolling upgrade</h3>
 <p>When running a rolling upgrade the nodes composing your Akka cluster must keep the ability to connect to each other and must use the same serialization formats.</p>
-<p>If you are running Lagom 1.2.x and must do a rolling upgrade, you must first migrate to Lagom 1.3.5. Lagom 1.2.x nodes can&rsquo;t forma cluster with Lagom 1.4.x nodes.</p>
+<p>If you are running Lagom 1.2.x and must do a rolling upgrade, you must first migrate to Lagom 1.3.5. Lagom 1.2.x nodes can&rsquo;t form a cluster with Lagom 1.4.x nodes.</p>
 <p>One relevant change Akka 2.5 introduced involves a new method (DData) <a href="http://doc.akka.io/docs/akka/current/java/project/migration-guide-2.4.x-2.5.x.html#cluster-sharding-state-store-mode">internally handle the sharding</a> of your Persistent Entities in Lagom. We have decided to not enable that new method so your migration from Lagom 1.3.x to 1.4.x should be fine. You may opt in and use DData instead of the default persistence-based one but keep in mind that switching from persistence-based to DData requires a complete-cluster shutdown.</p>
 <p>The Java serialization was already discouraged and since Lagom 1.4.0 it is not the default anymore. This is a setting we inherit from Akka and which we are propagating transparently. If your code was dependant on the Java serialization you will need to review your serializers. This change in the defaults will also affect your ability to do a rolling upgrade. If you must support rolling upgrades and you depended on the default serializations you may override the new defaults using the <a href="http://doc.akka.io/docs/akka/current/scala/project/migration-guide-2.4.x-2.5.x.html#additional-serialization-bindings">additional-serialization-bindings</a> settings.</p>
                 </article>
@@ -360,7 +360,7 @@ done
             </div>
         </div>
     </body>
-    <script src="/031a0d85d704f28ff9b9b447680c94ac96f08d92-all-scripts-concat.js"></script>
+    <script src="/f4769a6c7cec635b41270765c37470a2371f2566-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

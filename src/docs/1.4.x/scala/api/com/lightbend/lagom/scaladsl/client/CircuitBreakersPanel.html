@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>RoundRobinServiceLocatorComponents - com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents</title>
-          <meta name="description" content="RoundRobinServiceLocatorComponents - com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents" />
-          <meta name="keywords" content="RoundRobinServiceLocatorComponents com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents" />
+          <title>CircuitBreakersPanel - com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel</title>
+          <meta name="description" content="CircuitBreakersPanel - com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel" />
+          <meta name="keywords" content="CircuitBreakersPanel com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -16,7 +16,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../../../index.html';
-            var hash = 'com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents';
+            var hash = 'com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -30,10 +30,10 @@
       <div id="definition">
         <img alt="Trait" src="../../../../../lib/trait_big.png" />
         <p id="owner"><a href="../../../../package.html" class="extype" name="com">com</a>.<a href="../../../package.html" class="extype" name="com.lightbend">lightbend</a>.<a href="../../package.html" class="extype" name="com.lightbend.lagom">lagom</a>.<a href="../package.html" class="extype" name="com.lightbend.lagom.scaladsl">scaladsl</a>.<a href="package.html" class="extype" name="com.lightbend.lagom.scaladsl.client">client</a></p>
-        <h1>RoundRobinServiceLocatorComponents</h1><h3><span class="morelinks"><div>Related Doc:
+        <h1>CircuitBreakersPanel</h1><h3><span class="morelinks"><div>Related Doc:
             <a href="package.html" class="extype" name="com.lightbend.lagom.scaladsl.client">package client</a>
           </div></span></h3><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -45,14 +45,14 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">RoundRobinServiceLocatorComponents</span><span class="result"> extends <a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></span>
+        <span class="name">CircuitBreakersPanel</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Components for using the round robin service locator.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/master//service/scaladsl/client/src/main/scala/com/lightbend/lagom/scaladsl/client/ServiceLocators.scala" target="_blank">ServiceLocators.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A CircuitBreakersPanel is a central point collecting all circuit breakers in Lagom.</p><p>Calls to remote services can make use of this facility in order to add circuit breaking capabilities to it.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/master//service/scaladsl/client/src/main/scala/com/lightbend/lagom/scaladsl/client/CircuitBreakersPanel.scala" target="_blank">CircuitBreakersPanel.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -70,7 +70,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents"><span>RoundRobinServiceLocatorComponents</span></li><li class="in" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents"><span>CircuitBreakerComponents</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel"><span>CircuitBreakersPanel</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -98,91 +98,26 @@
 
         <div id="values" class="values members">
               <h3>Abstract Value Members</h3>
-              <ol><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents#actorSystem" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="actorSystem:akka.actor.ActorSystem"></a>
-      <a id="actorSystem:ActorSystem"></a>
+              <ol><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel#withCircuitBreaker" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="withCircuitBreaker[T](id:String)(body:=&gt;scala.concurrent.Future[T]):scala.concurrent.Future[T]"></a>
+      <a id="withCircuitBreaker[T](String)(⇒Future[T]):Future[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">actorSystem</span><span class="result">: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>
+        <span class="name">withCircuitBreaker</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="id">id: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span name="body">body: ⇒ <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel.withCircuitBreaker.T">T</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel.withCircuitBreaker.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@actorSystem:akka.actor.ActorSystem" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@withCircuitBreaker[T](id:String)(body:=&gt;scala.concurrent.Future[T]):scala.concurrent.Future[T]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents#circuitBreakerMetricsProvider" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="circuitBreakerMetricsProvider:com.lightbend.lagom.internal.spi.CircuitBreakerMetricsProvider"></a>
-      <a id="circuitBreakerMetricsProvider:CircuitBreakerMetricsProvider"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">circuitBreakerMetricsProvider</span><span class="result">: <span class="extype" name="com.lightbend.lagom.internal.spi.CircuitBreakerMetricsProvider">CircuitBreakerMetricsProvider</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@circuitBreakerMetricsProvider:com.lightbend.lagom.internal.spi.CircuitBreakerMetricsProvider" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents#configuration" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="configuration:play.api.Configuration"></a>
-      <a id="configuration:Configuration"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">configuration</span><span class="result">: <span class="extype" name="play.api.Configuration">Configuration</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@configuration:play.api.Configuration" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents#executionContext" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="executionContext:scala.concurrent.ExecutionContext"></a>
-      <a id="executionContext:ExecutionContext"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">executionContext</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.concurrent.ExecutionContext" class="extype" target="_top">ExecutionContext</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@executionContext:scala.concurrent.ExecutionContext" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents#roundRobinServiceUris" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="roundRobinServiceUris:scala.collection.immutable.Seq[java.net.URI]"></a>
-      <a id="roundRobinServiceUris:Seq[URI]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">roundRobinServiceUris</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.collection.immutable.Seq" class="extype" target="_top">Seq</a>[<span class="extype" name="java.net.URI">URI</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@roundRobinServiceUris:scala.collection.immutable.Seq[java.net.URI]" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
+      <p class="shortcomment cmt">Executes <code>body</code> in the context of the circuit breaker identified by <code>id</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Executes <code>body</code> in the context of the circuit breaker identified by <code>id</code>. Whether <code>body</code> is actually invoked is
+implementation-dependent, but implementations should call it at most once.
+</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>the result type</p></dd><dt class="param">id</dt><dd class="cmt"><p>the unique identifier for the circuit breaker to use (often a service name)</p></dd><dt class="param">body</dt><dd class="cmt"><p>effect to (optionally) execute within the context of the circuit breaker. May throw a
+            <span class="extype" name="RuntimeException">RuntimeException</span> to signal failure.</p></dd><dt>returns</dt><dd class="cmt"><p>a future yielding either the same result as <code>body</code>, or failing with an implementation-dependent exception</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -200,7 +135,7 @@
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@!=(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -217,7 +152,7 @@
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@##():Int" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@##():Int" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -234,34 +169,34 @@
         <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@+(other:String):String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@+(other:String):String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>] performed by method any2stringadd in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a> to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>] performed by method any2stringadd in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="-&gt;[B](y:B):(A,B)"></a>
-      <a id="-&gt;[B](B):(RoundRobinServiceLocatorComponents,B)"></a>
+      <a id="-&gt;[B](B):(CircuitBreakersPanel,B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -279,7 +214,7 @@
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@==(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@==(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -296,62 +231,11 @@
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@asInstanceOf[T0]:T0" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents#circuitBreakerConfig" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="circuitBreakerConfig:com.lightbend.lagom.internal.client.CircuitBreakerConfig"></a>
-      <a id="circuitBreakerConfig:CircuitBreakerConfig"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">lazy val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">circuitBreakerConfig</span><span class="result">: <span class="extype" name="com.lightbend.lagom.internal.client.CircuitBreakerConfig">CircuitBreakerConfig</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@circuitBreakerConfig:com.lightbend.lagom.internal.client.CircuitBreakerConfig" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents#circuitBreakers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="circuitBreakers:com.lightbend.lagom.internal.client.CircuitBreakers"></a>
-      <a id="circuitBreakers:CircuitBreakers"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">lazy val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">circuitBreakers</span><span class="result">: <span class="extype" name="com.lightbend.lagom.internal.client.CircuitBreakers">CircuitBreakers</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@circuitBreakers:com.lightbend.lagom.internal.client.CircuitBreakers" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents#circuitBreakersPanel" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="circuitBreakersPanel:com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel"></a>
-      <a id="circuitBreakersPanel:CircuitBreakersPanel"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">lazy val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">circuitBreakersPanel</span><span class="result">: <a href="CircuitBreakersPanel.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@circuitBreakersPanel:com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -364,7 +248,7 @@
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@clone():Object" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@clone():Object" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -377,86 +261,86 @@
         </dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring((RoundRobinServiceLocatorComponents)⇒Boolean,⇒Any):RoundRobinServiceLocatorComponents"></a>
+      <a id="ensuring((CircuitBreakersPanel)⇒Boolean,⇒Any):CircuitBreakersPanel"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean):A"></a>
-      <a id="ensuring((RoundRobinServiceLocatorComponents)⇒Boolean):RoundRobinServiceLocatorComponents"></a>
+      <a id="ensuring((CircuitBreakersPanel)⇒Boolean):CircuitBreakersPanel"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring(Boolean,⇒Any):RoundRobinServiceLocatorComponents"></a>
+      <a id="ensuring(Boolean,⇒Any):CircuitBreakersPanel"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean):A"></a>
-      <a id="ensuring(Boolean):RoundRobinServiceLocatorComponents"></a>
+      <a id="ensuring(Boolean):CircuitBreakersPanel"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@ensuring(cond:Boolean):A" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@ensuring(cond:Boolean):A" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -471,7 +355,7 @@
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -488,7 +372,7 @@
         <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@equals(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -505,7 +389,7 @@
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@finalize():Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@finalize():Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -528,13 +412,13 @@
         <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@formatted(fmtstr:String):String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@formatted(fmtstr:String):String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>] performed by method StringFormat in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a> to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>] performed by method StringFormat in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -552,7 +436,7 @@
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@getClass():Class[_]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@getClass():Class[_]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -569,7 +453,7 @@
         <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@hashCode():Int" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@hashCode():Int" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -586,7 +470,7 @@
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -603,7 +487,7 @@
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -620,7 +504,7 @@
         <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@notify():Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@notify():Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -637,28 +521,11 @@
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@notifyAll():Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@notifyAll():Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents#serviceLocator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="serviceLocator:com.lightbend.lagom.scaladsl.api.ServiceLocator"></a>
-      <a id="serviceLocator:ServiceLocator"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">lazy val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">serviceLocator</span><span class="result">: <a href="../api/ServiceLocator.html" class="extype" name="com.lightbend.lagom.scaladsl.api.ServiceLocator">ServiceLocator</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@serviceLocator:com.lightbend.lagom.scaladsl.api.ServiceLocator" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -671,7 +538,7 @@
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -688,7 +555,7 @@
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@toString():String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@toString():String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -705,7 +572,7 @@
         <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@wait():Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@wait():Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -728,7 +595,7 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -751,7 +618,7 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@wait(x$1:Long):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@wait(x$1:Long):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -764,23 +631,23 @@
         </dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="→[B](y:B):(A,B)"></a>
-      <a id="→[B](B):(RoundRobinServiceLocatorComponents,B)"></a>
+      <a id="→[B](B):(CircuitBreakersPanel,B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents@→[B](y:B):(A,B)" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel@→[B](y:B):(A,B)" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li></ol>
@@ -792,28 +659,26 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">
-              <h3>Inherited from <a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></h3>
-            </div><div class="parent" name="scala.AnyRef">
+        <div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
             </div>
         <div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>]
+                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.StringFormat">
               <h3>Inherited by implicit conversion StringFormat from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>]
+                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.Ensuring">
               <h3>Inherited by implicit conversion Ensuring from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>]
+                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.ArrowAssoc">
               <h3>Inherited by implicit conversion ArrowAssoc from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocatorComponents">RoundRobinServiceLocatorComponents</a>]
+                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a>]
               </h3>
             </div>
         </div>

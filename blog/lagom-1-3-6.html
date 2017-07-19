@@ -6,17 +6,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Importing an sbt project into Eclipse</title>
+        <title>Lagom - Lagom 1.3.6 is released!</title>
         <meta name="description" content="Lagom">
-        
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.3.x/scala/EclipseSbt.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="/382e8ad7537fe1d90608be4f559aea9004800a6e-all-styles-concat.css" type="text/css">
          
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-    
+    <link href="/blog/atom.xml" type="application/atom+xml" rel="home" title="ATOM Feed" />
 
     </head>
     <body>
@@ -104,225 +101,138 @@
                         </div>
                     </div>
 
-                      
+                    
+
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Importing an sbt project into Eclipse</h1>
+                <div class="blog-meta">
+                    <div class="blog-author-image">
+                        <a href="https://github.com/TimMoore">
+                            <img src="https://avatars0.githubusercontent.com/u/44385?v=4"/>
+                        </a>
+                    </div>
+                    <div class="blog-meta-details">
+                        <a class="blog-author-name" href="https://github.com/TimMoore">Tim Moore</a>
+                        |
+                        <span class="blog-post-date">July 17, 2017</span>
+                        <div class="blog-meta-tags">
+                            
+                                <img src="/images/entypo/white/entypo_tag.svg" class="svg-icon"/>
+                                
+                                    <span class="blog-tag"><a href="tags/news.html">news</a></span>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                <h1>Lagom 1.3.6 is released!</h1>
             </div>
         </div>
     </header>
 
-    <div class="fw-wrapper documentation-content">
+    <article class="fw-wrapper page-content">
         <div class="row">
             <div class="small-12 large-7 columns">
-                
-                    <nav class="breadcrumbs">
-                        <a href="Home.html">Scala Home</a>
-                        
-                            &raquo; <a href="ReferenceGuide.html">Lagom reference guide</a>
-                        
-                            &raquo; <a href="LagomBuild.html">Configuring builds and the development environment</a>
-                        
-                    </nav>
-                
+                <p>Following from the <a href="lagom-1-4-0-M1.md">first preview release of Lagom 1.4.0</a>, several smaller improvements and fixes that were made since then have been backported to the 1.3 stable branch.</p>
+<p>1.3.6 contains small bug fixes and minor enhancements, and a couple of APIs were deprecated to fix typos and inconsistencies. One important fix improves the reliability of publishing events to Kafka by ensuring that topic producers are always restarted after failure (with exponential back off).</p>
+<p>We&rsquo;ve continued to get great pull requests from the Lagom community. Thanks to GitHub users <a href="https://github.com/edouardKaiser">Edouard Kaiser</a>, <a href="https://github.com/AmeerGN">AmeerGN</a>, <a href="https://github.com/erip">Elijah Rippeth</a>, <a href="https://github.com/mihbor">mihbor</a>, and Outreachy intern <a href="https://github.com/yg-apaza">Yuliana Apaza</a> for your contributions to Lagom 1.3.6!</p>
+<h2><a href="#updating" name="updating">Updating</a></h2>
+<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
+<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
+<h2><a href="#change-log" name="change-log">Change log</a></h2>
+<p>See the <a href="/changelog.html">change log</a> for more details on exactly what has been fixed in each release.</p>
 
-                <article>
-                <h1 id="Importing-an-sbt-project-into-Eclipse"><a class="section-marker" href="#Importing-an-sbt-project-into-Eclipse">§</a>Importing an sbt project into Eclipse</h1>
-<p>If you used the Giter8 template to create a build as described in <a href="IntroGetStarted.html">Creating and running Hello World with sbt</a>, you will have an sbt project. To make it possible to import the project into Eclipse, sbt provides an <a href="https://github.com/typesafehub/sbteclipse">sbt-eclipse</a> plugin that generates Eclipse project artifacts for each of the subprojects.</p>
-<p>Follow these steps to integrate your project with Eclipse:</p>
-<ol>
-  <li><a href="#Import-the-project">Import the project</a></li>
-  <li><a href="#Create-an-External-Tool-Configuration">Create an External Tool Configuration</a></li>
-</ol><h1 id="Import-the-project"><a class="section-marker" href="#Import-the-project">§</a>Import the project</h1>
-<ol>
-  <li>
-    <p>In a console, <code>cd</code> to the top-level folder of your existing sbt project, and enter <code>sbt eclipse</code> to generate the Eclipse project files for all projects in your build.<br/>The sbt plugin creates <code>.project</code> and <code>.classpath</code> files for the subprojects. The last few lines of output confirm success:</p>
-    <pre class="prettyprint"><code>...
-[info] Successfully created Eclipse project files for project(s):
-[info] hello-impl
-[info] hello-api
-[info] hello-stream-impl
-[info] hello-stream-api
-[info] lagom-internal-meta-project-service-locator
-[info] lagom-internal-meta-project-cassandra
+                <h2>Share</h2>
+                <div class="addthis_sharing_toolbox"></div>
 
-</code></pre>
-  </li>
-  <li>
-  <p>Start Eclipse and switch to the Workspace you want to use for your Lagom project.</p></li>
-  <li>
-  <p>From the <strong>File</strong> menu, select <strong>Import</strong>.<br/> The <strong>Select</strong> screen opens. </p></li>
-  <li>
-  <p>Expand <strong>General</strong>, select <strong>Existing Projects into Workspace</strong> and click <strong>Next</strong>.<br/> The <strong>Import Projects</strong> page opens.</p></li>
-  <li>
-  <p>Click <strong>Browse</strong>, select the top-level sbt project folder, and click <strong>OK</strong>.<br/>The sub-projects display in the dialog. For example:<br/><a href="resources/guide/build/EclBrowseSbtScala.png"><img src="resources/guide/build/EclBrowseSbtScala.png"/></a></p></li>
-  <li>Optionally, select <strong>Copy projects into workspace</strong>.</li>
-  <li>Click <strong>Finish</strong>.</li>
-</ol><h1 id="Create-an-External-Tool-Configuration"><a class="section-marker" href="#Create-an-External-Tool-Configuration">§</a>Create an External Tool Configuration</h1>
-<ol>
-  <li>From the Eclipse toolbar, click <strong>External Tools</strong> and select <strong>External Tools Configurations</strong>.<br/><a href="resources/guide/build/EclExternalConfig.png"><img src="resources/guide/build/EclExternalConfig.png"/></a></li>
-  <li>In the left pane, select <strong>Program</strong> and click <strong>New Launch Configuration</strong>.<br/><a href="resources/guide/build/EclNewLaunch.png"><img src="resources/guide/build/EclNewLaunch.png"/></a></li>
-  <li>Create your configuration as follows:
-    <ol>
-      <li>Enter a name.</li>
-      <li>On the <strong>Main</strong> tab in the <strong>Location</strong> field, enter the location of your sbt installation.<br/>For Windows, browse to the location where you installed sbt and select <code>sbt.bat</code>. On Linux, you can find the location of sbt by opening a terminal and entering <code>which sbt</code>.</li>
-      <li>For <strong>Working Directory</strong> browse to the top-level sbt project folder. (This is the folder containing the <code>build.sbt</code> file.)</li>
-      <li>In the <strong>Arguments</strong> field, enter <code>runAll</code>.</li>
-      <li>Click <strong>Apply</strong>. Your screen should look similar to the following:<br/><a href="resources/guide/build/EclExtConfigScala.png"><img src="resources/guide/build/EclExtConfigScala.png"/></a></li>
-    </ol>
-  </li>
-  <li>Click <strong>Run</strong>.<br/>On success, the console shows that the services are running.<br/><a href="resources/guide/build/EclSbtScalaSuccess.png"><img src="resources/guide/build/EclSbtScalaSuccess.png"/></a>
-    <p>Verify that the services are indeed up and running by invoking the <code>hello</code> service endpoint from any HTTP client, such as a browser: </p>
-    <pre class="prettyprint"><code>```
-http://localhost:9000/api/hello/World
-```
-</code></pre>
-    <p>The request returns the message <code>Hello, World!</code>.</p>
-  </li>
-</ol>
-                </article>
+                <br/>
 
-                
-                    
-                        <nav class="next-links">
-                            <strong>Next:</strong>
-                            <ul>
-                            
-                                <li><a href="RunningServices.html">Running Services</a></li>
-                            
-                                <li><a href="TestingServices.html">Testing Services</a></li>
-                            
-                            </ul>
-                        </nav>
-                    
-                
+                <h2>Discuss</h2>
+                <div id="disqus_thread"></div>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-                
-                    <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/guide/build/EclipseSbt.md">here</a>. Please feel free to edit and contribute a pull request.</p>
-                
             </div>
-            <aside class="small-12 large-4 columns">
-                <nav class="side-menu">
+            <aside class="show-for-medium small-12 large-4 columns">
+            
 
-                    <input type="text" id="docs-search" placeholder="Search"/>
+<nav class="side-menu">
+    
+        <h3>Recent posts</h3>
 
-                    <label for="docs-version">Version:</label>
-                    <select id="docs-version">
-                    
-                        <option value="/documentation/1.3.x/scala/EclipseSbt.html">1.3.x</option>
-                    
-                        <option value="/documentation/1.4.x/scala/EclipseSbt.html">1.4.x</option>
-                    
-                        <option value="/documentation/current/scala/EclipseSbt.html" selected="selected">current</option>
-                    
-                        <option value="/documentation/latest/scala/EclipseSbt.html">latest</option>
-                    
-                    </select>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/TimMoore">
+                        <img src="https://avatars0.githubusercontent.com/u/44385?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-3-6.html">Lagom 1.3.6 is released!</a>
+                    <br/>
+                    July 17, 2017
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-4-0-M1.html">Lagom 1.4.0-M1 is released!</a>
+                    <br/>
+                    June 29, 2017
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-3-5.html">Lagom 1.3.5 is released!</a>
+                    <br/>
+                    June 13, 2017
+                </div>
+            </div>
+        
 
-                    <a href="/documentation/current/scala/api/index.html" class="api-docs">API Documentation</a>
+    
 
-                    
-                        <h3>Configuring builds and the development environment</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="LagomBuild.html">Defining a Lagom build</a></li>
-                            
-                        
-                            
-                                <li><a href="MultipleBuilds.html">Splitting a system into multiple builds</a></li>
-                            
-                        
-                            
-                                <li><a href="IntellijSbt.html">Importing an sbt project into Intellij</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="EclipseSbt.html">Importing an sbt project into Eclipse</a></li>
-                            
-                        
-                            
-                                <li><a href="JVMMemoryOnDev.html">Increase Memory in sbt</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Lagom reference guide</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="ReferenceGuide.html">Reference Guide</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="LagomBuild.html">Configuring builds and the development environment</a></li>
-                            
-                        
-                            
-                                <li><a href="DevEnvironment.html">Running Lagom in development</a></li>
-                            
-                        
-                            
-                                <li><a href="ServiceDescriptors.html">Writing Lagom services</a></li>
-                            
-                        
-                            
-                                <li><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
-                            
-                        
-                            
-                                <li><a href="MessageBroker.html">Decouple services with a message broker</a></li>
-                            
-                        
-                            
-                                <li><a href="ProductionOverview.html">Running Lagom in production</a></li>
-                            
-                        
-                            
-                                <li><a href="Logging.html">Logging</a></li>
-                            
-                        
-                            
-                                <li><a href="Akka.html">Advanced topics</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Scala Home</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="Home.html">Home</a></li>
-                            
-                        
-                            
-                                <li><a href="WhatIsLagom.html">Welcome to Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="Installation.html">Getting started with Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="CoreConcepts.html">Lagom core concepts</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="ReferenceGuide.html">Lagom reference guide</a></li>
-                            
-                        
-                            
-                                <li><a href="Migration13.html">Lagom releases</a></li>
-                            
-                        
-                        </ul>
-                    
-                </nav>
+    <h3>Tags</h3>
+
+    <div class="blog-tag-box">
+    
+        <a href="/blog/tags/conductr.html" data-count="1">conductr</a>
+    
+        <a href="/blog/tags/generator.html" data-count="1">generator</a>
+    
+        <a href="/blog/tags/java.html" data-count="1">java</a>
+    
+        <a href="/blog/tags/maven.html" data-count="1">maven</a>
+    
+        <a href="/blog/tags/news.html" data-count="21">news</a>
+    
+        <a href="/blog/tags/outreachy.html" data-count="1">outreachy</a>
+    
+        <a href="/blog/tags/scala.html" data-count="2">scala</a>
+    
+        <a href="/blog/tags/screencast.html" data-count="1">screencast</a>
+    
+    </div>
+
+</nav>
+
+
             </aside>
         </div>
-   </div>
+    </article>
+
+
 
 
                     <footer>
@@ -415,17 +325,20 @@ http://localhost:9000/api/hello/World
     <script src="/382e8ad7537fe1d90608be4f559aea9004800a6e-all-scripts-concat.js"></script>
     
      
-    <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
-    <script type="text/javascript"> docsearch({
-        apiKey: "77ef1e29e6bddfca861f7a42cc51725e",
-        indexName: "lagomframework",
-        inputSelector: "#docs-search",
-        algoliaOptions: {
-            facetFilters: ["version:current", "language:scala"]
-        }
-    });
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://www.lagomframework.com/blog/lagom-1-3-6.html";
+            this.page.identifier = "lagom-1-3-6";
+            this.page.title = "Lagom 1.3.6 is released!";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//lagomframework.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
-    
 
     <script>
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

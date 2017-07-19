@@ -20,14 +20,18 @@
           <id>https://www.lagomframework.com/blog/lagom-1-3-6.html</id>
           <updated>2017-07-17T00:00:00.000Z</updated>
           <published>2017-07-17T00:00:00.000Z</published>
-          <content type="html"><![CDATA[<p>Following from the <a href="lagom-1-4-0-M1.md">first preview release of Lagom 1.4.0</a>, several smaller improvements and fixes that were made since then have been backported to the 1.3 stable branch.</p>
-<p>1.3.6 contains small bug fixes and minor enhancements, and a couple of APIs were deprecated to fix typos and inconsistencies. One important fix improves the reliability of publishing events to Kafka by ensuring that topic producers are always restarted after failure (with exponential back off).</p>
+          <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.3.6. For a list of the specific changes in Lagom 1.3.6, see the <a href="https://www.lagomframework.com/changelog.html">change log</a>.</p>
+<p>As an overview, this release contains the following:</p>
+<ul>
+  <li>A fix for event publishing to Kafka to ensure that topic producers are automatically restarted after failure (with exponential back off)</li>
+  <li>Deprecated APIs to fix typos and inconsistencies.</li>
+  <li>Other small bug fixes and minor enhancements</li>
+</ul>
 <p>We&rsquo;ve continued to get great pull requests from the Lagom community. Thanks to GitHub users <a href="https://github.com/edouardKaiser">Edouard Kaiser</a>, <a href="https://github.com/AmeerGN">AmeerGN</a>, <a href="https://github.com/erip">Elijah Rippeth</a>, <a href="https://github.com/mihbor">mihbor</a>, and Outreachy intern <a href="https://github.com/yg-apaza">Yuliana Apaza</a> for your contributions to Lagom 1.3.6!</p>
-<h2><a href="#updating" name="updating">Updating</a></h2>
+<h2>Updating a Lagom project to version 1.3.6</h2>
 <p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
 <p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
-<h2><a href="#change-log" name="change-log">Change log</a></h2>
-<p>See the <a href="https://www.lagomframework.com/changelog.html">change log</a> for more details on exactly what has been fixed in each release.</p>]]></content>
+<p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>]]></content>
           <dc:date>2017-07-17T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.4.0-M1 is released!</title>

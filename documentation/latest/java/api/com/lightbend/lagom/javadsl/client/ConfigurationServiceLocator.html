@@ -138,8 +138,16 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/CircuitBreaki
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/client/ConfigurationServiceLocator.html#ConfigurationServiceLocator-com.typesafe.config.Config-com.lightbend.lagom.javadsl.client.CircuitBreakersPanel-">ConfigurationServiceLocator</a></span>(com.typesafe.config.Config&nbsp;config,
+                           <a href="../../../../../com/lightbend/lagom/javadsl/client/CircuitBreakersPanel.html" title="interface in com.lightbend.lagom.javadsl.client">CircuitBreakersPanel</a>&nbsp;circuitBreakersPanel)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/client/ConfigurationServiceLocator.html#ConfigurationServiceLocator-play.Configuration-com.lightbend.lagom.internal.client.CircuitBreakers-">ConfigurationServiceLocator</a></span>(play.Configuration&nbsp;configuration,
-                           com.lightbend.lagom.internal.client.CircuitBreakers&nbsp;circuitBreakers)</code>&nbsp;</td>
+                           com.lightbend.lagom.internal.client.CircuitBreakers&nbsp;circuitBreakers)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">Use constructor accepting <a href="../../../../../com/lightbend/lagom/javadsl/client/CircuitBreakersPanel.html" title="interface in com.lightbend.lagom.javadsl.client"><code>CircuitBreakersPanel</code></a> instead</span></div>
+</div>
+</td>
 </tr>
 </table>
 </li>
@@ -202,12 +210,28 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/CircuitBreaki
 <a name="ConfigurationServiceLocator-play.Configuration-com.lightbend.lagom.internal.client.CircuitBreakers-">
 <!--   -->
 </a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ConfigurationServiceLocator</h4>
+<pre>@Deprecated
+public&nbsp;ConfigurationServiceLocator(play.Configuration&nbsp;configuration,
+                                               com.lightbend.lagom.internal.client.CircuitBreakers&nbsp;circuitBreakers)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Use constructor accepting <a href="../../../../../com/lightbend/lagom/javadsl/client/CircuitBreakersPanel.html" title="interface in com.lightbend.lagom.javadsl.client"><code>CircuitBreakersPanel</code></a> instead</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>circuitBreakers</code> - </dd>
+</dl>
+</li>
+</ul>
+<a name="ConfigurationServiceLocator-com.typesafe.config.Config-com.lightbend.lagom.javadsl.client.CircuitBreakersPanel-">
+<!--   -->
+</a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ConfigurationServiceLocator</h4>
 <pre>@Inject
-public&nbsp;ConfigurationServiceLocator(play.Configuration&nbsp;configuration,
-                                           com.lightbend.lagom.internal.client.CircuitBreakers&nbsp;circuitBreakers)</pre>
+public&nbsp;ConfigurationServiceLocator(com.typesafe.config.Config&nbsp;config,
+                                           <a href="../../../../../com/lightbend/lagom/javadsl/client/CircuitBreakersPanel.html" title="interface in com.lightbend.lagom.javadsl.client">CircuitBreakersPanel</a>&nbsp;circuitBreakersPanel)</pre>
 </li>
 </ul>
 </li>

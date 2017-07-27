@@ -138,9 +138,16 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocato
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/ConfigurationServiceLocator.html#ConfigurationServiceLocator-play.Configuration-">ConfigurationServiceLocator</a></span>(play.Configuration&nbsp;configuration)</code>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/ConfigurationServiceLocator.html#ConfigurationServiceLocator-com.typesafe.config.Config-">ConfigurationServiceLocator</a></span>(com.typesafe.config.Config&nbsp;configuration)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 &nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/ConfigurationServiceLocator.html#ConfigurationServiceLocator-play.Configuration-">ConfigurationServiceLocator</a></span>(play.Configuration&nbsp;configuration)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">use <a href="../../../../../com/lightbend/lagom/javadsl/api/ConfigurationServiceLocator.html#ConfigurationServiceLocator-com.typesafe.config.Config-"><code>ConfigurationServiceLocator(Config)</code></a> instead.</span></div>
+</div>
+</td>
 </tr>
 </table>
 </li>
@@ -203,15 +210,26 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocato
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
+<a name="ConfigurationServiceLocator-com.typesafe.config.Config-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ConfigurationServiceLocator</h4>
+<pre>@Inject
+public&nbsp;ConfigurationServiceLocator(com.typesafe.config.Config&nbsp;configuration)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+</li>
+</ul>
 <a name="ConfigurationServiceLocator-play.Configuration-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ConfigurationServiceLocator</h4>
-<pre>@Inject
+<pre>@Deprecated
 public&nbsp;ConfigurationServiceLocator(play.Configuration&nbsp;configuration)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">use <a href="../../../../../com/lightbend/lagom/javadsl/api/ConfigurationServiceLocator.html#ConfigurationServiceLocator-com.typesafe.config.Config-"><code>ConfigurationServiceLocator(Config)</code></a> instead.</span></div>
 </li>
 </ul>
 </li>

@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/47d4644df15bf865ecfbd218420fb489f78bc4e6-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/54b83e608c4f0df3d2460cf5400f0113c7ff68af-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -228,10 +228,8 @@ lagom.circuit-breaker {
   default.call-timeout = 5s
 }
 </code></pre><h3 id="Circuit-breaker-metrics"><a class="section-marker" href="#Circuit-breaker-metrics">§</a>Circuit breaker metrics</h3>
-<p>Lagom allows you to publish metrics for circuit breakers via a metrics service. To enable this service, mix in the <a href="api/com/lightbend/lagom/scaladsl/server/status/MetricsServiceComponents.html"><code>MetricsServiceComponents</code></a> trait into your application, and add the provided <code>metricsServiceBinding</code> to your service bindings in your <code>lagomServer</code> declaration, like so:</p>
-<pre class="prettyprint"><code class="language-scala">import com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents
-
-abstract class MyApplication(context: LagomApplicationContext)
+<p>Lagom allows you to publish metrics for circuit breakers via a metrics service. To enable this service, add <code>metricsServiceBinding</code> to your service bindings in your <code>lagomServer</code> declaration, like so:</p>
+<pre class="prettyprint"><code class="language-scala"><br/>abstract class MyApplication(context: LagomApplicationContext)
   extends LagomApplication(context)
     with AhcWSComponents {
 
@@ -492,7 +490,7 @@ abstract class MyApplication(context: LagomApplicationContext)
             </div>
         </div>
     </body>
-    <script src="/47d4644df15bf865ecfbd218420fb489f78bc4e6-all-scripts-concat.js"></script>
+    <script src="/54b83e608c4f0df3d2460cf5400f0113c7ff68af-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

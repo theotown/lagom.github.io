@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/e46a5f6cef43c44735b3b9c53bc19e88fea3ac6d-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/9de1ee294bba1a1ab2d92c5fc7b5191432a85872-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -261,36 +261,40 @@
   --&gt;
 &lt;!-- The default log4j2 configuration that Lagom uses in dev mode if no other configuration is provided --&gt;
 &lt;Configuration name=&quot;DevelopmentLagomConfig&quot;&gt;
-  &lt;File name=&quot;FILE&quot; fileName=&quot;logs/application.log&quot;&gt;
-    &lt;PatternLayout&gt;
-      &lt;Pattern&gt;%date [%level] from %logger in %thread - %message%n%xException&lt;/Pattern&gt;
-    &lt;/PatternLayout&gt;
-  &lt;/File&gt;
+  &lt;Appenders&gt;
+    &lt;File name=&quot;FILE&quot; fileName=&quot;logs/application.log&quot;&gt;
+      &lt;PatternLayout&gt;
+        &lt;Pattern&gt;%date [%level] from %logger in %thread - %message%n%xException&lt;/Pattern&gt;
+      &lt;/PatternLayout&gt;
+    &lt;/File&gt;
 
-  &lt;Console name=&quot;STDOUT&quot;&gt;
-    &lt;PatternLayout&gt;
-      &lt;Pattern&gt;%highlight{%level} %logger{15} - %message%n%xException{10}&lt;/Pattern&gt;
-    &lt;/PatternLayout&gt;
-  &lt;/Console&gt;
+    &lt;Console name=&quot;STDOUT&quot;&gt;
+      &lt;PatternLayout&gt;
+        &lt;Pattern&gt;%highlight{%level} %logger{15} - %message%n%xException{10}&lt;/Pattern&gt;
+      &lt;/PatternLayout&gt;
+    &lt;/Console&gt;
+  &lt;/Appenders&gt;
 
-  &lt;!-- Set logging for all Play library classes to WARN --&gt;
-  &lt;Logger name=&quot;play&quot; level=&quot;WARN&quot;/&gt;
-  &lt;!-- Set logging for all Akka library classes to WARN --&gt;
-  &lt;Logger name=&quot;akka&quot; level=&quot;WARN&quot;/&gt;
-  &lt;!-- Set logging for all Lagom library classes to WARN --&gt;
-  &lt;Logger name=&quot;com.lightbend.lagom&quot; level=&quot;WARN&quot;/&gt;
-  &lt;!-- Cassandra and the datastax driver are used by the Lagom event sourcing modules --&gt;
-  &lt;Logger name=&quot;org.apache.cassandra&quot; level=&quot;ERROR&quot;/&gt;
-  &lt;Logger name=&quot;com.datastax.driver&quot; level=&quot;ERROR&quot;/&gt;
-  &lt;!-- Turning off connection error logging to avoid noise when services are forcely stopped --&gt;
-  &lt;Logger name=&quot;com.datastax.driver.core.ControlConnection&quot; level=&quot;OFF&quot;/&gt;
-  &lt;!-- Turn down Kafka noise --&gt;
-  &lt;Logger name=&quot;org.apache.kafka&quot; level=&quot;WARN&quot;/&gt;
+  &lt;Loggers&gt;
+    &lt;!-- Set logging for all Play library classes to WARN --&gt;
+    &lt;Logger name=&quot;play&quot; level=&quot;WARN&quot;/&gt;
+    &lt;!-- Set logging for all Akka library classes to WARN --&gt;
+    &lt;Logger name=&quot;akka&quot; level=&quot;WARN&quot;/&gt;
+    &lt;!-- Set logging for all Lagom library classes to WARN --&gt;
+    &lt;Logger name=&quot;com.lightbend.lagom&quot; level=&quot;WARN&quot;/&gt;
+    &lt;!-- Cassandra and the datastax driver are used by the Lagom event sourcing modules --&gt;
+    &lt;Logger name=&quot;org.apache.cassandra&quot; level=&quot;ERROR&quot;/&gt;
+    &lt;Logger name=&quot;com.datastax.driver&quot; level=&quot;ERROR&quot;/&gt;
+    &lt;!-- Turning off connection error logging to avoid noise when services are forcely stopped --&gt;
+    &lt;Logger name=&quot;com.datastax.driver.core.ControlConnection&quot; level=&quot;OFF&quot;/&gt;
+    &lt;!-- Turn down Kafka noise --&gt;
+    &lt;Logger name=&quot;org.apache.kafka&quot; level=&quot;WARN&quot;/&gt;
 
-  &lt;AsyncRoot level=&quot;WARN&quot;&gt;
-    &lt;AppenderRef ref=&quot;FILE&quot;/&gt;
-    &lt;AppenderRef ref=&quot;STDOUT&quot;/&gt;
-  &lt;/AsyncRoot&gt;
+    &lt;AsyncRoot level=&quot;WARN&quot;&gt;
+      &lt;AppenderRef ref=&quot;FILE&quot;/&gt;
+      &lt;AppenderRef ref=&quot;STDOUT&quot;/&gt;
+    &lt;/AsyncRoot&gt;
+  &lt;/Loggers&gt;
 
 &lt;/Configuration&gt;</code></pre>
 <p>And in production, the following is the default configuration:</p>
@@ -299,34 +303,38 @@
   --&gt;
 &lt;!-- The default log4j2 configuration that Lagom uses if no other configuration is provided --&gt;
 &lt;Configuration name=&quot;DefaultLagomConfig&quot;&gt;
-  &lt;File name=&quot;FILE&quot; fileName=&quot;logs/application.log&quot;&gt;
-    &lt;PatternLayout&gt;
-      &lt;Pattern&gt;%date [%level] from %logger in %thread - %message%n%xException&lt;/Pattern&gt;
-    &lt;/PatternLayout&gt;
-  &lt;/File&gt;
+  &lt;Appenders&gt;
+    &lt;File name=&quot;FILE&quot; fileName=&quot;logs/application.log&quot;&gt;
+      &lt;PatternLayout&gt;
+        &lt;Pattern&gt;%date [%level] from %logger in %thread - %message%n%xException&lt;/Pattern&gt;
+      &lt;/PatternLayout&gt;
+    &lt;/File&gt;
 
-  &lt;Console name=&quot;STDOUT&quot;&gt;
-    &lt;PatternLayout&gt;
-      &lt;Pattern&gt;%highlight{%level} %logger{15} - %message%n%xException{10}&lt;/Pattern&gt;
-    &lt;/PatternLayout&gt;
-  &lt;/Console&gt;
+    &lt;Console name=&quot;STDOUT&quot;&gt;
+      &lt;PatternLayout&gt;
+        &lt;Pattern&gt;%highlight{%level} %logger{15} - %message%n%xException{10}&lt;/Pattern&gt;
+      &lt;/PatternLayout&gt;
+    &lt;/Console&gt;
+  &lt;/Appenders&gt;
 
-  &lt;!-- Set logging for all Play library classes to WARN --&gt;
-  &lt;Logger name=&quot;play&quot; level=&quot;WARN&quot;/&gt;
-  &lt;!-- Set logging for all Akka library classes to WARN --&gt;
-  &lt;Logger name=&quot;akka&quot; level=&quot;WARN&quot;/&gt;
-  &lt;!-- Set logging for all Lagom library classes to WARN --&gt;
-  &lt;Logger name=&quot;com.lightbend.lagom&quot; level=&quot;WARN&quot;/&gt;
-  &lt;!-- Cassandra and the datastax driver are used by the Lagom event sourcing modules --&gt;
-  &lt;Logger name=&quot;org.apache.cassandra&quot; level=&quot;ERROR&quot;/&gt;
-  &lt;Logger name=&quot;com.datastax.driver&quot; level=&quot;ERROR&quot;/&gt;
-  &lt;!-- Turn down Kafka noise --&gt;
-  &lt;Logger name=&quot;org.apache.kafka&quot; level=&quot;WARN&quot;/&gt;
+  &lt;Loggers&gt;
+    &lt;!-- Set logging for all Play library classes to WARN --&gt;
+    &lt;Logger name=&quot;play&quot; level=&quot;WARN&quot;/&gt;
+    &lt;!-- Set logging for all Akka library classes to WARN --&gt;
+    &lt;Logger name=&quot;akka&quot; level=&quot;WARN&quot;/&gt;
+    &lt;!-- Set logging for all Lagom library classes to WARN --&gt;
+    &lt;Logger name=&quot;com.lightbend.lagom&quot; level=&quot;WARN&quot;/&gt;
+    &lt;!-- Cassandra and the datastax driver are used by the Lagom event sourcing modules --&gt;
+    &lt;Logger name=&quot;org.apache.cassandra&quot; level=&quot;ERROR&quot;/&gt;
+    &lt;Logger name=&quot;com.datastax.driver&quot; level=&quot;ERROR&quot;/&gt;
+    &lt;!-- Turn down Kafka noise --&gt;
+    &lt;Logger name=&quot;org.apache.kafka&quot; level=&quot;WARN&quot;/&gt;
 
-  &lt;AsyncRoot level=&quot;WARN&quot;&gt;
-    &lt;AppenderRef ref=&quot;FILE&quot;/&gt;
-    &lt;AppenderRef ref=&quot;STDOUT&quot;/&gt;
-  &lt;/AsyncRoot&gt;
+    &lt;AsyncRoot level=&quot;WARN&quot;&gt;
+      &lt;AppenderRef ref=&quot;FILE&quot;/&gt;
+      &lt;AppenderRef ref=&quot;STDOUT&quot;/&gt;
+    &lt;/AsyncRoot&gt;
+  &lt;/Loggers&gt;
 
 &lt;/Configuration&gt;</code></pre>
 <p>A few things to note:</p>
@@ -352,7 +360,8 @@
     libraryDependencies ++= Seq(
       &quot;org.apache.logging.log4j&quot; % &quot;log4j-slf4j-impl&quot; % &quot;2.7&quot;,
       &quot;org.apache.logging.log4j&quot; % &quot;log4j-api&quot; % &quot;2.7&quot;,
-      &quot;org.apache.logging.log4j&quot; % &quot;log4j-core&quot; % &quot;2.7&quot;
+      &quot;org.apache.logging.log4j&quot; % &quot;log4j-core&quot; % &quot;2.7&quot;,
+      &quot;com.lmax&quot; % &quot;disruptor&quot; % &quot;3.3.6&quot;
     )
   )</code></pre>
 <p>Once the libraries and the SLF4J adapter are loaded, the <code>log4j.configurationFile</code> system property can be set on the command line as usual.</p>
@@ -576,7 +585,7 @@
             </div>
         </div>
     </body>
-    <script src="/e46a5f6cef43c44735b3b9c53bc19e88fea3ac6d-all-scripts-concat.js"></script>
+    <script src="/9de1ee294bba1a1ab2d92c5fc7b5191432a85872-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

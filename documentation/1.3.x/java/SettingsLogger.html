@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/3c2bc30ce824d81aac764b2628ef40677fa59fce-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/5eed87887e25adfb1159f4dbf908e2a0246cff4e-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -139,16 +139,9 @@
 
   &lt;conversionRule conversionWord=&quot;coloredLevel&quot; converterClass=&quot;com.lightbend.lagom.internal.logback.ColoredLevel&quot; /&gt;
 
-  &lt;appender name=&quot;FILE&quot; class=&quot;ch.qos.logback.core.FileAppender&quot;&gt;
-    &lt;file&gt;${application.home:-.}/logs/application.log&lt;/file&gt;
-    &lt;encoder&gt;
-      &lt;pattern&gt;%date{&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&quot;} ${HOSTNAME} %-5level %logger{0} [%mdc] - %msg%n&lt;/pattern&gt;
-    &lt;/encoder&gt;
-  &lt;/appender&gt;
-
   &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
     &lt;encoder&gt;
-      &lt;pattern&gt;%date{&quot;HH:mm:ss.SSS&quot;} %coloredLevel %logger{0} [%mdc] - %msg%n&lt;/pattern&gt;
+      &lt;pattern&gt;%date{&quot;HH:mm:ss.SSS&quot;} %coloredLevel %logger [%mdc] - %msg%n&lt;/pattern&gt;
     &lt;/encoder&gt;
   &lt;/appender&gt;
 
@@ -169,7 +162,6 @@
 
   &lt;root level=&quot;INFO&quot;&gt;
     &lt;appender-ref ref=&quot;STDOUT&quot; /&gt;
-    &lt;appender-ref ref=&quot;FILE&quot; /&gt;
   &lt;/root&gt;
 
 &lt;/configuration&gt;</code></pre>
@@ -182,27 +174,10 @@
 
   &lt;conversionRule conversionWord=&quot;coloredLevel&quot; converterClass=&quot;com.lightbend.lagom.internal.logback.ColoredLevel&quot; /&gt;
 
-  &lt;appender name=&quot;FILE&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;
-    &lt;file&gt;${application.home:-.}/logs/application.log&lt;/file&gt;
-    &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy&quot;&gt;
-      &lt;fileNamePattern&gt;${application.home:-.}/logs/application-%d{yyyy-MM-dd}.%i.log.gz}&lt;/fileNamePattern&gt;
-      &lt;maxFileSize&gt;10MB&lt;/maxFileSize&gt;
-      &lt;maxHistory&gt;30&lt;/maxHistory&gt;
-      &lt;totalSizeCap&gt;300MB&lt;/totalSizeCap&gt;
-    &lt;/rollingPolicy&gt;
-    &lt;encoder&gt;
-      &lt;pattern&gt;%date{&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;,UTC} ${HOSTNAME} %-5level %logger{0} [%mdc] - %msg%n&lt;/pattern&gt;
-    &lt;/encoder&gt;
-  &lt;/appender&gt;
-
   &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
     &lt;encoder&gt;
-      &lt;pattern&gt;%date{&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;,UTC} %coloredLevel %logger{0} [%mdc] - %msg%n&lt;/pattern&gt;
+      &lt;pattern&gt;%date{&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;&quot;,UTC} %coloredLevel %logger [%mdc] - %msg%n&lt;/pattern&gt;
     &lt;/encoder&gt;
-  &lt;/appender&gt;
-
-  &lt;appender name=&quot;ASYNCFILE&quot; class=&quot;ch.qos.logback.classic.AsyncAppender&quot;&gt;
-    &lt;appender-ref ref=&quot;FILE&quot; /&gt;
   &lt;/appender&gt;
 
   &lt;appender name=&quot;ASYNCSTDOUT&quot; class=&quot;ch.qos.logback.classic.AsyncAppender&quot;&gt;
@@ -223,17 +198,15 @@
   &lt;logger name=&quot;org.apache.kafka&quot; level=&quot;WARN&quot; /&gt;
 
   &lt;root level=&quot;INFO&quot;&gt;
-    &lt;appender-ref ref=&quot;ASYNCFILE&quot; /&gt;
     &lt;appender-ref ref=&quot;ASYNCSTDOUT&quot; /&gt;
   &lt;/root&gt;
 
 &lt;/configuration&gt;</code></pre>
 <p>A few things to note:</p>
 <ul>
-  <li>A file appender that writes to <code>logs/application.log</code> is declared.</li>
-  <li>The file logger logs full exception stack traces, while the console logger only logs 10 lines of an exception stack trace.</li>
+  <li>The logger logs full exception stack traces and full-qualified logger names.</li>
   <li>Lagom uses ANSI color codes by default in level messages.</li>
-  <li>In production, Lagom puts both the console and the file logger behind the logback <a href="https://logback.qos.ch/manual/appenders.html#AsyncAppender">AsyncAppender</a>. For details on the performance implications on this, see this <a href="http://blog.takipi.com/how-to-instantly-improve-your-java-logging-with-7-logback-tweaks/">blog post</a>.</li>
+  <li>In production, Lagom puts the logger behind the logback <a href="https://logback.qos.ch/manual/appenders.html#AsyncAppender">AsyncAppender</a>. For details on the performance implications on this, see this <a href="http://blog.takipi.com/how-to-instantly-improve-your-java-logging-with-7-logback-tweaks/">blog post</a>.</li>
 </ul><h2 id="Custom-configuration"><a class="section-marker" href="#Custom-configuration">§</a>Custom configuration</h2>
 <p>For any custom configuration, you need to provide your own Logback configuration file.</p><h3 id="Using-a-configuration-file-from-project-source"><a class="section-marker" href="#Using-a-configuration-file-from-project-source">§</a>Using a configuration file from project source</h3>
 <p>You can provide a default logging configuration by creating a <code>logback.xml</code> file in the project&rsquo;s resource folder. Furthermore, for testing purposes, you can also create a <code>logback-test.xml</code> and place it in the <code>src/test/resources</code> directory of your project. When both <code>logback.xml</code> and <code>logback-test.xml</code> are in the classpath, the latter has higher precedence.</p><h3 id="Using-an-external-configuration-file"><a class="section-marker" href="#Using-an-external-configuration-file">§</a>Using an external configuration file</h3>
@@ -270,15 +243,9 @@
 &lt;!-- The default log4j2 configuration that Lagom uses in dev mode if no other configuration is provided --&gt;
 &lt;Configuration name=&quot;DevelopmentLagomConfig&quot;&gt;
   &lt;Appenders&gt;
-    &lt;File name=&quot;FILE&quot; fileName=&quot;logs/application.log&quot;&gt;
-      &lt;PatternLayout&gt;
-        &lt;Pattern&gt;%d{yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS} ${HOSTNAME} %-5level %logger{0} [%mdc] - %msg%n&lt;/Pattern&gt;
-      &lt;/PatternLayout&gt;
-    &lt;/File&gt;
-
     &lt;Console name=&quot;STDOUT&quot;&gt;
       &lt;PatternLayout&gt;
-        &lt;Pattern&gt;%d{HH:mm:ss.SSS} %highlight{%level} %logger{0} [%mdc] - %msg%n&lt;/Pattern&gt;
+        &lt;Pattern&gt;%d{HH:mm:ss.SSS} %highlight{%level} %logger [%mdc] - %msg%n&lt;/Pattern&gt;
       &lt;/PatternLayout&gt;
     &lt;/Console&gt;
   &lt;/Appenders&gt;
@@ -300,7 +267,6 @@
     &lt;Logger name=&quot;org.apache.kafka&quot; level=&quot;WARN&quot;/&gt;
 
     &lt;AsyncRoot level=&quot;INFO&quot;&gt;
-      &lt;AppenderRef ref=&quot;FILE&quot;/&gt;
       &lt;AppenderRef ref=&quot;STDOUT&quot;/&gt;
     &lt;/AsyncRoot&gt;
   &lt;/Loggers&gt;
@@ -313,15 +279,9 @@
 &lt;!-- The default log4j2 configuration that Lagom uses if no other configuration is provided --&gt;
 &lt;Configuration name=&quot;DefaultLagomConfig&quot;&gt;
   &lt;Appenders&gt;
-    &lt;File name=&quot;FILE&quot; fileName=&quot;logs/application.log&quot;&gt;
-      &lt;PatternLayout&gt;
-        &lt;Pattern&gt;%d{yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;}{GMT+0} ${HOSTNAME} %-5level %logger{0} [%mdc] - %msg%n&lt;/Pattern&gt;
-      &lt;/PatternLayout&gt;
-    &lt;/File&gt;
-
     &lt;Console name=&quot;STDOUT&quot;&gt;
       &lt;PatternLayout&gt;
-        &lt;Pattern&gt;%d{yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;}{GMT+0} %highlight{%level} %logger{0} [%mdc] - %msg%n&lt;/Pattern&gt;
+        &lt;Pattern&gt;%d{yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;}{GMT+0} %highlight{%level} %logger [%mdc] - %msg%n&lt;/Pattern&gt;
       &lt;/PatternLayout&gt;
     &lt;/Console&gt;
   &lt;/Appenders&gt;
@@ -341,7 +301,6 @@
     &lt;Logger name=&quot;org.apache.kafka&quot; level=&quot;WARN&quot;/&gt;
 
     &lt;AsyncRoot level=&quot;INFO&quot;&gt;
-      &lt;AppenderRef ref=&quot;FILE&quot;/&gt;
       &lt;AppenderRef ref=&quot;STDOUT&quot;/&gt;
     &lt;/AsyncRoot&gt;
   &lt;/Loggers&gt;
@@ -594,7 +553,7 @@
             </div>
         </div>
     </body>
-    <script src="/3c2bc30ce824d81aac764b2628ef40677fa59fce-all-scripts-concat.js"></script>
+    <script src="/5eed87887e25adfb1159f4dbf908e2a0246cff4e-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

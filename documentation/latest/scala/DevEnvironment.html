@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/e2c4bcb710d74e25fd211aaeba06b1949d08fbbb-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/ef2d1b6c518b9367d6d0f73a41046797e783b3f5-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -197,12 +197,14 @@ startElasticSearch in ThisBuild := {
 <!-- copied this section to concepts, perhaps it can be removed later -->
 <p>What&rsquo;s happening behind the scenes when you <code>runAll</code>?</p>
 <ul>
-  <li>an embedded Service Locator is started</li>
-  <li>a Cassandra server is started</li>
-  <li>a Kafka server is started</li>
+  <li>an embedded <a href="ServiceLocator.html">Service Locator</a> is started</li>
+  <li>an embedded <a href="ServiceLocator.html#Service-Gateway">Service Gateway</a> is started</li>
+  <li>a <a href="CassandraServer.html">Cassandra server</a> is started</li>
+  <li>a <a href="KafkaServer.html">Kafka server</a> is started</li>
   <li>your services start
     <ul>
       <li>&hellip;and register with the Service Locator</li>
+      <li>&hellip;and register the publicly accessible paths in the Service Gateway</li>
     </ul>
   </li>
 </ul>
@@ -269,7 +271,7 @@ startElasticSearch in ThisBuild := {
                             
                         
                             
-                                <li><a href="ServiceLocator.html">Service Locator</a></li>
+                                <li><a href="ServiceLocator.html">Service Locator and Service Gateway</a></li>
                             
                         
                             
@@ -445,7 +447,7 @@ startElasticSearch in ThisBuild := {
             </div>
         </div>
     </body>
-    <script src="/e2c4bcb710d74e25fd211aaeba06b1949d08fbbb-all-scripts-concat.js"></script>
+    <script src="/ef2d1b6c518b9367d6d0f73a41046797e783b3f5-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

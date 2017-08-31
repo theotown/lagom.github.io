@@ -6,17 +6,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Lagom examples</title>
+        <title>Lagom - Lagom 1.3.8 is here!</title>
         <meta name="description" content="Lagom">
-        
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.3.x/java/LagomExamples.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="/6992478d4fde5803f4b25a790d934172619b50ad-all-styles-concat.css" type="text/css">
          
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-    
+    <link href="/blog/atom.xml" type="application/atom+xml" rel="home" title="ATOM Feed" />
 
     </head>
     <body>
@@ -104,186 +101,162 @@
                         </div>
                     </div>
 
-                      
+                    
+
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Lagom examples</h1>
+                <div class="blog-meta">
+                    <div class="blog-author-image">
+                        <a href="https://github.com/ignasi35">
+                            <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                        </a>
+                    </div>
+                    <div class="blog-meta-details">
+                        <a class="blog-author-name" href="https://github.com/ignasi35">Ignasi Marimon-Clos</a>
+                        |
+                        <span class="blog-post-date">August 30, 2017</span>
+                        <div class="blog-meta-tags">
+                            
+                                <img src="/images/entypo/white/entypo_tag.svg" class="svg-icon"/>
+                                
+                                    <span class="blog-tag"><a href="tags/news.html">news</a></span>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                <h1>Lagom 1.3.8 is here!</h1>
             </div>
         </div>
     </header>
 
-    <div class="fw-wrapper documentation-content">
+    <article class="fw-wrapper page-content">
         <div class="row">
             <div class="small-12 large-7 columns">
-                
-                    <nav class="breadcrumbs">
-                        <a href="Home.html">Java Home</a>
-                        
-                            &raquo; <a href="IntroGetStarted.html">Getting started with Lagom</a>
-                        
-                    </nav>
-                
+                <p>The Lagom team has released Lagom 1.3.8. For a list of the specific changes in Lagom 1.3.8, see the <a href="/changelog.html">change log</a>.</p>
+<p>This release fixes <a href="https://github.com/lagom/lagom/issues/974">a deadlock</a> when shutting down a Lagom process in some scenarios and brings Scala DSL Json Serialization feature-parity by providing an opt-in <a href="https://github.com/lagom/lagom/issues/955">compressor</a> for serialized messages. We also <a href="https://github.com/lagom/lagom/issues/968">upgraded</a> the underlying logback library.</p>
+<p>This release is no different than previous ones and we continue to have great community contributions. Thanks to GitHub users <a href="https://github.com/t-h-a-l-i-s">t-h-a-l-i-s</a> and <a href="https://github.com/jiminhsieh">Jimin Hsieh</a>.</p>
+<h2><a href="#json-serialization-compression" name="json-serialization-compression">Json Serialization compression</a></h2>
+<p>Compression, as described here, is only used for persistent events, persistent snapshots and remote messages within the service cluster. It is not used for messages that are serialized in the external API of the service.</p>
+<p>JSON can be rather verbose and for large messages it can be beneficial to enable compression. That is done by using the <code>JsonSerializer.compressed[T]</code> builder method instead of the <code>JsonSerializer.apply[T]</code>:</p>
+<pre class="prettyprint"><code>import com.lightbend.lagom.scaladsl.playjson.{JsonSerializer, JsonSerializerRegistry}
 
-                <article>
-                <h1 id="Learning-more-from-Lagom-examples"><a class="section-marker" href="#Learning-more-from-Lagom-examples">§</a>Learning more from Lagom examples</h1>
-<p>After getting started with Hello World, you can learn more about Lagom by downloading and running one of the examples from GitHub:</p>
-<ul>
-  <li><a href="https://github.com/search?utf8=%E2%9C%93&q=Lagom+chirper">Chirper</a> demonstrates a Twitter-like application and is available for Java and Scala, with Java variations that demonstrate use of JPA and JDBC.</li>
-  <li><a href="https://github.com/search?utf8=%E2%9C%93&q=lagom%2Fonline+auction&type=Repositories&ref=searchresults">Online Auction</a> demonstrates an eBay-like application and is also available for both Java and Scala.</li>
-</ul>
-<p>The following table outlines some of the Lagom features you can observe in each of the examples.</p>
-<table>
-  <thead>
-    <tr>
-      <th>Feature </th>
-      <th align="center">Chirper</th>
-      <th align="center">Online Auction </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>How to use persistence</td>
-      <td align="center">Y </td>
-      <td align="center">Y</td>
-    </tr>
-    <tr>
-      <td>How to use the message broker API</td>
-      <td align="center">N </td>
-      <td align="center">Y</td>
-    </tr>
-    <tr>
-      <td>How to communicate between services</td>
-      <td align="center">Y </td>
-      <td align="center">Y</td>
-    </tr>
-    <tr>
-      <td>How streaming service calls work </td>
-      <td align="center">Y </td>
-      <td align="center">N</td>
-    </tr>
-    <tr>
-      <td>How to develop a Play app with Lagom </td>
-      <td align="center">Y </td>
-      <td align="center">Y</td>
-    </tr>
-    <tr>
-      <td>How to consume Lagom services from a front-end Play app </td>
-      <td align="center">N </td>
-      <td align="center">Y</td>
-    </tr>
-  </tbody>
-</table>
-                </article>
+object RegistryWithCompression extends JsonSerializerRegistry {
+  override val serializers = Vector(
 
-                
-                    
-                        
-                            <nav class="next-link">
-                                <a href="WhatsNext.html"><strong>Next: </strong> What&#x27;s Next?</a>
-                            </nav>
-                        
-                    
-                
+    // &#39;AddComment&#39; uses `apply[T]()` .
+    JsonSerializer[AddComment],
 
-                
-                    <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/master/docs/manual/common/gettingstarted/LagomExamples.md">here</a>. Please feel free to edit and contribute a pull request.</p>
-                
+    // The AddPost message is usually rather big, so we want it compressed
+    // when it&#39;s too large.
+    JsonSerializer.compressed[AddPost]
+
+  )
+}
+</code></pre>
+<p>The serializer will by default only compress messages that are larger than 1024 bytes. This threshold can be changed with configuration property:</p>
+<pre class="prettyprint"><code>lagom.serialization.json {
+
+  # The serializer will compress the payload if the message class
+  # was registered using JsonSerializer.compressed and the payload
+  # is larger than this value. Only used for remote messages within
+  # the cluster of the service.
+  compress-larger-than = 1024b
+
+}
+</code></pre>
+
+                <h2>Share</h2>
+                <div class="addthis_sharing_toolbox"></div>
+
+                <br/>
+
+                <h2>Discuss</h2>
+                <div id="disqus_thread"></div>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
             </div>
-            <aside class="small-12 large-4 columns">
-                <nav class="side-menu">
+            <aside class="show-for-medium small-12 large-4 columns">
+            
 
-                    <input type="text" id="docs-search" placeholder="Search"/>
+<nav class="side-menu">
+    
+        <h3>Recent posts</h3>
 
-                    <label for="docs-version">Version:</label>
-                    <select id="docs-version">
-                    
-                        <option value="/documentation/1.0.x/java/Home.html">1.0.x</option>
-                    
-                        <option value="/documentation/1.1.x/java/Home.html">1.1.x</option>
-                    
-                        <option value="/documentation/1.2.x/java/Home.html">1.2.x</option>
-                    
-                        <option value="/documentation/1.3.x/java/LagomExamples.html">1.3.x</option>
-                    
-                        <option value="/documentation/1.4.x/java/LagomExamples.html">1.4.x</option>
-                    
-                        <option value="/documentation/current/java/LagomExamples.html">current</option>
-                    
-                        <option value="/documentation/latest/java/LagomExamples.html" selected="selected">latest</option>
-                    
-                    </select>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-3-8.html">Lagom 1.3.8 is here!</a>
+                    <br/>
+                    August 30, 2017
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/rcavalcanti">
+                        <img src="https://avatars0.githubusercontent.com/u/502982?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-3-7.html">Lagom 1.3.7 is released!</a>
+                    <br/>
+                    August 18, 2017
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/TimMoore">
+                        <img src="https://avatars0.githubusercontent.com/u/44385?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-3-6.html">Lagom 1.3.6 is released!</a>
+                    <br/>
+                    July 17, 2017
+                </div>
+            </div>
+        
 
-                    <a href="/documentation/latest/java/api/index.html" class="api-docs">API Documentation</a>
+    
 
-                    
-                        <h3>Getting started with Lagom</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="IntroGetStarted.html">Introduction</a></li>
-                            
-                        
-                            
-                                <li><a href="JavaPrereqs.html">Lagom Java prerequisites</a></li>
-                            
-                        
-                            
-                                <li><a href="GettingStartedMaven.html">Creating and running Hello World with Maven</a></li>
-                            
-                        
-                            
-                                <li><a href="GettingStartedSbt.html">Creating and running Hello World with sbt</a></li>
-                            
-                        
-                            
-                                <li><a href="UnderstandHello.html">Understanding Hello World</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="LagomExamples.html">Lagom examples</a></li>
-                            
-                        
-                            
-                                <li><a href="WhatsNext.html">What&#x27;s Next?</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Java Home</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="Home.html">Home</a></li>
-                            
-                        
-                            
-                                <li><a href="WhatIsLagom.html">Welcome to Lagom</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="IntroGetStarted.html">Getting started with Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="CoreConcepts.html">Lagom core concepts</a></li>
-                            
-                        
-                            
-                                <li><a href="ReferenceGuide.html">Lagom reference guide</a></li>
-                            
-                        
-                            
-                                <li><a href="Migration14.html">Lagom releases</a></li>
-                            
-                        
-                        </ul>
-                    
-                </nav>
+    <h3>Tags</h3>
+
+    <div class="blog-tag-box">
+    
+        <a href="/blog/tags/conductr.html" data-count="1">conductr</a>
+    
+        <a href="/blog/tags/generator.html" data-count="1">generator</a>
+    
+        <a href="/blog/tags/java.html" data-count="1">java</a>
+    
+        <a href="/blog/tags/maven.html" data-count="1">maven</a>
+    
+        <a href="/blog/tags/news.html" data-count="23">news</a>
+    
+        <a href="/blog/tags/outreachy.html" data-count="1">outreachy</a>
+    
+        <a href="/blog/tags/scala.html" data-count="2">scala</a>
+    
+        <a href="/blog/tags/screencast.html" data-count="1">screencast</a>
+    
+    </div>
+
+</nav>
+
+
             </aside>
         </div>
-   </div>
+    </article>
+
+
 
 
                     <footer>
@@ -376,17 +349,20 @@
     <script src="/6992478d4fde5803f4b25a790d934172619b50ad-all-scripts-concat.js"></script>
     
      
-    <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
-    <script type="text/javascript"> docsearch({
-        apiKey: "77ef1e29e6bddfca861f7a42cc51725e",
-        indexName: "lagomframework",
-        inputSelector: "#docs-search",
-        algoliaOptions: {
-            facetFilters: ["version:latest", "language:java"]
-        }
-    });
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://www.lagomframework.com/blog/lagom-1-3-8.html";
+            this.page.identifier = "lagom-1-3-8";
+            this.page.title = "Lagom 1.3.8 is here!";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//lagomframework.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
-    
 
     <script>
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

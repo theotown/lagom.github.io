@@ -4,12 +4,56 @@
       <link rel="self" type="application/atom+xml" href="https://www.lagomframework.com/blog/atom.xml"/>
       <id>https://www.lagomframework.com/blog</id>
       <rights>Copyright 2017, Lightbend</rights>
-      <updated>2017-08-17T17:00:00.000-07:00</updated>
+      <updated>2017-08-30T00:00:00.000Z</updated>
       <dc:creator>Lightbend</dc:creator>
-      <dc:date>2017-08-17T17:00:00.000-07:00</dc:date>
+      <dc:date>2017-08-30T00:00:00.000Z</dc:date>
       <dc:language>en</dc:language>
       <dc:rights>Copyright 2017, Lightbend</dc:rights>
       <entry>
+          <title>Lagom 1.3.8 is here!</title>
+          <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-3-8.html"/>
+          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
+          <author>
+            <name>Ignasi Marimon-Clos</name>
+            <uri>https://github.com/ignasi35</uri>
+          </author>
+          <id>https://www.lagomframework.com/blog/lagom-1-3-8.html</id>
+          <updated>2017-08-30T00:00:00.000Z</updated>
+          <published>2017-08-30T00:00:00.000Z</published>
+          <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.3.8. For a list of the specific changes in Lagom 1.3.8, see the <a href="https://www.lagomframework.com/changelog.html">change log</a>.</p>
+<p>This release fixes <a href="https://github.com/lagom/lagom/issues/974">a deadlock</a> when shutting down a Lagom process in some scenarios and brings Scala DSL Json Serialization feature-parity by providing an opt-in <a href="https://github.com/lagom/lagom/issues/955">compressor</a> for serialized messages. We also <a href="https://github.com/lagom/lagom/issues/968">upgraded</a> the underlying logback library.</p>
+<p>This release is no different than previous ones and we continue to have great community contributions. Thanks to GitHub users <a href="https://github.com/t-h-a-l-i-s">t-h-a-l-i-s</a> and <a href="https://github.com/jiminhsieh">Jimin Hsieh</a>.</p>
+<h2><a href="#json-serialization-compression" name="json-serialization-compression">Json Serialization compression</a></h2>
+<p>Compression, as described here, is only used for persistent events, persistent snapshots and remote messages within the service cluster. It is not used for messages that are serialized in the external API of the service.</p>
+<p>JSON can be rather verbose and for large messages it can be beneficial to enable compression. That is done by using the <code>JsonSerializer.compressed[T]</code> builder method instead of the <code>JsonSerializer.apply[T]</code>:</p>
+<pre class="prettyprint"><code>import com.lightbend.lagom.scaladsl.playjson.{JsonSerializer, JsonSerializerRegistry}
+
+object RegistryWithCompression extends JsonSerializerRegistry {
+  override val serializers = Vector(
+
+    // &#39;AddComment&#39; uses `apply[T]()` .
+    JsonSerializer[AddComment],
+
+    // The AddPost message is usually rather big, so we want it compressed
+    // when it&#39;s too large.
+    JsonSerializer.compressed[AddPost]
+
+  )
+}
+</code></pre>
+<p>The serializer will by default only compress messages that are larger than 1024 bytes. This threshold can be changed with configuration property:</p>
+<pre class="prettyprint"><code>lagom.serialization.json {
+
+  # The serializer will compress the payload if the message class
+  # was registered using JsonSerializer.compressed and the payload
+  # is larger than this value. Only used for remote messages within
+  # the cluster of the service.
+  compress-larger-than = 1024b
+
+}
+</code></pre>]]></content>
+          <dc:date>2017-08-30T00:00:00.000Z</dc:date>
+        </entry><entry>
           <title>Lagom 1.3.7 is released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-3-7.html"/>
           <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
@@ -18,8 +62,8 @@
             <uri>https://github.com/rcavalcanti</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-3-7.html</id>
-          <updated>2017-08-17T17:00:00.000-07:00</updated>
-          <published>2017-08-17T17:00:00.000-07:00</published>
+          <updated>2017-08-18T00:00:00.000Z</updated>
+          <published>2017-08-18T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.3.7. For a list of the specific changes in Lagom 1.3.7, see the <a href="https://www.lagomframework.com/changelog.html">change log</a>.</p>
 <p>As an overview, this release contains the following:</p>
 <ul>
@@ -68,7 +112,7 @@
 <p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
 <p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
 <p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>]]></content>
-          <dc:date>2017-08-17T17:00:00.000-07:00</dc:date>
+          <dc:date>2017-08-18T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.3.6 is released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-3-6.html"/>
@@ -78,8 +122,8 @@
             <uri>https://github.com/TimMoore</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-3-6.html</id>
-          <updated>2017-07-16T17:00:00.000-07:00</updated>
-          <published>2017-07-16T17:00:00.000-07:00</published>
+          <updated>2017-07-17T00:00:00.000Z</updated>
+          <published>2017-07-17T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.3.6. For a list of the specific changes in Lagom 1.3.6, see the <a href="https://www.lagomframework.com/changelog.html">change log</a>.</p>
 <p>As an overview, this release contains the following:</p>
 <ul>
@@ -92,7 +136,7 @@
 <p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
 <p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
 <p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>]]></content>
-          <dc:date>2017-07-16T17:00:00.000-07:00</dc:date>
+          <dc:date>2017-07-17T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.4.0-M1 is released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-0-M1.html"/>
@@ -102,8 +146,8 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-4-0-M1.html</id>
-          <updated>2017-06-28T17:00:00.000-07:00</updated>
-          <published>2017-06-28T17:00:00.000-07:00</published>
+          <updated>2017-06-29T00:00:00.000Z</updated>
+          <published>2017-06-29T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>We are thrilled to announce that Lagom is moving fast into upgrading it&rsquo;s underlying stack (Akka, Play and Scala) to corresponding latest versions. This is the biggest change you may expect in the upcoming version 1.4.0 of Lagom. There are still <a href="https://github.com/lagom/lagom/milestone/17">few issues open</a> and some of these pending issue could potentially be incompatible with the effort we&rsquo;ve done in Lagom 1.4.0-M1 already.</p>
 <p>Lagom 1.4.0 includes a new feature to <a href="https://github.com/lagom/lagom/pull/763">start and stop external services</a> when using <code>sbt runAll</code>. This allows binding infrastructure services to the Developer Mode lifecycle improving the developer experience. This release also includes a new, community developed support to develop <a href="https://github.com/lagom/lagom/pull/714">Read-Side code using Slick</a>.</p>
 <p>This is a preview release not ready for production so feel free to use it on a safe environment or a staging environment. We know we want to make some more improvements like using the new <a href="https://github.com/lagom/lagom/issues/742">Akka Coordinated shutdown</a> or <a href="https://github.com/lagom/lagom/issues/816">use Akka&rsquo;s DData instead of persistent Shard Coordinator</a>. We still have to complete the upgrade to support Scala 2.12 but it&rsquo;s on our radar for the 1.4.0 release.</p>
@@ -115,7 +159,7 @@
 <p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
 <h2><a href="#change-log" name="change-log">Change log</a></h2>
 <p>See the <a href="https://www.lagomframework.com/changelog.html">change log</a> for more details on exactly what has been fixed in each release.</p>]]></content>
-          <dc:date>2017-06-28T17:00:00.000-07:00</dc:date>
+          <dc:date>2017-06-29T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.3.5 is released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-3-5.html"/>
@@ -125,8 +169,8 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-3-5.html</id>
-          <updated>2017-06-12T17:00:00.000-07:00</updated>
-          <published>2017-06-12T17:00:00.000-07:00</published>
+          <updated>2017-06-13T00:00:00.000Z</updated>
+          <published>2017-06-13T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>This has been quite a busy month since we released 1.3.4. <a href="http://event.scaladays.org/scaladays-cph-2017">Scala Days Copenhagen</a> took a lot of time from our schedules and thus 1.3.5 was delayed more than we&rsquo;d hoped for.</p>
 <p>This release is a bugfix release with a couple of community contributions. We&rsquo;re seeing a constant flow of community contributions in the past few releases and that is great news! Special thanks to <a href="https://github.com/crfeliz">crfeliz</a>, <a href="https://github.com/guizmaii">guizmaii</a>, <a href="https://github.com/edouardKaiser">edouardKaiser</a> and <a href="https://github.com/jaiew">jaiew</a> for their great work.</p>
 <h2><a href="#updating" name="updating">Updating</a></h2>
@@ -134,7 +178,7 @@
 <p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
 <h2><a href="#change-log" name="change-log">Change log</a></h2>
 <p>See the <a href="https://www.lagomframework.com/changelog.html">change log</a> for more details on exactly what has been fixed in each release.</p>]]></content>
-          <dc:date>2017-06-12T17:00:00.000-07:00</dc:date>
+          <dc:date>2017-06-13T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.3.4 is released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-3-4.html"/>
@@ -144,15 +188,15 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-3-4.html</id>
-          <updated>2017-05-16T17:00:00.000-07:00</updated>
-          <published>2017-05-16T17:00:00.000-07:00</published>
+          <updated>2017-05-17T00:00:00.000Z</updated>
+          <published>2017-05-17T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team is proud to announce the release of Lagom 1.3.4. This is a bugfix release with a couple of community contributions.</p>
 <h2><a href="#updating" name="updating">Updating</a></h2>
 <p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
 <p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
 <h2><a href="#change-log" name="change-log">Change log</a></h2>
 <p>See the <a href="https://www.lagomframework.com/changelog.html">change log</a> for more details on exactly what has been fixed in each release.</p>]]></content>
-          <dc:date>2017-05-16T17:00:00.000-07:00</dc:date>
+          <dc:date>2017-05-17T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Introducing the Lagom code generator</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/announcing-lagom-code-generator.html"/>
@@ -162,8 +206,8 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/announcing-lagom-code-generator.html</id>
-          <updated>2017-05-15T17:00:00.000-07:00</updated>
-          <published>2017-05-15T17:00:00.000-07:00</published>
+          <updated>2017-05-16T00:00:00.000Z</updated>
+          <published>2017-05-16T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>We&rsquo;re happy to announce the first <em>alpha</em> release of the <a href="https://github.com/lagom/sbt-lagom-descriptor-generator">Lagom Descriptor Generator</a> a project started as a proof-of-concept and that we&rsquo;ve recently improved. The motivation is to ease consuming third party APIs (be it lagom services, other services on your organization or public APIs in the wild) reducing the amount of code required.</p>
 <p>We want Lagom to increase the types of services it can talk to. Until now Lagom was focused on providing RPC via HTTP/JSON as default and we already started working on an gRPC transport for Lagom both for producing services and consuming 3rd party gRPC endpoints. </p>
 <p>We had to make a decision since working in both (a) a fully featured code generator from OpenAPI specs to Lagom source code and (b) adding gRPC support into Lagom was beyond our capacity. Today we are calling the community to continue our work in the Lagom code generator while we focus our attention to gRPC. The <em>Lagom Descriptor Generator</em> project may eventually generate Lagom API descriptor sources from seveal API specification format. At the moment only OpenaAPI v2 (aka <em>Swagger specs</em>) is supported.</p>
@@ -172,7 +216,7 @@
 <p>The current implementation is a <em>crude</em> generator that will convert a <code>swagger.json</code> (or yaml) into Lagom API source code. It is currently available as an <code>sbt</code> plugin but it could be <a href="https://github.com/lagom/sbt-lagom-descriptor-generator/issues/11">extended into a Maven plugin</a> too. The GitHub repository includes <code>sbt-</code> on the name but that is a <a href="https://github.com/lagom/sbt-lagom-descriptor-generator/issues/4">mistake</a>.</p>
 <p>The current implementation will read <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md">OpenAPI v2</a> files but we think other API specification formats (e.g. RAML) should be supported too. We added some <a href="https://github.com/lagom/sbt-lagom-descriptor-generator#supported-specs">tips</a> on what should be done to add support for new specification formats.</p>
 <p>Finally, this first available release is demoed in the <a href="https://github.com/ignasi35/lagom-pet-store/">Pet Store application</a>. That sample application adapts the famous Open API <a href="http://petstore.swagger.io/">Pet Store</a> example into a Lagom application. The Lagom version is made of a LagomJava Pet Service, a LagomScala Store Service and a PlayJava web frontend. Each of the lagom services in the sample application describes its API using an OpenAPI v2 file located in <code>src/main/openapi/</code> instead of including the usual <code>xxx-service-api</code> project separately. Finally, the web frontend uses copies of each of the OpenAPi files it wants to consume. Read the project <a href="https://github.com/ignasi35/lagom-pet-store/blob/master/README.md">README.md</a> for more details.</p>]]></content>
-          <dc:date>2017-05-15T17:00:00.000-07:00</dc:date>
+          <dc:date>2017-05-16T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Welcome Outreachy Interns Ruchika Lakhina and Yuliana Apaza</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/welcome-outreachy-interns-2017-May-Aug.html"/>
@@ -182,14 +226,14 @@
             <uri>https://github.com/TimMoore</uri>
           </author>
           <id>https://www.lagomframework.com/blog/welcome-outreachy-interns-2017-May-Aug.html</id>
-          <updated>2017-05-04T17:00:00.000-07:00</updated>
-          <published>2017-05-04T17:00:00.000-07:00</published>
+          <updated>2017-05-05T00:00:00.000Z</updated>
+          <published>2017-05-05T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>Lightbend and Lagom are proud to be participating in <a href="https://gnome.org/outreachy/">Outreachy</a>, a program to help groups that are underrepresented in free and open source software get involved.</p>
 <p>We&rsquo;re happy to announce that <a href="https://github.com/lakhina">Ruchika Lakhina</a> and <a href="https://yuliana.me/">Yuliana Apaza</a> have been accepted to work on Lagom for the May - August 2017 round of Outreachy</p>
 <p>We had several fantastic applicants, and the entire Lagom team has been very impressed with the quality of contributions to Lagom from Outreachy applicants. In the end, Ruchika and Yuliana stood out as active contributors who collaborated well with Lagom developers and each other, and both prepared thoughtful and detailed proposals for how they plan to spend their time during the Outreachy internship.</p>
 <p>They will both be working on improvements to our Online Auction example application (<a href="https://github.com/lagom/online-auction-java">Java version</a>/<a href="https://github.com/lagom/online-auction-scala">Scala version</a>). Online Auction demonstrates a broad range of Lagom&rsquo;s features and architectural practices. Ruchika and Yuliana will be continuing development of this example by rounding out the functionality and including examples of more Lagom features.</p>
 <p>Please join me in welcoming them to the project!</p>]]></content>
-          <dc:date>2017-05-04T17:00:00.000-07:00</dc:date>
+          <dc:date>2017-05-05T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.3.3 is released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-3-3.html"/>
@@ -199,8 +243,8 @@
             <uri>https://github.com/jroper</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-3-3.html</id>
-          <updated>2017-04-27T17:00:00.000-07:00</updated>
-          <published>2017-04-27T17:00:00.000-07:00</published>
+          <updated>2017-04-28T00:00:00.000Z</updated>
+          <published>2017-04-28T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.3.3. This release is primarily a bugfix release, fixing issues related to Cassandra and Kafka.</p>
 <h2><a href="#updating" name="updating">Updating</a></h2>
 <p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
@@ -225,7 +269,7 @@
 </code></pre>
 <h2><a href="#change-log" name="change-log">Change log</a></h2>
 <p>See the <a href="https://www.lagomframework.com/changelog.html">change log</a> for more details on exactly what has been fixed in each release.</p>]]></content>
-          <dc:date>2017-04-27T17:00:00.000-07:00</dc:date>
+          <dc:date>2017-04-28T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.3.2 is released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-3-2.html"/>
@@ -235,8 +279,8 @@
             <uri>https://github.com/TimMoore</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-3-2.html</id>
-          <updated>2017-04-18T17:00:00.000-07:00</updated>
-          <published>2017-04-18T17:00:00.000-07:00</published>
+          <updated>2017-04-19T00:00:00.000Z</updated>
+          <published>2017-04-19T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has just released Lagom 1.3.2. This release includes bug fixes and other minor changes, a dependency management improvement for Maven users, and deprecates a feature that proved to be confusing.</p>
 <h2><a href="#updating" name="updating">Updating</a></h2>
 <p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
@@ -279,23 +323,6 @@ lagom.persistence.read-side.cassandra.keyspace = ${my-service.cassandra.keyspace
 <p>See <a href="https://www.lagomframework.com/documentation/1.3.x/java/PersistentEntityCassandra.html#Configuration">Storing Persistent Entities in Cassandra</a> for configuration details and <a href="https://github.com/lagom/lagom/issues/578">issue #578</a> for more background.</p>
 <h2><a href="#change-log" name="change-log">Change log</a></h2>
 <p>See the <a href="https://www.lagomframework.com/changelog.html">change log</a> for more details on exactly what has been fixed in each release.</p>]]></content>
-          <dc:date>2017-04-18T17:00:00.000-07:00</dc:date>
-        </entry><entry>
-          <title>Lagom 1.3.1 and 1.2.3 are released!</title>
-          <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-3-1-and-1-2-3.html"/>
-          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
-          <author>
-            <name>Tim Moore</name>
-            <uri>https://github.com/TimMoore</uri>
-          </author>
-          <id>https://www.lagomframework.com/blog/lagom-1-3-1-and-1-2-3.html</id>
-          <updated>2017-03-05T16:00:00.000-08:00</updated>
-          <published>2017-03-05T16:00:00.000-08:00</published>
-          <content type="html"><![CDATA[<p>The Lagom team has just released Lagom 1.3.1, with a few small, but important, bug fixes.</p>
-<p>For those who have not made the jump to Lagom 1.3 yet, we also released 1.2.3 with backported bug fixes for issues that affect the 1.2 series.</p>
-<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
-<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
-<p>See the <a href="https://www.lagomframework.com/changelog.html">change log</a> for more details on exactly what has been fixed in each release.</p>]]></content>
-          <dc:date>2017-03-05T16:00:00.000-08:00</dc:date>
+          <dc:date>2017-04-19T00:00:00.000Z</dc:date>
         </entry>
     </feed>

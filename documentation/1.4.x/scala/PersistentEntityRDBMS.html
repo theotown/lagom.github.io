@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/c24a7fd3627bc5ad28f078a2b231cd4f44768ef2-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/568e6a84986bfb70aab8fcda8116fbb951c362c3-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -158,7 +158,7 @@
   url = &quot;jdbc:postgresql://database.example.com/playdb&quot;
 }
 
-jdbc-defaults.slick.driver = &quot;slick.jdbc.PostgresProfile$&quot;
+jdbc-defaults.slick.profile = &quot;slick.jdbc.PostgresProfile$&quot;
 </code></pre><h2 id="Table-creation"><a class="section-marker" href="#Table-creation">§</a>Table creation</h2>
 <p>By default, Lagom will automatically create the tables it needs for you if they don&rsquo;t already exist. This is great for development and testing, but in some circumstances may not be appropriate for production. The table auto creation feature can be disabled by using the following configuration:</p>
 <pre class="prettyprint"><code>lagom.persistence.jdbc.create-tables.auto = false
@@ -168,8 +168,9 @@ jdbc-defaults.slick.driver = &quot;slick.jdbc.PostgresProfile$&quot;
 <pre class="prettyprint"><code class="language-conf"># Defaults to use for each Akka persistence plugin
 jdbc-defaults.slick {
 
-  # The driver to use
-  driver = &quot;slick.jdbc.H2Profile$&quot;
+  # The Slick profile to use
+  # set to one of: slick.jdbc.PostgresProfile$, slick.jdbc.MySQLProfile$, slick.jdbc.OracleProfile$ or slick.jdbc.H2Profile$
+  # profile = &quot;slick.jdbc.PostgresProfile$&quot;
 
   # The JNDI name
   jndiName = &quot;DefaultDS&quot;
@@ -463,7 +464,7 @@ lagom.persistence.jdbc {
             </div>
         </div>
     </body>
-    <script src="/c24a7fd3627bc5ad28f078a2b231cd4f44768ef2-all-scripts-concat.js"></script>
+    <script src="/568e6a84986bfb70aab8fcda8116fbb951c362c3-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

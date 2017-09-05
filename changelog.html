@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/568e6a84986bfb70aab8fcda8116fbb951c362c3-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/4403ea4f01286fdad31f53f2a5ed07143fc0ff8e-all-styles-concat.css" type="text/css">
         
     </head>
     <body>
@@ -115,7 +115,67 @@
         <div class="row">
             <div class="small-12 large-7 columns">
                 
-    <h2>Lagom 1.3.8</h2>
+    <h2>Lagom 1.4.0-M2</h2>
+<p><em>Released 5 September 2017</em></p>
+<h3>Changes only in 1.4.0-M2</h3>
+<ul>
+  <li><a href="https://github.com/lagom/lagom/issues/973">973</a> Update akka-persistence-jdbc to 3.0.0 (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/979">979</a> Sets akka.cluster.jmx.multi-mbeans-in-same-jvm = on in Dev mode (fixes #906) (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/961">961</a> Document development service gateway settings (Ignasi Marimon-Clos)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/963">963</a> Update AkkaStreamKafkaVersion and KafkaVersion (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/958">958</a> Adds docs on compression for scaladsl JSON serialization (Ignasi Marimon-Clos)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/959">959</a> akka-http based ServiceGateway as default (resolves #912) (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/934">934</a> As new <code>lagomInfrastructureServices</code> was imported, remove old infrastructure tasks. (Wayne Wang)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/956">956</a> upgrades AkkaStreamKafkaVersion and KafkaVersion (resolves #579) (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/945">945</a> Bumps play to 2.6.3 (Ignasi Marimon-Clos)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/927">927</a> Update Akka to 2.5.4 (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/893">893</a> Documentation/fix metrics docs (Elijah Rippeth)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/878">878</a> Rework the Kafka tests (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/900">900</a> Support multiple URIs to ServiceLocator (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/880">880</a> Update play 2.6.2 (Marcos Pereira)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/881">881</a> Refactor/deprecate play config (Elijah Rippeth)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/841">841</a> Expose CircuitBreakers as a public API (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/868">868</a> Clean whitelist (Ignasi Marimon-Clos)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/879">879</a> Add missing space in docs (Yuliana Apaza)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/867">867</a> Update Migration14.md (surya prakash singh)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/856">856</a> Update 1.4.x migration guides with Akka info (Ignasi Marimon-Clos)</li>
+</ul>
+<h3>Changes from 1.4.0-M1 also included in the 1.3.x series</h3>
+<ul>
+  <li><a href="https://github.com/lagom/lagom/issues/989">989</a> Remove copyright from files in Maven archetype (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/988">988</a> Update sbt to 0.13.16 (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/987">987</a> Silence &ldquo;Resolving&rdquo; messages in the build (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/969">969</a> Corrected service name (t-h-a-l-i-s)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/970">970</a> Fixed inconsistency in code example (t-h-a-l-i-s)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/952">952</a> Look up a migration using only the class name instead of the manifest containing the version as well (Olivier Deckers)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/934">934</a> As new <code>lagomInfrastructureServices</code> was imported, remove old infrastructure tasks. (Wayne Wang)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/955">955</a> Adds JsonSerializer.compressed to conditionally compress when payload is too big (Ignasi Marimon-Clos)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/948">948</a> Patch CONTRIBUTING.md (Jimin Hsieh)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/937">937</a> Add links to new Kubernetes guide and improve deployment content (Ruth Stento)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/939">939</a> Fix ClassNotFoundException for SizeAndTimeBasedRollingPolicy (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/946">946</a> Reflect the new free version of ConductR (Christopher Hunt)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/942">942</a> Upgrade to latest sbteclipse (Ben McCann)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/928">928</a> Improved logging settings - defaulting to INFO instead of WARN (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/922">922</a> Stop servers before completing the Async tests (Ignasi Marimon-Clos)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/915">915</a> Saves offset for unhandled events (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/921">921</a> Changed the &lt; and &gt; to < and > respectively. (Ashish Tomer)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/914">914</a> Move <code>auto.offset.reset</code> to Kafka client (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/892">892</a> Fixes log4j2 configuration files and documentation (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/896">896</a> Fix retry logic in the subscription test example (Wayne Wang)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/905">905</a> Add EditorConfig file (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/898">898</a> Highlight Lagom service clients as a feature (Ruth Stento)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/894">894</a> Implemented akka-http service gateway (James Roper)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/888">888</a> Strongly type the Lagom service router (James Roper)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/890">890</a> Format code with scalariform (Jules Ivanic)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/889">889</a> Fix <a href="https://github.com/lagom/lagom/issues/534">https://github.com/lagom/lagom/issues/534</a> (Jules Ivanic)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/886">886</a> fixed maven plugun RunMojo (Dominik Kunz)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/877">877</a> Fix the match for failed futures (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/873">873</a> Add method completedStatements with varargs (Yuliana Apaza)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/865">865</a> Map Descriptor in ServiceClientInvocationHandler (Edouard Kaiser)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/849">849</a> Update docs to use describeService (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/847">847</a> Warn when describeServices is overridden (Tim Moore)</li>
+</ul>
+<h2>Lagom 1.3.8</h2>
 <p><em>Released 30 August 2017</em></p>
 <ul>
   <li><a href="https://github.com/lagom/lagom/issues/968">968</a> Bumps Logback to 1.1.7 (Ignasi Marimon-Clos)</li>
@@ -473,7 +533,7 @@
             </div>
         </div>
     </body>
-    <script src="/568e6a84986bfb70aab8fcda8116fbb951c362c3-all-scripts-concat.js"></script>
+    <script src="/4403ea4f01286fdad31f53f2a5ed07143fc0ff8e-all-scripts-concat.js"></script>
     
     
     <script>

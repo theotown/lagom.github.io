@@ -6,17 +6,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Cassandra Persistent Entities</title>
+        <title>Lagom - Lagom 1.4.0-M2!</title>
         <meta name="description" content="Lagom">
-        
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.3.x/java/PersistentEntityCassandra.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="/4403ea4f01286fdad31f53f2a5ed07143fc0ff8e-all-styles-concat.css" type="text/css">
          
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-    
+    <link href="/blog/atom.xml" type="application/atom+xml" rel="home" title="ATOM Feed" />
 
     </head>
     <body>
@@ -104,246 +101,147 @@
                         </div>
                     </div>
 
-                      
+                    
+
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Cassandra Persistent Entities</h1>
+                <div class="blog-meta">
+                    <div class="blog-author-image">
+                        <a href="https://github.com/ignasi35">
+                            <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                        </a>
+                    </div>
+                    <div class="blog-meta-details">
+                        <a class="blog-author-name" href="https://github.com/ignasi35">Ignasi Marimon-Clos</a>
+                        |
+                        <span class="blog-post-date">September 5, 2017</span>
+                        <div class="blog-meta-tags">
+                            
+                                <img src="/images/entypo/white/entypo_tag.svg" class="svg-icon"/>
+                                
+                                    <span class="blog-tag"><a href="tags/news.html">news</a></span>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                <h1>Lagom 1.4.0-M2!</h1>
             </div>
         </div>
     </header>
 
-    <div class="fw-wrapper documentation-content">
+    <article class="fw-wrapper page-content">
         <div class="row">
             <div class="small-12 large-7 columns">
-                
-                    <nav class="breadcrumbs">
-                        <a href="Home.html">Java Home</a>
-                        
-                            &raquo; <a href="ReferenceGuide.html">Lagom reference guide</a>
-                        
-                            &raquo; <a href="PersistentEntity.html">Writing persistent and clustered services</a>
-                        
-                    </nav>
-                
-
-                <article>
-                <h1 id="Storing-Persistent-Entities-in-Cassandra"><a class="section-marker" href="#Storing-Persistent-Entities-in-Cassandra">§</a>Storing Persistent Entities in Cassandra</h1>
-<p>This page describes how to configure Cassandra for use with Lagom&rsquo;s <a href="PersistentEntity.html">Persistent Entity</a> API.</p><h2 id="Project-dependencies"><a class="section-marker" href="#Project-dependencies">§</a>Project dependencies</h2>
-<p>To use Cassandra add the following in your project&rsquo;s build:</p>
-<p>In Maven:</p>
-<pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
-    &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
-    &lt;artifactId&gt;lagom-javadsl-persistence-cassandra_2.11&lt;/artifactId&gt;
-    &lt;version&gt;${lagom.version}&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-<p>In sbt:</p>
-<pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomJavadslPersistenceCassandra</code></pre><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
-<p>Lagom&rsquo;s persistence needs a few tables to store its data. These tables are stored in Cassandra keyspaces. A keyspace in Cassandra is a namespace that defines data replication on Cassandra nodes. Each service should use a unique keyspace name so that the tables of different services do not conflict with each other. You need to configure the keyspaces that are used for these tables in each of your service implementation projects.</p>
-<p>Cassandra keyspace names must start with an alphanumeric character and contain only alphanumeric and underscore characters. They are case-insensitive and stored in lowercase.</p>
-<p>Lagom has three internal components that require keyspace configuration:</p>
+                <p>We are very pleased to announce the availability of the second Milestone release of Lagom 1.4.0. This is a preview release of the Lagom 1.4 series, which is focused on upgrading all of its building blocks. This release includes Play 2.6 and Akka 2.5&mdash;like Lagom 1.4.0-M1&mdash;but both have been upgraded to the latest minor release. It also includes the latest Slick 3.2.1 and Kafka 0.11.0.0. We are still adding the finishing touches to support Scala 2.12 in the Lagom 1.4.x series.</p>
+<p>Phew, that was a mouthful.</p>
+<p>Unfortunately, we&rsquo;ve decided that <a href="https://github.com/lagom/lagom/issues/932">supporting sbt 1.0</a> is not a feature we will work on before releasing Lagom 1.4.0. At the moment it is still undecided if support for sbt 1.0 will come during the 1.4.x series or later.</p>
+<h3><a href="#migrating-from-other-versions" name="migrating-from-other-versions">Migrating from other versions</a></h3>
+<p>The Lagom 1.4.x series is not focused on providing new, big features. Instead, it provides a collection of small improvements.</p>
 <ul>
-  <li>The <strong>journal</strong> stores serialized events</li>
-  <li>The <strong>snapshot store</strong> stores snapshots of the state as an optimization for faster recovery (see <a href="PersistentEntity.html#Snapshots">Snapshots</a> for details)</li>
-  <li>The <strong>offset store</strong> is used for <a href="ReadSideCassandra.html">Cassandra Read-Side support</a> to keep track of the most recent event handled by each read-side processor (detailed in <a href="ReadSide.html#Read-side-design">Read-side design</a>).</li>
+  <li>If you are migrating into Lagom 1.4.0-M2 from 1.4.0-M1 you should have a look at the release announcements for Lagom versions <a href="/blog/lagom-1-3-6.html">1.3.6</a>, <a href="/blog/lagom-1-3-7.html">1.3.7</a>, and <a href="/blog/lagom-1-3-9.html">1.3.8</a>. The migration guide to 1.4 (<a href="/documentation/1.4.x/java/Migration14.html">java</a> or <a href="/documentation/1.4.x/scala/Migration14.html">scala</a>) has also been improved, don&rsquo;t forget to review it.</li>
+  <li>If you are migrating into Lagom 1.4.0-M2 from a version in the Lagom 1.3.x series you should have a look at changes introduced in latest versions of the Lagom 1.3.x series and especially you should read the migration guide to 1.4 (<a href="/documentation/1.4.x/java/Migration14.html">java</a> or <a href="/documentation/1.4.x/scala/Migration14.html">scala</a>).</li>
 </ul>
-<p>You can configure these keyspace names in each service implementation project&rsquo;s <code>application.conf</code> file:</p>
-<pre class="prettyprint"><code class="language-conf">cassandra-journal.keyspace = my_service_journal
-cassandra-snapshot-store.keyspace = my_service_snapshot
-lagom.persistence.read-side.cassandra.keyspace = my_service_read_side
-</code></pre>
-<p>While different services should be isolated by using different keyspaces, it is perfectly fine to use the same keyspace for all of these components within one service. In that case, it can be convenient to define a custom keyspace configuration property and use <a href="https://github.com/typesafehub/config#factor-out-common-values">property substitution</a> to avoid repeating it.</p>
-<pre class="prettyprint"><code class="language-conf">my-service.cassandra.keyspace = my_service
+<h3><a href="#improvements" name="improvements">Improvements</a></h3>
+<ul>
+  <li>The Akka-HTTP based Service Gateway <a href="/blog/lagom-1-3-7.html">introduced in Lagom 1.3.7</a> is enabled by default. It is possible to switch back to the old, Netty-based implementation. Please <a href="https://github.com/lagom/lagom/issues/new">raise an issue</a> to let us know if you need to do this. The Netty-based implementation will be removed in a future version of Lagom, but we want to fix any regressions first. Check out the <a href="/documentation/1.4.x/java/ServiceLocator.html#Default-gateway-implementation">docs</a> for more details.</li>
+  <li>Service Locators may return many URIs. If you have implemented your own Service Locator you may override the new <code>locateAll</code> methods so that a request for a service location returns not just one URI, but many. This was specifically included to connect to clustered services where the service SDK expects a collection of hosts and deals with the balancing internally (e.g. Cassandra or Kafka).</li>
+  <li>A new <a href="https://github.com/lagom/lagom/issues/841"><code>CircuitBreakersPanel</code></a> replaces the previously internal, now deprecated <code>CircuitBreakers</code>. This change is especially relevant for Service Locator implementors so they have access to the underlying API. A <code>CircuitBreakersPanel</code> instance holds all the Circuit Breakers for the current instance to connect to all the remote services.</li>
+</ul>
+<h3><a href="#community-contributions" name="community-contributions">Community Contributions</a></h3>
+<p>This release includes great contributions from the community. Thanks Wayne Wang, Elijah Rippeth, Yuliana Apaza and surya prakash singh. Special thanks if this was your <a href="/get-involved.html">first contribution</a>.</p>
 
-cassandra-journal.keyspace = ${my-service.cassandra.keyspace}
-cassandra-snapshot-store.keyspace = ${my-service.cassandra.keyspace}
-lagom.persistence.read-side.cassandra.keyspace = ${my-service.cassandra.keyspace}
-</code></pre>
-<p>When your service starts up, Lagom creates these keyspaces by default if they are missing, and automatically creates its internal tables within them. If you prefer to manage the schema explicitly, you can disable automatic creation with these properties:</p>
-<pre class="prettyprint"><code class="language-conf">cassandra-journal {
-  keyspace-autocreate = false
-  tables-autocreate = false
-}
-cassandra-snapshot-store {
-  keyspace-autocreate = false
-  tables-autocreate = false
-}
-lagom.persistence.read-side.cassandra {
-  keyspace-autocreate = false
-}
-</code></pre>
-<p>With these properties set to <code>false</code>, if the keyspaces or tables are missing at startup your service will log an error and fail to start.</p>
-<p>Lagom&rsquo;s Cassandra support is provided by the <a href="https://github.com/akka/akka-persistence-cassandra"><code>akka-persistence-cassandra</code></a> plugin. A full configuration reference can be in the plugin&rsquo;s <a href="https://github.com/akka/akka-persistence-cassandra/blob/v0.20/src/main/resources/reference.conf"><code>reference.conf</code></a>.</p><h2 id="Cassandra-Location"><a class="section-marker" href="#Cassandra-Location">§</a>Cassandra Location</h2>
-<p>Lagom will start an embedded Cassandra server when running in developer mode. You can review the configuration options or how to disable the embedded server in the section on Cassandra Server in <a href="CassandraServer.html">Running Lagom in development</a>.</p>
-<p>In production you usually will prefer a dynamically locatable Cassandra server for resiliency. If you need to use a static list of contact-points to locate your Cassandra server review the section on deploying using static service location for Cassandra Service in <a href="ProductionOverview.html#Using-static-Cassandra-contact-points">Running Lagom in Production</a>.</p>
-                </article>
+                <h2>Share</h2>
+                <div class="addthis_sharing_toolbox"></div>
 
-                
-                    
-                        
-                            <nav class="next-link">
-                                <a href="PersistentEntityRDBMS.html"><strong>Next: </strong> Relational Database Persistent Entities</a>
-                            </nav>
-                        
-                    
-                
+                <br/>
 
-                
-                    <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/PersistentEntityCassandra.md">here</a>. Please feel free to edit and contribute a pull request.</p>
-                
+                <h2>Discuss</h2>
+                <div id="disqus_thread"></div>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
             </div>
-            <aside class="small-12 large-4 columns">
-                <nav class="side-menu">
+            <aside class="show-for-medium small-12 large-4 columns">
+            
 
-                    <input type="text" id="docs-search" placeholder="Search"/>
+<nav class="side-menu">
+    
+        <h3>Recent posts</h3>
 
-                    <label for="docs-version">Version:</label>
-                    <select id="docs-version">
-                    
-                        <option value="/documentation/1.0.x/java/Home.html">1.0.x</option>
-                    
-                        <option value="/documentation/1.1.x/java/Home.html">1.1.x</option>
-                    
-                        <option value="/documentation/1.2.x/java/PersistentEntityCassandra.html">1.2.x</option>
-                    
-                        <option value="/documentation/1.3.x/java/PersistentEntityCassandra.html">1.3.x</option>
-                    
-                        <option value="/documentation/1.4.x/java/PersistentEntityCassandra.html" selected="selected">1.4.x</option>
-                    
-                        <option value="/documentation/current/java/PersistentEntityCassandra.html">current</option>
-                    
-                        <option value="/documentation/latest/java/PersistentEntityCassandra.html">latest</option>
-                    
-                    </select>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-4-0-M2.html">Lagom 1.4.0-M2!</a>
+                    <br/>
+                    September 5, 2017
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-3-8.html">Lagom 1.3.8 is here!</a>
+                    <br/>
+                    August 30, 2017
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/rcavalcanti">
+                        <img src="https://avatars0.githubusercontent.com/u/502982?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-3-7.html">Lagom 1.3.7 is released!</a>
+                    <br/>
+                    August 18, 2017
+                </div>
+            </div>
+        
 
-                    <a href="/documentation/1.4.x/java/api/index.html" class="api-docs">API Documentation</a>
+    
 
-                    
-                        <h3>Writing persistent and clustered services</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="PersistentEntity.html">Persistent Entity</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="PersistentEntityCassandra.html">Cassandra Persistent Entities</a></li>
-                            
-                        
-                            
-                                <li><a href="PersistentEntityRDBMS.html">Relational Database Persistent Entities</a></li>
-                            
-                        
-                            
-                                <li><a href="ReadSide.html">Persistent Read-Side</a></li>
-                            
-                        
-                            
-                                <li><a href="ReadSideCassandra.html">Cassandra Read-Side Support</a></li>
-                            
-                        
-                            
-                                <li><a href="ReadSideRDBMS.html">Relational Database Read-Side Support</a></li>
-                            
-                        
-                            
-                                <li><a href="ReadSideJDBC.html">JDBC Read-Side Support</a></li>
-                            
-                        
-                            
-                                <li><a href="ReadSideJPA.html">JPA Read-Side Support</a></li>
-                            
-                        
-                            
-                                <li><a href="PubSub.html">Publish-Subscribe</a></li>
-                            
-                        
-                            
-                                <li><a href="Serialization.html">Serialization</a></li>
-                            
-                        
-                            
-                                <li><a href="Cluster.html">Cluster</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Lagom reference guide</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="ReferenceGuide.html">Reference Guide</a></li>
-                            
-                        
-                            
-                                <li><a href="LagomBuild.html">Configuring builds and the development environment</a></li>
-                            
-                        
-                            
-                                <li><a href="DevEnvironment.html">Running Lagom in development</a></li>
-                            
-                        
-                            
-                                <li><a href="ServiceDescriptors.html">Writing Lagom services</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
-                            
-                        
-                            
-                                <li><a href="MessageBroker.html">Decouple services with a message broker</a></li>
-                            
-                        
-                            
-                                <li><a href="ProductionOverview.html">Running Lagom in production</a></li>
-                            
-                        
-                            
-                                <li><a href="Logging.html">Logging</a></li>
-                            
-                        
-                            
-                                <li><a href="Akka.html">Advanced topics</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Java Home</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="Home.html">Home</a></li>
-                            
-                        
-                            
-                                <li><a href="WhatIsLagom.html">Welcome to Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="IntroGetStarted.html">Getting started with Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="CoreConcepts.html">Lagom core concepts</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="ReferenceGuide.html">Lagom reference guide</a></li>
-                            
-                        
-                            
-                                <li><a href="Migration14.html">Lagom releases</a></li>
-                            
-                        
-                        </ul>
-                    
-                </nav>
+    <h3>Tags</h3>
+
+    <div class="blog-tag-box">
+    
+        <a href="/blog/tags/conductr.html" data-count="1">conductr</a>
+    
+        <a href="/blog/tags/generator.html" data-count="1">generator</a>
+    
+        <a href="/blog/tags/java.html" data-count="1">java</a>
+    
+        <a href="/blog/tags/maven.html" data-count="1">maven</a>
+    
+        <a href="/blog/tags/news.html" data-count="24">news</a>
+    
+        <a href="/blog/tags/outreachy.html" data-count="1">outreachy</a>
+    
+        <a href="/blog/tags/scala.html" data-count="2">scala</a>
+    
+        <a href="/blog/tags/screencast.html" data-count="1">screencast</a>
+    
+    </div>
+
+</nav>
+
+
             </aside>
         </div>
-   </div>
+    </article>
+
+
 
 
                     <footer>
@@ -436,17 +334,20 @@ lagom.persistence.read-side.cassandra {
     <script src="/4403ea4f01286fdad31f53f2a5ed07143fc0ff8e-all-scripts-concat.js"></script>
     
      
-    <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
-    <script type="text/javascript"> docsearch({
-        apiKey: "77ef1e29e6bddfca861f7a42cc51725e",
-        indexName: "lagomframework",
-        inputSelector: "#docs-search",
-        algoliaOptions: {
-            facetFilters: ["version:1.4.x", "language:java"]
-        }
-    });
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://www.lagomframework.com/blog/lagom-1-4-0-M2.html";
+            this.page.identifier = "lagom-1-4-0-M2";
+            this.page.title = "Lagom 1.4.0-M2!";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//lagomframework.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
-    
 
     <script>
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

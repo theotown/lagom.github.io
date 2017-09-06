@@ -36,7 +36,7 @@
   <li>A new <a href="https://github.com/lagom/lagom/issues/841"><code>CircuitBreakersPanel</code></a> replaces the previously internal, now deprecated <code>CircuitBreakers</code>. This change is especially relevant for Service Locator implementors so they have access to the underlying API. A <code>CircuitBreakersPanel</code> instance holds all the Circuit Breakers for the current instance to connect to all the remote services.</li>
 </ul>
 <h3><a href="#community-contributions" name="community-contributions">Community Contributions</a></h3>
-<p>This release includes great contributions from the community. Thanks Wayne Wang, Elijah Rippeth, Yuliana Apaza and surya prakash singh. Special thanks if this was your <a href="https://www.lagomframework.com/get-involved.html">first contribution</a>.</p>]]></content>
+<p>This release includes great contributions from the community. Thanks Wayne Wang, Elijah Rippeth, Yuliana Apaza and Surya Prakash Singh. Special thanks if this was your <a href="https://www.lagomframework.com/get-involved.html">first contribution</a>.</p>]]></content>
           <dc:date>2017-09-04T17:00:00.000-07:00</dc:date>
         </entry><entry>
           <title>Lagom 1.3.8 is here!</title>

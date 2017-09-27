@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/59b36de70e75786475752fe1d1f9aa2dff103a01-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/22efe79e922edf079ab86b3597fa3a032511022c-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -529,7 +529,10 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
   # any messages during this timeout. Passivation is performed to reduce
   # memory consumption. Objects referenced by the entity can be garbage
   # collected after passivation. Next message will activate the entity
-  # again, which will recover its state from persistent storage.  
+  # again, which will recover its state from persistent storage. Set to 0
+  # to disable passivation - this should only be done when the number of
+  # entities is bounded and their state, sharded across the cluster, will
+  # fit in memory.
   passivate-after-idle-timeout = 120s
   
   # Specifies that entities run on cluster nodes with a specific role.
@@ -793,7 +796,7 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
             </div>
         </div>
     </body>
-    <script src="/59b36de70e75786475752fe1d1f9aa2dff103a01-all-scripts-concat.js"></script>
+    <script src="/22efe79e922edf079ab86b3597fa3a032511022c-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

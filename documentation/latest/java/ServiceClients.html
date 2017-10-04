@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/bee5094474141af5ec49fef0eb882bfca9a5a4a7-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/43a7f1dc28b882c94575b1fae9825c3e8b9d3486-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -210,7 +210,7 @@ default Descriptor descriptor() {
        .withCircuitBreaker(CircuitBreaker.identifiedBy(&quot;hello2&quot;))
     );
 }</code></pre>
-<p>In the above example the default identifier is used for the <code>sayHi</code> method, since no specific identifier is given. The default identifier is the same as the service name, i.e. <code>&quot;hello&quot;</code> in this example. The <code>hiAgain</code> method will use another circuit breaker instance, since <code>&quot;hello2&quot;</code> is specified as circuit breaker identifier.</p>
+<p>In the above example the default identifier is used for the <code>sayHi</code> method, since no specific identifier is given. The default identifier is the same as the service name, i.e. <code>&quot;hello&quot;</code> in this example. The <code>hiAgain</code> method will use another circuit breaker instance, since <code>&quot;hello2&quot;</code> is specified as circuit breaker identifier.</p><h3 id="Circuit-Breaker-Configuration"><a class="section-marker" href="#Circuit-Breaker-Configuration">§</a>Circuit Breaker Configuration</h3>
 <p>On the client side you can configure the circuit breakers. The default configuration is:</p>
 <pre class="prettyprint"><code class="language-conf"># Circuit breakers for calls to other services are configured
 # in this section. A child configuration section with the same
@@ -233,9 +233,15 @@ lagom.circuit-breaker {
     # Duration of time in open state after which to attempt to close
     # the circuit, by first entering the half-open state.
     reset-timeout = 15s
+
+    # A whitelist of fqcn of Exceptions that the CircuitBreaker
+    # should not consider failures. By default all exceptions are
+    # considered failures.
+    exception-whitelist = []
   }
 }</code></pre>
-<p>That configuration will be used if you don&rsquo;t define any configuration yourself.</p>
+<p>That configuration will be used if you don&rsquo;t define any configuration yourself. The settings to configure a circuit breaker include the general settings you&rsquo;d expect in a circuit breaker like the number of failures or the request timeout that should open the circuit as well as the timeout that must lapse to close the circuit again. In lagom there&rsquo;s an extra setting to control what is considered a failure.</p>
+<p>Lagom&rsquo;s client <a href="ServiceErrorHandling.html">maps all 4xx and 5xx responses to Exceptions</a> and Lagom&rsquo;s Circuit Breaker defaults to considering all Exceptions as failures. You can change the default behavior by whitelisting particular exceptions so they do not count as failures. Sometimes you want to configure the circuit breaker for a given endpoint so it ignores a certain exception. This is particularly useful when connecting to services where 4xx HTTP status codes are used to model business valid cases. For example, it may be a non-failure case to respond a 404 Not Found to a particular request. In that case you can add <code>&quot;com.lightbend.lagom.javadsl.api.transport.NotFound&quot;</code> to the circuit breaker whitelist so that it is not considered a failure. Even if the <code>NotFound</code> exception is not counted as a failure, the client will still throw a <code>NotFound</code> exception as a result of invoking the service.</p>
 <p>With the above &ldquo;hello&rdquo; example we could adjust the configuration by defining properties in <code>application.conf</code> such as:</p>
 <pre class="prettyprint"><code>lagom.circuit-breaker {
 
@@ -504,7 +510,7 @@ lagom.circuit-breaker {
             </div>
         </div>
     </body>
-    <script src="/bee5094474141af5ec49fef0eb882bfca9a5a4a7-all-scripts-concat.js"></script>
+    <script src="/43a7f1dc28b882c94575b1fae9825c3e8b9d3486-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

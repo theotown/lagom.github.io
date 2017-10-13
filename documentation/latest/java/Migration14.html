@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/05d1720c78d2d7ec315141a4a25368aeb79b4dbc-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/b48b53b09ab91269336ca1b88126433f7de4771b-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -180,6 +180,12 @@ done
 <p>If you are running Lagom 1.2.x and must do a rolling upgrade, you must first migrate to Lagom 1.3.5. Lagom 1.2.x nodes can&rsquo;t form a cluster with Lagom 1.4.x nodes.</p>
 <p>One relevant change Akka 2.5 introduced involves a new method (DData) <a href="http://doc.akka.io/docs/akka/current/java/project/migration-guide-2.4.x-2.5.x.html#cluster-sharding-state-store-mode">internally handle the sharding</a> of your Persistent Entities in Lagom. We have decided to not enable that new method so your migration from Lagom 1.3.x to 1.4.x should be fine. You may opt in and use DData instead of the default persistence-based one but keep in mind that switching from persistence-based to DData requires a complete-cluster shutdown.</p>
 <p>The Java serialization was already discouraged and since Lagom 1.4.0 it is not the default anymore. This is a setting we inherit from Akka and which we are propagating transparently. If your code was dependant on the Java serialization you will need to review your serializers. This change in the defaults will also affect your ability to do a rolling upgrade. If you must support rolling upgrades and you depended on the default serializations you may override the new defaults using the <a href="http://doc.akka.io/docs/akka/current/scala/project/migration-guide-2.4.x-2.5.x.html#additional-serialization-bindings">additional-serialization-bindings</a> settings.</p>
+<p>Lagom 1.4.x has switched to a new serialization format for one of its internal messages. This new format was added in Lagom 1.3.10, but not enabled. If you are doing a rolling upgrading from 1.3.10 or later to 1.4.x, then the change over will work with no problems. However, if you&rsquo;re doing a rolling upgrading from 1.3.9 or earlier to 1.4.x, then you will need to add the following configuration to your application to disable the new serializer until all nodes are upgraded to a version of Lagom that has the serializer:</p>
+<pre class="prettyprint"><code>akka.actor.serialization-bindings {
+  &quot;com.lightbend.lagom.internal.persistence.cluster.ClusterStartupTaskActor$Execute$&quot; = java
+}
+</code></pre>
+<p>Once all nodes are upgraded to 1.4.x, you should then remove the above configuration for the next rolling upgrade. For more details on this process and why it&rsquo;s needed, see <a href="https://github.com/lagom/lagom/issues/933#issuecomment-327738303">here</a>.</p>
                 </article>
 
                 
@@ -364,7 +370,7 @@ done
             </div>
         </div>
     </body>
-    <script src="/05d1720c78d2d7ec315141a4a25368aeb79b4dbc-all-scripts-concat.js"></script>
+    <script src="/b48b53b09ab91269336ca1b88126433f7de4771b-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

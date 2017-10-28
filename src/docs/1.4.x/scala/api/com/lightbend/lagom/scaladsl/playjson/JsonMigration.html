@@ -54,7 +54,7 @@ be implemented in a concrete subclass or provided through the
 factories in <a href="JsonMigrations$.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.JsonMigrations">JsonMigrations</a> and configured to be used by the
 <code>PlayJsonSerializer</code> for a changed class.</p><p>It is used when deserializing data of older version than the
 <a href="#currentVersion:Int" class="extmbr" name="com.lightbend.lagom.scaladsl.playjson.JsonMigration#currentVersion">currentVersion</a>. You implement the transformation of the
-JSON structure in the <a href="#transform(fromVersion:Int,json:play.api.libs.json.JsObject):play.api.libs.json.JsObject" class="extmbr" name="com.lightbend.lagom.scaladsl.playjson.JsonMigration#transform">transform</a> method. If you have changed the
+JSON structure in the <a href="#transform(fromVersion:Int,json:play.api.libs.json.JsObject):play.api.libs.json.JsValue" class="extmbr" name="com.lightbend.lagom.scaladsl.playjson.JsonMigration#transform">transform</a> method. If you have changed the
 class name you should override <a href="#transformClassName(fromVersion:Int,className:String):String" class="extmbr" name="com.lightbend.lagom.scaladsl.playjson.JsonMigration#transformClassName">transformClassName</a> and return
 current class name.
 </p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/master//play-json/src/main/scala/com/lightbend/lagom/scaladsl/playjson/JsonMigration.scala" target="_blank">JsonMigration.scala</a></dd></dl><div class="toggleContainer block">
@@ -582,18 +582,18 @@ current class name.
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="com.lightbend.lagom.scaladsl.playjson.JsonMigration#transform" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="transform(fromVersion:Int,json:play.api.libs.json.JsObject):play.api.libs.json.JsObject"></a>
-      <a id="transform(Int,JsObject):JsObject"></a>
+      <a id="transform(fromVersion:Int,json:play.api.libs.json.JsObject):play.api.libs.json.JsValue"></a>
+      <a id="transform(Int,JsObject):JsValue"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">transform</span><span class="params">(<span name="fromVersion">fromVersion: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="json">json: <span class="extype" name="play.api.libs.json.JsObject">JsObject</span></span>)</span><span class="result">: <span class="extype" name="play.api.libs.json.JsObject">JsObject</span></span>
+        <span class="name">transform</span><span class="params">(<span name="fromVersion">fromVersion: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="json">json: <span class="extype" name="play.api.libs.json.JsObject">JsObject</span></span>)</span><span class="result">: <span class="extype" name="play.api.libs.json.JsValue">JsValue</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.playjson.JsonMigration@transform(fromVersion:Int,json:play.api.libs.json.JsObject):play.api.libs.json.JsObject" title="Permalink" target="_top">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.playjson.JsonMigration@transform(fromVersion:Int,json:play.api.libs.json.JsObject):play.api.libs.json.JsValue" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -620,6 +620,27 @@ JSON structure.
       <p class="shortcomment cmt">Override this method if you have changed the class name.</p><div class="fullcomment"><div class="comment cmt"><p>Override this method if you have changed the class name. Return
 current class name.
 </p></div></div>
+    </li><li name="com.lightbend.lagom.scaladsl.playjson.JsonMigration#transformValue" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="transformValue(fromVersion:Int,json:play.api.libs.json.JsValue):play.api.libs.json.JsValue"></a>
+      <a id="transformValue(Int,JsValue):JsValue"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">transformValue</span><span class="params">(<span name="fromVersion">fromVersion: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="json">json: <span class="extype" name="play.api.libs.json.JsValue">JsValue</span></span>)</span><span class="result">: <span class="extype" name="play.api.libs.json.JsValue">JsValue</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.playjson.JsonMigration@transformValue(fromVersion:Int,json:play.api.libs.json.JsValue):play.api.libs.json.JsValue" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Override to provide transformation of the old JSON value to the new
+JSON value
+</p><div class="fullcomment"><div class="comment cmt"><p>Override to provide transformation of the old JSON value to the new
+JSON value
+</p></div><dl class="paramcmts block"><dt class="param">fromVersion</dt><dd class="cmt"><p>the version of the old data</p></dd><dt class="param">json</dt><dd class="cmt"><p>the old JSON data</p></dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>

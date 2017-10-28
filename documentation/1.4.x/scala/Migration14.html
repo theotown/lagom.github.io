@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/26a964c4521acc74586840e94b3ace871e095cb8-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/4408ef21957fde651c816d572975dc32498b5967-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -181,7 +181,8 @@ done
 <p>Previous versions of Lagom automatically calculated a default Cassandra keyspace for each service, based on the name of the service project, and injected this keyspace configuration in development mode. When running in production, these calculated keyspaces were not used, resulting in multiple services sharing the same keyspaces by default.</p>
 <p>In Lagom 1.4, services that use Cassandra persistence will fail on startup when these properties are not defined.</p>
 <p>See <a href="PersistentEntityCassandra.html#Configuration">Storing Persistent Entities in Cassandra</a> for more details.</p><h2 id="Upgrading-to-Play-2.6-and-Akka-2.5"><a class="section-marker" href="#Upgrading-to-Play-2.6-and-Akka-2.5">§</a>Upgrading to Play 2.6 and Akka 2.5</h2>
-<p>The internal upgrade to latest major versions of Play and Akka may need some changes in your code if you are using either of them directly. Please refer to the <a href="https://www.playframework.com/documentation/2.6.x/Migration26">Play 2.6 migration guide</a> and the <a href="http://doc.akka.io/docs/akka/current/scala/project/migration-guide-2.4.x-2.5.x.html">Akka 2.5 migration guide</a> for more details.</p><h3 id=" Rolling-upgrade"><a class="section-marker" href="# Rolling-upgrade">§</a> Rolling upgrade</h3>
+<p>The internal upgrade to latest major versions of Play and Akka may need some changes in your code if you are using either of them directly. Please refer to the <a href="https://www.playframework.com/documentation/2.6.x/Migration26">Play 2.6 migration guide</a> and the <a href="http://doc.akka.io/docs/akka/current/scala/project/migration-guide-2.4.x-2.5.x.html">Akka 2.5 migration guide</a> for more details.</p><h3 id="Default-Service-Locator-port"><a class="section-marker" href="#Default-Service-Locator-port">§</a>Default Service Locator port</h3>
+<p>Historically, Lagom&rsquo;s service locator has listened on port 8000. Because port 8000 is a common port on which apps listen, its default value has been changed to 9008.</p><h3 id=" Rolling-upgrade"><a class="section-marker" href="# Rolling-upgrade">§</a> Rolling upgrade</h3>
 <p>When running a rolling upgrade the nodes composing your Akka cluster must keep the ability to connect to each other and must use the same serialization formats. </p>
 <p>One relevant change Akka 2.5 introduced involves a new method (DData) to <a href="http://doc.akka.io/docs/akka/current/scala/project/migration-guide-2.4.x-2.5.x.html#cluster-sharding-state-store-mode">internally handle the sharding</a> of your Persistent Entities in Lagom. We have decided to not enable that new method so your migration from Lagom 1.3.x to 1.4.x should be fine. You may opt in and use DData instead of the default persistence-based one. Switching from persistence-based to DData requires a complete-cluster shutdown.</p>
 <p>The Java serialization was already discouraged and since Lagom 1.4.0 it is not the default anymore. This is a setting we inherit from Akka and which we are propagating transparently. If your code was dependant on the Java serialization you will need to review your serializers. This change in the defaults will also affect your ability to do a rolling upgrade. If you must support rolling upgrades and you depended on the default serializations you may override the new defaults using the <a href="http://doc.akka.io/docs/akka/current/scala/project/migration-guide-2.4.x-2.5.x.html#additional-serialization-bindings">additional-serialization-bindings</a> settings.</p>
@@ -365,7 +366,7 @@ done
             </div>
         </div>
     </body>
-    <script src="/26a964c4521acc74586840e94b3ace871e095cb8-all-scripts-concat.js"></script>
+    <script src="/4408ef21957fde651c816d572975dc32498b5967-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

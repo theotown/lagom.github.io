@@ -6,17 +6,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Header Filters</title>
+        <title>Lagom - Lagom 1.3.10 is released!</title>
         <meta name="description" content="Lagom">
-        
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.3.x/scala/HeaderFilters.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="/24a43f16e82e71b748ac1d99e305b796361ae247-all-styles-concat.css" type="text/css">
          
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-    
+    <link href="/blog/atom.xml" type="application/atom+xml" rel="home" title="ATOM Feed" />
 
     </head>
     <body>
@@ -108,265 +105,146 @@
                         </div>
                     </div>
 
-                      
+                    
+
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Header Filters</h1>
+                <div class="blog-meta">
+                    <div class="blog-author-image">
+                        <a href="https://github.com/TimMoore">
+                            <img src="https://avatars0.githubusercontent.com/u/44385?v=4"/>
+                        </a>
+                    </div>
+                    <div class="blog-meta-details">
+                        <a class="blog-author-name" href="https://github.com/TimMoore">Tim Moore</a>
+                        |
+                        <span class="blog-post-date">November 1, 2017</span>
+                        <div class="blog-meta-tags">
+                            
+                                <img src="/images/entypo/white/entypo_tag.svg" class="svg-icon"/>
+                                
+                                    <span class="blog-tag"><a href="tags/news.html">news</a></span>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                <h1>Lagom 1.3.10 is released!</h1>
             </div>
         </div>
     </header>
 
-    <div class="fw-wrapper documentation-content">
+    <article class="fw-wrapper page-content">
         <div class="row">
             <div class="small-12 large-7 columns">
-                
-                    <nav class="breadcrumbs">
-                        <a href="Home.html">Scala Home</a>
-                        
-                            &raquo; <a href="ReferenceGuide.html">Lagom reference guide</a>
-                        
-                            &raquo; <a href="ServiceDescriptors.html">Writing Lagom services</a>
-                        
-                    </nav>
-                
+                <p>The Lagom team has released Lagom 1.3.10. For a list of the specific changes in Lagom 1.3.10, see the <a href="/changelog.html">change log</a>.</p>
+<p>This release provides a few bug fixes, minor improvements and dependency updates. As an overview, this release contains the following:</p>
+<ul>
+  <li>Play updated to 2.5.18, fixing a security issue (see <a href="#security-advisory">Security Advisory</a> below)</li>
+  <li>Akka Persistence Cassandra updated to 0.30, fixing an issue where <a href="https://github.com/lagom/lagom/issues/1032">events can be skipped in a read-side processor</a></li>
+  <li>You can now use <a href="https://github.com/lagom/lagom/issues/643">collection-value path parameters</a> (for example, <a href="http://localhost:9000/users?username=alice&username=bob&username=carlos">http://localhost:9000/users?username=alice&username=bob&username=carlos</a>)</li>
+  <li>Fixes a <a href="https://github.com/lagom/lagom/issues/1018">compatibility issue</a> with Firefox and streaming service calls</li>
+</ul>
+<p>We&rsquo;ve continued to get great pull requests from the Lagom community. Special thanks to GitHub users <a href="https://github.com/Jiri-Kremser">Jirka Kremser</a>, <a href="https://github.com/micho10">Micho</a>, <a href="https://github.com/guizmaii">Jules Ivanic</a>, <a href="https://github.com/cheleb">Olivier Nouguier</a>, <a href="https://github.com/saniyatech">Saniya Tech</a>, <a href="https://github.com/sirocchj">Julien Jean Paul Sirocchi</a> and <a href="https://github.com/HSalaila">HSalaila</a> for your contributions to Lagom 1.3.10!</p>
+<h2><a href="#security-advisory" name="security-advisory">Security Advisory</a></h2>
+<p>The Play 2.5.18 update contains a fix for <a href="https://www.playframework.com/security/vulnerability/20171005-CorsVaryHeader">Improper Vary header handling in CORS filter</a>. While this issue does not affect Lagom directly, some Lagom users might use Play&rsquo;s CORS filter in their services. If this applies to you, please read the Play security advisory carefully.</p>
+<p>The Lagom team recommends that all users of Lagom read the Play <a href="https://www.playframework.com/security/vulnerability">Security Vulnerabilities page</a> and subscribe to the <a href="https://groups.google.com/forum/#!forum/play-framework-security">Play security announcements mailing list</a>.</p>
+<h2>Updating a Lagom project to version 1.3.10</h2>
+<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
+<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
+<p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>
 
-                <article>
-                <h1 id="Header-Filters"><a class="section-marker" href="#Header-Filters">§</a>Header Filters</h1>
-<p>In Lagom you may add <code>HeaderFilter</code>s to your service descriptor. In a <code>HeaderFilter</code> you will usually handle protocol negotiation or authentication. </p>
-<p>A single <code>HeaderFilter</code> implementation may transform a request leaving a client or entering a server and a response leaving a server and entering a client. Here&rsquo;s an example that uses the <code>User-Agent</code> header to read the service name:</p>
-<pre class="prettyprint"><code class="language-scala">object UserAgentHeaderFilter extends HeaderFilter {
-  override def transformClientRequest(request: RequestHeader) = {
-    request.principal match {
-      case Some(principal: ServicePrincipal) =&gt;
-        request.withHeader(HeaderNames.USER_AGENT, principal.serviceName)
-      case _ =&gt; request
-    }
-  }
+                <h2>Share</h2>
+                <div class="addthis_sharing_toolbox"></div>
 
-  override def transformServerRequest(request: RequestHeader) = {
-    request.getHeader(HeaderNames.USER_AGENT) match {
-      case Some(userAgent) =&gt;
-        request.withPrincipal(ServicePrincipal.forServiceNamed(userAgent))
-      case _ =&gt;
-        request
-    }
-  }
+                <br/>
 
-  override def transformServerResponse(
-    response: ResponseHeader,
-    request:  RequestHeader
-  ) = response
+                <h2>Discuss</h2>
+                <div id="disqus_thread"></div>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-  override def transformClientResponse(
-    response: ResponseHeader,
-    request:  RequestHeader
-  ) = response
-}</code></pre>
-<p>This <a href="api/com/lightbend/lagom/scaladsl/api/transport/UserAgentHeaderFilter$.html"><code>UserAgentHeaderFilter</code></a> is the default <code>HeaderFilter</code> any Lagom service will use if none is specified. It uses a <code>ServicePrincipal</code> which identifies the client with the service name.</p>
-<p>In <code>UserAgentHeaderFilter</code> the code at <code>transformClientRequest</code> will be invoked when preparing a client invocation to add a <code>User-Agent</code> header if a <a href="api/com/lightbend/lagom/scaladsl/api/security/ServicePrincipal.html"><code>ServicePrincipal</code></a> was specified on the request. Note that by default, Lagom will automatically pass the current services name as the <code>ServicePrincipal</code> when it makes a request. On the server end <code>transformServerRequest</code> will be used to read the <code>User-Agent</code> header and set that value as the request&rsquo;s <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Principal.html">Principal</a>.</p>
-<p>Keep in mind that a header filter should only be used to deal with cross cutting <em>protocol</em> concerns, and nothing more. For example, you may have a header filter that describes how the current authenticated user is communicated over the HTTP protocol (by adding a user header, for example). Cross cutting <em>domain</em> concerns, such as authentication and validation, should not be handled in a header filter, rather they should be handled using <a href=" ServiceImplementation.html#Service-call-composition">service call composition</a>.</p><h2 id="Header-Filter-Composition"><a class="section-marker" href="#Header-Filter-Composition">§</a>Header Filter Composition</h2>
-<p>Each service <code>Descriptor</code> can only have one <code>HeaderFilter</code>. In order to use several filters at once you may compose them using <code>HeaderFilter.composite</code> which will return a <code>HeaderFilter</code> that chains all the <code>HeaderFilter</code>s you composed. When composing, the order is important so when sending message headers the filters of the composite are used in the order they were provided, and when receiving message headers the filters will be used in reverse order. So if we had the following filter:</p>
-<pre class="prettyprint"><code class="language-scala">class VerboseFilter(name: String) extends HeaderFilter {
-  private val log = LoggerFactory.getLogger(getClass)
-
-  def transformClientRequest(request: RequestHeader) = {
-    log.debug(name + &quot; - transforming Client Request&quot;)
-    request
-  }
-
-  def transformServerRequest(request: RequestHeader) = {
-    log.debug(name + &quot; - transforming Server Request&quot;)
-    request
-  }
-
-  def transformServerResponse(response: ResponseHeader,
-    request: RequestHeader) = {
-
-    log.debug(name + &quot; - transforming Server Response&quot;)
-    response
-  }
-
-  def transformClientResponse(response: ResponseHeader,
-    request: RequestHeader) = {
-
-    log.debug(name + &quot; - transforming Client Response&quot;)
-    response
-  }
-}</code></pre>
-<p>And we registered two of them with the names <code>Foo</code> and <code>Bar</code>:</p>
-<pre class="prettyprint"><code class="language-scala">def descriptor = {
-  import Service._
-  named(&quot;hello&quot;).withCalls(
-    call(sayHello)
-  ).withHeaderFilter(HeaderFilter.composite(
-    new VerboseFilter(&quot;Foo&quot;),
-    new VerboseFilter(&quot;Bar&quot;)
-  ))
-}</code></pre>
-<p>and then called the service, then we would get the following on the server output logs:</p>
-<pre class="prettyprint"><code>[debug] Bar - transforming Server Request
-[debug] Foo - transforming Server Request
-[debug] Foo - transforming Server Response
-[debug] Bar - transforming Server Response
-</code></pre>
-                </article>
-
-                
-                    
-                        
-                            <nav class="next-link">
-                                <a href="ServiceErrorHandling.html"><strong>Next: </strong> Error handling</a>
-                            </nav>
-                        
-                    
-                
-
-                
-                    <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/guide/services/HeaderFilters.md">here</a>. Please feel free to edit and contribute a pull request.</p>
-                
             </div>
-            <aside class="small-12 large-4 columns">
-                <nav class="side-menu">
+            <aside class="show-for-medium small-12 large-4 columns">
+            
 
-                    <input type="text" id="docs-search" placeholder="Search"/>
+<nav class="side-menu">
+    
+        <h3>Recent posts</h3>
 
-                    <label for="docs-version">Version:</label>
-                    <select id="docs-version">
-                    
-                        <option value="/documentation/1.3.x/scala/HeaderFilters.html" selected="selected">1.3.x</option>
-                    
-                        <option value="/documentation/1.4.x/scala/HeaderFilters.html">1.4.x</option>
-                    
-                        <option value="/documentation/current/scala/HeaderFilters.html">current</option>
-                    
-                        <option value="/documentation/latest/scala/HeaderFilters.html">latest</option>
-                    
-                    </select>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/TimMoore">
+                        <img src="https://avatars0.githubusercontent.com/u/44385?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-3-10.html">Lagom 1.3.10 is released!</a>
+                    <br/>
+                    November 1, 2017
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/renatocaval">
+                        <img src="https://avatars0.githubusercontent.com/u/502982?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-3-9.html">Lagom 1.3.9 is released!</a>
+                    <br/>
+                    October 5, 2017
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-4-0-M2.html">Lagom 1.4.0-M2!</a>
+                    <br/>
+                    September 5, 2017
+                </div>
+            </div>
+        
 
-                    <a href="/documentation/1.3.x/scala/api/index.html" class="api-docs">API Documentation</a>
+    
 
-                    
-                        <h3>Writing Lagom services</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="ServiceDescriptors.html">Service descriptors</a></li>
-                            
-                        
-                            
-                                <li><a href="ServiceImplementation.html">Implementing services</a></li>
-                            
-                        
-                            
-                                <li><a href="DependencyInjection.html">Dependency Injection</a></li>
-                            
-                        
-                            
-                                <li><a href="ScalaComponents.html">Scala Components</a></li>
-                            
-                        
-                            
-                                <li><a href="ServiceInfo.html">Service Metadata</a></li>
-                            
-                        
-                            
-                                <li><a href="ServiceClients.html">Consuming services</a></li>
-                            
-                        
-                            
-                                <li><a href="TestingServices.html">Testing Services</a></li>
-                            
-                        
-                            
-                                <li><a href="MessageSerializers.html">Message serializers</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="HeaderFilters.html">Header Filters</a></li>
-                            
-                        
-                            
-                                <li><a href="ServiceErrorHandling.html">Error handling</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Lagom reference guide</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="ReferenceGuide.html">Reference Guide</a></li>
-                            
-                        
-                            
-                                <li><a href="LagomBuild.html">Configuring builds and the development environment</a></li>
-                            
-                        
-                            
-                                <li><a href="DevEnvironment.html">Running Lagom in development</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="ServiceDescriptors.html">Writing Lagom services</a></li>
-                            
-                        
-                            
-                                <li><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
-                            
-                        
-                            
-                                <li><a href="MessageBroker.html">Decouple services with a message broker</a></li>
-                            
-                        
-                            
-                                <li><a href="ProductionOverview.html">Running Lagom in production</a></li>
-                            
-                        
-                            
-                                <li><a href="Logging.html">Logging</a></li>
-                            
-                        
-                            
-                                <li><a href="Akka.html">Advanced topics</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Scala Home</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="Home.html">Home</a></li>
-                            
-                        
-                            
-                                <li><a href="WhatIsLagom.html">Welcome to Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="Installation.html">Getting started with Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="CoreConcepts.html">Lagom core concepts</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="ReferenceGuide.html">Lagom reference guide</a></li>
-                            
-                        
-                            
-                                <li><a href="Migration13.html">Lagom releases</a></li>
-                            
-                        
-                        </ul>
-                    
-                </nav>
+    <h3>Tags</h3>
+
+    <div class="blog-tag-box">
+    
+        <a href="/blog/tags/conductr.html" data-count="1">conductr</a>
+    
+        <a href="/blog/tags/generator.html" data-count="1">generator</a>
+    
+        <a href="/blog/tags/java.html" data-count="1">java</a>
+    
+        <a href="/blog/tags/maven.html" data-count="1">maven</a>
+    
+        <a href="/blog/tags/news.html" data-count="26">news</a>
+    
+        <a href="/blog/tags/outreachy.html" data-count="1">outreachy</a>
+    
+        <a href="/blog/tags/scala.html" data-count="2">scala</a>
+    
+        <a href="/blog/tags/screencast.html" data-count="1">screencast</a>
+    
+    </div>
+
+</nav>
+
+
             </aside>
         </div>
-   </div>
+    </article>
+
+
 
 
                     <footer>
@@ -461,17 +339,20 @@
     <script src="/24a43f16e82e71b748ac1d99e305b796361ae247-all-scripts-concat.js"></script>
     
      
-    <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
-    <script type="text/javascript"> docsearch({
-        apiKey: "77ef1e29e6bddfca861f7a42cc51725e",
-        indexName: "lagomframework",
-        inputSelector: "#docs-search",
-        algoliaOptions: {
-            facetFilters: ["version:1.3.x", "language:scala"]
-        }
-    });
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://www.lagomframework.com/blog/lagom-1-3-10.html";
+            this.page.identifier = "lagom-1-3-10";
+            this.page.title = "Lagom 1.3.10 is released!";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//lagomframework.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
-    
 
     <script>
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

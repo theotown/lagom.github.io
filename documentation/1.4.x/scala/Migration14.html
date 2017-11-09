@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/074653cae1aa1dbab12bf2e24c3a2d2d51ceace2-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/08a6ff68b70774488750808ac651eaafd7926291-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -204,7 +204,13 @@ done
   &quot;com.lightbend.lagom.internal.persistence.cluster.ClusterStartupTaskActor$Execute$&quot; = java
 }
 </code></pre>
-<p>Once all nodes are upgraded to 1.4.x, you should then remove the above configuration for the next rolling upgrade. For more details on this process and why it&rsquo;s needed, see <a href="https://github.com/lagom/lagom/issues/933#issuecomment-327738303">here</a>.</p>
+<p>Once all nodes are upgraded to 1.4.x, you should then remove the above configuration for the next rolling upgrade. For more details on this process and why it&rsquo;s needed, see <a href="https://github.com/lagom/lagom/issues/933#issuecomment-327738303">here</a>.</p><h2 id="Breaking-Changes"><a class="section-marker" href="#Breaking-Changes">§</a>Breaking Changes</h2>
+<p>The return types of the method below were changed, which could result in deprecation warnings:</p>
+<ul>
+  <li>Typesafe config is now used instead of Play config in <code>AdditionalConfiguration.configuration</code>, see <a href="https://github.com/lagom/lagom/pull/881">881</a></li>
+  <li>The return types of <code>LagomServerBuilder.buildRouter</code>, <code>LagomServerBuilder.router</code>, and <code>LagomServer.router</code> were changed to be strongly typed from <code>Router</code> to <code>LagomServiceRouter</code> in <a href="https://github.com/lagom/lagom/pull/888">888</a></li>
+  <li><code>PlayJsonSerializer</code> serialization of Non-<code>JsObject</code>s was fixed in <a href="https://github.com/lagom/lagom/pull/1071">1071</a>, changing the return type of <code>JsonMigration.transfrorm</code> from <code>JsObject</code> to <code>JsValue</code></li>
+</ul>
                 </article>
 
                 
@@ -380,7 +386,7 @@ done
             </div>
         </div>
     </body>
-    <script src="/074653cae1aa1dbab12bf2e24c3a2d2d51ceace2-all-scripts-concat.js"></script>
+    <script src="/08a6ff68b70774488750808ac651eaafd7926291-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

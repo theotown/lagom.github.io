@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/88ed669c6aefbe977bb93704ae6a7af3bd9e9a8d-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/ce99d57579625507047a45b650f9a9cdf23c3104-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -239,7 +239,7 @@ private def prepareWriteTitle(): Future[Done] = {
 <p>Once you have finished registering all your event handlers, you can invoke the <code>build</code> method and return the built handler:</p>
 <pre class="prettyprint"><code class="language-scala">builder.build()</code></pre><h2 id="Underlying-implementation"><a class="section-marker" href="#Underlying-implementation">§</a>Underlying implementation</h2>
 <p>The <code>CassandraSession</code> is using the <a href="https://github.com/datastax/java-driver">Datastax Java Driver for Apache Cassandra</a>.</p>
-<p>Each <code>ReadSideProcessor</code> instance is executed by an <a href="http://doc.akka.io/docs/akka/2.4/scala/actors.html">Actor</a> that is managed by <a href="http://doc.akka.io/docs/akka/2.4/scala/cluster-sharding.html">Akka Cluster Sharding</a>. The processor consumes a stream of persistent events delivered by the <code>eventsByTag</code> <a href="http://doc.akka.io/docs/akka/2.4/scala/persistence-query.html">Persistence Query</a> implemented by <a href="https://github.com/akka/akka-persistence-cassandra">akka-persistence-cassandra</a>. The tag corresponds to the <code>tag</code> defined by the <code>AggregateEventTag</code>.</p>
+<p>Each <code>ReadSideProcessor</code> instance is executed by an <a href="https://doc.akka.io/docs/akka/2.5/actors.html?language=scala">Actor</a> that is managed by <a href="https://doc.akka.io/docs/akka/2.5/cluster-sharding.html?language=scala">Akka Cluster Sharding</a>. The processor consumes a stream of persistent events delivered by the <code>eventsByTag</code> <a href="https://doc.akka.io/docs/akka/2.5/persistence-query.html?language=scala">Persistence Query</a> implemented by <a href="https://github.com/akka/akka-persistence-cassandra">akka-persistence-cassandra</a>. The tag corresponds to the <code>tag</code> defined by the <code>AggregateEventTag</code>.</p>
                 </article>
 
                 
@@ -492,7 +492,7 @@ private def prepareWriteTitle(): Future[Done] = {
             </div>
         </div>
     </body>
-    <script src="/88ed669c6aefbe977bb93704ae6a7af3bd9e9a8d-all-scripts-concat.js"></script>
+    <script src="/ce99d57579625507047a45b650f9a9cdf23c3104-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

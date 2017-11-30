@@ -4,12 +4,62 @@
       <link rel="self" type="application/atom+xml" href="https://www.lagomframework.com/blog/atom.xml"/>
       <id>https://www.lagomframework.com/blog</id>
       <rights>Copyright 2017, Lightbend</rights>
-      <updated>2017-10-31T17:00:00.000-07:00</updated>
+      <updated>2017-11-29T16:00:00.000-08:00</updated>
       <dc:creator>Lightbend</dc:creator>
-      <dc:date>2017-10-31T17:00:00.000-07:00</dc:date>
+      <dc:date>2017-11-29T16:00:00.000-08:00</dc:date>
       <dc:language>en</dc:language>
       <dc:rights>Copyright 2017, Lightbend</dc:rights>
       <entry>
+          <title>Lagom 1.4.0-M3</title>
+          <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-0-M3.html"/>
+          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
+          <author>
+            <name>Tim Moore</name>
+            <uri>https://github.com/TimMoore</uri>
+          </author>
+          <id>https://www.lagomframework.com/blog/lagom-1-4-0-M3.html</id>
+          <updated>2017-11-29T16:00:00.000-08:00</updated>
+          <published>2017-11-29T16:00:00.000-08:00</published>
+          <content type="html"><![CDATA[<p>We are very pleased to announce the availability of the third milestone release of Lagom 1.4.0. Although we had originally hoped to have a release candidate available by now, there are still a few <a href="https://github.com/lagom/lagom/milestone/25">known issues</a> with the 1.4.0 release that will take a little time to complete. In the meantime, there are enough changes since M2 that we decided to publish a new milestone to allow users on the bleeding edge to give them a try. Thanks for your patience!</p>
+<p>Please note that we still do not recommend using a milestone release in production, as there may still be incompatible changes up until the first release candidate.</p>
+<h3><a href="#migrating-from-other-versions" name="migrating-from-other-versions">Migrating from other versions</a></h3>
+<ul>
+  <li>If you are migrating into Lagom 1.4.0-M3 from 1.4.0-M2 you should have a look at the release announcements for Lagom versions <a href="https://www.lagomframework.com/blog/lagom-1-3-9.html">1.3.9</a> and <a href="https://www.lagomframework.com/blog/lagom-1-3-10.html">1.3.10</a>. The migration guide to 1.4 (<a href="https://www.lagomframework.com/documentation/1.4.x/java/Migration14.html">Java</a>/<a href="https://www.lagomframework.com/documentation/1.4.x/scala/Migration14.html">Scala</a>) has also been improved, don&rsquo;t forget to review it.</li>
+  <li>If you are migrating into Lagom 1.4.0-M3 from a version in the Lagom 1.3.x series you should have a look at changes introduced in latest versions of the Lagom 1.3.x series and especially you should read the migration guide to 1.4 (<a href="https://www.lagomframework.com/documentation/1.4.x/java/Migration14.html">Java</a>/<a href="https://www.lagomframework.com/documentation/1.4.x/scala/Migration14.html">Scala</a>). We also recommend updating to the latest stable 1.3.x release (currently 1.3.10 as of this writing) before attempting to update to 1.4.</li>
+</ul>
+<h3><a href="#improvements" name="improvements">Improvements</a></h3>
+<ul>
+  <li>The Lagom circuit breaker can be configured to ignore certain exceptions. These exceptions will still be seen by the client, but they will no longer cause the circuit breaker to open. See the documentation on circuit breaker configuration (<a href="https://www.lagomframework.com/documentation/1.4.x/java/ServiceClients.html#Circuit-Breaker-Configuration">Java</a>/<a href="https://www.lagomframework.com/documentation/1.4.x/scala/ServiceClients.html#Circuit-Breaker-Configuration">Scala</a>) and service error handling (<a href="https://www.lagomframework.com/documentation/1.4.x/java/ServiceErrorHandling.html">Java</a>/<a href="https://www.lagomframework.com/documentation/1.4.x/scala/ServiceErrorHandling.html">Scala</a>) for more details.</li>
+  <li>You can now <a href="https://github.com/lagom/lagom/pull/1010">disable entity passivation</a> by setting <code>lagom.persistence.passivate-after-idle-timeout = 0</code> in <code>application.conf</code>. This allows your service to keep all entities resident in memory or control passivation more directly.</li>
+  <li>The Message Broker API now provides the <code>Subscriber.withMetadata</code> method to allow consumers to access details about each method such as the Kafka message key. See the documentation on consuming message metadata (<a href="https://www.lagomframework.com/documentation/1.4.x/java/MessageBrokerApi.html#Consuming-message-metadata">Java</a>/<a href="https://www.lagomframework.com/documentation/1.4.x/scala/MessageBrokerApi.html#Consuming-message-metadata">Scala</a>) for details.</li>
+  <li>The default port for the development mode service locator changed from 8000 to 9008. This is rarely used directly, so it should be transparent for most users, but 8000 is a common port for other services to run on (including the default debug port used by <code>mvnDebug</code>), so this will reduce the chance of conflicts.</li>
+  <li>Several underlying dependencies were updated (including Play and Akka)</li>
+</ul>
+<h3><a href="#contributors" name="contributors">Contributors</a></h3>
+<p>The Lagom maintainer team extends its gratitude to all of the people who have contributed to the release. There are now enough of you that we&rsquo;ve decided to borrow <a href="https://github.com/akka/akka/blob/master/scripts/authors.pl">Akka&rsquo;s credits script</a> to summarize the results:</p>
+<pre class="prettyprint"><code>commits added removed
+    7     324      42 Renato Cavalcanti
+    7     884     249 Ignasi Marimon-Clos
+    6     286     256 Tim Moore
+    5     296     153 Greg Methvin
+    4     803     128 James Roper
+    3      53      52 Pallavi Singh
+    2      55       7 Elijah Rippeth
+    2      36      39 Jirka Kremser
+    1       6       0 Saniya Tech
+    1       6       5 Marcos Pereira
+    1      17       1 HSalaila
+    1      71       8 Adam Chaulk
+    1     309      21 Julien Jean Paul Sirocchi
+    1       2       2 NOUGUIER Olivier
+    1      39       8 Neelaksh
+    1      36       0 Micho
+    1       3       1 dr3s
+    1      11      76 Ruth Stento
+    1       1       1 Stijn De Haes
+</code></pre>]]></content>
+          <dc:date>2017-11-29T16:00:00.000-08:00</dc:date>
+        </entry><entry>
           <title>Lagom 1.3.10 is released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-3-10.html"/>
           <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
@@ -279,25 +329,5 @@ object RegistryWithCompression extends JsonSerializerRegistry {
 <h2><a href="#change-log" name="change-log">Change log</a></h2>
 <p>See the <a href="https://www.lagomframework.com/changelog.html">change log</a> for more details on exactly what has been fixed in each release.</p>]]></content>
           <dc:date>2017-05-16T17:00:00.000-07:00</dc:date>
-        </entry><entry>
-          <title>Introducing the Lagom code generator</title>
-          <link rel="alternate" href="https://www.lagomframework.com/blog/announcing-lagom-code-generator.html"/>
-          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/><category term="scala" scheme="https://www.lagomframework.com/blog/tags/scala.html"/><category term="java" scheme="https://www.lagomframework.com/blog/tags/java.html"/><category term="generator" scheme="https://www.lagomframework.com/blog/tags/generator.html"/>
-          <author>
-            <name>Ignasi Marimon-Clos</name>
-            <uri>https://github.com/ignasi35</uri>
-          </author>
-          <id>https://www.lagomframework.com/blog/announcing-lagom-code-generator.html</id>
-          <updated>2017-05-15T17:00:00.000-07:00</updated>
-          <published>2017-05-15T17:00:00.000-07:00</published>
-          <content type="html"><![CDATA[<p>We&rsquo;re happy to announce the first <em>alpha</em> release of the <a href="https://github.com/lagom/sbt-lagom-descriptor-generator">Lagom Descriptor Generator</a> a project started as a proof-of-concept and that we&rsquo;ve recently improved. The motivation is to ease consuming third party APIs (be it lagom services, other services on your organization or public APIs in the wild) reducing the amount of code required.</p>
-<p>We want Lagom to increase the types of services it can talk to. Until now Lagom was focused on providing RPC via HTTP/JSON as default and we already started working on an gRPC transport for Lagom both for producing services and consuming 3rd party gRPC endpoints. </p>
-<p>We had to make a decision since working in both (a) a fully featured code generator from OpenAPI specs to Lagom source code and (b) adding gRPC support into Lagom was beyond our capacity. Today we are calling the community to continue our work in the Lagom code generator while we focus our attention to gRPC. The <em>Lagom Descriptor Generator</em> project may eventually generate Lagom API descriptor sources from seveal API specification format. At the moment only OpenaAPI v2 (aka <em>Swagger specs</em>) is supported.</p>
-<p>The <a href="https://github.com/lagom/sbt-lagom-descriptor-generator">Lagom Descriptor Generator</a> is open to community contributions &ndash;frequent and infrequent&ndash;, everyone helps out. It&rsquo;s a repo that loves new code and fixes. The Lagom core team will remain in an <a href="https://www.lagomframework.com/community-process.html#definitions">integrator</a> role, the team will keep an eye on the project to assure its overall coherence but does not fully support it.</p>
-<h3><a href="#project-status" name="project-status">Project Status</a></h3>
-<p>The current implementation is a <em>crude</em> generator that will convert a <code>swagger.json</code> (or yaml) into Lagom API source code. It is currently available as an <code>sbt</code> plugin but it could be <a href="https://github.com/lagom/sbt-lagom-descriptor-generator/issues/11">extended into a Maven plugin</a> too. The GitHub repository includes <code>sbt-</code> on the name but that is a <a href="https://github.com/lagom/sbt-lagom-descriptor-generator/issues/4">mistake</a>.</p>
-<p>The current implementation will read <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md">OpenAPI v2</a> files but we think other API specification formats (e.g. RAML) should be supported too. We added some <a href="https://github.com/lagom/sbt-lagom-descriptor-generator#supported-specs">tips</a> on what should be done to add support for new specification formats.</p>
-<p>Finally, this first available release is demoed in the <a href="https://github.com/ignasi35/lagom-pet-store/">Pet Store application</a>. That sample application adapts the famous Open API <a href="http://petstore.swagger.io/">Pet Store</a> example into a Lagom application. The Lagom version is made of a LagomJava Pet Service, a LagomScala Store Service and a PlayJava web frontend. Each of the lagom services in the sample application describes its API using an OpenAPI v2 file located in <code>src/main/openapi/</code> instead of including the usual <code>xxx-service-api</code> project separately. Finally, the web frontend uses copies of each of the OpenAPi files it wants to consume. Read the project <a href="https://github.com/ignasi35/lagom-pet-store/blob/master/README.md">README.md</a> for more details.</p>]]></content>
-          <dc:date>2017-05-15T17:00:00.000-07:00</dc:date>
         </entry>
     </feed>

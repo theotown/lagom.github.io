@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/1325003c4f8b250fab0b291617356b94d53fc75d-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/3f304f7cc9961462916c6b20aac71c74d5b2ddca-all-styles-concat.css" type="text/css">
         
     </head>
     <body>
@@ -119,7 +119,59 @@
         <div class="row">
             <div class="small-12 large-7 columns">
                 
-    <h2>Lagom 1.3.10</h2>
+    <h2>Lagom 1.4.0-M3</h2>
+<p><em>Released 30 November 2017</em></p>
+<h3>Changes only in 1.4.0-M3</h3>
+<ul>
+  <li><a href="https://github.com/lagom/lagom/issues/1119">1119</a> minor rewording on documentation (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1118">1118</a> Fix the &ldquo;Undefined column name meta_ser_id&rdquo; error (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1116">1116</a> Document configuration of Slick AsyncExecutor (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1106">1106</a> Configure HikariCP to use values aligned with hardcoded values in Slick (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1113">1113</a> Update documentation links (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1095">1095</a> Split test execution for Scala 2.11 and 2.12 (Marcos Pereira)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1031">1031</a> Removed Scala style errors (Pallavi Singh)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1092">1092</a> Setup MiMa for scaladsl projects (Adam Chaulk)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1088">1088</a> Update to Play 2.6.7 (Greg Methvin)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1086">1086</a> Update Scala 2.12 version to 2.12.4 (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1077">1077</a> Akka Persistence JDBC update (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1076">1076</a> Document the service locator port change in the 1.4 migration guide (Elijah Rippeth)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1071">1071</a> PlayJsonSerializer should be able to deserialize arbitrary <code>JsValue</code>s (Elijah Rippeth)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1047">1047</a> Allow subscribers to access message metadata (James Roper)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1061">1061</a> Update and synchronize dependency versions (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1037">1037</a> Upgraded akka persistence cassandra version to 0.57 (Stijn De Haes)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1043">1043</a> Added serializer for ClusterStartupTaskActor.Execute (James Roper)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/965">965</a> Whitelist Exceptions that open circuit breakers. (Ignasi Marimon-Clos)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1022">1022</a> Changing the default port for service locator 8000 -&gt; 9008 (Jirka Kremser)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1015">1015</a> Extract slf4j, exclude it from transitive deps and depend on it explicitly (Ignasi Marimon-Clos)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1005">1005</a> ReadSide should honour BackoffSupervision. (Ignasi Marimon-Clos)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1010">1010</a> Allow no passivation to be configured (James Roper)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/997">997</a> Update play-file-watch to 1.1.0 (Greg Methvin)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/920">920</a> Add Scala 2.12 cross build (Greg Methvin)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/992">992</a> Reduce JDBC multi-jvm tests flakyness (Tim Moore)</li>
+</ul>
+<h3>Changes from 1.4.0-M2 also included in the 1.3.x series</h3>
+<ul>
+  <li><a href="https://github.com/lagom/lagom/issues/1103">1103</a> Remove ConductR from the overview docs (Ruth Stento)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1100">1100</a> Break inheritance between Read and Write sides for scaladsl JDBC persistence (Ignasi Marimon-Clos)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1093">1093</a> Improves error messages in path param serializer resolution (Neelaksh)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1081">1081</a> Delete PersistentEntityTestDriver.runOne (James Roper)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1079">1079</a> Fix unhandled event issue message in PersistentEntityTestDriver (HSalaila)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1021">1021</a> PathParamSerializer derived instances for traversables (Julien Jean Paul Sirocchi)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1070">1070</a> Ensures .gitignore file is copied to the Maven archetype (Saniya Tech)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1056">1056</a> OffSet storage need the eventProcessorId (NOUGUIER Olivier)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1052">1052</a> Document ReadSide.register in the Cassandra/RDBMS read-side documentation (Micho)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1039">1039</a> Lagom always returns binary data via websocket to Firefox (Jirka Kremser)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1030">1030</a> Service Router actions should use filtered request. (Ignasi Marimon-Clos)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1029">1029</a> wrap sql statement call in try / finally block (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1026">1026</a> removed scalastyle warnings, gramatical errors and spelling mistakes (Pallavi Singh)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1024">1024</a> Change to execute to avoid syntax error (dr3s)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1025">1025</a> align scala documentation with java one (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1019">1019</a> Improved the documentation to remove ambiquity in call description (Pallavi Singh)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1020">1020</a> Adds a CoC (copied from Play FW) (Ignasi Marimon-Clos)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1016">1016</a> Adds .gitignore on maven archetype (Ignasi Marimon-Clos)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/995">995</a> Handle null state in persistent entity test driver (Tim Moore)</li>
+</ul>
+<h2>Lagom 1.3.10</h2>
 <p><em>Released 1 November 2017</em></p>
 <ul>
   <li><a href="https://github.com/lagom/lagom/issues/1079">1079</a> Fix unhandled event issue message in PersistentEntityTestDriver (HSalaila)</li>
@@ -579,7 +631,7 @@
             </div>
         </div>
     </body>
-    <script src="/1325003c4f8b250fab0b291617356b94d53fc75d-all-scripts-concat.js"></script>
+    <script src="/3f304f7cc9961462916c6b20aac71c74d5b2ddca-all-scripts-concat.js"></script>
     
     
     <script>

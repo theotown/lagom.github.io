@@ -132,8 +132,9 @@ implements com.google.inject.Provider&lt;com.lightbend.lagom.internal.javadsl.pe
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/jdbc/GuiceSlickProvider.html#GuiceSlickProvider-play.api.db.DBApi-akka.actor.ActorSystem-scala.concurrent.ExecutionContext-">GuiceSlickProvider</a></span>(play.api.db.DBApi&nbsp;dbApi,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/jdbc/GuiceSlickProvider.html#GuiceSlickProvider-play.api.db.DBApi-akka.actor.ActorSystem-play.api.inject.ApplicationLifecycle-scala.concurrent.ExecutionContext-">GuiceSlickProvider</a></span>(play.api.db.DBApi&nbsp;dbApi,
                   akka.actor.ActorSystem&nbsp;actorSystem,
+                  play.api.inject.ApplicationLifecycle&nbsp;applicationLifecycle,
                   scala.concurrent.ExecutionContext&nbsp;ec)</code>&nbsp;</td>
 </tr>
 </table>
@@ -177,7 +178,7 @@ implements com.google.inject.Provider&lt;com.lightbend.lagom.internal.javadsl.pe
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="GuiceSlickProvider-play.api.db.DBApi-akka.actor.ActorSystem-scala.concurrent.ExecutionContext-">
+<a name="GuiceSlickProvider-play.api.db.DBApi-akka.actor.ActorSystem-play.api.inject.ApplicationLifecycle-scala.concurrent.ExecutionContext-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -185,6 +186,7 @@ implements com.google.inject.Provider&lt;com.lightbend.lagom.internal.javadsl.pe
 <h4>GuiceSlickProvider</h4>
 <pre>public&nbsp;GuiceSlickProvider(play.api.db.DBApi&nbsp;dbApi,
                           akka.actor.ActorSystem&nbsp;actorSystem,
+                          play.api.inject.ApplicationLifecycle&nbsp;applicationLifecycle,
                           scala.concurrent.ExecutionContext&nbsp;ec)</pre>
 </li>
 </ul>

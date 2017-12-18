@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/8a5b698766137caa3a51c57f5875fc2cf24a28bf-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/331bce5a3799272ee69da795e75327e96d90e426-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -204,7 +204,16 @@ done
   &quot;com.lightbend.lagom.internal.persistence.cluster.ClusterStartupTaskActor$Execute$&quot; = java
 }
 </code></pre>
-<p>Once all nodes are upgraded to 1.4.x, you should then remove the above configuration for the next rolling upgrade. For more details on this process and why it&rsquo;s needed, see <a href="https://github.com/lagom/lagom/issues/933#issuecomment-327738303">here</a>.</p><h2 id="Breaking-Changes"><a class="section-marker" href="#Breaking-Changes">§</a>Breaking Changes</h2>
+<p>Once all nodes are upgraded to 1.4.x, you should then remove the above configuration for the next rolling upgrade. For more details on this process and why it&rsquo;s needed, see <a href="https://github.com/lagom/lagom/issues/933#issuecomment-327738303">here</a>.</p><h3 id="HTTP-Backend"><a class="section-marker" href="#HTTP-Backend">§</a>HTTP Backend</h3>
+<p>Play 2.6 introduces a new HTTP backend implemented using Akka HTTP instead of Netty. This switch on the HTTP backend is part of an ongoing effort to replace all building blocks in Lagom for an Akka-based equivalent. Note that when consuming HTTP services, Lagom&rsquo;s Client Factory still relies on a Netty-based Play-WS instance.</p>
+<p>If you want to use the new Akka HTTP you won&rsquo;t need to change anything. Once you upgrade the version of the Lagom sbt plugin in <code>project/plugins.sbt</code> any new build will use Akka HTTP.</p>
+<p>You can opt-out of Akka HTTP to use Netty: in <code>sbt</code> you have to explicitly disable the <code>LagomAkkaHttpServer</code> plugin and enable the <code>LagomNettyServer</code> plugin. Note that the <code>LagomAkkaHttpServer</code> plugin is added by default on any <code>LagomJava</code> or <code>LagomScala</code> project.</p>
+<pre class="prettyprint"><code class="language-scala">lazy val `inventory-service-impl` = (project in file(&quot;inventory-impl&quot;))
+  .enablePlugins(LagomScala, LagomNettyServer) // Adds LagomNettyServer
+  .disablePlugins(LagomAkkaHttpServer)         // Removes LagomAkkaHttpServer
+  .settings( /* ... */ )
+  .dependsOn(`inventory-api`)
+</code></pre><h2 id="Breaking-Changes"><a class="section-marker" href="#Breaking-Changes">§</a>Breaking Changes</h2>
 <p>The return types of the method below were changed, which could result in deprecation warnings:</p>
 <ul>
   <li>Typesafe config is now used instead of Play config in <code>AdditionalConfiguration.configuration</code>, see <a href="https://github.com/lagom/lagom/pull/881">881</a></li>
@@ -386,7 +395,7 @@ done
             </div>
         </div>
     </body>
-    <script src="/8a5b698766137caa3a51c57f5875fc2cf24a28bf-all-scripts-concat.js"></script>
+    <script src="/331bce5a3799272ee69da795e75327e96d90e426-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

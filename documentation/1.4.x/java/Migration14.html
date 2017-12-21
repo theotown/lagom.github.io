@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/d471d8dcd3374a45b26bdf7fd07eaf7a0345c14f-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/3c6e416d0baaf274b6e9e2816e1c19f07c9837c4-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -177,7 +177,7 @@ done
 <p>See <a href="PersistentEntityCassandra.html#Configuration">Storing Persistent Entities in Cassandra</a> for more details.</p><h3 id="Default-Service-Locator-port"><a class="section-marker" href="#Default-Service-Locator-port">§</a>Default Service Locator port</h3>
 <p>Historically, Lagom&rsquo;s service locator has listened on port 8000. Because port 8000 is a common port on which apps listen, its default value has been changed to 9008.</p><h2 id="Relational-Databases---Akka-Persistence-JDBC"><a class="section-marker" href="#Relational-Databases---Akka-Persistence-JDBC">§</a>Relational Databases - Akka Persistence JDBC</h2>
 <p>If you are using Lagom&rsquo;s <code>Persistent Entity</code> API with a relational database, you will need to add an index to your journal table.</p>
-<p>The relational database support is based on <code>akka-persistence-jdbc</code> plugin. The plugin was updated to version 3.0.1, which include an important <a href="https://github.com/dnvriend/akka-persistence-jdbc/issues/96">bug fix</a> that requires a new column index. Failing in updating your database schema will result in degraded performance when querying events.</p>
+<p>The relational database support is based on <code>akka-persistence-jdbc</code> plugin. The plugin was updated to version 3.1.0, which include an important <a href="https://github.com/dnvriend/akka-persistence-jdbc/issues/96">bug fix</a> that requires a new column index. Failing in updating your database schema will result in degraded performance when querying events.</p>
 <p>Bellow you will find the index creation statement for each supported database.</p><h3 id="Postgres"><a class="section-marker" href="#Postgres">§</a>Postgres</h3>
 <pre class="prettyprint"><code class="language-sql">CREATE UNIQUE INDEX journal_ordering_idx ON public.journal(ordering);
 </code></pre><h3 id="MySQL"><a class="section-marker" href="#MySQL">§</a>MySQL</h3>
@@ -187,7 +187,8 @@ done
 </code></pre><h3 id="H2-Database-(for-use-in-development-only)"><a class="section-marker" href="#H2-Database-(for-use-in-development-only)">§</a>H2 Database (for use in development only)</h3>
 <pre class="prettyprint"><code class="language-sql">CREATE UNIQUE INDEX &quot;journal_ordering_idx&quot; ON PUBLIC.&quot;journal&quot;(&quot;ordering&quot;);
 </code></pre>
-<p>Moreover, in <code>akka-persistence-jdbc</code> 3.0.x series, the <code>Events</code> query treats the offset as exclusive instead of inclusive. In general, this should not be a problem. Previous versions of Lagom had a workaround for it and this change in behavior should be transparent. This will only impact you if you were using the <code>Akka Persistence Query</code> directly.</p><h2 id="Upgrading-to-Play-2.6-and-Akka-2.5"><a class="section-marker" href="#Upgrading-to-Play-2.6-and-Akka-2.5">§</a>Upgrading to Play 2.6 and Akka 2.5</h2>
+<p>Moreover, in <code>akka-persistence-jdbc</code> 3.1.x series, the <code>Events</code> query treats the offset as exclusive instead of inclusive. In general, this should not be a problem. Previous versions of Lagom had a workaround for it and this change in behavior should be transparent. This will only impact you if you were using the <code>Akka Persistence Query</code> directly.</p>
+<p>In addition to that, this new plugin version removed the dependency on <code>JournalRow</code> in <code>ReadJournalDao</code>. This is a breaking change for everyone who implements a custom <code>ReadJournalDao</code>. Note, this is not being used by Lagom and Lagom users are, in principle, not impacted by this. However, if for some reason you have implemented a DAO extending the plugin&rsquo;s <code>ReadJournalDao</code>, you will need to migrate your code manually. For details can be found <a href="https://github.com/dnvriend/akka-persistence-jdbc/pull/148">here</a>.</p><h2 id="Upgrading-to-Play-2.6-and-Akka-2.5"><a class="section-marker" href="#Upgrading-to-Play-2.6-and-Akka-2.5">§</a>Upgrading to Play 2.6 and Akka 2.5</h2>
 <p>The internal upgrade to latest major versions of Play and Akka may need some changes in your code if you are using either of them directly. Please refer to the <a href="https://www.playframework.com/documentation/2.6.x/Migration26">Play 2.6 migration guide</a> and the <a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.4.x-2.5.x.html?language=java">Akka 2.5 migration guide</a> for more details.</p><h3 id="Deprecations"><a class="section-marker" href="#Deprecations">§</a>Deprecations</h3>
 <p>Lagom uses Play and Akka under the covers and in occasions Lagom exposes the API provided by Play or Akka. In general this is a good enough solution to avoid adding extra layers of abstraction and wrapping. Sometimes, changes in Play or Akka can leak into our users. One such change is the <a href="https://www.playframework.com/documentation/2.6.x/JavaConfigMigration26">deprecation of <code>play.Configuration</code></a> in favour of Typesafe-Config. You may need to review your code to fix these deprecation warnings.</p><h3 id=" Rolling-upgrade"><a class="section-marker" href="# Rolling-upgrade">§</a> Rolling upgrade</h3>
 <p>When running a rolling upgrade the nodes composing your Akka cluster must keep the ability to connect to each other and must use the same serialization formats.</p>
@@ -216,7 +217,21 @@ done
             &lt;!--&lt;artifactId&gt;play-netty-server_2.11&lt;/artifactId&gt;--&gt;
             &lt;artifactId&gt;play-akka-http-server_2.11&lt;/artifactId&gt;
         &lt;/dependency&gt;
+</code></pre><h2 id="ConductR"><a class="section-marker" href="#ConductR">§</a>ConductR</h2>
+<p>ConductR users must update to <code>conductr-lib</code> 2.1.1 for full compatibility with Lagom 1.4.0.</p>
+<p>You can find more information in the <a href="https://github.com/typesafehub/conductr-lib/blob/master/README.md"><code>conductr-lib</code> README file</a>.</p><h3 id="Updating-ConductR-with-sbt"><a class="section-marker" href="#Updating-ConductR-with-sbt">§</a>Updating ConductR with sbt</h3>
+<p>Edit the <code>project/plugins.sbt</code> file to update <code>sbt-conductr</code> to version 2.5.1 or later:</p>
+<pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.conductr&quot; % &quot;sbt-conductr&quot; % &quot;2.5.1&quot;)
 </code></pre>
+<p>This automatically includes the correct version of <code>conductr-lib</code>.</p><h3 id="Updating-ConductR-with-Maven"><a class="section-marker" href="#Updating-ConductR-with-Maven">§</a>Updating ConductR with Maven</h3>
+<p>Update each <code>pom.xml</code> that includes a dependency on <code>conductr-bundle-lib</code>:</p>
+<pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.typesafe.conductr&lt;/groupId&gt;
+    &lt;artifactId&gt;lagom14-java-conductr-bundle-lib_2.11&lt;/artifactId&gt;
+    &lt;version&gt;2.1.1&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>Note that, in addition to updating the version, there is a new artifact ID for the Lagom 1.4 compatible module.</p>
                 </article>
 
                 
@@ -402,7 +417,7 @@ done
             </div>
         </div>
     </body>
-    <script src="/d471d8dcd3374a45b26bdf7fd07eaf7a0345c14f-all-scripts-concat.js"></script>
+    <script src="/3c6e416d0baaf274b6e9e2816e1c19f07c9837c4-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

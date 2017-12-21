@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/d471d8dcd3374a45b26bdf7fd07eaf7a0345c14f-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/3c6e416d0baaf274b6e9e2816e1c19f07c9837c4-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -138,7 +138,10 @@
 <p>In Maven, you can execute the <code>run</code> task on a particular service by using the maven project list flag, like so:</p>
 <pre class="prettyprint"><code>$ mvn -pl &lt;your-project-name&gt; lagom:run
 </code></pre>
-<p>In sbt, you can specify the project to run on the sbt console by simply prefixing the service project&rsquo;s name, i.e., <code>&lt;your-lagom-project-name&gt;/run</code>.</p>
+<p>In sbt, you can specify the project to run on the sbt console by simply prefixing the service project&rsquo;s name, i.e.:</p>
+<pre class="prettyprint"><code>$ sbt
+&gt; &lt;your-project-name&gt;/run
+</code></pre>
 <p>One thing you should remember is that <code>run</code> only starts the specific service, it doesn&rsquo;t start neither the Service Locator, nor the Cassandra server. Hence, prior to manually starting services, you may want to manually start both the <a href="ServiceLocator.html#Start-and-stop">Service Locator</a>, and the <a href="CassandraServer.html#Start-and-stop">Cassandra server</a>.</p>
                 </article>
 
@@ -372,7 +375,7 @@
             </div>
         </div>
     </body>
-    <script src="/d471d8dcd3374a45b26bdf7fd07eaf7a0345c14f-all-scripts-concat.js"></script>
+    <script src="/3c6e416d0baaf274b6e9e2816e1c19f07c9837c4-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

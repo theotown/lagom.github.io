@@ -88,7 +88,7 @@ Historically, Lagom's service locator has listened on port 8000. Because port 80
 
 If you are using Lagom's `Persistent Entity` API with a relational database, you will need to add an index to your journal table.
 
-The relational database support is based on `akka-persistence-jdbc` plugin. The plugin was updated to version 3.0.1, which include an important [bug fix](https://github.com/dnvriend/akka-persistence-jdbc/issues/96) that requires a new column index. Failing in updating your database schema will result in degraded performance when querying events.
+The relational database support is based on `akka-persistence-jdbc` plugin. The plugin was updated to version 3.1.0, which include an important [bug fix](https://github.com/dnvriend/akka-persistence-jdbc/issues/96) that requires a new column index. Failing in updating your database schema will result in degraded performance when querying events.
 
 Bellow you will find the index creation statement for each supported database.
 
@@ -116,7 +116,9 @@ CREATE UNIQUE INDEX "journal_ordering_idx" ON "journal"("ordering")
 CREATE UNIQUE INDEX "journal_ordering_idx" ON PUBLIC."journal"("ordering");
 ```
 
-Moreover, in `akka-persistence-jdbc` 3.0.x series, the `Events` query treats the offset as exclusive instead of inclusive. In general, this should not be a problem. Previous versions of Lagom had a workaround for it and this change in behavior should be transparent. This will only impact you if you were using the `Akka Persistence Query` directly.
+Moreover, in `akka-persistence-jdbc` 3.1.x series, the `Events` query treats the offset as exclusive instead of inclusive. In general, this should not be a problem. Previous versions of Lagom had a workaround for it and this change in behavior should be transparent. This will only impact you if you were using the `Akka Persistence Query` directly.
+
+In addition to that, this new plugin version removed the dependency on `JournalRow` in `ReadJournalDao`. This is a breaking change for everyone who implements a custom `ReadJournalDao`. Note, this is not being used by Lagom and Lagom users are, in principle, not impacted by this. However, if for some reason you have implemented a DAO extending the plugin's `ReadJournalDao`, you will need to migrate your code manually. For details can be found [here](https://github.com/dnvriend/akka-persistence-jdbc/pull/148).
 
 ## Upgrading to Play 2.6 and Akka 2.5
 
@@ -177,3 +179,33 @@ Maven users will need to explicitly migrate to the new Akka HTTP backend. Lagom 
             <artifactId>play-akka-http-server_2.11</artifactId>
         </dependency>
 ```
+
+## ConductR
+
+ConductR users must update to `conductr-lib` 2.1.1 for full compatibility with Lagom 1.4.0.
+
+You can find more information in the [`conductr-lib` README file](https://github.com/typesafehub/conductr-lib/blob/master/README.md).
+
+### Updating ConductR with sbt
+
+Edit the `project/plugins.sbt` file to update `sbt-conductr` to version 2.5.1 or later:
+
+```scala
+addSbtPlugin("com.lightbend.conductr" % "sbt-conductr" % "2.5.1")
+```
+
+This automatically includes the correct version of `conductr-lib`.
+
+### Updating ConductR with Maven
+
+Update each `pom.xml` that includes a dependency on `conductr-bundle-lib`:
+
+```xml
+<dependency>
+    <groupId>com.typesafe.conductr</groupId>
+    <artifactId>lagom14-java-conductr-bundle-lib_2.11</artifactId>
+    <version>2.1.1</version>
+</dependency>
+```
+
+Note that, in addition to updating the version, there is a new artifact ID for the Lagom 1.4 compatible module.

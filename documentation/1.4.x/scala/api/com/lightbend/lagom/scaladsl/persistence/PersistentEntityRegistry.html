@@ -128,27 +128,6 @@ recently processed <code>Event</code>, and pass that back as the value for
 <code>fromOffset</code> to start the stream from events following that one.
 </p></div><dl class="attributes block"> <dt>Exceptions thrown</dt><dd><span class="cmt"><p><span class="extype" name="IllegalArgumentException"><code>IllegalArgumentException</code></span> If the <code>fromOffset</code> type is not supported
   by this journal.</p></span></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.persistence.PersistentEntityRegistry#gracefulShutdown" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="gracefulShutdown(timeout:scala.concurrent.duration.FiniteDuration):scala.concurrent.Future[akka.Done]"></a>
-      <a id="gracefulShutdown(FiniteDuration):Future[Done]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">gracefulShutdown</span><span class="params">(<span name="timeout">timeout: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.concurrent.duration.FiniteDuration" class="extype" target="_top">FiniteDuration</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="akka.Done">Done</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.persistence.PersistentEntityRegistry@gracefulShutdown(timeout:scala.concurrent.duration.FiniteDuration):scala.concurrent.Future[akka.Done]" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Gracefully stop the persistent entities and leave the cluster.</p><div class="fullcomment"><div class="comment cmt"><p>Gracefully stop the persistent entities and leave the cluster.
-The persistent entities will be started on another node when
-new messages are sent to them.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the <code>Future</code> is completed when the node has been
-  removed from the cluster</p></dd></dl></div>
     </li><li name="com.lightbend.lagom.scaladsl.persistence.PersistentEntityRegistry#refFor" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="refFor[P&lt;:com.lightbend.lagom.scaladsl.persistence.PersistentEntity](entityId:String)(implicitevidence$1:scala.reflect.ClassTag[P]):com.lightbend.lagom.scaladsl.persistence.PersistentEntityRef[P#Command]"></a>
       <a id="refFor[P&lt;:PersistentEntity](String)(ClassTag[P]):PersistentEntityRef[refFor.P.Command]"></a>
@@ -193,6 +172,29 @@ classes must be registered with this method.</p><p>The <code>entityFactory</code
 That will happen in another thread, so the <code>entityFactory</code> must be thread-safe, e.g.
 not close over shared mutable state that is not thread-safe.
 </p></div></div>
+    </li><li name="com.lightbend.lagom.scaladsl.persistence.PersistentEntityRegistry#gracefulShutdown" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="gracefulShutdown(timeout:scala.concurrent.duration.FiniteDuration):scala.concurrent.Future[akka.Done]"></a>
+      <a id="gracefulShutdown(FiniteDuration):Future[Done]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 1.4.0) This method has no effect and no longer needs to be called">gracefulShutdown</span><span class="params">(<span name="timeout">timeout: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.concurrent.duration.FiniteDuration" class="extype" target="_top">FiniteDuration</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="akka.Done">Done</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.persistence.PersistentEntityRegistry@gracefulShutdown(timeout:scala.concurrent.duration.FiniteDuration):scala.concurrent.Future[akka.Done]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">No-op method that exists only for backward-compatibility reasons.</p><div class="fullcomment"><div class="comment cmt"><p>No-op method that exists only for backward-compatibility reasons.
+Lagom now uses Akka's CoordinatedShutdown to gracefully shut down all sharded entities,
+including Persistent Entities.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a completed <code>Future</code></p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 1.4.0)</i> This method has no effect and no longer needs to be called</p></dd></dl></div>
     </li></ol>
             </div>
 

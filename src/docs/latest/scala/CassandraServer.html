@@ -25,7 +25,22 @@
 &lt;/plugin&gt;
 </code></pre>
 <p>In sbt:</p>
-<pre class="prettyprint"><code class="language-sbt">lagomCassandraCleanOnStart in ThisBuild := false</code></pre><h2 id="JVM-options"><a class="section-marker" href="#JVM-options">§</a>JVM options</h2>
+<pre class="prettyprint"><code class="language-sbt">lagomCassandraCleanOnStart in ThisBuild := false</code></pre><h2 id="Cassandra-YAML-configuration-file"><a class="section-marker" href="#Cassandra-YAML-configuration-file">§</a>Cassandra YAML configuration file</h2>
+<p>The Cassandra server can be configured with an alternative YAML file. By default, Lagom development environment uses <a href="https://github.com/lagom/lagom/blob/master/dev/cassandra-server/src/main/resources/dev-embedded-cassandra.yaml">dev-embedded-cassandra.yaml</a>. This is a good default to quickly get started, but if you find yourself needing to start Cassandra with a different configuration, you can easily do so by adding your own Cassandra YAML file to you to your build. </p>
+<p>In the Maven root project pom:</p>
+<pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
+    &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
+    &lt;artifactId&gt;lagom-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;${lagom.version}&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;cassandraYamlFile&gt;${basedir}/cassandra.yaml&lt;/cassandraYamlFile&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre>
+<p>In sbt:</p>
+<pre class="prettyprint"><code class="language-sbt">lagomCassandraYamlFile in ThisBuild :=
+  Some((baseDirectory in ThisBuild).value / &quot;project&quot; / &quot;cassandra.yaml&quot;)</code></pre>
+<p>Please note that the <a href="https://github.com/lagom/lagom/blob/master/dev/cassandra-server/src/main/resources/dev-embedded-cassandra.yaml">Cassandra YAML file</a> used by Lagom has a few variables that are filled by some Lagom managed properties, namely: <code>$PORT</code> (defined by <code>lagomCassandraPort</code> in sbt or <code>cassandraPort</code> in mvn), <code>$STORAGE_PORT</code> (randomly defined) and <code>$DIR</code> (location for all Cassandra Server related files, defaults to: <code>target/embedded-cassandra</code>). It&rsquo;s not necessary to use these placeholders on your alternative YAML file, but it&rsquo;s recommended. Specially, the <code>$PORT</code> variable. If your YAML file has it hardcoded, you must make sure that Lagom will be using the same port (see <a href="CassandraServer.html#Default-port">Default port section</a>).</p><h2 id="JVM-options"><a class="section-marker" href="#JVM-options">§</a>JVM options</h2>
 <p>The Cassandra server is run on a separate process, and a JVM is started with sensible memory defaults. However, if the default JVM options don&rsquo;t suit you, you can override them by adding the following in your build.</p>
 <p>In the Maven root project pom:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;

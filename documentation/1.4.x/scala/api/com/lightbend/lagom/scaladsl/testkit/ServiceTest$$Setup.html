@@ -131,6 +131,23 @@
       </a>
     </span>
       <p class="shortcomment cmt">Whether clustering is enabled.</p>
+    </li><li name="com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup#jdbc" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="jdbc:Boolean"></a>
+      <a id="jdbc:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">jdbc</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.testkit.ServiceTest$$Setup@jdbc:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Whether JDBC is enabled.</p>
     </li><li name="com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup#withCassandra" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="withCassandra(enabled:Boolean):com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup"></a>
       <a id="withCassandra(Boolean):Setup"></a>
@@ -148,7 +165,8 @@
       </a>
     </span>
       <p class="shortcomment cmt">Enable or disable Cassandra.</p><div class="fullcomment"><div class="comment cmt"><p>Enable or disable Cassandra.
-</p></div><dl class="paramcmts block"><dt class="param">enabled</dt><dd class="cmt"><p>True if Cassandra should be enabled, or false if disabled.</p></dd><dt>returns</dt><dd class="cmt"><p>A copy of this setup.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">enabled</dt><dd class="cmt"><p>True if Cassandra should be enabled, or false if disabled. Enabling Cassandra will also enable the
+cluster.</p></dd><dt>returns</dt><dd class="cmt"><p>A copy of this setup.</p></dd></dl></div>
     </li><li name="com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup#withCluster" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="withCluster(enabled:Boolean):com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup"></a>
       <a id="withCluster(Boolean):Setup"></a>
@@ -165,8 +183,26 @@
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Enable clustering.</p><div class="fullcomment"><div class="comment cmt"><p>Enable clustering.</p><p>Disabling this will automatically disable any persistence plugins, since persistence requires clustering.
+      <p class="shortcomment cmt">Enable or disable clustering.</p><div class="fullcomment"><div class="comment cmt"><p>Enable or disable clustering.</p><p>Disabling this will automatically disable any persistence plugins, since persistence requires clustering.
 </p></div><dl class="paramcmts block"><dt class="param">enabled</dt><dd class="cmt"><p>True if clustering should be enabled, or false if disabled.</p></dd><dt>returns</dt><dd class="cmt"><p>A copy of this setup.</p></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup#withJdbc" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="withJdbc(enabled:Boolean):com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup"></a>
+      <a id="withJdbc(Boolean):Setup"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withJdbc</span><span class="params">(<span name="enabled">enabled: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup">Setup</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.testkit.ServiceTest$$Setup@withJdbc(enabled:Boolean):com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Enable or disable JDBC.</p><div class="fullcomment"><div class="comment cmt"><p>Enable or disable JDBC.</p><p>Enabling JDBC will also enable the cluster.
+</p></div><dl class="paramcmts block"><dt class="param">enabled</dt><dd class="cmt"><p>True if JDBC should be enabled, or false if disabled.</p></dd><dt>returns</dt><dd class="cmt"><p>A copy of this setup.</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -678,6 +714,62 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup#withCassandra" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="withCassandra():com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup"></a>
+      <a id="withCassandra():Setup"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withCassandra</span><span class="params">()</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup">Setup</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.testkit.ServiceTest$$Setup@withCassandra():com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Enable Cassandra.</p><div class="fullcomment"><div class="comment cmt"><p>Enable Cassandra.</p><p>If enabled, this will start an embedded Cassandra server before the tests start, and shut it down afterwards.
+It will also configure Lagom to use the embedded Cassandra server. Enabling Cassandra will also enable the
+cluster.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>A copy of this setup.</p></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup#withCluster" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="withCluster():com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup"></a>
+      <a id="withCluster():Setup"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withCluster</span><span class="params">()</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup">Setup</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.testkit.ServiceTest$$Setup@withCluster():com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Enable clustering.</p><div class="fullcomment"><div class="comment cmt"><p>Enable clustering.</p><p>Disabling this will automatically disable any persistence plugins, since persistence requires clustering.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>A copy of this setup.</p></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup#withJdbc" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="withJdbc():com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup"></a>
+      <a id="withJdbc():Setup"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withJdbc</span><span class="params">()</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup">Setup</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.lightbend.lagom.scaladsl.testkit.ServiceTest$$Setup@withJdbc():com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Enable JDBC.</p><div class="fullcomment"><div class="comment cmt"><p>Enable JDBC.</p><p>Enabling JDBC will also enable the cluster.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>A copy of this setup.</p></dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="→[B](y:B):(A,B)"></a>
       <a id="→[B](B):(Setup,B)"></a>

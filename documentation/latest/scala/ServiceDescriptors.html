@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/fe67719be0ae6e55e407501a73ed0470fefed6a4-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/219ff8997c2568675e915382c681be4a85991695-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -170,7 +170,7 @@ override def descriptor = {
     pathCall(&quot;/order/:id&quot;, getOrder _)
   )
 }</code></pre>
-<p>Note that this time we&rsquo;re using an <a href="http://scala-lang.org/files/archive/spec/2.11/06-expressions.html#method-values">eta-expanded</a> reference to the method. This is because the method takes a parameter.</p>
+<p>Note that this time we&rsquo;re using an <a href="http://scala-lang.org/files/archive/spec/2.12/06-expressions.html#method-values">eta-expanded</a> reference to the method. This is because the method takes a parameter.</p>
 <p>Multiple parameters can of course be extracted out, these will be passed to your service call method in the order they are extracted from the URL:</p>
 <pre class="prettyprint"><code class="language-scala">def getItem(orderId: Long, itemId: String): ServiceCall[NotUsed, Item]
 
@@ -506,7 +506,7 @@ def descriptor = {
             </div>
         </div>
     </body>
-    <script src="/fe67719be0ae6e55e407501a73ed0470fefed6a4-all-scripts-concat.js"></script>
+    <script src="/219ff8997c2568675e915382c681be4a85991695-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

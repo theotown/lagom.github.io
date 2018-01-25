@@ -22,7 +22,7 @@ Lagom 1.4 brings many internal updates, small features, and other improvements:
 ## What to do next:
 
 - To start a Lagom 1.4 project right away, visit the [Try Lagom](/get-started.html) page.
-- If you are currently using an earlier version of Lagom 2.5, check the migration guide for [Java](/documentation/1.4.x/java/Migration14.html) or [Scala](/documentation/1.4.x/scala/Migration14.html).
+- If you are currently using an earlier version of Lagom, check the migration guide for [Java](/documentation/1.4.x/java/Migration14.html) or [Scala](/documentation/1.4.x/scala/Migration14.html).
 
 
 ## Credits

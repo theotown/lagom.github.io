@@ -34,7 +34,7 @@
 <h2>What to do next:</h2>
 <ul>
   <li>To start a Lagom 1.4 project right away, visit the <a href="https://www.lagomframework.com/get-started.html">Try Lagom</a> page.</li>
-  <li>If you are currently using an earlier version of Lagom 2.5, check the migration guide for <a href="https://www.lagomframework.com/documentation/1.4.x/java/Migration14.html">Java</a> or <a href="https://www.lagomframework.com/documentation/1.4.x/scala/Migration14.html">Scala</a>.</li>
+  <li>If you are currently using an earlier version of Lagom, check the migration guide for <a href="https://www.lagomframework.com/documentation/1.4.x/java/Migration14.html">Java</a> or <a href="https://www.lagomframework.com/documentation/1.4.x/scala/Migration14.html">Scala</a>.</li>
 </ul>
 <h2><a href="#credits" name="credits">Credits</a></h2>
 <p>Thanks to the community for their detailed bug reports and contributions.</p>

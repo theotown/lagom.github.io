@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/cf752581853023425fda912759b9b095ef00844e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -153,7 +153,7 @@
 .settings/org.eclipse.jdt.core.prefs
 </code></pre><h2 id="IntelliJ-IDEA"><a class="section-marker" href="#IntelliJ-IDEA">§</a>IntelliJ IDEA</h2>
 <p>To setup the Immutables annotation processor in IntelliJ you need to follow <a href="https://immutables.github.io/apt.html#intellij-idea">these instructions</a> (there is one caveat though, please make sure to read the next paragraph) for each project that is using the <a href="https://immutables.github.io">Immutables</a> tool to generate <a href="Immutable.html">immutable objects</a>.</p>
-<p>The one caveat is that you should set the &ldquo;Production sources directory&rdquo; to <code>target/scala-2.11/src_managed/main</code> and the &ldquo;Test source directory&rdquo; to <code>target/src_managed/test</code>, instead of using the ones recommended in the linked instructions. The reason is that there are a couple of issues related to using immutables in IntelliJ with the IntelliJ sbt plugin (specifically, <a href="https://youtrack.jetbrains.com/issue/SCL-8543">SCL-8543</a> and <a href="https://youtrack.jetbrains.com/issue/IDEA-117540">IDEA-117540</a>).<br/>Finally, under &ldquo;Project Structure&rdquo; you should undo the exclusion of the <code>target</code>-directory and verify whether <code>target/scala-2.11/src_managed/main</code> is marked as &lsquo;Sources&rsquo; for each module.</p>
+<p>The one caveat is that you should set the &ldquo;Production sources directory&rdquo; to <code>target/scala-2.12/src_managed/main</code> (or <code>target/scala-2.11/src_managed/main</code> if using Scala 2.11) and the &ldquo;Test source directory&rdquo; to <code>target/src_managed/test</code>, instead of using the ones recommended in the linked instructions. The reason is that there are a couple of issues related to using immutables in IntelliJ with the IntelliJ sbt plugin (specifically, <a href="https://youtrack.jetbrains.com/issue/SCL-8543">SCL-8543</a> and <a href="https://youtrack.jetbrains.com/issue/IDEA-117540">IDEA-117540</a>).<br/>Finally, under &ldquo;Project Structure&rdquo; you should undo the exclusion of the <code>target</code>-directory and verify whether <code>target/scala-2.12/src_managed/main</code> (or <code>target/scala-2.11/src_managed/main</code> if using Scala 2.11) is marked as &lsquo;Sources&rsquo; for each module.</p>
                 </article>
 
                 
@@ -168,7 +168,7 @@
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/java/guide/build/ImmutablesInIDEs.md">here</a>. Please feel free to edit and contribute a pull request.</p>
+                        <a href="https://github.com/lagom/lagom/edit/1.4.x/docs/manual/java/guide/build/ImmutablesInIDEs.md">here</a>. Please feel free to edit and contribute a pull request.</p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -304,7 +304,7 @@
                             
                         
                             
-                                <li><a href="Migration13.html">Lagom releases</a></li>
+                                <li><a href="Migration14.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -404,7 +404,7 @@
             </div>
         </div>
     </body>
-    <script src="/cf752581853023425fda912759b9b095ef00844e-all-scripts-concat.js"></script>
+    <script src="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

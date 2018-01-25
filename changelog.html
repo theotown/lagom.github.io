@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/cf752581853023425fda912759b9b095ef00844e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-styles-concat.css" type="text/css">
         
     </head>
     <body>
@@ -119,7 +119,31 @@
         <div class="row">
             <div class="small-12 large-7 columns">
                 
-    <h2>Lagom 1.4.0-RC1</h2>
+    <h2>Lagom 1.4.0</h2>
+<p><em>Released 25 January 2018</em></p>
+<h3>Changes since 1.4.0-RC1</h3>
+<ul>
+  <li><a href="https://github.com/lagom/lagom/issues/1193">1193</a> Add missing items to the 1.4 migration guide (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1188">1188</a> Use javaOptions when creating test groups (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1192">1192</a> Fix Kafka server dependencies (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1187">1187</a> Add HandlerDef to the Play request headers (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1186">1186</a> Clean up ServiceTest temporary files (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1175">1175</a> Configure Lagom build to default to Scala 2.12 (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1182">1182</a> Update dependencies for 1.4.0 (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1179">1179</a> Support JDBC testing in ServiceTest (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1177">1177</a> Move authors.pl and changelog.sh scripts to bin (Tim Moore)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1161">1161</a> Support alternative Cassandra YAML config (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1167">1167</a> Fix a broken link in the Production overview document (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1171">1171</a> Update copyright to 2018 (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1101">1101</a> Add sbt 1.0 support (Marcos Pereira)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1174">1174</a> Copy the authors.pl script from Akka (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1165">1165</a> Remove logback file from cassandra-server (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1150">1150</a> Update Migration guide for 1.4.0-RC1 (Renato Cavalcanti)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1157">1157</a> fix the message broker api link (Sarun Rattanasiri)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1159">1159</a> Update Bonér&rsquo;s report links (Sarun Rattanasiri)</li>
+  <li><a href="https://github.com/lagom/lagom/issues/1153">1153</a> Set version to 1.4.0-SNAPSHOT on the 1.4.x branch (Renato Cavalcanti)</li>
+</ul>
+<h2>Lagom 1.4.0-RC1</h2>
 <p><em>Released 22 December 2017</em></p>
 <ul>
   <li><a href="https://github.com/lagom/lagom/issues/1151">1151</a> Set four-space indent for XML files (Tim Moore)</li>
@@ -194,46 +218,6 @@
   <li><a href="https://github.com/lagom/lagom/issues/1016">1016</a> Adds .gitignore on maven archetype (Ignasi Marimon-Clos)</li>
   <li><a href="https://github.com/lagom/lagom/issues/995">995</a> Handle null state in persistent entity test driver (Tim Moore)</li>
 </ul>
-<h2>Lagom 1.3.10</h2>
-<p><em>Released 1 November 2017</em></p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/issues/1079">1079</a> Fix unhandled event issue message in PersistentEntityTestDriver (HSalaila)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1081">1081</a> Delete PersistentEntityTestDriver.runOne (James Roper)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1021">1021</a> PathParamSerializer derived instances for traversables (Julien Jean Paul Sirocchi)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1070">1070</a> Ensures .gitignore file is copied to the Maven archetype (Saniya Tech)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1056">1056</a> OffSet storage need the eventProcessorId (NOUGUIER Olivier)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1063">1063</a> Align the Lagom logback version with the Play one. (Jules Ivanic)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1062">1062</a> Upgrades AkkaStreamKafkaVersion and KafkaVersion for Lagom 1.3 (Jules Ivanic)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1053">1053</a> Service Router actions should use filtered request (Ignasi Marimon-Clos)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1052">1052</a> Document ReadSide.register in the Cassandra/RDBMS read-side documentation (Micho)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1039">1039</a> Lagom always returns binary data via websocket to Firefox (Jirka Kremser)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1049">1049</a> Update Akka Persistence Cassandra to 0.30 (Tim Moore)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1044">1044</a> Added serializer for ClusterStartupTaskActor.Execute (James Roper)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1046">1046</a> Update Play to 2.5.18 (Tim Moore)</li>
-</ul>
-<h2>Lagom 1.3.9</h2>
-<p><em>Released 5 October 2017</em></p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/issues/1029">1029</a> wrap sql statement call in try / finally block (Renato Cavalcanti)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1026">1026</a> removed scalastyle warnings, gramatical errors and spelling mistakes (Pallavi Singh)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1024">1024</a> Change to execute to avoid syntax error (dr3s)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1025">1025</a> align scala documentation with java one (Renato Cavalcanti)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1019">1019</a> Improved the documentation to remove ambiguity in call description (Pallavi Singh)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1020">1020</a> Adds link to CoC (Ignasi Marimon-Clos)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1017">1017</a> Updates dependencies on docs (play akka and scala) (Ignasi Marimon-Clos)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1016">1016</a> Adds .gitignore on maven archetype (Ignasi Marimon-Clos)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1011">1011</a> Bumps play version to 2.5.17 (Ignasi Marimon-Clos)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/1010">1010</a> Allow no passivation to be configured (James Roper)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/978">978</a> Simplifies the actor system termination and JVM shutdown (Ignasi Marimon-Clos)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/995">995</a> Handle null state in persistent entity test driver (Tim Moore)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/952">952</a> Look up a migration using only the class name instead of the manifest containing the version as well (Olivier Deckers)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/914">914</a> Move <code>auto.offset.reset</code> to Kafka client (Renato Cavalcanti)</li>
-  <li>Update sbt-header to 1.8.0 (Tim Moore)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/989">989</a> Remove copyright from files in Maven archetype (Tim Moore)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/988">988</a> Update sbt to 0.13.16 (Tim Moore)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/987">987</a> Silence &ldquo;Resolving&rdquo; messages in the build (Tim Moore)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/986">986</a> Update ZooKeeper to 3.4.10 (Tim Moore)</li>
-</ul>
 <h2>Lagom 1.4.0-M2</h2>
 <p><em>Released 5 September 2017</em></p>
 <h3>Changes only in 1.4.0-M2</h3>
@@ -294,60 +278,6 @@
   <li><a href="https://github.com/lagom/lagom/issues/849">849</a> Update docs to use describeService (Tim Moore)</li>
   <li><a href="https://github.com/lagom/lagom/issues/847">847</a> Warn when describeServices is overridden (Tim Moore)</li>
 </ul>
-<h2>Lagom 1.3.8</h2>
-<p><em>Released 30 August 2017</em></p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/issues/968">968</a> Bumps Logback to 1.1.7 (Ignasi Marimon-Clos)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/974">974</a> Improves cluster termination to avoid deadlock (Ignasi Marimon-Clos)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/969">969</a> Corrected service name (t-h-a-l-i-s)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/970">970</a> Fixed inconsistency in code example (t-h-a-l-i-s)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/955">955</a> Adds JsonSerializer.compressed to conditionally compress when payload is too big (Ignasi Marimon-Clos)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/948">948</a> Patch CONTRIBUTING.md (Jimin Hsieh)</li>
-</ul>
-<h2>Lagom 1.3.7</h2>
-<p><em>Released 18 August 2017</em></p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/issues/937">937</a> Adding links to new Kubernetes guide and improving deployment co… (Ruth Stento)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/946">946</a> Reflect the new free version of ConductR (Christopher Hunt)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/947">947</a> Update WHITESOURCE_PROJECT_NAME (Tim Moore)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/942">942</a> Upgrade to latest sbteclipse (Ben McCann)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/898">898</a> Highlight Lagom service clients as a feature (Ruth Stento)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/928">928</a> Improved logging settings - defaulting to INFO instead of WARN (Renato Cavalcanti)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/922">922</a> Stop servers before completing the Async tests (Ignasi Marimon-Clos)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/915">915</a> Saves offset for unhandled events (Renato Cavalcanti)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/926">926</a> Update Akka to 2.4.20 (Renato Cavalcanti)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/921">921</a> Changed the &lt; and &gt; to < and > respectively. (Ashish Tomer)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/917">917</a> Fix Log4jLoggerConfigurator (Renato Cavalcanti)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/896">896</a> Fix retry logic in the subscription test example (Wayne Wang)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/905">905</a> Add EditorConfig file (Renato Cavalcanti)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/894">894</a> Implemented akka-http service gateway (James Roper)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/888">888</a> Strongly type the Lagom service router (James Roper)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/890">890</a> Format code with scalariform (Jules Ivanic)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/889">889</a> Fix <a href="https://github.com/lagom/lagom/issues/534">https://github.com/lagom/lagom/issues/534</a> (Jules Ivanic)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/886">886</a> fixed maven plugun RunMojo (Dominik Kunz)</li>
-</ul>
-<h2>Lagom 1.3.6</h2>
-<p><em>Released 17 July 2017</em></p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/issues/865">865</a> Map Descriptor in ServiceClientInvocationHandler (Edouard Kaiser)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/877">877</a> Fix the match for failed futures (Tim Moore)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/873">873</a> Add method completedStatements with varargs (Yuliana Apaza)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/859">859</a> Quote sbt.version in the sbt new command (AmeerGN)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/849">849</a> Update docs to use describeService (Tim Moore)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/847">847</a> Warn when describeServices is overridden (Tim Moore)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/845">845</a> Fix typo (Yuliana Apaza)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/843">843</a> Update sbt-conductr version to 2.3.5 in docs (Ignasi Marimon-Clos)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/838">838</a> Travis injects values using env vars, not system props (Ignasi Marimon-Clos)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/821">821</a> Run whitesource in Travis CI (Ignasi Marimon-Clos)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/833">833</a> Issue #831, updated mentions of Production Suite to Enterprise Suite (Ruth Stento)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/830">830</a> Fix support for overriding describeService (Tim Moore)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/828">828</a> Add &ldquo;group: edge&rdquo; to .travis.yml (Renato Cavalcanti)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/823">823</a> deprecate Descriptor#publishing (Elijah Rippeth)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/818">818</a> deprecate typo-infused public API by introducing preferred API. (Elijah Rippeth)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/810">810</a> Add awaits to CqrsIntegrationTest (Ignasi Marimon-Clos)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/812">812</a> fix link broken due to capitalisation (mihbor)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/803">803</a> Log project names with dependency problems (Tim Moore)</li>
-</ul>
 <h2>Lagom 1.4.0-M1</h2>
 <p><em>Released 28 June 2017</em></p>
 <ul>
@@ -379,155 +309,10 @@
   <li><a href="https://github.com/lagom/lagom/issues/560">560</a> Increase timeouts in CqrsIntegrationTest</li>
   <li><a href="https://github.com/lagom/lagom/issues/504">504</a> [Minor] Code refactored (thanks <a href="https://github.com/himani1">himani1</a>)</li>
 </ul>
-<h2>Lagom 1.3.5</h2>
-<p><em>Released 13 June 2017</em></p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/issues/794">794</a> Bumps akka to 2.4.19 as suggested by Akka team</li>
-  <li><a href="https://github.com/lagom/lagom/issues/796">796</a> Update jboss-logging to 3.3.0.Final</li>
-  <li><a href="https://github.com/lagom/lagom/issues/789">789</a> Updates PlayJsonSerializer to first perform the class rename migration and then look up the transformation migration by the new class name (thanks <a href="https://github.com/crfeliz">@crfeliz</a>)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/781">781</a> Register a shutdown hook for ActorSytem in scaladsl lagom client</li>
-  <li><a href="https://github.com/lagom/lagom/issues/778">778</a> Doc Fix: Update MessageBrokerApi.md documentation (thanks <a href="https://github.com/crfeliz">@crfeliz</a>)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/776">776</a> Align maven archetype with lagom-java.g8</li>
-  <li><a href="https://github.com/lagom/lagom/issues/768">768</a> Fixes Flaky Kafka tests</li>
-  <li><a href="https://github.com/lagom/lagom/issues/765">765</a> Use appropriate offset in topic build op</li>
-  <li><a href="https://github.com/lagom/lagom/issues/757">757</a> Avoid relying on default contact-point settings</li>
-  <li><a href="https://github.com/lagom/lagom/issues/751">751</a> Update jackson reference.conf to use concatenation (thanks <a href="https://github.com/jaiew">@jaiew</a>)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/752">752</a> Allow Kafka consumers to batch messages</li>
-  <li><a href="https://github.com/lagom/lagom/issues/799">799</a> Bumps APC version to 0.29</li>
-  <li><a href="https://github.com/lagom/lagom/issues/777">777</a> Plug Circuit breaker to Java ConfigurationServiceLocator (thanks <a href="https://github.com/edouardKaiser">@edouardKaiser</a>)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/782">782</a> Actions.empty should be publicly accessible (thanks <a href="https://github.com/guizmaii">@guizmaii</a>)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/775">775</a> Add a PathParamSerializer for Double (thanks <a href="https://github.com/guizmaii">@guizmaii</a>)</li>
-</ul>
-<h2>Lagom 1.3.4</h2>
-<p><em>Released 16 May 2017</em></p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/issues/700">700</a> Fixed deprecation warning produced by forServer macro</li>
-  <li><a href="https://github.com/lagom/lagom/issues/740">740</a> Allow disabling offsetStore auto creation (thanks <a href="https://github.com/vladimirshin">@vladimirshin</a>)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/738">738</a> Fixed default header checking for WebSockets (hat tip <a href="https://github.com/2beaucoup">@2beaucoup</a></li>
-  <li><a href="https://github.com/lagom/lagom/issues/741">741</a> Adds missing placeholder on log</li>
-  <li><a href="https://github.com/lagom/lagom/issues/724">724</a> Update RP docs and links to SBR documentation</li>
-  <li><a href="https://github.com/lagom/lagom/issues/735">735</a> Use a non-conflicting Cassandra config file name</li>
-  <li><a href="https://github.com/lagom/lagom/issues/707">707</a> Support well known ports in the service registry</li>
-  <li><a href="https://github.com/lagom/lagom/issues/728">728</a> Kafka service name override (thanks <a href="https://github.com/markusjura">@markusjura</a>)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/729">729</a> Ignores lagomCassandraPort when embedded C* is disabled</li>
-  <li><a href="https://github.com/lagom/lagom/issues/715">715</a> Removes obsolete &lsquo;cassandra-config&rsquo; from mvn archetype</li>
-  <li><a href="https://github.com/lagom/lagom/issues/716">716</a> Improves sample tests to prevent flaky-ness</li>
-  <li><a href="https://github.com/lagom/lagom/issues/745">745</a> Use https links where possible in documentation</li>
-  <li><a href="https://github.com/lagom/lagom/issues/725">725</a> Update more links to HTTPS</li>
-</ul>
-<h2>Lagom 1.3.3</h2>
-<p><em>Released 28 April 2017</em></p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/issues/435">435</a> Fixed running embedded Cassandra in tests on Windows</li>
-  <li><a href="https://github.com/lagom/lagom/pull/633">633</a> Deprecated multiple descriptors per service</li>
-  <li><a href="https://github.com/lagom/lagom/pull/637">637</a> Enable metrics delivery by default in Scala</li>
-  <li><a href="https://github.com/lagom/lagom/issues/664">664</a> Allow tests to share JVMs when running embedded Cassandra</li>
-  <li><a href="https://github.com/lagom/lagom/pull/690">690</a> Fix connecting to Cassandra on non default ports</li>
-  <li><a href="https://github.com/lagom/lagom/issues/694">694</a> Fix customising the groupId for Kafka subscriptions</li>
-</ul>
-<p>Migration notes can be found <a href="blog/lagom-1-3-3.html">here</a>.</p>
-<h2>Lagom 1.3.2</h2>
-<p><em>Released 19 April 2017</em></p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/pull/554">554</a> Update Akka to 2.4.17</li>
-  <li><a href="https://github.com/lagom/lagom/pull/581">581</a> Refactored dependencies into separate file</li>
-  <li><a href="https://github.com/lagom/lagom/pull/588">588</a> Remove version from manifest to get serialiser from the registry</li>
-  <li><a href="https://github.com/lagom/lagom/pull/586">586</a> Created dependency whitelist validation</li>
-  <li><a href="https://github.com/lagom/lagom/pull/599">599</a> Created Maven dependency management pom</li>
-  <li><a href="https://github.com/lagom/lagom/pull/601">601</a> Configure the Cassandra keyspace in the Maven archetype</li>
-  <li><a href="https://github.com/lagom/lagom/pull/600">600</a> Remove unused archetype properties</li>
-  <li><a href="https://github.com/lagom/lagom/pull/609">609</a> Add new <code>BadRequest</code> transport exception</li>
-  <li><a href="https://github.com/lagom/lagom/pull/594">594</a> Adds test for ServiceDiscovery in LagomScala</li>
-  <li><a href="https://github.com/lagom/lagom/pull/613">613</a> Deprecate the Cassandra keyspace build config</li>
-  <li><a href="https://github.com/lagom/lagom/pull/624">624</a> Fix comment typo in <code>Reloader.scala</code></li>
-  <li><a href="https://github.com/lagom/lagom/pull/632">632</a> Warn on implicit keyspace config</li>
-  <li><a href="https://github.com/lagom/lagom/pull/636">636</a> Remove reference to Cassandra in the <code>JdbcReadside</code> API documentation</li>
-  <li><a href="https://github.com/lagom/lagom/pull/684">684</a> Ensure maven plugin adds right dependency for Play integration</li>
-</ul>
-<p>Migration notes can be found <a href="blog/lagom-1-3-2.html">here</a>.</p>
-<h2>Lagom 1.3.1</h2>
-<p><em>Released 06 March 2017</em></p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/issues/511">511</a> Look Kafka broker config up from the service locator</li>
-  <li><a href="https://github.com/lagom/lagom/issues/532">532</a> Circuit breakers are off by default in Scala API</li>
-  <li><a href="https://github.com/lagom/lagom/issues/553">553</a> Update Akka to 2.4.17</li>
-  <li><a href="https://github.com/lagom/lagom/issues/564">564</a> ConductR is not setting seed node information for a Lagom Scala app</li>
-  <li><a href="https://github.com/lagom/lagom/issues/498">498</a> JDBC generate tables check for existing table does not work with a schema other than public</li>
-</ul>
-<h2>Lagom 1.3.0</h2>
-<p><em>Released 23 February 2017</em></p>
-<p>The main features of this release are:</p>
-<ul>
-  <li><a href="/documentation/1.3.x/scala/Home.html">Scala API</a></li>
-  <li><a href="/documentation/1.3.x/java/ReadSideJPA.html">JPA support</a></li>
-  <li><a href="/documentation/1.3.x/java/MessageBrokerTesting.html">Improved testing APIs for message broker support</a></li>
-  <li>Switch from Activator to sbt 0.13.13 with Giter8 templates</li>
-</ul>
-<p>For a full list of issues fixed in 1.3.0, see <a href="https://github.com/lagom/lagom/issues?utf8=%E2%9C%93&q=milestone%3A1.3.0">GitHub</a>.</p>
-<h2>Lagom 1.2.3</h2>
-<p><em>Released 06 March 2017</em></p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/issues/476">476</a> Invalid keyspaces when using lagom:runAll in Maven with unmanaged Cassandra</li>
-  <li><a href="https://github.com/lagom/lagom/issues/446">446</a> Persistence tables fail to be created in MySQL</li>
-  <li><a href="https://github.com/lagom/lagom/issues/449">449</a> No way to disable JDBC offset table creation</li>
-  <li><a href="https://github.com/lagom/lagom/issues/403">403</a> KafkaLocalServer should not be loading properties from the classpath</li>
-  <li><a href="https://github.com/lagom/lagom/issues/426">426</a> lagomExternalProject is broken</li>
-  <li><a href="https://github.com/lagom/lagom/pull/519">519</a> Fixed Eclipse warnings for Maven archetype</li>
-  <li><a href="https://github.com/lagom/lagom/issues/498">498</a> JDBC generate tables check for existing table does not work with a schema other than public</li>
-</ul>
-<h2>Lagom 1.2.2</h2>
-<p><em>Released 12 January 2017</em></p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/issues/318">318</a> bugfix: can&rsquo;t use JDBC persistence when usin Maven as build tool.</li>
-</ul>
-<h2>Lagom 1.2.1</h2>
-<p><em>Released 07 December 2016</em></p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/pull/307">307</a> Docs: Cassandra and cluster are disabled by default. (thanks <a href="https://github.com/mihbor">@mihbor</a>)</li>
-  <li><a href="https://github.com/lagom/lagom/issues/285">285</a> Regression: Jackson exception when using immutables in lagom 1.2.0 (thanks <a href="https://github.com/mihbor">@mihbor</a>)</li>
-  <li><a href="https://github.com/lagom/lagom/pull/301">301</a> Improve tests stability</li>
-  <li><a href="https://github.com/lagom/lagom/pull/274">274</a> Performance: Avoid stream materialization on requests with no body</li>
-</ul>
-<h2>Lagom 1.2.0</h2>
-<p><em>Released 08 November 2016</em></p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/pull/161">161</a> Message broker/Kafka support</li>
-  <li><a href="https://github.com/lagom/lagom/issues/63">63</a> JDBC support</li>
-  <li><a href="https://github.com/lagom/lagom/issues/126">126</a> Generic read-side support</li>
-  <li><a href="https://github.com/lagom/lagom/issues/73">73</a> Automatic offset handling</li>
-  <li><a href="https://github.com/lagom/lagom/pull/151">151</a> Read-side overhaul, including sharded read sides</li>
-</ul>
-<p>For a full list of issues fixed in 1.2.0, see <a href="https://github.com/lagom/lagom/issues?utf8=%E2%9C%93&q=milestone%3A1.2.0">GitHub</a>.</p>
-<h2>Lagom 1.1.0</h2>
-<p><em>Released 21 September 2016</em></p>
-<p>The primary feature of this release is Maven support.</p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/issues/101">101</a> Assign service ports from ephemeral port range.</li>
-  <li><a href="https://github.com/lagom/lagom/issues/112">112</a> Maven support.</li>
-</ul>
-<h2>Lagom 1.0.0</h2>
-<p><em>Released 21 July 2016</em></p>
-<p>First GA release of Lagom.</p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/issues/107">107</a> Comprehensive error reporting in dev mode.</li>
-  <li><a href="https://github.com/lagom/lagom/issues/111">111</a> Make circuit breakers a service locator concern.</li>
-</ul>
-<h2>Lagom 1.0.0-M2</h2>
-<p><em>Released 5 May 2016</em></p>
-<p>Second MVP release. The major change in this release is that <code>ServiceCall</code> no longer has an ID parameter, instead parameters extracted from the URL are passed directly to the service interface method. See issue <a href="https://github.com/lagom/lagom/pull/99">99</a> for more details, and the <a href="/documentation/1.0.x/ServiceDescriptors.html">Service Descriptors</a> documentation.</p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom/issues/26">26</a> Fix Cassandra chewing 100% of CPU</li>
-  <li><a href="https://github.com/lagom/lagom/issues/32">32</a> Ensure default memory options are suitable for Lagom</li>
-  <li><a href="https://github.com/lagom/lagom/issues/41">41</a> Improve service locator port conflict error reporting</li>
-  <li><a href="https://github.com/lagom/lagom/pull/53">53</a> Improve dev mode specific dependency injection</li>
-  <li><a href="https://github.com/lagom/lagom/pull/75">75</a> Ensure query parameters get added to client requests</li>
-  <li><a href="https://github.com/lagom/lagom/issues/91">91</a> Fix Cassandra reconnection issues</li>
-  <li><a href="https://github.com/lagom/lagom/pull/99">99</a> Rework URL parameter handling</li>
-  <li><a href="https://github.com/lagom/lagom/pull/102">102</a> Ensure service interfaces can be implemented using a Scala trait</li>
-</ul>
-<h2>Lagom 1.0.0-M1</h2>
-<p><em>Released 10 March 2016</em></p>
-<p>First MVP release.</p>
+<h1>Lagom 1.3.x</h1>
+<p>See <a href="/changelog-1.3.x.html">Lagom 1.3.x Change Log</a></p>
+<h1><a href="#previous-releases" name="previous-releases">Previous Releases</a></h1>
+<p>See <a href="/changelog-archive.html">Change Log Archive</a></p>
 
             </div>
             <aside class="show-for-medium small-12 large-4 columns">
@@ -654,7 +439,7 @@
             </div>
         </div>
     </body>
-    <script src="/cf752581853023425fda912759b9b095ef00844e-all-scripts-concat.js"></script>
+    <script src="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-scripts-concat.js"></script>
     
     
     <script>

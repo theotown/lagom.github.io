@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/cf752581853023425fda912759b9b095ef00844e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -239,7 +239,7 @@ private def prepareWriteTitle(): Future[Done] = {
 <p>Once you have finished registering all your event handlers, you can invoke the <code>build</code> method and return the built handler:</p>
 <pre class="prettyprint"><code class="language-scala">builder.build()</code></pre><h2 id="Underlying-implementation"><a class="section-marker" href="#Underlying-implementation">§</a>Underlying implementation</h2>
 <p>The <code>CassandraSession</code> is using the <a href="https://github.com/datastax/java-driver">Datastax Java Driver for Apache Cassandra</a>.</p>
-<p>Each <code>ReadSideProcessor</code> instance is executed by an <a href="http://doc.akka.io/docs/akka/2.4/scala/actors.html">Actor</a> that is managed by <a href="http://doc.akka.io/docs/akka/2.4/scala/cluster-sharding.html">Akka Cluster Sharding</a>. The processor consumes a stream of persistent events delivered by the <code>eventsByTag</code> <a href="http://doc.akka.io/docs/akka/2.4/scala/persistence-query.html">Persistence Query</a> implemented by <a href="https://github.com/akka/akka-persistence-cassandra">akka-persistence-cassandra</a>. The tag corresponds to the <code>tag</code> defined by the <code>AggregateEventTag</code>.</p>
+<p>Each <code>ReadSideProcessor</code> instance is executed by an <a href="https://doc.akka.io/docs/akka/2.5/actors.html?language=scala">Actor</a> that is managed by <a href="https://doc.akka.io/docs/akka/2.5/cluster-sharding.html?language=scala">Akka Cluster Sharding</a>. The processor consumes a stream of persistent events delivered by the <code>eventsByTag</code> <a href="https://doc.akka.io/docs/akka/2.5/persistence-query.html?language=scala">Persistence Query</a> implemented by <a href="https://github.com/akka/akka-persistence-cassandra">akka-persistence-cassandra</a>. The tag corresponds to the <code>tag</code> defined by the <code>AggregateEventTag</code>.</p>
                 </article>
 
                 
@@ -254,7 +254,7 @@ private def prepareWriteTitle(): Future[Done] = {
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/guide/cluster/ReadSideCassandra.md">here</a>. Please feel free to edit and contribute a pull request.</p>
+                        <a href="https://github.com/lagom/lagom/edit/1.4.x/docs/manual/scala/guide/cluster/ReadSideCassandra.md">here</a>. Please feel free to edit and contribute a pull request.</p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -303,6 +303,14 @@ private def prepareWriteTitle(): Future[Done] = {
                         
                             
                                 <li><a href="ReadSideRDBMS.html">Relational Database Read-Side Support</a></li>
+                            
+                        
+                            
+                                <li><a href="ReadSideJDBC.html">JDBC Read-Side Support</a></li>
+                            
+                        
+                            
+                                <li><a href="ReadSideSlick.html">Slick Read-Side Support</a></li>
                             
                         
                             
@@ -384,7 +392,7 @@ private def prepareWriteTitle(): Future[Done] = {
                             
                         
                             
-                                <li><a href="Migration13.html">Lagom releases</a></li>
+                                <li><a href="Migration14.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -484,7 +492,7 @@ private def prepareWriteTitle(): Future[Done] = {
             </div>
         </div>
     </body>
-    <script src="/cf752581853023425fda912759b9b095ef00844e-all-scripts-concat.js"></script>
+    <script src="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

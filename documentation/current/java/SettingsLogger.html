@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/cf752581853023425fda912759b9b095ef00844e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -220,7 +220,7 @@
 </blockquote><h4 id="Using--Dlogger.resource"><a class="section-marker" href="#Using--Dlogger.resource">§</a>Using <code>-Dlogger.resource</code></h4>
 <p>To specify a configuration file to be loaded from the classpath use the system property <code>-Dlogger.resource</code>, e.g., <code>-Dlogger.resource=prod-logger.xml</code>.</p><h4 id="Using--Dlogger.file"><a class="section-marker" href="#Using--Dlogger.file">§</a>Using <code>-Dlogger.file</code></h4>
 <p>To specify a configuration file to be loaded from the file system use the system property <code>-Dlogger.file</code>, e.g., <code>-Dlogger.file=/opt/prod/logger.xml</code>.</p><h2 id="Play-Lagom-applications"><a class="section-marker" href="#Play-Lagom-applications">§</a>Play Lagom applications</h2>
-<p>When integrating a Play application in Lagom via the <code>LagomPlay</code> sbt plugin, the default Play logging module is used. The main difference, with respect to the Lagom logging module, is that the Play logging module provides different default logback configurations. Read the Play framework <a href="https://www.playframework.com/documentation/2.5.x/SettingsLogger">Configuring Logging</a> documentation for details.</p><h2 id="Internal-framework-logging"><a class="section-marker" href="#Internal-framework-logging">§</a>Internal framework logging</h2>
+<p>When integrating a Play application in Lagom via the <code>LagomPlay</code> sbt plugin, the default Play logging module is used. The main difference, with respect to the Lagom logging module, is that the Play logging module provides different default logback configurations. Read the Play framework <a href="https://www.playframework.com/documentation/2.6.x/SettingsLogger">Configuring Logging</a> documentation for details.</p><h2 id="Internal-framework-logging"><a class="section-marker" href="#Internal-framework-logging">§</a>Internal framework logging</h2>
 <p>It can be useful at times to gain more visibility on what&rsquo;s happening inside Lagom.</p><h3 id="Lagom-logging-configuration"><a class="section-marker" href="#Lagom-logging-configuration">§</a>Lagom logging configuration</h3>
 <p>Lagom system logging can be done by changing the <code>com.lightbend.lagom</code> logger to DEBUG.</p>
 <pre class="prettyprint"><code class="language-xml">&lt;!-- Set logging for all Lagom library classes to DEBUG --&gt;
@@ -235,7 +235,7 @@
 <p>And, you will also need to add the following in your project&rsquo;s <code>application.conf</code>:</p>
 <pre class="prettyprint"><code class="language-conf">akka.loglevel=DEBUG
 </code></pre>
-<p>Furthermore, you may also wish to configure an appender for the Akka loggers that includes useful properties such as thread and actor address. For more information about configuring Akka&rsquo;s logging, including details on Logback and Slf4j integration, see the <a href="http://doc.akka.io/docs/akka/2.4/scala/logging.html">Akka documentation</a>.</p><h3 id="Play-logging-configuration"><a class="section-marker" href="#Play-logging-configuration">§</a>Play logging configuration</h3>
+<p>Furthermore, you may also wish to configure an appender for the Akka loggers that includes useful properties such as thread and actor address. For more information about configuring Akka&rsquo;s logging, including details on Logback and Slf4j integration, see the <a href="https://doc.akka.io/docs/akka/2.5/logging.html">Akka documentation</a>.</p><h3 id="Play-logging-configuration"><a class="section-marker" href="#Play-logging-configuration">§</a>Play logging configuration</h3>
 <p>Play system logging can be done by changing the <code>play</code> logger to DEBUG.</p>
 <pre class="prettyprint"><code class="language-xml">&lt;!-- Set logging for all Play library classes to DEBUG --&gt;
 &lt;logger name=&quot;play&quot; level=&quot;DEBUG&quot; /&gt;
@@ -330,9 +330,9 @@
   .disablePlugins(LagomLogback)
   .settings(
     libraryDependencies ++= Seq(
-      &quot;org.apache.logging.log4j&quot; % &quot;log4j-slf4j-impl&quot; % &quot;2.7&quot;,
-      &quot;org.apache.logging.log4j&quot; % &quot;log4j-api&quot; % &quot;2.7&quot;,
-      &quot;org.apache.logging.log4j&quot; % &quot;log4j-core&quot; % &quot;2.7&quot;,
+      &quot;org.apache.logging.log4j&quot; % &quot;log4j-slf4j-impl&quot; % &quot;2.8.2&quot;,
+      &quot;org.apache.logging.log4j&quot; % &quot;log4j-api&quot; % &quot;2.8.2&quot;,
+      &quot;org.apache.logging.log4j&quot; % &quot;log4j-core&quot; % &quot;2.8.2&quot;,
       &quot;com.lmax&quot; % &quot;disruptor&quot; % &quot;3.3.6&quot;
     )
   )</code></pre>
@@ -351,7 +351,7 @@
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/common/guide/logging/SettingsLogger.md">here</a>. Please feel free to edit and contribute a pull request.</p>
+                        <a href="https://github.com/lagom/lagom/edit/1.4.x/docs/manual/common/guide/logging/SettingsLogger.md">here</a>. Please feel free to edit and contribute a pull request.</p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -459,7 +459,7 @@
                             
                         
                             
-                                <li><a href="Migration13.html">Lagom releases</a></li>
+                                <li><a href="Migration14.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -559,7 +559,7 @@
             </div>
         </div>
     </body>
-    <script src="/cf752581853023425fda912759b9b095ef00844e-all-scripts-concat.js"></script>
+    <script src="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

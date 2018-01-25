@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/cf752581853023425fda912759b9b095ef00844e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -138,7 +138,7 @@
 <p>In Maven:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
     &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
-    &lt;artifactId&gt;lagom-javadsl-pubsub_2.11&lt;/artifactId&gt;
+    &lt;artifactId&gt;lagom-javadsl-pubsub_${scala.binary.version}&lt;/artifactId&gt;
     &lt;version&gt;${lagom.version}&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
@@ -287,7 +287,7 @@ public class BlogServiceImpl4 implements BlogService4 {
 <p>Note that anytime you fallback to <a href="MessageBrokerApi.html">message broker support</a> you will expose your messages via a public topic making them part of your public API.</p>
 <p>The registry of subscribers is eventually consistent, i.e. new subscribers are not immediately visible at other nodes, but typically the information will be fully replicated to all other nodes after a few seconds.</p><h2 id="Serialization"><a class="section-marker" href="#Serialization">§</a>Serialization</h2>
 <p>The published messages must be serializable since they will be sent across the nodes in the cluster of the service. JSON is the recommended serialization format for these messages. The <a href="Serialization.html">Serialization</a> section describes how to add Jackson serialization support to such message classes.</p><h2 id="Underlying-Implementation"><a class="section-marker" href="#Underlying-Implementation">§</a>Underlying Implementation</h2>
-<p>It is implemented with <a href="http://doc.akka.io/docs/akka/2.4/java/distributed-pub-sub.html">Akka Distributed Publish Subscribe</a>.</p>
+<p>It is implemented with <a href="https://doc.akka.io/docs/akka/2.5/distributed-pub-sub.html?language=java">Akka Distributed Publish Subscribe</a>.</p>
                 </article>
 
                 
@@ -302,7 +302,7 @@ public class BlogServiceImpl4 implements BlogService4 {
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/java/guide/cluster/PubSub.md">here</a>. Please feel free to edit and contribute a pull request.</p>
+                        <a href="https://github.com/lagom/lagom/edit/1.4.x/docs/manual/java/guide/cluster/PubSub.md">here</a>. Please feel free to edit and contribute a pull request.</p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -446,7 +446,7 @@ public class BlogServiceImpl4 implements BlogService4 {
                             
                         
                             
-                                <li><a href="Migration13.html">Lagom releases</a></li>
+                                <li><a href="Migration14.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -546,7 +546,7 @@ public class BlogServiceImpl4 implements BlogService4 {
             </div>
         </div>
     </body>
-    <script src="/cf752581853023425fda912759b9b095ef00844e-all-scripts-concat.js"></script>
+    <script src="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

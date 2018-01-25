@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/cf752581853023425fda912759b9b095ef00844e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -149,7 +149,13 @@
   .disablePlugins(LagomAkkaHttpServer)         // Removes LagomAkkaHttpServer
   .settings( /* ... */ )
   .dependsOn(`inventory-api`)
-</code></pre><h2 id="Deprecations"><a class="section-marker" href="#Deprecations">§</a>Deprecations</h2><h3 id="Binding-services"><a class="section-marker" href="#Binding-services">§</a>Binding services</h3>
+</code></pre><h2 id="Play-JSON-changes"><a class="section-marker" href="#Play-JSON-changes">§</a>Play JSON changes</h2>
+<p>Play JSON has been extracted from the main Play project into its own <a href="https://github.com/playframework/play-json">repository</a>. The version number has been decoupled from the Play framework version number, as the two are now released independently of each other. This change should be transparent to most Lagom Scala users, but there are some API changes that may require updates in your services:</p>
+<ul>
+  <li>Uses of <code>play.api.data.validation.ValidationError</code> have changed to a new class: <code>play.api.libs.json.JsonValidationError</code>. If you have defined a custom validation, you&rsquo;ll need to update them to use the new <code>JsonValidationError</code> class.</li>
+  <li>The syntax for array lookups in JSON path expressions has changed. See <a href="https://www.playframework.com/documentation/2.6.x/Migration26#JSON-array-index-lookup">the Play 2.6 migration guide</a> for details.</li>
+</ul><h2 id="Using-LagomServiceClientComponents-in-Play-applications"><a class="section-marker" href="#Using-LagomServiceClientComponents-in-Play-applications">§</a>Using <code>LagomServiceClientComponents</code> in Play applications</h2>
+<p>If you have mixed <a href="https://www.lagomframework.com/documentation/1.4.x/scala/api/com/lightbend/lagom/scaladsl/client/LagomServiceClientComponents.html"><code>LagomServiceClientComponents</code></a> directly into a Play application that communicates with Lagom services, you will need to also mix in <a href="https://www.lagomframework.com/documentation/1.4.x/scala/api/com/lightbend/lagom/scaladsl/api/LagomConfigComponent.html"><code>LagomConfigComponent</code></a>.</p><h2 id="Deprecations"><a class="section-marker" href="#Deprecations">§</a>Deprecations</h2><h3 id="Binding-services"><a class="section-marker" href="#Binding-services">§</a>Binding services</h3>
 <p>Binding multiple Lagom service descriptors in one Lagom service has been deprecated. If you are currently binding multiple Lagom service descriptors in one Lagom service, you should combine these into one. The reason for this change is that we found most microservice deployment platforms simply don&rsquo;t support having multiple names for the one service, hence a service that serves multiple service descriptors, each with their own name, would not be compatible with those environments.</p>
 <p>Consequently, we have deprecated the methods for binding multiple service descriptors. To migrate, in your application cake that binds your services, change the following code:</p>
 <pre class="prettyprint"><code class="language-scala">lazy val lagomServer = LagomServer.forServices(bindService[ItemService].to(wire[ItemServiceImpl]))
@@ -266,7 +272,7 @@ akka.actor.serialization-bindings {
                     
                         <option value="/documentation/1.4.x/scala/Migration14.html">1.4.x</option>
                     
-                        <option value="/documentation/current/scala/Home.html">current</option>
+                        <option value="/documentation/current/scala/Migration14.html">current</option>
                     
                         <option value="/documentation/latest/scala/Migration14.html" selected="selected">latest</option>
                     
@@ -412,7 +418,7 @@ akka.actor.serialization-bindings {
             </div>
         </div>
     </body>
-    <script src="/cf752581853023425fda912759b9b095ef00844e-all-scripts-concat.js"></script>
+    <script src="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

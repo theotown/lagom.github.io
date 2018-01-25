@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/cf752581853023425fda912759b9b095ef00844e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -133,17 +133,17 @@
 
                 <article>
                 <h1 id="Production"><a class="section-marker" href="#Production">§</a>Production</h1>
-<p>Lagom doesn&rsquo;t prescribe any particular production environment. If you are interested in deploying on <a href="https://kubernetes.io/">Kubernetes</a>, see our guide that demonstrates <a href="https://developer.lightbend.com/guides/k8s-microservices/">how to deploy the Chirper example application</a>.</p><h2 id="Deployment-considerations"><a class="section-marker" href="#Deployment-considerations">§</a>Deployment considerations</h2>
-<p>The deployment platform determines the type of archive you will need to use for packaging your microservices and the way you provide service location, including that for Cassandra: </p>
+<p>Lagom doesn&rsquo;t prescribe any particular production environment. If you are interested in deploying on <a href="https://kubernetes.io/">Kubernetes</a>, see our guide that demonstrates <a href="https://developer.lightbend.com/guides/lagom-kubernetes-k8s-deploy-microservices/">how to deploy the Chirper example application</a>.</p><h2 id="Deployment-considerations"><a class="section-marker" href="#Deployment-considerations">§</a>Deployment considerations</h2>
+<p>The deployment platform determines the type of archive you will need to use for packaging your microservices and the way you provide service location, including that for Cassandra:</p>
 <ul>
   <li>
   <p>Lagom leverages the <a href="http://www.scala-sbt.org/sbt-native-packager/">sbt-native-packager</a> to produce archives of various types. By default, sbt produces zip archives, but you can easily produce tar.gz, MSI, debian, RPM, Docker and more.</p></li>
   <li>
-  <p>At runtime, services need to locate each other. This requires you to provide an implementation of a <a href="api/com/lightbend/lagom/scaladsl/api/ServiceLocator.html">ServiceLocator</a>. And, the deployment platform you choose might impose its own requirements on configuration. </p></li>
+  <p>At runtime, services need to locate each other. This requires you to provide an implementation of a <a href="api/com/lightbend/lagom/scaladsl/api/ServiceLocator.html">ServiceLocator</a>. And, the deployment platform you choose might impose its own requirements on configuration.</p></li>
   <li>
   <p>The Cassandra module provided by <code>akka-persistence-cassandra</code> uses static lookup by default. Lagom overrides that behavior by implementing a Session provider based on service location. That allows all services to continue to operate without the need to redeploy if/when the Cassandra <code>contact-points</code> are updated or fail. Using this approach provides higher resiliency. However, it is possible to hardcode the list of <code>contact-points</code> where Cassandra may be located even when the server is stared with a dynamic service locator as described in the section below.</p></li>
 </ul><h3 id="Deploying-using-static-Cassandra-contact-points"><a class="section-marker" href="#Deploying-using-static-Cassandra-contact-points">§</a>Deploying using static Cassandra contact-points</h3>
-<p>If you want to use dynamic service location for your services but need to statically locate Cassandra, modify the <code>application.conf</code> for your service. You will need to disable Lagom&rsquo;s <code>ConfigSessionProvider</code> and fall back to the one provided in <code>akka-persistence-cassandra</code>, which uses the list of endpoints listed in <code>contact-points</code>. The <code>application.conf</code> settings will be applied in all environments (development and production) unless overridden. See developer mode settings on <a href="CassandraServer.html#Connecting-to-a-locally-running-Cassandra-instance">overriding Cassandra setup in Dev Mode</a> for more information on settings up Cassandra in dev mode. </p>
+<p>If you want to use dynamic service location for your services but need to statically locate Cassandra, modify the <code>application.conf</code> for your service. You will need to disable Lagom&rsquo;s <code>ConfigSessionProvider</code> and fall back to the one provided in <code>akka-persistence-cassandra</code>, which uses the list of endpoints listed in <code>contact-points</code>. The <code>application.conf</code> settings will be applied in all environments (development and production) unless overridden. See developer mode settings on <a href="CassandraServer.html#Connecting-to-a-locally-running-Cassandra-instance">overriding Cassandra setup in Dev Mode</a> for more information on settings up Cassandra in dev mode.</p>
 <p>To set up static Cassandra <code>contact-points</code> and disable <code>ConfigSessionProvider</code>, modify the following sections of the <code>application-conf</code> file:</p>
 <pre class="prettyprint"><code>cassandra.default {
   ## list the contact points  here
@@ -215,7 +215,7 @@ class HelloApplicationLoader extends LagomApplicationLoader {
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/scala/guide/production/ProductionOverview.md">here</a>. Please feel free to edit and contribute a pull request.</p>
+                        <a href="https://github.com/lagom/lagom/edit/1.4.x/docs/manual/scala/guide/production/ProductionOverview.md">here</a>. Please feel free to edit and contribute a pull request.</p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -321,7 +321,7 @@ class HelloApplicationLoader extends LagomApplicationLoader {
                             
                         
                             
-                                <li><a href="Migration13.html">Lagom releases</a></li>
+                                <li><a href="Migration14.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -421,7 +421,7 @@ class HelloApplicationLoader extends LagomApplicationLoader {
             </div>
         </div>
     </body>
-    <script src="/cf752581853023425fda912759b9b095ef00844e-all-scripts-concat.js"></script>
+    <script src="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

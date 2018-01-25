@@ -6,14 +6,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Service Locator</title>
+        <title>Lagom - Service Locator and Service Gateway</title>
         <meta name="description" content="Lagom">
         
             <link rel="canonical" href="https://www.lagomframework.com/documentation/1.4.x/java/ServiceLocator.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/cf752581853023425fda912759b9b095ef00844e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -112,7 +112,7 @@
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Service Locator</h1>
+                <h1>Service Locator and Service Gateway</h1>
             </div>
         </div>
     </header>
@@ -134,7 +134,7 @@
                 <article>
                 <h1 id="Service-Locator"><a class="section-marker" href="#Service-Locator">§</a>Service Locator</h1>
 <p>A Service Locator is embedded in Lagom&rsquo;s development environment, allowing services to discover and communicate with each others. There are a number of settings and tasks available to tune the embedded Service Locator to your liking, let&rsquo;s explore them:</p><h2 id="Default-port"><a class="section-marker" href="#Default-port">§</a>Default port</h2>
-<p>By default, the service locator runs on port <code>8000</code>, but it is possible to use a different port. For instance, you can tell the service locator to run on port 10000 by adding the following to your build.</p>
+<p>By default, the service locator runs on port <code>9008</code>, but it is possible to use a different port. For instance, you can tell the service locator to run on port <code>10000</code> by adding the following to your build.</p>
 <p>In the Maven root project pom:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
     &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
@@ -163,9 +163,38 @@
 <p>In sbt:</p>
 <pre class="prettyprint"><code class="language-sbt">lagomUnmanagedServices in ThisBuild := Map(&quot;weather&quot; -&gt; &quot;http://localhost:3333&quot;)</code></pre>
 <p>The above ensures that the Service Locator knows about the <code>weather</code> service. Then, if you need a Lagom service to communicate with it, simply <code>@Inject</code> the <a href="api/index.html?com/lightbend/lagom/javadsl/api/ServiceLocator.html"><code>ServiceLocator</code></a> and use it to either locate the <code>weather</code> service&rsquo;s URI, or perform some arbitrary work with it.</p><h3 id="Integrating-with-external-Lagom-projects"><a class="section-marker" href="#Integrating-with-external-Lagom-projects">§</a>Integrating with external Lagom projects</h3>
-<p>Note that if the service you want to communicate with is actually a Lagom service, you may want to read the documentation for <a href="MultipleBuilds.html">integrating with an external Lagom projects</a>.</p><h2 id="Start-and-stop"><a class="section-marker" href="#Start-and-stop">§</a>Start and stop</h2>
-<p>The Service Locator is automatically started when executing the <code>runAll</code> task. However, there are times when you might want to manually start only a few services, and hence you won&rsquo;t use the <code>runAll</code> task. In this case, you can manually start the Service Locator via the <code>lagom:startServiceLocator</code> Maven task or the <code>lagomServiceLocatorStart</code> sbt task, and stopping it with the <code>lagom:stopServiceLocator</code> Maven task or the<code>lagomServiceLocatorStop</code> sbt task.</p><h2 id="Disable-it"><a class="section-marker" href="#Disable-it">§</a>Disable it</h2>
-<p>You can disable the embedded Service Locator by adding the following in your build.</p>
+<p>Note that if the service you want to communicate with is actually a Lagom service, you may want to read the documentation for <a href="MultipleBuilds.html">integrating with an external Lagom projects</a>.</p><h1 id="Service-Gateway"><a class="section-marker" href="#Service-Gateway">§</a>Service Gateway</h1>
+<p>Some clients that want to connect to your services will not have access to your Service Locator. External clients need a stable address to communicate to and here&rsquo;s where the Service Gateway comes in. The Service Gateway will expose and reverse proxy all public endpoints registered by your services. A Service Gateway is embedded in Lagom&rsquo;s development environment, allowing clients from the outside (e.g. a browser) to connect to your Lagom services.</p><h2 id="Default-port1"><a class="section-marker" href="#Default-port1">§</a>Default port</h2>
+<p>By default the Service Gateway is listening for connections on port <code>9000</code> in <code>localhost</code>. It is possible to change that port by adding this to your build.</p>
+<p>In the Maven root project pom:</p>
+<pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
+    &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
+    &lt;artifactId&gt;lagom-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;${lagom.version}&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;serviceGatewayPort&gt;9010&lt;/serviceGatewayPort&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre>
+<p>In sbt:</p>
+<pre class="prettyprint"><code class="language-sbt">lagomServiceGatewayPort in ThisBuild := 9010</code></pre><h2 id="Default-gateway-implementation"><a class="section-marker" href="#Default-gateway-implementation">§</a>Default gateway implementation</h2>
+<p>The Lagom development environment provides an implementation of a Service Gateway based on <a href="https://github.com/akka/akka-http">Akka HTTP</a> and the (now legacy) implementation based on <a href="https://netty.io/">Netty</a>.</p>
+<p>You may opt in to use the old <code>netty</code> implementation.</p>
+<p>In the Maven root project pom:</p>
+<pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
+    &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
+    &lt;artifactId&gt;lagom-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;${lagom.version}&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;serviceGatewayImpl&gt;netty&lt;/serviceGatewayImpl&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre>
+<p>In sbt:</p>
+<pre class="prettyprint"><code class="language-sbt">// Implementation of the service gateway: &quot;akka-http&quot; (default) or &quot;netty&quot;
+lagomServiceGatewayImpl in ThisBuild := &quot;netty&quot;</code></pre><h2 id="Start-and-stop"><a class="section-marker" href="#Start-and-stop">§</a>Start and stop</h2>
+<p>The Service Locator and the Service Gateway are automatically started when executing the <code>runAll</code> task. However, there are times when you might want to manually start only a few services, and hence you won&rsquo;t use the <code>runAll</code> task. In this case, you can manually start the Service Locator and Service Gateway pair via the <code>lagom:startServiceLocator</code> Maven task or the <code>lagomServiceLocatorStart</code> sbt task, and stopping it with the <code>lagom:stopServiceLocator</code> Maven task or the<code>lagomServiceLocatorStop</code> sbt task.</p><h2 id="Disable-it"><a class="section-marker" href="#Disable-it">§</a>Disable it</h2>
+<p>You can disable the embedded Service Locator and Service Gateway by adding the following in your build.</p>
 <p>In the Maven root project pom:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
     &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
@@ -178,7 +207,10 @@
 </code></pre>
 <p>In sbt:</p>
 <pre class="prettyprint"><code class="language-sbt">lagomServiceLocatorEnabled in ThisBuild := false</code></pre>
-<p>Be aware that by disabling the Service Locator your services will not be able to communicate. To restore communication, you will have to provide an implementation of <a href="api/index.html?com/lightbend/lagom/javadsl/api/ServiceLocator.html"><code>ServiceLocator</code></a> in your service.</p>
+<p>Be aware that by disabling the Service Locator your services will not be able to communicate with each other. To restore communication, you will have to provide an implementation of <a href="api/index.html?com/lightbend/lagom/javadsl/api/ServiceLocator.html"><code>ServiceLocator</code></a> in your service. You will also be unable to access to your services via the Service Gateway running on <a href="http://localhost:9000">http://localhost:9000</a> (by default). Instead, you will need to access each service directly on its own port. Each service port is logged to the console when starting in development mode, for example:</p>
+<pre class="prettyprint"><code>[info] Service hello-impl listening for HTTP on 0:0:0:0:0:0:0:0:57797
+</code></pre>
+<p>For more information, see <a href="ServicePort.html">How are ports assigned to services?</a>.</p>
                 </article>
 
                 
@@ -193,7 +225,7 @@
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/java/guide/devmode/ServiceLocator.md">here</a>. Please feel free to edit and contribute a pull request.</p>
+                        <a href="https://github.com/lagom/lagom/edit/1.4.x/docs/manual/java/guide/devmode/ServiceLocator.md">here</a>. Please feel free to edit and contribute a pull request.</p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -239,7 +271,7 @@
                             
                         
                             
-                                <li class="current-page"><a href="ServiceLocator.html">Service Locator</a></li>
+                                <li class="current-page"><a href="ServiceLocator.html">Service Locator and Service Gateway</a></li>
                             
                         
                             
@@ -317,7 +349,7 @@
                             
                         
                             
-                                <li><a href="Migration13.html">Lagom releases</a></li>
+                                <li><a href="Migration14.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -417,7 +449,7 @@
             </div>
         </div>
     </body>
-    <script src="/cf752581853023425fda912759b9b095ef00844e-all-scripts-concat.js"></script>
+    <script src="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

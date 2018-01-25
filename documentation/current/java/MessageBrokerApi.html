@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/cf752581853023425fda912759b9b095ef00844e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -197,7 +197,20 @@ public AnotherServiceImpl(HelloService helloService) {
         return doSomethingWithTheMessage(message);
     }));</code></pre>
 <p>When calling <a href="api/index.html?com/lightbend/lagom/javadsl/api/broker/Topic.html#subscribe--"><code>Topic.subscribe()</code></a> you will get back a <a href="api/index.html?com/lightbend/lagom/javadsl/api/broker/Subscriber.html"><code>Subscriber</code></a> instance. In the above code snippet we have subscribed to the <code>greetings</code> topic using at-least-once delivery semantics. That means each message published to the <code>greetings</code> topic is received at least once, but possibly more. The subscriber also offers a <a href="api/index.html?com/lightbend/lagom/javadsl/api/broker/Subscriber.html#atMostOnceSource--"><code>atMostOnceSource</code></a> that gives you at-most-once delivery semantics. If in doubt, prefer using at-least-once delivery semantics.</p>
-<p>Finally, subscribers are grouped together via <a href="api/index.html?com/lightbend/lagom/javadsl/api/broker/Subscriber.html#withGroupId-java.lang.String-"><code>Subscriber.withGroupId</code></a>. A subscriber group allows many nodes in your cluster to consume a message stream while ensuring that each message is only handled once by each node in your cluster. Without subscriber groups, all of your nodes for a particular service would get every message in the stream, leading to their processing being duplicated. By default, Lagom will use a group id that has the same name as the service consuming the topic.</p><h2 id="Polymorphic-event-streams"><a class="section-marker" href="#Polymorphic-event-streams">§</a>Polymorphic event streams</h2>
+<p>Finally, subscribers are grouped together via <a href="api/index.html?com/lightbend/lagom/javadsl/api/broker/Subscriber.html#withGroupId-java.lang.String-"><code>Subscriber.withGroupId</code></a>. A subscriber group allows many nodes in your cluster to consume a message stream while ensuring that each message is only handled once by each node in your cluster. Without subscriber groups, all of your nodes for a particular service would get every message in the stream, leading to their processing being duplicated. By default, Lagom will use a group id that has the same name as the service consuming the topic.</p><h3 id="Consuming-message-metadata"><a class="section-marker" href="#Consuming-message-metadata">§</a>Consuming message metadata</h3>
+<p>Your broker implementation may provide additional metadata with messages which you can consume. This can be accessed by invoking the <a href="api/index.html?com/lightbend/lagom/javadsl/api/broker/Subscriber.html#withMetadata--"><code>Subscriber.withMetadata()</code></a> method, which returns a subscriber that wraps the messages in a <a href="api/index.html?com/lightbend/lagom/javadsl/api/broker/Message.html"><code>Message</code></a>.</p>
+<pre class="prettyprint"><code class="language-java">helloService.greetingsTopic()
+    .subscribe().withMetadata()
+    .atLeastOnce(Flow.fromFunction((Message&lt;GreetingMessage&gt; msg) -&gt; {
+        GreetingMessage payload = msg.getPayload();
+        String messageKey = msg.messageKeyAsString();
+        Optional&lt;Headers&gt; kafkaHeaders = msg.get(KafkaMetadataKeys.HEADERS);
+        System.out.println(&quot;Message: &quot; + payload +
+            &quot; Key: &quot; + messageKey +
+            &quot; Headers: &quot; + kafkaHeaders);
+        return Done.getInstance();
+    }));</code></pre>
+<p>The <a href="api/index.html?com/lightbend/lagom/javadsl/api/broker/Message.html#messageKeyAsString--"><code>messageKeyAsString</code></a> method is provided as a convenience for accessing the message key. Other properties can be accessed using the <a href="api/index.html?com/lightbend/lagom/javadsl/api/broker/Message.html#get-com.lightbend.lagom.javadsl.api.broker.MetadataKey-"><code>get</code></a> method. A full list of the metadata keys available for Kafka can be found <a href="api/index.html?com/lightbend/lagom/javadsl/broker/kafka/KafkaMetadataKeys.html">here</a>.</p><h2 id="Polymorphic-event-streams"><a class="section-marker" href="#Polymorphic-event-streams">§</a>Polymorphic event streams</h2>
 <p>Typically you will want to publish more than one type of event to a particular topic. This can be done by creating an interface that each event implements. In order to successfully serialize these events to and from JSON, a few extra annotations are needed to instruct Jackson to describe and consume the type of the event in the produced JSON.</p>
 <p>For example, consider a situation where you have a blog post created event and a blog post published event. Here&rsquo;s what your event structure might look like:</p>
 <pre class="prettyprint"><code class="language-java">import com.fasterxml.jackson.annotation.JsonCreator;
@@ -278,7 +291,7 @@ public interface BlogPostEvent {
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/java/guide/broker/MessageBrokerApi.md">here</a>. Please feel free to edit and contribute a pull request.</p>
+                        <a href="https://github.com/lagom/lagom/edit/1.4.x/docs/manual/java/guide/broker/MessageBrokerApi.md">here</a>. Please feel free to edit and contribute a pull request.</p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -394,7 +407,7 @@ public interface BlogPostEvent {
                             
                         
                             
-                                <li><a href="Migration13.html">Lagom releases</a></li>
+                                <li><a href="Migration14.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -494,7 +507,7 @@ public interface BlogPostEvent {
             </div>
         </div>
     </body>
-    <script src="/cf752581853023425fda912759b9b095ef00844e-all-scripts-concat.js"></script>
+    <script src="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

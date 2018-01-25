@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/cf752581853023425fda912759b9b095ef00844e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -234,12 +234,12 @@ public interface AbstractUser {
 </ul><h3 id="Adding-Immutables-to-a-Maven-project"><a class="section-marker" href="#Adding-Immutables-to-a-Maven-project">§</a>Adding Immutables to a Maven project</h3>
 <pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
     &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
-    &lt;artifactId&gt;lagom-javadsl-immutables_2.11&lt;/artifactId&gt;
+    &lt;artifactId&gt;lagom-javadsl-immutables_${scala.binary.version}&lt;/artifactId&gt;
     &lt;version&gt;${lagom.version}&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre><h3 id="Adding-Immutables-to-an-sbt-project"><a class="section-marker" href="#Adding-Immutables-to-an-sbt-project">§</a>Adding Immutables to an sbt project</h3>
 <pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomJavadslImmutables</code></pre><h3 id="Integrating-Immmutables-with-an-IDE"><a class="section-marker" href="#Integrating-Immmutables-with-an-IDE">§</a>Integrating Immmutables with an IDE</h3>
-<p>Immutables integrates with popular IDEs. Follow the instructions for <a href="ImmutablesInIDEs.html#Eclipse">Eclipse</a> or <a href="ImmutablesInIDEs.html#IntelliJ-IDEA">IntelliJ IDEA</a> to add the Immutables annotation processor to your IDE. </p><h2 id="Collections"><a class="section-marker" href="#Collections">§</a>Collections</h2>
+<p>Immutables integrates with popular IDEs. Follow the instructions for <a href="ImmutablesInIDEs.html#Eclipse">Eclipse</a> or <a href="ImmutablesInIDEs.html#IntelliJ-IDEA">IntelliJ IDEA</a> to add the Immutables annotation processor to your IDE.</p><h2 id="Collections"><a class="section-marker" href="#Collections">§</a>Collections</h2>
 <p>If an immutable object contains a collection, that collection must be immutable too.</p>
 <p>Here is an example of an object with a mutable collection in it:</p>
 <pre class="prettyprint"><code class="language-java">public class MutableUser2 {
@@ -342,7 +342,7 @@ public interface AbstractUser4 {
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/java/concepts/Immutable.md">here</a>. Please feel free to edit and contribute a pull request.</p>
+                        <a href="https://github.com/lagom/lagom/edit/1.4.x/docs/manual/java/concepts/Immutable.md">here</a>. Please feel free to edit and contribute a pull request.</p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -465,7 +465,7 @@ public interface AbstractUser4 {
                             
                         
                             
-                                <li><a href="Migration13.html">Lagom releases</a></li>
+                                <li><a href="Migration14.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -565,7 +565,7 @@ public interface AbstractUser4 {
             </div>
         </div>
     </body>
-    <script src="/cf752581853023425fda912759b9b095ef00844e-all-scripts-concat.js"></script>
+    <script src="/7cf5c466b64037898c333698bfadfc3e5927ef31-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

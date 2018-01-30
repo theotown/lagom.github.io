@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/b65be52b3da322118f2fcb1543ba7ae0bc8bbd4c-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/8b2818333b8f9113956017ba333a712823a36a42-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -134,7 +134,10 @@
 <p>This guide explains how to migrate from Lagom 1.3 to Lagom 1.4. If you are upgrading from an earlier version, be sure to review previous migration guides.</p>
 <p>Lagom 1.4 also updates to the latest major versions of Play (2.6) and Akka (2.5). We have highlighted the changes that are relevant to most Lagom users, but you may need to change code in your services that uses the Play and Akka APIs directly. You&rsquo;ll also need to update any Play services in your Lagom project repositories to be compatible with Play 2.6. Please refer to the <a href="https://www.playframework.com/documentation/2.6.x/Migration26">Play 2.6 migration guide</a> and the <a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.4.x-2.5.x.html?language=scala">Akka 2.5 migration guide</a> for more details.</p><h2 id="Build-changes"><a class="section-marker" href="#Build-changes">§</a>Build changes</h2>
 <p>The version of Lagom can be updated by editing the <code>project/plugins.sbt</code> file, and updating the version of the Lagom sbt plugin, for example:</p>
-<pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.lagom&quot; % &quot;lagom-sbt-plugin&quot; % &quot;1.4.0-RC1&quot;)
+<pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.lagom&quot; % &quot;lagom-sbt-plugin&quot; % &quot;1.4.0&quot;)
+</code></pre>
+<p>Lagom 1.4.0 also requires Sbt 0.13.16 or later. If your existing project is using a previous version of Sbt, you will need to upgrade it by editing the <code>project/build.properties</code> file. For example:</p>
+<pre class="prettyprint"><code>sbt.version=0.13.16
 </code></pre><h2 id="Scala-2.12-support"><a class="section-marker" href="#Scala-2.12-support">§</a>Scala 2.12 support</h2>
 <p>Lagom is now cross compiled to Scala 2.11 and 2.12. It&rsquo;s recommended to upgrade to Scala 2.12 whenever possible. The Scala 2.12 version of Lagom benefits from the improved optimizer and use of Java 8 features in the new version of the Scala compiler, resulting in a leaner, faster Lagom for everyone.</p>
 <p>The Scala version can be updated by editing the <code>build.sbt</code> file, and updating the <code>scalaVersion</code> settings, for example:</p>
@@ -418,7 +421,7 @@ akka.actor.serialization-bindings {
             </div>
         </div>
     </body>
-    <script src="/b65be52b3da322118f2fcb1543ba7ae0bc8bbd4c-all-scripts-concat.js"></script>
+    <script src="/8b2818333b8f9113956017ba333a712823a36a42-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

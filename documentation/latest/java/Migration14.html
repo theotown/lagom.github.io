@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/8b2818333b8f9113956017ba333a712823a36a42-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/9d4ff7fbeff9fe804c672cd2f43fabf6caa3c971-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -249,17 +249,17 @@ akka.actor.serialization-bindings {
   &quot;akka.Done&quot; = akka-misc
 }
 </code></pre><h2 id="ConductR"><a class="section-marker" href="#ConductR">§</a>ConductR</h2>
-<p>ConductR users must update to <code>conductr-lib</code> 2.1.1 for full compatibility with Lagom 1.4.0.</p>
+<p>ConductR users must update to <code>conductr-lib</code> 2.1.1 or later (2.2.0 recommended) for full compatibility with Lagom 1.4.0.</p>
 <p>You can find more information in the <a href="https://github.com/typesafehub/conductr-lib/blob/master/README.md"><code>conductr-lib</code> README file</a>.</p><h3 id="Updating-ConductR-with-sbt"><a class="section-marker" href="#Updating-ConductR-with-sbt">§</a>Updating ConductR with sbt</h3>
-<p>Edit the <code>project/plugins.sbt</code> file to update <code>sbt-conductr</code> to version 2.5.1 or later:</p>
-<pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.conductr&quot; % &quot;sbt-conductr&quot; % &quot;2.5.1&quot;)
+<p>Edit the <code>project/plugins.sbt</code> file to update <code>sbt-conductr</code> to version 2.5.1 or later (2.6.0 recommended):</p>
+<pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.conductr&quot; % &quot;sbt-conductr&quot; % &quot;2.6.0&quot;)
 </code></pre>
 <p>This automatically includes the correct version of <code>conductr-lib</code>.</p><h3 id="Updating-ConductR-with-Maven"><a class="section-marker" href="#Updating-ConductR-with-Maven">§</a>Updating ConductR with Maven</h3>
 <p>Update each <code>pom.xml</code> that includes a dependency on <code>conductr-bundle-lib</code>:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
     &lt;groupId&gt;com.typesafe.conductr&lt;/groupId&gt;
     &lt;artifactId&gt;lagom14-java-conductr-bundle-lib_2.12&lt;/artifactId&gt;
-    &lt;version&gt;2.1.1&lt;/version&gt;
+    &lt;version&gt;2.2.0&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
 <p>Note that, in addition to updating the version, there is a new artifact ID for the Lagom 1.4 compatible module.</p>
@@ -448,7 +448,7 @@ akka.actor.serialization-bindings {
             </div>
         </div>
     </body>
-    <script src="/8b2818333b8f9113956017ba333a712823a36a42-all-scripts-concat.js"></script>
+    <script src="/9d4ff7fbeff9fe804c672cd2f43fabf6caa3c971-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

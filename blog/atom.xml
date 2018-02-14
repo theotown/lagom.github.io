@@ -4,12 +4,41 @@
       <link rel="self" type="application/atom+xml" href="https://www.lagomframework.com/blog/atom.xml"/>
       <id>https://www.lagomframework.com/blog</id>
       <rights>Copyright 2018, Lightbend</rights>
-      <updated>2018-01-24T16:00:00.000-08:00</updated>
+      <updated>2018-02-12T16:00:00.000-08:00</updated>
       <dc:creator>Lightbend</dc:creator>
-      <dc:date>2018-01-24T16:00:00.000-08:00</dc:date>
+      <dc:date>2018-02-12T16:00:00.000-08:00</dc:date>
       <dc:language>en</dc:language>
       <dc:rights>Copyright 2018, Lightbend</dc:rights>
       <entry>
+          <title>Introducing the Lagom Recipes</title>
+          <link rel="alternate" href="https://www.lagomframework.com/blog/announcing-lagom-recipes.html"/>
+          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/><category term="recipes" scheme="https://www.lagomframework.com/blog/tags/recipes.html"/><category term="cookbook" scheme="https://www.lagomframework.com/blog/tags/cookbook.html"/>
+          <author>
+            <name>Ignasi Marimon-Clos</name>
+            <uri>https://github.com/ignasi35</uri>
+          </author>
+          <id>https://www.lagomframework.com/blog/announcing-lagom-recipes.html</id>
+          <updated>2018-02-12T16:00:00.000-08:00</updated>
+          <published>2018-02-12T16:00:00.000-08:00</published>
+          <content type="html"><![CDATA[<p>Lagom is an OSS framework to build microservice-based software systems. At Lightbend we sponsor the development of the framework and encourage contributions from the community, but we also help people get started, be more productive when using it or solve the bugs there may be in the framework code. We participate on the <a href="https://groups.google.com/forum/#!forum/lagom-framework">Lagom mailing list</a>, <a href="https://gitter.im/lagom/lagom">Gitter</a> channel and, of course, <a href="https://stackoverflow.com/questions/tagged/lagom">Stack Overflow</a> and <a href="https://github.com/lagom/lagom/issues">Github issues</a> but Lightbend also provides support for it&rsquo;s <a href="https://www.lightbend.com/subscription">subscribers</a> using Lagom. We sometimes detect the same questions pop up repeatedly on those channels of support. In order to reduce repeating the same answers over and over and because common problems should have readily available solutions, we created the <a href="https://github.com/lagom/lagom-recipes">Lagom Recipes</a> repository.</p>
+<h3><a href="#lagom-recipes" name="lagom-recipes">Lagom Recipes</a></h3>
+<p>Like a cookbook, the Lagom recipes repository contains a varied list of step-by-step solutions to common problems Lagom developers may face. Take for example the common request on the Mailing List: &ldquo;How do I enable CORS for my Lagom API?&rdquo;. It&rsquo;s a simple enough request but in Lagom the solution is slightly different whether you are using the <code>javadsl</code> or the <code>scaladsl</code> so the common response to such a question was &ldquo;Are you using java or scala?&rdquo;. It&rsquo;s a problem which involves some knowledge of <a href="https://www.playframework.com/">Play</a> which is a building block of Lagom. Therefore the explanation ends up being a bit confusing. It is easier to prepare two recipes to answer the question for Java or Scala developers in mind and explain each step on the README.</p>
+<p>Every recipe may contain a README file detailing the what files would you need to add or edit in order to complete the recipe. On top of that, recipes are not meant to start a project from scratch. Instead, each recipe details the necessary increment over an existing Lagom Service or a complete Lagom system of many services. The recipe is usually developed in few separate commits to demonstrate the increment necessary to complete your goal:</p>
+<ul>
+  <li>a first commit sets up the minimum Lagom system</li>
+  <li>a second commit introduces the changes necessary to complete the task and the README file explaining the changes.</li>
+</ul>
+<p>The current list of recipes includes solutions for problems such as:</p>
+<ul>
+  <li><a href="https://github.com/lagom/lagom-recipes/tree/master/cors">How do I enable CORS</a>?</li>
+  <li><a href="https://github.com/lagom/lagom-recipes/tree/master/consumer-service">How do I create a Subscriber only service</a>?</li>
+  <li><a href="https://github.com/lagom/lagom-recipes/tree/master/mixed-persistence">How do I use RDBMS read-sides with Cassandra write-sides</a>?</li>
+  <li><a href="https://github.com/lagom/lagom-recipes/tree/master/i18n">How do I create a stateless service in Lagom for Java that uses Play&rsquo;s Internationalization Support</a>?</li>
+  <li><a href="https://github.com/lagom/lagom-recipes/tree/master/http-header-handling">How do I manipulate Headers and Status Codes and test those cases</a>?</li>
+</ul>
+<p>We hope adding this learning resource to the list of <a href="https://www.lagomframework.com/documentation/">documentation resources</a> already available will help create great applications!</p>]]></content>
+          <dc:date>2018-02-12T16:00:00.000-08:00</dc:date>
+        </entry><entry>
           <title>Lagom 1.4.0 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-0.html"/>
           <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
@@ -392,28 +421,5 @@ object RegistryWithCompression extends JsonSerializerRegistry {
 <p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
 <p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>]]></content>
           <dc:date>2017-07-16T17:00:00.000-07:00</dc:date>
-        </entry><entry>
-          <title>Lagom 1.4.0-M1 is released!</title>
-          <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-0-M1.html"/>
-          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
-          <author>
-            <name>Ignasi Marimon-Clos</name>
-            <uri>https://github.com/ignasi35</uri>
-          </author>
-          <id>https://www.lagomframework.com/blog/lagom-1-4-0-M1.html</id>
-          <updated>2017-06-28T17:00:00.000-07:00</updated>
-          <published>2017-06-28T17:00:00.000-07:00</published>
-          <content type="html"><![CDATA[<p>We are thrilled to announce that Lagom is moving fast into upgrading it&rsquo;s underlying stack (Akka, Play and Scala) to corresponding latest versions. This is the biggest change you may expect in the upcoming version 1.4.0 of Lagom. There are still <a href="https://github.com/lagom/lagom/milestone/17">few issues open</a> and some of these pending issue could potentially be incompatible with the effort we&rsquo;ve done in Lagom 1.4.0-M1 already.</p>
-<p>Lagom 1.4.0 includes a new feature to <a href="https://github.com/lagom/lagom/pull/763">start and stop external services</a> when using <code>sbt runAll</code>. This allows binding infrastructure services to the Developer Mode lifecycle improving the developer experience. This release also includes a new, community developed support to develop <a href="https://github.com/lagom/lagom/pull/714">Read-Side code using Slick</a>.</p>
-<p>This is a preview release not ready for production so feel free to use it on a safe environment or a staging environment. We know we want to make some more improvements like using the new <a href="https://github.com/lagom/lagom/issues/742">Akka Coordinated shutdown</a> or <a href="https://github.com/lagom/lagom/issues/816">use Akka&rsquo;s DData instead of persistent Shard Coordinator</a>. We still have to complete the upgrade to support Scala 2.12 but it&rsquo;s on our radar for the 1.4.0 release.</p>
-<p>This release includes several improvements with an important number of community contributions by <a href="https://github.com/erip">erip</a>, <a href="https://github.com/odwrotnie">odwrotnie</a>, <a href="https://github.com/yg-apaza">yg-apaza</a>, <a href="https://github.com/benmccann">benmccann</a> and <a href="https://github.com/himani1">himani1</a> in bug fixing, documentation and even adding features. Thanks all, you rock!</p>
-<p>We&rsquo;re close to releasing a ConductR version that supports the 1.4.0 family of Lagom so if that&rsquo;s your preferred deployment strategy you will need to wait a few days until we&rsquo;ve baked that release.</p>
-<h2><a href="#updating" name="updating">Updating</a></h2>
-<p>This is a minor release so there are a few deprecated APIs you should migrate from. Also, the upgrade of Play and Akka may require you attention. Please have a look at the migration guide to 1.4 (<a href="https://www.lagomframework.com/documentation/1.4.x/java/Migration14.html">java</a> or <a href="https://www.lagomframework.com/documentation/1.4.x/scala/Migration14.html">scala</a>).</p>
-<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
-<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
-<h2><a href="#change-log" name="change-log">Change log</a></h2>
-<p>See the <a href="https://www.lagomframework.com/changelog.html">change log</a> for more details on exactly what has been fixed in each release.</p>]]></content>
-          <dc:date>2017-06-28T17:00:00.000-07:00</dc:date>
         </entry>
     </feed>

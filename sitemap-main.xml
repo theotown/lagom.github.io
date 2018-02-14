@@ -72,6 +72,10 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.lagomframework.com/blog/announcing-lagom-recipes.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.lagomframework.com/blog/lagom-1-4-0.html</loc>
     <priority>0.8</priority>
   </url>
@@ -196,6 +200,10 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.lagomframework.com/blog/tags/cookbook.html</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://www.lagomframework.com/blog/tags/generator.html</loc>
     <priority>1.0</priority>
   </url>
@@ -213,6 +221,10 @@
   </url>
   <url>
     <loc>https://www.lagomframework.com/blog/tags/outreachy.html</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.lagomframework.com/blog/tags/recipes.html</loc>
     <priority>1.0</priority>
   </url>
   <url>

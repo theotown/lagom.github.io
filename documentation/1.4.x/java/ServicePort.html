@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/8c4fde269f78c5ac11f7ebd4f733a4d7921c8cfc-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/c9591817b423204f5438be65088ae9791ae49ad4-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -135,7 +135,7 @@
                 <h1 id="How-are-ports-assigned-to-services?"><a class="section-marker" href="#How-are-ports-assigned-to-services?">§</a>How are ports assigned to services?</h1>
 <p>When inspecting the list of running services, you may wonder how ports are being assigned. One thing you should notice is that ports are assigned consistently, meaning that each service will get the same port assigned. This is truly useful, as it allows to write scripts that exercise some service&rsquo;s functionality, and even share the created scripts with the rest of your team. Indeed, the same port is deterministically selected even on different machines!</p>
 <p>The algorithm used for assigning a port to each service works as follows:</p>
-<p>1) The project&rsquo;s name is hashed.<br/>2) The hash absolute value is projected on the port range (the default port range is <code>[49152,65535]</code>).<br/>3) The selected port is assigned to the project, if there is no other project claiming the same port. If two or more projects are projected onto the same port, the conflicting projects are alphabetically sorted, and the project that comes first will get the expected port assigned to it. While, the remaining projects will get assigned the closest (strictly increasing) available neigbour port.</p>
+<p>1) The project&rsquo;s name is hashed.<br/>2) The hash absolute value is projected on the port range (the default port range is <code>[49152,65535]</code>).<br/>3) The selected port is assigned to the project, if there is no other project claiming the same port. If two or more projects are projected onto the same port, the conflicting projects are alphabetically sorted, and the project that comes first will get the expected port assigned to it. While, the remaining projects will get assigned the closest (strictly increasing) available neighbour port.</p>
 <p>In general, you don&rsquo;t need to worry about these details, as in most cases the port range is wide enough to make collisions unlikely. However, there are times when you may still prefer to assign a specific port to a service (for instance, if the automatically assigned port is already is use in your system). You can do so by manually providing a port number for the project&rsquo;s service port setting.</p>
 <p>In Maven, you can do this by modifying the service implementations pom configuration:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
@@ -180,7 +180,7 @@
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.4.x/docs/manual/common/guide/devmode/ServicePort.md">here</a>. Please feel free to edit and contribute a pull request.</p>
+                        <a href="https://github.com/lagom/lagom/edit/1.4.x/docs/manual/java/guide/devmode/ServicePort.md">here</a>. Please feel free to edit and contribute a pull request.</p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -404,7 +404,7 @@
             </div>
         </div>
     </body>
-    <script src="/8c4fde269f78c5ac11f7ebd4f733a4d7921c8cfc-all-scripts-concat.js"></script>
+    <script src="/c9591817b423204f5438be65088ae9791ae49ad4-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

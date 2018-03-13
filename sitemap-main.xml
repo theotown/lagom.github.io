@@ -72,6 +72,10 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.lagomframework.com/blog/announcing-discuss-lagomframework-forum.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.lagomframework.com/blog/lagom-1-4-1.html</loc>
     <priority>0.8</priority>
   </url>
@@ -205,6 +209,10 @@
   </url>
   <url>
     <loc>https://www.lagomframework.com/blog/tags/cookbook.html</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.lagomframework.com/blog/tags/discuss.html</loc>
     <priority>1.0</priority>
   </url>
   <url>

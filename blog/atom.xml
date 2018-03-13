@@ -4,12 +4,42 @@
       <link rel="self" type="application/atom+xml" href="https://www.lagomframework.com/blog/atom.xml"/>
       <id>https://www.lagomframework.com/blog</id>
       <rights>Copyright 2018, Lightbend</rights>
-      <updated>2018-03-05T16:00:00.000-08:00</updated>
+      <updated>2018-03-13T00:00:00.000Z</updated>
       <dc:creator>Lightbend</dc:creator>
-      <dc:date>2018-03-05T16:00:00.000-08:00</dc:date>
+      <dc:date>2018-03-13T00:00:00.000Z</dc:date>
       <dc:language>en</dc:language>
       <dc:rights>Copyright 2018, Lightbend</dc:rights>
       <entry>
+          <title>Introducing discuss.lagomframework.com</title>
+          <link rel="alternate" href="https://www.lagomframework.com/blog/announcing-discuss-lagomframework-forum.html"/>
+          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/><category term="discuss" scheme="https://www.lagomframework.com/blog/tags/discuss.html"/>
+          <author>
+            <name>Tim Moore</name>
+            <uri>https://github.com/TimMoore</uri>
+          </author>
+          <id>https://www.lagomframework.com/blog/announcing-discuss-lagomframework-forum.html</id>
+          <updated>2018-03-13T00:00:00.000Z</updated>
+          <published>2018-03-13T00:00:00.000Z</published>
+          <content type="html"><![CDATA[<p>We are pleased to announce a new way to communicate with the Lagom community: <a href="https://discuss.lagomframework.com">discuss.lagomframework.com</a>.</p>
+<p>It is a <a href="https://www.discourse.org/">Discourse</a> forum sponsored by <a href="https://www.lightbend.com/">Lightbend</a>, and co-hosted under the discuss.lightbend.com domain, along with discuss.playframework.com and discuss.akka.io. Each of these domains redirects you to the main category for the corresponding project, so you can go directly to the Lagom discussions by using the discuss.lagomframework.com shortcut, without having to navigate through the entire list of all categories. At the same time, discussions relating to the foundational technologies that Lagom is built on are right within reach on the same site. This will make it simpler for the Akka, Play, and Lagom communities to learn from each other and share ideas.</p>
+<p>To further explain what&rsquo;s going to happen next to the other communication channels, and what their intended use is:</p>
+<h2>What happens to the lagom-framework mailing list?</h2>
+<p>The lagom-framework mailing list on Google Groups will be transitioned into a read-only mode. It will not happen immediately, but we&rsquo;ll try to direct all new questions to the new forum, and eventually flip the switch to mark lagom-framework as a read-only archive.</p>
+<p>We took this decision after much thought, debate and considering the various up and down sides of handling it very seriously. We know that a mailing list work-flow is very precious for people used to working with them (plenty of us including), however in order to grow the community as a whole, and also help making the discussions on such forum more searchable and accessible, we decided that this move will be beneficial for everyone involved.</p>
+<p>If you enjoy working with mailing lists, and would like to continue to do so with the new forums, please have a look at the <a href="https://discuss.lightbend.com/c/meta">hints in the Discuss Meta topics</a>, where we prepared hints on how to set up the <a href="https://discuss.lightbend.com/t/how-to-use-the-discuss-forum-as-a-mailing-list/61">notifications to work as-if a mailing list</a>.</p>
+<h2><a href="#what-happens-to-the-gitter-channels-" name="what-happens-to-the-gitter-channels-">What happens to the Gitter channels?</a></h2>
+<p>The <a href="https://gitter.im/lagom/lagom">Lagom Gitter room</a> and <a href="https://gitter.im/lagom/contributors">Lagom contributors Gitter room</a> will remain as real-time chat channels, but we suggest posting questions in discuss.lagomframework.com if you don&rsquo;t get a quick response. With the Lagom community and maintainer team distributed around the world, not everyone can take part in a conversation on Gitter at the same time. With Gitter&rsquo;s linear and conversational format, it can be hard to keep track of concurrent discussions, and it&rsquo;s easy to miss messages. The new forum will make it much easier to keep track of the conversations you are interested in, and ignore the ones you aren&rsquo;t. Asynchronous communication is not just for microservices!</p>
+<h2><a href="#what-other-community-channels-are-there-" name="what-other-community-channels-are-there-">What other community channels are there?</a></h2>
+<ul>
+  <li><a href="https://stackoverflow.com/questions/tagged/lagom">Stack Overflow</a> is still a great place to ask specific programming questions about Lagom, especially when they also relate to other technologies that are not part of discuss.lightbend.com. Stack Overflow has a huge community, and the Lagom maintainer team continues to monitor the &ldquo;lagom&rdquo; tag on it. However, Stack Overflow has a strict Q&amp;A format and <a href="https://stackoverflow.com/help/on-topic">rules about what is considered on-topic</a>. It is not suitable for opinion-based questions, announcements, or open-ended discussion.</li>
+  <li>Of course, <a href="https://github.com/lagom/lagom">GitHub</a> is the center for collaboration on development of Lagom itself, and the <a href="https://github.com/lagom/lagom/issues">issue tracker</a> is the best place to report reproducible bugs and propose new features. If you&rsquo;re having a problem and you&rsquo;re not sure if it&rsquo;s caused by a bug in Lagom, please ask for help on discuss.lagomframework.com before creating an issue on GitHub.</li>
+</ul>
+<h2><a href="#what-if-i-want-urgent-24-7-support-" name="what-if-i-want-urgent-24-7-support-">What if I want urgent 24/7 support?</a></h2>
+<p>Nothing changes in this aspect. The public communication channels were always best-effort, although we and the community do try to help as much as possible. If you really want the best-in-class, most responsive answers and support, the <a href="https://www.lightbend.com/subscription">Lightbend Subscription</a> offers professional development and production support, along with access to consulting services, training, the <a href="https://www.lightbend.com/products/enterprise-suite">Lightbend Enterprise Suite</a> of commercial software, and other benefits.</p>
+<p>It is important to highlight that the move to the &ldquo;discuss&rdquo; forum (as we like to call it) is not the same as commercial support, however we do hope to serve our communities better by making this move. We do not envision any negative impact on the quality of the answers you have been receiving on Gitter and lagom-framework by this move to the new forums.</p>
+<p>We hope you&rsquo;re as excited about the new discussion forums as we are. We look forward to you joining us there!</p>]]></content>
+          <dc:date>2018-03-13T00:00:00.000Z</dc:date>
+        </entry><entry>
           <title>Lagom 1.4.1 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-1.html"/>
           <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
@@ -18,8 +48,8 @@
             <uri>https://github.com/TimMoore</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-4-1.html</id>
-          <updated>2018-03-05T16:00:00.000-08:00</updated>
-          <published>2018-03-05T16:00:00.000-08:00</published>
+          <updated>2018-03-06T00:00:00.000Z</updated>
+          <published>2018-03-06T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.4.1. For a list of the specific changes in Lagom 1.4.1, see the <a href="https://www.lagomframework.com/changelog.html">change log</a>.</p>
 <p>This release provides a few bug fixes and minor improvements. As an overview, this release contains the following:</p>
 <ul>
@@ -42,7 +72,7 @@
       3     54      123  Renato Cavalcanti
       1     31        7  Lutz Huehnken
 </code></pre>]]></content>
-          <dc:date>2018-03-05T16:00:00.000-08:00</dc:date>
+          <dc:date>2018-03-06T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Introducing the Lagom Recipes</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/announcing-lagom-recipes.html"/>
@@ -52,9 +82,9 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/announcing-lagom-recipes.html</id>
-          <updated>2018-02-12T16:00:00.000-08:00</updated>
-          <published>2018-02-12T16:00:00.000-08:00</published>
-          <content type="html"><![CDATA[<p>Lagom is an OSS framework to build microservice-based software systems. At Lightbend we sponsor the development of the framework and encourage contributions from the community, but we also help people get started, be more productive when using it or solve the bugs there may be in the framework code. We participate on the <a href="https://groups.google.com/forum/#!forum/lagom-framework">Lagom mailing list</a>, <a href="https://gitter.im/lagom/lagom">Gitter</a> channel and, of course, <a href="https://stackoverflow.com/questions/tagged/lagom">Stack Overflow</a> and <a href="https://github.com/lagom/lagom/issues">Github issues</a> but Lightbend also provides support for it&rsquo;s <a href="https://www.lightbend.com/subscription">subscribers</a> using Lagom. We sometimes detect the same questions pop up repeatedly on those channels of support. In order to reduce repeating the same answers over and over and because common problems should have readily available solutions, we created the <a href="https://github.com/lagom/lagom-recipes">Lagom Recipes</a> repository.</p>
+          <updated>2018-02-13T00:00:00.000Z</updated>
+          <published>2018-02-13T00:00:00.000Z</published>
+          <content type="html"><![CDATA[<p>Lagom is an OSS framework to build microservice-based software systems. At Lightbend we sponsor the development of the framework and encourage contributions from the community, but we also help people get started, be more productive when using it or solve the bugs there may be in the framework code. We participate on the <a href="https://discuss.lagomframework.com">Discuss Lagom Forum</a>, <a href="https://gitter.im/lagom/lagom">Gitter</a> channel and, of course, <a href="https://stackoverflow.com/questions/tagged/lagom">Stack Overflow</a> and <a href="https://github.com/lagom/lagom/issues">GitHub issues</a>, but Lightbend also provides support for its <a href="https://www.lightbend.com/subscription">subscribers</a> using Lagom. We sometimes detect the same questions pop up repeatedly on those channels of support. In order to reduce repeating the same answers over and over and because common problems should have readily available solutions, we created the <a href="https://github.com/lagom/lagom-recipes">Lagom Recipes</a> repository.</p>
 <h3><a href="#lagom-recipes" name="lagom-recipes">Lagom Recipes</a></h3>
 <p>Like a cookbook, the Lagom recipes repository contains a varied list of step-by-step solutions to common problems Lagom developers may face. Take for example the common request on the Mailing List: &ldquo;How do I enable CORS for my Lagom API?&rdquo;. It&rsquo;s a simple enough request but in Lagom the solution is slightly different whether you are using the <code>javadsl</code> or the <code>scaladsl</code> so the common response to such a question was &ldquo;Are you using java or scala?&rdquo;. It&rsquo;s a problem which involves some knowledge of <a href="https://www.playframework.com/">Play</a> which is a building block of Lagom. Therefore the explanation ends up being a bit confusing. It is easier to prepare two recipes to answer the question for Java or Scala developers in mind and explain each step on the README.</p>
 <p>Every recipe may contain a README file detailing the what files would you need to add or edit in order to complete the recipe. On top of that, recipes are not meant to start a project from scratch. Instead, each recipe details the necessary increment over an existing Lagom Service or a complete Lagom system of many services. The recipe is usually developed in few separate commits to demonstrate the increment necessary to complete your goal:</p>
@@ -71,7 +101,7 @@
   <li><a href="https://github.com/lagom/lagom-recipes/tree/master/http-header-handling">How do I manipulate Headers and Status Codes and test those cases</a>?</li>
 </ul>
 <p>We hope adding this learning resource to the list of <a href="https://www.lagomframework.com/documentation/">documentation resources</a> already available will help create great applications!</p>]]></content>
-          <dc:date>2018-02-12T16:00:00.000-08:00</dc:date>
+          <dc:date>2018-02-13T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.4.0 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-0.html"/>
@@ -81,8 +111,8 @@
             <uri>https://github.com/TimMoore</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-4-0.html</id>
-          <updated>2018-01-24T16:00:00.000-08:00</updated>
-          <published>2018-01-24T16:00:00.000-08:00</published>
+          <updated>2018-01-25T00:00:00.000Z</updated>
+          <published>2018-01-25T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>We are pleased to announce the immediate availability of Lagom 1.4.0!</p>
 <p>Lagom 1.4 brings many internal updates, small features, and other improvements:</p>
 <ul>
@@ -159,7 +189,7 @@
       1      1        1  Tim Sheils
       1      1        1  Shifeng Zhang
 </code></pre>]]></content>
-          <dc:date>2018-01-24T16:00:00.000-08:00</dc:date>
+          <dc:date>2018-01-25T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.4.0-RC1</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-0-RC1.html"/>
@@ -169,8 +199,8 @@
             <uri>https://github.com/renatocaval</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-4-0-RC1.html</id>
-          <updated>2017-12-21T16:00:00.000-08:00</updated>
-          <published>2017-12-21T16:00:00.000-08:00</published>
+          <updated>2017-12-22T00:00:00.000Z</updated>
+          <published>2017-12-22T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>It&rsquo;s Christmas! And we are very pleased to announce the availability of the first release candidate of Lagom 1.4.0. What a nice present to spent your time during the holiday season! :-)</p>
 <p>Contrary to the previous milestone releases, a RC is production ready. We are now entering the release candidate phase (typically 4 weeks) in which only major bugs (if any) will be fixed. </p>
 <h3><a href="#migrating-from-other-versions" name="migrating-from-other-versions">Migrating from other versions</a></h3>
@@ -194,7 +224,7 @@
 <p>Thanks to the community for their detailed bug reports and contributions.</p>
 <p>Thanks to <a href="https://www.lightbend.com">Lightbend</a> for their continued sponsorship of the Lagom core team&rsquo;s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>
 <p>Special thanks to the following contributors who helped with this release: <em>Tim Moore, Renato Cavalcanti, Ignasi Marimon-Clos, James Roper, Edmondo Porcu and datalchemist</em>.<br/>```</p>]]></content>
-          <dc:date>2017-12-21T16:00:00.000-08:00</dc:date>
+          <dc:date>2017-12-22T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.4.0-M3</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-0-M3.html"/>
@@ -204,8 +234,8 @@
             <uri>https://github.com/TimMoore</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-4-0-M3.html</id>
-          <updated>2017-11-29T16:00:00.000-08:00</updated>
-          <published>2017-11-29T16:00:00.000-08:00</published>
+          <updated>2017-11-30T00:00:00.000Z</updated>
+          <published>2017-11-30T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>We are very pleased to announce the availability of the third milestone release of Lagom 1.4.0. Although we had originally hoped to have a release candidate available by now, there are still a few <a href="https://github.com/lagom/lagom/milestone/25">known issues</a> with the 1.4.0 release that will take a little time to complete. In the meantime, there are enough changes since M2 that we decided to publish a new milestone to allow users on the bleeding edge to give them a try. Thanks for your patience!</p>
 <p>Please note that we still do not recommend using a milestone release in production, as there may still be incompatible changes up until the first release candidate.</p>
 <h3><a href="#migrating-from-other-versions" name="migrating-from-other-versions">Migrating from other versions</a></h3>
@@ -244,7 +274,7 @@
     1      11      76 Ruth Stento
     1       1       1 Stijn De Haes
 </code></pre>]]></content>
-          <dc:date>2017-11-29T16:00:00.000-08:00</dc:date>
+          <dc:date>2017-11-30T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.3.10 is released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-3-10.html"/>
@@ -254,8 +284,8 @@
             <uri>https://github.com/TimMoore</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-3-10.html</id>
-          <updated>2017-10-31T17:00:00.000-07:00</updated>
-          <published>2017-10-31T17:00:00.000-07:00</published>
+          <updated>2017-11-01T00:00:00.000Z</updated>
+          <published>2017-11-01T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.3.10. For a list of the specific changes in Lagom 1.3.10, see the <a href="https://www.lagomframework.com/changelog.html">change log</a>.</p>
 <p>This release provides a few bug fixes, minor improvements and dependency updates. As an overview, this release contains the following:</p>
 <ul>
@@ -272,7 +302,7 @@
 <p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
 <p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
 <p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>]]></content>
-          <dc:date>2017-10-31T17:00:00.000-07:00</dc:date>
+          <dc:date>2017-11-01T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.3.9 is released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-3-9.html"/>
@@ -282,8 +312,8 @@
             <uri>https://github.com/renatocaval</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-3-9.html</id>
-          <updated>2017-10-04T17:00:00.000-07:00</updated>
-          <published>2017-10-04T17:00:00.000-07:00</published>
+          <updated>2017-10-05T00:00:00.000Z</updated>
+          <published>2017-10-05T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.3.9. For a list of the specific changes in Lagom 1.3.9, see the <a href="https://www.lagomframework.com/changelog.html">change log</a>.</p>
 <p>This release provides a few bug fixes and minor improvements. As an overview, this release contains the following:</p>
 <ul>
@@ -297,7 +327,7 @@
 <p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
 <p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
 <p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>]]></content>
-          <dc:date>2017-10-04T17:00:00.000-07:00</dc:date>
+          <dc:date>2017-10-05T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.4.0-M2!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-0-M2.html"/>
@@ -307,8 +337,8 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-4-0-M2.html</id>
-          <updated>2017-09-04T17:00:00.000-07:00</updated>
-          <published>2017-09-04T17:00:00.000-07:00</published>
+          <updated>2017-09-05T00:00:00.000Z</updated>
+          <published>2017-09-05T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>We are very pleased to announce the availability of the second Milestone release of Lagom 1.4.0. This is a preview release of the Lagom 1.4 series, which is focused on upgrading all of its building blocks. This release includes Play 2.6 and Akka 2.5&mdash;like Lagom 1.4.0-M1&mdash;but both have been upgraded to the latest minor release. It also includes the latest Slick 3.2.1 and Kafka 0.11.0.0. We are still adding the finishing touches to support Scala 2.12 in the Lagom 1.4.x series.</p>
 <p>Phew, that was a mouthful.</p>
 <p>Unfortunately, we&rsquo;ve decided that <a href="https://github.com/lagom/lagom/issues/932">supporting sbt 1.0</a> is not a feature we will work on before releasing Lagom 1.4.0. At the moment it is still undecided if support for sbt 1.0 will come during the 1.4.x series or later.</p>
@@ -326,7 +356,7 @@
 </ul>
 <h3><a href="#community-contributions" name="community-contributions">Community Contributions</a></h3>
 <p>This release includes great contributions from the community. Thanks Wayne Wang, Elijah Rippeth, Yuliana Apaza and Surya Prakash Singh. Special thanks if this was your <a href="https://www.lagomframework.com/get-involved.html">first contribution</a>.</p>]]></content>
-          <dc:date>2017-09-04T17:00:00.000-07:00</dc:date>
+          <dc:date>2017-09-05T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.3.8 is here!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-3-8.html"/>
@@ -336,8 +366,8 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-3-8.html</id>
-          <updated>2017-08-29T17:00:00.000-07:00</updated>
-          <published>2017-08-29T17:00:00.000-07:00</published>
+          <updated>2017-08-30T00:00:00.000Z</updated>
+          <published>2017-08-30T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.3.8. For a list of the specific changes in Lagom 1.3.8, see the <a href="https://www.lagomframework.com/changelog.html">change log</a>.</p>
 <p>This release fixes <a href="https://github.com/lagom/lagom/issues/974">a deadlock</a> when shutting down a Lagom process in some scenarios and brings Scala DSL Json Serialization feature-parity by providing an opt-in <a href="https://github.com/lagom/lagom/issues/955">compressor</a> for serialized messages. We also <a href="https://github.com/lagom/lagom/issues/968">upgraded</a> the underlying logback library.</p>
 <p>This release is no different than previous ones and we continue to have great community contributions. Thanks to GitHub users <a href="https://github.com/t-h-a-l-i-s">t-h-a-l-i-s</a> and <a href="https://github.com/jiminhsieh">Jimin Hsieh</a>.</p>
@@ -370,66 +400,6 @@ object RegistryWithCompression extends JsonSerializerRegistry {
 
 }
 </code></pre>]]></content>
-          <dc:date>2017-08-29T17:00:00.000-07:00</dc:date>
-        </entry><entry>
-          <title>Lagom 1.3.7 is released!</title>
-          <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-3-7.html"/>
-          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
-          <author>
-            <name>Renato Cavalcanti</name>
-            <uri>https://github.com/renatocaval</uri>
-          </author>
-          <id>https://www.lagomframework.com/blog/lagom-1-3-7.html</id>
-          <updated>2017-08-17T17:00:00.000-07:00</updated>
-          <published>2017-08-17T17:00:00.000-07:00</published>
-          <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.3.7. For a list of the specific changes in Lagom 1.3.7, see the <a href="https://www.lagomframework.com/changelog.html">change log</a>.</p>
-<p>As an overview, this release contains the following:</p>
-<ul>
-  <li>Update Akka to 2.4.20 - <a href="http://akka.io/blog/news/2017/08/10/akka-2.4.20-released">Security Patch Release</a></li>
-  <li>Changed logging default settings - file appender removed (see details below)</li>
-  <li>Experimental Service Gateway based on akka-http</li>
-  <li>Storing read-side processor offsets for unhandled events</li>
-  <li>Automatic load of <code>LogbackLoggerConfigurator</code> for Lagom Scala Applications. Make sure you remove the <a href="https://github.com/lagom/lagom/issues/534">previously-documented</a> workaround you might have added for it.</li>
-  <li>Other small bug fixes and minor enhancements</li>
-</ul>
-<p>We&rsquo;ve continued to get great pull requests from the Lagom community. Thanks to GitHub users <a href="https://github.com/domkun">Dominik Kunz</a>,<br/><a href="https://github.com/guizmaii">Jules Ivanic</a>, <a href="https://github.com/WayneWang12">Wayne Wang</a>, <a href="https://github.com/ashishtomer">Ashish Tomer</a> and <a href="https://github.com/benmccann">Ben McCann</a> for your contributions to Lagom 1.3.7!</p>
-<h2><a href="#logging-settings-changes" name="logging-settings-changes">Logging settings changes</a></h2>
-<p>We have changed different aspects of the default production and development logging settings which are explained below. Make sure you take that into consideration to avoid losing logging information in production environments. Services that have a custom Logback or log4j configuration already will not be affected.</p>
-<p>In case you wish to keep the previous settings, you can add your own custom logging settings as explained in <a href="https://www.lagomframework.com/documentation/1.3.x/java/SettingsLogger.html#Custom-configuration">Java Guide</a> and <a href="https://www.lagomframework.com/documentation/1.3.x/scala/SettingsLogger.html#Custom-configuration">Scala Guide</a>. The previous settings can be found in the 1.3.6 versions of <a href="https://github.com/lagom/lagom/blob/1.3.6/logback/src/main/resources/logback-lagom-default.xml"><code>logback-lagom-default.xml</code></a> and <a href="https://github.com/lagom/lagom/blob/1.3.6/logback/src/main/resources/logback-lagom-dev.xml"><code>logback-lagom-dev.xml</code></a>.</p>
-<p>If you do have a custom configuration, but would like to incorporate the improvements made to the defaults, you can view the new versions of <a href="https://github.com/lagom/lagom/blob/1.3.7/logback/src/main/resources/logback-lagom-default.xml"><code>logback-lagom-default.xml</code></a> and <a href="https://github.com/lagom/lagom/blob/1.3.7/logback/src/main/resources/logback-lagom-dev.xml"><code>logback-lagom-dev.xml</code></a>.</p>
-<h3><a href="#logging-pattern-layout" name="logging-pattern-layout">Logging pattern layout</a></h3>
-<p>The pattern layouts have changed to provide more useful information. Development and production environments share almost the same layout. </p>
-<ul>
-  <li>No abbreviations of logger names and stacktraces,</li>
-  <li>Timestamps have millisecond precision and a sortable format.<br/> The timestamp format is now:</li>
-  <li><strong>Production:</strong> <code>yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;</code> in UTC,</li>
-  <li><strong>Development:</strong> <code>HH:mm:ss.SSS</code> in local time (date omitted).</li>
-</ul>
-<p>If you have configured log parsers for the old format, we recommend to adapt them accordingly when upgrading.</p>
-<h3><a href="#logging-level" name="logging-level">Logging level</a></h3>
-<p>Log level defaults to <strong>INFO</strong> instead of <strong>WARN</strong>. That includes the logging from Play, Akka and Lagom itself as well as the default root logger. </p>
-<h3><a href="#file-appenders" name="file-appenders">File Appenders</a></h3>
-<p>Since microservices should be easily movable between hosts, and be location-independent, we decided to remove Lagom&rsquo;s file appender. Instead, you can have your orchestration solution capture stdout and aggregate it. If desired, file appenders can be added by providing your own logging configuration as explained in <a href="https://www.lagomframework.com/documentation/1.3.x/java/SettingsLogger.html#Custom-configuration">Java Guide</a> and <a href="https://www.lagomframework.com/documentation/1.3.x/scala/SettingsLogger.html#Custom-configuration">Scala Guide</a>.</p>
-<h2>Akka-http based Service Gateway (experimental)</h2>
-<p>We introduced a new implementation of the development mode service gateway based on <code>akka-http</code>. This is still experimental and therefore not enabled by default. In a future version of Lagom, this implementation will replace the current Netty-based implementation. Please try out the new service gateway implementation and raise an issue in GitHub if you find any problems.</p>
-<p>You can enable it by adding the following in your build.</p>
-<p>In sbt:</p>
-<pre class="prettyprint"><code class="language-scala">lagomServiceGatewayImpl in ThisBuild := &quot;akka-http&quot;
-</code></pre>
-<p>In Maven root project pom:</p>
-<pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
-    &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
-    &lt;artifactId&gt;lagom-maven-plugin&lt;/artifactId&gt;
-    &lt;version&gt;${lagom.version}&lt;/version&gt;
-    &lt;configuration&gt;
-        &lt;serviceGatewayImpl&gt;akka-http&lt;/serviceGatewayImpl&gt;
-    &lt;/configuration&gt;
-&lt;/plugin&gt;
-</code></pre>
-<h2>Updating a Lagom project to version 1.3.7</h2>
-<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
-<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
-<p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>]]></content>
-          <dc:date>2017-08-17T17:00:00.000-07:00</dc:date>
+          <dc:date>2017-08-30T00:00:00.000Z</dc:date>
         </entry>
     </feed>

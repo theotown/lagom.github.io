@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/cd5fdfc24822a4ce975ac791f2a4ab01f2fc6252-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/060aca2565870b349c92ce1eb2793d3c000e55e9-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -252,22 +252,7 @@ lagom.circuit-breaker {
   # will be used for both sayHi and hiAgain methods
   default.call-timeout = 5s
 }
-</code></pre><h3 id="Circuit-breaker-metrics"><a class="section-marker" href="#Circuit-breaker-metrics">§</a>Circuit breaker metrics</h3>
-<p>Lagom allows you to publish metrics for circuit breakers via a metrics service. To enable this service, add <code>metricsServiceBinding</code> to your service bindings in your <code>lagomServer</code> declaration, like so:</p>
-<pre class="prettyprint"><code class="language-scala"><br/>abstract class MyApplication(context: LagomApplicationContext)
-  extends LagomApplication(context)
-    with AhcWSComponents {
-
-  lazy val lagomServer = LagomServer.forServices(
-    bindService[HelloService].to(wire[HelloServiceImpl]),
-    metricsServiceBinding
-  )
-}</code></pre>
-<p>The service provides the following endpoints:</p>
-<ul>
-  <li><code>/_status/circuit-breaker/current</code> - Snapshot of current circuit breaker status</li>
-  <li><code>/_status/circuit-breaker/stream</code> - Stream of circuit breaker status</li>
-</ul>
+</code></pre>
 <p><a href="https://www.lightbend.com/products/monitoring">Lightbend Monitoring</a> will provide metrics for Lagom circuit breakers, including aggregated views of the information for all nodes in the cluster.</p>
                 </article>
 
@@ -517,7 +502,7 @@ lagom.circuit-breaker {
             </div>
         </div>
     </body>
-    <script src="/cd5fdfc24822a4ce975ac791f2a4ab01f2fc6252-all-scripts-concat.js"></script>
+    <script src="/060aca2565870b349c92ce1eb2793d3c000e55e9-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

@@ -107,14 +107,16 @@ done
 <p>Rolling upgrades can be safely performed if, and only if, you migrate your cluster from Lagom 1.3.10 to Lagom 1.4. If your system is using any previous version of Lagom, you will first need to upgrade it to 1.3.10. Make sure you read and understand any intermediary migration guide.</p>
 <p>As mentioned above, Lagom 1.4 is not using the new <code>ddata</code> mode for sharding data storage and some new messages serializers are disabled. This will allow you to perform rolling upgrades without any risk (assuming your current version is 1.3.10).</p>
 <p>Other than that difference, refer to the <a href="https://doc.akka.io/docs/akka/current/project/migration-guide-2.4.x-2.5.x.html?language=java#rolling-update">Akka Rolling Update</a> documentation for more detailed information on important considerations when performing a rolling upgrade.</p><h3 id="Downtime-upgrade"><a class="section-marker" href="#Downtime-upgrade">§</a>Downtime upgrade</h3>
-<p>If your application can tolerate downtime, we recommend you to enable <code>ddata</code> and the new serializer for <code>akka.Done</code>.</p>
+<p>If your application can tolerate downtime, we recommend you to enable <code>ddata</code> and the new serializers for <code>akka.Done</code>, <code>akka.actor.Address</code> and <code>akka.remote.UniqueAddress</code>.</p>
 <p>In order to achieve this, make sure you have added the following properties to your <code>application.conf</code> file.</p>
 <pre class="prettyprint"><code># Enable new sharding state store mode by overriding Lagom&#39;s default
 akka.cluster.sharding.state-store-mode = ddata
 
-# Enable the serializer for akka.Done provided in Akka 2.5.8+ to avoid the use of Java serialization.
+# Enable serializers provided in Akka 2.5.8+ to avoid the use of Java serialization.
 akka.actor.serialization-bindings {
-  &quot;akka.Done&quot; = akka-misc
+    &quot;akka.Done&quot;                 = akka-misc
+    &quot;akka.actor.Address&quot;        = akka-misc
+    &quot;akka.remote.UniqueAddress&quot; = akka-misc
 }
 </code></pre><h2 id="ConductR"><a class="section-marker" href="#ConductR">§</a>ConductR</h2>
 <p>ConductR users must update to <code>conductr-lib</code> 2.1.1 or later (2.2.0 recommended) for full compatibility with Lagom 1.4.0.</p>

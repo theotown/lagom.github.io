@@ -72,6 +72,10 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.lagomframework.com/blog/event-sourcing-vs-crud.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.lagomframework.com/blog/announcing-discuss-lagomframework-forum.html</loc>
     <priority>0.8</priority>
   </url>
@@ -212,7 +216,15 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.lagomframework.com/blog/tags/crud.html</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://www.lagomframework.com/blog/tags/discuss.html</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.lagomframework.com/blog/tags/event sourcing.html</loc>
     <priority>1.0</priority>
   </url>
   <url>

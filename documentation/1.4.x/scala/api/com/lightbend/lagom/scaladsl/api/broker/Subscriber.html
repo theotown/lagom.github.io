@@ -306,7 +306,10 @@
 <code>flow</code> at least once.</p><p>If a failure occurs (e.g., an exception is thrown), the stream may be automatically restarted starting with the
 message that caused the failure.</p><p>Whether the stream is automatically restarted depends on the Lagom message broker implementation in use. If the
 Kafka Lagom message broker module is being used, then by default the stream is automatically restarted when a
-failure occurs.
+failure occurs.</p><p>The <code>flow</code> may pull more elements from upstream but it must emit exactly one <code>Done</code> message for each message that
+it receives. It must also emit them in the same order that the messages were received. This means that the <code>flow</code>
+must not filter or collect a subset of the messages, instead it must split the messages into separate streams and
+map those that would have been dropped to <code>Done</code>.
 </p></div><dl class="paramcmts block"><dt class="param">flow</dt><dd class="cmt"><p>The flow to apply to each received message.</p></dd><dt>returns</dt><dd class="cmt"><p>A <code>Future</code> that will be completed if the <code>flow</code> completes.</p></dd></dl></div>
     </li><li name="com.lightbend.lagom.scaladsl.api.broker.Subscriber#atMostOnceSource" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="atMostOnceSource:akka.stream.scaladsl.Source[Payload,_]"></a><a id="atMostOnceSource:Source[Payload,_]"></a>

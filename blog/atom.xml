@@ -4,12 +4,32 @@
       <link rel="self" type="application/atom+xml" href="https://www.lagomframework.com/blog/atom.xml"/>
       <id>https://www.lagomframework.com/blog</id>
       <rights>Copyright 2018, Lightbend</rights>
-      <updated>2018-03-12T17:00:00.000-07:00</updated>
+      <updated>2018-03-19T17:00:00.000-07:00</updated>
       <dc:creator>Lightbend</dc:creator>
-      <dc:date>2018-03-12T17:00:00.000-07:00</dc:date>
+      <dc:date>2018-03-19T17:00:00.000-07:00</dc:date>
       <dc:language>en</dc:language>
       <dc:rights>Copyright 2018, Lightbend</dc:rights>
       <entry>
+          <title>From CRUD to Event Sourcing</title>
+          <link rel="alternate" href="https://www.lagomframework.com/blog/event-sourcing-vs-crud.html"/>
+          <category term="event sourcing" scheme="https://www.lagomframework.com/blog/tags/event%20sourcing.html"/><category term="crud" scheme="https://www.lagomframework.com/blog/tags/crud.html"/>
+          <author>
+            <name>James Roper</name>
+            <uri>https://github.com/jroper</uri>
+          </author>
+          <id>https://www.lagomframework.com/blog/event-sourcing-vs-crud.html</id>
+          <updated>2018-03-19T17:00:00.000-07:00</updated>
+          <published>2018-03-19T17:00:00.000-07:00</published>
+          <content type="html"><![CDATA[<p>As the Lagom project has grown in usage, one of the biggest barriers to adoption that we&rsquo;ve seen is Lagom&rsquo;s opinionated approach to using event sourcing for persistence. Many developers looking to write reactive microservices come from a <a href="https://www.codecademy.com/articles/what-is-crud">CRUD</a> background, often using relational databases to store data.</p>
+<p>Lagom&rsquo;s service API can be used alongside CRUD-style persistence - you can easily use any persistence technology available on the JVM in Lagom. However, the Lagom persistence APIs do not offer CRUD as a first class option, and the <a href="https://www.lagomframework.com/documentation/1.4.x/java/PersistentEntity.html">Lagom documentation</a> pushes users in the direction of event sourcing.</p>
+<p>To be honest, event sourcing does generally require writing more code up front than CRUD. Lagom does not push event sourcing because it reduces the amount of code. Lagom pushes event sourcing because the problems that microservices introduce - such as ensuring consistency between services - are very easily solved when you are using event sourcing for persistence, and very hard to solve when you&rsquo;re using CRUD for persistence. A service using CRUD might have less code to start with, but as soon as it starts sharing data with other services, problems relating to handling failures and synchronisation of state become very difficult problems to solve, and will often require implementing complex solutions, including manual state and failure tracking. In fact, in my experience of using CRUD, dealing with these problems usually requires manually implementing event logs and asynchronous batch processes to handle them, so developers end up implementing both event sourcing and CRUD, which is far more code and far harder to maintain. In contrast, event sourcing inherently deals with these problems as a property of the architectural approach, with no special code implemented by developers.</p>
+<p>Put simply, using event sourcing over CRUD is an investment of more code and effort up front, but will yield a simpler, more resilient and easier to maintain system in the future. Lets take a look at how this looks in practice.</p>
+<p>A few months ago I had the chance to speak about this topic at the Reactive Summit&rsquo;17. Here&rsquo;s the recording of the talk.</p>
+<div id="meet-lagom" class="flex-video widescreen">
+  <iframe width="560" height="315" src="//www.youtube.com/embed/d1jT0UOVx9U" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+</div>]]></content>
+          <dc:date>2018-03-19T17:00:00.000-07:00</dc:date>
+        </entry><entry>
           <title>Introducing discuss.lagomframework.com</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/announcing-discuss-lagomframework-forum.html"/>
           <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/><category term="discuss" scheme="https://www.lagomframework.com/blog/tags/discuss.html"/>
@@ -357,49 +377,5 @@
 <h3><a href="#community-contributions" name="community-contributions">Community Contributions</a></h3>
 <p>This release includes great contributions from the community. Thanks Wayne Wang, Elijah Rippeth, Yuliana Apaza and Surya Prakash Singh. Special thanks if this was your <a href="https://www.lagomframework.com/get-involved.html">first contribution</a>.</p>]]></content>
           <dc:date>2017-09-04T17:00:00.000-07:00</dc:date>
-        </entry><entry>
-          <title>Lagom 1.3.8 is here!</title>
-          <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-3-8.html"/>
-          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
-          <author>
-            <name>Ignasi Marimon-Clos</name>
-            <uri>https://github.com/ignasi35</uri>
-          </author>
-          <id>https://www.lagomframework.com/blog/lagom-1-3-8.html</id>
-          <updated>2017-08-29T17:00:00.000-07:00</updated>
-          <published>2017-08-29T17:00:00.000-07:00</published>
-          <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.3.8. For a list of the specific changes in Lagom 1.3.8, see the <a href="https://www.lagomframework.com/changelog.html">change log</a>.</p>
-<p>This release fixes <a href="https://github.com/lagom/lagom/issues/974">a deadlock</a> when shutting down a Lagom process in some scenarios and brings Scala DSL Json Serialization feature-parity by providing an opt-in <a href="https://github.com/lagom/lagom/issues/955">compressor</a> for serialized messages. We also <a href="https://github.com/lagom/lagom/issues/968">upgraded</a> the underlying logback library.</p>
-<p>This release is no different than previous ones and we continue to have great community contributions. Thanks to GitHub users <a href="https://github.com/t-h-a-l-i-s">t-h-a-l-i-s</a> and <a href="https://github.com/jiminhsieh">Jimin Hsieh</a>.</p>
-<h2><a href="#json-serialization-compression" name="json-serialization-compression">Json Serialization compression</a></h2>
-<p>Compression, as described here, is only used for persistent events, persistent snapshots and remote messages within the service cluster. It is not used for messages that are serialized in the external API of the service.</p>
-<p>JSON can be rather verbose and for large messages it can be beneficial to enable compression. That is done by using the <code>JsonSerializer.compressed[T]</code> builder method instead of the <code>JsonSerializer.apply[T]</code>:</p>
-<pre class="prettyprint"><code>import com.lightbend.lagom.scaladsl.playjson.{JsonSerializer, JsonSerializerRegistry}
-
-object RegistryWithCompression extends JsonSerializerRegistry {
-  override val serializers = Vector(
-
-    // &#39;AddComment&#39; uses `apply[T]()` .
-    JsonSerializer[AddComment],
-
-    // The AddPost message is usually rather big, so we want it compressed
-    // when it&#39;s too large.
-    JsonSerializer.compressed[AddPost]
-
-  )
-}
-</code></pre>
-<p>The serializer will by default only compress messages that are larger than 1024 bytes. This threshold can be changed with configuration property:</p>
-<pre class="prettyprint"><code>lagom.serialization.json {
-
-  # The serializer will compress the payload if the message class
-  # was registered using JsonSerializer.compressed and the payload
-  # is larger than this value. Only used for remote messages within
-  # the cluster of the service.
-  compress-larger-than = 1024b
-
-}
-</code></pre>]]></content>
-          <dc:date>2017-08-29T17:00:00.000-07:00</dc:date>
         </entry>
     </feed>

@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/ce27cff77fbf8c41376fbe5232c6952b5505b922-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/ab85615b6c114158ff55053d8b6ee9b106d718ac-all-styles-concat.css" type="text/css">
          
     <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     
@@ -511,13 +511,13 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
 <p>The default configuration should be good starting point, and the following settings may later be amended to customize the behavior if needed. The following is a listing of the non database specific settings for Lagom persistence:</p>
 <pre class="prettyprint"><code class="language-conf">lagom.persistence {
 
-  # As a rule of thumb, the number of shards should be a factor ten greater 
+  # As a rule of thumb, the number of shards should be a factor ten greater
   # than the planned maximum number of cluster nodes. Less shards than number
-  # of nodes will result in that some nodes will not host any shards. Too many 
-  # shards will result in less efficient management of the shards, e.g. 
-  # rebalancing overhead, and increased latency because the coordinator is 
-  # involved in the routing of the first message for each shard. The value 
-  # must be the same on all nodes in a running cluster. It can be changed 
+  # of nodes will result in that some nodes will not host any shards. Too many
+  # shards will result in less efficient management of the shards, e.g.
+  # rebalancing overhead, and increased latency because the coordinator is
+  # involved in the routing of the first message for each shard. The value
+  # must be the same on all nodes in a running cluster. It can be changed
   # after stopping all nodes in the cluster.
   max-number-of-shards = 100
 
@@ -525,8 +525,8 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
   # events. Snapshots are used to reduce recovery times.
   # It may be configured to &quot;off&quot; to disable snapshots.
   snapshot-after = 100
-  
-  # A persistent entity is passivated automatically if it does not receive 
+
+  # A persistent entity is passivated automatically if it does not receive
   # any messages during this timeout. Passivation is performed to reduce
   # memory consumption. Objects referenced by the entity can be garbage
   # collected after passivation. Next message will activate the entity
@@ -535,15 +535,15 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
   # entities is bounded and their state, sharded across the cluster, will
   # fit in memory.
   passivate-after-idle-timeout = 120s
-  
+
   # Specifies that entities run on cluster nodes with a specific role.
   # If the role is not specified (or empty) all nodes in the cluster are used.
   # The entities can still be accessed from other nodes.
   run-entities-on-role = &quot;&quot;
-  
+
   # Default timeout for PersistentEntityRef.ask replies.
   ask-timeout = 5s
-  
+
   dispatcher {
     type = Dispatcher
     executor = &quot;thread-pool-executor&quot;
@@ -806,7 +806,7 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
             </div>
         </div>
     </body>
-    <script src="/ce27cff77fbf8c41376fbe5232c6952b5505b922-all-scripts-concat.js"></script>
+    <script src="/ab85615b6c114158ff55053d8b6ee9b106d718ac-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

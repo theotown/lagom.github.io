@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Lagom 1.3.2 is released!</title>
+        <title>Lagom - Lagom 1.4.2/1.3.11 released!</title>
         <meta name="description" content="Lagom">
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
@@ -112,14 +112,14 @@
             <div class="small-12 columns">
                 <div class="blog-meta">
                     <div class="blog-author-image">
-                        <a href="https://github.com/TimMoore">
-                            <img src="https://avatars0.githubusercontent.com/u/44385?v=4"/>
+                        <a href="https://github.com/ignasi35">
+                            <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
                         </a>
                     </div>
                     <div class="blog-meta-details">
-                        <a class="blog-author-name" href="https://github.com/TimMoore">Tim Moore</a>
+                        <a class="blog-author-name" href="https://github.com/ignasi35">Ignasi Marimon-Clos</a>
                         |
-                        <span class="blog-post-date">April 19, 2017</span>
+                        <span class="blog-post-date">March 22, 2018</span>
                         <div class="blog-meta-tags">
                             
                                 <img src="/images/entypo/white/entypo_tag.svg" class="svg-icon"/>
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                 </div>
-                <h1>Lagom 1.3.2 is released!</h1>
+                <h1>Lagom 1.4.2/1.3.11 released!</h1>
             </div>
         </div>
     </header>
@@ -138,48 +138,52 @@
     <article class="fw-wrapper page-content">
         <div class="row">
             <div class="small-12 large-7 columns">
-                <p>The Lagom team has just released Lagom 1.3.2. This release includes bug fixes and other minor changes, a dependency management improvement for Maven users, and deprecates a feature that proved to be confusing.</p>
-<h2><a href="#updating" name="updating">Updating</a></h2>
-<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
-<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
-<p>If you are using Lagom&rsquo;s support for Maven builds or Cassandra persistence, there are some other (optional) steps you should follow below.</p>
-<h2><a href="#dependency-management-in-maven" name="dependency-management-in-maven">Dependency management in Maven</a></h2>
-<p>Lagom brings together several rich libraries and frameworks and this means many transitive dependencies. Managing these dependencies and avoiding conflicts can be tricky.</p>
-<p>Lagom 1.3.2 introduces a new POM artifact that you can use in your top-level <code>pom.xml</code> in order to control the versions of transitive dependencies brought in by both Lagom and other libraries you depend on. This relies on Maven&rsquo;s support for <a href="https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Importing_Dependencies">importing dependencies</a> in the <code>dependencyManagement</code> section of your POM.</p>
-<p>To use this, follow these steps:</p>
-<ol>
-  <li>Open the top-level <code>pom.xml</code> for each of your Maven Lagom projects in an editor</li>
-  <li>Add an import-scope dependency for <code>lagom-maven-dependencies</code> to the <code>dependencyManagement</code> section, within the nested <code>dependencies</code> element:
-    <pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
-    &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
-    &lt;artifactId&gt;lagom-maven-dependencies&lt;/artifactId&gt;
-    &lt;version&gt;${lagom.version}&lt;/version&gt;
-    &lt;scope&gt;import&lt;/scope&gt;
-    &lt;type&gt;pom&lt;/type&gt;
-&lt;/dependency&gt;
+                <p>The Lagom team has released the versions 1.4.2 and 1.3.11. For a list of the specific changes in Lagom 1.4.2, see the <a href="/changelog.html">change log</a>, and for a lost of changes on Lagom 1.3.11 see the <a href="/changelog-1.3.x.html">change log (1.3.x)</a>.</p>
+<h2>Lagom 1.3.11</h2>
+<p>This release provides a several bug fixes and improvements. As an overview, this release contains the following:</p>
+<ul>
+  <li>Fixes a bug in loading settings from the <code>LagomClientFactory</code>. Special thanks to <a href="/two10">two10</a> for the detailed report and bugfix suggestion. (<a href="https://github.com/lagom/lagom/pull/1256">#1256</a>)</li>
+  <li>Adds out-of-the-box support for UUID&rsquo;s on the Path Params on your <code>Service.Descriptors</code>. (<a href="https://github.com/lagom/lagom/issues/1252">#1252</a>)</li>
+  <li>Fixes Exception deserialization for <code>BadRequest</code>. (<a href="https://github.com/lagom/lagom/issues/1247">#1247</a>)</li>
+  <li>Update to Scala 2.11.12. (<a href="https://github.com/lagom/lagom/issues/1197">#1197</a>)</li>
+  <li>Added a check to warn about slow startup problems (thanks <a href="https://github.com/edmondo1984">Edmondo Porcu</a>). (<a href="https://github.com/lagom/lagom/issues/1112">#1112</a>)</li>
+  <li>Improves error messages in path param serializer resolution (thanks <a href="https://github.com/silver-soule">Neelaksh</a>). (<a href="https://github.com/lagom/lagom/issues/1093">#1093</a>)</li>
+  <li>Implementation review to allow mixed persistence using non-JDBC write-side with JDBC read-side (only applies to scala API). (<a href="https://github.com/lagom/lagom/pull/1100">#1100</a>)</li>
+  <li>And several small improvements in the documentation!</li>
+</ul>
+<p>This release is the last including backports of general bugfixes and the <code>1.3.x</code> family may only get critical bugfixes backported onwards. If you are still using Lagom 1.3.x, we recommend you upgraded to latest versions of Lagom.</p>
+<p>See GitHub for the <a href="https://github.com/lagom/lagom/compare/1.3.10...1.3.11">full list of commits</a> and the issues and pull requests assigned to the <a href="https://github.com/lagom/lagom/milestone/24?closed=1">1.3.11 milestone</a>.</p>
+<h2>Lagom 1.4.2</h2>
+<p>This release provides a few bug fixes and minor improvements over what 1.3.11 provides already (see the summary above). As an overview, this release contains the following:</p>
+<ul>
+  <li>Adds the message timestamp on the Kafka Message when using <a href="https://www.lagomframework.com/documentation/1.4.x/scala/MessageBrokerApi.html#Consuming-message-metadata">metadata-rich subscriptions</a>. (<a href="https://github.com/lagom/lagom/issues/1277">#1277</a>)</li>
+  <li>Fixes a bug preventing conflicts between persistence backends when writing tests with mixed persistence (applies only to java API). ( <a href="https://github.com/lagom/lagom/issues/1263">#1263</a>)</li>
+  <li>Added a timeout on the offset polling when starting a read-side to prevent a potential read-side block in certain failure scenarios. <a href="https://github.com/lagom/lagom/issues/1278">#1278</a></li>
+</ul>
+<p>See GitHub for the <a href="https://github.com/lagom/lagom/compare/1.4.1...1.4.2">full list of commits</a> and the issues and pull requests assigned to the <a href="https://github.com/lagom/lagom/milestone/28?closed=1">1.4.2 milestone</a>.</p>
+<h2><a href="#credits" name="credits">Credits</a></h2>
+<p>Thanks to the community for their detailed bug reports and contributions.</p>
+<p>Thanks to <a href="https://www.lightbend.com">Lightbend</a> for their continued sponsorship of the Lagom core team&rsquo;s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>
+<p>Special thanks to the following contributors who helped with the release 1.3.11:</p>
+<pre class="prettyprint"><code>commits  added  removed
+    9     117      68 Tim Moore
+    6     254      35 Ignasi Marimon-Clos
+    6     668     605 Renato Cavalcanti
+    2       6       6 Sarun Rattanasiri
+    1       1       1 Bruno Unna
+    1      11      76 Ruth Stento
+    1      31       7 Lutz Huehnken
+    1      19       0 Edmondo Porcu
+    1      59       5 Neelaksh
+    1       1       1 Brent Eritou
 </code></pre>
-  </li>
-  <li>
-  <p>Remove any other previous entries for dependencies with the <code>com.lightbend.lagom</code> <code>groupId</code>, and the entries for <code>akka-actor_2.11</code> and <code>akka-stream_2.11</code>.</p></li>
-</ol>
-<p>This ensures that the resolved versions of all artifacts that Lagom depends on, directly or indirectly, match the versions that Lagom was tested with.</p>
-<p>New projects built from the Lagom Maven archetype include this configuration by default. You might want to <a href="https://www.lagomframework.com/documentation/1.3.x/java/GettingStartedMaven.html">create a new project from the archetype</a> to compare the generated <code>pom.xml</code> with your existing projects.</p>
-<p>This <code>dependencyManagement</code> feature of Maven has no exact equivalent in sbt. We have found sbt&rsquo;s default conflict resolution algorithm to be less surprising than Maven&rsquo;s, and has fewer problems in practice, but we are looking into possibilities to improve this further in sbt as well.</p>
-<h2>Deprecated: default Cassandra keyspaces</h2>
-<p>Lagom&rsquo;s persistence needs a few tables to store its data. These tables are stored in Cassandra keyspaces. Each service should use a unique keyspace name so that the tables of different services do not conflict with each other. You need to configure the keyspaces that are used for these tables in the <code>application.conf</code> file of each of your service implementation projects. For example:</p>
-<pre class="prettyprint"><code>my-service.cassandra.keyspace = my_service
-
-cassandra-journal.keyspace = ${my-service.cassandra.keyspace}
-cassandra-snapshot-store.keyspace = ${my-service.cassandra.keyspace}
-lagom.persistence.read-side.cassandra.keyspace = ${my-service.cassandra.keyspace}
+<p>Special thanks to the following contributors who helped with the release 1.4.2:</p>
+<pre class="prettyprint"><code>commits  added  removed
+      9     291      56 Ignasi Marimon-Clos
+      6     176     139 Tim Moore
+      1      23       5 Renato Cavalcanti
+      1      12       0 Jason Pickens
 </code></pre>
-<p>Previous versions of Lagom automatically calculated a default Cassandra keyspace for each service, based on the name of the service project, and injected this keyspace configuration in development mode. When running in production, these calculated keyspaces were not used, resulting in multiple services sharing the same keyspaces by default if these properties were not configured in <code>application.conf</code>.</p>
-<p>Because of this unexpected inconsistency between the development and production environments, Lagom 1.3.2 deprecates the development environment behavior and prints a warning if these properties are not defined in a service that uses Cassandra persistence. The <code>cassandraKeyspace</code> parameter for the Lagom Maven plugin and <code>lagomCassandraKeyspace</code> setting for the Lagom sbt plugin are also deprecated, as it was not clear to everyone that these settings only affect the development environment, and are not used when keyspaces are configured in <code>application.conf</code>.</p>
-<p>New projects built from the Lagom Maven archetype or using <code>sbt new</code> and Lagom&rsquo;s g8 templates (either <a href="https://github.com/lagom/lagom-java.g8">java</a> or <a href="https://github.com/lagom/lagom-scala.g8">scala</a> ) include this configuration by default, using the name of the project it prompts you for to assign a default keyspace to the example persistent service implementation. You can change this default as required, and should be sure to configure unique keyspaces for additional service implementations as you create them.</p>
-<p>In Lagom 1.4, services that use Cassandra persistence will fail on startup when these properties are not defined.</p>
-<p>See <a href="https://www.lagomframework.com/documentation/1.3.x/java/PersistentEntityCassandra.html#Configuration">Storing Persistent Entities in Cassandra</a> for configuration details and <a href="https://github.com/lagom/lagom/issues/578">issue #578</a> for more background.</p>
-<h2><a href="#change-log" name="change-log">Change log</a></h2>
-<p>See the <a href="/changelog-1.3.x.html">change log</a> for more details on exactly what has been fixed in each release.</p>
 
                 <h2>Share</h2>
                 <div class="addthis_sharing_toolbox"></div>
@@ -378,9 +382,9 @@ lagom.persistence.read-side.cassandra.keyspace = ${my-service.cassandra.keyspace
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>
     <script>
         var disqus_config = function () {
-            this.page.url = "https://www.lagomframework.com/blog/lagom-1-3-2.html";
-            this.page.identifier = "lagom-1-3-2";
-            this.page.title = "Lagom 1.3.2 is released!";
+            this.page.url = "https://www.lagomframework.com/blog/lagom-1-4-2-and-1-3-11.html";
+            this.page.identifier = "lagom-1-4-2-and-1-3-11";
+            this.page.title = "Lagom 1.4.2\/1.3.11 released!";
         };
         (function() { // DON'T EDIT BELOW THIS LINE
             var d = document, s = d.createElement('script');

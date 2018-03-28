@@ -6,17 +6,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Relational Database Persistent Entities</title>
+        <title>Lagom - Lagom 1.4.4 released!</title>
         <meta name="description" content="Lagom">
-        
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.4.x/java/PersistentEntityRDBMS.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="/c2296791337fd63505280fe5b568bbb702edfefa-all-styles-concat.css" type="text/css">
          
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-    
+    <link href="/blog/atom.xml" type="application/atom+xml" rel="home" title="ATOM Feed" />
 
     </head>
     <body>
@@ -108,275 +105,172 @@
                         </div>
                     </div>
 
-                      
+                    
+
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Relational Database Persistent Entities</h1>
+                <div class="blog-meta">
+                    <div class="blog-author-image">
+                        <a href="https://github.com/renatocaval">
+                            <img src="https://avatars0.githubusercontent.com/u/502982?v=4"/>
+                        </a>
+                    </div>
+                    <div class="blog-meta-details">
+                        <a class="blog-author-name" href="https://github.com/renatocaval">Renato Cavalcanti</a>
+                        |
+                        <span class="blog-post-date">March 28, 2018</span>
+                        <div class="blog-meta-tags">
+                            
+                                <img src="/images/entypo/white/entypo_tag.svg" class="svg-icon"/>
+                                
+                                    <span class="blog-tag"><a href="tags/news.html">news</a></span>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                <h1>Lagom 1.4.4 released!</h1>
             </div>
         </div>
     </header>
 
-    <div class="fw-wrapper documentation-content">
+    <article class="fw-wrapper page-content">
         <div class="row">
             <div class="small-12 large-7 columns">
-                
-                    <nav class="breadcrumbs">
-                        <a href="Home.html">Java Home</a>
-                        
-                            &raquo; <a href="ReferenceGuide.html">Lagom reference guide</a>
-                        
-                            &raquo; <a href="PersistentEntity.html">Writing persistent and clustered services</a>
-                        
-                    </nav>
-                
-
-                <article>
-                <h1 id="Storing-Persistent-Entities-in-a-Relational-Database"><a class="section-marker" href="#Storing-Persistent-Entities-in-a-Relational-Database">§</a>Storing Persistent Entities in a Relational Database</h1>
-<p>This page describes how to configure a relational database for use with Lagom&rsquo;s <a href="PersistentEntity.html">Persistent Entity</a> API.</p><h2 id="Project-dependencies"><a class="section-marker" href="#Project-dependencies">§</a>Project dependencies</h2>
-<p>To use a relational database add the following in your project&rsquo;s build:</p>
-<p>In Maven:</p>
-<pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
-    &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
-    &lt;artifactId&gt;lagom-javadsl-persistence-jdbc_2.11&lt;/artifactId&gt;
-    &lt;version&gt;${lagom.version}&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-<p>In sbt:</p>
-<pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomJavadslPersistenceJdbc</code></pre>
-<p>You will also need to add the jar for your JDBC database driver.</p><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
-<p>Lagom uses the <a href="https://github.com/dnvriend/akka-persistence-jdbc"><code>akka-persistence-jdbc</code></a> plugin to persist entities to the database. This supports four different relational databases:</p>
-<ul>
-  <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  <li><a href="https://www.mysql.com/">MySQL</a></li>
-  <li><a href="https://www.oracle.com/database/index.html">Oracle</a></li>
-  <li><a href="https://www.h2database.com/">H2</a></li>
-</ul>
-<p>We advise against using H2 in production, however, it is suitable for use in development and testing.</p>
-<p>In Lagom&rsquo;s default configuration, Lagom will use Play&rsquo;s JDBC support to configure and create a connection pool. Details on how to configure it can be found <a href="https://www.playframework.com/documentation/2.5.x/JavaDatabase">here</a>. Play should be configured to provide a JNDI binding for the datasource, by default Lagom binds it to <code>DefaultDS</code>.</p>
-<p>Lagom then configures <code>akka-persistence-jdbc</code> to use that <code>DefaultDS</code> JNDI binding. <code>akka-persistence-jdbc</code> uses <a href="http://slick.lightbend.com/">Slick</a> to map tables and manage asynchronous execution of JDBC calls. This means we need to configure it to use the right Slick profile for your database, by default Lagom will use the H2 profile.</p>
-<p>So for example, to configure a PostgreSQL database, you can add the following to your <code>application.conf</code>:</p>
+                <p>The Lagom team has released Lagom 1.4.4.<br/>(we are skipping 1.4.3 due to a small mistake in the release process)</p>
+<p>This release provides a fix for <a href="https://github.com/lagom/lagom/issues/1250">#1250</a>. </p>
+<p><a href="https://github.com/lagom/lagom/issues/1250">#1250</a> only affects Lagom projects making usage of JDBC persistence layer, being it for the journal and/or for read-side tables. </p>
+<p>This release upgrades the versions of the underlying Slick library to <code>3.2.3</code> and the <code>akka-persistence-jdbc</code> plugin to version <code>3.3.0</code>.</p>
+<h2>Slick 3.2.3 special note</h2>
+<p>Since Slick 3.2.2, the <code>maxConnections</code> must equal <code>numThreads</code>. This is to prevent some situations where a deadlock could occur. A warning will be emitted in case <code>maxConnections &gt; numThreads</code> and a runtime exception will be thrown if <code>maxConnections &lt; numThreads</code>. Therefore the best possible configuration is <code>maxConnections == numThreads</code>. See <a href="https://github.com/slick/slick/pull/1855">slick/slick#1855</a> for detailed information.</p>
+<p>These values are configured by Lagom automatically under the configuration key <code>db.default.async-executor</code>.</p>
 <pre class="prettyprint"><code>db.default {
-  driver = &quot;org.postgresql.Driver&quot;
-  url = &quot;jdbc:postgresql://database.example.com/playdb&quot;
-}
+  async-executor {
+    # number of objects that can be queued by the async executor
+    queueSize = 10000
+    
+    # 5 * number of cores
+    numThreads = 20
 
-jdbc-defaults.slick.driver = &quot;slick.driver.PostgresDriver$&quot;
-</code></pre><h2 id="Table-creation"><a class="section-marker" href="#Table-creation">§</a>Table creation</h2>
-<p>By default, Lagom will automatically create the tables it needs for you if they don&rsquo;t already exist. This is great for development and testing, but in some circumstances may not be appropriate for production. The table auto creation feature can be disabled by using the following configuration:</p>
-<pre class="prettyprint"><code>lagom.persistence.jdbc.create-tables.auto = false
-</code></pre>
-<p>The database schemas needed for the tables can be found <a href="https://github.com/dnvriend/akka-persistence-jdbc/tree/v2.6.8/src/test/resources/schema">here</a>.</p>
-<p>The full configuration options that Lagom provides for managing the creation of tables is here:</p>
-<pre class="prettyprint"><code class="language-conf"># Defaults to use for each Akka persistence plugin
-jdbc-defaults.slick {
+    # same as number number of threads
+    minConnections = 20
 
-  # The driver to use
-  driver = &quot;slick.driver.H2Driver$&quot;
-
-  # The JNDI name
-  jndiName = &quot;DefaultDS&quot;
-}
-
-# Configure the default database to be bound to JNDI
-db.default.jndiName=DefaultDS
-
-lagom.persistence.jdbc {
-
-  # Configuration for creating tables
-  create-tables {
-
-    # Whether tables should be created automatically as needed
-    auto = true
-
-    # How long to wait for tables to be created, before failing
-    timeout = 20s
-
-    # The cluster role to create tables from
-    run-on-role = &quot;&quot;
-
-    # Exponential backoff for failures configuration for creating tables
-    failure-exponential-backoff {
-
-      # minimum (initial) duration until processor is started again
-      # after failure
-      min = 3s
-
-      # the exponential back-off is capped to this duration
-      max = 30s
-
-      # additional random delay is based on this factor
-      random-factor = 0.2
-    }
+    # same as number of threads
+    maxConnections = 20
   }
-}</code></pre>
-                </article>
+}
+</code></pre>
+<p>If you haven&rsquo;t changed the settings for your <code>async-executor</code>, you have nothing to do. However, if you have configured your <code>aync-executor</code> with other values, you should review it and make sure that <code>maxThreads == maxConnections</code>.</p>
+<p>See GitHub for the <a href="https://github.com/lagom/lagom/compare/1.4.2...1.4.4">full list of commits</a> and the issues and pull requests assigned to the <a href="https://github.com/lagom/lagom/milestone/29?closed=1">1.4.4 milestone</a>.</p>
+<h2>Updating a Lagom project to version 1.4.4</h2>
+<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
+<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
+<p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>
+<h2><a href="#credits" name="credits">Credits</a></h2>
+<p>Thanks to the community for their detailed bug reports and contributions.</p>
+<p>Thanks to <a href="https://www.lightbend.com">Lightbend</a> for their continued sponsorship of the Lagom core team&rsquo;s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>
 
-                
-                    
-                        
-                            <nav class="next-link">
-                                <a href="ReadSide.html"><strong>Next: </strong> Persistent Read-Side</a>
-                            </nav>
-                        
-                    
-                
+                <h2>Share</h2>
+                <div class="addthis_sharing_toolbox"></div>
 
-                
-                    <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.3.x/docs/manual/java/guide/cluster/PersistentEntityRDBMS.md">here</a>. Please feel free to edit and contribute a pull request.</p>
-                
+                <br/>
+
+                <h2>Discuss</h2>
+                <div id="disqus_thread"></div>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
             </div>
-            <aside class="small-12 large-4 columns">
-                <nav class="side-menu">
+            <aside class="show-for-medium small-12 large-4 columns">
+            
 
-                    <input type="text" id="docs-search" placeholder="Search"/>
+<nav class="side-menu">
+    
+        <h3>Recent posts</h3>
 
-                    <label for="docs-version">Version:</label>
-                    <select id="docs-version">
-                    
-                        <option value="/documentation/1.0.x/java/Home.html">1.0.x</option>
-                    
-                        <option value="/documentation/1.1.x/java/Home.html">1.1.x</option>
-                    
-                        <option value="/documentation/1.2.x/java/PersistentEntityRDBMS.html">1.2.x</option>
-                    
-                        <option value="/documentation/1.3.x/java/PersistentEntityRDBMS.html" selected="selected">1.3.x</option>
-                    
-                        <option value="/documentation/1.4.x/java/PersistentEntityRDBMS.html">1.4.x</option>
-                    
-                        <option value="/documentation/current/java/PersistentEntityRDBMS.html">current</option>
-                    
-                        <option value="/documentation/latest/java/PersistentEntityRDBMS.html">latest</option>
-                    
-                    </select>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/renatocaval">
+                        <img src="https://avatars0.githubusercontent.com/u/502982?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1.4.4.html">Lagom 1.4.4 released!</a>
+                    <br/>
+                    March 28, 2018
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-4-2-and-1-3-11.html">Lagom 1.4.2/1.3.11 released!</a>
+                    <br/>
+                    March 22, 2018
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/jroper">
+                        <img src="https://avatars0.githubusercontent.com/u/105833?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/event-sourcing-vs-crud.html">From CRUD to Event Sourcing</a>
+                    <br/>
+                    March 20, 2018
+                </div>
+            </div>
+        
 
-                    <a href="/documentation/1.3.x/java/api/index.html" class="api-docs">API Documentation</a>
+    
 
-                    
-                        <h3>Writing persistent and clustered services</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="PersistentEntity.html">Persistent Entity</a></li>
-                            
-                        
-                            
-                                <li><a href="PersistentEntityCassandra.html">Cassandra Persistent Entities</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="PersistentEntityRDBMS.html">Relational Database Persistent Entities</a></li>
-                            
-                        
-                            
-                                <li><a href="ReadSide.html">Persistent Read-Side</a></li>
-                            
-                        
-                            
-                                <li><a href="ReadSideCassandra.html">Cassandra Read-Side Support</a></li>
-                            
-                        
-                            
-                                <li><a href="ReadSideRDBMS.html">Relational Database Read-Side Support</a></li>
-                            
-                        
-                            
-                                <li><a href="ReadSideJDBC.html">JDBC Read-Side Support</a></li>
-                            
-                        
-                            
-                                <li><a href="ReadSideJPA.html">JPA Read-Side Support</a></li>
-                            
-                        
-                            
-                                <li><a href="PubSub.html">Publish-Subscribe</a></li>
-                            
-                        
-                            
-                                <li><a href="Serialization.html">Serialization</a></li>
-                            
-                        
-                            
-                                <li><a href="Cluster.html">Cluster</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Lagom reference guide</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="ReferenceGuide.html">Reference Guide</a></li>
-                            
-                        
-                            
-                                <li><a href="LagomBuild.html">Configuring builds and the development environment</a></li>
-                            
-                        
-                            
-                                <li><a href="DevEnvironment.html">Running Lagom in development</a></li>
-                            
-                        
-                            
-                                <li><a href="ServiceDescriptors.html">Writing Lagom services</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
-                            
-                        
-                            
-                                <li><a href="MessageBroker.html">Decouple services with a message broker</a></li>
-                            
-                        
-                            
-                                <li><a href="ProductionOverview.html">Running Lagom in production</a></li>
-                            
-                        
-                            
-                                <li><a href="Logging.html">Logging</a></li>
-                            
-                        
-                            
-                                <li><a href="Akka.html">Advanced topics</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Java Home</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="Home.html">Home</a></li>
-                            
-                        
-                            
-                                <li><a href="WhatIsLagom.html">Welcome to Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="IntroGetStarted.html">Getting started with Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="CoreConcepts.html">Lagom core concepts</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="ReferenceGuide.html">Lagom reference guide</a></li>
-                            
-                        
-                            
-                                <li><a href="Migration13.html">Lagom releases</a></li>
-                            
-                        
-                        </ul>
-                    
-                </nav>
+    <h3>Tags</h3>
+
+    <div class="blog-tag-box">
+    
+        <a href="/blog/tags/conductr.html" data-count="1">conductr</a>
+    
+        <a href="/blog/tags/cookbook.html" data-count="1">cookbook</a>
+    
+        <a href="/blog/tags/crud.html" data-count="1">crud</a>
+    
+        <a href="/blog/tags/discuss.html" data-count="1">discuss</a>
+    
+        <a href="/blog/tags/event%20sourcing.html" data-count="1">event sourcing</a>
+    
+        <a href="/blog/tags/generator.html" data-count="1">generator</a>
+    
+        <a href="/blog/tags/java.html" data-count="1">java</a>
+    
+        <a href="/blog/tags/maven.html" data-count="1">maven</a>
+    
+        <a href="/blog/tags/news.html" data-count="34">news</a>
+    
+        <a href="/blog/tags/outreachy.html" data-count="1">outreachy</a>
+    
+        <a href="/blog/tags/recipes.html" data-count="1">recipes</a>
+    
+        <a href="/blog/tags/scala.html" data-count="2">scala</a>
+    
+        <a href="/blog/tags/screencast.html" data-count="1">screencast</a>
+    
+    </div>
+
+</nav>
+
+
             </aside>
         </div>
-   </div>
+    </article>
+
+
 
 
                     <footer>
@@ -471,17 +365,20 @@ lagom.persistence.jdbc {
     <script src="/c2296791337fd63505280fe5b568bbb702edfefa-all-scripts-concat.js"></script>
     
      
-    <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
-    <script type="text/javascript"> docsearch({
-        apiKey: "77ef1e29e6bddfca861f7a42cc51725e",
-        indexName: "lagomframework",
-        inputSelector: "#docs-search",
-        algoliaOptions: {
-            facetFilters: ["version:1.3.x", "language:java"]
-        }
-    });
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://www.lagomframework.com/blog/lagom-1.4.4.html";
+            this.page.identifier = "lagom-1.4.4";
+            this.page.title = "Lagom 1.4.4 released!";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//lagomframework.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
-    
 
     <script>
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

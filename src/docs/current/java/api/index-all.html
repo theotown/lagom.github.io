@@ -290,6 +290,10 @@
 <dd>
 <div class="block">Build the read side handler.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#build--">build()</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.BehaviorBuilder</a></dt>
+<dd>
+<div class="block">Construct the corresponding immutable <code>Behavior</code>.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/status/CircuitBreakerStatus.Builder.html#build--">build()</a></span> - Method in class com.lightbend.lagom.javadsl.server.status.<a href="com/lightbend/lagom/javadsl/server/status/CircuitBreakerStatus.Builder.html" title="class in com.lightbend.lagom.javadsl.server.status">CircuitBreakerStatus.Builder</a></dt>
 <dd>
 <div class="block">Builds a new <a href="com/lightbend/lagom/javadsl/server/status/CircuitBreakerStatus.html" title="class in com.lightbend.lagom.javadsl.server.status"><code>CircuitBreakerStatus</code></a>.</div>
@@ -1218,6 +1222,8 @@
 <div class="block">The messages that were sent as replies using the context that is
  passed as parameter to the command handler functions.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#getState--">getState()</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.BehaviorBuilder</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/status/AbstractCircuitBreakerStatus.html#getState--">getState()</a></span> - Method in interface com.lightbend.lagom.javadsl.server.status.<a href="com/lightbend/lagom/javadsl/server/status/AbstractCircuitBreakerStatus.html" title="interface in com.lightbend.lagom.javadsl.server.status">AbstractCircuitBreakerStatus</a></dt>
 <dd>
 <div class="block">Circuit breaker state; closed, open, half-open.</div>
@@ -2018,7 +2024,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/deser/MessageSerializers.html#NOT_USED">NOT_USED</a></span> - Static variable in class com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/MessageSerializers.html" title="class in com.lightbend.lagom.javadsl.api.deser">MessageSerializers</a></dt>
 <dd>
-<div class="block">A serializer for <code>NotUsed</code> (empty) messages.</div>
+<div class="block">A serializer for <a href="https://doc.akka.io/japi/akka/current/akka/NotUsed.html?is-external=true" title="class or interface in akka"><code>NotUsed</code></a> (empty) messages.</div>
 </dd>
 <dt><a href="com/lightbend/lagom/javadsl/api/transport/NotAcceptable.html" title="class in com.lightbend.lagom.javadsl.api.transport"><span class="typeNameLink">NotAcceptable</span></a> - Exception in <a href="com/lightbend/lagom/javadsl/api/transport/package-summary.html">com.lightbend.lagom.javadsl.api.transport</a></dt>
 <dd>
@@ -2329,6 +2335,10 @@
 </dd>
 <dt><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior$.html" title="class in com.lightbend.lagom.javadsl.persistence"><span class="typeNameLink">PersistentEntity.Behavior$</span></a> - Class in <a href="com/lightbend/lagom/javadsl/persistence/package-summary.html">com.lightbend.lagom.javadsl.persistence</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence"><span class="typeNameLink">PersistentEntity.BehaviorBuilder</span></a> - Interface in <a href="com/lightbend/lagom/javadsl/persistence/package-summary.html">com.lightbend.lagom.javadsl.persistence</a></dt>
+<dd>
+<div class="block">Mutable builder that is used for defining the event and command handlers.</div>
+</dd>
 <dt><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.CommandContext.html" title="class in com.lightbend.lagom.javadsl.persistence"><span class="typeNameLink">PersistentEntity.CommandContext</span></a>&lt;<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.CommandContext.html" title="type parameter in PersistentEntity.CommandContext">R</a>&gt; - Class in <a href="com/lightbend/lagom/javadsl/persistence/package-summary.html">com.lightbend.lagom.javadsl.persistence</a></dt>
 <dd>
 <div class="block">The context that is passed to command handler function.</div>
@@ -2676,6 +2686,14 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ReadSideTestDriver.html#register-java.lang.Class-">register(Class&lt;? extends ReadSideProcessor&lt;Event&gt;&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ReadSideTestDriver.html" title="class in com.lightbend.lagom.javadsl.testkit">ReadSideTestDriver</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#removeCommandHandler-java.lang.Class-">removeCommandHandler(Class&lt;? extends Command&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.BehaviorBuilder</a></dt>
+<dd>
+<div class="block">Remove a command handler for a given command class.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#removeEventHandler-java.lang.Class-">removeEventHandler(Class&lt;? extends Event&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.BehaviorBuilder</a></dt>
+<dd>
+<div class="block">Remove an event handler for a given event class.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.html#replaceAllAcls-org.pcollections.PSequence-">replaceAllAcls(PSequence&lt;ServiceAcl&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a></dt>
 <dd>
 <div class="block">Replace all the ACLs with the given ACL sequence.</div>
@@ -3056,6 +3074,10 @@
 <dd>
 <div class="block">Create a PathParamSerializer for Set parameters.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#setCommandHandler-java.lang.Class-java.util.function.BiFunction-">setCommandHandler(Class&lt;A&gt;, BiFunction&lt;A, PersistentEntity&lt;Command, Event, State&gt;.CommandContext&lt;R&gt;, PersistentEntity&lt;Command, Event, State&gt;.Persist&lt;? extends Event&gt;&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.BehaviorBuilder</a></dt>
+<dd>
+<div class="block">Register a command handler for a given command class.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html#setEventHandler-java.lang.Class-java.util.function.Function-">setEventHandler(Class&lt;E&gt;, Function&lt;E, CompletionStage&lt;List&lt;BoundStatement&gt;&gt;&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSide.ReadSideHandlerBuilder</a></dt>
 <dd>
 <div class="block">Define the event handler that will be used for events of a given class.</div>
@@ -3081,6 +3103,14 @@
 <dd>
 <div class="block">Define the event handler that will be used for events of a given class.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#setEventHandler-java.lang.Class-java.util.function.Function-">setEventHandler(Class&lt;A&gt;, Function&lt;A, State&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.BehaviorBuilder</a></dt>
+<dd>
+<div class="block">Register an event handler for a given event class.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#setEventHandlerChangingBehavior-java.lang.Class-java.util.function.Function-">setEventHandlerChangingBehavior(Class&lt;A&gt;, Function&lt;A, PersistentEntity&lt;Command, Event, State&gt;.Behavior&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.BehaviorBuilder</a></dt>
+<dd>
+<div class="block">Register an event handler that is updating the behavior for a given event class.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html#setGlobalPrepare-java.util.function.Supplier-">setGlobalPrepare(Supplier&lt;CompletionStage&lt;Done&gt;&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSide.ReadSideHandlerBuilder</a></dt>
 <dd>
 <div class="block">Set a global prepare callback.</div>
@@ -3105,6 +3135,12 @@
 <dd>
 <div class="block">Set a prepare callback.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#setReadOnlyCommandHandler-java.lang.Class-java.util.function.BiConsumer-">setReadOnlyCommandHandler(Class&lt;A&gt;, BiConsumer&lt;A, PersistentEntity&lt;Command, Event, State&gt;.ReadOnlyCommandContext&lt;R&gt;&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.BehaviorBuilder</a></dt>
+<dd>
+<div class="block">Register a read-only command handler for a given command class.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#setState-State-">setState(State)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.BehaviorBuilder</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#sharded-java.lang.Class-int-">sharded(Class&lt;Event&gt;, int)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag$</a></dt>
 <dd>
 <div class="block">Create an aggregate event shards tagger.</div>

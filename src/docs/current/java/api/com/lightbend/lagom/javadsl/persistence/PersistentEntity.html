@@ -95,7 +95,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li>Object</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></li>
 <li>
 <ul class="inheritance">
 <li>com.lightbend.lagom.javadsl.persistence.PersistentEntity&lt;Command,Event,State&gt;</li>
@@ -108,7 +108,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public abstract class <span class="typeNameLabel">PersistentEntity&lt;Command,Event,State&gt;</span>
-extends Object</pre>
+extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">A <code>PersistentEntity</code> has a stable entity identifier, with which
  it can be accessed from anywhere in the cluster. It is run by an actor
  and the state is persistent using event sourcing.
@@ -202,88 +202,94 @@ extends Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior$.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior$</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static interface&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.BehaviorBuilder</a></span></code>
+<div class="block">Mutable builder that is used for defining the event and command handlers.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.CommandContext.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.CommandContext</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.CommandContext.html" title="type parameter in PersistentEntity.CommandContext">R</a>&gt;</span></code>
 <div class="block">The context that is passed to command handler function.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.InvalidCommandException.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.InvalidCommandException</a></span></code>
 <div class="block">Standard exception when rejecting invalid commands.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.InvalidCommandException$.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.InvalidCommandException$</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="type parameter in PersistentEntity.Persist">B</a> extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;</span></code>
 <div class="block">A command handler returns a <code>Persist</code> directive that defines what event or events,
  if any, to persist.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistAll.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.PersistAll</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistAll.html" title="type parameter in PersistentEntity.PersistAll">B</a> extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;</span></code>
 <div class="block">INTERNAL API</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistAll$.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.PersistAll$</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistException.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.PersistException</a></span></code>
 <div class="block">Exception that is used when persist fails.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistException$.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.PersistException$</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistNone.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.PersistNone</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistNone.html" title="type parameter in PersistentEntity.PersistNone">B</a> extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;</span></code>
 <div class="block">INTERNAL API</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistNone$.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.PersistNone$</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistOne.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.PersistOne</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistOne.html" title="type parameter in PersistentEntity.PersistOne">B</a> extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;</span></code>
 <div class="block">INTERNAL API</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistOne$.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.PersistOne$</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.ReadOnlyCommandContext.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.ReadOnlyCommandContext</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.ReadOnlyCommandContext.html" title="type parameter in PersistentEntity.ReadOnlyCommandContext">R</a>&gt;</span></code>
 <div class="block">The context that is passed to read-only command handlers.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static interface&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.ReplyType.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.ReplyType</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.ReplyType.html" title="type parameter in PersistentEntity.ReplyType">R</a>&gt;</span></code>
 <div class="block">Commands to a <code>PersistentEntity</code> must implement this interface
  to define the reply type.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.UnhandledCommandException.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.UnhandledCommandException</a></span></code>
 <div class="block">Exception that is used when command is not handled</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.UnhandledCommandException$.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.UnhandledCommandException$</a></span></code>&nbsp;</td>
 </tr>
@@ -324,14 +330,14 @@ extends Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html#behavior--">behavior</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>String</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html#entityTypeName--">entityTypeName</a></span>()</code>
 <div class="block">The name of this entity type.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>abstract <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html#initialBehavior-java.util.Optional-">initialBehavior</a></span>(java.util.Optional&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&gt;&nbsp;snapshotState)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html#initialBehavior-java.util.Optional-">initialBehavior</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&gt;&nbsp;snapshotState)</code>
 <div class="block">Abstract method that must be implemented by concrete subclass to define
  the behavior of the entity.</div>
 </td>
@@ -344,7 +350,7 @@ extends Object</pre>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html#internalSetEntityId-java.lang.String-">internalSetEntityId</a></span>(String&nbsp;id)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html#internalSetEntityId-java.lang.String-">internalSetEntityId</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id)</code>
 <div class="block">INTERNAL API</div>
 </td>
 </tr>
@@ -355,7 +361,7 @@ extends Object</pre>
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>com.lightbend.lagom.javadsl.persistence.PersistentEntity.BehaviorBuilder</code></td>
+<td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.BehaviorBuilder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html#newBehaviorBuilder-State-">newBehaviorBuilder</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&nbsp;state)</code>
 <div class="block">Create a new empty <code>BehaviorBuilder</code> with a given state.</div>
 </td>
@@ -372,8 +378,8 @@ extends Object</pre>
 <li class="blockList"><a name="methods.inherited.from.class.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;Object</h3>
-<code>equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+<h3>Methods inherited from class&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -412,7 +418,7 @@ extends Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>internalSetEntityId</h4>
-<pre>public&nbsp;void&nbsp;internalSetEntityId(String&nbsp;id)</pre>
+<pre>public&nbsp;void&nbsp;internalSetEntityId(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id)</pre>
 <div class="block">INTERNAL API</div>
 </li>
 </ul>
@@ -441,7 +447,7 @@ extends Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>entityTypeName</h4>
-<pre>public&nbsp;String&nbsp;entityTypeName()</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;entityTypeName()</pre>
 <div class="block">The name of this entity type. It should be unique among the entity
  types of the service. By default it is using the short class name
  of the concrete <code>PersistentEntity</code> class. Subclass may override
@@ -457,7 +463,7 @@ extends Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>initialBehavior</h4>
-<pre>public abstract&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a>&nbsp;initialBehavior(java.util.Optional&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&gt;&nbsp;snapshotState)</pre>
+<pre>public abstract&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a>&nbsp;initialBehavior(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&gt;&nbsp;snapshotState)</pre>
 <div class="block">Abstract method that must be implemented by concrete subclass to define
  the behavior of the entity. Use <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html#newBehaviorBuilder-State-"><code>newBehaviorBuilder(State)</code></a> to create a mutable builder
  for defining the behavior.</div>
@@ -494,7 +500,7 @@ extends Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>newBehaviorBuilder</h4>
-<pre>public final&nbsp;com.lightbend.lagom.javadsl.persistence.PersistentEntity.BehaviorBuilder&nbsp;newBehaviorBuilder(<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&nbsp;state)</pre>
+<pre>public final&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.BehaviorBuilder</a>&nbsp;newBehaviorBuilder(<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&nbsp;state)</pre>
 <div class="block">Create a new empty <code>BehaviorBuilder</code> with a given state.</div>
 </li>
 </ul>

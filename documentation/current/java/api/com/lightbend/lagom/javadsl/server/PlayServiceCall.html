@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>@FunctionalInterface
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html?is-external=true" title="class or interface in java.lang">@FunctionalInterface</a>
 public interface <span class="typeNameLabel">PlayServiceCall&lt;Request,Response&gt;</span>
 extends <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;Request,Response&gt;</pre>
 <div class="block">A service call implementation that allows plugging directly into Play's request handling.</div>
@@ -130,13 +130,13 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>play.mvc.EssentialAction</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html#invoke-java.util.function.Function-">invoke</a></span>(java.util.function.Function&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Request</a>,<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Response</a>&gt;,play.mvc.EssentialAction&gt;&nbsp;wrapCall)</code>
+<td class="colFirst"><code><a href="https://www.playframework.com/documentation/latest/api/java/play/mvc/EssentialAction.html?is-external=true" title="class or interface in play.mvc">EssentialAction</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html#invoke-java.util.function.Function-">invoke</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Request</a>,<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Response</a>&gt;,<a href="https://www.playframework.com/documentation/latest/api/java/play/mvc/EssentialAction.html?is-external=true" title="class or interface in play.mvc">EssentialAction</a>&gt;&nbsp;wrapCall)</code>
 <div class="block">Low level hook for implementing service calls directly in Play.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>default java.util.concurrent.CompletionStage&lt;<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Response</a>&gt;</code></td>
+<td class="colFirst"><code>default <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Response</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html#invoke-Request-">invoke</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Request</a>&nbsp;request)</code>
 <div class="block">Invoke the service call.</div>
 </td>
@@ -171,7 +171,7 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html
 <ul class="blockList">
 <li class="blockList">
 <h4>invoke</h4>
-<pre>default&nbsp;java.util.concurrent.CompletionStage&lt;<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Response</a>&gt;&nbsp;invoke(<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Request</a>&nbsp;request)</pre>
+<pre>default&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Response</a>&gt;&nbsp;invoke(<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Request</a>&nbsp;request)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html#invoke-Request-">ServiceCall</a></code></span></div>
 <div class="block">Invoke the service call.</div>
 <dl>
@@ -190,7 +190,7 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>invoke</h4>
-<pre>play.mvc.EssentialAction&nbsp;invoke(java.util.function.Function&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Request</a>,<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Response</a>&gt;,play.mvc.EssentialAction&gt;&nbsp;wrapCall)</pre>
+<pre><a href="https://www.playframework.com/documentation/latest/api/java/play/mvc/EssentialAction.html?is-external=true" title="class or interface in play.mvc">EssentialAction</a>&nbsp;invoke(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Request</a>,<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Response</a>&gt;,<a href="https://www.playframework.com/documentation/latest/api/java/play/mvc/EssentialAction.html?is-external=true" title="class or interface in play.mvc">EssentialAction</a>&gt;&nbsp;wrapCall)</pre>
 <div class="block">Low level hook for implementing service calls directly in Play.
 
  This can only be used to hook into plain HTTP calls, it can't be used to hook into WebSocket calls.</div>

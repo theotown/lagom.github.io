@@ -147,21 +147,21 @@ var activeTableTab = "activeTableTab";
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>java.util.concurrent.CompletionStage&lt;akka.Done&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html#atLeastOnce-akka.stream.javadsl.Flow-">atLeastOnce</a></span>(akka.stream.javadsl.Flow&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>,akka.Done,?&gt;&nbsp;flow)</code>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html#atLeastOnce-akka.stream.javadsl.Flow-">atLeastOnce</a></span>(<a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Flow.html?is-external=true" title="class or interface in akka.stream.javadsl">Flow</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>,<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>,?&gt;&nbsp;flow)</code>
 <div class="block">Applies the passed <code>flow</code> to the messages processed by this
  subscriber.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>akka.stream.javadsl.Source&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>,?&gt;</code></td>
+<td class="colFirst"><code><a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Source.html?is-external=true" title="class or interface in akka.stream.javadsl">Source</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>,?&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html#atMostOnceSource--">atMostOnceSource</a></span>()</code>
 <div class="block">Returns a stream of messages with at most once delivery semantic.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="interface in com.lightbend.lagom.javadsl.api.broker">Subscriber</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html#withGroupId-java.lang.String-">withGroupId</a></span>(String&nbsp;groupId)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html#withGroupId-java.lang.String-">withGroupId</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;groupId)</code>
 <div class="block">Returns a copy of this subscriber with the passed group id.</div>
 </td>
 </tr>
@@ -194,8 +194,8 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>withGroupId</h4>
-<pre><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="interface in com.lightbend.lagom.javadsl.api.broker">Subscriber</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>&gt;&nbsp;withGroupId(String&nbsp;groupId)
-                         throws IllegalArgumentException</pre>
+<pre><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="interface in com.lightbend.lagom.javadsl.api.broker">Subscriber</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>&gt;&nbsp;withGroupId(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;groupId)
+                         throws <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></pre>
 <div class="block">Returns a copy of this subscriber with the passed group id.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -203,7 +203,7 @@ var activeTableTab = "activeTableTab";
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A copy of this subscriber with the passed group id.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>IllegalArgumentException</code> - If the passed group id is illegal.</dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - If the passed group id is illegal.</dd>
 </dl>
 </li>
 </ul>
@@ -229,7 +229,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>atMostOnceSource</h4>
-<pre>akka.stream.javadsl.Source&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>,?&gt;&nbsp;atMostOnceSource()</pre>
+<pre><a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Source.html?is-external=true" title="class or interface in akka.stream.javadsl">Source</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>,?&gt;&nbsp;atMostOnceSource()</pre>
 <div class="block">Returns a stream of messages with at most once delivery semantic.
 
  If a failure occurs (e.g., an exception is thrown), the user is responsible
@@ -242,7 +242,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockListLast">
 <li class="blockList">
 <h4>atLeastOnce</h4>
-<pre>java.util.concurrent.CompletionStage&lt;akka.Done&gt;&nbsp;atLeastOnce(akka.stream.javadsl.Flow&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>,akka.Done,?&gt;&nbsp;flow)</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;&nbsp;atLeastOnce(<a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Flow.html?is-external=true" title="class or interface in akka.stream.javadsl">Flow</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>,<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>,?&gt;&nbsp;flow)</pre>
 <div class="block">Applies the passed <code>flow</code> to the messages processed by this
  subscriber. Messages are delivered to the passed <code>flow</code> at least
  once.

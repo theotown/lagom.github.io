@@ -11,7 +11,23 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/313e87de3999f656c2161c31c2b42f70db728f9a-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/730347d9b66d7b5f56dff22777b2b14581104d25-all-styles-concat.css" type="text/css">
+        <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
+        <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
+        <script type="text/javascript">
+            function OptanonWrapper() { 
+                (function($) {
+                    $(function() {
+                        //find each YT embed and only load if cookies have been approved
+                        $( ".yt-widget" ).each(function( index ) {
+                            var ytID = $(this).attr("id").slice(3);
+                            Optanon.InsertHtml('<iframe id="player" class="youtube-embed-player" src="//www.youtube.com/embed/'+ytID+'?rel=0&amp;autohide=1&amp;modestbranding=0&amp;showinfo=1" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>', 'yt-'+ytID, null, {deleteSelectorContent: true}, 4);
+                        });
+                    });
+                })(jQuery);
+            }
+        </script>
+        <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) end -->
          
     <link href="/blog/atom.xml" type="application/atom+xml" rel="home" title="ATOM Feed" />
 
@@ -168,7 +184,7 @@
                 <br/>
 
                 <h2>Discuss</h2>
-                <div id="disqus_thread"></div>
+                <div id="disqus_thread"><div class="cookie-warning"><p>Cookies are required for this functionality.<a class="optanon-allow-all">Allow Cookies</a><p></div></div>
                 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
             </div>
@@ -345,6 +361,18 @@
                                     <p>Lagom is released under the Apache 2 License</p>
                                 </div>
                             </div>
+                            <div class="row lb-legal">
+                                <div class="small-12 columns">
+                                    <p>
+                                        &copy; Lightbend 2018 | 
+                                        <a href="https://www.lightbend.com/legal/licenses" target="_blank">Licenses</a> | 
+                                        <a href="https://www.lightbend.com/legal/terms" target="_blank">Terms</a> | 
+                                        <a href="https://www.lightbend.com/legal/privacy" target="_blank">Privacy Policy</a> | 
+                                        <a href="/cookie.html">Cookie Listing</a> | 
+                                        <a class="optanon-toggle-display">Cookie Settings</a>
+                                    </p>
+                                </div>
+                            </div>
                         </section>
 
                     </footer>
@@ -353,11 +381,11 @@
             </div>
         </div>
     </body>
-    <script src="/313e87de3999f656c2161c31c2b42f70db728f9a-all-scripts-concat.js"></script>
+    <script src="/730347d9b66d7b5f56dff22777b2b14581104d25-all-scripts-concat.js"></script>
     
      
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>
-    <script>
+    <script type="text/plain" class="optanon-category-4" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>
+    <script type="text/plain" class="optanon-category-4">
         var disqus_config = function () {
             this.page.url = "https://www.lagomframework.com/blog/lagom-1-3-RC2.html";
             this.page.identifier = "lagom-1-3-RC2";
@@ -371,7 +399,7 @@
         })();
     </script>
 
-    <script>
+    <script type="text/plain" class="optanon-category-2">
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

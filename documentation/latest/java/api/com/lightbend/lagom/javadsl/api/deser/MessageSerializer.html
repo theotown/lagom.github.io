@@ -117,7 +117,7 @@ var activeTableTab = "activeTableTab";
 
  This interface doesn't actually specify the wireformat that the serializer must serialize to, there are two sub
  interfaces that do, they being <a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/StrictMessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser"><code>StrictMessageSerializer</code></a>, which serializes messages that are primarily in
- memory, to and from <code>ByteString</code>, and <a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/StreamedMessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser"><code>StreamedMessageSerializer</code></a>, which serializes streams of messages.
+ memory, to and from <a href="https://doc.akka.io/japi/akka/current/akka/util/ByteString.html?is-external=true" title="class or interface in akka.util"><code>ByteString</code></a>, and <a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/StreamedMessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser"><code>StreamedMessageSerializer</code></a>, which serializes streams of messages.
  Note that all message serializers used by the framework must implement one of these two sub interfaces, the
  framework does not know how to handle other serializer types.</div>
 </li>
@@ -197,7 +197,7 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.NegotiatedSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer.NegotiatedSerializer</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="type parameter in MessageSerializer">MessageEntity</a>,<a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="type parameter in MessageSerializer">WireFormat</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html#serializerForResponse-java.util.List-">serializerForResponse</a></span>(java.util.List&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/MessageProtocol.html" title="class in com.lightbend.lagom.javadsl.api.transport">MessageProtocol</a>&gt;&nbsp;acceptedMessageProtocols)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html#serializerForResponse-java.util.List-">serializerForResponse</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/MessageProtocol.html" title="class in com.lightbend.lagom.javadsl.api.transport">MessageProtocol</a>&gt;&nbsp;acceptedMessageProtocols)</code>
 <div class="block">Negotiate a serializer for the response, given the accepted message headers.</div>
 </td>
 </tr>
@@ -236,7 +236,7 @@ var activeTableTab = "activeTableTab";
 <div class="block">Whether this serializer serializes values that are used or not.
 
  If false, it means this serializer is for an empty request/response, eg, they use the
- <code>NotUsed</code> type.</div>
+ <a href="https://doc.akka.io/japi/akka/current/akka/NotUsed.html?is-external=true" title="class or interface in akka"><code>NotUsed</code></a> type.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>Whether the values this serializer serializes are used.</dd>
@@ -298,7 +298,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockListLast">
 <li class="blockList">
 <h4>serializerForResponse</h4>
-<pre><a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.NegotiatedSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer.NegotiatedSerializer</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="type parameter in MessageSerializer">MessageEntity</a>,<a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="type parameter in MessageSerializer">WireFormat</a>&gt;&nbsp;serializerForResponse(java.util.List&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/MessageProtocol.html" title="class in com.lightbend.lagom.javadsl.api.transport">MessageProtocol</a>&gt;&nbsp;acceptedMessageProtocols)
+<pre><a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.NegotiatedSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer.NegotiatedSerializer</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="type parameter in MessageSerializer">MessageEntity</a>,<a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="type parameter in MessageSerializer">WireFormat</a>&gt;&nbsp;serializerForResponse(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/MessageProtocol.html" title="class in com.lightbend.lagom.javadsl.api.transport">MessageProtocol</a>&gt;&nbsp;acceptedMessageProtocols)
                                                                                 throws <a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/NotAcceptable.html" title="class in com.lightbend.lagom.javadsl.api.transport">NotAcceptable</a></pre>
 <div class="block">Negotiate a serializer for the response, given the accepted message headers.</div>
 <dl>

@@ -160,14 +160,14 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClient
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>default &lt;T extends <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api">Service</a>&gt;<br>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-">bindService</a></span>(Class&lt;T&gt;&nbsp;serviceInterface,
-           Class&lt;? extends T&gt;&nbsp;serviceImplementation)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-">bindService</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;serviceInterface,
+           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends T&gt;&nbsp;serviceImplementation)</code>
 <div class="block">Binds a Service interface with its implementation.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>default &lt;T extends <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api">Service</a>&gt;<br>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-T-">bindService</a></span>(Class&lt;T&gt;&nbsp;serviceInterface,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-T-">bindService</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;serviceInterface,
            T&nbsp;service)</code>
 <div class="block">Binds a Service interface with an instance that implements it.</div>
 </td>
@@ -189,14 +189,14 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClient
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>default &lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;T&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#serviceBinding-java.lang.Class-java.lang.Class-">serviceBinding</a></span>(Class&lt;T&gt;&nbsp;serviceInterface,
-              Class&lt;? extends T&gt;&nbsp;serviceImplementation)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#serviceBinding-java.lang.Class-java.lang.Class-">serviceBinding</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;serviceInterface,
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends T&gt;&nbsp;serviceImplementation)</code>
 <div class="block">Convenience method to create <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a> when using <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-"><code>bindServices(ServiceBinding[])</code></a>.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>default &lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;T&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#serviceBinding-java.lang.Class-T-">serviceBinding</a></span>(Class&lt;T&gt;&nbsp;serviceInterface,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#serviceBinding-java.lang.Class-T-">serviceBinding</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;serviceInterface,
               T&nbsp;service)</code>
 <div class="block">Convenience method to create <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a> when using <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-"><code>bindServices(ServiceBinding[])</code></a>.</div>
 </td>
@@ -270,8 +270,8 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClient
 <ul class="blockList">
 <li class="blockList">
 <h4>bindService</h4>
-<pre>default&nbsp;&lt;T extends <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api">Service</a>&gt;&nbsp;void&nbsp;bindService(Class&lt;T&gt;&nbsp;serviceInterface,
-                                             Class&lt;? extends T&gt;&nbsp;serviceImplementation)</pre>
+<pre>default&nbsp;&lt;T extends <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api">Service</a>&gt;&nbsp;void&nbsp;bindService(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;serviceInterface,
+                                             <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends T&gt;&nbsp;serviceImplementation)</pre>
 <div class="block">Binds a Service interface with its implementation.
  <p>
  Inspects the service descriptor and creates routes to serve every call described.
@@ -294,7 +294,7 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClient
 <ul class="blockList">
 <li class="blockList">
 <h4>bindService</h4>
-<pre>default&nbsp;&lt;T extends <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api">Service</a>&gt;&nbsp;void&nbsp;bindService(Class&lt;T&gt;&nbsp;serviceInterface,
+<pre>default&nbsp;&lt;T extends <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api">Service</a>&gt;&nbsp;void&nbsp;bindService(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;serviceInterface,
                                              T&nbsp;service)</pre>
 <div class="block">Binds a Service interface with an instance that implements it.
  <p>
@@ -316,8 +316,8 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClient
 <ul class="blockList">
 <li class="blockList">
 <h4>serviceBinding</h4>
-<pre>default&nbsp;&lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;T&gt;&nbsp;serviceBinding(Class&lt;T&gt;&nbsp;serviceInterface,
-                                                                 Class&lt;? extends T&gt;&nbsp;serviceImplementation)</pre>
+<pre>default&nbsp;&lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;T&gt;&nbsp;serviceBinding(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;serviceInterface,
+                                                                 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends T&gt;&nbsp;serviceImplementation)</pre>
 <div class="block">Convenience method to create <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a> when using <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-"><code>bindServices(ServiceBinding[])</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -333,7 +333,7 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClient
 <ul class="blockListLast">
 <li class="blockList">
 <h4>serviceBinding</h4>
-<pre>default&nbsp;&lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;T&gt;&nbsp;serviceBinding(Class&lt;T&gt;&nbsp;serviceInterface,
+<pre>default&nbsp;&lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;T&gt;&nbsp;serviceBinding(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;serviceInterface,
                                                                  T&nbsp;service)</pre>
 <div class="block">Convenience method to create <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a> when using <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-"><code>bindServices(ServiceBinding[])</code></a>.</div>
 <dl>

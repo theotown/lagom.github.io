@@ -99,12 +99,12 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Superinterfaces:</dt>
-<dd>java.security.Principal</dd>
+<dd><a href="https://docs.oracle.com/javase/8/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">ServicePrincipal</span>
-extends java.security.Principal</pre>
+extends <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></pre>
 <div class="block">A service principal.
 
  A service principal may either represent a service identity, or it may be a principal that a service made a request
@@ -135,12 +135,12 @@ extends java.security.Principal</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../../../com/lightbend/lagom/javadsl/api/security/ServicePrincipal.html" title="interface in com.lightbend.lagom.javadsl.api.security">ServicePrincipal</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/security/ServicePrincipal.html#forServiceNamed-java.lang.String-">forServiceNamed</a></span>(String&nbsp;serviceName)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/security/ServicePrincipal.html#forServiceNamed-java.lang.String-">forServiceNamed</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName)</code>
 <div class="block">Get a service principal for the given named service.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>default String</code></td>
+<td class="colFirst"><code>default <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/security/ServicePrincipal.html#serviceName--">serviceName</a></span>()</code>
 <div class="block">The service name.</div>
 </td>
@@ -150,8 +150,8 @@ extends java.security.Principal</pre>
 <li class="blockList"><a name="methods.inherited.from.class.java.security.Principal">
 <!--   -->
 </a>
-<h3>Methods inherited from interface&nbsp;java.security.Principal</h3>
-<code>equals, getName, hashCode, implies, toString</code></li>
+<h3>Methods inherited from interface&nbsp;java.security.<a href="https://docs.oracle.com/javase/8/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></h3>
+<code><a href="https://docs.oracle.com/javase/8/docs/api/java/security/Principal.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.security">equals</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Principal.html?is-external=true#getName--" title="class or interface in java.security">getName</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Principal.html?is-external=true#hashCode--" title="class or interface in java.security">hashCode</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Principal.html?is-external=true#implies-javax.security.auth.Subject-" title="class or interface in java.security">implies</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Principal.html?is-external=true#toString--" title="class or interface in java.security">toString</a></code></li>
 </ul>
 </li>
 </ul>
@@ -173,10 +173,10 @@ extends java.security.Principal</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>serviceName</h4>
-<pre>default&nbsp;String&nbsp;serviceName()</pre>
+<pre>default&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName()</pre>
 <div class="block">The service name.
 
- This may or may not be the same as <code>Principal.getName()</code>, depending on whether the principal represents the service
+ This may or may not be the same as <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Principal.html?is-external=true#getName--" title="class or interface in java.security"><code>Principal.getName()</code></a>, depending on whether the principal represents the service
  itself, or simply a request made by the service on behalf of another principal.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -208,7 +208,7 @@ extends java.security.Principal</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>forServiceNamed</h4>
-<pre>static&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/api/security/ServicePrincipal.html" title="interface in com.lightbend.lagom.javadsl.api.security">ServicePrincipal</a>&nbsp;forServiceNamed(String&nbsp;serviceName)</pre>
+<pre>static&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/api/security/ServicePrincipal.html" title="interface in com.lightbend.lagom.javadsl.api.security">ServicePrincipal</a>&nbsp;forServiceNamed(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName)</pre>
 <div class="block">Get a service principal for the given named service.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

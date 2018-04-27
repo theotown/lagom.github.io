@@ -11,7 +11,23 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/313e87de3999f656c2161c31c2b42f70db728f9a-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/730347d9b66d7b5f56dff22777b2b14581104d25-all-styles-concat.css" type="text/css">
+        <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
+        <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
+        <script type="text/javascript">
+            function OptanonWrapper() { 
+                (function($) {
+                    $(function() {
+                        //find each YT embed and only load if cookies have been approved
+                        $( ".yt-widget" ).each(function( index ) {
+                            var ytID = $(this).attr("id").slice(3);
+                            Optanon.InsertHtml('<iframe id="player" class="youtube-embed-player" src="//www.youtube.com/embed/'+ytID+'?rel=0&amp;autohide=1&amp;modestbranding=0&amp;showinfo=1" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>', 'yt-'+ytID, null, {deleteSelectorContent: true}, 4);
+                        });
+                    });
+                })(jQuery);
+            }
+        </script>
+        <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) end -->
         
     </head>
     <body>
@@ -137,8 +153,8 @@
 
                 <p>Watch the 3-minute <i>Meet Lagom</i> video below, or try Lagom yourself. <a class="" href="/get-started.html" target="_blank">Create a Lagom project and test a simple Hello World service</a> in just a few minutes.</p>
 
-                <div id="meet-lagom" class="flex-video widescreen">
-                    <iframe id="player" class="youtube-embed-player" src="//www.youtube.com/embed/d1jT0UOVx9U?rel=0&amp;autohide=1&amp;modestbranding=0&amp;showinfo=1" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                <div class="yt-widget flex-video widescreen" id="yt-d1jT0UOVx9U">
+                    <div class="cookie-warning"><p>Cookies are required to view this video.<a class="optanon-allow-all">Allow Cookies</a><p></div>
                 </div>
             </div>
         </header>
@@ -160,8 +176,8 @@
                 <br>
             </div>
             <div class="small-12 medium-6 large-7 medium-pull-6 large-pull-5 columns">
-                <div class="flex-video widescreen">
-                    <iframe id="player" class="youtube-embed-player" src="//www.youtube.com/embed/D9y2Ex3NN34?rel=0&amp;autohide=1&amp;modestbranding=0&amp;showinfo=1" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                <div class="yt-widget flex-video widescreen" id="yt-D9y2Ex3NN34">
+                    <div class="cookie-warning"><p>Cookies are required to view this video.<a class="optanon-allow-all">Allow Cookies</a><p></div>
                 </div>
             </div>
         </div>
@@ -174,8 +190,8 @@
                 <br>
             </div>
             <div class="small-12 medium-6 large-7 columns">
-                <div class="flex-video widescreen">
-                    <iframe id="player" class="youtube-embed-player" src="//www.youtube.com/embed/1cOqYMe-Zm0?rel=0&amp;autohide=1&amp;modestbranding=0&amp;showinfo=1" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                <div class="yt-widget flex-video widescreen" id="yt-1cOqYMe-Zm0">
+                    <div class="cookie-warning"><p>Cookies are required to view this video.<a class="optanon-allow-all">Allow Cookies</a><p></div>
                 </div>
             </div>
         </div>
@@ -187,8 +203,8 @@
                 <p>Systems are distributed. Akka Cluster and Akka Persistence are under the hood. Cluster sharding is implicit. CQRS and event sourcing is made trivially easy. Your systems are cloud ready and elastic.</p>
             </div>
             <div class="small-12 medium-6 large-7 medium-pull-6 large-pull-5 columns">
-                <div class="flex-video widescreen">
-                    <iframe id="player" class="youtube-embed-player" src="//www.youtube.com/embed/yj581pSRflQ?rel=0&amp;autohide=1&amp;modestbranding=0&amp;showinfo=1" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                <div class="yt-widget flex-video widescreen" id="yt-yj581pSRflQ">
+                    <div class="cookie-warning"><p>Cookies are required to view this video.<a class="optanon-allow-all">Allow Cookies</a><p></div>
                 </div>
             </div>
         </div>
@@ -329,6 +345,18 @@
                                     <p>Lagom is released under the Apache 2 License</p>
                                 </div>
                             </div>
+                            <div class="row lb-legal">
+                                <div class="small-12 columns">
+                                    <p>
+                                        &copy; Lightbend 2018 | 
+                                        <a href="https://www.lightbend.com/legal/licenses" target="_blank">Licenses</a> | 
+                                        <a href="https://www.lightbend.com/legal/terms" target="_blank">Terms</a> | 
+                                        <a href="https://www.lightbend.com/legal/privacy" target="_blank">Privacy Policy</a> | 
+                                        <a href="/cookie.html">Cookie Listing</a> | 
+                                        <a class="optanon-toggle-display">Cookie Settings</a>
+                                    </p>
+                                </div>
+                            </div>
                         </section>
 
                     </footer>
@@ -337,10 +365,10 @@
             </div>
         </div>
     </body>
-    <script src="/313e87de3999f656c2161c31c2b42f70db728f9a-all-scripts-concat.js"></script>
+    <script src="/730347d9b66d7b5f56dff22777b2b14581104d25-all-scripts-concat.js"></script>
     
     
-    <script>
+    <script type="text/plain" class="optanon-category-2">
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

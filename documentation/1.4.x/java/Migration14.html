@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/f1925cdd14765b42bcb3d8b477c7282e518bbdeb-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/dca22b6301ed22e183e138d5350752765965ab33-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -174,7 +174,7 @@
 <p>The Scala version can be updated by editing the <code>build.sbt</code> file, and updating the <code>scalaVersion</code> settings, for example:</p>
 <pre class="prettyprint"><code class="language-scala">scalaVersion in ThisBuild := &quot;2.12.4&quot;
 </code></pre><h2 id="Akka-HTTP-as-the-default-server-engine"><a class="section-marker" href="#Akka-HTTP-as-the-default-server-engine">§</a>Akka HTTP as the default server engine</h2>
-<p>Play 2.6 introduces a new default server engine implemented using <a href="https://doc.akka.io/docs/akka-http/current/scala.html">Akka HTTP</a> instead of Netty.</p>
+<p>Play 2.6 introduces a new default server engine implemented using <a href="https://doc.akka.io/docs/akka-http/current/?language=java">Akka HTTP</a> instead of Netty.</p>
 <p>You can read more in the Play documentation at <a href="https://www.playframework.com/documentation/2.6.x/AkkaHttpServer">Akka HTTP Server Backend</a>.</p><h3 id="Selecting-the-server-engine-in-sbt"><a class="section-marker" href="#Selecting-the-server-engine-in-sbt">§</a>Selecting the server engine in sbt</h3>
 <p>Lagom 1.4 now defaults to using the Akka HTTP server when using sbt. Once you upgrade the version of the Lagom sbt plugin in <code>project/plugins.sbt</code>, you won&rsquo;t need to make any other changes to use it.</p>
 <p>If you need to change back to Netty, you have to explicitly disable the <code>LagomAkkaHttpServer</code> plugin and enable the <code>LagomNettyServer</code> plugin. Note that the <code>LagomAkkaHttpServer</code> plugin is added by default to any <code>LagomJava</code> or <code>LagomScala</code> project.</p>
@@ -478,7 +478,7 @@ akka.actor.serialization-bindings {
             </div>
         </div>
     </body>
-    <script src="/f1925cdd14765b42bcb3d8b477c7282e518bbdeb-all-scripts-concat.js"></script>
+    <script src="/dca22b6301ed22e183e138d5350752765965ab33-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

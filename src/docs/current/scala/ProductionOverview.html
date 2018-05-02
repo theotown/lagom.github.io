@@ -3,7 +3,7 @@
 <p>The deployment platform determines the type of archive you will need to use for packaging your microservices and the way you provide service location, including that for Cassandra:</p>
 <ul>
   <li>
-  <p>Lagom leverages the <a href="http://www.scala-sbt.org/sbt-native-packager/">sbt-native-packager</a> to produce archives of various types. By default, sbt produces zip archives, but you can easily produce tar.gz, MSI, debian, RPM, Docker and more.</p></li>
+  <p>Lagom leverages the <a href="https://www.scala-sbt.org/sbt-native-packager/">sbt-native-packager</a> to produce archives of various types. By default, sbt produces zip archives, but you can easily produce tar.gz, MSI, debian, RPM, Docker and more.</p></li>
   <li>
   <p>At runtime, services need to locate each other. This requires you to provide an implementation of a <a href="api/com/lightbend/lagom/scaladsl/api/ServiceLocator.html">ServiceLocator</a>. And, the deployment platform you choose might impose its own requirements on configuration.</p></li>
   <li>

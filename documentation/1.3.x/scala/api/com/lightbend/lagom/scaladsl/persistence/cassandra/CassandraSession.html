@@ -106,7 +106,7 @@ is also set as the current keyspace, i.e. it doesn't have to be qualified in the
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">CassandraSession</span><span class="params">(<span name="system">system: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>)</span>
+        <span class="name">CassandraSession</span><span class="params">(<span name="system">system: <a href="http://doc.akka.io/api/akka/2.4.20/index.html#akka.actor.ActorSystem" class="extype" target="_top">ActorSystem</a></span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession@&lt;init&gt;(system:akka.actor.ActorSystem):com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession" title="Permalink" target="_top">
@@ -123,7 +123,7 @@ is also set as the current keyspace, i.e. it doesn't have to be qualified in the
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">CassandraSession</span><span class="params">(<span name="system">system: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>, <span name="settings">settings: <span class="extype" name="akka.persistence.cassandra.session.CassandraSessionSettings">CassandraSessionSettings</span></span>, <span name="executionContext">executionContext: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.concurrent.ExecutionContext" class="extype" target="_top">ExecutionContext</a></span>)</span>
+        <span class="name">CassandraSession</span><span class="params">(<span name="system">system: <a href="http://doc.akka.io/api/akka/2.4.20/index.html#akka.actor.ActorSystem" class="extype" target="_top">ActorSystem</a></span>, <span name="settings">settings: <span class="extype" name="akka.persistence.cassandra.session.CassandraSessionSettings">CassandraSessionSettings</span></span>, <span name="executionContext">executionContext: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.concurrent.ExecutionContext" class="extype" target="_top">ExecutionContext</a></span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession@&lt;init&gt;(system:akka.actor.ActorSystem,settings:akka.persistence.cassandra.session.CassandraSessionSettings,executionContext:scala.concurrent.ExecutionContext):com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession" title="Permalink" target="_top">
@@ -403,7 +403,7 @@ is also set as the current keyspace, i.e. it doesn't have to be qualified in the
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">executeCreateTable</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="akka.Done">Done</span>]</span>
+        <span class="name">executeCreateTable</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="http://doc.akka.io/api/akka/2.4.20/index.html#akka.Done" class="extype" target="_top">Done</a>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession@executeCreateTable(stmt:String):scala.concurrent.Future[akka.Done]" title="Permalink" target="_top">
@@ -422,7 +422,7 @@ or if the statement fails.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">executeWrite</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bindValues">bindValues: <span class="extype" name="scala.AnyRef">AnyRef</span>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="akka.Done">Done</span>]</span>
+        <span class="name">executeWrite</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bindValues">bindValues: <span class="extype" name="scala.AnyRef">AnyRef</span>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="http://doc.akka.io/api/akka/2.4.20/index.html#akka.Done" class="extype" target="_top">Done</a>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession@executeWrite(stmt:String,bindValues:AnyRef*):scala.concurrent.Future[akka.Done]" title="Permalink" target="_top">
@@ -444,7 +444,7 @@ successfully executed, or if it fails.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">executeWrite</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="com.datastax.driver.core.Statement">Statement</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="akka.Done">Done</span>]</span>
+        <span class="name">executeWrite</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="com.datastax.driver.core.Statement">Statement</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="http://doc.akka.io/api/akka/2.4.20/index.html#akka.Done" class="extype" target="_top">Done</a>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession@executeWrite(stmt:com.datastax.driver.core.Statement):scala.concurrent.Future[akka.Done]" title="Permalink" target="_top">
@@ -465,7 +465,7 @@ successfully executed, or if it fails.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">executeWriteBatch</span><span class="params">(<span name="batch">batch: <span class="extype" name="com.datastax.driver.core.BatchStatement">BatchStatement</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="akka.Done">Done</span>]</span>
+        <span class="name">executeWriteBatch</span><span class="params">(<span name="batch">batch: <span class="extype" name="com.datastax.driver.core.BatchStatement">BatchStatement</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.12/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="http://doc.akka.io/api/akka/2.4.20/index.html#akka.Done" class="extype" target="_top">Done</a>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession@executeWriteBatch(batch:com.datastax.driver.core.BatchStatement):scala.concurrent.Future[akka.Done]" title="Permalink" target="_top">
@@ -653,7 +653,7 @@ successfully executed, or if it fails.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">select</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bindValues">bindValues: <span class="extype" name="scala.AnyRef">AnyRef</span>*</span>)</span><span class="result">: <span class="extype" name="akka.stream.scaladsl.Source">Source</span>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>, <span class="extype" name="akka.NotUsed">NotUsed</span>]</span>
+        <span class="name">select</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bindValues">bindValues: <span class="extype" name="scala.AnyRef">AnyRef</span>*</span>)</span><span class="result">: <a href="http://doc.akka.io/api/akka/2.4.20/index.html#akka.stream.scaladsl.Source" class="extype" target="_top">Source</a>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>, <a href="http://doc.akka.io/api/akka/2.4.20/index.html#akka.NotUsed" class="extype" target="_top">NotUsed</a>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession@select(stmt:String,bindValues:AnyRef*):akka.stream.scaladsl.Source[com.datastax.driver.core.Row,akka.NotUsed]" title="Permalink" target="_top">
@@ -677,7 +677,7 @@ this <code>Source</code> and then <code>run</code> the stream.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">select</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="com.datastax.driver.core.Statement">Statement</span></span>)</span><span class="result">: <span class="extype" name="akka.stream.scaladsl.Source">Source</span>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>, <span class="extype" name="akka.NotUsed">NotUsed</span>]</span>
+        <span class="name">select</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="com.datastax.driver.core.Statement">Statement</span></span>)</span><span class="result">: <a href="http://doc.akka.io/api/akka/2.4.20/index.html#akka.stream.scaladsl.Source" class="extype" target="_top">Source</a>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>, <a href="http://doc.akka.io/api/akka/2.4.20/index.html#akka.NotUsed" class="extype" target="_top">NotUsed</a>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../../index.html#com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession@select(stmt:com.datastax.driver.core.Statement):akka.stream.scaladsl.Source[com.datastax.driver.core.Row,akka.NotUsed]" title="Permalink" target="_top">

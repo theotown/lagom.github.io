@@ -95,7 +95,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li>Object</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></li>
 <li>
 <ul class="inheritance">
 <li>com.lightbend.lagom.javadsl.pubsub.PubSubRef&lt;T&gt;</li>
@@ -107,13 +107,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>akka.actor.NoSerializationVerificationNeeded</dd>
+<dd><a href="https://doc.akka.io/japi/akka/current/akka/actor/NoSerializationVerificationNeeded.html?is-external=true" title="class or interface in akka.actor">NoSerializationVerificationNeeded</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public final class <span class="typeNameLabel">PubSubRef&lt;T&gt;</span>
-extends Object
-implements akka.actor.NoSerializationVerificationNeeded</pre>
+extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
+implements <a href="https://doc.akka.io/japi/akka/current/akka/actor/NoSerializationVerificationNeeded.html?is-external=true" title="class or interface in akka.actor">NoSerializationVerificationNeeded</a></pre>
 <div class="block">A <code>PubSubRef</code> represents a publish/subscribe topic.
  <p>
  Messages can be published to the topic via a stream by using the <code>Source</code>
@@ -157,8 +157,8 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html#PubSubRef-com.lightbend.lagom.javadsl.pubsub.TopicId-akka.actor.ActorRef-akka.actor.ActorSystem-int-">PubSubRef</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/TopicId.html" title="class in com.lightbend.lagom.javadsl.pubsub">TopicId</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="type parameter in PubSubRef">T</a>&gt;&nbsp;topic,
-         akka.actor.ActorRef&nbsp;mediator,
-         akka.actor.ActorSystem&nbsp;system,
+         <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorRef.html?is-external=true" title="class or interface in akka.actor">ActorRef</a>&nbsp;mediator,
+         <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a>&nbsp;system,
          int&nbsp;bufferSize)</code>&nbsp;</td>
 </tr>
 </table>
@@ -177,7 +177,7 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>java.util.concurrent.CompletionStage&lt;Boolean&gt;</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html#hasAnySubscribers--">hasAnySubscribers</a></span>()</code>
 <div class="block">Request if this topic has any known subscribers at this point.</div>
 </td>
@@ -187,13 +187,13 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html#publish-T-">publish</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="type parameter in PubSubRef">T</a>&nbsp;message)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>akka.stream.javadsl.Sink&lt;<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="type parameter in PubSubRef">T</a>,akka.NotUsed&gt;</code></td>
+<td class="colFirst"><code><a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Sink.html?is-external=true" title="class or interface in akka.stream.javadsl">Sink</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="type parameter in PubSubRef">T</a>,<a href="https://doc.akka.io/japi/akka/current/akka/NotUsed.html?is-external=true" title="class or interface in akka">NotUsed</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html#publisher--">publisher</a></span>()</code>
 <div class="block">Publish messages from a stream to the topic.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>akka.stream.javadsl.Source&lt;<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="type parameter in PubSubRef">T</a>,akka.NotUsed&gt;</code></td>
+<td class="colFirst"><code><a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Source.html?is-external=true" title="class or interface in akka.stream.javadsl">Source</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="type parameter in PubSubRef">T</a>,<a href="https://doc.akka.io/japi/akka/current/akka/NotUsed.html?is-external=true" title="class or interface in akka">NotUsed</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html#subscriber--">subscriber</a></span>()</code>
 <div class="block">Consume messages from the topic via a stream.</div>
 </td>
@@ -203,7 +203,7 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html#topic--">topic</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>String</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
@@ -211,8 +211,8 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <li class="blockList"><a name="methods.inherited.from.class.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;Object</h3>
-<code>equals, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
+<h3>Methods inherited from class&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -235,8 +235,8 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <li class="blockList">
 <h4>PubSubRef</h4>
 <pre>public&nbsp;PubSubRef(<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/TopicId.html" title="class in com.lightbend.lagom.javadsl.pubsub">TopicId</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="type parameter in PubSubRef">T</a>&gt;&nbsp;topic,
-                 akka.actor.ActorRef&nbsp;mediator,
-                 akka.actor.ActorSystem&nbsp;system,
+                 <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorRef.html?is-external=true" title="class or interface in akka.actor">ActorRef</a>&nbsp;mediator,
+                 <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a>&nbsp;system,
                  int&nbsp;bufferSize)</pre>
 </li>
 </ul>
@@ -274,7 +274,7 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>publisher</h4>
-<pre>public&nbsp;akka.stream.javadsl.Sink&lt;<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="type parameter in PubSubRef">T</a>,akka.NotUsed&gt;&nbsp;publisher()</pre>
+<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Sink.html?is-external=true" title="class or interface in akka.stream.javadsl">Sink</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="type parameter in PubSubRef">T</a>,<a href="https://doc.akka.io/japi/akka/current/akka/NotUsed.html?is-external=true" title="class or interface in akka">NotUsed</a>&gt;&nbsp;publisher()</pre>
 <div class="block">Publish messages from a stream to the topic.
  You have to connect a <code>Source</code> that produces the messages to
  this <code>Sink</code> and then <code>run</code> the stream.</div>
@@ -286,7 +286,7 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>subscriber</h4>
-<pre>public&nbsp;akka.stream.javadsl.Source&lt;<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="type parameter in PubSubRef">T</a>,akka.NotUsed&gt;&nbsp;subscriber()</pre>
+<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Source.html?is-external=true" title="class or interface in akka.stream.javadsl">Source</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="type parameter in PubSubRef">T</a>,<a href="https://doc.akka.io/japi/akka/current/akka/NotUsed.html?is-external=true" title="class or interface in akka">NotUsed</a>&gt;&nbsp;subscriber()</pre>
 <div class="block">Consume messages from the topic via a stream.
  You can return this <code>Source</code> as a response in a <code>ServiceCall</code>
  and the elements will be streamed to the client.
@@ -300,7 +300,7 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>hasAnySubscribers</h4>
-<pre>public&nbsp;java.util.concurrent.CompletionStage&lt;Boolean&gt;&nbsp;hasAnySubscribers()</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;hasAnySubscribers()</pre>
 <div class="block">Request if this topic has any known subscribers at this point.
  The <code>CompletionStage</code> is completed with the currently known information
  at this node, i.e. completion is not deferred until there are subscribers.
@@ -319,10 +319,10 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>toString</h4>
-<pre>public&nbsp;String&nbsp;toString()</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;toString()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>toString</code>&nbsp;in class&nbsp;<code>Object</code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></dd>
 </dl>
 </li>
 </ul>

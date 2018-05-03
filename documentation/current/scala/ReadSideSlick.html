@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/dca22b6301ed22e183e138d5350752765965ab33-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/de5e65c3cbd2baa6e512e07909c0db997d08fb2c-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -252,7 +252,9 @@ class PostSummaryRepository {
   readSide: ReadSide,
   myDatabase: MyDatabase) extends BlogService {
 
-  readSide.register[BlogEvent](new BlogEventProcessor(myDatabase))</code></pre><h3 id="Event-handlers"><a class="section-marker" href="#Event-handlers">§</a>Event handlers</h3>
+  readSide.register[BlogEvent](new BlogEventProcessor(myDatabase))</code></pre>
+<p>Note that if you are utilizing <a href="DependencyInjection.html#Wiring-together-a-Lagom-application">Macwire for dependency injection</a>, you can simply add the following to your Application Loader:</p>
+<pre class="prettyprint"><code class="language-scala">readSide.register(wire[BlogEventProcessor])</code></pre><h3 id="Event-handlers"><a class="section-marker" href="#Event-handlers">§</a>Event handlers</h3>
 <p>The event handlers take an event and returns a Slick <code>DBIOAction</code>.</p>
 <p>Here&rsquo;s an example callback for handling the <code>PostAdded</code> event:</p>
 <pre class="prettyprint"><code class="language-scala">/* added to PostSummaryRepository to insert or update Post Summaries */
@@ -270,7 +272,14 @@ def save(postSummary: PostSummary) = {
 <p>This can then be registered with the builder using <code>setEventHandler</code>:</p>
 <pre class="prettyprint"><code class="language-scala">builder.setEventHandler[PostAdded](processPostAdded)</code></pre>
 <p>Once you have finished registering all your event handlers, you can invoke the <code>build</code> method and return the built handler:</p>
-<pre class="prettyprint"><code class="language-scala">builder.build()</code></pre>
+<pre class="prettyprint"><code class="language-scala">builder.build()</code></pre><h2 id="Application-Loader"><a class="section-marker" href="#Application-Loader">§</a>Application Loader</h2>
+<p>The Lagom Application loader needs to to be configured for Slick persistence. This can be done by mixing in the <code>SlickPersistentComponents</code> class like so:</p>
+<pre class="prettyprint"><code class="language-scala">abstract class SlickBlogApplication(context: LagomApplicationContext)
+  extends LagomApplication(context)
+    with JdbcPersistenceComponents
+    with SlickPersistenceComponents
+    with HikariCPComponents
+    with AhcWSComponents {</code></pre>
                 </article>
 
                 
@@ -535,7 +544,7 @@ def save(postSummary: PostSummary) = {
             </div>
         </div>
     </body>
-    <script src="/dca22b6301ed22e183e138d5350752765965ab33-all-scripts-concat.js"></script>
+    <script src="/de5e65c3cbd2baa6e512e07909c0db997d08fb2c-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

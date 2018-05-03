@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/dca22b6301ed22e183e138d5350752765965ab33-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/de5e65c3cbd2baa6e512e07909c0db997d08fb2c-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -153,9 +153,10 @@
 <p>The version of Lagom can be updated by editing the <code>project/plugins.sbt</code> file, and updating the version of the Lagom sbt plugin. For example:</p>
 <pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.lagom&quot; % &quot;lagom-sbt-plugin&quot; % &quot;1.4.0&quot;)
 </code></pre>
-<p>Lagom 1.4.0 also requires Sbt 0.13.16 or later. If your existing project is using a previous version of Sbt, you will need to upgrade it by editing the <code>project/build.properties</code> file. For example:</p>
-<pre class="prettyprint"><code>sbt.version=0.13.16
-</code></pre><h2 id="Scala-2.12-support"><a class="section-marker" href="#Scala-2.12-support">§</a>Scala 2.12 support</h2>
+<p>Lagom 1.4.0 also requires Sbt 0.13.16 or later (recommended sbt 1.x). If your existing project is using a previous version of Sbt, you will need to upgrade it by editing the <code>project/build.properties</code> file. For example:</p>
+<pre class="prettyprint"><code>sbt.version=1.1.4
+</code></pre>
+<p>We also recommend you <a href="https://www.scala-sbt.org/download.html">upgrade</a> your <code>sbt</code> launcher.</p><h2 id="Scala-2.12-support"><a class="section-marker" href="#Scala-2.12-support">§</a>Scala 2.12 support</h2>
 <p>Lagom is now cross compiled to Scala 2.11 and 2.12. It&rsquo;s recommended to upgrade to Scala 2.12 whenever possible, even if you are writing your Lagom services only in Java. The Scala 2.12 version of Lagom benefits from the improved optimizer and use of Java 8 features in the new version of the Scala compiler, resulting in a leaner, faster Lagom for everyone.</p><h3 id="Maven1"><a class="section-marker" href="#Maven1">§</a>Maven</h3>
 <p>Maven users will need to update all Scala libraries in the project. A Scala library has typically its Scala major version appended to the artifact ID, for example: <code>lagom-javadsl-api_2.12</code>; where <code>_2.12</code> indicates the major Scala version used to compile that library. Make sure to replace all references to <code>_2.11</code> by <code>_2.12</code>.</p>
 <p>Alternatively, you can consider adding a maven property to your parent pom file&hellip;</p>
@@ -478,7 +479,7 @@ akka.actor.serialization-bindings {
             </div>
         </div>
     </body>
-    <script src="/dca22b6301ed22e183e138d5350752765965ab33-all-scripts-concat.js"></script>
+    <script src="/de5e65c3cbd2baa6e512e07909c0db997d08fb2c-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

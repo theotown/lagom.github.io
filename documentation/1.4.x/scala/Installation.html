@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/dca22b6301ed22e183e138d5350752765965ab33-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/de5e65c3cbd2baa6e512e07909c0db997d08fb2c-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -158,7 +158,7 @@
 <p>Before trying the template, make sure that your environment conforms to Lagom prerequisites:</p>
 <ul>
   <li>Java Development Kit (JDK), version 8 or higher.</li>
-  <li>sbt 0.13.5 or higher (To create new projects using Lagom-supplied templates, use sbt 0.13.13 or higher, which contains the sbt new command.)</li>
+  <li>sbt 1.x</li>
   <li>Internet access (If using a proxy, verify that an HTTP_PROXY environment variable points to the correct location)</li>
 </ul>
 <p>For more details on verifying or installing prerequisites see the following sections:</p>
@@ -171,20 +171,25 @@
 <p>Before installing sbt, you need to ensure you have a Java Development Kit (JDK) installed on your system. Lagom requires at least JDK 8.</p>
 <p>You can check whether you have JDK 8 by running <code>java -version</code> and <code>javac -version</code> from the command line.</p>
 <p>The <code>java -version</code> command should return messages similar to the following:</p>
-<pre class="prettyprint"><code>java version &quot;1.8.0_74&quot;
-Java(TM) SE Runtime Environment (build 1.8.0_74-b02)
-Java HotSpot(TM) 64-Bit Server VM (build 25.74-b02, mixed mode)
+<pre class="prettyprint"><code>java version &quot;1.8.0_162&quot;
+Java(TM) SE Runtime Environment (build 1.8.0_162-b12)
+Java HotSpot(TM) 64-Bit Server VM (build 25.162-b12, mixed mode)
 </code></pre>
 <p>The <code>javac -version</code> command should return a message similar to:</p>
-<pre class="prettyprint"><code>javac 1.8.0_74
+<pre class="prettyprint"><code>javac 1.8.0_162
 </code></pre>
-<p>If you have the correct JDK and the console cannot find <code>java</code> or <code>javac</code>, search the web for information about setting environment variables on your system. For example, the following pages provide tips for configuring Java:<br/>* <a href="https://stackoverflow.com/questions/33860560/how-to-set-java-environment-variables-using-shell-script">On systems running Linux</a><br/>* <a href="http://osxdaily.com/2015/07/28/set-enviornment-variables-mac-os-x/">On MacOS</a><br/>* <a href="https://stackoverflow.com/questions/1672281/environment-variables-for-java-installation">On Windows systems</a></p>
+<p>If you have the correct JDK and the console cannot find <code>java</code> or <code>javac</code>, search the web for information about setting environment variables on your system. For example, the following pages provide tips for configuring Java:</p>
+<ul>
+  <li><a href="https://stackoverflow.com/questions/33860560/how-to-set-java-environment-variables-using-shell-script">On systems running Linux</a></li>
+  <li><a href="http://osxdaily.com/2015/07/28/set-enviornment-variables-mac-os-x/">On MacOS</a></li>
+  <li><a href="https://stackoverflow.com/questions/1672281/environment-variables-for-java-installation">On Windows systems</a></li>
+</ul>
 <p>If you don&rsquo;t have the correct version, you can get it from the <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle Java downloads page</a>.</p><h2 id="sbt"><a class="section-marker" href="#sbt">§</a>sbt</h2>
-<p>Lagom requires at least sbt 0.13.5, but if you want to create new projects using Lagom&rsquo;s supplied templates, you&rsquo;ll need at least sbt 0.13.13, which contains the sbt <code>new</code> command. (You&rsquo;ll need 0.13.13 to follow the steps in this getting started documentation.)</p>
+<p>Lagom recommends sbt 1.x.</p>
 <p>sbt can be downloaded from <a href="https://www.scala-sbt.org/download.html">here</a>, while instructions for installing it can be found <a href="https://www.scala-sbt.org/release/docs/Setup.html">here</a></p>
-<p>To check which version of sbt you are using, run <code>sbt sbt-version</code> from the command line. The console messages should look similar to the following :</p>
-<pre class="prettyprint"><code>[info] Set current project to example (in build file:/home/example/)
-[info] 0.13.13
+<p>To check which version of sbt you are using, run <code>sbt sbtVersion</code> from the command line. The console messages should look similar to the following :</p>
+<pre class="prettyprint"><code>[info] Set current project to example (in build file:/home/alice/)
+[info] 1.1.4
 </code></pre><h2 id="Proxy-setup"><a class="section-marker" href="#Proxy-setup">§</a>Proxy setup</h2>
 <p>If you can only access the web through a proxy, create and/or set the <code>HTTP_PROXY</code> environment variable on your machine to your proxy&rsquo;s URL, for example, <code>HTTP_PROXY=http://&lt;host&gt;:&lt;port&gt;</code>.</p>
                 </article>
@@ -382,7 +387,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.74-b02, mixed mode)
             </div>
         </div>
     </body>
-    <script src="/dca22b6301ed22e183e138d5350752765965ab33-all-scripts-concat.js"></script>
+    <script src="/de5e65c3cbd2baa6e512e07909c0db997d08fb2c-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

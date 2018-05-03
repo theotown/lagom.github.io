@@ -95,7 +95,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li>Object</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></li>
 <li>
 <ul class="inheritance">
 <li>com.lightbend.lagom.javadsl.persistence.PersistentEntityRef&lt;Command&gt;</li>
@@ -107,13 +107,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>akka.actor.NoSerializationVerificationNeeded</dd>
+<dd><a href="https://doc.akka.io/japi/akka/current/akka/actor/NoSerializationVerificationNeeded.html?is-external=true" title="class or interface in akka.actor">NoSerializationVerificationNeeded</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public final class <span class="typeNameLabel">PersistentEntityRef&lt;Command&gt;</span>
-extends Object
-implements akka.actor.NoSerializationVerificationNeeded</pre>
+extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
+implements <a href="https://doc.akka.io/japi/akka/current/akka/actor/NoSerializationVerificationNeeded.html?is-external=true" title="class or interface in akka.actor">NoSerializationVerificationNeeded</a></pre>
 <div class="block">Commands are sent to a <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> using a
  <code>PersistentEntityRef</code>. It is retrieved with <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRegistry.html#refFor-java.lang.Class-java.lang.String-"><code>PersistentEntityRegistry.refFor(java.lang.Class&lt;? extends com.lightbend.lagom.javadsl.persistence.PersistentEntity&lt;C, ?, ?&gt;&gt;, java.lang.String)</code></a>.</div>
 </li>
@@ -134,9 +134,9 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#PersistentEntityRef-java.lang.String-akka.actor.ActorRef-akka.actor.ActorSystem-scala.concurrent.duration.FiniteDuration-">PersistentEntityRef</a></span>(String&nbsp;entityId,
-                   akka.actor.ActorRef&nbsp;region,
-                   akka.actor.ActorSystem&nbsp;system,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#PersistentEntityRef-java.lang.String-akka.actor.ActorRef-akka.actor.ActorSystem-scala.concurrent.duration.FiniteDuration-">PersistentEntityRef</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;entityId,
+                   <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorRef.html?is-external=true" title="class or interface in akka.actor">ActorRef</a>&nbsp;region,
+                   <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a>&nbsp;system,
                    scala.concurrent.duration.FiniteDuration&nbsp;askTimeout)</code>&nbsp;</td>
 </tr>
 </table>
@@ -155,17 +155,17 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>&lt;Reply,Cmd extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="type parameter in PersistentEntityRef">Command</a>&gt;<br>java.util.concurrent.CompletionStage&lt;Reply&gt;</code></td>
+<td class="colFirst"><code>&lt;Reply,Cmd extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="type parameter in PersistentEntityRef">Command</a>&gt;<br><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;Reply&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#ask-Cmd-">ask</a></span>(Cmd&nbsp;command)</code>
 <div class="block">Send the <code>command</code> to the <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a>.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>String</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#entityId--">entityId</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>String</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -179,8 +179,8 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <li class="blockList"><a name="methods.inherited.from.class.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;Object</h3>
-<code>equals, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
+<h3>Methods inherited from class&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -202,9 +202,9 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>PersistentEntityRef</h4>
-<pre>public&nbsp;PersistentEntityRef(String&nbsp;entityId,
-                           akka.actor.ActorRef&nbsp;region,
-                           akka.actor.ActorSystem&nbsp;system,
+<pre>public&nbsp;PersistentEntityRef(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;entityId,
+                           <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorRef.html?is-external=true" title="class or interface in akka.actor">ActorRef</a>&nbsp;region,
+                           <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a>&nbsp;system,
                            scala.concurrent.duration.FiniteDuration&nbsp;askTimeout)</pre>
 </li>
 </ul>
@@ -222,7 +222,7 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>entityId</h4>
-<pre>public&nbsp;String&nbsp;entityId()</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;entityId()</pre>
 </li>
 </ul>
 <a name="ask-java.lang.Object-">
@@ -233,7 +233,7 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>ask</h4>
-<pre>public&nbsp;&lt;Reply,Cmd extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="type parameter in PersistentEntityRef">Command</a>&gt;&nbsp;java.util.concurrent.CompletionStage&lt;Reply&gt;&nbsp;ask(Cmd&nbsp;command)</pre>
+<pre>public&nbsp;&lt;Reply,Cmd extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="type parameter in PersistentEntityRef">Command</a>&gt;&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;Reply&gt;&nbsp;ask(Cmd&nbsp;command)</pre>
 <div class="block">Send the <code>command</code> to the <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a>. The returned
  <code>CompletionStage</code> will be completed with the reply from the <code>PersistentEntity</code>.
  The type of the reply is defined by the command (see <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.ReplyType.html" title="interface in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity.ReplyType</code></a>).
@@ -262,10 +262,10 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>toString</h4>
-<pre>public&nbsp;String&nbsp;toString()</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;toString()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>toString</code>&nbsp;in class&nbsp;<code>Object</code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></dd>
 </dl>
 </li>
 </ul>

@@ -102,7 +102,9 @@ class PostSummaryRepository {
   readSide: ReadSide,
   myDatabase: MyDatabase) extends BlogService {
 
-  readSide.register[BlogEvent](new BlogEventProcessor(myDatabase))</code></pre><h3 id="Event-handlers"><a class="section-marker" href="#Event-handlers">§</a>Event handlers</h3>
+  readSide.register[BlogEvent](new BlogEventProcessor(myDatabase))</code></pre>
+<p>Note that if you are utilizing <a href="DependencyInjection.html#Wiring-together-a-Lagom-application">Macwire for dependency injection</a>, you can simply add the following to your Application Loader:</p>
+<pre class="prettyprint"><code class="language-scala">readSide.register(wire[BlogEventProcessor])</code></pre><h3 id="Event-handlers"><a class="section-marker" href="#Event-handlers">§</a>Event handlers</h3>
 <p>The event handlers take an event and returns a Slick <code>DBIOAction</code>.</p>
 <p>Here&rsquo;s an example callback for handling the <code>PostAdded</code> event:</p>
 <pre class="prettyprint"><code class="language-scala">/* added to PostSummaryRepository to insert or update Post Summaries */
@@ -120,4 +122,11 @@ def save(postSummary: PostSummary) = {
 <p>This can then be registered with the builder using <code>setEventHandler</code>:</p>
 <pre class="prettyprint"><code class="language-scala">builder.setEventHandler[PostAdded](processPostAdded)</code></pre>
 <p>Once you have finished registering all your event handlers, you can invoke the <code>build</code> method and return the built handler:</p>
-<pre class="prettyprint"><code class="language-scala">builder.build()</code></pre>
+<pre class="prettyprint"><code class="language-scala">builder.build()</code></pre><h2 id="Application-Loader"><a class="section-marker" href="#Application-Loader">§</a>Application Loader</h2>
+<p>The Lagom Application loader needs to to be configured for Slick persistence. This can be done by mixing in the <code>SlickPersistentComponents</code> class like so:</p>
+<pre class="prettyprint"><code class="language-scala">abstract class SlickBlogApplication(context: LagomApplicationContext)
+  extends LagomApplication(context)
+    with JdbcPersistenceComponents
+    with SlickPersistenceComponents
+    with HikariCPComponents
+    with AhcWSComponents {</code></pre>

@@ -9,7 +9,7 @@
 <p>You can start sbt with extra memory using <code>SBT_OPTS</code> environment variable.</p>
 <pre class="prettyprint"><code class="language-bash">$ SBT_OPTS=&quot;-Xms512M -Xmx1024M -Xss2M -XX:MaxMetaspaceSize=1024M&quot; sbt
 </code></pre>
-<p>Since version 0.13.13, sbt lets you list the JVM options you need to run your project on a file named <code>.jvmopts</code> in the root of your project.</p>
+<p>sbt lets you list the JVM options you need to run your project on a file named <code>.jvmopts</code> in the root of your project.</p>
 <pre class="prettyprint"><code>$ cat .jvmopts
 -Xms512M
 -Xmx4096M

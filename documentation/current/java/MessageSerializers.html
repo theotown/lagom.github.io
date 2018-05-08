@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/3f2a46679ea59eee2e1c8754bad2e67abaf7d2c6-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/ee88787fa3261a5e4c1e015e1876a480f19b7807-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -169,7 +169,7 @@
   ).withMessageSerializer(Order.class, new MyOrderSerializer());
 }</code></pre><h3 id="Serializer-factory"><a class="section-marker" href="#Serializer-factory">§</a>Serializer factory</h3>
 <p>If neither a per service call nor per type message serializer has been found, Lagom will finally request its serializer factory for a serializer for a type. When using the defaults, this is the way Lagom will usually locate serializers for your types.</p>
-<p>Lagom provides a <a href="api/index.html?com/lightbend/lagom/javadsl/api/deser/SerializerFactory.html"><code>SerializerFactory</code></a> interface for dynamically looking up and creating serializers for types. The default implementation provided by Lagom is a Jackson serializer factory, which serializes to/from JSON. You can customize which <code>SerializerFactory</code> is used by supplying it to the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Descriptor.html#with-com.lightbend.lagom.javadsl.api.deser.SerializerFactory-"><code>Descriptor.with</code></a> method when declaring the signature:</p>
+<p>Lagom provides a <a href="api/index.html?com/lightbend/lagom/javadsl/api/deser/SerializerFactory.html"><code>SerializerFactory</code></a> interface for dynamically looking up and creating serializers for types. The default implementation provided by Lagom is a Jackson serializer factory, which serializes to/from JSON. You can customize which <code>SerializerFactory</code> is used by supplying it to the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Descriptor.html#withMessageSerializer-java.lang.Class-com.lightbend.lagom.javadsl.api.deser.MessageSerializer-"><code>Descriptor.withMessageSerializer</code></a> method when declaring the signature:</p>
 <pre class="prettyprint"><code class="language-java">default Descriptor descriptor() {
   return named(&quot;orderservice&quot;).withCalls(
           pathCall(&quot;/orders/:id&quot;, this::getOrder)
@@ -670,7 +670,7 @@ public NegotiatedSerializer&lt;String, ByteString&gt; serializerForResponse(List
             </div>
         </div>
     </body>
-    <script src="/3f2a46679ea59eee2e1c8754bad2e67abaf7d2c6-all-scripts-concat.js"></script>
+    <script src="/ee88787fa3261a5e4c1e015e1876a480f19b7807-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

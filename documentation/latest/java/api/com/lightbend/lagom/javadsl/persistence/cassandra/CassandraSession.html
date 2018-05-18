@@ -319,6 +319,19 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="executeCreateTable-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>executeCreateTable</h4>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;&nbsp;executeCreateTable(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt)</pre>
+<div class="block">See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useCreateTableTOC.html">Creating a table</a>.
+ <p>
+ The returned <code>CompletionStage</code> is completed when the table has been created,
+ or if the statement fails.</div>
+</li>
+</ul>
 <a name="executeWrite-java.lang.String-java.lang.Object...-">
 <!--   -->
 </a>
@@ -334,125 +347,6 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  The configured write consistency level is used.
  <p>
  The returned <code>CompletionStage</code> is completed when the statement has been
- successfully executed, or if it fails.</div>
-</li>
-</ul>
-<a name="select-java.lang.String-java.lang.Object...-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>select</h4>
-<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Source.html?is-external=true" title="class or interface in akka.stream.javadsl">Source</a>&lt;com.datastax.driver.core.Row,<a href="https://doc.akka.io/japi/akka/current/akka/NotUsed.html?is-external=true" title="class or interface in akka">NotUsed</a>&gt;&nbsp;select(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
-                                                           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;bindValues)</pre>
-<div class="block">Prepare, bind and execute a select statement in one go.
- <p>
- See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useQueryDataTOC.html">Querying tables</a>.
- <p>
- The configured read consistency level is used.
- <p>
- You can return this <code>Source</code> as a response in a <code>ServiceCall</code>
- and the elements will be streamed to the client.
- Otherwise you have to connect a <code>Sink</code> that consumes the messages from
- this <code>Source</code> and then <code>run</code> the stream.</div>
-</li>
-</ul>
-<a name="selectAll-java.lang.String-java.lang.Object...-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>selectAll</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;com.datastax.driver.core.Row&gt;&gt;&nbsp;selectAll(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
-                                                                     <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;bindValues)</pre>
-<div class="block">Prepare, bind and execute a select statement in one go. Only use this method
- when you know that the result is small, e.g. includes a <code>LIMIT</code> clause.
- Otherwise you should use the <code>select</code> method that returns a <code>Source</code>.
- <p>
- The configured read consistency level is used.
- <p>
- The returned <code>CompletionStage</code> is completed with the found rows.</div>
-</li>
-</ul>
-<a name="selectOne-java.lang.String-java.lang.Object...-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>selectOne</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;com.datastax.driver.core.Row&gt;&gt;&nbsp;selectOne(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
-                                                                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;bindValues)</pre>
-<div class="block">Prepare, bind and execute a select statement that returns one row.
- <p>
- The configured read consistency level is used.
- <p>
- The returned <code>CompletionStage</code> is completed with the first row,
- if any.</div>
-</li>
-</ul>
-<a name="scalaDelegate--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>scalaDelegate</h4>
-<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/persistence/cassandra.session.scaladsl.CassandraSession.html?is-external=true" title="class or interface in akka.persistence">akka.persistence.cassandra.session.scaladsl.CassandraSession</a>&nbsp;scalaDelegate()</pre>
-<div class="block">Internal API</div>
-</li>
-</ul>
-<a name="underlying--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>underlying</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;com.datastax.driver.core.Session&gt;&nbsp;underlying()</pre>
-<div class="block">The <code>Session</code> of the underlying
- <a href="http://datastax.github.io/java-driver/">Datastax Java Driver</a>.
- Can be used in case you need to do something that is not provided by the
- API exposed by this class. Be careful to not use blocking calls.</div>
-</li>
-</ul>
-<a name="executeCreateTable-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>executeCreateTable</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;&nbsp;executeCreateTable(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt)</pre>
-<div class="block">See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useCreateTableTOC.html">Creating a table</a>.
- <p>
- The returned <code>CompletionStage</code> is completed when the table has been created,
- or if the statement fails.</div>
-</li>
-</ul>
-<a name="prepare-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>prepare</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;com.datastax.driver.core.PreparedStatement&gt;&nbsp;prepare(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt)</pre>
-<div class="block">Create a <code>PreparedStatement</code> that can be bound and used in
- <code>executeWrite</code> or <code>select</code> multiple times.</div>
-</li>
-</ul>
-<a name="executeWriteBatch-com.datastax.driver.core.BatchStatement-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>executeWriteBatch</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;&nbsp;executeWriteBatch(com.datastax.driver.core.BatchStatement&nbsp;batch)</pre>
-<div class="block">Execute several statements in a batch. First you must <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#prepare-java.lang.String-"><code>prepare(java.lang.String)</code></a> the
- statements and bind its parameters.
- <p>
- See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useBatchTOC.html">Batching data insertion and updates</a>.
- <p>
- The configured write consistency level is used if a specific consistency
- level has not been set on the <code>BatchStatement</code>.
- <p>
- The returned <code>CompletionStage</code> is completed when the batch has been
  successfully executed, or if it fails.</div>
 </li>
 </ul>
@@ -491,6 +385,66 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  <p>
  The returned <code>CompletionStage</code> is completed when the statement has been
  successfully executed, or if it fails.</div>
+</li>
+</ul>
+<a name="executeWriteBatch-com.datastax.driver.core.BatchStatement-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>executeWriteBatch</h4>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;&nbsp;executeWriteBatch(com.datastax.driver.core.BatchStatement&nbsp;batch)</pre>
+<div class="block">Execute several statements in a batch. First you must <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#prepare-java.lang.String-"><code>prepare(java.lang.String)</code></a> the
+ statements and bind its parameters.
+ <p>
+ See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useBatchTOC.html">Batching data insertion and updates</a>.
+ <p>
+ The configured write consistency level is used if a specific consistency
+ level has not been set on the <code>BatchStatement</code>.
+ <p>
+ The returned <code>CompletionStage</code> is completed when the batch has been
+ successfully executed, or if it fails.</div>
+</li>
+</ul>
+<a name="prepare-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>prepare</h4>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;com.datastax.driver.core.PreparedStatement&gt;&nbsp;prepare(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt)</pre>
+<div class="block">Create a <code>PreparedStatement</code> that can be bound and used in
+ <code>executeWrite</code> or <code>select</code> multiple times.</div>
+</li>
+</ul>
+<a name="scalaDelegate--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>scalaDelegate</h4>
+<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/persistence/cassandra.session.scaladsl.CassandraSession.html?is-external=true" title="class or interface in akka.persistence">akka.persistence.cassandra.session.scaladsl.CassandraSession</a>&nbsp;scalaDelegate()</pre>
+<div class="block">Internal API</div>
+</li>
+</ul>
+<a name="select-java.lang.String-java.lang.Object...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>select</h4>
+<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Source.html?is-external=true" title="class or interface in akka.stream.javadsl">Source</a>&lt;com.datastax.driver.core.Row,<a href="https://doc.akka.io/japi/akka/current/akka/NotUsed.html?is-external=true" title="class or interface in akka">NotUsed</a>&gt;&nbsp;select(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
+                                                           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;bindValues)</pre>
+<div class="block">Prepare, bind and execute a select statement in one go.
+ <p>
+ See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useQueryDataTOC.html">Querying tables</a>.
+ <p>
+ The configured read consistency level is used.
+ <p>
+ You can return this <code>Source</code> as a response in a <code>ServiceCall</code>
+ and the elements will be streamed to the client.
+ Otherwise you have to connect a <code>Sink</code> that consumes the messages from
+ this <code>Source</code> and then <code>run</code> the stream.</div>
 </li>
 </ul>
 <a name="select-com.datastax.driver.core.Statement-">
@@ -534,6 +488,23 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  this <code>Source</code> and then <code>run</code> the stream.</div>
 </li>
 </ul>
+<a name="selectAll-java.lang.String-java.lang.Object...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>selectAll</h4>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;com.datastax.driver.core.Row&gt;&gt;&nbsp;selectAll(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
+                                                                     <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;bindValues)</pre>
+<div class="block">Prepare, bind and execute a select statement in one go. Only use this method
+ when you know that the result is small, e.g. includes a <code>LIMIT</code> clause.
+ Otherwise you should use the <code>select</code> method that returns a <code>Source</code>.
+ <p>
+ The configured read consistency level is used.
+ <p>
+ The returned <code>CompletionStage</code> is completed with the found rows.</div>
+</li>
+</ul>
 <a name="selectAll-com.datastax.driver.core.Statement-">
 <!--   -->
 </a>
@@ -569,6 +540,22 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  The returned <code>CompletionStage</code> is completed with the found rows.</div>
 </li>
 </ul>
+<a name="selectOne-java.lang.String-java.lang.Object...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>selectOne</h4>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;com.datastax.driver.core.Row&gt;&gt;&nbsp;selectOne(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
+                                                                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;bindValues)</pre>
+<div class="block">Prepare, bind and execute a select statement that returns one row.
+ <p>
+ The configured read consistency level is used.
+ <p>
+ The returned <code>CompletionStage</code> is completed with the first row,
+ if any.</div>
+</li>
+</ul>
 <a name="selectOne-com.datastax.driver.core.Statement-">
 <!--   -->
 </a>
@@ -589,7 +576,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <a name="selectOne-java.lang.String-scala.collection.Seq-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>selectOne</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;com.datastax.driver.core.Row&gt;&gt;&nbsp;selectOne(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
@@ -600,6 +587,19 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  <p>
  The returned <code>CompletionStage</code> is completed with the first row,
  if any.</div>
+</li>
+</ul>
+<a name="underlying--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>underlying</h4>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;com.datastax.driver.core.Session&gt;&nbsp;underlying()</pre>
+<div class="block">The <code>Session</code> of the underlying
+ <a href="http://datastax.github.io/java-driver/">Datastax Java Driver</a>.
+ Can be used in case you need to do something that is not provided by the
+ API exposed by this class. Be careful to not use blocking calls.</div>
 </li>
 </ul>
 </li>

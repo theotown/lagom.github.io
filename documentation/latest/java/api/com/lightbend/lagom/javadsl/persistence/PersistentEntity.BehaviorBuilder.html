@@ -193,6 +193,16 @@ var activeTableTab = "activeTableTab";
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="build--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>build</h4>
+<pre><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a>&nbsp;build()</pre>
+<div class="block">Construct the corresponding immutable <code>Behavior</code>.</div>
+</li>
+</ul>
 <a name="getState--">
 <!--   -->
 </a>
@@ -202,44 +212,14 @@ var activeTableTab = "activeTableTab";
 <pre>State&nbsp;getState()</pre>
 </li>
 </ul>
-<a name="setState-State-">
+<a name="removeCommandHandler-java.lang.Class-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setState</h4>
-<pre>void&nbsp;setState(State&nbsp;state)</pre>
-</li>
-</ul>
-<a name="setEventHandler-java.lang.Class-java.util.function.Function-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setEventHandler</h4>
-<pre>&lt;A extends Event&gt;&nbsp;void&nbsp;setEventHandler(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;eventClass,
-                                       <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;A,State&gt;&nbsp;handler)</pre>
-<div class="block">Register an event handler for a given event class. The <code>handler</code> function
- is supposed to return the new state after applying the event to the current state.
- Current state can be accessed with the <code>state</code> method of the <code>PersistentEntity</code>.
- <p>
- Invoking this method a second time for the same <code>eventClass</code> will override the existing <code>handler</code>.</div>
-</li>
-</ul>
-<a name="setEventHandlerChangingBehavior-java.lang.Class-java.util.function.Function-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setEventHandlerChangingBehavior</h4>
-<pre>&lt;A extends Event&gt;&nbsp;void&nbsp;setEventHandlerChangingBehavior(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;eventClass,
-                                                       <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;A,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a>&gt;&nbsp;handler)</pre>
-<div class="block">Register an event handler that is updating the behavior for a given event class.
- The <code>handler</code> function  is supposed to return the new behavior after applying the
- event to the current state. Current behavior can be accessed with the <code>behavior</code>
- method of the <code>PersistentEntity</code>.
- <p>
- Invoking this method a second time for the same <code>eventClass</code> will override the existing <code>handler</code>.</div>
+<h4>removeCommandHandler</h4>
+<pre>void&nbsp;removeCommandHandler(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends Command&gt;&nbsp;commandClass)</pre>
+<div class="block">Remove a command handler for a given command class.</div>
 </li>
 </ul>
 <a name="removeEventHandler-java.lang.Class-">
@@ -279,14 +259,35 @@ var activeTableTab = "activeTableTab";
  Invoking this method a second time for the same <code>commandClass</code> will override the existing <code>handler</code>.</div>
 </li>
 </ul>
-<a name="removeCommandHandler-java.lang.Class-">
+<a name="setEventHandler-java.lang.Class-java.util.function.Function-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>removeCommandHandler</h4>
-<pre>void&nbsp;removeCommandHandler(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends Command&gt;&nbsp;commandClass)</pre>
-<div class="block">Remove a command handler for a given command class.</div>
+<h4>setEventHandler</h4>
+<pre>&lt;A extends Event&gt;&nbsp;void&nbsp;setEventHandler(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;eventClass,
+                                       <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;A,State&gt;&nbsp;handler)</pre>
+<div class="block">Register an event handler for a given event class. The <code>handler</code> function
+ is supposed to return the new state after applying the event to the current state.
+ Current state can be accessed with the <code>state</code> method of the <code>PersistentEntity</code>.
+ <p>
+ Invoking this method a second time for the same <code>eventClass</code> will override the existing <code>handler</code>.</div>
+</li>
+</ul>
+<a name="setEventHandlerChangingBehavior-java.lang.Class-java.util.function.Function-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setEventHandlerChangingBehavior</h4>
+<pre>&lt;A extends Event&gt;&nbsp;void&nbsp;setEventHandlerChangingBehavior(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;eventClass,
+                                                       <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;A,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a>&gt;&nbsp;handler)</pre>
+<div class="block">Register an event handler that is updating the behavior for a given event class.
+ The <code>handler</code> function  is supposed to return the new behavior after applying the
+ event to the current state. Current behavior can be accessed with the <code>behavior</code>
+ method of the <code>PersistentEntity</code>.
+ <p>
+ Invoking this method a second time for the same <code>eventClass</code> will override the existing <code>handler</code>.</div>
 </li>
 </ul>
 <a name="setReadOnlyCommandHandler-java.lang.Class-java.util.function.BiConsumer-">
@@ -305,14 +306,13 @@ var activeTableTab = "activeTableTab";
  Invoking this method a second time for the same <code>commandClass</code> will override the existing <code>handler</code>.</div>
 </li>
 </ul>
-<a name="build--">
+<a name="setState-State-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>build</h4>
-<pre><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a>&nbsp;build()</pre>
-<div class="block">Construct the corresponding immutable <code>Behavior</code>.</div>
+<h4>setState</h4>
+<pre>void&nbsp;setState(State&nbsp;state)</pre>
 </li>
 </ul>
 </li>

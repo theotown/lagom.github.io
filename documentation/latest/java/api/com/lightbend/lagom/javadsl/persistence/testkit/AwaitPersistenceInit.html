@@ -304,19 +304,6 @@ implements <a href="https://doc.akka.io/japi/akka/current/akka/persistence/Persi
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="mailbox--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mailbox</h4>
-<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/dispatch/DequeBasedMessageQueueSemantics.html?is-external=true" title="class or interface in akka.dispatch">DequeBasedMessageQueueSemantics</a>&nbsp;mailbox()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://doc.akka.io/japi/akka/current/akka/actor/StashSupport.html?is-external=true#mailbox--" title="class or interface in akka.actor">mailbox</a></code>&nbsp;in interface&nbsp;<code><a href="https://doc.akka.io/japi/akka/current/akka/actor/StashSupport.html?is-external=true" title="class or interface in akka.actor">StashSupport</a></code></dd>
-</dl>
-</li>
-</ul>
 <a name="context--">
 <!--   -->
 </a>
@@ -332,18 +319,16 @@ implements <a href="https://doc.akka.io/japi/akka/current/akka/persistence/Persi
 </dl>
 </li>
 </ul>
-<a name="self--">
+<a name="mailbox--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>self</h4>
-<pre>public final&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorRef.html?is-external=true" title="class or interface in akka.actor">ActorRef</a>&nbsp;self()</pre>
+<h4>mailbox</h4>
+<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/dispatch/DequeBasedMessageQueueSemantics.html?is-external=true" title="class or interface in akka.dispatch">DequeBasedMessageQueueSemantics</a>&nbsp;mailbox()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://doc.akka.io/japi/akka/current/akka/actor/Actor.html?is-external=true#self--" title="class or interface in akka.actor">self</a></code>&nbsp;in interface&nbsp;<code><a href="https://doc.akka.io/japi/akka/current/akka/actor/Actor.html?is-external=true" title="class or interface in akka.actor">Actor</a></code></dd>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://doc.akka.io/japi/akka/current/akka/actor/StashSupport.html?is-external=true#self--" title="class or interface in akka.actor">self</a></code>&nbsp;in interface&nbsp;<code><a href="https://doc.akka.io/japi/akka/current/akka/actor/StashSupport.html?is-external=true" title="class or interface in akka.actor">StashSupport</a></code></dd>
+<dd><code><a href="https://doc.akka.io/japi/akka/current/akka/actor/StashSupport.html?is-external=true#mailbox--" title="class or interface in akka.actor">mailbox</a></code>&nbsp;in interface&nbsp;<code><a href="https://doc.akka.io/japi/akka/current/akka/actor/StashSupport.html?is-external=true" title="class or interface in akka.actor">StashSupport</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -360,6 +345,19 @@ implements <a href="https://doc.akka.io/japi/akka/current/akka/persistence/Persi
 </dl>
 </li>
 </ul>
+<a name="receiveCommand--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>receiveCommand</h4>
+<pre>public&nbsp;scala.PartialFunction&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,scala.runtime.BoxedUnit&gt;&nbsp;receiveCommand()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://doc.akka.io/japi/akka/current/akka/persistence/Eventsourced.html?is-external=true#receiveCommand--" title="class or interface in akka.persistence">receiveCommand</a></code>&nbsp;in interface&nbsp;<code><a href="https://doc.akka.io/japi/akka/current/akka/persistence/Eventsourced.html?is-external=true" title="class or interface in akka.persistence">Eventsourced</a></code></dd>
+</dl>
+</li>
+</ul>
 <a name="receiveRecover--">
 <!--   -->
 </a>
@@ -373,16 +371,18 @@ implements <a href="https://doc.akka.io/japi/akka/current/akka/persistence/Persi
 </dl>
 </li>
 </ul>
-<a name="receiveCommand--">
+<a name="self--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>receiveCommand</h4>
-<pre>public&nbsp;scala.PartialFunction&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,scala.runtime.BoxedUnit&gt;&nbsp;receiveCommand()</pre>
+<h4>self</h4>
+<pre>public final&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorRef.html?is-external=true" title="class or interface in akka.actor">ActorRef</a>&nbsp;self()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://doc.akka.io/japi/akka/current/akka/persistence/Eventsourced.html?is-external=true#receiveCommand--" title="class or interface in akka.persistence">receiveCommand</a></code>&nbsp;in interface&nbsp;<code><a href="https://doc.akka.io/japi/akka/current/akka/persistence/Eventsourced.html?is-external=true" title="class or interface in akka.persistence">Eventsourced</a></code></dd>
+<dd><code><a href="https://doc.akka.io/japi/akka/current/akka/actor/Actor.html?is-external=true#self--" title="class or interface in akka.actor">self</a></code>&nbsp;in interface&nbsp;<code><a href="https://doc.akka.io/japi/akka/current/akka/actor/Actor.html?is-external=true" title="class or interface in akka.actor">Actor</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://doc.akka.io/japi/akka/current/akka/actor/StashSupport.html?is-external=true#self--" title="class or interface in akka.actor">self</a></code>&nbsp;in interface&nbsp;<code><a href="https://doc.akka.io/japi/akka/current/akka/actor/StashSupport.html?is-external=true" title="class or interface in akka.actor">StashSupport</a></code></dd>
 </dl>
 </li>
 </ul>

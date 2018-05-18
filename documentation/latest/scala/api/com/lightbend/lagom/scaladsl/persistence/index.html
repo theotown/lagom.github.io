@@ -488,7 +488,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="The base type of PersistentEntity events may implement this interface to make the events available for read-side processing." href="AggregateEvent.html"><span class="name">AggregateEvent</span></a><span class="tparams">[<span name="E">E &lt;: <a href="AggregateEvent.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.AggregateEvent">AggregateEvent</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.persistence.AggregateEvent.E">E</span>]</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a title="The base type of PersistentEntity events may implement this interface to make the events available for read-side processing." href="AggregateEvent.html"><span class="name">AggregateEvent</span></a><span class="tparams">[<span name="E">E &lt;: <a href="AggregateEvent.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.AggregateEvent">AggregateEvent</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.persistence.AggregateEvent.E">E</span>]</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">The base type of <a href="PersistentEntity.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.PersistentEntity">PersistentEntity</a> events may implement this
@@ -547,7 +547,7 @@ the tag is part of the store event data.
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="Selects a tag for an event." href="AggregateEventTagger.html"><span class="name">AggregateEventTagger</span></a><span class="tparams">[<span name="Event">Event &lt;: <a href="AggregateEvent.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.AggregateEvent">AggregateEvent</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.persistence.AggregateEventTagger.Event">Event</span>]</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a title="Selects a tag for an event." href="AggregateEventTagger.html"><span class="name">AggregateEventTagger</span></a><span class="tparams">[<span name="Event">Event &lt;: <a href="AggregateEvent.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.AggregateEvent">AggregateEvent</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.persistence.AggregateEventTagger.Event">Event</span>]</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">Selects a tag for an event.</p><div class="fullcomment"><div class="comment cmt"><p>Selects a tag for an event.</p><p>Can either be a static tag, or a sharded tag generator.
@@ -564,7 +564,7 @@ the tag is part of the store event data.
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="Commands to PersistentEntity are wrapped in this envelope when sent via PersistentEntityRef (i.e." href="CommandEnvelope.html"><span class="name">CommandEnvelope</span></a><span class="params">(<span name="entityId">entityId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="payload">payload: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.4/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.4/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
+        <a title="Commands to PersistentEntity are wrapped in this envelope when sent via PersistentEntityRef (i.e." href="CommandEnvelope.html"><span class="name">CommandEnvelope</span></a><span class="params">(<span name="entityId">entityId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="payload">payload: <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">Commands to <a href="PersistentEntity.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.PersistentEntity">PersistentEntity</a> are wrapped in this envelope
@@ -585,7 +585,7 @@ entities that are not implemented with <a href="PersistentEntity.html" class="ex
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="Envelope for events in the eventstream, provides additional data to the actual event" href="EventStreamElement.html"><span class="name">EventStreamElement</span></a><span class="tparams">[<span name="Event">+Event</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a title="Envelope for events in the eventstream, provides additional data to the actual event" href="EventStreamElement.html"><span class="name">EventStreamElement</span></a><span class="tparams">[<span name="Event">+Event</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">Envelope for events in the eventstream, provides additional data to the actual event
@@ -618,7 +618,7 @@ entities that are not implemented with <a href="PersistentEntity.html" class="ex
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="A PersistentEntity has a stable entity identifier, with which it can be accessed from anywhere in the cluster." href="PersistentEntity.html"><span class="name">PersistentEntity</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a title="A PersistentEntity has a stable entity identifier, with which it can be accessed from anywhere in the cluster." href="PersistentEntity.html"><span class="name">PersistentEntity</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">A <code>PersistentEntity</code> has a stable entity identifier, with which
@@ -683,7 +683,7 @@ Such snapshots are automatically saved after a configured number of persisted ev
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="At system startup all PersistentEntity classes must be registered here with PersistentEntityRegistry#register." href="PersistentEntityRegistry.html"><span class="name">PersistentEntityRegistry</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a title="At system startup all PersistentEntity classes must be registered here with PersistentEntityRegistry#register." href="PersistentEntityRegistry.html"><span class="name">PersistentEntityRegistry</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">At system startup all <a href="PersistentEntity.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.PersistentEntity">PersistentEntity</a> classes must be registered here
@@ -705,7 +705,7 @@ using a <code>PersistentEntityRef</code>.
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="The Lagom read-side registry." href="ReadSide.html"><span class="name">ReadSide</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a title="The Lagom read-side registry." href="ReadSide.html"><span class="name">ReadSide</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">The Lagom read-side registry.</p><div class="fullcomment"><div class="comment cmt"><p>The Lagom read-side registry.</p><p>Handles the management of read-sides.
@@ -738,7 +738,7 @@ using a <code>PersistentEntityRef</code>.
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="A read side processor." href="ReadSideProcessor.html"><span class="name">ReadSideProcessor</span></a><span class="tparams">[<span name="Event">Event &lt;: <a href="AggregateEvent.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.AggregateEvent">AggregateEvent</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.persistence.ReadSideProcessor.Event">Event</span>]</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a title="A read side processor." href="ReadSideProcessor.html"><span class="name">ReadSideProcessor</span></a><span class="tparams">[<span name="Event">Event &lt;: <a href="AggregateEvent.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.AggregateEvent">AggregateEvent</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.persistence.ReadSideProcessor.Event">Event</span>]</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">A read side processor.</p><div class="fullcomment"><div class="comment cmt"><p>A read side processor.</p><p>Read side processors consume events produced by <a href="PersistentEntity.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.PersistentEntity">com.lightbend.lagom.scaladsl.persistence.PersistentEntity</a>

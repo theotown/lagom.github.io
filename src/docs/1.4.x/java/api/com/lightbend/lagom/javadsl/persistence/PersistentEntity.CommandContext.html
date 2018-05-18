@@ -253,19 +253,15 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/Persiste
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="thenPersistAll-akka.japi.Effect-java.lang.Object...-">
+<a name="done--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>thenPersistAll</h4>
-<pre>public&nbsp;&lt;B extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;B&gt;&nbsp;thenPersistAll(<a href="https://doc.akka.io/japi/akka/current/akka/japi/Effect.html?is-external=true" title="class or interface in akka.japi">Effect</a>&nbsp;afterPersist,
-                                                                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;events)</pre>
+<h4>done</h4>
+<pre>public&nbsp;&lt;B extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;B&gt;&nbsp;done()</pre>
 <div class="block">A command handler may return this <code>Persist</code> directive to define
- that several events are to be persisted. External side effects can be
- performed after successful persist in the <code>afterPersist</code> function.
- <code>afterPersist</code> is invoked once when all events have been persisted
- successfully.</div>
+ that no events are to be persisted.</div>
 </li>
 </ul>
 <a name="thenPersist-java.lang.Object-">
@@ -294,6 +290,21 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/Persiste
 <div class="block">A command handler may return this <code>Persist</code> directive to define
  that one event is to be persisted. External side effects can be
  performed after successful persist in the <code>afterPersist</code> function.</div>
+</li>
+</ul>
+<a name="thenPersistAll-akka.japi.Effect-java.lang.Object...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>thenPersistAll</h4>
+<pre>public&nbsp;&lt;B extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;B&gt;&nbsp;thenPersistAll(<a href="https://doc.akka.io/japi/akka/current/akka/japi/Effect.html?is-external=true" title="class or interface in akka.japi">Effect</a>&nbsp;afterPersist,
+                                                                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;events)</pre>
+<div class="block">A command handler may return this <code>Persist</code> directive to define
+ that several events are to be persisted. External side effects can be
+ performed after successful persist in the <code>afterPersist</code> function.
+ <code>afterPersist</code> is invoked once when all events have been persisted
+ successfully.</div>
 </li>
 </ul>
 <a name="thenPersistAll-java.util.List-">
@@ -325,7 +336,7 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/Persiste
 <a name="thenPersistAll-akka.japi.Effect-scala.collection.Seq-">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>thenPersistAll</h4>
 <pre>public&nbsp;&lt;B extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;B&gt;&nbsp;thenPersistAll(<a href="https://doc.akka.io/japi/akka/current/akka/japi/Effect.html?is-external=true" title="class or interface in akka.japi">Effect</a>&nbsp;afterPersist,
@@ -335,17 +346,6 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/Persiste
  performed after successful persist in the <code>afterPersist</code> function.
  <code>afterPersist</code> is invoked once when all events have been persisted
  successfully.</div>
-</li>
-</ul>
-<a name="done--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>done</h4>
-<pre>public&nbsp;&lt;B extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;B&gt;&nbsp;done()</pre>
-<div class="block">A command handler may return this <code>Persist</code> directive to define
- that no events are to be persisted.</div>
 </li>
 </ul>
 </li>

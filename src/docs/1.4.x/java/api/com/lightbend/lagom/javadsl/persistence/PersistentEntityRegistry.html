@@ -178,29 +178,6 @@ var activeTableTab = "activeTableTab";
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="register-java.lang.Class-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>register</h4>
-<pre>&lt;C,E,S&gt;&nbsp;void&nbsp;register(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity</a>&lt;C,E,S&gt;&gt;&nbsp;entityClass)</pre>
-<div class="block">At system startup all <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> classes must be registered
- with this method.</div>
-</li>
-</ul>
-<a name="refFor-java.lang.Class-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>refFor</h4>
-<pre>&lt;C&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntityRef</a>&lt;C&gt;&nbsp;refFor(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity</a>&lt;C,?,?&gt;&gt;&nbsp;entityClass,
-                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;entityId)</pre>
-<div class="block">Retrieve a <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntityRef</code></a> for a given <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> class
- and identifier. Commands are sent to a <code>PersistentEntity</code> using a <code>PersistentEntityRef</code>.</div>
-</li>
-</ul>
 <a name="eventStream-com.lightbend.lagom.javadsl.persistence.AggregateEventTag-com.lightbend.lagom.javadsl.persistence.Offset-">
 <!--   -->
 </a>
@@ -248,7 +225,7 @@ var activeTableTab = "activeTableTab";
 <a name="gracefulShutdown-scala.concurrent.duration.FiniteDuration-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>gracefulShutdown</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;&nbsp;gracefulShutdown(scala.concurrent.duration.FiniteDuration&nbsp;timeout)</pre>
@@ -262,6 +239,29 @@ var activeTableTab = "activeTableTab";
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a completed <code>CompletionStage</code></dd>
 </dl>
+</li>
+</ul>
+<a name="refFor-java.lang.Class-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>refFor</h4>
+<pre>&lt;C&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntityRef</a>&lt;C&gt;&nbsp;refFor(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity</a>&lt;C,?,?&gt;&gt;&nbsp;entityClass,
+                                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;entityId)</pre>
+<div class="block">Retrieve a <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntityRef</code></a> for a given <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> class
+ and identifier. Commands are sent to a <code>PersistentEntity</code> using a <code>PersistentEntityRef</code>.</div>
+</li>
+</ul>
+<a name="register-java.lang.Class-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>register</h4>
+<pre>&lt;C,E,S&gt;&nbsp;void&nbsp;register(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity</a>&lt;C,E,S&gt;&gt;&nbsp;entityClass)</pre>
+<div class="block">At system startup all <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> classes must be registered
+ with this method.</div>
 </li>
 </ul>
 </li>

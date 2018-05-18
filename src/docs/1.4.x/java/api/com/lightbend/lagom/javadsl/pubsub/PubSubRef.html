@@ -248,13 +248,23 @@ implements <a href="https://doc.akka.io/japi/akka/current/akka/actor/NoSerializa
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="topic--">
+<a name="hasAnySubscribers--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>topic</h4>
-<pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/TopicId.html" title="class in com.lightbend.lagom.javadsl.pubsub">TopicId</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="type parameter in PubSubRef">T</a>&gt;&nbsp;topic()</pre>
+<h4>hasAnySubscribers</h4>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;hasAnySubscribers()</pre>
+<div class="block">Request if this topic has any known subscribers at this point.
+ The <code>CompletionStage</code> is completed with the currently known information
+ at this node, i.e. completion is not deferred until there are subscribers.
+ <p>
+ Note that the registry of subscribers is eventually consistent, i.e. new
+ subscribers are not immediately visible at other nodes, but typically the
+ information will be fully replicated to all other nodes after a few seconds.
+ <p>
+ This method is especially useful when writing tests that require that a subscriber
+ is known before sending messages to a topic.</div>
 </li>
 </ul>
 <a name="publish-java.lang.Object-">
@@ -294,29 +304,10 @@ implements <a href="https://doc.akka.io/japi/akka/current/akka/actor/NoSerializa
  this <code>Source</code> and then <code>run</code> the stream.</div>
 </li>
 </ul>
-<a name="hasAnySubscribers--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>hasAnySubscribers</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;hasAnySubscribers()</pre>
-<div class="block">Request if this topic has any known subscribers at this point.
- The <code>CompletionStage</code> is completed with the currently known information
- at this node, i.e. completion is not deferred until there are subscribers.
- <p>
- Note that the registry of subscribers is eventually consistent, i.e. new
- subscribers are not immediately visible at other nodes, but typically the
- information will be fully replicated to all other nodes after a few seconds.
- <p>
- This method is especially useful when writing tests that require that a subscriber
- is known before sending messages to a topic.</div>
-</li>
-</ul>
 <a name="toString--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>toString</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;toString()</pre>
@@ -324,6 +315,15 @@ implements <a href="https://doc.akka.io/japi/akka/current/akka/actor/NoSerializa
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></dd>
 </dl>
+</li>
+</ul>
+<a name="topic--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>topic</h4>
+<pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/TopicId.html" title="class in com.lightbend.lagom.javadsl.pubsub">TopicId</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="type parameter in PubSubRef">T</a>&gt;&nbsp;topic()</pre>
 </li>
 </ul>
 </li>

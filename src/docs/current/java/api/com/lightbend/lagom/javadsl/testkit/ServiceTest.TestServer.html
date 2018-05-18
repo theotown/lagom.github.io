@@ -233,15 +233,6 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="port--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>port</h4>
-<pre>public&nbsp;int&nbsp;port()</pre>
-</li>
-</ul>
 <a name="app--">
 <!--   -->
 </a>
@@ -261,26 +252,6 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="block">Get the service client for a service.</div>
 </li>
 </ul>
-<a name="materializer--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>materializer</h4>
-<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/stream/Materializer.html?is-external=true" title="class or interface in akka.stream">Materializer</a>&nbsp;materializer()</pre>
-<div class="block">Stream materializer. Useful for Akka Streams TestKit.</div>
-</li>
-</ul>
-<a name="system--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>system</h4>
-<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a>&nbsp;system()</pre>
-<div class="block">Current Akka <code>ActorSystem</code>. Useful for Akka Streams TestKit.</div>
-</li>
-</ul>
 <a name="injector--">
 <!--   -->
 </a>
@@ -292,16 +263,45 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  that has been bound to Guice.</div>
 </li>
 </ul>
+<a name="materializer--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>materializer</h4>
+<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/stream/Materializer.html?is-external=true" title="class or interface in akka.stream">Materializer</a>&nbsp;materializer()</pre>
+<div class="block">Stream materializer. Useful for Akka Streams TestKit.</div>
+</li>
+</ul>
+<a name="port--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>port</h4>
+<pre>public&nbsp;int&nbsp;port()</pre>
+</li>
+</ul>
 <a name="stop--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>stop</h4>
 <pre>public&nbsp;void&nbsp;stop()</pre>
 <div class="block">If you use <code>startServer</code> you must also stop the server with
  this method when the test is finished. That is handled automatically
  by <code>withServer</code>.</div>
+</li>
+</ul>
+<a name="system--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>system</h4>
+<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a>&nbsp;system()</pre>
+<div class="block">Current Akka <code>ActorSystem</code>. Useful for Akka Streams TestKit.</div>
 </li>
 </ul>
 </li>

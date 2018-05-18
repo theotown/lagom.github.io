@@ -219,14 +219,64 @@ var activeTableTab = "activeTableTab";
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="withPersistence-boolean-">
+<a name="cassandra--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>withPersistence</h4>
-<pre><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a>&nbsp;withPersistence(boolean&nbsp;enabled)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Use withCassandra instead. Since 1.2.0.</span></div>
+<h4>cassandra</h4>
+<pre>boolean&nbsp;cassandra()</pre>
+<div class="block">Whether Cassandra is enabled.</div>
+</li>
+</ul>
+<a name="cluster--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>cluster</h4>
+<pre>boolean&nbsp;cluster()</pre>
+<div class="block">Whether clustering is enabled.</div>
+</li>
+</ul>
+<a name="configureBuilder-java.util.function.Function-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>configureBuilder</h4>
+<pre><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a>&nbsp;configureBuilder(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/guice/GuiceApplicationBuilder.html?is-external=true" title="class or interface in play.inject.guice">GuiceApplicationBuilder</a>,<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/guice/GuiceApplicationBuilder.html?is-external=true" title="class or interface in play.inject.guice">GuiceApplicationBuilder</a>&gt;&nbsp;configureBuilder)</pre>
+<div class="block">Configure the builder.
+ <p>
+ Allows a function to be supplied to configure the Play Guice application builder. This allows components to be
+ mocked, modules to be enabled/disabled, and custom configuration to be supplied.
+ <p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>configureBuilder</code> - The builder configuration function.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A copy of this setup.</dd>
+</dl>
+</li>
+</ul>
+<a name="configureBuilder--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>configureBuilder</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/guice/GuiceApplicationBuilder.html?is-external=true" title="class or interface in play.inject.guice">GuiceApplicationBuilder</a>,<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/guice/GuiceApplicationBuilder.html?is-external=true" title="class or interface in play.inject.guice">GuiceApplicationBuilder</a>&gt;&nbsp;configureBuilder()</pre>
+<div class="block">The builder configuration function</div>
+</li>
+</ul>
+<a name="jdbc--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>jdbc</h4>
+<pre>boolean&nbsp;jdbc()</pre>
+<div class="block">Whether JDBC is enabled.</div>
 </li>
 </ul>
 <a name="withCassandra-boolean-">
@@ -269,72 +319,6 @@ var activeTableTab = "activeTableTab";
 </dl>
 </li>
 </ul>
-<a name="withJdbc-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>withJdbc</h4>
-<pre><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a>&nbsp;withJdbc(boolean&nbsp;enabled)</pre>
-<div class="block">Enable or disable JDBC.
- <p>
- Enabling JDBC will also enable the cluster.
- <p></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>enabled</code> - True if JDBC should be enabled, or false if disabled.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>A copy of this setup.</dd>
-</dl>
-</li>
-</ul>
-<a name="withJdbc--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>withJdbc</h4>
-<pre><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a>&nbsp;withJdbc()</pre>
-<div class="block">Enable JDBC.
- <p>
- Enabling JDBC will also enable the cluster.
- <p></div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>A copy of this setup.</dd>
-</dl>
-</li>
-</ul>
-<a name="withConfigureBuilder-java.util.function.Function-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>withConfigureBuilder</h4>
-<pre><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a>&nbsp;withConfigureBuilder(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/guice/GuiceApplicationBuilder.html?is-external=true" title="class or interface in play.inject.guice">GuiceApplicationBuilder</a>,<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/guice/GuiceApplicationBuilder.html?is-external=true" title="class or interface in play.inject.guice">GuiceApplicationBuilder</a>&gt;&nbsp;configureBuilder)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Use configureBuilder instead. Since 1.2.0.</span></div>
-</li>
-</ul>
-<a name="configureBuilder-java.util.function.Function-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>configureBuilder</h4>
-<pre><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a>&nbsp;configureBuilder(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/guice/GuiceApplicationBuilder.html?is-external=true" title="class or interface in play.inject.guice">GuiceApplicationBuilder</a>,<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/guice/GuiceApplicationBuilder.html?is-external=true" title="class or interface in play.inject.guice">GuiceApplicationBuilder</a>&gt;&nbsp;configureBuilder)</pre>
-<div class="block">Configure the builder.
- <p>
- Allows a function to be supplied to configure the Play Guice application builder. This allows components to be
- mocked, modules to be enabled/disabled, and custom configuration to be supplied.
- <p></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>configureBuilder</code> - The builder configuration function.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>A copy of this setup.</dd>
-</dl>
-</li>
-</ul>
 <a name="withCluster-boolean-">
 <!--   -->
 </a>
@@ -371,44 +355,60 @@ var activeTableTab = "activeTableTab";
 </dl>
 </li>
 </ul>
-<a name="cassandra--">
+<a name="withConfigureBuilder-java.util.function.Function-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>cassandra</h4>
-<pre>boolean&nbsp;cassandra()</pre>
-<div class="block">Whether Cassandra is enabled.</div>
+<h4>withConfigureBuilder</h4>
+<pre><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a>&nbsp;withConfigureBuilder(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/guice/GuiceApplicationBuilder.html?is-external=true" title="class or interface in play.inject.guice">GuiceApplicationBuilder</a>,<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/guice/GuiceApplicationBuilder.html?is-external=true" title="class or interface in play.inject.guice">GuiceApplicationBuilder</a>&gt;&nbsp;configureBuilder)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Use configureBuilder instead. Since 1.2.0.</span></div>
 </li>
 </ul>
-<a name="jdbc--">
+<a name="withJdbc-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>jdbc</h4>
-<pre>boolean&nbsp;jdbc()</pre>
-<div class="block">Whether JDBC is enabled.</div>
+<h4>withJdbc</h4>
+<pre><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a>&nbsp;withJdbc(boolean&nbsp;enabled)</pre>
+<div class="block">Enable or disable JDBC.
+ <p>
+ Enabling JDBC will also enable the cluster.
+ <p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>enabled</code> - True if JDBC should be enabled, or false if disabled.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A copy of this setup.</dd>
+</dl>
 </li>
 </ul>
-<a name="cluster--">
+<a name="withJdbc--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>cluster</h4>
-<pre>boolean&nbsp;cluster()</pre>
-<div class="block">Whether clustering is enabled.</div>
+<h4>withJdbc</h4>
+<pre><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a>&nbsp;withJdbc()</pre>
+<div class="block">Enable JDBC.
+ <p>
+ Enabling JDBC will also enable the cluster.
+ <p></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A copy of this setup.</dd>
+</dl>
 </li>
 </ul>
-<a name="configureBuilder--">
+<a name="withPersistence-boolean-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>configureBuilder</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/guice/GuiceApplicationBuilder.html?is-external=true" title="class or interface in play.inject.guice">GuiceApplicationBuilder</a>,<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/guice/GuiceApplicationBuilder.html?is-external=true" title="class or interface in play.inject.guice">GuiceApplicationBuilder</a>&gt;&nbsp;configureBuilder()</pre>
-<div class="block">The builder configuration function</div>
+<h4>withPersistence</h4>
+<pre><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a>&nbsp;withPersistence(boolean&nbsp;enabled)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Use withCassandra instead. Since 1.2.0.</span></div>
 </li>
 </ul>
 </li>

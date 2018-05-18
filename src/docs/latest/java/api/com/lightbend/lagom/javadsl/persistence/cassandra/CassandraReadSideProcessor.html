@@ -142,6 +142,12 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers$.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlers$</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlersBuilder.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlersBuilder</a></span></code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Mutable builder for defining event handlers.</div>
@@ -207,7 +213,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>abstract <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlers</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#defineEventHandlers-com.lightbend.lagom.javadsl.persistence.cassandra.CassandraReadSideProcessor.EventHandlersBuilder-">defineEventHandlers</a></span>(com.lightbend.lagom.javadsl.persistence.cassandra.CassandraReadSideProcessor.EventHandlersBuilder&nbsp;builder)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#defineEventHandlers-com.lightbend.lagom.javadsl.persistence.cassandra.CassandraReadSideProcessor.EventHandlersBuilder-">defineEventHandlers</a></span>(<a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlersBuilder.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlersBuilder</a>&nbsp;builder)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Define the event handlers that are to be used.</div>
 </td>
@@ -228,7 +234,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>abstract <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html?is-external=true" title="class or interface in java.util">UUID</a>&gt;&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#prepare-com.lightbend.lagom.javadsl.persistence.cassandra.CassandraSession-">prepare</a></span>(com.lightbend.lagom.javadsl.persistence.cassandra.CassandraSession&nbsp;session)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#prepare-com.lightbend.lagom.javadsl.persistence.cassandra.CassandraSession-">prepare</a></span>(<a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraSession</a>&nbsp;session)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">First you must tell where in the event stream the processing should start,
  i.e.</div>
@@ -286,44 +292,6 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  that is specified by this method, e.g. all persistent events of all <code>Order</code> entities.</div>
 </li>
 </ul>
-<a name="prepare-com.lightbend.lagom.javadsl.persistence.cassandra.CassandraSession-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>prepare</h4>
-<pre>public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html?is-external=true" title="class or interface in java.util">UUID</a>&gt;&gt;&nbsp;prepare(com.lightbend.lagom.javadsl.persistence.cassandra.CassandraSession&nbsp;session)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
-<div class="block">First you must tell where in the event stream the processing should start,
- i.e. return the offset. The current offset is a parameter to the event
- handler for each event and it should typically be stored so that it can be
- restored with a <code>select</code> statement here. Use the <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><code>CassandraSession</code></a>
- to get the stored offset.
- <p>
- Other things that is typically performed in this method is to create
- prepared statements that are later used when processing the events.
- Use <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#prepare-java.lang.String-"><code>CassandraSession.prepare(java.lang.String)</code></a> to create the prepared statements.
- <p>
- Return <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#noOffset--"><code>noOffset()</code></a> if you want to processes all events, e.g. when
- starting the first time or if the number of events are known to be small
- enough to processes all events.</div>
-</li>
-</ul>
-<a name="defineEventHandlers-com.lightbend.lagom.javadsl.persistence.cassandra.CassandraReadSideProcessor.EventHandlersBuilder-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>defineEventHandlers</h4>
-<pre>public abstract&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlers</a>&nbsp;defineEventHandlers(com.lightbend.lagom.javadsl.persistence.cassandra.CassandraReadSideProcessor.EventHandlersBuilder&nbsp;builder)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
-<div class="block">Define the event handlers that are to be used. Use the supplied
- <code>builder</code> to define the event handlers. One handler for each event class.
- A handler is a <code>BiFunction</code> that takes the event and the offset as
- parameters and returns zero or more bound statements that will be executed
- before processing next event.</div>
-</li>
-</ul>
 <a name="completedStatement-com.datastax.driver.core.BoundStatement-">
 <!--   -->
 </a>
@@ -348,6 +316,21 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  with several <code>BoundStatement</code>.</div>
 </li>
 </ul>
+<a name="defineEventHandlers-com.lightbend.lagom.javadsl.persistence.cassandra.CassandraReadSideProcessor.EventHandlersBuilder-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>defineEventHandlers</h4>
+<pre>public abstract&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlers</a>&nbsp;defineEventHandlers(<a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlersBuilder.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlersBuilder</a>&nbsp;builder)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+<div class="block">Define the event handlers that are to be used. Use the supplied
+ <code>builder</code> to define the event handlers. One handler for each event class.
+ A handler is a <code>BiFunction</code> that takes the event and the offset as
+ parameters and returns zero or more bound statements that will be executed
+ before processing next event.</div>
+</li>
+</ul>
 <a name="emptyStatements--">
 <!--   -->
 </a>
@@ -363,11 +346,34 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <a name="noOffset--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>noOffset</h4>
 <pre>public final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html?is-external=true" title="class or interface in java.util">UUID</a>&gt;&gt;&nbsp;noOffset()</pre>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+</li>
+</ul>
+<a name="prepare-com.lightbend.lagom.javadsl.persistence.cassandra.CassandraSession-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>prepare</h4>
+<pre>public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html?is-external=true" title="class or interface in java.util">UUID</a>&gt;&gt;&nbsp;prepare(<a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraSession</a>&nbsp;session)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+<div class="block">First you must tell where in the event stream the processing should start,
+ i.e. return the offset. The current offset is a parameter to the event
+ handler for each event and it should typically be stored so that it can be
+ restored with a <code>select</code> statement here. Use the <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><code>CassandraSession</code></a>
+ to get the stored offset.
+ <p>
+ Other things that is typically performed in this method is to create
+ prepared statements that are later used when processing the events.
+ Use <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#prepare-java.lang.String-"><code>CassandraSession.prepare(java.lang.String)</code></a> to create the prepared statements.
+ <p>
+ Return <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#noOffset--"><code>noOffset()</code></a> if you want to processes all events, e.g. when
+ starting the first time or if the number of events are known to be small
+ enough to processes all events.</div>
 </li>
 </ul>
 </li>

@@ -224,22 +224,10 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  is always 1.</div>
 </li>
 </ul>
-<a name="transformClassName-int-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>transformClassName</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;transformClassName(int&nbsp;fromVersion,
-                                 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className)</pre>
-<div class="block">Override this method if you have changed the class name. Return
- current class name.</div>
-</li>
-</ul>
 <a name="transform-int-com.fasterxml.jackson.databind.JsonNode-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>transform</h4>
 <pre>public abstract&nbsp;com.fasterxml.jackson.databind.JsonNode&nbsp;transform(int&nbsp;fromVersion,
@@ -254,6 +242,18 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <dd><code>fromVersion</code> - the version of the old data</dd>
 <dd><code>json</code> - the old JSON data</dd>
 </dl>
+</li>
+</ul>
+<a name="transformClassName-int-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>transformClassName</h4>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;transformClassName(int&nbsp;fromVersion,
+                                 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className)</pre>
+<div class="block">Override this method if you have changed the class name. Return
+ current class name.</div>
 </li>
 </ul>
 </li>

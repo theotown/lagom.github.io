@@ -22,7 +22,7 @@ addSbtPlugin("com.lightbend.lagom" % "lagom-sbt-plugin" % "1.4.0")
 Lagom 1.4.0 also requires Sbt 0.13.16 or later (recommended sbt 1.x). If your existing project is using a previous version of Sbt, you will need to upgrade it by editing the `project/build.properties` file. For example:
 
 ```
-sbt.version=1.1.4
+sbt.version=1.1.5
 ```
 
 We also recommend you [upgrade](https://www.scala-sbt.org/download.html) your `sbt` launcher.
@@ -59,7 +59,7 @@ and use it when declaring dependencies, for example:
 The Scala version can be updated by editing the `build.sbt` file, and updating the `scalaVersion` settings, for example:
 
 ```scala
-scalaVersion in ThisBuild := "2.12.4"
+scalaVersion in ThisBuild := "2.12.6"
 ```
 
 ## Akka HTTP as the default server engine

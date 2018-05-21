@@ -5,7 +5,7 @@
 <pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.lagom&quot; % &quot;lagom-sbt-plugin&quot; % &quot;1.4.0&quot;)
 </code></pre>
 <p>Lagom 1.4.0 also requires Sbt 0.13.16 or later (recommended sbt 1.x). If your existing project is using a previous version of Sbt, you will need to upgrade it by editing the <code>project/build.properties</code> file. For example:</p>
-<pre class="prettyprint"><code>sbt.version=1.1.4
+<pre class="prettyprint"><code>sbt.version=1.1.5
 </code></pre>
 <p>We also recommend you <a href="https://www.scala-sbt.org/download.html">upgrade</a> your <code>sbt</code> launcher.</p><h2 id="Scala-2.12-support"><a class="section-marker" href="#Scala-2.12-support">§</a>Scala 2.12 support</h2>
 <p>Lagom is now cross compiled to Scala 2.11 and 2.12. It&rsquo;s recommended to upgrade to Scala 2.12 whenever possible. The Scala 2.12 version of Lagom benefits from the improved optimizer and use of Java 8 features in the new version of the Scala compiler, resulting in a leaner, faster Lagom for everyone.</p>

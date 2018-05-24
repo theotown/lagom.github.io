@@ -498,7 +498,7 @@ production.
         <span class="name">describeService</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="../api/Descriptor.html" class="extype" name="com.lightbend.lagom.scaladsl.api.Descriptor">Descriptor</a>]</span>
       </span>
       
-      <p class="shortcomment cmt">Implement this to allow tooling, such as ConductR, to discover the service (if any) offered by this application.</p><div class="fullcomment"><div class="comment cmt"><p>Implement this to allow tooling, such as ConductR, to discover the service (if any) offered by this application.</p><p>This will be used to generate configuration regarding ACLs and service name for production deployment.</p><p>For example:</p><p><code><code><code>
+      <p class="shortcomment cmt">Implement this to allow tooling, such as Lightbend Orchestration, to discover the service (if any) offered by this application.</p><div class="fullcomment"><div class="comment cmt"><p>Implement this to allow tooling, such as Lightbend Orchestration, to discover the service (if any) offered by this application.</p><p>This will be used to generate configuration regarding ACLs and service name for production deployment.</p><p>For example:</p><p><code><code><code>
 override def describeService = Some(readDescriptor[MyService])
 <code><code><code>
 </code></code></code></code></code></code></p></div></div>

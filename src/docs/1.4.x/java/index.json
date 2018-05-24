@@ -307,18 +307,6 @@
         "url" : "ProductionOverview.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/1.4.x/docs/manual/java/guide/production/ProductionOverview.md"
       }, {
-        "title" : "Lightbend ConductR",
-        "url" : "ConductR.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/1.4.x/docs/manual/java/guide/production/ConductR.md"
-      }, {
-        "title" : "Using ConductR with maven",
-        "url" : "ConductRMaven.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/1.4.x/docs/manual/java/guide/production/ConductRMaven.md"
-      }, {
-        "title" : "Using ConductR with sbt",
-        "url" : "ConductRSbt.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/1.4.x/docs/manual/java/guide/production/ConductRSbt.md"
-      }, {
         "title" : "Reactive Platform",
         "url" : "ReactivePlatform.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/1.4.x/docs/manual/common/guide/production/ReactivePlatform.md"

@@ -1,5 +1,5 @@
 <h1 id="Scala-Components"><a class="section-marker" href="#Scala-Components">§</a>Scala Components</h1>
-<p>This is a list of available Components you may use to build your application cake. This list contains Components provided by Lagom, Play and ConductR. You may develop your own Components and use those instead of the provided on this list as long as the contracts are fulfilled.</p><h5 id="Service-Components"><a class="section-marker" href="#Service-Components">§</a>Service Components</h5>
+<p>This is a list of available Components you may use to build your application cake. This list contains Components provided by Lagom, Play and Lightbend Orchestration. You may develop your own Components and use those instead of the provided on this list as long as the contracts are fulfilled.</p><h5 id="Service-Components"><a class="section-marker" href="#Service-Components">§</a>Service Components</h5>
 <table>
   <tbody>
     <tr>
@@ -64,7 +64,7 @@
     </tr>
     <tr>
       <td><a href="api/com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html">ConfigurationServiceLocatorComponents</a></td>
-      <td>provides a Service Locator based on <code>application.conf</code> files. See <a href="ProductionOverview.html#Using-static-values-for-services-and-Cassandra-to-simulate-a-managed-runtime">Using static values for services and Cassandra to simulate a managed runtime</a>.</td>
+      <td>provides a Service Locator based on <code>application.conf</code> files. See <a href="ProductionOverview.html#Using-static-values-for-services-and-Cassandra">Using static values for services and Cassandra to simulate a managed runtime</a>.</td>
     </tr>
     <tr>
       <td><a href="api/com/lightbend/lagom/scaladsl/client/RoundRobinServiceLocatorComponents.html">RoundRobinServiceLocatorComponents</a></td>
@@ -78,7 +78,7 @@
 </table><h5 id="Third-party-Components"><a class="section-marker" href="#Third-party-Components">§</a>Third party Components</h5>
 <p>You can mix in <code>Components</code> from other frameworks or libraries, for example:</p>
 <ul>
-  <li><a href="https://github.com/typesafehub/conductr-lib/blob/master/lagom14-scala-conductr-bundle-lib/src/main/scala/com/typesafe/conductr/bundlelib/lagom/scaladsl/ConductRApplicationComponents.scala">ConductRApplicationComponents</a>: provides a Service Locator provided by ConductR, reads any ConductR provided configuration and makes the service register into ConductR&rsquo;s Service Registry. See <a href="ConductR.html">ConductR</a></li>
+  <li><a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/features.html#lagom-scala">LagomServiceLocatorComponents</a>: is defined by the <code>reactive-lib</code> component of Lightbend Orchestration, and provides a Lagom <code>ServiceLocator</code> implementation that works with the native service discovery features of Kubernetes and DC/OS (Marathon).</li>
   <li><a href="https://www.playframework.com/documentation/2.6.x/api/scala/index.html#play.api.libs.ws.ahc.AhcWSComponents">AhcWSComponents</a>: provides a <code>WSClient</code> based on an Async HTTP Client.</li>
   <li><a href="https://www.playframework.com/documentation/2.6.x/api/scala/play/api/db/DBComponents.html">DBComponents</a></li>
   <li><a href="https://www.playframework.com/documentation/2.6.x/api/scala/play/api/db/HikariCPComponents.html">HikariCPComponents</a></li>

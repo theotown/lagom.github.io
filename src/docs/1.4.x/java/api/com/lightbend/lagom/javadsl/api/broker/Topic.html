@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">com.lightbend.lagom.javadsl.api.broker</div>
-<h2 title="Interface Topic" class="title">Interface Topic&lt;Message&gt;</h2>
+<h2 title="Interface Topic" class="title">Interface Topic&lt;TopicMessageType&gt;</h2>
 </div>
 <div class="contentContainer">
 <div class="description">
@@ -99,13 +99,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>Message</code> - The message type.
+<dd><code>TopicMessageType</code> - The message type.
 
  Note: This class is not meant to be extended by client code.</dd>
 </dl>
 <hr>
 <br>
-<pre>public interface <span class="typeNameLabel">Topic&lt;Message&gt;</span></pre>
+<pre>public interface <span class="typeNameLabel">Topic&lt;TopicMessageType&gt;</span></pre>
 <div class="block">A topic can be used to publish/subscribe messages to/from a message broker.</div>
 </li>
 </ul>
@@ -147,7 +147,7 @@ var activeTableTab = "activeTableTab";
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="interface in com.lightbend.lagom.javadsl.api.broker">Subscriber</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Topic.html" title="type parameter in Topic">Message</a>&gt;</code></td>
+<td class="colFirst"><code><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="interface in com.lightbend.lagom.javadsl.api.broker">Subscriber</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Topic.html" title="type parameter in Topic">TopicMessageType</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Topic.html#subscribe--">subscribe</a></span>()</code>
 <div class="block">Obtain a subscriber to this topic.</div>
 </td>
@@ -193,7 +193,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockListLast">
 <li class="blockList">
 <h4>subscribe</h4>
-<pre><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="interface in com.lightbend.lagom.javadsl.api.broker">Subscriber</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Topic.html" title="type parameter in Topic">Message</a>&gt;&nbsp;subscribe()</pre>
+<pre><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="interface in com.lightbend.lagom.javadsl.api.broker">Subscriber</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Topic.html" title="type parameter in Topic">TopicMessageType</a>&gt;&nbsp;subscribe()</pre>
 <div class="block">Obtain a subscriber to this topic.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

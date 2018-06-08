@@ -6,10 +6,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Where to begin</title>
+        <title>Lagom - Lagom 1.4.6 released!</title>
         <meta name="description" content="Lagom">
-        
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.4.x/java/WhereToStart.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
@@ -31,8 +29,7 @@
         </script>
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) end -->
          
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-    
+    <link href="/blog/atom.xml" type="application/atom+xml" rel="home" title="ATOM Feed" />
 
     </head>
     <body>
@@ -124,138 +121,168 @@
                         </div>
                     </div>
 
-                     
+                    
+
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Where to begin</h1>
+                <div class="blog-meta">
+                    <div class="blog-author-image">
+                        <a href="https://github.com/ignasi35">
+                            <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                        </a>
+                    </div>
+                    <div class="blog-meta-details">
+                        <a class="blog-author-name" href="https://github.com/ignasi35">Ignasi Marimon-Clos</a>
+                        |
+                        <span class="blog-post-date">May 30, 2018</span>
+                        <div class="blog-meta-tags">
+                            
+                                <img src="/images/entypo/white/entypo_tag.svg" class="svg-icon"/>
+                                
+                                    <span class="blog-tag"><a href="tags/news.html">news</a></span>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                <h1>Lagom 1.4.6 released!</h1>
             </div>
         </div>
     </header>
 
-    <div class="fw-wrapper documentation-content">
+    <article class="fw-wrapper page-content">
         <div class="row">
             <div class="small-12 large-7 columns">
-                
-                    <nav class="breadcrumbs">
-                        <a href="Home.html">Java Home</a>
-                        
-                                    &raquo;
-                            <a href="WhatIsLagom.html">Welcome to Lagom</a>
-                        
-                    </nav>
-                
-
-                <article>
-                <h1 id="Where-to-begin"><a class="section-marker" href="#Where-to-begin">§</a>Where to begin</h1>
-<p>It takes time to adopt a new way of thinking about and solving problems. Lagom provides guidance with its framework, but ultimately it is up to you &#8212; and possibly others in your organization &#8212; to apply the principles in your domain. You will be able to do this successfully by fully understanding what motivates use of microservices and how they impact not just the resulting system, but the development process itself.</p>
-<p><a href="https://info.lightbend.com/COLL-20XX-Reactive-Microservices-Architecture-RES-LP.html">Reactive Microservices Architecture: Design Principles for Distributed Systems</a>, by Jonas Bonér, describes how reactive microservices systems can satisfy the ever-increasing demands of modern software. He notes the positive effect when adopting such systems:</p>
-<blockquote>
-  <p>As we detangle our systems, we shift the power from central governing bodies to smaller teams who can seize opportunities rapidly and stay nimble because they understand the software within well defined boundaries that they control.</p>
-</blockquote>
-<p>We strongly recommend reading Bonér&rsquo;s book before learning Lagom. Much of the documentation builds upon and refers to it. (You can download it for free from the <a href="https://www.lightbend.com/resources/e-books">Lightbend website</a>.)</p>
-<p>Choose the next step that&rsquo;s right for you:</p>
+                <p>The Lagom team has released Lagom 1.4.6.</p>
+<p>This release provides several bug fixes and updates.</p>
+<h2>Highlights:</h2>
 <ul>
-  <li>Take Lagom for a quick spin by creating and running a <a href="IntroGetStarted.html">Hello World</a> app.</li>
-  <li>Read <a href="CoreConcepts.html">Core Concepts</a> to understand how the Lagom framework puts microservice-based design principles into practice.</li>
+  <li>Updates Akka to <a href="https://akka.io/blog/news/2018/06/08/akka-2.5.13-released">2.5.13</a></li>
+  <li>Updates Akka Persistence JDBC to <a href="https://github.com/dnvriend/akka-persistence-jdbc/releases/tag/v3.4.0">3.4.0</a></li>
+  <li>Fix in testkit to <a href="https://github.com/lagom/lagom/pull/1355">allow tests using Play&rsquo;s DBAPI</a></li>
+  <li>Small fixes improving the error reporting for developers. E.g. improved error message in <a href="https://github.com/lagom/lagom/issues/1362">some issues in the Service.Descriptor</a> and improved error message when there&rsquo;s <a href="https://github.com/lagom/lagom/pull/1372">no connection settings for userland read-side DB</a></li>
 </ul>
-                </article>
+<p>See GitHub for the <a href="https://github.com/lagom/lagom/compare/1.4.5...1.4.6">full list of commits</a> and the issues and pull requests assigned to the <a href="https://github.com/lagom/lagom/milestone/31?closed=1">1.4.6 milestone</a>.</p>
+<h2>Updating a Lagom project to version 1.4.6</h2>
+<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
+<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
+<p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>
+<h2><a href="#credits" name="credits">Credits</a></h2>
+<p>Thanks to the community for their detailed bug reports and contributions.</p>
+<p>Thanks to <a href="https://www.lightbend.com">Lightbend</a> for their continued sponsorship of the Lagom core team&rsquo;s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>
+<p>Special thanks to the following contributors who helped with this release:</p>
+<pre>
+  commits  added  removed
+      7     158     652 Tim Moore
+      3      82      52 Ignasi Marimon-Clos
+      1      22      14 Patrik Nordwall
+      1     100      10 James Roper
+      1      21       6 Renato Cavalcanti
+      1       2       2 Wade Waldron
+      1       2       2 Markus Hennerbichler
+</pre>
 
-                
-                    
-                        
-                            <nav class="next-link">
-                                <a href="IntroGetStarted.html"><strong>Next: </strong>
-                                    Getting started with Lagom</a>
-                            </nav>
-                        
-                    
-                
+                <h2>Share</h2>
+                <div class="addthis_sharing_toolbox"></div>
 
-                
-                    <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.4.x/docs/manual/common/welcome/WhereToStart.md">here</a>. Please feel free to edit and contribute a pull request. </p>
-                
+                <br/>
+
+                <h2>Discuss</h2>
+                <div id="disqus_thread"><div class="cookie-warning"><p>Cookies are required for this functionality.<a class="optanon-allow-all">Allow Cookies</a><p></div></div>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
             </div>
-            <aside class="small-12 large-4 columns">
-                <nav class="side-menu">
+            <aside class="show-for-medium small-12 large-4 columns">
+            
 
-                    <input type="search" id="cross-docs-search" placeholder="Search..." />
+<nav class="side-menu">
+    
+        <h3>Recent posts</h3>
 
-                    <label for="docs-version">Version:</label>
-                    <select id="docs-version">
-                    
-                        <option value="/documentation/1.0.x/java /Home.html" >1.0.x</option>
-                    
-                        <option value="/documentation/1.1.x/java /Home.html" >1.1.x</option>
-                    
-                        <option value="/documentation/1.2.x/java /Home.html" >1.2.x</option>
-                    
-                        <option value="/documentation/1.3.x/java /WhereToStart.html" >1.3.x</option>
-                    
-                        <option value="/documentation/1.4.x/java /WhereToStart.html" 
-                            selected="selected">1.4.x</option>
-                    
-                        <option value="/documentation/current/java /WhereToStart.html" >current</option>
-                    
-                        <option value="/documentation/latest/java /WhereToStart.html" >latest</option>
-                    
-                    </select>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1.4.6.html">Lagom 1.4.6 released!</a>
+                    <br/>
+                    May 30, 2018
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/TimMoore">
+                        <img src="https://avatars0.githubusercontent.com/u/44385?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1.4.5.html">Lagom 1.4.5 released!</a>
+                    <br/>
+                    May 15, 2018
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/renatocaval">
+                        <img src="https://avatars0.githubusercontent.com/u/502982?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1.4.4.html">Lagom 1.4.4 released!</a>
+                    <br/>
+                    March 27, 2018
+                </div>
+            </div>
+        
 
-                    <a href="/documentation/1.4.x/java/api/index.html" class="api-docs">
-                        API Documentation</a>
+    
 
-                    
-                        <h3>Welcome to Lagom</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="WhatIsLagom.html">What is Lagom?</a></li>
-                            
-                        
-                            
-                                <li><a href="WhatDoesLagomMean.html">What’s in the name?</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="WhereToStart.html">Where to begin</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Java Home</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="Home.html">Home</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="WhatIsLagom.html">Welcome to Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="IntroGetStarted.html">Getting started with Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="CoreConcepts.html">Lagom core concepts</a></li>
-                            
-                        
-                            
-                                <li><a href="ReferenceGuide.html">Lagom reference guide</a></li>
-                            
-                        
-                            
-                                <li><a href="Migration14.html">Lagom releases</a></li>
-                            
-                        
-                        </ul>
-                    
-                </nav>
+    <h3>Tags</h3>
+
+    <div class="blog-tag-box">
+    
+        <a href="/blog/tags/conductr.html" data-count="1">conductr</a>
+    
+        <a href="/blog/tags/cookbook.html" data-count="1">cookbook</a>
+    
+        <a href="/blog/tags/crud.html" data-count="1">crud</a>
+    
+        <a href="/blog/tags/discuss.html" data-count="1">discuss</a>
+    
+        <a href="/blog/tags/event%20sourcing.html" data-count="1">event sourcing</a>
+    
+        <a href="/blog/tags/generator.html" data-count="1">generator</a>
+    
+        <a href="/blog/tags/java.html" data-count="1">java</a>
+    
+        <a href="/blog/tags/maven.html" data-count="1">maven</a>
+    
+        <a href="/blog/tags/news.html" data-count="36">news</a>
+    
+        <a href="/blog/tags/outreachy.html" data-count="1">outreachy</a>
+    
+        <a href="/blog/tags/recipes.html" data-count="1">recipes</a>
+    
+        <a href="/blog/tags/scala.html" data-count="2">scala</a>
+    
+        <a href="/blog/tags/screencast.html" data-count="1">screencast</a>
+    
+    </div>
+
+</nav>
+
+
             </aside>
         </div>
-    </div>
+    </article>
+
+
 
 
                     <footer>
@@ -362,109 +389,20 @@
     <script src="/0002d50259b0478c7cd1997917bbf743ead1ed97-all-scripts-concat.js"></script>
     
      
-    <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-        <!-- Cross-site search. This is using Algolia's autocomplete.js  -->
-    <script>
-            var clientLagom = algoliasearch('BH4D9OD16A', '77ef1e29e6bddfca861f7a42cc51725e');
-            var clientAkka = algoliasearch('BH4D9OD16A', '543bad5ad786495d9ccd445ed34ed082');
-            var clientPlay = algoliasearch('BH4D9OD16A', 'a0b34e68c804cf96e76adcb02d47159b');
-            var lagomIndex = clientLagom.initIndex('lagomframework');
-            var akkaIndex = clientAkka.initIndex('akka_io');
-            var playIndex = clientPlay.initIndex('playframework');
-
-            var displayValue = function (suggestion, level) {
-                if (level === 0)
-                    return suggestion._highlightResult.hierarchy.lvl0.value;
-                if (suggestion._highlightResult.hierarchy['lvl' + level] !== undefined) {
-                    return suggestion._highlightResult.hierarchy['lvl' + level].value ;
-                } else {
-                    return displayValue(suggestion, level - 1) ;
-                }
-            };
-            var displaySnippet = function (suggestion) {
-                if (typeof suggestion._snippetResult !== 'undefined') {
-                    return '<div class="algolia-docsearch-suggestion--text">' + suggestion._snippetResult.content.value + '</div>'
-                } else {
-                    return ''
-                }
-            }
-
-            var wrap = function (content, wrapper) {
-                if (typeof wrapper !== 'undefined') {
-                    return '<span class=' + wrapper + '>' + content + '</span>';
-                } else {
-                    return content;
-                }
-            }
-
-            var buildIndexSettings = function (_indexObj, _hitsPerPage, _faceFilters, title, useFooter, wrapper) {
-                var _header = wrap('<span class="algolia-docsearch-suggestion algolia-docsearch-suggestion__main algolia-docsearch-suggestion__secondary algolia-docsearch-suggestion--category-header ">' + title + '</span>', wrapper);
-                var _templates = {
-                    header: _header,
-                    suggestion: function (suggestion) {
-                        var suggestionHtml = '<div class="algolia-docsearch-suggestion algolia-docsearch-suggestion__secondary" style="white-space: normal;">' +
-                                '<div class="algolia-docsearch-suggestion--wrapper">' +
-                                '<div class="algolia-docsearch-suggestion--subcategory-column ">' +
-                                '<span class="algolia-docsearch-suggestion--subcategory-column-text">' + displayValue(suggestion, 0) + '</span>' +
-                                '</div>' +
-                                '<div class="algolia-docsearch-suggestion--content">' +
-                                '<div class="algolia-docsearch-suggestion--subcategory-inline ">' + displayValue(suggestion, 1) + '</div>' +
-                                '<div class="algolia-docsearch-suggestion--title algolia-docsearch-suggestion--duplicate-content">' + displayValue(suggestion, 2) + '</div>' +
-                                displaySnippet(suggestion) +
-                                '</div>' +
-                                '</div>' +
-                                '</div>';
-                        return wrap(suggestionHtml, wrapper)
-                    }
-                };
-                if (useFooter) {
-                    _templates['footer'] = '<div class="algolia-docsearch-footer"><a class="algolia-docsearch-footer--logo" href="https://www.algolia.com/docsearch">Algolia</a></div>';
-                }
-
-                return {
-                    source: autocomplete.sources.hits(
-                            _indexObj,
-                            {hitsPerPage: _hitsPerPage, facetFilters: _faceFilters}
-                    )
-                    ,
-                    templates: _templates
-                };
-
-            };
-
-            var lagomFacetFilters = ['version:current'];
-            var akkaFacetFilters = [];
-            var playFacetFilters = ['version:2.6.x', 'tags:en'];
-
-            var useScalaFacetFilter = window.location.href.split('/').includes("scala");
-            if (useScalaFacetFilter) {
-                lagomFacetFilters.push('language:scala');
-                // The Akka faceting for language is not active. Instead, the paradox grouping is used.
-                // akkaFacetFilters.push('language:scala');
-            } else {
-                lagomFacetFilters.push('language:java');
-                // The Akka faceting for language is not active. Instead, the paradox grouping is used.
-                // akkaFacetFilters.push('language:java');
-            }
-
-
-            autocomplete('#cross-docs-search',
-                    {hint: false},
-                    [
-                        buildIndexSettings(lagomIndex, 5, lagomFacetFilters, "Lagom Documentation", false)
-                        ,
-                        buildIndexSettings(akkaIndex, 2, akkaFacetFilters, "Akka Documentation", false, "akka")
-                        ,
-                        buildIndexSettings(playIndex, 2, playFacetFilters, "Play Documentation", true, "play")
-                    ]
-            ).on('autocomplete:selected', function (event, suggestion, dataset) {
-                location.href = suggestion.url;
-            });
+    <script type="text/plain" class="optanon-category-4" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>
+    <script type="text/plain" class="optanon-category-4">
+        var disqus_config = function () {
+            this.page.url = "https://www.lagomframework.com/blog/lagom-1.4.6.html";
+            this.page.identifier = "lagom-1.4.6";
+            this.page.title = "Lagom 1.4.6 released!";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//lagomframework.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
-
-
-    
 
     <script type="text/plain" class="optanon-category-2">
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

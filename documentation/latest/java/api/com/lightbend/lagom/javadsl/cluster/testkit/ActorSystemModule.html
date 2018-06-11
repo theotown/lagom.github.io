@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -98,7 +98,7 @@ var activeTableTab = "activeTableTab";
 <li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></li>
 <li>
 <ul class="inheritance">
-<li>com.google.inject.AbstractModule</li>
+<li><a href="https://www.playframework.com/documentation/latest/api/java/play/api.inject.Module.html?is-external=true" title="class or interface in play">play.api.inject.Module</a></li>
 <li>
 <ul class="inheritance">
 <li>com.lightbend.lagom.javadsl.cluster.testkit.ActorSystemModule</li>
@@ -110,14 +110,10 @@ var activeTableTab = "activeTableTab";
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
-<dl>
-<dt>All Implemented Interfaces:</dt>
-<dd>com.google.inject.Module</dd>
-</dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">ActorSystemModule</span>
-extends com.google.inject.AbstractModule</pre>
+extends <a href="https://www.playframework.com/documentation/latest/api/java/play/api.inject.Module.html?is-external=true" title="class or interface in play">play.api.inject.Module</a></pre>
 </li>
 </ul>
 </div>
@@ -154,28 +150,17 @@ extends com.google.inject.AbstractModule</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/cluster/testkit/ActorSystemModule.html#configure--">configure</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/cluster/testkit/ActorSystemModule.html#provideActorSystem--">provideActorSystem</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>scala.concurrent.ExecutionContext</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/cluster/testkit/ActorSystemModule.html#provideExecutionContext--">provideExecutionContext</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="https://doc.akka.io/japi/akka/current/akka/stream/Materializer.html?is-external=true" title="class or interface in akka.stream">Materializer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/cluster/testkit/ActorSystemModule.html#provideMaterializer--">provideMaterializer</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>scala.collection.Seq&lt;<a href="https://www.playframework.com/documentation/latest/api/java/play/api.inject.Binding.html?is-external=true" title="class or interface in play">play.api.inject.Binding</a>&lt;?&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/cluster/testkit/ActorSystemModule.html#bindings-play.api.Environment-play.api.Configuration-">bindings</a></span>(<a href="https://www.playframework.com/documentation/latest/api/java/play/api.Environment.html?is-external=true" title="class or interface in play">play.api.Environment</a>&nbsp;environment,
+        <a href="https://www.playframework.com/documentation/latest/api/java/play/api.Configuration.html?is-external=true" title="class or interface in play">play.api.Configuration</a>&nbsp;configuration)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.com.google.inject.AbstractModule">
+<li class="blockList"><a name="methods.inherited.from.class.play.api.inject.Module">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;com.google.inject.AbstractModule</h3>
-<code>configure</code></li>
+<h3>Methods inherited from class&nbsp;play.api.inject.<a href="https://www.playframework.com/documentation/latest/api/java/play/api.inject.Module.html?is-external=true" title="class or interface in play">Module</a></h3>
+<code>bind, bind, seq, seq</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.Object">
@@ -215,44 +200,18 @@ extends com.google.inject.AbstractModule</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="configure--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>configure</h4>
-<pre>public&nbsp;void&nbsp;configure()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>configure</code>&nbsp;in class&nbsp;<code>com.google.inject.AbstractModule</code></dd>
-</dl>
-</li>
-</ul>
-<a name="provideActorSystem--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>provideActorSystem</h4>
-<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a>&nbsp;provideActorSystem()</pre>
-</li>
-</ul>
-<a name="provideExecutionContext--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>provideExecutionContext</h4>
-<pre>public&nbsp;scala.concurrent.ExecutionContext&nbsp;provideExecutionContext()</pre>
-</li>
-</ul>
-<a name="provideMaterializer--">
+<a name="bindings-play.api.Environment-play.api.Configuration-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>provideMaterializer</h4>
-<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/stream/Materializer.html?is-external=true" title="class or interface in akka.stream">Materializer</a>&nbsp;provideMaterializer()</pre>
+<h4>bindings</h4>
+<pre>public&nbsp;scala.collection.Seq&lt;<a href="https://www.playframework.com/documentation/latest/api/java/play/api.inject.Binding.html?is-external=true" title="class or interface in play">play.api.inject.Binding</a>&lt;?&gt;&gt;&nbsp;bindings(<a href="https://www.playframework.com/documentation/latest/api/java/play/api.Environment.html?is-external=true" title="class or interface in play">play.api.Environment</a>&nbsp;environment,
+                                                                 <a href="https://www.playframework.com/documentation/latest/api/java/play/api.Configuration.html?is-external=true" title="class or interface in play">play.api.Configuration</a>&nbsp;configuration)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://www.playframework.com/documentation/latest/api/java/play/api.inject.Module.html?is-external=true#bindings-play.api.Environment-play.api.Configuration-" title="class or interface in play">bindings</a></code>&nbsp;in class&nbsp;<code><a href="https://www.playframework.com/documentation/latest/api/java/play/api.inject.Module.html?is-external=true" title="class or interface in play">play.api.inject.Module</a></code></dd>
+</dl>
 </li>
 </ul>
 </li>

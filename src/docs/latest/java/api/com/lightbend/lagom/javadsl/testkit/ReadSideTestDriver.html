@@ -111,7 +111,8 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public class <span class="typeNameLabel">ReadSideTestDriver</span>
+<pre>@Singleton
+public class <span class="typeNameLabel">ReadSideTestDriver</span>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="../../../../../com/lightbend/lagom/javadsl/persistence/ReadSide.html" title="interface in com.lightbend.lagom.javadsl.persistence">ReadSide</a></pre>
 </li>
@@ -132,7 +133,7 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/persistence/ReadS
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ReadSideTestDriver.html#ReadSideTestDriver-com.google.inject.Injector-akka.stream.Materializer-">ReadSideTestDriver</a></span>(com.google.inject.Injector&nbsp;injector,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ReadSideTestDriver.html#ReadSideTestDriver-play.inject.Injector-akka.stream.Materializer-">ReadSideTestDriver</a></span>(<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/Injector.html?is-external=true" title="class or interface in play.inject">Injector</a>&nbsp;injector,
                   <a href="https://doc.akka.io/japi/akka/current/akka/stream/Materializer.html?is-external=true" title="class or interface in akka.stream">Materializer</a>&nbsp;materializer)</code>&nbsp;</td>
 </tr>
 </table>
@@ -183,14 +184,14 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/persistence/ReadS
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="ReadSideTestDriver-com.google.inject.Injector-akka.stream.Materializer-">
+<a name="ReadSideTestDriver-play.inject.Injector-akka.stream.Materializer-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ReadSideTestDriver</h4>
 <pre>@Inject
-public&nbsp;ReadSideTestDriver(com.google.inject.Injector&nbsp;injector,
+public&nbsp;ReadSideTestDriver(<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/Injector.html?is-external=true" title="class or interface in play.inject">Injector</a>&nbsp;injector,
                                   <a href="https://doc.akka.io/japi/akka/current/akka/stream/Materializer.html?is-external=true" title="class or interface in akka.stream">Materializer</a>&nbsp;materializer)</pre>
 </li>
 </ul>

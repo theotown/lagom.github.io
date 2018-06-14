@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/12c870193fad0fc5e640d8b7639b24e160503f8b-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/2dfff530aac06241f411b53bfe33b008a038d473-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -184,7 +184,7 @@
 <p>The naïve approach is to remove an unreachable node from the cluster membership after a timeout. This works great for crashes and short transient network partitions, but not for long network partitions. Both sides of the network partition will see the other side as unreachable and after a while remove it from its cluster membership. Since this happens on both sides the result is that two separate disconnected clusters have been created. This approach is provided by the opt-in (off by default) auto-down feature in the OSS version of Akka Cluster. Because of this auto-down should not be used in production systems.</p>
 <p><strong>We strongly recommend against using the auto-down feature of Akka Cluster.</strong></p>
 <p>A pre-packaged solution for the downing problem is provided by <a href="https://developer.lightbend.com/docs/akka-commercial-addons/current/split-brain-resolver.html">Split Brain Resolver</a>, which is part of the <a href="https://www.lightbend.com/platform/production">Lightbend Enterprise Suite</a>. The <code>keep-majority</code> strategy is configured to be enabled by default if you use Lagom with the Enterprise Suite.</p>
-<p>See <a href="https://developer.lightbend.com/docs/akka-commercial-addons/current/split-brain-resolver.html">Split Brain Resolver documentation</a> and <a href="ReactivePlatform.html">Reactive Platform instructions</a> for how to enable it in the build of your project.</p>
+<p>See <a href="EnterpriseSuite.html">Using Lightbend Enterprise Suite with Lagom</a> and the <a href="https://developer.lightbend.com/docs/akka-commercial-addons/current/split-brain-resolver.html">Split Brain Resolver documentation</a> for instructions on how to enable it in the build of your project.</p>
 <p>Even if you don&rsquo;t use the commercial Enterprise Suite, you should still read &amp; understand the concepts behind <a href="https://developer.lightbend.com/docs/akka-commercial-addons/current/split-brain-resolver.html">Split Brain Resolver</a> to ensure your solution handles the concerns described there.</p>
                 </article>
 
@@ -459,7 +459,7 @@
             </div>
         </div>
     </body>
-    <script src="/12c870193fad0fc5e640d8b7639b24e160503f8b-all-scripts-concat.js"></script>
+    <script src="/2dfff530aac06241f411b53bfe33b008a038d473-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

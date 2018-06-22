@@ -74,13 +74,13 @@ var activeTableTab = "activeTableTab";
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -91,9 +91,17 @@ var activeTableTab = "activeTableTab";
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">com.lightbend.lagom.javadsl.persistence</div>
-<h2 title="Interface PersistentEntity.BehaviorBuilder" class="title">Interface PersistentEntity.BehaviorBuilder</h2>
+<h2 title="Class PersistentEntity.BehaviorBuilder" class="title">Class PersistentEntity.BehaviorBuilder</h2>
 </div>
 <div class="contentContainer">
+<ul class="inheritance">
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></li>
+<li>
+<ul class="inheritance">
+<li>com.lightbend.lagom.javadsl.persistence.PersistentEntity.BehaviorBuilder</li>
+</ul>
+</li>
+</ul>
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
@@ -103,7 +111,8 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public static interface <span class="typeNameLabel">PersistentEntity.BehaviorBuilder</span></pre>
+<pre>public abstract class <span class="typeNameLabel">PersistentEntity.BehaviorBuilder</span>
+extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">Mutable builder that is used for defining the event and command handlers.
  Use <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#build--"><code>build()</code></a> to create the immutable <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity.Behavior</code></a>.</div>
 </li>
@@ -112,6 +121,23 @@ var activeTableTab = "activeTableTab";
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor.summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#BehaviorBuilder--">BehaviorBuilder</a></span>()</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -125,60 +151,67 @@ var activeTableTab = "activeTableTab";
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a></code></td>
+<td class="colFirst"><code>abstract <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#build--">build</a></span>()</code>
 <div class="block">Construct the corresponding immutable <code>Behavior</code>.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>State</code></td>
+<td class="colFirst"><code>abstract <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#getState--">getState</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#removeCommandHandler-java.lang.Class-">removeCommandHandler</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends Command&gt;&nbsp;commandClass)</code>
+<td class="colFirst"><code>abstract void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#removeCommandHandler-java.lang.Class-">removeCommandHandler</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Command</a>&gt;&nbsp;commandClass)</code>
 <div class="block">Remove a command handler for a given command class.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#removeEventHandler-java.lang.Class-">removeEventHandler</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends Event&gt;&nbsp;eventClass)</code>
+<td class="colFirst"><code>abstract void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#removeEventHandler-java.lang.Class-">removeEventHandler</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&nbsp;eventClass)</code>
 <div class="block">Remove an event handler for a given event class.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>&lt;R,A extends Command&gt;<br>void</code></td>
+<td class="colFirst"><code>abstract &lt;R,A extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Command</a>&gt;<br>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#setCommandHandler-java.lang.Class-java.util.function.BiFunction-">setCommandHandler</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;commandClass,
-                 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html?is-external=true" title="class or interface in java.util.function">BiFunction</a>&lt;A,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.CommandContext.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.CommandContext</a>&lt;R&gt;,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;? extends Event&gt;&gt;&nbsp;handler)</code>
+                 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html?is-external=true" title="class or interface in java.util.function">BiFunction</a>&lt;A,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.CommandContext.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.CommandContext</a>&lt;R&gt;,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;? extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&gt;&nbsp;handler)</code>
 <div class="block">Register a command handler for a given command class.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>&lt;A extends Event&gt;<br>void</code></td>
+<td class="colFirst"><code>abstract &lt;A extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;<br>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#setEventHandler-java.lang.Class-java.util.function.Function-">setEventHandler</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;eventClass,
-               <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;A,State&gt;&nbsp;handler)</code>
+               <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;A,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&gt;&nbsp;handler)</code>
 <div class="block">Register an event handler for a given event class.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>&lt;A extends Event&gt;<br>void</code></td>
+<td class="colFirst"><code>abstract &lt;A extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;<br>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#setEventHandlerChangingBehavior-java.lang.Class-java.util.function.Function-">setEventHandlerChangingBehavior</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;eventClass,
                                <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;A,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a>&gt;&nbsp;handler)</code>
 <div class="block">Register an event handler that is updating the behavior for a given event class.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>&lt;R,A extends Command&gt;<br>void</code></td>
+<td class="colFirst"><code>abstract &lt;R,A extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Command</a>&gt;<br>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#setReadOnlyCommandHandler-java.lang.Class-java.util.function.BiConsumer-">setReadOnlyCommandHandler</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;commandClass,
                          <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BiConsumer.html?is-external=true" title="class or interface in java.util.function">BiConsumer</a>&lt;A,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.ReadOnlyCommandContext.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.ReadOnlyCommandContext</a>&lt;R&gt;&gt;&nbsp;handler)</code>
 <div class="block">Register a read-only command handler for a given command class.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#setState-State-">setState</a></span>(State&nbsp;state)</code>&nbsp;</td>
+<td class="colFirst"><code>abstract void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#setState-State-">setState</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&nbsp;state)</code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -187,6 +220,23 @@ var activeTableTab = "activeTableTab";
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor.detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="BehaviorBuilder--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>BehaviorBuilder</h4>
+<pre>public&nbsp;BehaviorBuilder()</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
@@ -199,7 +249,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>build</h4>
-<pre><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a>&nbsp;build()</pre>
+<pre>public abstract&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a>&nbsp;build()</pre>
 <div class="block">Construct the corresponding immutable <code>Behavior</code>.</div>
 </li>
 </ul>
@@ -209,7 +259,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>getState</h4>
-<pre>State&nbsp;getState()</pre>
+<pre>public abstract&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&nbsp;getState()</pre>
 </li>
 </ul>
 <a name="removeCommandHandler-java.lang.Class-">
@@ -218,7 +268,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>removeCommandHandler</h4>
-<pre>void&nbsp;removeCommandHandler(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends Command&gt;&nbsp;commandClass)</pre>
+<pre>public abstract&nbsp;void&nbsp;removeCommandHandler(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Command</a>&gt;&nbsp;commandClass)</pre>
 <div class="block">Remove a command handler for a given command class.</div>
 </li>
 </ul>
@@ -228,7 +278,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>removeEventHandler</h4>
-<pre>void&nbsp;removeEventHandler(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends Event&gt;&nbsp;eventClass)</pre>
+<pre>public abstract&nbsp;void&nbsp;removeEventHandler(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&nbsp;eventClass)</pre>
 <div class="block">Remove an event handler for a given event class.</div>
 </li>
 </ul>
@@ -238,8 +288,8 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>setCommandHandler</h4>
-<pre>&lt;R,A extends Command&gt;&nbsp;void&nbsp;setCommandHandler(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;commandClass,
-                                             <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html?is-external=true" title="class or interface in java.util.function">BiFunction</a>&lt;A,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.CommandContext.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.CommandContext</a>&lt;R&gt;,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;? extends Event&gt;&gt;&nbsp;handler)</pre>
+<pre>public abstract&nbsp;&lt;R,A extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Command</a>&gt;&nbsp;void&nbsp;setCommandHandler(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;commandClass,
+                                                             <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html?is-external=true" title="class or interface in java.util.function">BiFunction</a>&lt;A,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.CommandContext.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.CommandContext</a>&lt;R&gt;,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;? extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&gt;&nbsp;handler)</pre>
 <div class="block">Register a command handler for a given command class.
  <p>
  The <code>handler</code> function is supposed to return a <code>Persist</code> directive that defines
@@ -265,8 +315,8 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>setEventHandler</h4>
-<pre>&lt;A extends Event&gt;&nbsp;void&nbsp;setEventHandler(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;eventClass,
-                                       <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;A,State&gt;&nbsp;handler)</pre>
+<pre>public abstract&nbsp;&lt;A extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&nbsp;void&nbsp;setEventHandler(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;eventClass,
+                                                       <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;A,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&gt;&nbsp;handler)</pre>
 <div class="block">Register an event handler for a given event class. The <code>handler</code> function
  is supposed to return the new state after applying the event to the current state.
  Current state can be accessed with the <code>state</code> method of the <code>PersistentEntity</code>.
@@ -280,8 +330,8 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>setEventHandlerChangingBehavior</h4>
-<pre>&lt;A extends Event&gt;&nbsp;void&nbsp;setEventHandlerChangingBehavior(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;eventClass,
-                                                       <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;A,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a>&gt;&nbsp;handler)</pre>
+<pre>public abstract&nbsp;&lt;A extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&nbsp;void&nbsp;setEventHandlerChangingBehavior(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;eventClass,
+                                                                       <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;A,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a>&gt;&nbsp;handler)</pre>
 <div class="block">Register an event handler that is updating the behavior for a given event class.
  The <code>handler</code> function  is supposed to return the new behavior after applying the
  event to the current state. Current behavior can be accessed with the <code>behavior</code>
@@ -296,8 +346,8 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>setReadOnlyCommandHandler</h4>
-<pre>&lt;R,A extends Command&gt;&nbsp;void&nbsp;setReadOnlyCommandHandler(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;commandClass,
-                                                     <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BiConsumer.html?is-external=true" title="class or interface in java.util.function">BiConsumer</a>&lt;A,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.ReadOnlyCommandContext.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.ReadOnlyCommandContext</a>&lt;R&gt;&gt;&nbsp;handler)</pre>
+<pre>public abstract&nbsp;&lt;R,A extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Command</a>&gt;&nbsp;void&nbsp;setReadOnlyCommandHandler(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;A&gt;&nbsp;commandClass,
+                                                                     <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BiConsumer.html?is-external=true" title="class or interface in java.util.function">BiConsumer</a>&lt;A,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.ReadOnlyCommandContext.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.ReadOnlyCommandContext</a>&lt;R&gt;&gt;&nbsp;handler)</pre>
 <div class="block">Register a read-only command handler for a given command class. A read-only command
   handler does not persist events (i.e. it does not change state) but it may perform side
   effects, such as replying to the request. Replies are sent with the <code>reply</code> method of the
@@ -306,13 +356,15 @@ var activeTableTab = "activeTableTab";
  Invoking this method a second time for the same <code>commandClass</code> will override the existing <code>handler</code>.</div>
 </li>
 </ul>
-<a name="setState-State-">
+<a name="setState-java.lang.Object-">
+<!--   -->
+</a><a name="setState-State-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>setState</h4>
-<pre>void&nbsp;setState(State&nbsp;state)</pre>
+<pre>public abstract&nbsp;void&nbsp;setState(<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&nbsp;state)</pre>
 </li>
 </ul>
 </li>
@@ -374,13 +426,13 @@ var activeTableTab = "activeTableTab";
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>

@@ -2,7 +2,7 @@
 <p>If you worked through the command line example for <a href="GettingStartedMaven.html">Maven</a>, you have a Maven project that you can integrate into Intellij IDEA Using built in <a href="https://www.jetbrains.com/help/idea/2016.3/getting-started-with-maven.html">IntelliJ Maven</a> support. Before integrating your project, make sure that your IntelliJ <strong>Settings</strong> use the following:</p>
 <ul>
   <li>Maven 3.3 or higher</li>
-  <li>A JDK 1.8 or higher</li>
+  <li>A JDK 1.8</li>
 </ul>
 <blockquote>
   <p><strong>Note</strong> When developing with Lagom you will often run several services in a single Java Virtual Machine. See how to <a href="JVMMemoryOnDev.html">increase Memory for Maven</a>.</p>
@@ -44,7 +44,7 @@
   <li>
   <p>Build your project and run it using the configuration you created.<br/>The console displays the following when Lagom is running:<br/><a href="resources/guide/build/IDEASuccessMavenRun.png"><img src="resources/guide/build/IDEASuccessMavenRun.png"/></a></p></li>
   <li>
-    <p>Verify that the services are indeed up and running by invoking the <code>hello</code> service endpoint from any HTTP client, such as a browser: </p>
+    <p>Verify that the services are indeed up and running by invoking the <code>hello</code> service endpoint from any HTTP client, such as a browser:</p>
     <pre class="prettyprint"><code>http://localhost:9000/api/hello/World
 </code></pre>
     <p>The request returns the message <code>Hello, World!</code>.</p>

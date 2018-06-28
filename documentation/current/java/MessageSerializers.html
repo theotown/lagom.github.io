@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/f5d5add2647f7fca58f4e9f040dc092e9e9f39b0-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/ac1cf1fccd90323dbbba97db36af03d0c3402d9e-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -151,7 +151,7 @@
 
                 <article>
                 <h1 id="Message-Serializers"><a class="section-marker" href="#Message-Serializers">§</a>Message Serializers</h1>
-<p>Out of the box, Lagom uses Jackson to serialize request and response messages. However, you can define custom serializers on a per service call basis, as well register a serializer for a given type for the whole service, and finally you can also customise the serialization factory used by Lagom to completely change the serializers Lagom uses when no serializer is selected.</p><h2 id="How-Lagom-selects-a-message-serializer"><a class="section-marker" href="#How-Lagom-selects-a-message-serializer">§</a>How Lagom selects a message serializer</h2>
+<p>Out of the box, Lagom uses Jackson to serialize request and response messages. However, you can define custom serializers on a per service call basis, as well register a serializer for a given type for the whole service, and finally you can also customize the serialization factory used by Lagom to completely change the serializers Lagom uses when no serializer is selected.</p><h2 id="How-Lagom-selects-a-message-serializer"><a class="section-marker" href="#How-Lagom-selects-a-message-serializer">§</a>How Lagom selects a message serializer</h2>
 <p>Lagom uses a three step process to select a message serializer for a service call.</p><h3 id="Per-service-call-message-serializers"><a class="section-marker" href="#Per-service-call-message-serializers">§</a>Per service call message serializers</h3>
 <p>Lagom first checks whether a specific message serializer has been defined on the service call. By default, each service call defers the decision for request and response message serializers to the next level up, but a custom serializer can be specified for a specific service call request or response, using the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Descriptor.Call.html#withRequestSerializer-com.lightbend.lagom.javadsl.api.deser.MessageSerializer-"><code>withRequestSerializer</code></a> or <a href="api/index.html?com/lightbend/lagom/javadsl/api/Descriptor.Call.html#withResponseSerializer-com.lightbend.lagom.javadsl.api.deser.MessageSerializer-"><code>withResponseSerializer</code></a> calls.</p>
 <p>This can be overridden when defining the service call in the descriptor:</p>
@@ -670,7 +670,7 @@ public NegotiatedSerializer&lt;String, ByteString&gt; serializerForResponse(List
             </div>
         </div>
     </body>
-    <script src="/f5d5add2647f7fca58f4e9f040dc092e9e9f39b0-all-scripts-concat.js"></script>
+    <script src="/ac1cf1fccd90323dbbba97db36af03d0c3402d9e-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

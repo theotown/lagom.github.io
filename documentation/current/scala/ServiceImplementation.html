@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/f5d5add2647f7fca58f4e9f040dc092e9e9f39b0-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/ac1cf1fccd90323dbbba97db36af03d0c3402d9e-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -161,7 +161,7 @@ class HelloServiceImpl extends HelloService {
     Future.successful(s&quot;Hello $name!&quot;)
   }
 }</code></pre>
-<p>As you can see, the <code>sayHello</code> method is implemented using the <code>apply</code> factory method on <a href="api/com/lightbend/lagom/scaladsl/api/ServiceCall$.html"><code>ServiceCall</code></a>. This takes a function of <code>Request =&gt; Future[Response]</code> and returns a <a href="api/com/lightbend/lagom/scaladsl/api/ServiceCall.html"><code>ServiceCall</code></a> whose <code>invoke</code> method simply delegates to that function. An important thing to realise here is that the invocation of <code>sayHello</code> itself does not execute the call, it only returns the service call to be executed. The advantage here is that when it comes to composing the call with other cross cutting concerns, such as authentication, this can easily be done using ordinary function based composition.</p>
+<p>As you can see, the <code>sayHello</code> method is implemented using the <code>apply</code> factory method on <a href="api/com/lightbend/lagom/scaladsl/api/ServiceCall$.html"><code>ServiceCall</code></a>. This takes a function of <code>Request =&gt; Future[Response]</code> and returns a <a href="api/com/lightbend/lagom/scaladsl/api/ServiceCall.html"><code>ServiceCall</code></a> whose <code>invoke</code> method simply delegates to that function. An important thing to realize here is that the invocation of <code>sayHello</code> itself does not execute the call, it only returns the service call to be executed. The advantage here is that when it comes to composing the call with other cross cutting concerns, such as authentication, this can easily be done using ordinary function based composition.</p>
 <p>Let&rsquo;s have a look at our <a href="api/com/lightbend/lagom/scaladsl/api/ServiceCall.html"><code>ServiceCall</code></a> interface again:</p>
 <pre class="prettyprint"><code class="language-scala">trait ServiceCall[Request, Response] {
   def invoke(request: Request): Future[Response]
@@ -515,7 +515,7 @@ def authenticated[Request, Response](
             </div>
         </div>
     </body>
-    <script src="/f5d5add2647f7fca58f4e9f040dc092e9e9f39b0-all-scripts-concat.js"></script>
+    <script src="/ac1cf1fccd90323dbbba97db36af03d0c3402d9e-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

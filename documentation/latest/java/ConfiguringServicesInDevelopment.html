@@ -6,14 +6,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - How are ports assigned to services?</title>
+        <title>Lagom - How are Lagom services configured in development?</title>
         <meta name="description" content="Lagom">
-        
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.4.x/scala/ServicePort.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/f5d5add2647f7fca58f4e9f040dc092e9e9f39b0-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/ac1cf1fccd90323dbbba97db36af03d0c3402d9e-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -128,7 +126,7 @@
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>How are ports assigned to services?</h1>
+                <h1>How are Lagom services configured in development?</h1>
             </div>
         </div>
     </header>
@@ -138,7 +136,7 @@
             <div class="small-12 large-7 columns">
                 
                     <nav class="breadcrumbs">
-                        <a href="Home.html">Scala Home</a>
+                        <a href="Home.html">Java Home</a>
                         
                                     &raquo;
                             <a href="ReferenceGuide.html">Lagom reference guide</a>
@@ -150,15 +148,53 @@
                 
 
                 <article>
-                <h1 id="How-are-ports-assigned-to-services?"><a class="section-marker" href="#How-are-ports-assigned-to-services?">§</a>How are ports assigned to services?</h1>
+                <h1 id="How-are-addresses-bound-by-services?"><a class="section-marker" href="#How-are-addresses-bound-by-services?">§</a>How are addresses bound by services?</h1>
+<p>By default, Lagom services bind to <code>localhost</code>. </p>
+<p>In Maven, this can be done by modifying the service implementation&rsquo;s pom configuration:</p>
+<pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
+    &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
+    &lt;artifactId&gt;lagom-maven-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;serviceAddress&gt;0.0.0.0&lt;/serviceAddress&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre>
+<p>In sbt, this can be done by modifying the service implementation&rsquo;s <code>project</code> configuration:</p>
+<pre class="prettyprint"><code class="language-sbt">lazy val biddingImpl = (project in file(&quot;biddingImpl&quot;))
+  .enablePlugins(LagomJava)
+  .settings(lagomServiceAddress := &quot;0.0.0.0&quot;)</code></pre><h1 id="How-are-ports-assigned-to-services?"><a class="section-marker" href="#How-are-ports-assigned-to-services?">§</a>How are ports assigned to services?</h1>
 <p>When inspecting the list of running services, you may wonder how ports are being assigned. One thing you should notice is that ports are assigned consistently, meaning that each service will get the same port assigned. This is truly useful, as it allows to write scripts that exercise some service&rsquo;s functionality, and even share the created scripts with the rest of your team. Indeed, the same port is deterministically selected even on different machines!</p>
 <p>The algorithm used for assigning a port to each service works as follows:</p>
 <p>1) The project&rsquo;s name is hashed.<br/>2) The hash absolute value is projected on the port range (the default port range is <code>[49152,65535]</code>).<br/>3) The selected port is assigned to the project, if there is no other project claiming the same port. If two or more projects are projected onto the same port, the conflicting projects are alphabetically sorted, and the project that comes first will get the expected port assigned to it. While, the remaining projects will get assigned the closest (strictly increasing) available neighbour port.</p>
 <p>In general, you don&rsquo;t need to worry about these details, as in most cases the port range is wide enough to make collisions unlikely. However, there are times when you may still prefer to assign a specific port to a service (for instance, if the automatically assigned port is already is use in your system). You can do so by manually providing a port number for the project&rsquo;s service port setting.</p>
+<p>In Maven, you can do this by modifying the service implementation&rsquo;s pom configuration:</p>
+<pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
+    &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
+    &lt;artifactId&gt;lagom-maven-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;servicePort&gt;11000&lt;/servicePort&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre>
+<p>In sbt, this can be done by modifying the service implementation&rsquo;s <code>project</code> configuration:</p>
 <pre class="prettyprint"><code class="language-sbt">lazy val usersImpl = (project in file(&quot;usersImpl&quot;))
-  .enablePlugins(LagomScala)
+  .enablePlugins(LagomJava)
   .settings(lagomServicePort := 11000)</code></pre>
 <p>Above, in the algorithm&rsquo;s description, it was mentioned that by default ports are assigned within the range <code>[49152,65535]</code>. This is also known as the ephemeral port range, a range of port numbers set aside by IANA for dynamic port selection use. If the default range doesn&rsquo;t suit you, you can change it by adding the following in your build.</p>
+<p>In the Maven root project pom:</p>
+<pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
+    &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
+    &lt;artifactId&gt;lagom-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;${lagom.version}&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;servicePortRange&gt;
+            &lt;min&gt;40000&lt;/min&gt;
+            &lt;max&gt;45000&lt;/max&gt;
+        &lt;/servicePortRange&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre>
+<p>In sbt, this can be done by modifying the project root configuration:</p>
 <pre class="prettyprint"><code class="language-sbt">lagomServicesPortRange in ThisBuild := PortRange(40000, 45000)</code></pre>
 <p>After this change, your service projects will get assigned a port in the range <code>[40000,45000]</code>. But mind that the smaller is the range, the higher are the chances that two or more project will claim the same port. This is not an issue in itself (as long as there are enough ports for all projects), but it is possible that adding a new service project in your build may provoke a change to the port assigned to an existing service project, if both projects happen to claim the same port. If you don&rsquo;t want this to happen, make sure the provided port range is wide enough. Alternatively, manually assign ports to service projects as it makes sense.</p>
                 </article>
@@ -176,7 +212,7 @@
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/devmode/ServicePort.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/devmode/ConfiguringServicesInDevelopment.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -187,18 +223,24 @@
                     <label for="docs-version">Version:</label>
                     <select id="docs-version">
                     
-                        <option value="/documentation/1.3.x/scala/ServicePort.html" >1.3.x</option>
+                        <option value="/documentation/1.0.x/java/Home.html" >1.0.x</option>
                     
-                        <option value="/documentation/1.4.x/scala/ServicePort.html" >1.4.x</option>
+                        <option value="/documentation/1.1.x/java/Home.html" >1.1.x</option>
                     
-                        <option value="/documentation/current/scala/ServicePort.html" >current</option>
+                        <option value="/documentation/1.2.x/java/Home.html" >1.2.x</option>
                     
-                        <option value="/documentation/latest/scala/ServicePort.html" 
+                        <option value="/documentation/1.3.x/java/Home.html" >1.3.x</option>
+                    
+                        <option value="/documentation/1.4.x/java/Home.html" >1.4.x</option>
+                    
+                        <option value="/documentation/current/java/Home.html" >current</option>
+                    
+                        <option value="/documentation/latest/java/ConfiguringServicesInDevelopment.html" 
                             selected="selected">latest</option>
                     
                     </select>
 
-                    <a href="/documentation/latest/scala/api/com/lightbend/lagom/scaladsl/index.html" class="api-docs">
+                    <a href="/documentation/latest/java/api/index.html" class="api-docs">
                         API Documentation</a>
 
                     
@@ -214,7 +256,7 @@
                             
                         
                             
-                                <li class="current-page"><a href="ServicePort.html">How are ports assigned to services?</a></li>
+                                <li class="current-page"><a href="ConfiguringServicesInDevelopment.html">How are Lagom services configured in development?</a></li>
                             
                         
                             
@@ -272,7 +314,7 @@
                         
                         </ul>
                     
-                        <h3>Scala Home</h3>
+                        <h3>Java Home</h3>
                         <ul>
                         
                             
@@ -284,7 +326,7 @@
                             
                         
                             
-                                <li><a href="Installation.html">Getting started with Lagom</a></li>
+                                <li><a href="IntroGetStarted.html">Getting started with Lagom</a></li>
                             
                         
                             
@@ -408,7 +450,7 @@
             </div>
         </div>
     </body>
-    <script src="/f5d5add2647f7fca58f4e9f040dc092e9e9f39b0-all-scripts-concat.js"></script>
+    <script src="/ac1cf1fccd90323dbbba97db36af03d0c3402d9e-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

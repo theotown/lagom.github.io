@@ -182,9 +182,9 @@
         "url" : "RunningServices.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/common/guide/devmode/RunningServices.md"
       }, {
-        "title" : "How are ports assigned to services?",
-        "url" : "ServicePort.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/devmode/ServicePort.md"
+        "title" : "How are Lagom services configured in development?",
+        "url" : "ConfiguringServicesInDevelopment.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/devmode/ConfiguringServicesInDevelopment.md"
       }, {
         "title" : "Service Locator and Service Gateway",
         "url" : "ServiceLocator.html",

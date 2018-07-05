@@ -8,6 +8,8 @@
 import com.lightbend.lagom.javadsl.api.ServiceCall;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.TimeUnit;
 import javax.inject.Inject;
@@ -46,9 +48,12 @@ public class WorkerServiceImpl implements WorkerService {
           return null;
         }
       });
+      Set&lt;String&gt; useRoles = new TreeSet&lt;&gt;();
+      useRoles.add(&quot;worker-node&quot;);
+
       Props routerProps = new ClusterRouterGroup(groupConf,
         new ClusterRouterGroupSettings(1000, paths,
-          true, &quot;worker-node&quot;)).props();
+          true, useRoles)).props();
     this.workerRouter = system.actorOf(routerProps, &quot;workerRouter&quot;);
   }
 
@@ -198,9 +203,11 @@ public class Worker2Module extends AbstractModule
           return null;
         }
       });
+      Set&lt;String&gt; useRoles = new TreeSet&lt;String&gt;();
+      useRoles.add(&quot;worker-node&quot;);
       Props routerProps = new ClusterRouterGroup(groupConf,
         new ClusterRouterGroupSettings(1000, paths,
-          true, &quot;worker-node&quot;)).props();
+          true, useRoles)).props();
     this.workerRouter = system.actorOf(routerProps, &quot;workerRouter&quot;);
 
     this.topic = pubSub.refFor(TopicId.of(JobStatus.class, &quot;jobs-status&quot;));

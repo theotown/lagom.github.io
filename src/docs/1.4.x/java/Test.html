@@ -66,7 +66,7 @@ public class HelloServiceTest {
 }
 
 private final Setup setup = defaultSetup()
-    .withConfigureBuilder(b -&gt; b.overrides(
+    .configureBuilder(b -&gt; b.overrides(
         bind(GreetingService.class).to(GreetingStub.class)));
 
 </code></pre>

@@ -32,7 +32,7 @@ class WorkerServiceImpl(system: ActorSystem) extends WorkerService {
         totalInstances = 1000,
         routeesPaths = paths,
         allowLocalRoutees = true,
-        useRole = Some(&quot;worker-node&quot;)
+        useRoles = Set(&quot;worker-node&quot;)
       )
     ).props
     system.actorOf(routerProps, &quot;workerRouter&quot;)

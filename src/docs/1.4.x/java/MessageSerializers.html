@@ -203,6 +203,7 @@ public NegotiatedSerializer&lt;String, ByteString&gt; serializerForResponse(List
   }
 
   @Override
+  @SuppressWarnings(&quot;unchecked&quot;)
   public &lt;MessageEntity&gt; MessageSerializer&lt;MessageEntity, ?&gt; messageSerializerFor(Type type) {
     if (type instanceof Class) {
       Class&lt;MessageEntity&gt; clazz = (Class&lt;MessageEntity&gt;) type;

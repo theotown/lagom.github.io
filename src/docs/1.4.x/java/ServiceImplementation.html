@@ -38,7 +38,7 @@ public class Module extends AbstractModule implements ServiceGuiceSupport {
 <p>The <code>tick</code> service call is going to return a <code>Source</code> that sends messages at the specified interval. Akka streams has a helpful constructor for such a stream:</p>
 <pre class="prettyprint"><code class="language-java">public ServerServiceCall&lt;String, Source&lt;String, ?&gt;&gt; tick(int intervalMs) {
   return tickMessage -&gt; {
-    FiniteDuration interval = FiniteDuration.create(intervalMs, TimeUnit.MILLISECONDS);
+    Duration interval = Duration.ofMillis(intervalMs);
     return completedFuture(Source.tick(interval, interval, tickMessage));
   };
 }</code></pre>

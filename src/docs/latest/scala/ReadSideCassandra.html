@@ -70,7 +70,7 @@ import scala.concurrent.Promise
   session.executeCreateTable(&quot;CREATE TABLE IF NOT EXISTS blogsummary ( &quot; +
     &quot;id TEXT, title TEXT, PRIMARY KEY (id))&quot;)</code></pre>
 <p>It can then be registered as the global prepare callback in the <code>buildHandler</code> method:</p>
-<pre class="prettyprint"><code class="language-scala">builder.setGlobalPrepare(createTable)</code></pre><h3 id="Prepare"><a class="section-marker" href="#Prepare">§</a>Prepare</h3>
+<pre class="prettyprint"><code class="language-scala">builder.setGlobalPrepare(() =&gt; createTable())</code></pre><h3 id="Prepare"><a class="section-marker" href="#Prepare">§</a>Prepare</h3>
 <p>In addition to the global prepare callback, there is also a prepare callback. This will be executed once per shard, when the read side processor starts up. It can be used for preparing statements in order to optimize Cassandra&rsquo;s handling of them.</p>
 <p>Again this callback is optional, here is an example of how to prepare a statement for updating the table:</p>
 <pre class="prettyprint"><code class="language-scala">private val writeTitlePromise = Promise[PreparedStatement] // initialized in prepare

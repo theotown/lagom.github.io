@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/3772175519f1790dab912c9213205aef786440ca-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/09b05b50c35a4c64952f879db45c37b5b734afde-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -160,6 +160,8 @@
 import com.lightbend.lagom.javadsl.api.ServiceCall;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.TimeUnit;
 import javax.inject.Inject;
@@ -198,9 +200,12 @@ public class WorkerServiceImpl implements WorkerService {
           return null;
         }
       });
+      Set&lt;String&gt; useRoles = new TreeSet&lt;&gt;();
+      useRoles.add(&quot;worker-node&quot;);
+
       Props routerProps = new ClusterRouterGroup(groupConf,
         new ClusterRouterGroupSettings(1000, paths,
-          true, &quot;worker-node&quot;)).props();
+          true, useRoles)).props();
     this.workerRouter = system.actorOf(routerProps, &quot;workerRouter&quot;);
   }
 
@@ -350,9 +355,11 @@ public class Worker2Module extends AbstractModule
           return null;
         }
       });
+      Set&lt;String&gt; useRoles = new TreeSet&lt;String&gt;();
+      useRoles.add(&quot;worker-node&quot;);
       Props routerProps = new ClusterRouterGroup(groupConf,
         new ClusterRouterGroupSettings(1000, paths,
-          true, &quot;worker-node&quot;)).props();
+          true, useRoles)).props();
     this.workerRouter = system.actorOf(routerProps, &quot;workerRouter&quot;);
 
     this.topic = pubSub.refFor(TopicId.of(JobStatus.class, &quot;jobs-status&quot;));
@@ -615,7 +622,7 @@ public class Worker2Module extends AbstractModule
             </div>
         </div>
     </body>
-    <script src="/3772175519f1790dab912c9213205aef786440ca-all-scripts-concat.js"></script>
+    <script src="/09b05b50c35a4c64952f879db45c37b5b734afde-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

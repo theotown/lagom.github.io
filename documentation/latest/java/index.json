@@ -337,6 +337,14 @@
   }, {
     "title" : "Lagom releases",
     "children" : [ {
+      "title" : "What's new in Lagom 1.5",
+      "url" : "Highlights15.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/common/releases/Highlights15.md"
+    }, {
+      "title" : "Lagom 1.5 Migration Guide",
+      "url" : "Migration15.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/releases/Migration15.md"
+    }, {
       "title" : "Lagom 1.4 Migration Guide",
       "url" : "Migration14.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/releases/Migration14.md"

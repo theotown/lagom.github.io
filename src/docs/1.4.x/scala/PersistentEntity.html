@@ -69,7 +69,8 @@ Actions()
   case (AddPost(content), ctx, state) =&gt;
     if (content.title == null || content.title.equals(&quot;&quot;)) {
       ctx.invalidCommand(&quot;Title must be defined&quot;)
-      ctx.done</code></pre>
+      ctx.done
+    }</code></pre>
 <p>A <code>PersistentEntity</code> may also process commands that do not change application state, such as query commands or commands that are not valid in the entity&rsquo;s current state (such as a bid placed after the auction closed). Such command handlers are registered using <code>onReadOnlyCommand</code> of the <code>Actions</code>. Replies are sent with the <code>reply</code> method of the context that is passed to the command handler function.</p>
 <p>The <code>onReadOnlyCommand</code> is simply a convenience function that avoids you having to return no events followed by a side effect.</p>
 <pre class="prettyprint"><code class="language-scala">.onReadOnlyCommand[GetPost.type, PostContent] {

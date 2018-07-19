@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/3c74ea0e109043bd75ce69d47726f2b342980d5f-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/34272617ebd06cb71f68888d1c887027693e79db-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -196,7 +196,20 @@ bintrayOmitLicense in ThisBuild := false</code></pre><h2 id="Importing-a-service
 <p>The <code>helloworld</code> Lagom service can be imported by adding the following declaration to your build:</p>
 <pre class="prettyprint"><code class="language-sbt">lazy val hello = lagomExternalJavadslProject(&quot;hello&quot;, &quot;com.example&quot; %% &quot;hello-impl&quot; % &quot;1.0&quot;)</code></pre>
 <p>The first argument passed to <code>lagomExternalJavadslProject</code> is the name that will be used in your build to refer to this externally defined project. While, the second argument provides the dependency to the <code>hello-impl</code> JAR, using the conventional sbt syntax for declaring dependencies. Note in fact that the <code>lagomExternalJavadslProject</code> method returns a sbt <code>Project</code>, which you can further customize if needed.</p>
-<p>After having added the external Lagom project to your build, just type <code>reload</code> in the sbt console. Then, when executing <code>runAll</code>, you should see that the <code>hello</code> service is started, together with all other services defined in the build:</p>
+<p>After having added the external Lagom project to your build, we need to provide the binding as it&rsquo;s necessary to consume a service, so that Lagom can provide an implementation for your application to use. This can be done using the <code>bindClient</code> method on <a href="api/index.html?com/lightbend/lagom/javadsl/client/ServiceClientGuiceSupport.html">ServiceClientGuiceSupport</a>.</p>
+<pre class="prettyprint"><code class="language-java">import com.google.inject.AbstractModule;
+import com.lightbend.lagom.javadsl.client.ServiceClientGuiceSupport;
+import docs.services.HelloService;
+import com.lightbend.lagom.javadsl.api.ServiceInfo;
+
+public class Module extends AbstractModule implements ServiceClientGuiceSupport {
+
+    protected void configure() {
+        bindServiceInfo(ServiceInfo.of(&quot;hello-service&quot;));
+        bindClient(HelloService.class);
+    }
+}</code></pre>
+<p>After providing the binding, just type <code>reload</code> in the sbt console. Then, when executing <code>runAll</code>, you should see that the <code>hello</code> service is started, together with all other services defined in the build:</p>
 <pre class="prettyprint"><code class="language-console">&gt; runAll
 [info] ...
 [info] Service hello listening for HTTP on 0:0:0:0:0:0:0:0:22407
@@ -488,7 +501,7 @@ lazy val `greetings-impl` = (project in file(&quot;greetings-impl&quot;))
             </div>
         </div>
     </body>
-    <script src="/3c74ea0e109043bd75ce69d47726f2b342980d5f-all-scripts-concat.js"></script>
+    <script src="/34272617ebd06cb71f68888d1c887027693e79db-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

@@ -27,7 +27,7 @@
   <li>Updates Akka to <a href="https://akka.io/blog/news/2018/07/13/akka-2.5.14-released">2.5.14</a></li>
   <li>Updates Play to <a href="https://blog.playframework.com/play-2-6-17-released/">2.6.17</a> (see also <a href="https://blog.playframework.com/play-2-6-16-released/">Play 2.6.26 release notes</a>). Play 2.6.17 supports starting the application even when the used RDBMS is not available, but the default configuration is to fail fast. In Lagom, this configuration was overridden to not fail fast.</li>
   <li><a href="https://github.com/lagom/lagom/pull/1418">Read side actor restart</a> means that the read side now recovers after a failure in <code>globalPrepare</code>, making it more resilient.</li>
-  <li>Many documentation improvements, specially to remove deprecated APIs in our code examples.</li>
+  <li>Many documentation improvements, especially to remove deprecated APIs in our code examples.</li>
 </ul>
 <p>See GitHub for the <a href="https://github.com/lagom/lagom/compare/1.4.6...1.4.7">full list of commits</a> and the issues and pull requests assigned to the <a href="https://github.com/lagom/lagom/milestone/32?closed=1">1.4.7 milestone</a>.</p>
 <h2>Updating a Lagom project to version 1.4.7</h2>

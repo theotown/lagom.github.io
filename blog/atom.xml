@@ -4,12 +4,53 @@
       <link rel="self" type="application/atom+xml" href="https://www.lagomframework.com/blog/atom.xml"/>
       <id>https://www.lagomframework.com/blog</id>
       <rights>Copyright 2018, Lightbend</rights>
-      <updated>2018-05-30T17:00:00.000-07:00</updated>
+      <updated>2018-07-19T00:00:00.000Z</updated>
       <dc:creator>Lightbend</dc:creator>
-      <dc:date>2018-05-30T17:00:00.000-07:00</dc:date>
+      <dc:date>2018-07-19T00:00:00.000Z</dc:date>
       <dc:language>en</dc:language>
       <dc:rights>Copyright 2018, Lightbend</dc:rights>
       <entry>
+          <title>Lagom 1.4.7 released!</title>
+          <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-7.html"/>
+          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
+          <author>
+            <name>Marcos Pereira</name>
+            <uri>https://github.com/marcospereira</uri>
+          </author>
+          <id>https://www.lagomframework.com/blog/lagom-1-4-7.html</id>
+          <updated>2018-07-19T00:00:00.000Z</updated>
+          <published>2018-07-19T00:00:00.000Z</published>
+          <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.4.7.</p>
+<p>This release provides several bug fixes and updates.</p>
+<h2><a href="#highlights" name="highlights">Highlights</a></h2>
+<ul>
+  <li>Updates Akka to <a href="https://akka.io/blog/news/2018/07/13/akka-2.5.14-released">2.5.14</a></li>
+  <li>Updates Play to <a href="https://blog.playframework.com/play-2-6-17-released/">2.6.17</a> (see also <a href="https://blog.playframework.com/play-2-6-16-released/">Play 2.6.26 release notes</a>). Play 2.6.17 supports starting the application even when the used RDBMS is not available, but the default configuration is to fail fast. In Lagom, this configuration was overridden to not fail fast.</li>
+  <li><a href="https://github.com/lagom/lagom/pull/1418">Read side actor restart</a> means that the read side now recovers after a failure in <code>globalPrepare</code>, making it more resilient.</li>
+  <li>Many documentation improvements, specially to remove deprecated APIs in our code examples.</li>
+</ul>
+<p>See GitHub for the <a href="https://github.com/lagom/lagom/compare/1.4.6...1.4.7">full list of commits</a> and the issues and pull requests assigned to the <a href="https://github.com/lagom/lagom/milestone/32?closed=1">1.4.7 milestone</a>.</p>
+<h2>Updating a Lagom project to version 1.4.7</h2>
+<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
+<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
+<p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>
+<h2><a href="#credits" name="credits">Credits</a></h2>
+<p>Thanks to the community for their detailed bug reports and contributions.</p>
+<p>Thanks to <a href="https://www.lightbend.com/">Lightbend</a> for their continued sponsorship of the Lagom core team’s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>
+<p>Special thanks to the following contributors who helped with this release:</p>
+<pre class="prettyprint"><code>commits  added  removed  author
+12       121    197      Tim Moore
+ 6       195     86      Marcos Pereira
+ 2         4      4      adelababinciuc
+ 1       173     38      Renato Cavalcanti
+ 1        19     14      Ignasi Marimon-Clos
+ 1       168      8      Jason Pickens
+ 1         2      1      Fabrice Sznajderman
+ 1         5      1      anmolmehta93
+ 1        34     13      Elijah Rippeth
+</code></pre>]]></content>
+          <dc:date>2018-07-19T00:00:00.000Z</dc:date>
+        </entry><entry>
           <title>Lagom 1.4.6 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1.4.6.html"/>
           <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
@@ -18,8 +59,8 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1.4.6.html</id>
-          <updated>2018-05-30T17:00:00.000-07:00</updated>
-          <published>2018-05-30T17:00:00.000-07:00</published>
+          <updated>2018-05-31T00:00:00.000Z</updated>
+          <published>2018-05-31T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.4.6.</p>
 <p>This release provides several bug fixes and updates.</p>
 <h2>Highlights:</h2>
@@ -48,7 +89,7 @@
       1       2       2 Wade Waldron
       1       2       2 Markus Hennerbichler
 </pre>]]></content>
-          <dc:date>2018-05-30T17:00:00.000-07:00</dc:date>
+          <dc:date>2018-05-31T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.4.5 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1.4.5.html"/>
@@ -58,8 +99,8 @@
             <uri>https://github.com/TimMoore</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1.4.5.html</id>
-          <updated>2018-05-15T17:00:00.000-07:00</updated>
-          <published>2018-05-15T17:00:00.000-07:00</published>
+          <updated>2018-05-16T00:00:00.000Z</updated>
+          <published>2018-05-16T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.4.5.</p>
 <p>This release provides several bug fixes and updates.</p>
 <h2>Highlights:</h2>
@@ -98,7 +139,7 @@
     1       8       6 Ido Shamun
     1      22       3 James Roper
 </pre>]]></content>
-          <dc:date>2018-05-15T17:00:00.000-07:00</dc:date>
+          <dc:date>2018-05-16T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.4.4 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1.4.4.html"/>
@@ -108,8 +149,8 @@
             <uri>https://github.com/renatocaval</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1.4.4.html</id>
-          <updated>2018-03-27T17:00:00.000-07:00</updated>
-          <published>2018-03-27T17:00:00.000-07:00</published>
+          <updated>2018-03-28T00:00:00.000Z</updated>
+          <published>2018-03-28T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.4.4.<br/>(we are skipping 1.4.3 due to a small mistake in the release process)</p>
 <p>This release provides a fix for <a href="https://github.com/lagom/lagom/issues/1250">#1250</a>. </p>
 <p><a href="https://github.com/lagom/lagom/issues/1250">#1250</a> only affects Lagom projects making usage of JDBC persistence layer, being it for the journal and/or for read-side tables. </p>
@@ -142,7 +183,7 @@
 <h2><a href="#credits" name="credits">Credits</a></h2>
 <p>Thanks to the community for their detailed bug reports and contributions.</p>
 <p>Thanks to <a href="https://www.lightbend.com">Lightbend</a> for their continued sponsorship of the Lagom core team&rsquo;s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>]]></content>
-          <dc:date>2018-03-27T17:00:00.000-07:00</dc:date>
+          <dc:date>2018-03-28T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.4.2/1.3.11 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-2-and-1-3-11.html"/>
@@ -152,8 +193,8 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-4-2-and-1-3-11.html</id>
-          <updated>2018-03-21T17:00:00.000-07:00</updated>
-          <published>2018-03-21T17:00:00.000-07:00</published>
+          <updated>2018-03-22T00:00:00.000Z</updated>
+          <published>2018-03-22T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released the versions 1.4.2 and 1.3.11. For a list of the specific changes in Lagom 1.4.2, see the <a href="https://www.lagomframework.com/changelog.html">change log</a>, and for a list of changes on Lagom 1.3.11 see the <a href="https://www.lagomframework.com/changelog-1.3.x.html">change log (1.3.x)</a>.</p>
 <h2>Lagom 1.3.11</h2>
 <p>This release provides several bug fixes and improvements. As an overview, this release contains the following:</p>
@@ -200,7 +241,7 @@
       1      23       5 Renato Cavalcanti
       1      12       0 Jason Pickens
 </code></pre>]]></content>
-          <dc:date>2018-03-21T17:00:00.000-07:00</dc:date>
+          <dc:date>2018-03-22T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>From CRUD to Event Sourcing</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/event-sourcing-vs-crud.html"/>
@@ -210,8 +251,8 @@
             <uri>https://github.com/jroper</uri>
           </author>
           <id>https://www.lagomframework.com/blog/event-sourcing-vs-crud.html</id>
-          <updated>2018-03-19T17:00:00.000-07:00</updated>
-          <published>2018-03-19T17:00:00.000-07:00</published>
+          <updated>2018-03-20T00:00:00.000Z</updated>
+          <published>2018-03-20T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>As the Lagom project has grown in usage, one of the biggest barriers to adoption that we&rsquo;ve seen is Lagom&rsquo;s opinionated approach to using event sourcing for persistence. Many developers looking to write reactive microservices come from a <a href="https://www.codecademy.com/articles/what-is-crud">CRUD</a> background, often using relational databases to store data.</p>
 <p>Lagom&rsquo;s service API can be used alongside CRUD-style persistence - you can easily use any persistence technology available on the JVM in Lagom. However, the Lagom persistence APIs do not offer CRUD as a first class option, and the <a href="https://www.lagomframework.com/documentation/1.4.x/java/PersistentEntity.html">Lagom documentation</a> pushes users in the direction of event sourcing.</p>
 <p>To be honest, event sourcing does generally require writing more code up front than CRUD. Lagom does not push event sourcing because it reduces the amount of code. Lagom pushes event sourcing because the problems that microservices introduce - such as ensuring consistency between services - are very easily solved when you are using event sourcing for persistence, and very hard to solve when you&rsquo;re using CRUD for persistence. A service using CRUD might have less code to start with, but as soon as it starts sharing data with other services, problems relating to handling failures and synchronisation of state become very difficult problems to solve, and will often require implementing complex solutions, including manual state and failure tracking. In fact, in my experience of using CRUD, dealing with these problems usually requires manually implementing event logs and asynchronous batch processes to handle them, so developers end up implementing both event sourcing and CRUD, which is far more code and far harder to maintain. In contrast, event sourcing inherently deals with these problems as a property of the architectural approach, with no special code implemented by developers.</p>
@@ -220,7 +261,7 @@
 <div id="meet-lagom" class="flex-video widescreen">
   <iframe width="560" height="315" src="//www.youtube.com/embed/holjbuSbv3k" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
 </div>]]></content>
-          <dc:date>2018-03-19T17:00:00.000-07:00</dc:date>
+          <dc:date>2018-03-20T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Introducing discuss.lagomframework.com</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/announcing-discuss-lagomframework-forum.html"/>
@@ -230,8 +271,8 @@
             <uri>https://github.com/TimMoore</uri>
           </author>
           <id>https://www.lagomframework.com/blog/announcing-discuss-lagomframework-forum.html</id>
-          <updated>2018-03-12T17:00:00.000-07:00</updated>
-          <published>2018-03-12T17:00:00.000-07:00</published>
+          <updated>2018-03-13T00:00:00.000Z</updated>
+          <published>2018-03-13T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>We are pleased to announce a new way to communicate with the Lagom community: <a href="https://discuss.lagomframework.com">discuss.lagomframework.com</a>.</p>
 <p>It is a <a href="https://www.discourse.org/">Discourse</a> forum sponsored by <a href="https://www.lightbend.com/">Lightbend</a>, and co-hosted under the discuss.lightbend.com domain, along with discuss.playframework.com and discuss.akka.io. Each of these domains redirects you to the main category for the corresponding project, so you can go directly to the Lagom discussions by using the discuss.lagomframework.com shortcut, without having to navigate through the entire list of all categories. At the same time, discussions relating to the foundational technologies that Lagom is built on are right within reach on the same site. This will make it simpler for the Akka, Play, and Lagom communities to learn from each other and share ideas.</p>
 <p>To further explain what&rsquo;s going to happen next to the other communication channels, and what their intended use is:</p>
@@ -250,7 +291,7 @@
 <p>Nothing changes in this aspect. The public communication channels were always best-effort, although we and the community do try to help as much as possible. If you really want the best-in-class, most responsive answers and support, the <a href="https://www.lightbend.com/subscription">Lightbend Subscription</a> offers professional development and production support, along with access to consulting services, training, the <a href="https://www.lightbend.com/products/enterprise-suite">Lightbend Enterprise Suite</a> of commercial software, and other benefits.</p>
 <p>It is important to highlight that the move to the &ldquo;discuss&rdquo; forum (as we like to call it) is not the same as commercial support, however we do hope to serve our communities better by making this move. We do not envision any negative impact on the quality of the answers you have been receiving on Gitter and lagom-framework by this move to the new forums.</p>
 <p>We hope you&rsquo;re as excited about the new discussion forums as we are. We look forward to you joining us there!</p>]]></content>
-          <dc:date>2018-03-12T17:00:00.000-07:00</dc:date>
+          <dc:date>2018-03-13T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.4.1 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-1.html"/>
@@ -260,8 +301,8 @@
             <uri>https://github.com/TimMoore</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-4-1.html</id>
-          <updated>2018-03-05T16:00:00.000-08:00</updated>
-          <published>2018-03-05T16:00:00.000-08:00</published>
+          <updated>2018-03-06T00:00:00.000Z</updated>
+          <published>2018-03-06T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.4.1. For a list of the specific changes in Lagom 1.4.1, see the <a href="https://www.lagomframework.com/changelog.html">change log</a>.</p>
 <p>This release provides a few bug fixes and minor improvements. As an overview, this release contains the following:</p>
 <ul>
@@ -284,7 +325,7 @@
       3     54      123  Renato Cavalcanti
       1     31        7  Lutz Huehnken
 </code></pre>]]></content>
-          <dc:date>2018-03-05T16:00:00.000-08:00</dc:date>
+          <dc:date>2018-03-06T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Introducing the Lagom Recipes</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/announcing-lagom-recipes.html"/>
@@ -294,8 +335,8 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/announcing-lagom-recipes.html</id>
-          <updated>2018-02-12T16:00:00.000-08:00</updated>
-          <published>2018-02-12T16:00:00.000-08:00</published>
+          <updated>2018-02-13T00:00:00.000Z</updated>
+          <published>2018-02-13T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>Lagom is an OSS framework to build microservice-based software systems. At Lightbend we sponsor the development of the framework and encourage contributions from the community, but we also help people get started, be more productive when using it or solve the bugs there may be in the framework code. We participate on the <a href="https://discuss.lagomframework.com">Discuss Lagom Forum</a>, <a href="https://gitter.im/lagom/lagom">Gitter</a> channel and, of course, <a href="https://stackoverflow.com/questions/tagged/lagom">Stack Overflow</a> and <a href="https://github.com/lagom/lagom/issues">GitHub issues</a>, but Lightbend also provides support for its <a href="https://www.lightbend.com/subscription">subscribers</a> using Lagom. We sometimes detect the same questions pop up repeatedly on those channels of support. In order to reduce repeating the same answers over and over and because common problems should have readily available solutions, we created the <a href="https://github.com/lagom/lagom-recipes">Lagom Recipes</a> repository.</p>
 <h3><a href="#lagom-recipes" name="lagom-recipes">Lagom Recipes</a></h3>
 <p>Like a cookbook, the Lagom recipes repository contains a varied list of step-by-step solutions to common problems Lagom developers may face. Take for example the common request on the Mailing List: &ldquo;How do I enable CORS for my Lagom API?&rdquo;. It&rsquo;s a simple enough request but in Lagom the solution is slightly different whether you are using the <code>javadsl</code> or the <code>scaladsl</code> so the common response to such a question was &ldquo;Are you using java or scala?&rdquo;. It&rsquo;s a problem which involves some knowledge of <a href="https://www.playframework.com/">Play</a> which is a building block of Lagom. Therefore the explanation ends up being a bit confusing. It is easier to prepare two recipes to answer the question for Java or Scala developers in mind and explain each step on the README.</p>
@@ -313,7 +354,7 @@
   <li><a href="https://github.com/lagom/lagom-recipes/tree/master/http-header-handling">How do I manipulate Headers and Status Codes and test those cases</a>?</li>
 </ul>
 <p>We hope adding this learning resource to the list of <a href="https://www.lagomframework.com/documentation/">documentation resources</a> already available will help create great applications!</p>]]></content>
-          <dc:date>2018-02-12T16:00:00.000-08:00</dc:date>
+          <dc:date>2018-02-13T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.4.0 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-0.html"/>
@@ -323,8 +364,8 @@
             <uri>https://github.com/TimMoore</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-4-0.html</id>
-          <updated>2018-01-24T16:00:00.000-08:00</updated>
-          <published>2018-01-24T16:00:00.000-08:00</published>
+          <updated>2018-01-25T00:00:00.000Z</updated>
+          <published>2018-01-25T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>We are pleased to announce the immediate availability of Lagom 1.4.0!</p>
 <p>Lagom 1.4 brings many internal updates, small features, and other improvements:</p>
 <ul>
@@ -401,41 +442,6 @@
       1      1        1  Tim Sheils
       1      1        1  Shifeng Zhang
 </code></pre>]]></content>
-          <dc:date>2018-01-24T16:00:00.000-08:00</dc:date>
-        </entry><entry>
-          <title>Lagom 1.4.0-RC1</title>
-          <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-0-RC1.html"/>
-          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
-          <author>
-            <name>Renato Cavalcanti</name>
-            <uri>https://github.com/renatocaval</uri>
-          </author>
-          <id>https://www.lagomframework.com/blog/lagom-1-4-0-RC1.html</id>
-          <updated>2017-12-21T16:00:00.000-08:00</updated>
-          <published>2017-12-21T16:00:00.000-08:00</published>
-          <content type="html"><![CDATA[<p>It&rsquo;s Christmas! And we are very pleased to announce the availability of the first release candidate of Lagom 1.4.0. What a nice present to spent your time during the holiday season! :-)</p>
-<p>Contrary to the previous milestone releases, a RC is production ready. We are now entering the release candidate phase (typically 4 weeks) in which only major bugs (if any) will be fixed. </p>
-<h3><a href="#migrating-from-other-versions" name="migrating-from-other-versions">Migrating from other versions</a></h3>
-<ul>
-  <li>If you are migrating to Lagom 1.4.0-RC1 from 1.4.0-M3, look out for new deprecation warnings. The migration guide to 1.4 (<a href="https://www.lagomframework.com/documentation/1.4.x/java/Migration14.html">Java</a>/<a href="https://www.lagomframework.com/documentation/1.4.x/scala/Migration14.html">Scala</a>) has also been improved, don&rsquo;t forget to review it.</li>
-  <li>If you are migrating into Lagom 1.4.0-RC1 from a version in the Lagom 1.3.x series you should have a look at changes introduced in latest versions of the Lagom 1.3.x series and especially you should read the migration guide to 1.4 (<a href="https://www.lagomframework.com/documentation/1.4.x/java/Migration14.html">Java</a>/<a href="https://www.lagomframework.com/documentation/1.4.x/scala/Migration14.html">Scala</a>). We also recommend updating to the latest stable 1.3.x release (currently 1.3.10 as of this writing) before attempting to update to 1.4.</li>
-</ul>
-<h3><a href="#changelog" name="changelog">Changelog</a></h3>
-<p>See the <a href="https://github.com/lagom/lagom/compare/1.4.0-M3...1.4.0-RC1">full list of changes</a> and the <a href="https://github.com/lagom/lagom/milestone/25?closed=1">1.4.0-RC1 milestone</a> on GitHub. The changes includes a few bug fixes and improvements, some of which we highlight below: </p>
-<ul>
-  <li>Ensure Akka cluster is left gracefully based on new <a href="https://doc.akka.io/docs/akka/current/actors.html?language=scala#coordinated-shutdown">Akka Coordinated Shutdown</a></li>
-  <li>Maven Dependency POM and Archetype supporting Scala 2.11 and 2.12</li>
-  <li>Upgraded to Akka 2.5.8</li>
-  <li>Upgraded to Akka HTTP 10.0.11</li>
-  <li>Upgraded to Play 2.6.10</li>
-  <li>Upgraded to akka-persistence-jdbc to 3.1.0</li>
-  <li>Akka HTTP as default backend</li>
-  <li>maxFrameLength config parameter for WebSocketClient</li>
-</ul>
-<h3><a href="#credits" name="credits">Credits</a></h3>
-<p>Thanks to the community for their detailed bug reports and contributions.</p>
-<p>Thanks to <a href="https://www.lightbend.com">Lightbend</a> for their continued sponsorship of the Lagom core team&rsquo;s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>
-<p>Special thanks to the following contributors who helped with this release: <em>Tim Moore, Renato Cavalcanti, Ignasi Marimon-Clos, James Roper, Edmondo Porcu and datalchemist</em>.<br/>```</p>]]></content>
-          <dc:date>2017-12-21T16:00:00.000-08:00</dc:date>
+          <dc:date>2018-01-25T00:00:00.000Z</dc:date>
         </entry>
     </feed>

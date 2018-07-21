@@ -8,7 +8,7 @@
 public void shouldEmitGreetingsMessageWhenHelloEntityEmitsEnEvent() {
     withServer(setup, server -&gt; {
         PublishService client = server.client(PublishService.class);
-        Source&lt;PublishEvent, ?&gt; source = 
+        Source&lt;PublishEvent, ?&gt; source =
               client.messageTopic().subscribe().atMostOnceSource();
 
         // use akka stream testkit

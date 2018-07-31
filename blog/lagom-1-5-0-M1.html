@@ -6,10 +6,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Cluster</title>
+        <title>Lagom - Lagom 1.5.0-M2 released!</title>
         <meta name="description" content="Lagom">
-        
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.4.x/java/Cluster.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
@@ -31,8 +29,7 @@
         </script>
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) end -->
          
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-    
+    <link href="/blog/atom.xml" type="application/atom+xml" rel="home" title="ATOM Feed" />
 
     </head>
     <body>
@@ -124,214 +121,170 @@
                         </div>
                     </div>
 
-                     
+                    
+
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Cluster</h1>
+                <div class="blog-meta">
+                    <div class="blog-author-image">
+                        <a href="https://github.com/ignasi35">
+                            <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                        </a>
+                    </div>
+                    <div class="blog-meta-details">
+                        <a class="blog-author-name" href="https://github.com/ignasi35">Ignasi Marimon-Clos</a>
+                        |
+                        <span class="blog-post-date">July 30, 2018</span>
+                        <div class="blog-meta-tags">
+                            
+                                <img src="/images/entypo/white/entypo_tag.svg" class="svg-icon"/>
+                                
+                                    <span class="blog-tag"><a href="tags/news.html">news</a></span>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                <h1>Lagom 1.5.0-M2 released!</h1>
             </div>
         </div>
     </header>
 
-    <div class="fw-wrapper documentation-content">
+    <article class="fw-wrapper page-content">
         <div class="row">
             <div class="small-12 large-7 columns">
-                
-                    <nav class="breadcrumbs">
-                        <a href="Home.html">Home</a>
-                        
-                                    &raquo;
-                            <a href="ReferenceGuide.html">Lagom reference guide</a>
-                        
-                                    &raquo;
-                            <a href="PersistentEntity.html">Writing persistent and clustered services</a>
-                        
-                    </nav>
-                
+                <p>We are happy to announce the availability of Lagom 1.5.0-M2 (we skipped Lagom 1.5.0-M1 due to an issue with the release process). This is the first milestone towards the releasing of Lagom 1.5.0 which moves Lagom closer to Play and Akka. This release includes Play 2.7.0-M2 and lays the groundwork for gRPC support in future 1.5.0 milestones with Akka Service Discovery integration.</p>
+<p>The motivation behind moving Lagom closer to Play and Akka is twofold: Play and Akka users will be able to adopt Lagom more easily by reusing existing code or APIs they are already familiar with, and framework maintainers will reduce the amount of code to maintain and converge in conventions speeding up the development process.</p>
+<p>Note that this should not be used in production, that Lightbend Orchestration (sbt-reactive-app) does not yet support Lagom 1.5.0-M2, and that ConductR will not be supported for Lagom 1.5.0. Also note that this is an unsupported, pre-release milestone and we don&rsquo;t guarantee API stability or binary compatibility between milestones.</p>
+<h2><a href="#highlights" name="highlights">Highlights</a></h2>
+<h3>Updates Play to 2.7.x</h3>
+<p>Lagom 1.5.0-M2 bumps the Play version to <a href="https://blog.playframework.com/play-2-7-0-m2-released/">2.7.0-M2</a> (see also <a href="https://blog.playframework.com/play-2-7-0-milestone-1-released/">2.7.0-M1</a>). Play now exposes the <a href="https://doc.akka.io/docs/akka/current/actors.html#coordinated-shutdown">Akka Coordinated Shutdown</a> instance as a first class citizen so you can register your shutdown code using it instead of using Play&rsquo;s <code>ApplicationLifecycle</code>.</p>
+<p>The version of Akka HTTP powering the default HTTP Backend for both Play and Lagom was bumped to <a href="https://akka.io/blog/news/2018/03/08/akka-http-10.1.0-released">10.1</a>.</p>
+<p>Upgrading to Play 2.7 may cause some errors on your code as some deprecated APIs were removed (please review the <a href="https://github.com/playframework/playframework/blob/master/documentation/manual/releases/release27/migration27/Migration27.md">Play 2.7 Migration Guide</a> or the release announcements linked above). Play also updated the Jackson library (for java JSON serialization) to 2.9.6 which includes reviewed defaults so you may need to check your serializer settings. The changes in Jackson default settings may not cause compilation errors so we recommend you exercise your serializers in tests to detect any potential issue.</p>
+<h3><a href="#grpc-service-discovery-and-more" name="grpc-service-discovery-and-more">gRPC, Service Discovery and more</a></h3>
+<p>We are laying groundwork for integration with <a href="https://github.com/akka/akka-grpc">Akka gRPC</a> to add it as a transport alternative, allowing seamless communication between applications written using Akka, Play, Lagom and other stacks using gRPC.</p>
+<p><a href="https://developer.lightbend.com/docs/akka-management/current/discovery.html">Akka&rsquo;s Service Discovery</a> will become a building block of Lagom&rsquo;s <code>ServiceLocator</code> and help standardize service discovery scenarios. This will simplify production settings to tune cluster bootstrap and other service discovery strategies and combine them. Lagom 1.5.0-M2 started the refactor process to move to an implementation that&rsquo;s based 100% on Akka&rsquo;s Service Discovery. This new library provides an extensible API for looking up service addresses by name from within Akka-based services, including integration with Kubernetes, Marathon, Consul, and others. It is similar to Lagom&rsquo;s ServiceLocator API, but can be used in any Akka or Play application, as well as in Lagom. It is a foundational building block for many of the upcoming cross-product features, including gRPC support, and with this release it works seamlessly in Lagom&rsquo;s runAll development mode without additional configuration. We are planning to integrate this more fully with Lagom in future 1.5.0 milestones and beyond.</p>
+<p>This cross-product collaboration is the first of many more to come. The motivation is to allow users developers to more naturally reuse code between Akka, Play and Lagom. The promotion of Akka Coordinated Shutdown mentioned above is another example of this effort to provide more coherent APIs.</p>
+<h3><a href="#other-improvements" name="other-improvements">Other improvements</a></h3>
+<ul>
+  <li>
+  <p>Updates Alpakka Kafka to version <a href="https://github.com/akka/alpakka-kafka/releases">0.22</a>. This also includes a version upgrade of the Kafka Server embedded in Development Mode to 1.0.1.</p></li>
+  <li>
+  <p>Improves Development Mode settings so each service can choose what network interface to bind to, which is particularly useful in some OS or corporate environments where VPNs or proxies can interfere with inter-service communication. The new default for all services is to listen only on the loopback address <code>127.0.0.1</code> by default, which has better compatibility, but disallows communication from other hosts on the network. This can be configured to use another address if you need to share a Lagom development environment on a local network. Every service run in Developer Mode has slightly different settings, see the docs for <a href="/documentation/latest/java/ServiceLocator.html#Default-address1">Service Gateway</a>, <a href="/documentation/latest/java/ServiceLocator.html#Default-address">Service Locator</a> or <a href="/documentation/latest/java/ConfiguringServicesInDevelopment.html#How-are-addresses-bound-by-services?">your services</a>.</p></li>
+  <li>
+  <p>Many documentation improvements, especially to remove deprecated APIs in code examples.</p></li>
+</ul>
+<p>See the issues and pull requests assigned to the <a href="https://github.com/lagom/lagom/milestone/19?closed=1">1.5.0-M2 milestone</a>.</p>
+<h2>Updating a Lagom project to version 1.5.0-M2</h2>
+<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
+<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
+<p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>
+<h2><a href="#credits" name="credits">Credits</a></h2>
+<p>Thanks to the community for their detailed bug reports and contributions.</p>
+<p>Thanks to <a href="https://www.lightbend.com/">Lightbend</a> for their continued sponsorship of the Lagom core team’s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>
+<p>Special thanks to the following contributors who helped with this release:<br/><em>Elijah Rippeth, Ayush Prashar, sullis, Tim Moore, Renato Cavalcanti, Marcos Pereira and Ignasi Marimon-Clos</em>.</p>
 
-                <article>
-                <h1 id="Cluster"><a class="section-marker" href="#Cluster">§</a><a href="#cluster" name="cluster">Cluster</a></h1>
-<p>Instances of the same service may run on multiple nodes, for scalability and redundancy. Nodes may be physical or virtual machines, grouped in a cluster.</p>
-<p>The underlying clustering technology is <a href="http://doc.akka.io/docs/akka/2.4.4/java/cluster-usage.html">Akka Cluster</a>.</p>
-<p>If instances of a service need to know about each other, they must join the same cluster. Within a cluster, services may use the <a href="PersistentEntity.html">Persistence</a> and <a href="PubSub.html">Publish-Subscribe</a> modules of Lagom.</p><h2 id="Dependency"><a class="section-marker" href="#Dependency">§</a><a href="#dependency" name="dependency">Dependency</a></h2>
-<p>The clustering feature is already included if you are using the <a href="PersistentEntity.html#Dependency">persistence</a> or <a href="PubSub.html#Dependency">pubsub</a> modules.</p>
-<p>If you want to enable it without those modules, add the following dependency your project&rsquo;s build.</p>
-<p>In Maven:</p>
-<pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
-    &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
-    &lt;artifactId&gt;lagom-javadsl-cluster_2.11&lt;/artifactId&gt;
-    &lt;version&gt;${lagom.version}&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-<p>In sbt:</p>
-<pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomJavadslCluster</code></pre><h2 id="Cluster-composition"><a class="section-marker" href="#Cluster-composition">§</a><a href="#cluster-composition" name="cluster-composition">Cluster composition</a></h2>
-<p>A cluster should only span nodes that are running the same service.</p>
-<p>You could imagine using cluster features across different services, but we recommend against that, because it would couple the services too tightly. Different services should only interact with each other through each service&rsquo;s API.</p><h2 id="Joining"><a class="section-marker" href="#Joining">§</a><a href="#joining" name="joining">Joining</a></h2>
-<p>A service instance joins a cluster when the service starts up.</p><h3 id="Joining-during-development"><a class="section-marker" href="#Joining-during-development">§</a><a href="#joining-during-development" name="joining-during-development">Joining during development</a></h3>
-<p>In development you are typically only running the service on one cluster node. No explicit joining is necessary; the <a href="DevEnvironment.html">Lagom Development Environment</a> handles it automatically.</p><h3 id="Joining-via-ConductR"><a class="section-marker" href="#Joining-via-ConductR">§</a><a href="#joining-via-conductr" name="joining-via-conductr">Joining via ConductR</a></h3>
-<p>In production, <a href="ConductR.html">Lightbend ConductR</a> automatically takes care of joining the nodes.</p><h3 id="Joining-without-ConductR"><a class="section-marker" href="#Joining-without-ConductR">§</a><a href="#joining-without-conductr" name="joining-without-conductr">Joining without ConductR</a></h3>
-<p>If you are not using ConductR, you need to implement the joining yourself as follows.</p>
-<p>First, define some initial contact points of the cluster, so-called seed nodes. You can define seed nodes in <code>application.conf</code>:</p>
-<pre class="prettyprint"><code>akka.cluster.seed-nodes = [
-  &quot;akka.tcp://MyService@host1:2552&quot;,
-  &quot;akka.tcp://MyService@host2:2552&quot;]
-</code></pre>
-<p>Alternatively, this can be defined as Java system properties when starting the JVM:</p>
-<pre class="prettyprint"><code>-Dakka.cluster.seed-nodes.0=akka.tcp://MyService@host1:2552
--Dakka.cluster.seed-nodes.1=akka.tcp://MyService@host2:2552
-</code></pre>
-<p>The node that is configured first in the list of <code>seed-nodes</code> is special. Only that node that will join itself. It is used for bootstrapping the cluster.</p>
-<p>The reason for the special first seed node is to avoid forming separated islands when starting from an empty cluster. If the first seed node is restarted and there is an existing cluster it will try to join the other seed nodes, i.e. it will join the existing cluster.</p>
-<p>You can read more about cluster joining in the <a href="http://doc.akka.io/docs/akka/2.4.4/java/cluster-usage.html#Joining_to_Seed_Nodes">Akka documentation</a>.</p><h2 id="Downing"><a class="section-marker" href="#Downing">§</a><a href="#downing" name="downing">Downing</a></h2>
-<p>When operating a Lagom service cluster you must consider how to handle network partitions (a.k.a. split brain scenarios) and machine crashes (including JVM and hardware failures). This is crucial for correct behavior when using <a href="PersistentEntity.html">Persistent Entities</a>. Persistent entities must be single-writers, i.e. there must only be one active entity with a given entity identity. If the cluster is split in two halves and the wrong downing strategy is used there will be active entities with the the same identifiers in both clusters, writing to the same database. That will result in corrupt data.</p>
-<p>The naïve approach is to remove an unreachable node from the cluster membership after a timeout. This works great for crashes and short transient network partitions, but not for long network partitions. Both sides of the network partition will see the other side as unreachable and after a while remove it from its cluster membership. Since this happens on both sides the result is that two separate disconnected clusters have been created. This approach is provided by the opt-in (off by default) auto-down feature in the OSS version of Akka Cluster.</p>
-<p><strong>We strongly recommend against using the auto-down feature of Akka Cluster.</strong></p>
-<p>A pre-packaged solution for the downing problem is provided by <a href="http://doc.akka.io/docs/akka/rp-16s01p05/scala/split-brain-resolver.html">Split Brain Resolver</a>, which is part of the <a href="http://www.lightbend.com/products/lightbend-reactive-platform">Lightbend Reactive Platform</a>. The <code>keep-majority</code> strategy is configured to be enabled by default if you use Lagom with the Reactive Platform.</p>
-<p>See <a href="ReactivePlatform.html">Reactive Platform instructions</a> for how to enable Reactive Platform in the build of your project.</p>
-<p>If you don&rsquo;t use RP, you should anyway carefully read the documentation of the <a href="http://doc.akka.io/docs/akka/rp-16s01p05/scala/split-brain-resolver.html">Split Brain Resolver</a> and make sure that the solution you are using handles the concerns described there.</p><h2 id="Leaving"><a class="section-marker" href="#Leaving">§</a><a href="#leaving" name="leaving">Leaving</a></h2>
-<p>When using <a href="PersistentEntity.html">Persistent Entities</a> you can use <a href="api/index.html?com/lightbend/lagom/javadsl/persistence/PersistentEntityRegistry.html#gracefulShutdown">PersistentEntityRegistry.gracefulShutdown</a> to stop the persistent entities and leave the cluster in a graceful way. This is not mandatory but it can be good when you are doing a controlled shutdown of a service node. It will reduce the number of lost in-flight messages during the failover to another node.</p>
-                </article>
+                <h2>Share</h2>
+                <div class="addthis_sharing_toolbox"></div>
 
-                
-                    
-                        
-                            <nav class="next-link">
-                                <a href="Overview.html"><strong>Next: </strong>
-                                    Running Lagom in production</a>
-                            </nav>
-                        
-                    
-                
+                <br/>
 
-                
-                    <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/tree/1.1.x/docs/manual/guide/cluster/Cluster.md">here</a>. Please feel free to edit and contribute a pull request. </p>
-                
+                <h2>Discuss</h2>
+                <div id="disqus_thread"><div class="cookie-warning"><p>Cookies are required for this functionality.<a class="optanon-allow-all">Allow Cookies</a><p></div></div>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
             </div>
-            <aside class="small-12 large-4 columns">
-                <nav class="side-menu">
+            <aside class="show-for-medium small-12 large-4 columns">
+            
 
-                    <input type="search" id="cross-docs-search" placeholder="Search..." />
+<nav class="side-menu">
+    
+        <h3>Recent posts</h3>
 
-                    <label for="docs-version">Version:</label>
-                    <select id="docs-version">
-                    
-                        <option value="/documentation/1.0.x/java/Cluster.html" >1.0.x</option>
-                    
-                        <option value="/documentation/1.1.x/java/Cluster.html" 
-                            selected="selected">1.1.x</option>
-                    
-                        <option value="/documentation/1.2.x/java/Cluster.html" >1.2.x</option>
-                    
-                        <option value="/documentation/1.3.x/java/Cluster.html" >1.3.x</option>
-                    
-                        <option value="/documentation/1.4.x/java/Cluster.html" >1.4.x</option>
-                    
-                        <option value="/documentation/current/java/Cluster.html" >current</option>
-                    
-                        <option value="/documentation/latest/java/Cluster.html" >latest</option>
-                    
-                    </select>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-5-0-M1.html">Lagom 1.5.0-M2 released!</a>
+                    <br/>
+                    July 30, 2018
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/marcospereira">
+                        <img src="https://avatars0.githubusercontent.com/u/4576?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-4-7.html">Lagom 1.4.7 released!</a>
+                    <br/>
+                    July 19, 2018
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1.4.6.html">Lagom 1.4.6 released!</a>
+                    <br/>
+                    May 31, 2018
+                </div>
+            </div>
+        
 
-                    <a href="/documentation/1.1.x/java/api/index.html" class="api-docs">
-                        API Documentation</a>
+    
 
-                    
-                        <h3>Writing persistent and clustered services</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="PersistentEntity.html">Persistent Entity</a></li>
-                            
-                        
-                            
-                                <li><a href="ReadSide.html">Persistent Read-Side</a></li>
-                            
-                        
-                            
-                                <li><a href="PubSub.html">Publish-Subscribe</a></li>
-                            
-                        
-                            
-                                <li><a href="Serialization.html">Serialization</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="Cluster.html">Cluster</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Lagom reference guide</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="ReferenceGuide.html">Reference Guide</a></li>
-                            
-                        
-                            
-                                <li><a href="LagomBuild.html">Defining a Lagom build</a></li>
-                            
-                        
-                            
-                                <li><a href="DevEnvironment.html">Running Lagom in development</a></li>
-                            
-                        
-                            
-                                <li><a href="ServiceDescriptors.html">Writing Lagom services</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
-                            
-                        
-                            
-                                <li><a href="Overview.html">Running Lagom in production</a></li>
-                            
-                        
-                            
-                                <li><a href="Logging.html">Logging</a></li>
-                            
-                        
-                            
-                                <li><a href="Akka.html">Advanced topics</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Home</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="Home.html">Home</a></li>
-                            
-                        
-                            
-                                <li><a href="WhatIsLagom.html">Welcome to Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="CoreConcepts.html">Lagom core concepts</a></li>
-                            
-                        
-                            
-                                <li><a href="Installation.html">Getting started with Lagom</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="ReferenceGuide.html">Lagom reference guide</a></li>
-                            
-                        
-                            
-                                <li><a href="ImmutablesInIDEs.html">Appendix</a></li>
-                            
-                        
-                        </ul>
-                    
-                </nav>
+    <h3>Tags</h3>
+
+    <div class="blog-tag-box">
+    
+        <a href="/blog/tags/conductr.html" data-count="1">conductr</a>
+    
+        <a href="/blog/tags/cookbook.html" data-count="1">cookbook</a>
+    
+        <a href="/blog/tags/crud.html" data-count="1">crud</a>
+    
+        <a href="/blog/tags/discuss.html" data-count="1">discuss</a>
+    
+        <a href="/blog/tags/event%20sourcing.html" data-count="1">event sourcing</a>
+    
+        <a href="/blog/tags/generator.html" data-count="1">generator</a>
+    
+        <a href="/blog/tags/java.html" data-count="1">java</a>
+    
+        <a href="/blog/tags/maven.html" data-count="1">maven</a>
+    
+        <a href="/blog/tags/news.html" data-count="38">news</a>
+    
+        <a href="/blog/tags/outreachy.html" data-count="1">outreachy</a>
+    
+        <a href="/blog/tags/recipes.html" data-count="1">recipes</a>
+    
+        <a href="/blog/tags/scala.html" data-count="2">scala</a>
+    
+        <a href="/blog/tags/screencast.html" data-count="1">screencast</a>
+    
+    </div>
+
+</nav>
+
+
             </aside>
         </div>
-    </div>
+    </article>
+
+
 
 
                     <footer>
@@ -438,109 +391,20 @@
     <script src="/823aa42de29d421a2020b01cb2d8b0e4cc306bbc-all-scripts-concat.js"></script>
     
      
-    <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-        <!-- Cross-site search. This is using Algolia's autocomplete.js  -->
-    <script>
-            var clientLagom = algoliasearch('BH4D9OD16A', '77ef1e29e6bddfca861f7a42cc51725e');
-            var clientAkka = algoliasearch('BH4D9OD16A', '543bad5ad786495d9ccd445ed34ed082');
-            var clientPlay = algoliasearch('BH4D9OD16A', 'a0b34e68c804cf96e76adcb02d47159b');
-            var lagomIndex = clientLagom.initIndex('lagomframework');
-            var akkaIndex = clientAkka.initIndex('akka_io');
-            var playIndex = clientPlay.initIndex('playframework');
-
-            var displayValue = function (suggestion, level) {
-                if (level === 0)
-                    return suggestion._highlightResult.hierarchy.lvl0.value;
-                if (suggestion._highlightResult.hierarchy['lvl' + level] !== undefined) {
-                    return suggestion._highlightResult.hierarchy['lvl' + level].value ;
-                } else {
-                    return displayValue(suggestion, level - 1) ;
-                }
-            };
-            var displaySnippet = function (suggestion) {
-                if (typeof suggestion._snippetResult !== 'undefined') {
-                    return '<div class="algolia-docsearch-suggestion--text">' + suggestion._snippetResult.content.value + '</div>'
-                } else {
-                    return ''
-                }
-            }
-
-            var wrap = function (content, wrapper) {
-                if (typeof wrapper !== 'undefined') {
-                    return '<span class=' + wrapper + '>' + content + '</span>';
-                } else {
-                    return content;
-                }
-            }
-
-            var buildIndexSettings = function (_indexObj, _hitsPerPage, _faceFilters, title, useFooter, wrapper) {
-                var _header = wrap('<span class="algolia-docsearch-suggestion algolia-docsearch-suggestion__main algolia-docsearch-suggestion__secondary algolia-docsearch-suggestion--category-header ">' + title + '</span>', wrapper);
-                var _templates = {
-                    header: _header,
-                    suggestion: function (suggestion) {
-                        var suggestionHtml = '<div class="algolia-docsearch-suggestion algolia-docsearch-suggestion__secondary" style="white-space: normal;">' +
-                                '<div class="algolia-docsearch-suggestion--wrapper">' +
-                                '<div class="algolia-docsearch-suggestion--subcategory-column ">' +
-                                '<span class="algolia-docsearch-suggestion--subcategory-column-text">' + displayValue(suggestion, 0) + '</span>' +
-                                '</div>' +
-                                '<div class="algolia-docsearch-suggestion--content">' +
-                                '<div class="algolia-docsearch-suggestion--subcategory-inline ">' + displayValue(suggestion, 1) + '</div>' +
-                                '<div class="algolia-docsearch-suggestion--title algolia-docsearch-suggestion--duplicate-content">' + displayValue(suggestion, 2) + '</div>' +
-                                displaySnippet(suggestion) +
-                                '</div>' +
-                                '</div>' +
-                                '</div>';
-                        return wrap(suggestionHtml, wrapper)
-                    }
-                };
-                if (useFooter) {
-                    _templates['footer'] = '<div class="algolia-docsearch-footer"><a class="algolia-docsearch-footer--logo" href="https://www.algolia.com/docsearch">Algolia</a></div>';
-                }
-
-                return {
-                    source: autocomplete.sources.hits(
-                            _indexObj,
-                            {hitsPerPage: _hitsPerPage, facetFilters: _faceFilters}
-                    )
-                    ,
-                    templates: _templates
-                };
-
-            };
-
-            var lagomFacetFilters = ['version:current'];
-            var akkaFacetFilters = [];
-            var playFacetFilters = ['version:2.6.x', 'tags:en'];
-
-            var useScalaFacetFilter = window.location.href.split('/').includes("scala");
-            if (useScalaFacetFilter) {
-                lagomFacetFilters.push('language:scala');
-                // The Akka faceting for language is not active. Instead, the paradox grouping is used.
-                // akkaFacetFilters.push('language:scala');
-            } else {
-                lagomFacetFilters.push('language:java');
-                // The Akka faceting for language is not active. Instead, the paradox grouping is used.
-                // akkaFacetFilters.push('language:java');
-            }
-
-
-            autocomplete('#cross-docs-search',
-                    {hint: false},
-                    [
-                        buildIndexSettings(lagomIndex, 5, lagomFacetFilters, "Lagom Documentation", false)
-                        ,
-                        buildIndexSettings(akkaIndex, 2, akkaFacetFilters, "Akka Documentation", false, "akka")
-                        ,
-                        buildIndexSettings(playIndex, 2, playFacetFilters, "Play Documentation", true, "play")
-                    ]
-            ).on('autocomplete:selected', function (event, suggestion, dataset) {
-                location.href = suggestion.url;
-            });
+    <script type="text/plain" class="optanon-category-4" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>
+    <script type="text/plain" class="optanon-category-4">
+        var disqus_config = function () {
+            this.page.url = "https://www.lagomframework.com/blog/lagom-1-5-0-M1.html";
+            this.page.identifier = "lagom-1-5-0-M1";
+            this.page.title = "Lagom 1.5.0-M2 released!";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//lagomframework.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
-
-
-    
 
     <script type="text/plain" class="optanon-category-2">
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

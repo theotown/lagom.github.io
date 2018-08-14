@@ -38,7 +38,7 @@ VALUES (&#39;&lt;your-event-processor-id&gt;&#39;, &#39;&lt;your-tag&gt;&#39;, &
 </code></pre>
 <p>Where <code>&lt;your-event-processor-id&gt;</code> is the ID that you passed to <code>CassandraReadSide.builder()</code> in your read side processor, <code>&lt;your-tag&gt;</code> is the name of your aggregate tag (by default, if not explicitly specified, this is the fully qualify class name of your event interface), and <code>&lt;uuid&gt;</code> is the UUID in your manual offset store.</p>
 <p>If the updates on your read-side are idempotent, then this task can be done at any time before deployment - reprocessing a few events shouldn&rsquo;t be a problem. Otherwise, you will need to ensure that you do this while your service is not running, to prevent any events from being reprocessed. An alternative to this would be to drop your read-side tables before upgrading, and so start processing events from the start.</p><h2 id="Testkit-changes"><a class="section-marker" href="#Testkit-changes">§</a>Testkit changes</h2>
-<p>The testkit has been modified such that Cassandra and clustering are disabled by default, whereas previously they were enabled by default. This is to accomodate for the fact that Lagom now has multiple persistence backends, not just Cassandra.</p>
+<p>The testkit has been modified such that Cassandra and clustering are disabled by default, whereas previously they were enabled by default. This is to accommodate for the fact that Lagom now has multiple persistence backends, not just Cassandra.</p>
 <p>If you have tests that depend on Cassandra, you will need to update them to enable Cassandra, using:</p>
 <pre class="prettyprint"><code class="language-java">defaultSetup().withCassandra(true)
 </code></pre>

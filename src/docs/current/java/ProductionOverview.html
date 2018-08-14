@@ -32,7 +32,7 @@
       <li>
       <p>For simple deployments, Lagom includes a built-in service locator that uses addresses specified in the service configuration (<a href="#Using-static-values-for-services-and-Cassandra">described below</a>).</p></li>
       <li>
-      <p>Lightbend Orchestration provides an open-source <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/features.html#service-location"><code>ServiceLocator</code> implementation</a> that integrates with the service discovery features of Kubernetes or DC/OS, or any other environment that supports service discovery via DNS.</p></li>
+      <p>Lightbend Orchestration provides an open-source <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/features/service-location.html"><code>ServiceLocator</code> implementation</a> that integrates with the service discovery features of Kubernetes or DC/OS, or any other environment that supports service discovery via DNS.</p></li>
       <li>
       <p>Otherwise, you can implement the interface yourself to integrate with a service registry of your choosing (such as <a href="https://www.consul.io/">Consul</a>, <a href="https://zookeeper.apache.org/">ZooKeeper</a>, or <a href="https://coreos.com/etcd/">etcd</a>) or start with an open-source example implementation such as <a href="https://github.com/jboner/lagom-service-locator-consul"><code>lagom-service-locator-consul</code></a> or <a href="https://github.com/jboner/lagom-service-locator-zookeeper"><code>lagom-service-locator-zookeeper</code></a>.</p></li>
     </ul>
@@ -43,7 +43,7 @@
       <li>
       <p>If you don&rsquo;t use a service orchestration platform and can determine the addresses of some of your nodes in advance of deploying them, Akka Cluster can be configured manually by listing the addresses of <a href="https://doc.akka.io/docs/akka/current/cluster-usage.html#joining-to-seed-nodes">seed nodes</a> in the service configuration.</p></li>
       <li>
-      <p>Lightbend Orchestration includes open-source support for <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/features.html#service-location">automatic Akka Cluster formation</a> on Kubernetes or DC/OS.</p></li>
+      <p>Lightbend Orchestration includes open-source support for <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/features/akka-cluster-bootstrap.html">automatic Akka Cluster formation</a> on Kubernetes or DC/OS.</p></li>
       <li>
       <p>Otherwise, you can use the open-source <a href="https://developer.lightbend.com/docs/akka-management/current/bootstrap.html">Akka Cluster Bootstrap</a> extension for integration with other service discovery infrastructure, or write your own programmatic cluster formation implementation. See the <a href="Cluster.html">Lagom Cluster</a> documentation for more information.</p></li>
     </ul>

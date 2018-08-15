@@ -116,6 +116,22 @@
 <dd>
 <div class="block">Add a metadata key and value to this message.</div>
 </dd>
+<dt><a href="com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server"><span class="typeNameLink">AdditionalRouter</span></a> - Interface in <a href="com/lightbend/lagom/javadsl/server/package-summary.html">com.lightbend.lagom.javadsl.server</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#additionalRouter-java.lang.Class-">additionalRouter(Class&lt;R&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html" title="interface in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport</a></dt>
+<dd>
+<div class="block">Helper method to create an <a href="com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server"><code>AdditionalRouter</code></a> instance that can be used to
+ declare additional Play <a href="https://www.playframework.com/documentation/latest/api/java/play/api.routing.Router.html?is-external=true" title="class or interface in play"><code>Router</code></a>s on a Lagom Service.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#additionalRouter-play.api.routing.Router-">additionalRouter(Router)</a></span> - Method in interface com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html" title="interface in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport</a></dt>
+<dd>
+<div class="block">Helper method to create an <a href="com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server"><code>AdditionalRouter</code></a> instance that can be used to
+ declare additional Play <a href="https://www.playframework.com/documentation/latest/api/java/play/api.routing.Router.html?is-external=true" title="class or interface in play"><code>Router</code></a>s on a Lagom Service.</div>
+</dd>
+<dt><a href="com/lightbend/lagom/javadsl/server/AdditionalRouter$.html" title="class in com.lightbend.lagom.javadsl.server"><span class="typeNameLink">AdditionalRouter$</span></a> - Class in <a href="com/lightbend/lagom/javadsl/server/package-summary.html">com.lightbend.lagom.javadsl.server</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/AdditionalRouter$.html#AdditionalRouter:D--">AdditionalRouter$()</a></span> - Constructor for class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/AdditionalRouter$.html" title="class in com.lightbend.lagom.javadsl.server">AdditionalRouter$</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistAll.html#afterPersist--">afterPersist()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistAll.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.PersistAll</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistOne.html#afterPersist--">afterPersist()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistOne.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.PersistOne</a></dt>
@@ -165,6 +181,10 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#app--">app()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.TestServer</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/AdditionalRouter$.html#appendPrefix-scala.Option-java.lang.String-">appendPrefix(Option&lt;String&gt;, String)</a></span> - Method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/AdditionalRouter$.html" title="class in com.lightbend.lagom.javadsl.server">AdditionalRouter$</a></dt>
+<dd>
+<div class="block">Simulate Play's withPrefix behavior by prepending new prefix to an existing path.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/jdbc/JdbcSession.ConnectionFunction.html#apply-java.sql.Connection-">apply(Connection)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.jdbc.<a href="com/lightbend/lagom/javadsl/persistence/jdbc/JdbcSession.ConnectionFunction.html" title="interface in com.lightbend.lagom.javadsl.persistence.jdbc">JdbcSession.ConnectionFunction</a></dt>
 <dd>
 <div class="block">Execute this function with the connection.</div>
@@ -248,6 +268,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraPersistenceModule.html#bind-scala.reflect.ClassTag-">bind(ClassTag&lt;T&gt;)</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraPersistenceModule.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraPersistenceModule</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.LagomServiceBuilder.html#bind--">bind()</a></span> - Method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.LagomServiceBuilder.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.LagomServiceBuilder</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest$.html#bind-java.lang.Class-">bind(Class&lt;T&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest$.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest$</a></dt>
 <dd>
 <div class="block">Create a binding that can be used with the <code>GuiceApplicationBuilder</code>
@@ -283,7 +305,15 @@
 <dd>
 <div class="block">Binds a Service interface with its implementation.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-com.lightbend.lagom.javadsl.server.AdditionalRouter-com.lightbend.lagom.javadsl.server.AdditionalRouter...-">bindService(Class&lt;T&gt;, Class&lt;? extends T&gt;, AdditionalRouter, AdditionalRouter...)</a></span> - Method in interface com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html" title="interface in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport</a></dt>
+<dd>
+<div class="block">Binds a Service interface with its implementation.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-T-">bindService(Class&lt;T&gt;, T)</a></span> - Method in interface com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html" title="interface in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport</a></dt>
+<dd>
+<div class="block">Binds a Service interface with an instance that implements it.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-T-com.lightbend.lagom.javadsl.server.AdditionalRouter-com.lightbend.lagom.javadsl.server.AdditionalRouter...-">bindService(Class&lt;T&gt;, T, AdditionalRouter, AdditionalRouter...)</a></span> - Method in interface com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html" title="interface in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport</a></dt>
 <dd>
 <div class="block">Binds a Service interface with an instance that implements it.</div>
 </dd>
@@ -399,6 +429,10 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/CommandEnvelope.html#canEqual-java.lang.Object-">canEqual(Object)</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/CommandEnvelope.html" title="class in com.lightbend.lagom.javadsl.persistence">CommandEnvelope</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/pubsub/TopicId.html#canEqual-java.lang.Object-">canEqual(Object)</a></span> - Static method in class com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/TopicId.html" title="class in com.lightbend.lagom.javadsl.pubsub">TopicId</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ClassBased.html#canEqual-java.lang.Object-">canEqual(Object)</a></span> - Static method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ClassBased.html" title="class in com.lightbend.lagom.javadsl.server">ClassBased</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased.html#canEqual-java.lang.Object-">canEqual(Object)</a></span> - Static method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#cassandra--">cassandra()</a></span> - Method in interface com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
 <dd>
@@ -529,6 +563,18 @@
 <div class="block"><span class="deprecationComment">Use constructor accepting <a href="com/lightbend/lagom/javadsl/client/CircuitBreakersPanel.html" title="interface in com.lightbend.lagom.javadsl.client"><code>CircuitBreakersPanel</code></a> instead</span></div>
 </div>
 </dd>
+<dt><a href="com/lightbend/lagom/javadsl/server/ClassBased.html" title="class in com.lightbend.lagom.javadsl.server"><span class="typeNameLink">ClassBased</span></a>&lt;<a href="com/lightbend/lagom/javadsl/server/ClassBased.html" title="type parameter in ClassBased">R</a> extends <a href="https://www.playframework.com/documentation/latest/api/java/play/api.routing.Router.html?is-external=true" title="class or interface in play">play.api.routing.Router</a>&gt; - Class in <a href="com/lightbend/lagom/javadsl/server/package-summary.html">com.lightbend.lagom.javadsl.server</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ClassBased.html#ClassBased-java.lang.Class-scala.Option-">ClassBased(Class&lt;R&gt;, Option&lt;String&gt;)</a></span> - Constructor for class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ClassBased.html" title="class in com.lightbend.lagom.javadsl.server">ClassBased</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ClassBased.html#ClassBased-java.lang.Class-">ClassBased(Class&lt;R&gt;)</a></span> - Constructor for class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ClassBased.html" title="class in com.lightbend.lagom.javadsl.server">ClassBased</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/javadsl/server/ClassBased$.html" title="class in com.lightbend.lagom.javadsl.server"><span class="typeNameLink">ClassBased$</span></a> - Class in <a href="com/lightbend/lagom/javadsl/server/package-summary.html">com.lightbend.lagom.javadsl.server</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ClassBased$.html#ClassBased:D--">ClassBased$()</a></span> - Constructor for class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ClassBased$.html" title="class in com.lightbend.lagom.javadsl.server">ClassBased$</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ClassBased.html#classType--">classType()</a></span> - Method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ClassBased.html" title="class in com.lightbend.lagom.javadsl.server">ClassBased</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/RequestHeader.html#clearPrincipal--">clearPrincipal()</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/RequestHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">RequestHeader</a></dt>
 <dd>
 <div class="block">Return a copy of this request header with the principal cleared.</div>
@@ -980,6 +1026,10 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/Offset.TimeBasedUUID.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/Offset.TimeBasedUUID.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset.TimeBasedUUID</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/pubsub/TopicId.html#equals-java.lang.Object-">equals(Object)</a></span> - Static method in class com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/TopicId.html" title="class in com.lightbend.lagom.javadsl.pubsub">TopicId</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ClassBased.html#equals-java.lang.Object-">equals(Object)</a></span> - Static method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ClassBased.html" title="class in com.lightbend.lagom.javadsl.server">ClassBased</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased.html#equals-java.lang.Object-">equals(Object)</a></span> - Static method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/status/CircuitBreakerStatus.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.server.status.<a href="com/lightbend/lagom/javadsl/server/status/CircuitBreakerStatus.html" title="class in com.lightbend.lagom.javadsl.server.status">CircuitBreakerStatus</a></dt>
 <dd>
@@ -1495,6 +1545,16 @@
 <div class="block">The Guice injector that can be used for retrieving anything
  that has been bound to Guice.</div>
 </dd>
+<dt><a href="com/lightbend/lagom/javadsl/server/InstanceBased.html" title="class in com.lightbend.lagom.javadsl.server"><span class="typeNameLink">InstanceBased</span></a> - Class in <a href="com/lightbend/lagom/javadsl/server/package-summary.html">com.lightbend.lagom.javadsl.server</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased.html#InstanceBased-play.api.routing.Router-scala.Option-">InstanceBased(Router, Option&lt;String&gt;)</a></span> - Constructor for class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased.html#InstanceBased-play.api.routing.Router-">InstanceBased(Router)</a></span> - Constructor for class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/javadsl/server/InstanceBased$.html" title="class in com.lightbend.lagom.javadsl.server"><span class="typeNameLink">InstanceBased$</span></a> - Class in <a href="com/lightbend/lagom/javadsl/server/package-summary.html">com.lightbend.lagom.javadsl.server</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased$.html#InstanceBased:D--">InstanceBased$()</a></span> - Constructor for class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased$.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased$</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.InstanceServiceBinding.html#InstanceServiceBinding-java.lang.Class-T-">InstanceServiceBinding(Class&lt;T&gt;, T)</a></span> - Constructor for class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.InstanceServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.InstanceServiceBinding</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/deser/PathParamSerializers.html#INTEGER">INTEGER</a></span> - Static variable in class com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/PathParamSerializers.html" title="class in com.lightbend.lagom.javadsl.api.deser">PathParamSerializers</a></dt>
@@ -1944,6 +2004,18 @@
 <div class="block">Static reference to the singleton instance of this Scala object.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/pubsub/TopicId$.html#MODULE:D">MODULE$</a></span> - Static variable in class com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/TopicId$.html" title="class in com.lightbend.lagom.javadsl.pubsub">TopicId$</a></dt>
+<dd>
+<div class="block">Static reference to the singleton instance of this Scala object.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/AdditionalRouter$.html#MODULE:D">MODULE$</a></span> - Static variable in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/AdditionalRouter$.html" title="class in com.lightbend.lagom.javadsl.server">AdditionalRouter$</a></dt>
+<dd>
+<div class="block">Static reference to the singleton instance of this Scala object.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ClassBased$.html#MODULE:D">MODULE$</a></span> - Static variable in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ClassBased$.html" title="class in com.lightbend.lagom.javadsl.server">ClassBased$</a></dt>
+<dd>
+<div class="block">Static reference to the singleton instance of this Scala object.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased$.html#MODULE:D">MODULE$</a></span> - Static variable in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased$.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased$</a></dt>
 <dd>
 <div class="block">Static reference to the singleton instance of this Scala object.</div>
 </dd>
@@ -2555,6 +2627,12 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/Method.html#POST">POST</a></span> - Static variable in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/Method.html" title="class in com.lightbend.lagom.javadsl.api.transport">Method</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/AdditionalRouter.html#prefix--">prefix()</a></span> - Method in interface com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server">AdditionalRouter</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ClassBased.html#prefix--">prefix()</a></span> - Method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ClassBased.html" title="class in com.lightbend.lagom.javadsl.server">ClassBased</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased.html#prefix--">prefix()</a></span> - Method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#prepare-com.lightbend.lagom.javadsl.persistence.cassandra.CassandraSession-">prepare(CassandraSession)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor</a></dt>
 <dd>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
@@ -2597,6 +2675,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/pubsub/TopicId.html#productArity--">productArity()</a></span> - Static method in class com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/TopicId.html" title="class in com.lightbend.lagom.javadsl.pubsub">TopicId</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ClassBased.html#productArity--">productArity()</a></span> - Static method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ClassBased.html" title="class in com.lightbend.lagom.javadsl.server">ClassBased</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased.html#productArity--">productArity()</a></span> - Static method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html#productElement-int-">productElement(int)</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlers</a></dt>
 <dd>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
@@ -2604,6 +2686,10 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/CommandEnvelope.html#productElement-int-">productElement(int)</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/CommandEnvelope.html" title="class in com.lightbend.lagom.javadsl.persistence">CommandEnvelope</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/pubsub/TopicId.html#productElement-int-">productElement(int)</a></span> - Static method in class com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/TopicId.html" title="class in com.lightbend.lagom.javadsl.pubsub">TopicId</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ClassBased.html#productElement-int-">productElement(int)</a></span> - Static method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ClassBased.html" title="class in com.lightbend.lagom.javadsl.server">ClassBased</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased.html#productElement-int-">productElement(int)</a></span> - Static method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html#productIterator--">productIterator()</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlers</a></dt>
 <dd>
@@ -2613,6 +2699,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/pubsub/TopicId.html#productIterator--">productIterator()</a></span> - Static method in class com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/TopicId.html" title="class in com.lightbend.lagom.javadsl.pubsub">TopicId</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ClassBased.html#productIterator--">productIterator()</a></span> - Static method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ClassBased.html" title="class in com.lightbend.lagom.javadsl.server">ClassBased</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased.html#productIterator--">productIterator()</a></span> - Static method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html#productPrefix--">productPrefix()</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlers</a></dt>
 <dd>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
@@ -2620,6 +2710,10 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/CommandEnvelope.html#productPrefix--">productPrefix()</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/CommandEnvelope.html" title="class in com.lightbend.lagom.javadsl.persistence">CommandEnvelope</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/pubsub/TopicId.html#productPrefix--">productPrefix()</a></span> - Static method in class com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/TopicId.html" title="class in com.lightbend.lagom.javadsl.pubsub">TopicId</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ClassBased.html#productPrefix--">productPrefix()</a></span> - Static method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ClassBased.html" title="class in com.lightbend.lagom.javadsl.server">ClassBased</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased.html#productPrefix--">productPrefix()</a></span> - Static method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#properties--">properties()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a></dt>
 <dd>
@@ -2877,6 +2971,8 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.RestCallId.html#RestCallId-com.lightbend.lagom.javadsl.api.transport.Method-java.lang.String-">RestCallId(Method, String)</a></span> - Constructor for class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.RestCallId.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.RestCallId</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased.html#router--">router()</a></span> - Method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.html#run-java.lang.Object...-">run(Object...)</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver</a></dt>
 <dd>
 <div class="block">The entity will process the commands and the emitted events and side effects
@@ -3068,6 +3164,8 @@
 <dt><a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ClassServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><span class="typeNameLink">ServiceGuiceSupport.ClassServiceBinding</span></a>&lt;<a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ClassServiceBinding.html" title="type parameter in ServiceGuiceSupport.ClassServiceBinding">T</a>&gt; - Class in <a href="com/lightbend/lagom/javadsl/server/package-summary.html">com.lightbend.lagom.javadsl.server</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.InstanceServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><span class="typeNameLink">ServiceGuiceSupport.InstanceServiceBinding</span></a>&lt;<a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.InstanceServiceBinding.html" title="type parameter in ServiceGuiceSupport.InstanceServiceBinding">T</a>&gt; - Class in <a href="com/lightbend/lagom/javadsl/server/package-summary.html">com.lightbend.lagom.javadsl.server</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.LagomServiceBuilder.html" title="class in com.lightbend.lagom.javadsl.server"><span class="typeNameLink">ServiceGuiceSupport.LagomServiceBuilder</span></a> - Class in <a href="com/lightbend/lagom/javadsl/server/package-summary.html">com.lightbend.lagom.javadsl.server</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><span class="typeNameLink">ServiceGuiceSupport.ServiceBinding</span></a>&lt;<a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="type parameter in ServiceGuiceSupport.ServiceBinding">T</a>&gt; - Class in <a href="com/lightbend/lagom/javadsl/server/package-summary.html">com.lightbend.lagom.javadsl.server</a></dt>
 <dd>&nbsp;</dd>
@@ -3721,6 +3819,8 @@
 <dd>
 <div class="block">The WebSocket close code for this error.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/AdditionalRouter$.html#wireRouters-play.api.inject.Injector-java.util.List-">wireRouters(Injector, List&lt;AdditionalRouter&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/AdditionalRouter$.html" title="class in com.lightbend.lagom.javadsl.server">AdditionalRouter$</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/RequestHeader.html#withAcceptedResponseProtocols-org.pcollections.PSequence-">withAcceptedResponseProtocols(PSequence&lt;MessageProtocol&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/RequestHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">RequestHeader</a></dt>
 <dd>
 <div class="block">Return a copy of this request header with the given accepted response protocols set.</div>
@@ -3904,6 +4004,12 @@
 <div class="block"><span class="deprecationComment">Use withCassandra instead. Since 1.2.0.</span></div>
 </div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/AdditionalRouter.html#withPrefix-java.lang.String-">withPrefix(String)</a></span> - Method in interface com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server">AdditionalRouter</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ClassBased.html#withPrefix-java.lang.String-">withPrefix(String)</a></span> - Method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ClassBased.html" title="class in com.lightbend.lagom.javadsl.server">ClassBased</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased.html#withPrefix-java.lang.String-">withPrefix(String)</a></span> - Method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/RequestHeader.html#withPrincipal-java.security.Principal-">withPrincipal(Principal)</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/RequestHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">RequestHeader</a></dt>
 <dd>
 <div class="block">Return a copy of this request header with the principal set.</div>

@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/512d43dcc75305c31bcde1fcd946a20290e8a137-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/6b060ae8b34cf8ecfdec3e008e9ac29a8a10af3a-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -241,7 +241,7 @@ default Descriptor descriptor() {
     );
 }</code></pre>
 <p>In this case, the server might return a <code>Source</code> that converts every message received in the request stream to messages prefixed with <code>Hello</code>.</p>
-<p>Lagom will choose an appropriate transport for the stream, typically, this will be WebSockets. WebSockets support bidirectional streaming, and so are a good general purpose option for streaming. When only one of the request or response message is streamed, Lagom will implement the sending and receiving of the strict message by sending or receiving a single message, and then leaving the WebSocket open until the other direction closes. Otherwise, Lagom will close the WebSocket when either direction closes.</p><h3 id="Message-serialization"><a class="section-marker" href="#Message-serialization">§</a>Message serialization</h3>
+<p>Lagom will choose an appropriate transport for the stream, typically, this will be WebSockets. The WebSocket protocol supports bidirectional streaming, so is a good general purpose option for streaming. When only one of the request or response message is streamed, Lagom will implement the sending and receiving of the strict message by sending or receiving a single message, and then leaving the WebSocket open until the other direction closes. Otherwise, Lagom will close the WebSocket when either direction closes.</p><h3 id="Message-serialization"><a class="section-marker" href="#Message-serialization">§</a>Message serialization</h3>
 <p>By default, Lagom will choose an appropriate serializer for request and response serialization and deserialization. Out of the box, Lagom will use JSON for communication, using Jackson to serialize and deserialize messages.</p>
 <p>For details on message serializers, including how to write and configure custom message serializers, see <a href="MessageSerializers.html">Message Serializers</a>.</p>
                 </article>
@@ -505,7 +505,7 @@ default Descriptor descriptor() {
             </div>
         </div>
     </body>
-    <script src="/512d43dcc75305c31bcde1fcd946a20290e8a137-all-scripts-concat.js"></script>
+    <script src="/6b060ae8b34cf8ecfdec3e008e9ac29a8a10af3a-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

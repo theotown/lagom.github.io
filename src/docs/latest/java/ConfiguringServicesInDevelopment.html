@@ -1,5 +1,5 @@
 <h1 id="How-are-addresses-bound-by-services?"><a class="section-marker" href="#How-are-addresses-bound-by-services?">§</a>How are addresses bound by services?</h1>
-<p>By default, Lagom services bind to <code>localhost</code>. </p>
+<p>By default, Lagom services bind to <code>localhost</code>.</p>
 <p>In Maven, this can be done by modifying the service implementation&rsquo;s pom configuration:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
     &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
@@ -22,14 +22,14 @@
     &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
     &lt;artifactId&gt;lagom-maven-plugin&lt;/artifactId&gt;
     &lt;configuration&gt;
-        &lt;servicePort&gt;11000&lt;/servicePort&gt;
+        &lt;serviceHttpPort&gt;11000&lt;/serviceHttpPort&gt;
     &lt;/configuration&gt;
 &lt;/plugin&gt;
 </code></pre>
 <p>In sbt, this can be done by modifying the service implementation&rsquo;s <code>project</code> configuration:</p>
 <pre class="prettyprint"><code class="language-sbt">lazy val usersImpl = (project in file(&quot;usersImpl&quot;))
   .enablePlugins(LagomJava)
-  .settings(lagomServicePort := 11000)</code></pre>
+  .settings(lagomServiceHttpPort := 11000)</code></pre>
 <p>Above, in the algorithm&rsquo;s description, it was mentioned that by default ports are assigned within the range <code>[49152,65535]</code>. This is also known as the ephemeral port range, a range of port numbers set aside by IANA for dynamic port selection use. If the default range doesn&rsquo;t suit you, you can change it by adding the following in your build.</p>
 <p>In the Maven root project pom:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;

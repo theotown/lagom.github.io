@@ -38,7 +38,8 @@ bintrayOmitLicense in ThisBuild := false</code></pre><h2 id="Importing-a-service
 <p>Now when you run <code>lagom:runAll</code>, the <code>hello-impl</code> service will also be started. There are a few additional configuration items that <code>externalProject</code> supports:</p>
 <ul>
   <li><code>playService</code> - Indicates that this is a Play, rather than a Lagom service. Defaults to <code>false</code>.</li>
-  <li><code>servicePort</code> - Allows the port that the service is run on to be overridden. Defaults to automatic selection of a port by Lagom.</li>
+  <li><code>serviceHttpPort</code> - Allows the http port that the service is run on to be overridden. Defaults to automatic selection of a port by Lagom.</li>
+  <li><code>serviceHttpsPort</code> - Allows the https port that the service is run on to be overridden. Defaults to automatic selection of a port by Lagom.</li>
   <li><code>cassandraEnabled</code> - Configures whether this service needs Cassandra or not. Defaults to <code>true</code>.</li>
 </ul><h3 id="Using-sbt"><a class="section-marker" href="#Using-sbt">§</a>Using sbt</h3>
 <p>The <code>helloworld</code> Lagom service can be imported by adding the following declaration to your build:</p>

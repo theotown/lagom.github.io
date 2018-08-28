@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/307124003a10bc066cecd20b436c0f9147253733-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/1aa462494f1ff36cd20d67354e9d762f0e5a6883-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -190,7 +190,8 @@ bintrayOmitLicense in ThisBuild := false</code></pre><h2 id="Importing-a-service
 <p>Now when you run <code>lagom:runAll</code>, the <code>hello-impl</code> service will also be started. There are a few additional configuration items that <code>externalProject</code> supports:</p>
 <ul>
   <li><code>playService</code> - Indicates that this is a Play, rather than a Lagom service. Defaults to <code>false</code>.</li>
-  <li><code>servicePort</code> - Allows the port that the service is run on to be overridden. Defaults to automatic selection of a port by Lagom.</li>
+  <li><code>serviceHttpPort</code> - Allows the http port that the service is run on to be overridden. Defaults to automatic selection of a port by Lagom.</li>
+  <li><code>serviceHttpsPort</code> - Allows the https port that the service is run on to be overridden. Defaults to automatic selection of a port by Lagom.</li>
   <li><code>cassandraEnabled</code> - Configures whether this service needs Cassandra or not. Defaults to <code>true</code>.</li>
 </ul><h3 id="Using-sbt"><a class="section-marker" href="#Using-sbt">§</a>Using sbt</h3>
 <p>The <code>helloworld</code> Lagom service can be imported by adding the following declaration to your build:</p>
@@ -501,7 +502,7 @@ lazy val `greetings-impl` = (project in file(&quot;greetings-impl&quot;))
             </div>
         </div>
     </body>
-    <script src="/307124003a10bc066cecd20b436c0f9147253733-all-scripts-concat.js"></script>
+    <script src="/1aa462494f1ff36cd20d67354e9d762f0e5a6883-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

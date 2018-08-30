@@ -23,13 +23,15 @@
     &lt;artifactId&gt;lagom-maven-plugin&lt;/artifactId&gt;
     &lt;configuration&gt;
         &lt;serviceHttpPort&gt;11000&lt;/serviceHttpPort&gt;
+        &lt;serviceHttpsPort&gt;11003&lt;/serviceHttpsPort&gt;
     &lt;/configuration&gt;
 &lt;/plugin&gt;
 </code></pre>
 <p>In sbt, this can be done by modifying the service implementation&rsquo;s <code>project</code> configuration:</p>
 <pre class="prettyprint"><code class="language-sbt">lazy val usersImpl = (project in file(&quot;usersImpl&quot;))
   .enablePlugins(LagomJava)
-  .settings(lagomServiceHttpPort := 11000)</code></pre>
+  .settings(lagomServiceHttpPort := 11000)
+  .settings(lagomServiceHttpsPort := 11003)</code></pre>
 <p>Above, in the algorithm&rsquo;s description, it was mentioned that by default ports are assigned within the range <code>[49152,65535]</code>. This is also known as the ephemeral port range, a range of port numbers set aside by IANA for dynamic port selection use. If the default range doesn&rsquo;t suit you, you can change it by adding the following in your build.</p>
 <p>In the Maven root project pom:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;

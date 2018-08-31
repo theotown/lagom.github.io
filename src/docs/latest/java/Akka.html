@@ -6,6 +6,8 @@
 <pre class="prettyprint"><code class="language-java">import static akka.pattern.PatternsCS.ask;
 
 import com.lightbend.lagom.javadsl.api.ServiceCall;
+
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -61,8 +63,12 @@ public class WorkerServiceImpl implements WorkerService {
   public ServiceCall&lt;Job, JobAccepted&gt; doWork() {
     return job -&gt; {
       // send the job to a worker, via the consistent hashing router
-      CompletionStage&lt;JobAccepted&gt; reply = ask(workerRouter, job, Timeout.apply(
-          5, TimeUnit.SECONDS))
+      CompletionStage&lt;JobAccepted&gt; reply =
+          ask(
+              workerRouter,
+              job,
+              Duration.ofSeconds(5)
+          )
         .thenApply(ack -&gt; {
           return (JobAccepted) ack;
         });
@@ -224,8 +230,12 @@ public class Worker2Module extends AbstractModule
   public ServiceCall&lt;Job, JobAccepted&gt; doWork() {
     return job -&gt; {
       // send the job to a worker, via the consistent hashing router
-      CompletionStage&lt;JobAccepted&gt; reply = ask(workerRouter, job, Timeout.apply(
-          5, TimeUnit.SECONDS))
+      CompletionStage&lt;JobAccepted&gt; reply =
+          ask(
+              workerRouter,
+              job,
+              Duration.ofSeconds(5)
+          )
         .thenApply(ack -&gt; {
           return (JobAccepted) ack;
         });

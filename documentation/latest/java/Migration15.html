@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/d303a19429ecd8c3fe304c0d12c63611cec92603-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/1d6dfb441a8b7f2e2cedaef753e8f2272f3f5961-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -148,12 +148,15 @@
                 <h1 id="Lagom-1.5-Migration-Guide"><a class="section-marker" href="#Lagom-1.5-Migration-Guide">§</a>Lagom 1.5 Migration Guide</h1>
 <p>This guide explains how to migrate from Lagom 1.4 to Lagom 1.5. If you are upgrading from an earlier version, be sure to review previous migration guides.</p>
 <p>Lagom 1.5 also updates to the latest major versions of Play (2.7) and Akka HTTP (10.1). We have highlighted the changes that are relevant to most Lagom users, but you may need to change code in your services that uses Play APIs directly. You&rsquo;ll also need to update any Play services in your Lagom project repositories to be compatible with Play 2.7. Please refer to the Play 2.7 migration guide (TODO) and the <a href="https://akka.io/blog/news/2018/03/08/akka-http-10.1.0-released.html">Akka HTTP 10.1.0 release announcement</a> for more details.</p><h2 id="Build-changes"><a class="section-marker" href="#Build-changes">§</a>Build changes</h2><h3 id="Maven"><a class="section-marker" href="#Maven">§</a>Maven</h3>
-<p>If you&rsquo;re using a <code>lagom.version</code> property in the <code>properties</code> section of your root <code>pom.xml</code>, then simply update that to <code>1.5.0-M2</code>. Otherwise, you&rsquo;ll need to go through every place that a Lagom dependency, including plugins, is used, and set the version there.</p><h3 id="sbt"><a class="section-marker" href="#sbt">§</a>sbt</h3>
+<p>If you&rsquo;re using a <code>lagom.version</code> property in the <code>properties</code> section of your root <code>pom.xml</code>, then simply update that to <code>1.5.0-M3</code>. Otherwise, you&rsquo;ll need to go through every place that a Lagom dependency, including plugins, is used, and set the version there.</p><h3 id="sbt"><a class="section-marker" href="#sbt">§</a>sbt</h3>
 <p>The version of Lagom can be updated by editing the <code>project/plugins.sbt</code> file, and updating the version of the Lagom sbt plugin. For example:</p>
-<pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.lagom&quot; % &quot;lagom-sbt-plugin&quot; % &quot;1.5.0-M2&quot;)
+<pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.lagom&quot; % &quot;lagom-sbt-plugin&quot; % &quot;1.5.0-M3&quot;)
 </code></pre>
-<p>We also recommend upgrading to sbt 1.2.1 or later, by updating the <code>sbt.version</code> in <code>project/build.properties</code>.</p><h2 id="Deprecations"><a class="section-marker" href="#Deprecations">§</a>Deprecations</h2>
-<p>TODO</p><h2 id="ConductR"><a class="section-marker" href="#ConductR">§</a>ConductR</h2>
+<p>We also recommend upgrading to sbt 1.2.1 or later, by updating the <code>sbt.version</code> in <code>project/build.properties</code>.</p><h2 id="Deprecations"><a class="section-marker" href="#Deprecations">§</a>Deprecations</h2><h3 id="Service-Ports"><a class="section-marker" href="#Service-Ports">§</a>Service Ports</h3>
+<p>Lagom 1.5.0 now has support for SSL calls for gRPC integration and new a build setting was introduced to configure https port for a given service manually.</p>
+<p>In Maven, the new setting is called <code>serviceHttpsPost</code>. To keep the names aligned, we are deprecating <code>servicePort</code> in favour of <code>serviceHttpPort</code>.</p>
+<p>In sbt, the new setting is called <code>lagomServiceHttpsPort</code>. To keep the names aligned, we are deprecating <code>lagomServicePort</code> in favour of <code>lagomServiceHttpPort</code>.</p>
+<p>TODO: add links to gRPC integration and SSL support documentation.</p><h2 id="ConductR"><a class="section-marker" href="#ConductR">§</a>ConductR</h2>
 <p>ConductR is no longer supported with Lagom 1.5.</p>
 <p>We recommend migrating to Kubernetes, DC/OS or another deployment solution before upgrading.</p>
 <p><a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/">Lighbend Orchestration</a> is an open-source suite of tools that helps you deploy Lagom services to Kubernetes and DC/OS. It provides an easy way to create Docker images for your applications and introduces an automated process for generating Kubernetes and DC/OS resource and configuration files for you from those images. This process helps reduce the friction between development and operations. If you are using Kubernetes or DC/OS, or interested in trying one of these platforms, we encourage you to read the Lightbend Orchestration documentation to understand how to use it with Lagom and other components of the <a href="https://www.lightbend.com/products/reactive-platform">Lightbend Reactive Platform</a>.</p>
@@ -371,7 +374,7 @@
             </div>
         </div>
     </body>
-    <script src="/d303a19429ecd8c3fe304c0d12c63611cec92603-all-scripts-concat.js"></script>
+    <script src="/1d6dfb441a8b7f2e2cedaef753e8f2272f3f5961-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

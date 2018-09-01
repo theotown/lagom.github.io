@@ -4,12 +4,51 @@
       <link rel="self" type="application/atom+xml" href="https://www.lagomframework.com/blog/atom.xml"/>
       <id>https://www.lagomframework.com/blog</id>
       <rights>Copyright 2018, Lightbend</rights>
-      <updated>2018-07-29T17:00:00.000-07:00</updated>
+      <updated>2018-08-30T17:00:00.000-07:00</updated>
       <dc:creator>Lightbend</dc:creator>
-      <dc:date>2018-07-29T17:00:00.000-07:00</dc:date>
+      <dc:date>2018-08-30T17:00:00.000-07:00</dc:date>
       <dc:language>en</dc:language>
       <dc:rights>Copyright 2018, Lightbend</dc:rights>
       <entry>
+          <title>Lagom 1.4.8 released!</title>
+          <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-8.html"/>
+          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
+          <author>
+            <name>Ignasi Marimon-Clos</name>
+            <uri>https://github.com/ignasi35</uri>
+          </author>
+          <id>https://www.lagomframework.com/blog/lagom-1-4-8.html</id>
+          <updated>2018-08-30T17:00:00.000-07:00</updated>
+          <published>2018-08-30T17:00:00.000-07:00</published>
+          <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.4.8.</p>
+<p>This release provides a bug fix and an improvement.</p>
+<h2><a href="#highlights" name="highlights">Highlights</a></h2>
+<ul>
+  <li>Updates Akka to <a href="https://akka.io/blog/news/2018/08/29/akka-2.5.16-security-fix-released">2.5.16</a>. This Akka release introduces a security fix for a vulnerability affecting users of Akka Cluster with TLS enabled <em>and</em> use a particular <code>random-number-generator</code>. See the <a href="https://akka.io/blog/news/2018/08/29/akka-2.5.16-security-fix-released">Akka announcement</a> for more details.</li>
+  <li>Allow missing application.conf for service clients (<a href="https://github.com/lagom/lagom/issues/1442">PR 1442</a> contributed by Elijah Rippeth)</li>
+  <li>&hellip; and many documentation improvements.</li>
+</ul>
+<p>See GitHub for the <a href="https://github.com/lagom/lagom/compare/1.4.7...1.4.8">full list of commits</a> and the issues and pull requests assigned to the <a href="https://github.com/lagom/lagom/milestone/34?closed=1">1.4.8 milestone</a>.</p>
+<h2>Updating a Lagom project to version 1.4.8</h2>
+<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
+<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
+<p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>
+<h2><a href="#credits" name="credits">Credits</a></h2>
+<p>Thanks to the community for their detailed bug reports and contributions.</p>
+<p>Thanks to <a href="https://www.lightbend.com/">Lightbend</a> for their continued sponsorship of the Lagom core team’s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>
+<p>Special thanks to the following contributors who helped with this release:</p>
+<pre class="prettyprint"><code>commits  added  removed  author    
+    3      15      11    Ignasi Marimon-Clos
+    3      19      22    Renato Cavalcanti
+    2      12      11    Marcos Pereira
+    2       2       2    kunals201
+    1       1       1    Jo Vanthournout
+    1      36      64    Tim Moore
+    1       2       2    Himani Arora
+    1      14       2    Elijah Rippeth
+</code></pre>]]></content>
+          <dc:date>2018-08-30T17:00:00.000-07:00</dc:date>
+        </entry><entry>
           <title>Lagom 1.5.0-M2 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-5-0-M1.html"/>
           <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
@@ -368,34 +407,5 @@
       1     31        7  Lutz Huehnken
 </code></pre>]]></content>
           <dc:date>2018-03-05T16:00:00.000-08:00</dc:date>
-        </entry><entry>
-          <title>Introducing the Lagom Recipes</title>
-          <link rel="alternate" href="https://www.lagomframework.com/blog/announcing-lagom-recipes.html"/>
-          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/><category term="recipes" scheme="https://www.lagomframework.com/blog/tags/recipes.html"/><category term="cookbook" scheme="https://www.lagomframework.com/blog/tags/cookbook.html"/>
-          <author>
-            <name>Ignasi Marimon-Clos</name>
-            <uri>https://github.com/ignasi35</uri>
-          </author>
-          <id>https://www.lagomframework.com/blog/announcing-lagom-recipes.html</id>
-          <updated>2018-02-12T16:00:00.000-08:00</updated>
-          <published>2018-02-12T16:00:00.000-08:00</published>
-          <content type="html"><![CDATA[<p>Lagom is an OSS framework to build microservice-based software systems. At Lightbend we sponsor the development of the framework and encourage contributions from the community, but we also help people get started, be more productive when using it or solve the bugs there may be in the framework code. We participate on the <a href="https://discuss.lagomframework.com">Discuss Lagom Forum</a>, <a href="https://gitter.im/lagom/lagom">Gitter</a> channel and, of course, <a href="https://stackoverflow.com/questions/tagged/lagom">Stack Overflow</a> and <a href="https://github.com/lagom/lagom/issues">GitHub issues</a>, but Lightbend also provides support for its <a href="https://www.lightbend.com/subscription">subscribers</a> using Lagom. We sometimes detect the same questions pop up repeatedly on those channels of support. In order to reduce repeating the same answers over and over and because common problems should have readily available solutions, we created the <a href="https://github.com/lagom/lagom-recipes">Lagom Recipes</a> repository.</p>
-<h3><a href="#lagom-recipes" name="lagom-recipes">Lagom Recipes</a></h3>
-<p>Like a cookbook, the Lagom recipes repository contains a varied list of step-by-step solutions to common problems Lagom developers may face. Take for example the common request on the Mailing List: &ldquo;How do I enable CORS for my Lagom API?&rdquo;. It&rsquo;s a simple enough request but in Lagom the solution is slightly different whether you are using the <code>javadsl</code> or the <code>scaladsl</code> so the common response to such a question was &ldquo;Are you using java or scala?&rdquo;. It&rsquo;s a problem which involves some knowledge of <a href="https://www.playframework.com/">Play</a> which is a building block of Lagom. Therefore the explanation ends up being a bit confusing. It is easier to prepare two recipes to answer the question for Java or Scala developers in mind and explain each step on the README.</p>
-<p>Every recipe may contain a README file detailing the what files would you need to add or edit in order to complete the recipe. On top of that, recipes are not meant to start a project from scratch. Instead, each recipe details the necessary increment over an existing Lagom Service or a complete Lagom system of many services. The recipe is usually developed in few separate commits to demonstrate the increment necessary to complete your goal:</p>
-<ul>
-  <li>a first commit sets up the minimum Lagom system</li>
-  <li>a second commit introduces the changes necessary to complete the task and the README file explaining the changes.</li>
-</ul>
-<p>The current list of recipes includes solutions for problems such as:</p>
-<ul>
-  <li><a href="https://github.com/lagom/lagom-recipes/tree/master/cors">How do I enable CORS</a>?</li>
-  <li><a href="https://github.com/lagom/lagom-recipes/tree/master/consumer-service">How do I create a Subscriber only service</a>?</li>
-  <li><a href="https://github.com/lagom/lagom-recipes/tree/master/mixed-persistence">How do I use RDBMS read-sides with Cassandra write-sides</a>?</li>
-  <li><a href="https://github.com/lagom/lagom-recipes/tree/master/i18n">How do I create a stateless service in Lagom for Java that uses Play&rsquo;s Internationalization Support</a>?</li>
-  <li><a href="https://github.com/lagom/lagom-recipes/tree/master/http-header-handling">How do I manipulate Headers and Status Codes and test those cases</a>?</li>
-</ul>
-<p>We hope adding this learning resource to the list of <a href="https://www.lagomframework.com/documentation/">documentation resources</a> already available will help create great applications!</p>]]></content>
-          <dc:date>2018-02-12T16:00:00.000-08:00</dc:date>
         </entry>
     </feed>

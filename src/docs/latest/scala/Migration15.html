@@ -7,7 +7,14 @@
 <p>We also recommend upgrading to sbt 1.2.1 or later, by updating the <code>sbt.version</code> in <code>project/build.properties</code>.</p><h2 id="Deprecations"><a class="section-marker" href="#Deprecations">§</a>Deprecations</h2><h3 id="Service-Ports"><a class="section-marker" href="#Service-Ports">§</a>Service Ports</h3>
 <p>Lagom 1.5.0 now has support for SSL calls for gRPC integration and new a build setting was introduced to configure https port for a given service manually.</p>
 <p>In sbt, the new setting is called <code>lagomServiceHttpsPort</code>. To keep the names aligned, we are deprecating <code>lagomServicePort</code> in favour of <code>lagomServiceHttpPort</code>.</p>
-<p>TODO: add links to gRPC integration and SSL support documentation.</p><h2 id="ConductR"><a class="section-marker" href="#ConductR">§</a>ConductR</h2>
+<p>TODO: add links to gRPC integration and SSL support documentation.</p><h3 id="Persistence-testkit-TestUtil"><a class="section-marker" href="#Persistence-testkit-TestUtil">§</a>Persistence testkit <code>TestUtil</code></h3>
+<p>The following:</p>
+<ul>
+  <li><code>com.lightbend.lagom.scaladsl.persistence.cassandra.testkit.TestUtil</code> (<code>lagom-scaladsl-persistence-cassandra</code>)</li>
+  <li><code>com.lightbend.lagom.scaladsl.persistence.jdbc.testkit.TestUtil</code> (<code>lagom-scaladsl-persistence-jdbc</code>)</li>
+  <li><code>com.lightbend.lagom.scaladsl.persistence.testkit.AbstractTestUtil</code> (<code>lagom-scaladsl-persistence</code>)</li>
+</ul>
+<p>were all never intended for public consumption, and therfore have been marked deprecated in 1.5.0 for removal in<br/>2.0.0.</p><h2 id="ConductR"><a class="section-marker" href="#ConductR">§</a>ConductR</h2>
 <p>ConductR is no longer supported with Lagom 1.5.</p>
 <p>We recommend migrating to Kubernetes, DC/OS or another deployment solution before upgrading.</p>
 <p><a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/">Lighbend Orchestration</a> is an open-source suite of tools that helps you deploy Lagom services to Kubernetes and DC/OS. It provides an easy way to create Docker images for your applications and introduces an automated process for generating Kubernetes and DC/OS resource and configuration files for you from those images. This process helps reduce the friction between development and operations. If you are using Kubernetes or DC/OS, or interested in trying one of these platforms, we encourage you to read the Lightbend Orchestration documentation to understand how to use it with Lagom and other components of the <a href="https://www.lightbend.com/products/reactive-platform">Lightbend Reactive Platform</a>.</p>

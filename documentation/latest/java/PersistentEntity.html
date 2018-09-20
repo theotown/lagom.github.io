@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/a5d0a9898e67427ddf6dd91b3fb6c6413fa05993-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/b89030aafde922f81f423e3f6351690e69130db1-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -840,7 +840,7 @@ interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
   <li>a command handler is selected, if none is found an <code>UnhandledCommandException</code> is thrown</li>
   <li>the command handler is invoked for the command, one or more events may be emitted (to process a command that emits no events, <code>setReadOnlyCommandHandler</code> must be used)</li>
   <li>events are applied to the appropriate event Handler (this can cause <code>Behavior</code> changes so defining the command handler on a behavior doesn&rsquo;t require all event handlers to be supported on that behavior)</li>
-  <li>if applying the events didn&rsquo;t cause any exception, events are persisted atomically</li>
+  <li>if applying the events didn&rsquo;t cause any exception, events are persisted atomically and in the same order they were emitted on the command handler</li>
   <li>if there&rsquo;s an <code>afterPersist</code>, then it is invoked (only once)</li>
   <li>if the snapshotting threshold is exceeded, a snapshot is generated and stored</li>
   <li>finally, the command processing completes and a new command may be processed.</li>
@@ -1123,7 +1123,7 @@ interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
             </div>
         </div>
     </body>
-    <script src="/a5d0a9898e67427ddf6dd91b3fb6c6413fa05993-all-scripts-concat.js"></script>
+    <script src="/b89030aafde922f81f423e3f6351690e69130db1-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

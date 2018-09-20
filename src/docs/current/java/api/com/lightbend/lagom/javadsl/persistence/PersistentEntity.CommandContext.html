@@ -315,7 +315,8 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/Persiste
 <h4>thenPersistAll</h4>
 <pre>public&nbsp;&lt;B extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;B&gt;&nbsp;thenPersistAll(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;B&gt;&nbsp;events)</pre>
 <div class="block">A command handler may return this <code>Persist</code> directive to define
- that several events are to be persisted.</div>
+ that several events are to be persisted. Events will be persisted
+ atomically and in the same order as they are passed here.</div>
 </li>
 </ul>
 <a name="thenPersistAll-java.util.List-akka.japi.Effect-">
@@ -330,7 +331,8 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/Persiste
  that several events are to be persisted. External side effects can be
  performed after successful persist in the <code>afterPersist</code> function.
  <code>afterPersist</code> is invoked once when all events have been persisted
- successfully.</div>
+ successfully. Events will be persisted atomically and in the same
+ order as they are passed here.</div>
 </li>
 </ul>
 <a name="thenPersistAll-akka.japi.Effect-scala.collection.Seq-">

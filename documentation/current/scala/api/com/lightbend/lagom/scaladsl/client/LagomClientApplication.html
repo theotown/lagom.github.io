@@ -163,6 +163,10 @@
                         <a href="CircuitBreakingServiceLocator.html" title="Abstract service locator that provides circuit breaking.">CircuitBreakingServiceLocator</a>
                       </li><li class="current-entities indented5">
                         <span class="separator"></span>
+                        <a class="object" href="ClientStoppedReason$.html" title=""></a>
+                        <a href="ClientStoppedReason$.html" title="">ClientStoppedReason</a>
+                      </li><li class="current-entities indented5">
+                        <span class="separator"></span>
                         <a class="class" href="ConfigurationServiceLocator.html" title="A service locator that uses static configuration."></a>
                         <a href="ConfigurationServiceLocator.html" title="A service locator that uses static configuration.">ConfigurationServiceLocator</a>
                       </li><li class="current-entities indented5">
@@ -173,6 +177,10 @@
                         <span class="separator"></span>
                         <a class="class" href="" title="Convenience for constructing service clients in a non Lagom server application."></a>
                         <a href="" title="Convenience for constructing service clients in a non Lagom server application.">LagomClientApplication</a>
+                      </li><li class="current-entities indented5">
+                        <span class="separator"></span>
+                        <a class="class" href="LagomClientFactory.html" title="Convenience for constructing service clients in a non Lagom server application."></a>
+                        <a href="LagomClientFactory.html" title="Convenience for constructing service clients in a non Lagom server application.">LagomClientFactory</a>
                       </li><li class="current-entities indented5">
                         <span class="separator"></span>
                         <a class="trait" href="LagomServiceClientComponents.html" title="The Lagom service client components."></a>
@@ -207,6 +215,10 @@
                         <a href="ServiceResolver.html" title="">ServiceResolver</a>
                       </li><li class="current-entities indented5">
                         <span class="separator"></span>
+                        <a class="class" href="StandaloneLagomClientFactory.html" title="Convenience for constructing service clients in a non Lagom server application."></a>
+                        <a href="StandaloneLagomClientFactory.html" title="Convenience for constructing service clients in a non Lagom server application.">StandaloneLagomClientFactory</a>
+                      </li><li class="current-entities indented5">
+                        <span class="separator"></span>
                         <a class="class" href="StaticServiceLocator.html" title="A static service locator, that always resolves the same URI."></a>
                         <a href="StaticServiceLocator.html" title="A static service locator, that always resolves the same URI.">StaticServiceLocator</a>
                       </li><li class="current-entities indented5">
@@ -236,18 +248,21 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">LagomClientApplication</span><span class="result"> extends <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a> with <a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a></span>
+        <span class="name deprecated" title="Deprecated: (Since version 1.4.9) Use StandaloneLagomClientFactory instead">LagomClientApplication</span><span class="result"> extends <a href="StandaloneLagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.StandaloneLagomClientFactory">StandaloneLagomClientFactory</a></span>
       </span>
       </h4>
 
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Convenience for constructing service clients in a non Lagom server application.</p><p>It is important to invoke <a href="#stop():Unit" class="extmbr" name="com.lightbend.lagom.scaladsl.client.LagomClientApplication#stop">#stop</a> when the application is no longer needed, as this will trigger the shutdown
 of all thread and connection pools.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/master//service/scaladsl/client/src/main/scala/com/lightbend/lagom/scaladsl/client/ServiceClient.scala" target="_blank">ServiceClient.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 1.4.9)</i> Use StandaloneLagomClientFactory instead</p></dd><dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/master//service/scaladsl/client/src/main/scala/com/lightbend/lagom/scaladsl/client/ServiceClient.scala" target="_blank">ServiceClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a>, <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a>, <span class="extype" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider">TopicFactoryProvider</span>, <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="StandaloneLagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.StandaloneLagomClientFactory">StandaloneLagomClientFactory</a>, <a href="LagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>, <a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a>, <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a>, <span class="extype" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider">TopicFactoryProvider</span>, <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
         </div></div>
         
 
@@ -273,7 +288,7 @@ of all thread and connection pools.
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="com.lightbend.lagom.scaladsl.client.LagomClientApplication"><span>LagomClientApplication</span></li><li class="in" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent"><span>LagomConfigComponent</span></li><li class="in" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents"><span>LagomServiceClientComponents</span></li><li class="in" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider"><span>TopicFactoryProvider</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="com.lightbend.lagom.scaladsl.client.LagomClientApplication"><span>LagomClientApplication</span></li><li class="in" name="com.lightbend.lagom.scaladsl.client.StandaloneLagomClientFactory"><span>StandaloneLagomClientFactory</span></li><li class="in" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory"><span>LagomClientFactory</span></li><li class="in" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent"><span>LagomConfigComponent</span></li><li class="in" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents"><span>LagomServiceClientComponents</span></li><li class="in" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider"><span>TopicFactoryProvider</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
                   <span class="filtertype">Implicitly<br />
@@ -450,7 +465,7 @@ of all thread and connection pools.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientApplication#actorSystem" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.lightbend.lagom.scaladsl.client.StandaloneLagomClientFactory#actorSystem" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="actorSystem:akka.actor.ActorSystem"></a><a id="actorSystem:ActorSystem"></a>
       <span class="permalink">
       <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientApplication.html#actorSystem:akka.actor.ActorSystem" title="Permalink">
@@ -465,8 +480,8 @@ of all thread and connection pools.
         <span class="name">actorSystem</span><span class="result">: <a href="http://doc.akka.io/api/akka/2.5.16/akka/actor/ActorSystem.html#akka.actor.ActorSystem" class="extype" name="akka.actor.ActorSystem">ActorSystem</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientApplication">LagomClientApplication</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientApplication#applicationLifecycle" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="StandaloneLagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.StandaloneLagomClientFactory">StandaloneLagomClientFactory</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientFactory#applicationLifecycle" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="applicationLifecycle:play.api.inject.ApplicationLifecycle"></a><a id="applicationLifecycle:ApplicationLifecycle"></a>
       <span class="permalink">
       <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientApplication.html#applicationLifecycle:play.api.inject.ApplicationLifecycle" title="Permalink">
@@ -481,7 +496,7 @@ of all thread and connection pools.
         <span class="name">applicationLifecycle</span><span class="result">: <a href="https://www.playframework.com/documentation/2.6.17/api/scala/play/api/inject/ApplicationLifecycle.html#play.api.inject.ApplicationLifecycle" class="extype" name="play.api.inject.ApplicationLifecycle">ApplicationLifecycle</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientApplication">LagomClientApplication</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
@@ -554,7 +569,7 @@ of all thread and connection pools.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientApplication#configuration" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientFactory#configuration" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="configuration:play.api.Configuration"></a><a id="configuration:Configuration"></a>
       <span class="permalink">
       <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientApplication.html#configuration:play.api.Configuration" title="Permalink">
@@ -569,7 +584,7 @@ of all thread and connection pools.
         <span class="name">configuration</span><span class="result">: <a href="https://www.playframework.com/documentation/2.6.17/api/scala/play/api/Configuration.html#play.api.Configuration" class="extype" name="play.api.Configuration">Configuration</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientApplication">LagomClientApplication</a> → <a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> → <a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a></dd></dl></div>
     </li><li name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents#defaultExceptionSerializer" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="defaultExceptionSerializer:com.lightbend.lagom.scaladsl.api.deser.ExceptionSerializer"></a><a id="defaultExceptionSerializer:ExceptionSerializer"></a>
       <span class="permalink">
@@ -666,7 +681,7 @@ of all thread and connection pools.
             <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientApplication">LagomClientApplication</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientApplication#environment" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientFactory#environment" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="environment:play.api.Environment"></a><a id="environment:Environment"></a>
       <span class="permalink">
       <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientApplication.html#environment:play.api.Environment" title="Permalink">
@@ -681,7 +696,7 @@ of all thread and connection pools.
         <span class="name">environment</span><span class="result">: <a href="https://www.playframework.com/documentation/2.6.17/api/scala/play/api/Environment.html#play.api.Environment" class="extype" name="play.api.Environment">Environment</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientApplication">LagomClientApplication</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
@@ -714,7 +729,7 @@ of all thread and connection pools.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientApplication#executionContext" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientFactory#executionContext" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="executionContext:scala.concurrent.ExecutionContext"></a><a id="executionContext:ExecutionContext"></a>
       <span class="permalink">
       <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientApplication.html#executionContext:scala.concurrent.ExecutionContext" title="Permalink">
@@ -729,7 +744,7 @@ of all thread and connection pools.
         <span class="name">executionContext</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientApplication">LagomClientApplication</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
@@ -829,7 +844,7 @@ of all thread and connection pools.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientApplication#materializer" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.lightbend.lagom.scaladsl.client.StandaloneLagomClientFactory#materializer" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="materializer:akka.stream.Materializer"></a><a id="materializer:Materializer"></a>
       <span class="permalink">
       <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientApplication.html#materializer:akka.stream.Materializer" title="Permalink">
@@ -844,7 +859,7 @@ of all thread and connection pools.
         <span class="name">materializer</span><span class="result">: <a href="http://doc.akka.io/api/akka/2.5.16/akka/stream/Materializer.html#akka.stream.Materializer" class="extype" name="akka.stream.Materializer">Materializer</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientApplication">LagomClientApplication</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="StandaloneLagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.StandaloneLagomClientFactory">StandaloneLagomClientFactory</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
@@ -915,6 +930,22 @@ of all thread and connection pools.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TopicFactoryProvider</dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientFactory#releaseInternalResources" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="releaseInternalResources():scala.concurrent.Future[akka.Done]"></a><a id="releaseInternalResources():Future[Done]"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientApplication.html#releaseInternalResources():scala.concurrent.Future[akka.Done]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">releaseInternalResources</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="http://doc.akka.io/api/akka/2.5.16/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Releases the internal resources manages by this LagomClientFactory.</p><div class="fullcomment"><div class="comment cmt"><p>Releases the internal resources manages by this LagomClientFactory.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="LagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a></dd></dl></div>
     </li><li name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents#scaladslWebSocketClient" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="scaladslWebSocketClient:com.lightbend.lagom.internal.scaladsl.client.ScaladslWebSocketClient"></a><a id="scaladslWebSocketClient:ScaladslWebSocketClient"></a>
       <span class="permalink">
@@ -947,7 +978,7 @@ of all thread and connection pools.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientApplication#serviceInfo" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientFactory#serviceInfo" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="serviceInfo:com.lightbend.lagom.scaladsl.api.ServiceInfo"></a><a id="serviceInfo:ServiceInfo"></a>
       <span class="permalink">
       <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientApplication.html#serviceInfo:com.lightbend.lagom.scaladsl.api.ServiceInfo" title="Permalink">
@@ -962,7 +993,7 @@ of all thread and connection pools.
         <span class="name">serviceInfo</span><span class="result">: <a href="../api/ServiceInfo.html" class="extype" name="com.lightbend.lagom.scaladsl.api.ServiceInfo">ServiceInfo</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientApplication">LagomClientApplication</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
     </li><li name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents#serviceResolver" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="serviceResolver:com.lightbend.lagom.scaladsl.client.ServiceResolver"></a><a id="serviceResolver:ServiceResolver"></a>
       <span class="permalink">
@@ -979,7 +1010,7 @@ of all thread and connection pools.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientApplication#stop" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="com.lightbend.lagom.scaladsl.client.StandaloneLagomClientFactory#stop" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="stop():Unit"></a>
       <span class="permalink">
       <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientApplication.html#stop():Unit" title="Permalink">
@@ -994,7 +1025,10 @@ of all thread and connection pools.
         <span class="name">stop</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
-      <p class="shortcomment cmt">Stop the application.</p>
+      <p class="shortcomment cmt">Stop this <a href="LagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> by shutting down the internal <a href="http://doc.akka.io/api/akka/2.5.16/akka/actor/ActorSystem.html" class="extype" name="akka.actor.ActorSystem">akka.actor.ActorSystem</a>, Akka Streams <a href="http://doc.akka.io/api/akka/2.5.16/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a>
+and internal resources.</p><div class="fullcomment"><div class="comment cmt"><p>Stop this <a href="LagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> by shutting down the internal <a href="http://doc.akka.io/api/akka/2.5.16/akka/actor/ActorSystem.html" class="extype" name="akka.actor.ActorSystem">akka.actor.ActorSystem</a>, Akka Streams <a href="http://doc.akka.io/api/akka/2.5.16/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a>
+and internal resources.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="StandaloneLagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.StandaloneLagomClientFactory">StandaloneLagomClientFactory</a> → <a href="LagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
@@ -1144,7 +1178,11 @@ topics, so that the LagomServerComponents can detect a misconfiguration where on
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">
+        <div class="parent" name="com.lightbend.lagom.scaladsl.client.StandaloneLagomClientFactory">
+              <h3>Inherited from <a href="StandaloneLagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.StandaloneLagomClientFactory">StandaloneLagomClientFactory</a></h3>
+            </div><div class="parent" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">
+              <h3>Inherited from <a href="LagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a></h3>
+            </div><div class="parent" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">
               <h3>Inherited from <a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a></h3>
             </div><div class="parent" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">
               <h3>Inherited from <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></h3>

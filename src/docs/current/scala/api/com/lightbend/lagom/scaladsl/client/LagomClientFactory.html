@@ -171,16 +171,16 @@
                         <a href="ConfigurationServiceLocator.html" title="A service locator that uses static configuration.">ConfigurationServiceLocator</a>
                       </li><li class="current-entities indented5">
                         <span class="separator"></span>
-                        <a class="trait" href="" title="Components for using the configuration service locator."></a>
-                        <a href="" title="Components for using the configuration service locator.">ConfigurationServiceLocatorComponents</a>
+                        <a class="trait" href="ConfigurationServiceLocatorComponents.html" title="Components for using the configuration service locator."></a>
+                        <a href="ConfigurationServiceLocatorComponents.html" title="Components for using the configuration service locator.">ConfigurationServiceLocatorComponents</a>
                       </li><li class="current-entities indented5">
                         <span class="separator"></span>
                         <a class="class" href="LagomClientApplication.html" title="Convenience for constructing service clients in a non Lagom server application."></a>
                         <a href="LagomClientApplication.html" title="Convenience for constructing service clients in a non Lagom server application.">LagomClientApplication</a>
                       </li><li class="current-entities indented5">
                         <span class="separator"></span>
-                        <a class="class" href="LagomClientFactory.html" title="Convenience for constructing service clients in a non Lagom server application."></a>
-                        <a href="LagomClientFactory.html" title="Convenience for constructing service clients in a non Lagom server application.">LagomClientFactory</a>
+                        <a class="class" href="" title="Convenience for constructing service clients in a non Lagom server application."></a>
+                        <a href="" title="Convenience for constructing service clients in a non Lagom server application.">LagomClientFactory</a>
                       </li><li class="current-entities indented5">
                         <span class="separator"></span>
                         <a class="trait" href="LagomServiceClientComponents.html" title="The Lagom service client components."></a>
@@ -230,12 +230,12 @@
             </div>
           </div>
           <div id="content">
-            <body class="trait type">
+            <body class="class type">
       <div id="definition">
-        <div class="big-circle trait">t</div>
+        <div class="big-circle class">c</div>
         <p id="owner"><a href="../../../../index.html" class="extype" name="com">com</a>.<a href="../../../index.html" class="extype" name="com.lightbend">lightbend</a>.<a href="../../index.html" class="extype" name="com.lightbend.lagom">lagom</a>.<a href="../index.html" class="extype" name="com.lightbend.lagom.scaladsl">scaladsl</a>.<a href="index.html" class="extype" name="com.lightbend.lagom.scaladsl.client">client</a></p>
-        <h1>ConfigurationServiceLocatorComponents<span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html" title="Permalink">
+        <h1>LagomClientFactory<span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
@@ -244,22 +244,47 @@
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">ConfigurationServiceLocatorComponents</span><span class="result"> extends <a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></span>
+        <span class="name">LagomClientFactory</span><span class="result"> extends <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a> with <a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Components for using the configuration service locator.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/master//service/scaladsl/client/src/main/scala/com/lightbend/lagom/scaladsl/client/ServiceLocators.scala" target="_blank">ServiceLocators.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Convenience for constructing service clients in a non Lagom server application.</p><p><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> should be used only if your application DO have its own <a href="http://doc.akka.io/api/akka/2.5.16/akka/actor/ActorSystem.html" class="extype" name="akka.actor.ActorSystem">akka.actor.ActorSystem</a> and Akka Streams <a href="http://doc.akka.io/api/akka/2.5.16/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a>,
+in which case you should reuse then when building a <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>.</p><p>The easiest way to reuse your existing <a href="http://doc.akka.io/api/akka/2.5.16/akka/actor/ActorSystem.html" class="extype" name="akka.actor.ActorSystem">akka.actor.ActorSystem</a> and Akka Stream <a href="http://doc.akka.io/api/akka/2.5.16/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a> is to extend the <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>
+and add a constructor where you can pass them as arguments (see example below).</p><p>There is one more component that you’ll need to provide when creating a <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>, that is a service locator.
+It is up to you what service locator you use, it could be a third party service locator, or a service locator created
+from static configuration.</p><p>Lagom provides a number of built-in service locators, including a <a href="StaticServiceLocator.html" class="extype" name="com.lightbend.lagom.scaladsl.client.StaticServiceLocator">StaticServiceLocator</a>, a <a href="RoundRobinServiceLocator.html" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocator">RoundRobinServiceLocator</a>
+and a <a href="ConfigurationServiceLocator.html" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocator">ConfigurationServiceLocator</a>. The easiest way to use these is to mix in their respective Components traits.</p><p>For example, here’s a client factory built using the static service locator, which uses a static URI,
+and reusing an <a href="http://doc.akka.io/api/akka/2.5.16/akka/actor/ActorSystem.html" class="extype" name="akka.actor.ActorSystem">akka.actor.ActorSystem</a> and Akka Streams <a href="http://doc.akka.io/api/akka/2.5.16/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a> created outside it:</p><pre><span class="kw">import</span> java.net.URI
+<span class="kw">import</span> com.lightbend.lagom.scaladsl.client._
+<span class="kw">import</span> play.api.libs.ws.ahc.AhcWSComponents
+
+<span class="kw">class</span> MyLagomClientFactory(<span class="kw">val</span> actorSystem: ActorSystem, <span class="kw">val</span> materialzer: Materializer)
+  <span class="kw">extends</span> LagomClientFactory(<span class="lit">"my-client"</span>)
+  <span class="kw">with</span> StaticServiceLocatorComponents
+  <span class="kw">with</span> AhcWSComponents {
+
+  <span class="kw">override</span> <span class="kw">def</span> staticServiceUri = URI.create(<span class="lit">"http://localhost:8080"</span>)
+}
+
+
+<span class="kw">val</span> actorSystem = ActorSystem(<span class="lit">"my-app"</span>)
+<span class="kw">val</span> materializer = ActorMaterializer()(actorSystem)
+<span class="kw">val</span> clientFactory = <span class="kw">new</span> MyLagomClientFactory(actorSystem, materializer)</pre></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/master//service/scaladsl/client/src/main/scala/com/lightbend/lagom/scaladsl/client/ServiceClient.scala" target="_blank">ServiceClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a>, <a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
-        </div></div>
+          <div class="superTypes hiddenContent"><a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a>, <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a>, <span class="extype" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider">TopicFactoryProvider</span>, <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">
+              Known Subclasses
+            </span>
+            <div class="subClasses hiddenContent"><a href="StandaloneLagomClientFactory.html" class="extype" name="com.lightbend.lagom.scaladsl.client.StandaloneLagomClientFactory">StandaloneLagomClientFactory</a>, <a href="LagomClientApplication.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientApplication">LagomClientApplication</a></div>
+          </div></div>
         
 
       <div id="mbrsel">
@@ -284,7 +309,7 @@
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents"><span>ConfigurationServiceLocatorComponents</span></li><li class="in" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents"><span>CircuitBreakerComponents</span></li><li class="in" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent"><span>LagomConfigComponent</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory"><span>LagomClientFactory</span></li><li class="in" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent"><span>LagomConfigComponent</span></li><li class="in" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents"><span>LagomServiceClientComponents</span></li><li class="in" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider"><span>TopicFactoryProvider</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
                   <span class="filtertype">Implicitly<br />
@@ -307,16 +332,36 @@
 
       <div id="template">
         <div id="allMembers">
-        
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="com.lightbend.lagom.scaladsl.client.LagomClientFactory#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(clientName:String,classLoader:ClassLoader):com.lightbend.lagom.scaladsl.client.LagomClientFactory"></a><a id="&lt;init&gt;:LagomClientFactory"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#&lt;init&gt;(clientName:String,classLoader:ClassLoader):com.lightbend.lagom.scaladsl.client.LagomClientFactory" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">LagomClientFactory</span><span class="params">(<span name="clientName">clientName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="classLoader">classLoader: <span class="extype" name="java.lang.ClassLoader">ClassLoader</span> = <span class="defval" name="classOf[LagomClientFactory].getClassLoader">...</span></span>)</span>
+      </span>
+      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">clientName</dt><dd class="cmt"><p>The name of the service that is consuming the Lagom service. This will impact how calls made through clients
+                  generated by this factory will identify themselves.</p></dd><dt class="param">classLoader</dt><dd class="cmt"><p>A classloader, it will be used to create the service proxy and needs to have the API for the client in it.</p></dd></dl></div>
+    </li></ol>
+            </div>
 
         
 
         <div class="values members">
               <h3>Abstract Value Members</h3>
-              <ol><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents#actorSystem" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+              <ol><li name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents#actorSystem" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="actorSystem:akka.actor.ActorSystem"></a><a id="actorSystem:ActorSystem"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#actorSystem:akka.actor.ActorSystem" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#actorSystem:akka.actor.ActorSystem" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -328,11 +373,11 @@
         <span class="name">actorSystem</span><span class="result">: <a href="http://doc.akka.io/api/akka/2.5.16/akka/actor/ActorSystem.html#akka.actor.ActorSystem" class="extype" name="akka.actor.ActorSystem">ActorSystem</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents#circuitBreakerMetricsProvider" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="circuitBreakerMetricsProvider:com.lightbend.lagom.internal.spi.CircuitBreakerMetricsProvider"></a><a id="circuitBreakerMetricsProvider:CircuitBreakerMetricsProvider"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents#materializer" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="materializer:akka.stream.Materializer"></a><a id="materializer:Materializer"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#circuitBreakerMetricsProvider:com.lightbend.lagom.internal.spi.CircuitBreakerMetricsProvider" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#materializer:akka.stream.Materializer" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -341,14 +386,14 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">circuitBreakerMetricsProvider</span><span class="result">: <span class="extype" name="com.lightbend.lagom.internal.spi.CircuitBreakerMetricsProvider">CircuitBreakerMetricsProvider</span></span>
+        <span class="name">materializer</span><span class="result">: <a href="http://doc.akka.io/api/akka/2.5.16/akka/stream/Materializer.html#akka.stream.Materializer" class="extype" name="akka.stream.Materializer">Materializer</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent#configuration" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="configuration:play.api.Configuration"></a><a id="configuration:Configuration"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents#serviceLocator" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="serviceLocator:com.lightbend.lagom.scaladsl.api.ServiceLocator"></a><a id="serviceLocator:ServiceLocator"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#configuration:play.api.Configuration" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#serviceLocator:com.lightbend.lagom.scaladsl.api.ServiceLocator" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -357,14 +402,14 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">configuration</span><span class="result">: <a href="https://www.playframework.com/documentation/2.6.17/api/scala/play/api/Configuration.html#play.api.Configuration" class="extype" name="play.api.Configuration">Configuration</a></span>
+        <span class="name">serviceLocator</span><span class="result">: <a href="../api/ServiceLocator.html" class="extype" name="com.lightbend.lagom.scaladsl.api.ServiceLocator">ServiceLocator</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents#executionContext" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="executionContext:scala.concurrent.ExecutionContext"></a><a id="executionContext:ExecutionContext"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents#wsClient" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="wsClient:play.api.libs.ws.WSClient"></a><a id="wsClient:WSClient"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#executionContext:scala.concurrent.ExecutionContext" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#wsClient:play.api.libs.ws.WSClient" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -373,10 +418,10 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">executionContext</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>
+        <span class="name">wsClient</span><span class="result">: <a href="https://www.playframework.com/documentation/2.6.17/api/scala/play/api/libs/ws/WSClient.html#play.api.libs.ws.WSClient" class="extype" name="play.api.libs.ws.WSClient">WSClient</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
     </li></ol>
             </div>
 
@@ -386,7 +431,7 @@
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -402,7 +447,7 @@
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html###():Int" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -418,7 +463,7 @@
     </li><li name="scala.Predef.any2stringadd#+" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="+(other:String):String"></a><a id="+(String):String"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#+(other:String):String" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#+(other:String):String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -431,14 +476,14 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>] performed by method any2stringadd in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>] performed by method any2stringadd in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="-&gt;[B](y:B):(A,B)"></a><a id="-&gt;[B](B):(ConfigurationServiceLocatorComponents,B)"></a>
+      <a id="-&gt;[B](y:B):(A,B)"></a><a id="-&gt;[B](B):(LagomClientFactory,B)"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#-&gt;[B](y:B):(A,B)" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#-&gt;[B](y:B):(A,B)" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -447,12 +492,12 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -461,7 +506,7 @@
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -474,10 +519,26 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientFactory#applicationLifecycle" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="applicationLifecycle:play.api.inject.ApplicationLifecycle"></a><a id="applicationLifecycle:ApplicationLifecycle"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#applicationLifecycle:play.api.inject.ApplicationLifecycle" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">applicationLifecycle</span><span class="result">: <a href="https://www.playframework.com/documentation/2.6.17/api/scala/play/api/inject/ApplicationLifecycle.html#play.api.inject.ApplicationLifecycle" class="extype" name="play.api.inject.ApplicationLifecycle">ApplicationLifecycle</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -490,10 +551,10 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents#circuitBreakerConfig" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="circuitBreakerConfig:com.lightbend.lagom.internal.client.CircuitBreakerConfig"></a><a id="circuitBreakerConfig:CircuitBreakerConfig"></a>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents#circuitBreakerMetricsProvider" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="circuitBreakerMetricsProvider:com.lightbend.lagom.internal.spi.CircuitBreakerMetricsProvider"></a><a id="circuitBreakerMetricsProvider:CircuitBreakerMetricsProvider"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#circuitBreakerConfig:com.lightbend.lagom.internal.client.CircuitBreakerConfig" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#circuitBreakerMetricsProvider:com.lightbend.lagom.internal.spi.CircuitBreakerMetricsProvider" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -502,46 +563,14 @@
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">circuitBreakerConfig</span><span class="result">: <span class="extype" name="com.lightbend.lagom.internal.client.CircuitBreakerConfig">CircuitBreakerConfig</span></span>
+        <span class="name">circuitBreakerMetricsProvider</span><span class="result">: <span class="extype" name="com.lightbend.lagom.internal.spi.CircuitBreakerMetricsProvider">CircuitBreakerMetricsProvider</span></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents#circuitBreakers" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="circuitBreakers:com.lightbend.lagom.internal.client.CircuitBreakers"></a><a id="circuitBreakers:CircuitBreakers"></a>
-      <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#circuitBreakers:com.lightbend.lagom.internal.client.CircuitBreakers" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">lazy val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">circuitBreakers</span><span class="result">: <span class="extype" name="com.lightbend.lagom.internal.client.CircuitBreakers">CircuitBreakers</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents#circuitBreakersPanel" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="circuitBreakersPanel:com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel"></a><a id="circuitBreakersPanel:CircuitBreakersPanel"></a>
-      <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#circuitBreakersPanel:com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">lazy val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">circuitBreakersPanel</span><span class="result">: <a href="CircuitBreakersPanel.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakersPanel">CircuitBreakersPanel</a></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#clone():Object" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -565,7 +594,7 @@
     </li><li name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent#config" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="config:com.typesafe.config.Config"></a><a id="config:Config"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#config:com.typesafe.config.Config" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#config:com.typesafe.config.Config" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -578,10 +607,42 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a></dd></dl></div>
-    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((ConfigurationServiceLocatorComponents)⇒Boolean,⇒Any):ConfigurationServiceLocatorComponents"></a>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientFactory#configuration" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="configuration:play.api.Configuration"></a><a id="configuration:Configuration"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#configuration:play.api.Configuration" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">configuration</span><span class="result">: <a href="https://www.playframework.com/documentation/2.6.17/api/scala/play/api/Configuration.html#play.api.Configuration" class="extype" name="play.api.Configuration">Configuration</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> → <a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents#defaultExceptionSerializer" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="defaultExceptionSerializer:com.lightbend.lagom.scaladsl.api.deser.ExceptionSerializer"></a><a id="defaultExceptionSerializer:ExceptionSerializer"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#defaultExceptionSerializer:com.lightbend.lagom.scaladsl.api.deser.ExceptionSerializer" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">defaultExceptionSerializer</span><span class="result">: <a href="../api/deser/ExceptionSerializer.html" class="extype" name="com.lightbend.lagom.scaladsl.api.deser.ExceptionSerializer">ExceptionSerializer</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((LagomClientFactory)⇒Boolean,⇒Any):LagomClientFactory"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -590,18 +651,18 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:A=&gt;Boolean):A"></a><a id="ensuring((ConfigurationServiceLocatorComponents)⇒Boolean):ConfigurationServiceLocatorComponents"></a>
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a><a id="ensuring((LagomClientFactory)⇒Boolean):LagomClientFactory"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#ensuring(cond:A=&gt;Boolean):A" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#ensuring(cond:A=&gt;Boolean):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -610,18 +671,18 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a><a id="ensuring(Boolean,⇒Any):ConfigurationServiceLocatorComponents"></a>
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a><a id="ensuring(Boolean,⇒Any):LagomClientFactory"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -630,18 +691,18 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:Boolean):A"></a><a id="ensuring(Boolean):ConfigurationServiceLocatorComponents"></a>
+      <a id="ensuring(cond:Boolean):A"></a><a id="ensuring(Boolean):LagomClientFactory"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#ensuring(cond:Boolean):A" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#ensuring(cond:Boolean):A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -650,18 +711,34 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientFactory#environment" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="environment:play.api.Environment"></a><a id="environment:Environment"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#environment:play.api.Environment" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">environment</span><span class="result">: <a href="https://www.playframework.com/documentation/2.6.17/api/scala/play/api/Environment.html#play.api.Environment" class="extype" name="play.api.Environment">Environment</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -677,7 +754,7 @@
     </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#equals(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#equals(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -690,10 +767,26 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientFactory#executionContext" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="executionContext:scala.concurrent.ExecutionContext"></a><a id="executionContext:ExecutionContext"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#executionContext:scala.concurrent.ExecutionContext" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">executionContext</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#finalize():Unit" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -715,7 +808,7 @@
     </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="formatted(fmtstr:String):String"></a><a id="formatted(String):String"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#formatted(fmtstr:String):String" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#formatted(fmtstr:String):String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -728,8 +821,8 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>] performed by method StringFormat in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>] performed by method StringFormat in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -738,7 +831,7 @@
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#getClass():Class[_]" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -757,7 +850,7 @@
     </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#hashCode():Int" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#hashCode():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -776,7 +869,7 @@
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -792,7 +885,7 @@
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -808,7 +901,7 @@
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#notify():Unit" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -827,7 +920,7 @@
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#notifyAll():Unit" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -843,10 +936,42 @@
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents#serviceLocator" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="serviceLocator:com.lightbend.lagom.scaladsl.api.ServiceLocator"></a><a id="serviceLocator:ServiceLocator"></a>
+    </li><li name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider#optionalTopicFactory" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="optionalTopicFactory:Option[com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactory]"></a><a id="optionalTopicFactory:Option[TopicFactory]"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#serviceLocator:com.lightbend.lagom.scaladsl.api.ServiceLocator" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#optionalTopicFactory:Option[com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactory]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">optionalTopicFactory</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactory">TopicFactory</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TopicFactoryProvider</dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientFactory#releaseInternalResources" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="releaseInternalResources():scala.concurrent.Future[akka.Done]"></a><a id="releaseInternalResources():Future[Done]"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#releaseInternalResources():scala.concurrent.Future[akka.Done]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">releaseInternalResources</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="http://doc.akka.io/api/akka/2.5.16/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Releases the internal resources manages by this LagomClientFactory.</p><div class="fullcomment"><div class="comment cmt"><p>Releases the internal resources manages by this LagomClientFactory.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents#scaladslWebSocketClient" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="scaladslWebSocketClient:com.lightbend.lagom.internal.scaladsl.client.ScaladslWebSocketClient"></a><a id="scaladslWebSocketClient:ScaladslWebSocketClient"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#scaladslWebSocketClient:com.lightbend.lagom.internal.scaladsl.client.ScaladslWebSocketClient" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -855,14 +980,80 @@
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">serviceLocator</span><span class="result">: <a href="../api/ServiceLocator.html" class="extype" name="com.lightbend.lagom.scaladsl.api.ServiceLocator">ServiceLocator</a></span>
+        <span class="name">scaladslWebSocketClient</span><span class="result">: <span class="extype" name="com.lightbend.lagom.internal.scaladsl.client.ScaladslWebSocketClient">ScaladslWebSocketClient</span></span>
       </span>
       
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents#serviceClient" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="serviceClient:com.lightbend.lagom.scaladsl.client.ServiceClient"></a><a id="serviceClient:ServiceClient"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#serviceClient:com.lightbend.lagom.scaladsl.client.ServiceClient" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">serviceClient</span><span class="result">: <a href="ServiceClient.html" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a></span>
+      </span>
       
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientFactory#serviceInfo" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="serviceInfo:com.lightbend.lagom.scaladsl.api.ServiceInfo"></a><a id="serviceInfo:ServiceInfo"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#serviceInfo:com.lightbend.lagom.scaladsl.api.ServiceInfo" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">serviceInfo</span><span class="result">: <a href="../api/ServiceInfo.html" class="extype" name="com.lightbend.lagom.scaladsl.api.ServiceInfo">ServiceInfo</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents#serviceResolver" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="serviceResolver:com.lightbend.lagom.scaladsl.client.ServiceResolver"></a><a id="serviceResolver:ServiceResolver"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#serviceResolver:com.lightbend.lagom.scaladsl.client.ServiceResolver" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">serviceResolver</span><span class="result">: <a href="ServiceResolver.html" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceResolver">ServiceResolver</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.client.LagomClientFactory#stop" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stop():Unit"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#stop():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stop</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Override this method if your <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> implementation needs to free any resource.</p><div class="fullcomment"><div class="comment cmt"><p>Override this method if your <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> implementation needs to free any resource.</p><p>For example, when implementing your own <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>, you may choose to reuse an existing <a href="http://doc.akka.io/api/akka/2.5.16/akka/actor/ActorSystem.html" class="extype" name="akka.actor.ActorSystem">akka.actor.ActorSystem</a>,
+but use a internal <a href="http://doc.akka.io/api/akka/2.5.16/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a>. In which case, you can use this method to only shutdown the <a href="http://doc.akka.io/api/akka/2.5.16/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a>.</p><p>If you override this method, make sure you also release the internally managed resources
+by calling <span class="extype" name="#releaseInternalResources()">#releaseInternalResources()</span> method.</p></div></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -878,7 +1069,7 @@
     </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#toString():String" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#toString():String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -891,10 +1082,29 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider#topicPublisherName" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="topicPublisherName:Option[String]"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#topicPublisherName:Option[String]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">topicPublisherName</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">The name of the topic publisher.</p><div class="fullcomment"><div class="comment cmt"><p>The name of the topic publisher.</p><p>Since topic publishers don't actually provide any components, they just consume a LagomServer and publish the
+topics they find there, this can be used to signal that a topic publisher has been provided to publish
+topics, so that the LagomServerComponents can detect a misconfiguration where one hasn't been provided.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The name of the topic publisher that has published topics, if one has been provided.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd>TopicFactoryProvider</dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#wait():Unit" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -916,7 +1126,7 @@
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -938,7 +1148,7 @@
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -960,9 +1170,9 @@
               
         </dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="→[B](y:B):(A,B)"></a><a id="→[B](B):(ConfigurationServiceLocatorComponents,B)"></a>
+      <a id="→[B](y:B):(A,B)"></a><a id="→[B](B):(LagomClientFactory,B)"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html#→[B](y:B):(A,B)" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/LagomClientFactory.html#→[B](y:B):(A,B)" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -971,12 +1181,12 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li>
@@ -989,10 +1199,12 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">
-              <h3>Inherited from <a href="CircuitBreakerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.CircuitBreakerComponents">CircuitBreakerComponents</a></h3>
-            </div><div class="parent" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">
+        <div class="parent" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">
               <h3>Inherited from <a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a></h3>
+            </div><div class="parent" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">
+              <h3>Inherited from <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></h3>
+            </div><div class="parent" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider">
+              <h3>Inherited from <span class="extype" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider">TopicFactoryProvider</span></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
@@ -1000,19 +1212,19 @@
             </div>
         <div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>]
+                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.StringFormat">
               <h3>Inherited by implicit conversion StringFormat from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>]
+                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.Ensuring">
               <h3>Inherited by implicit conversion Ensuring from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>]
+                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>]
               </h3>
             </div><div class="conversion" name="scala.Predef.ArrowAssoc">
               <h3>Inherited by implicit conversion ArrowAssoc from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents">ConfigurationServiceLocatorComponents</a>]
+                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>]
               </h3>
             </div>
         </div>

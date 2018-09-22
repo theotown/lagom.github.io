@@ -163,8 +163,8 @@
                         <a href="CircuitBreakingServiceLocator.html" title="Abstract service locator that provides circuit breaking.">CircuitBreakingServiceLocator</a>
                       </li><li class="current-entities indented5">
                         <span class="separator"></span>
-                        <a class="object" href="ClientStoppedReason$.html" title=""></a>
-                        <a href="ClientStoppedReason$.html" title="">ClientStoppedReason</a>
+                        <a class="object" href="" title=""></a>
+                        <a href="" title="">ClientStoppedReason</a>
                       </li><li class="current-entities indented5">
                         <span class="separator"></span>
                         <a class="class" href="ConfigurationServiceLocator.html" title="A service locator that uses static configuration."></a>
@@ -195,8 +195,8 @@
                         <a href="RoundRobinServiceLocatorComponents.html" title="Components for using the round robin service locator.">RoundRobinServiceLocatorComponents</a>
                       </li><li class="current-entities indented5">
                         <span class="separator"></span>
-                        <a class="trait" href="" title="The Lagom service client implementor."></a>
-                        <a href="" title="The Lagom service client implementor.">ServiceClient</a>
+                        <a class="trait" href="ServiceClient.html" title="The Lagom service client implementor."></a>
+                        <a href="ServiceClient.html" title="The Lagom service client implementor.">ServiceClient</a>
                       </li><li class="current-entities indented5">
                         <span class="separator"></span>
                         <a class="trait" href="ServiceClientConstructor.html" title="Lagom service client constructor."></a>
@@ -230,12 +230,12 @@
             </div>
           </div>
           <div id="content">
-            <body class="trait type">
+            <body class="object value">
       <div id="definition">
-        <div class="big-circle trait">t</div>
+        <div class="big-circle object">o</div>
         <p id="owner"><a href="../../../../index.html" class="extype" name="com">com</a>.<a href="../../../index.html" class="extype" name="com.lightbend">lightbend</a>.<a href="../../index.html" class="extype" name="com.lightbend.lagom">lagom</a>.<a href="../index.html" class="extype" name="com.lightbend.lagom.scaladsl">scaladsl</a>.<a href="index.html" class="extype" name="com.lightbend.lagom.scaladsl.client">client</a></p>
-        <h1>ServiceClient<span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html" title="Permalink">
+        <h1>ClientStoppedReason<span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
@@ -245,27 +245,20 @@
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">trait</span>
+        <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">ServiceClient</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
+        <span class="name">ClientStoppedReason</span><span class="result"> extends <span class="extype" name="akka.actor.CoordinatedShutdown.Reason">Reason</span> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a> with <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>The Lagom service client implementor.</p><p>Instances of this must also implement <a href="ServiceClientConstructor.html" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClientConstructor">ServiceClientConstructor</a>, so that the <code>implementClient</code> macro can
-generate code that constructs the service client.
-</p></div><dl class="attributes block"> <dt>Self Type</dt><dd><a href="ServiceClientConstructor.html" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClientConstructor">ServiceClientConstructor</a></dd><dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/master//service/scaladsl/client/src/main/scala/com/lightbend/lagom/scaladsl/client/ServiceClient.scala" target="_blank">ServiceClient.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/master//service/scaladsl/client/src/main/scala/com/lightbend/lagom/scaladsl/client/ServiceClient.scala" target="_blank">ServiceClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
-        </div><div class="toggleContainer block">
-            <span class="toggle">
-              Known Subclasses
-            </span>
-            <div class="subClasses hiddenContent"><a href="ServiceClientConstructor.html" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClientConstructor">ServiceClientConstructor</a></div>
-          </div></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Equals.html#scala.Equals" class="extype" name="scala.Equals">Equals</a>, <span class="extype" name="akka.actor.CoordinatedShutdown.Reason">Reason</span>, <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
+        </div></div>
         
 
       <div id="mbrsel">
@@ -290,12 +283,7 @@ generate code that constructs the service client.
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="com.lightbend.lagom.scaladsl.client.ServiceClient"><span>ServiceClient</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
-                  </ol>
-                </div><div class="ancestors">
-                  <span class="filtertype">Implicitly<br />
-                  </span>
-                  <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                    <li class="in" name="com.lightbend.lagom.scaladsl.client.ClientStoppedReason"><span>ClientStoppedReason</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="akka.actor.CoordinatedShutdown.Reason"><span>Reason</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -325,7 +313,7 @@ generate code that constructs the service client.
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -341,7 +329,7 @@ generate code that constructs the service client.
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html###():Int" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -354,53 +342,10 @@ generate code that constructs the service client.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="+(other:String):String"></a><a id="+(String):String"></a>
-      <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#+(other:String):String" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a> to
-            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>] performed by method any2stringadd in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
-    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="-&gt;[B](y:B):(A,B)"></a><a id="-&gt;[B](B):(ServiceClient,B)"></a>
-      <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#-&gt;[B](y:B):(A,B)" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>] performed by method ArrowAssoc in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
-                <span class="name">@inline</span><span class="args">()</span>
-              
-        </dd></dl></div>
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -416,7 +361,7 @@ generate code that constructs the service client.
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -432,7 +377,7 @@ generate code that constructs the service client.
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#clone():Object" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -453,90 +398,10 @@ generate code that constructs the service client.
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((ServiceClient)⇒Boolean,⇒Any):ServiceClient"></a>
-      <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>] performed by method Ensuring in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
-    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:A=&gt;Boolean):A"></a><a id="ensuring((ServiceClient)⇒Boolean):ServiceClient"></a>
-      <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#ensuring(cond:A=&gt;Boolean):A" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>) ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>] performed by method Ensuring in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
-    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a><a id="ensuring(Boolean,⇒Any):ServiceClient"></a>
-      <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>, <span name="msg">msg: ⇒ <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>] performed by method Ensuring in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
-    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ensuring(cond:Boolean):A"></a><a id="ensuring(Boolean):ServiceClient"></a>
-      <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#ensuring(cond:Boolean):A" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.12.6/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>] performed by method Ensuring in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -552,7 +417,7 @@ generate code that constructs the service client.
     </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#equals(x$1:Any):Boolean" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#equals(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -568,7 +433,7 @@ generate code that constructs the service client.
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#finalize():Unit" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -587,33 +452,10 @@ generate code that constructs the service client.
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="formatted(fmtstr:String):String"></a><a id="formatted(String):String"></a>
-      <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#formatted(fmtstr:String):String" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a> to
-            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>] performed by method StringFormat in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
-                <span class="name">@inline</span><span class="args">()</span>
-              
-        </dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#getClass():Class[_]" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -629,45 +471,10 @@ generate code that constructs the service client.
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="hashCode():Int"></a>
-      <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#hashCode():Int" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.6/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
-                <span class="name">@native</span><span class="args">()</span>
-              
-        </dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.client.ServiceClient#implement" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="implement[S&lt;:com.lightbend.lagom.scaladsl.api.Service]:S"></a><a id="implement[S&lt;:Service]:S"></a>
-      <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#implement[S&lt;:com.lightbend.lagom.scaladsl.api.Service]:S" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier">macro </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">implement</span><span class="tparams">[<span name="S">S &lt;: <a href="../api/Service.html" class="extype" name="com.lightbend.lagom.scaladsl.api.Service">Service</a></span>]</span><span class="result">: <span class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient.implement.S">S</span></span>
-      </span>
-      
-      <p class="shortcomment cmt">Implement a client for the given service descriptor.</p>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -683,7 +490,7 @@ generate code that constructs the service client.
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -699,7 +506,7 @@ generate code that constructs the service client.
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#notify():Unit" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -718,7 +525,7 @@ generate code that constructs the service client.
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#notifyAll():Unit" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -737,7 +544,7 @@ generate code that constructs the service client.
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -750,26 +557,10 @@ generate code that constructs the service client.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toString():String"></a>
-      <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#toString():String" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#wait():Unit" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -791,7 +582,7 @@ generate code that constructs the service client.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -813,7 +604,7 @@ generate code that constructs the service client.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ClientStoppedReason$.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -834,26 +625,6 @@ generate code that constructs the service client.
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="→[B](y:B):(A,B)"></a><a id="→[B](B):(ServiceClient,B)"></a>
-      <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/client/ServiceClient.html#→[B](y:B):(A,B)" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>] performed by method ArrowAssoc in scala.Predef.
-            
-          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li>
               </ol>
             </div>
@@ -864,28 +635,22 @@ generate code that constructs the service client.
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.AnyRef">
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/Serializable.html#scala.Serializable" class="extype" name="scala.Serializable">Serializable</a></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/Product.html#scala.Product" class="extype" name="scala.Product">Product</a></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/Equals.html#scala.Equals" class="extype" name="scala.Equals">Equals</a></h3>
+            </div><div class="parent" name="akka.actor.CoordinatedShutdown.Reason">
+              <h3>Inherited from <span class="extype" name="akka.actor.CoordinatedShutdown.Reason">Reason</span></h3>
+            </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.6/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></h3>
             </div>
-        <div class="conversion" name="scala.Predef.any2stringadd">
-              <h3>Inherited by implicit conversion any2stringadd from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>]
-              </h3>
-            </div><div class="conversion" name="scala.Predef.StringFormat">
-              <h3>Inherited by implicit conversion StringFormat from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>]
-              </h3>
-            </div><div class="conversion" name="scala.Predef.Ensuring">
-              <h3>Inherited by implicit conversion Ensuring from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>]
-              </h3>
-            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
-              <h3>Inherited by implicit conversion ArrowAssoc from
-                <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.ServiceClient">ServiceClient</a>]
-              </h3>
-            </div>
+        
         </div>
 
         <div id="groupedMembers">

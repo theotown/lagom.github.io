@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":10,"i1":9,"i2":9,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -116,8 +116,6 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a></pre>
 <div class="block">Factory for creating Lagom service clients.
 
- This is designed for use from non Lagom systems.
-
  Generally, there should be only one instance of this per system.  Additionally, since it holds thread and connection
  pools, it must be shutdown, by calling the <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#close--"><code>close()</code></a> method, when no longer needed.</div>
 </li>
@@ -148,37 +146,46 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.
 <td class="colFirst"><code>static <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html" title="class in com.lightbend.lagom.javadsl.client.integration">LagomClientFactory</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#create-java.lang.String-java.lang.ClassLoader-">create</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName,
       <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader)</code>
-<div class="block">Create a client factory that uses the given service locator.</div>
+<div class="block">Creates a Lagom client factory.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>static <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html" title="class in com.lightbend.lagom.javadsl.client.integration">LagomClientFactory</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#create-java.lang.String-java.lang.ClassLoader-akka.actor.ActorSystem-akka.stream.Materializer-">create</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName,
+      <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader,
+      <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a>&nbsp;actorSystem,
+      <a href="https://doc.akka.io/japi/akka/current/akka/stream/Materializer.html?is-external=true" title="class or interface in akka.stream">Materializer</a>&nbsp;materializer)</code>
+<div class="block">Creates a Lagom client factory.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#createClient-java.lang.Class-java.util.Collection-">createClient</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;clientInterface,
             <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net">URI</a>&gt;&nbsp;serviceUris)</code>
 <div class="block">Create a Lagom service client that uses the given URIs.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#createClient-java.lang.Class-com.lightbend.lagom.javadsl.api.ServiceLocator-">createClient</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;clientInterface,
             <a href="../../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceLocator</a>&nbsp;serviceLocator)</code>
 <div class="block">Create a Lagom service client for the given client interface using the given service locator.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#createClient-java.lang.Class-java.net.URI-">createClient</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;clientInterface,
             <a href="https://docs.oracle.com/javase/8/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net">URI</a>&nbsp;serviceUri)</code>
 <div class="block">Create a Lagom service client that uses the given URI.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#createDevClient-java.lang.Class-">createDevClient</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;clientInterface)</code>
 <div class="block">Create a Lagom service client that uses the Lagom dev mode service locator to locate the service.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#createDevClient-java.lang.Class-java.net.URI-">createDevClient</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;clientInterface,
                <a href="https://docs.oracle.com/javase/8/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net">URI</a>&nbsp;serviceLocatorUri)</code>
@@ -319,6 +326,37 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.
 </dl>
 </li>
 </ul>
+<a name="create-java.lang.String-java.lang.ClassLoader-akka.actor.ActorSystem-akka.stream.Materializer-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>create</h4>
+<pre>public static&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html" title="class in com.lightbend.lagom.javadsl.client.integration">LagomClientFactory</a>&nbsp;create(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName,
+                                        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader,
+                                        <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a>&nbsp;actorSystem,
+                                        <a href="https://doc.akka.io/japi/akka/current/akka/stream/Materializer.html?is-external=true" title="class or interface in akka.stream">Materializer</a>&nbsp;materializer)</pre>
+<div class="block">Creates a Lagom client factory.
+
+ Generally, there should be only one instance of this per system.  Additionally, since it holds thread and connection
+ pools, it must be shutdown, by calling the <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#close--"><code>close()</code></a> method, when no longer needed.
+
+ This method should be used whenever your application has already a running ActorSystem. In that case it's preferable to reuse it
+ inside LagomClientFactory instead to let the factory create and manage its own (see <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#create-java.lang.String-java.lang.ClassLoader-"><code>create(String, ClassLoader)</code></a>).
+
+ Calling <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#close--"><code>close()</code></a> on a <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html" title="class in com.lightbend.lagom.javadsl.client.integration"><code>LagomClientFactory</code></a> created using this method will NOT terminated
+ the passed <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor"><code>ActorSystem</code></a> and Akka Streams <a href="https://doc.akka.io/japi/akka/current/akka/stream/Materializer.html?is-external=true" title="class or interface in akka.stream"><code>Materializer</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>serviceName</code> - The name of this service that is going to be accessing the services created by this factory.</dd>
+<dd><code>classLoader</code> - A classloader, it will be used to create the service proxy and needs to have the API for the client in it.</dd>
+<dd><code>actorSystem</code> - An existing <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor"><code>ActorSystem</code></a></dd>
+<dd><code>materializer</code> - An existing Akka Streams <a href="https://doc.akka.io/japi/akka/current/akka/stream/Materializer.html?is-external=true" title="class or interface in akka.stream"><code>Materializer</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The client factory.</dd>
+</dl>
+</li>
+</ul>
 <a name="create-java.lang.String-java.lang.ClassLoader-">
 <!--   -->
 </a>
@@ -327,11 +365,23 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.
 <h4>create</h4>
 <pre>public static&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html" title="class in com.lightbend.lagom.javadsl.client.integration">LagomClientFactory</a>&nbsp;create(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName,
                                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader)</pre>
-<div class="block">Create a client factory that uses the given service locator.</div>
+<div class="block">Creates a Lagom client factory.
+
+ Generally, there should be only one instance of this per system.  Additionally, since it holds thread and connection
+ pools, it must be shutdown, by calling the <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#close--"><code>close()</code></a> method, when no longer needed.
+
+ This method should be used whenever your application does NOT have a running <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor"><code>ActorSystem</code></a>
+ and you don't want to manage one yourself.
+
+ Internally, this method will create a new <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor"><code>ActorSystem</code></a> that will be attached to the lifecycle of this factory.
+ In other words, the internal <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor"><code>ActorSystem</code></a> will terminate upon calling <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#close--"><code>close()</code></a>.
+
+ In case your application already have a running <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor"><code>ActorSystem</code></a>, we recommend
+ to use <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#create-java.lang.String-java.lang.ClassLoader-akka.actor.ActorSystem-akka.stream.Materializer-"><code>create(String, ClassLoader, ActorSystem, Materializer)</code></a>) instead.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>serviceName</code> - The name of this service that is going to be accessing the services created by this factory.</dd>
-<dd><code>classLoader</code> - The classloader.</dd>
+<dd><code>classLoader</code> - A classloader, it will be used to create the service proxy and needs to have the API for the client in it.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The client factory.</dd>
 </dl>

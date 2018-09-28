@@ -178,7 +178,7 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/Persiste
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>&lt;B extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;<br><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;B&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.CommandContext.html#thenPersistAll-akka.japi.Effect-java.lang.Object...-">thenPersistAll</a></span>(<a href="https://doc.akka.io/japi/akka/current/akka/japi/Effect.html?is-external=true" title="class or interface in akka.japi">Effect</a>&nbsp;afterPersist,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.CommandContext.html#thenPersistAll-akka.japi.Effect-java.lang.Object...-">thenPersistAll</a></span>(akka.japi.Effect&nbsp;afterPersist,
               <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;events)</code>
 <div class="block">A command handler may return this <code>Persist</code> directive to define
  that several events are to be persisted.</div>
@@ -186,7 +186,7 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/Persiste
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>&lt;B extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;<br><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;B&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.CommandContext.html#thenPersistAll-akka.japi.Effect-scala.collection.Seq-">thenPersistAll</a></span>(<a href="https://doc.akka.io/japi/akka/current/akka/japi/Effect.html?is-external=true" title="class or interface in akka.japi">Effect</a>&nbsp;afterPersist,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.CommandContext.html#thenPersistAll-akka.japi.Effect-scala.collection.Seq-">thenPersistAll</a></span>(akka.japi.Effect&nbsp;afterPersist,
               scala.collection.Seq&lt;B&gt;&nbsp;events)</code>
 <div class="block">A command handler may return this <code>Persist</code> directive to define
  that several events are to be persisted.</div>
@@ -202,7 +202,7 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/Persiste
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>&lt;B extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;<br><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;B&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.CommandContext.html#thenPersistAll-java.util.List-akka.japi.Effect-">thenPersistAll</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;B&gt;&nbsp;events,
-              <a href="https://doc.akka.io/japi/akka/current/akka/japi/Effect.html?is-external=true" title="class or interface in akka.japi">Effect</a>&nbsp;afterPersist)</code>
+              akka.japi.Effect&nbsp;afterPersist)</code>
 <div class="block">A command handler may return this <code>Persist</code> directive to define
  that several events are to be persisted.</div>
 </td>
@@ -259,7 +259,7 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/Persiste
 <ul class="blockList">
 <li class="blockList">
 <h4>thenPersistAll</h4>
-<pre>public&nbsp;&lt;B extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;B&gt;&nbsp;thenPersistAll(<a href="https://doc.akka.io/japi/akka/current/akka/japi/Effect.html?is-external=true" title="class or interface in akka.japi">Effect</a>&nbsp;afterPersist,
+<pre>public&nbsp;&lt;B extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;B&gt;&nbsp;thenPersistAll(akka.japi.Effect&nbsp;afterPersist,
                                                                     <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;events)</pre>
 <div class="block">A command handler may return this <code>Persist</code> directive to define
  that several events are to be persisted. External side effects can be
@@ -314,7 +314,7 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/Persiste
 <li class="blockList">
 <h4>thenPersistAll</h4>
 <pre>public&nbsp;&lt;B extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;B&gt;&nbsp;thenPersistAll(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;B&gt;&nbsp;events,
-                                                                    <a href="https://doc.akka.io/japi/akka/current/akka/japi/Effect.html?is-external=true" title="class or interface in akka.japi">Effect</a>&nbsp;afterPersist)</pre>
+                                                                    akka.japi.Effect&nbsp;afterPersist)</pre>
 <div class="block">A command handler may return this <code>Persist</code> directive to define
  that several events are to be persisted. External side effects can be
  performed after successful persist in the <code>afterPersist</code> function.
@@ -328,7 +328,7 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/Persiste
 <ul class="blockList">
 <li class="blockList">
 <h4>thenPersistAll</h4>
-<pre>public&nbsp;&lt;B extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;B&gt;&nbsp;thenPersistAll(<a href="https://doc.akka.io/japi/akka/current/akka/japi/Effect.html?is-external=true" title="class or interface in akka.japi">Effect</a>&nbsp;afterPersist,
+<pre>public&nbsp;&lt;B extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">Event</a>&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;B&gt;&nbsp;thenPersistAll(akka.japi.Effect&nbsp;afterPersist,
                                                                     scala.collection.Seq&lt;B&gt;&nbsp;events)</pre>
 <div class="block">A command handler may return this <code>Persist</code> directive to define
  that several events are to be persisted. External side effects can be

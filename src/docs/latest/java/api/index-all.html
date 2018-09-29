@@ -2071,6 +2071,10 @@
 <dd>
 <div class="block">Static reference to the singleton instance of this Scala object.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer$.html#MODULE:D">MODULE$</a></span> - Static variable in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer$.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.TestServer$</a></dt>
+<dd>
+<div class="block">Static reference to the singleton instance of this Scala object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Reply.html#msg--">msg()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Reply.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.Reply</a></dt>
 <dd>&nbsp;</dd>
 </dl>
@@ -2632,6 +2636,8 @@
 <div class="block">A generic error to used to indicate that the end receiving the error message violated the remote ends policy.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#port--">port()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.TestServer</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#portSsl--">portSsl()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.TestServer</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/Method.html#POST">POST</a></span> - Static variable in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/Method.html" title="class in com.lightbend.lagom.javadsl.api.transport">Method</a></dt>
 <dd>&nbsp;</dd>
@@ -3235,6 +3241,8 @@
 <div class="block">When the server is started you can get the service client and other
  Guice bindings here.</div>
 </dd>
+<dt><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer$.html" title="class in com.lightbend.lagom.javadsl.testkit"><span class="typeNameLink">ServiceTest.TestServer$</span></a> - Class in <a href="com/lightbend/lagom/javadsl/testkit/package-summary.html">com.lightbend.lagom.javadsl.testkit</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html#ServiceUnavailable">ServiceUnavailable</a></span> - Static variable in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a></dt>
 <dd>
 <div class="block">Service unavailable, thrown when the service is unavailable or going away.</div>
@@ -3348,6 +3356,12 @@
 <dd>
 <div class="block">Publish a single stream.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#ssl--">ssl()</a></span> - Method in interface com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
+<dd>
+<div class="block">Whether HTTPS is enabled.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#sslContext--">sslContext()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.TestServer</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest$.html#startServer-com.lightbend.lagom.javadsl.testkit.ServiceTest.Setup-">startServer(ServiceTest.Setup)</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest$.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest$</a></dt>
 <dd>
 <div class="block">Start the test server with the given <code>setup</code>.</div>
@@ -3427,7 +3441,9 @@
 <dd>
 <div class="block">Publish all tags of a stream that is sharded across many tags.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#TestServer-int-play.Application-play.core.server.Server-">TestServer(int, Application, Server)</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.TestServer</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#TestServer-int-play.Application-play.core.server.Server-java.util.Optional-">TestServer(int, Application, Server, Optional&lt;SSLContext&gt;)</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.TestServer</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer$.html#TestServer:D--">TestServer$()</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer$.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.TestServer$</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/persistence/cassandra/testkit/TestUtil.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra.testkit"><span class="typeNameLink">TestUtil</span></a> - Class in <a href="com/lightbend/lagom/javadsl/persistence/cassandra/testkit/package-summary.html">com.lightbend.lagom.javadsl.persistence.cassandra.testkit</a></dt>
 <dd>
@@ -4073,6 +4089,14 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.Call.html#withServiceCallHolder-com.lightbend.lagom.javadsl.api.Descriptor.ServiceCallHolder-">withServiceCallHolder(Descriptor.ServiceCallHolder)</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Call</a></dt>
 <dd>
 <div class="block">Return a copy of this call descriptor with the given service call holder configured.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#withSsl-boolean-">withSsl(boolean)</a></span> - Method in interface com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
+<dd>
+<div class="block">Enable or disable the SSL port.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#withSsl--">withSsl()</a></span> - Method in interface com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
+<dd>
+<div class="block">Enable the SSL port.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html#withState-State-">withState(State)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a></dt>
 <dd>&nbsp;</dd>

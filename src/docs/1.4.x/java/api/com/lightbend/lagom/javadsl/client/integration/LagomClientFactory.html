@@ -153,8 +153,8 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.
 <td class="colFirst"><code>static <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html" title="class in com.lightbend.lagom.javadsl.client.integration">LagomClientFactory</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#create-java.lang.String-java.lang.ClassLoader-akka.actor.ActorSystem-akka.stream.Materializer-">create</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName,
       <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader,
-      akka.actor.ActorSystem&nbsp;actorSystem,
-      akka.stream.Materializer&nbsp;materializer)</code>
+      <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a>&nbsp;actorSystem,
+      <a href="https://doc.akka.io/japi/akka/current/akka/stream/Materializer.html?is-external=true" title="class or interface in akka.stream">Materializer</a>&nbsp;materializer)</code>
 <div class="block">Creates a Lagom client factory.</div>
 </td>
 </tr>
@@ -334,8 +334,8 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.
 <h4>create</h4>
 <pre>public static&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html" title="class in com.lightbend.lagom.javadsl.client.integration">LagomClientFactory</a>&nbsp;create(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName,
                                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader,
-                                        akka.actor.ActorSystem&nbsp;actorSystem,
-                                        akka.stream.Materializer&nbsp;materializer)</pre>
+                                        <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a>&nbsp;actorSystem,
+                                        <a href="https://doc.akka.io/japi/akka/current/akka/stream/Materializer.html?is-external=true" title="class or interface in akka.stream">Materializer</a>&nbsp;materializer)</pre>
 <div class="block">Creates a Lagom client factory.
 
  Generally, there should be only one instance of this per system.  Additionally, since it holds thread and connection
@@ -345,13 +345,13 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.
  inside LagomClientFactory instead to let the factory create and manage its own (see <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#create-java.lang.String-java.lang.ClassLoader-"><code>create(String, ClassLoader)</code></a>).
 
  Calling <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#close--"><code>close()</code></a> on a <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html" title="class in com.lightbend.lagom.javadsl.client.integration"><code>LagomClientFactory</code></a> created using this method will NOT terminated
- the passed <code>ActorSystem</code> and Akka Streams <code>Materializer</code>.</div>
+ the passed <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor"><code>ActorSystem</code></a> and Akka Streams <a href="https://doc.akka.io/japi/akka/current/akka/stream/Materializer.html?is-external=true" title="class or interface in akka.stream"><code>Materializer</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>serviceName</code> - The name of this service that is going to be accessing the services created by this factory.</dd>
 <dd><code>classLoader</code> - A classloader, it will be used to create the service proxy and needs to have the API for the client in it.</dd>
-<dd><code>actorSystem</code> - An existing <code>ActorSystem</code></dd>
-<dd><code>materializer</code> - An existing Akka Streams <code>Materializer</code></dd>
+<dd><code>actorSystem</code> - An existing <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor"><code>ActorSystem</code></a></dd>
+<dd><code>materializer</code> - An existing Akka Streams <a href="https://doc.akka.io/japi/akka/current/akka/stream/Materializer.html?is-external=true" title="class or interface in akka.stream"><code>Materializer</code></a></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The client factory.</dd>
 </dl>
@@ -370,13 +370,13 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.
  Generally, there should be only one instance of this per system.  Additionally, since it holds thread and connection
  pools, it must be shutdown, by calling the <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#close--"><code>close()</code></a> method, when no longer needed.
 
- This method should be used whenever your application does NOT have a running <code>ActorSystem</code>
+ This method should be used whenever your application does NOT have a running <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor"><code>ActorSystem</code></a>
  and you don't want to manage one yourself.
 
- Internally, this method will create a new <code>ActorSystem</code> that will be attached to the lifecycle of this factory.
- In other words, the internal <code>ActorSystem</code> will terminate upon calling <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#close--"><code>close()</code></a>.
+ Internally, this method will create a new <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor"><code>ActorSystem</code></a> that will be attached to the lifecycle of this factory.
+ In other words, the internal <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor"><code>ActorSystem</code></a> will terminate upon calling <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#close--"><code>close()</code></a>.
 
- In case your application already have a running <code>ActorSystem</code>, we recommend
+ In case your application already have a running <a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor"><code>ActorSystem</code></a>, we recommend
  to use <a href="../../../../../../com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#create-java.lang.String-java.lang.ClassLoader-akka.actor.ActorSystem-akka.stream.Materializer-"><code>create(String, ClassLoader, ActorSystem, Materializer)</code></a>) instead.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>

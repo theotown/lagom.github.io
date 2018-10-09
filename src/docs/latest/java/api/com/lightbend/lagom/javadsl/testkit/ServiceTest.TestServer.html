@@ -136,7 +136,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#TestServer-int-play.Application-play.core.server.Server-java.util.Optional-">TestServer</a></span>(int&nbsp;port,
           <a href="https://www.playframework.com/documentation/latest/api/java/play/Application.html?is-external=true" title="class or interface in play">Application</a>&nbsp;app,
           <a href="https://www.playframework.com/documentation/latest/api/java/play/core/server.Server.html?is-external=true" title="class or interface in play.core">play.core.server.Server</a>&nbsp;server,
-          <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html?is-external=true" title="class or interface in javax.net.ssl">SSLContext</a>&gt;&nbsp;sslContext)</code>&nbsp;</td>
+          <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html?is-external=true" title="class or interface in javax.net.ssl">SSLContext</a>&gt;&nbsp;clientSslContext)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -164,29 +164,29 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html?is-external=true" title="class or interface in javax.net.ssl">SSLContext</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#clientSslContext--">clientSslContext</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="https://www.playframework.com/documentation/latest/api/java/play/inject/Injector.html?is-external=true" title="class or interface in play.inject">Injector</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#injector--">injector</a></span>()</code>
 <div class="block">The Guice injector that can be used for retrieving anything
  that has been bound to Guice.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="https://doc.akka.io/japi/akka/current/akka/stream/Materializer.html?is-external=true" title="class or interface in akka.stream">Materializer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#materializer--">materializer</a></span>()</code>
 <div class="block">Stream materializer.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#port--">port</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#portSsl--">portSsl</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html?is-external=true" title="class or interface in javax.net.ssl">SSLContext</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#sslContext--">sslContext</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -232,7 +232,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public&nbsp;TestServer(int&nbsp;port,
                   <a href="https://www.playframework.com/documentation/latest/api/java/play/Application.html?is-external=true" title="class or interface in play">Application</a>&nbsp;app,
                   <a href="https://www.playframework.com/documentation/latest/api/java/play/core/server.Server.html?is-external=true" title="class or interface in play.core">play.core.server.Server</a>&nbsp;server,
-                  <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html?is-external=true" title="class or interface in javax.net.ssl">SSLContext</a>&gt;&nbsp;sslContext)</pre>
+                  <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html?is-external=true" title="class or interface in javax.net.ssl">SSLContext</a>&gt;&nbsp;clientSslContext)</pre>
 </li>
 </ul>
 </li>
@@ -261,13 +261,13 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public&nbsp;<a href="https://www.playframework.com/documentation/latest/api/java/play/Application.html?is-external=true" title="class or interface in play">Application</a>&nbsp;app()</pre>
 </li>
 </ul>
-<a name="sslContext--">
+<a name="clientSslContext--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>sslContext</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html?is-external=true" title="class or interface in javax.net.ssl">SSLContext</a>&gt;&nbsp;sslContext()</pre>
+<h4>clientSslContext</h4>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html?is-external=true" title="class or interface in javax.net.ssl">SSLContext</a>&gt;&nbsp;clientSslContext()</pre>
 </li>
 </ul>
 <a name="portSsl--">

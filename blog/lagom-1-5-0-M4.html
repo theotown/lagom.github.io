@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/8a44ba5ded42f5375a90152a5db3352eceba4f47-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/174e19bff06a135979318cf8d674d0502a23977d-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -155,15 +155,15 @@
         <div class="row">
             <div class="small-12 large-7 columns">
                 <p>We are happy to announce the availability of Lagom 1.5.0-M4. This new milestone towards the releasing of Lagom 1.5.0 continues to improve support for gRPC in Lagom. This release includes Play 2.7.0-M4, Akka 2.5.17 and Akka-HTTP 10.1.5.</p>
-<p>Note that this should not be used in production, that Lightbend Orchestration (sbt-reactive-app) does not yet support Lagom 1.5.0-M4, and that ConductR will not be supported for Lagom 1.5.0. Also note that this is an unsupported, pre-release milestone and we don&rsquo;t guarantee API stability or binary compatibility between milestones.</p>
+<p>Note that ConductR will not be supported for Lagom 1.5.0. Also note that this is an unsupported, pre-release milestone and we don&rsquo;t guarantee API stability or binary compatibility between milestones.</p>
 <h2><a href="#highlights" name="highlights">Highlights</a></h2>
 <h3><a href="#updates-play-and-akka" name="updates-play-and-akka">Updates Play and Akka</a></h3>
 <ul>
   <li>Bump dependencies: Play was bumped to 2.7.0-M4 (<a href="https://blog.playframework.com/play-2-7-0-m4-released/">release notes</a>) and, since Lagom 1.5.0-M2, we&rsquo;ve bumped Akka to 2.5.17 (<a href="https://akka.io/blog/news/2018/09/27/akka-2.5.17-released">release notes</a>) and Akka-HTTP to 10.1.5(<a href="https://akka.io/blog/news/2018/09/06/akka-http-10.1.5-10.0.14-security-fix-released">release notes</a>).</li>
 </ul>
 <h2><a href="#grpc" name="grpc">gRPC</a></h2>
-<p>Previous milestones of Lagom 1.5.0 started laying groundwork for integration with <a href="https://github.com/akka/akka-grpc">Akka gRPC</a> to add it as a transport alternative. In Lagom 1.5.0-M4 we&rsquo;ve improved the Lagom testkit so you can also test the gRPC of your Lagom application.</p>
-<p>In this release,the following are introduced as part of the effort to support gRPC:</p>
+<p>Previous milestones of Lagom 1.5.0 started laying the groundwork for integration with <a href="https://github.com/akka/akka-grpc">Akka gRPC</a> to add it as a transport alternative. In Lagom 1.5.0-M4 we&rsquo;ve improved the Lagom testkit so you can also test the gRPC of your Lagom application.</p>
+<p>In this release, the following are introduced as part of the effort to support gRPC:</p>
 <ul>
   <li>It is now possible to run the <code>TestServer</code> with SSL enabled and build a gRPC client to interact with the gRPC endpoints offered.</li>
   <li>Lagom 1.5.0-M3 enabled SSL by default in Lagom&rsquo;s Dev Mode. In Lagom 1.5.0-M4 we&rsquo;ve restored the previous behavior where only HTTP is used in Dev Mode and made SSL an Opt-In feature in Dev Mode. Use <code>lagomServiceEnableSsl in ThisBuild := true</code> to start your service with both HTTP and HTTPS ports bound.</li>
@@ -397,7 +397,7 @@
             </div>
         </div>
     </body>
-    <script src="/8a44ba5ded42f5375a90152a5db3352eceba4f47-all-scripts-concat.js"></script>
+    <script src="/174e19bff06a135979318cf8d674d0502a23977d-all-scripts-concat.js"></script>
     
      
     <script type="text/plain" class="optanon-category-4" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>

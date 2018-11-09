@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/ddfa0e1d179f666ba2d3c6c1b6ff6204f9ae0f77-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/dd85f8a230c16b022402836f1ad3a743911fda31-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -178,7 +178,7 @@
 <p>The producer end is responsible to describe the public API and provide the serializable mappings for all messages exchanged (both in <code>ServiceCall</code>s and <code>TopicCall</code>s). The tests granting the proper behavior of the publishing operations should also test the serializability and deserializability of the messages.</p><h2 id="Testing-subscription"><a class="section-marker" href="#Testing-subscription">§</a>Testing subscription</h2>
 <p>Testing the consumption of messages requires starting the Service under test with a stub of the upstream Service producing data into the topic. The following snippet demonstrates how to achieve it. </p>
 <ol>
-  <li>An in-memory <code>Topic</code> is required and means to send messages into it. Using the <code>ProducerStubFactory</code> it&rsquo;s possible to obtain a <code>ProducerStub</code> given a topic name.</li>
+  <li>An in-memory <code>Topic</code> is required and means to send messages into that in-mem Topic. Using the <code>ProducerStubFactory</code> it&rsquo;s possible to obtain a <code>ProducerStub</code> given a topic name.</li>
   <li>With the <code>producerStub</code> instance a service stub can be build to replace the production ready upstream service. This will have to use the topic bound to the <code>ProducerStub</code> created in the previous step.</li>
   <li>Use the <code>ProducerStub</code> on the tests to send messages into the topic and interact normally with the service under test to verify the Service code.</li>
 </ol>
@@ -229,6 +229,7 @@ class HelloServiceStub(stub: ProducerStub[GreetingMessage])
   override def useGreeting(id: String): ServiceCall[GreetingMessage, Done] = ???
 }
 </code></pre>
+<p>When testing a subscription it is possible the code under test includes a Service that is a producer itself. In those situations, the <code>Application</code> used for the unit tests must differ from the <code>Application</code> used for production. The <code>Application</code> used in unit tests must not mix-in <code>LagomKafkaComponents</code> and just use <code>TestTopicComponents</code> instead.</p>
                 </article>
 
                 
@@ -468,7 +469,7 @@ class HelloServiceStub(stub: ProducerStub[GreetingMessage])
             </div>
         </div>
     </body>
-    <script src="/ddfa0e1d179f666ba2d3c6c1b6ff6204f9ae0f77-all-scripts-concat.js"></script>
+    <script src="/dd85f8a230c16b022402836f1ad3a743911fda31-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

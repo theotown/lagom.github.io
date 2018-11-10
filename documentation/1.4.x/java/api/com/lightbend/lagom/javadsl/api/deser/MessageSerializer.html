@@ -117,7 +117,7 @@ var activeTableTab = "activeTableTab";
 
  This interface doesn't actually specify the wireformat that the serializer must serialize to, there are two sub
  interfaces that do, they being <a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/StrictMessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser"><code>StrictMessageSerializer</code></a>, which serializes messages that are primarily in
- memory, to and from <code>ByteString</code>, and <a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/StreamedMessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser"><code>StreamedMessageSerializer</code></a>, which serializes streams of messages.
+ memory, to and from <a href="https://doc.akka.io/japi/akka/current/akka/util/ByteString.html?is-external=true" title="class or interface in akka.util"><code>ByteString</code></a>, and <a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/StreamedMessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser"><code>StreamedMessageSerializer</code></a>, which serializes streams of messages.
  Note that all message serializers used by the framework must implement one of these two sub interfaces, the
  framework does not know how to handle other serializer types.</div>
 </li>
@@ -236,7 +236,7 @@ var activeTableTab = "activeTableTab";
 <div class="block">Whether this serializer serializes values that are used or not.
 
  If false, it means this serializer is for an empty request/response, eg, they use the
- <code>NotUsed</code> type.</div>
+ <a href="https://doc.akka.io/japi/akka/current/akka/NotUsed.html?is-external=true" title="class or interface in akka"><code>NotUsed</code></a> type.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>Whether the values this serializer serializes are used.</dd>

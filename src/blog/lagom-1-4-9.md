@@ -9,7 +9,7 @@ summary: >
 
 The Lagom team has released Lagom 1.4.9.
 
-This release provides a few bug fixes and an improvements.
+This release provides a few bug fixes and and improvements.
 
 ## Highlights
 

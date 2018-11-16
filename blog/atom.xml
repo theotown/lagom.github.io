@@ -4,12 +4,49 @@
       <link rel="self" type="application/atom+xml" href="https://www.lagomframework.com/blog/atom.xml"/>
       <id>https://www.lagomframework.com/blog</id>
       <rights>Copyright 2018, Lightbend</rights>
-      <updated>2018-10-14T17:00:00.000-07:00</updated>
+      <updated>2018-11-14T16:00:00.000-08:00</updated>
       <dc:creator>Lightbend</dc:creator>
-      <dc:date>2018-10-14T17:00:00.000-07:00</dc:date>
+      <dc:date>2018-11-14T16:00:00.000-08:00</dc:date>
       <dc:language>en</dc:language>
       <dc:rights>Copyright 2018, Lightbend</dc:rights>
       <entry>
+          <title>Lagom 1.4.9 released!</title>
+          <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-9.html"/>
+          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
+          <author>
+            <name>Ignasi Marimon-Clos</name>
+            <uri>https://github.com/ignasi35</uri>
+          </author>
+          <id>https://www.lagomframework.com/blog/lagom-1-4-9.html</id>
+          <updated>2018-11-14T16:00:00.000-08:00</updated>
+          <published>2018-11-14T16:00:00.000-08:00</published>
+          <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.4.9.</p>
+<p>This release provides a few bug fixes and an improvement.</p>
+<h2><a href="#highlights" name="highlights">Highlights</a></h2>
+<ul>
+  <li>Updates Akka to <a href="https://akka.io/blog/news/2018/10/07/akka-2.5.18-released">2.5.18</a>. This Akka release introduces few improvements on the DNS implementation. It also improves the cluster membership handling so if you are using Akka&rsquo;s <a href="https://developer.lightbend.com/docs/akka-commercial-addons/current/split-brain-resolver.html">Split Brain Resolver</a> you may want to upgrade.</li>
+  <li>Updates Akka HTTP to <a href="https://akka.io/blog/news/2018/09/06/akka-http-10.1.5-10.0.14-security-fix-released">10.0.14</a> with an important security fix. It&rsquo;s is unlikely that as a Lagom user you were exposed to the vulnerability, though.</li>
+  <li>Updates Play to <a href="https://blog.playframework.com/play-2-6-20-released/">2.6.20</a> with some minor improvements.</li>
+  <li>Fixes <a href="https://github.com/lagom/lagom/issues/1557">a regression</a> on <code>LagomClientFactory</code> introduced on the <code>1.4.x</code> series which was causing a <code>LagomClientFactory</code> running inside a Lagom service to interfere with the service in some scenarios causing failures at boot time.</li>
+</ul>
+<p>See GitHub for the <a href="https://github.com/lagom/lagom/compare/1.4.8...1.4.9">full list of commits</a> and the issues and pull requests assigned to the <a href="https://github.com/lagom/lagom/milestone/37?closed=1">1.4.9 milestone</a>.</p>
+<h2>Updating a Lagom project to version 1.4.9</h2>
+<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
+<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
+<p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>
+<h2><a href="#credits" name="credits">Credits</a></h2>
+<p>Thanks to the community for their detailed bug reports and contributions.</p>
+<p>Thanks to <a href="https://www.lightbend.com/">Lightbend</a> for their continued sponsorship of the Lagom core team’s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>
+<p>Special thanks to the following contributors who helped with this release:</p>
+<pre class="prettyprint"><code>commits  added  removed  author    
+    4       4      10    Dale Wijnand
+    3      82      48    Ignasi Marimon-Clos
+    2       2       2    Martijn Riemers
+    1       1       1    Ravi Thinakkal
+    1     506      76    Renato Cavalcanti
+</code></pre>]]></content>
+          <dc:date>2018-11-14T16:00:00.000-08:00</dc:date>
+        </entry><entry>
           <title>Lagom 1.5.0-M4 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-5-0-M4.html"/>
           <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
@@ -421,25 +458,5 @@
       1      12       0 Jason Pickens
 </code></pre>]]></content>
           <dc:date>2018-03-21T17:00:00.000-07:00</dc:date>
-        </entry><entry>
-          <title>From CRUD to Event Sourcing</title>
-          <link rel="alternate" href="https://www.lagomframework.com/blog/event-sourcing-vs-crud.html"/>
-          <category term="event sourcing" scheme="https://www.lagomframework.com/blog/tags/event%20sourcing.html"/><category term="crud" scheme="https://www.lagomframework.com/blog/tags/crud.html"/>
-          <author>
-            <name>James Roper</name>
-            <uri>https://github.com/jroper</uri>
-          </author>
-          <id>https://www.lagomframework.com/blog/event-sourcing-vs-crud.html</id>
-          <updated>2018-03-19T17:00:00.000-07:00</updated>
-          <published>2018-03-19T17:00:00.000-07:00</published>
-          <content type="html"><![CDATA[<p>As the Lagom project has grown in usage, one of the biggest barriers to adoption that we&rsquo;ve seen is Lagom&rsquo;s opinionated approach to using event sourcing for persistence. Many developers looking to write reactive microservices come from a <a href="https://www.codecademy.com/articles/what-is-crud">CRUD</a> background, often using relational databases to store data.</p>
-<p>Lagom&rsquo;s service API can be used alongside CRUD-style persistence - you can easily use any persistence technology available on the JVM in Lagom. However, the Lagom persistence APIs do not offer CRUD as a first class option, and the <a href="https://www.lagomframework.com/documentation/1.4.x/java/PersistentEntity.html">Lagom documentation</a> pushes users in the direction of event sourcing.</p>
-<p>To be honest, event sourcing does generally require writing more code up front than CRUD. Lagom does not push event sourcing because it reduces the amount of code. Lagom pushes event sourcing because the problems that microservices introduce - such as ensuring consistency between services - are very easily solved when you are using event sourcing for persistence, and very hard to solve when you&rsquo;re using CRUD for persistence. A service using CRUD might have less code to start with, but as soon as it starts sharing data with other services, problems relating to handling failures and synchronisation of state become very difficult problems to solve, and will often require implementing complex solutions, including manual state and failure tracking. In fact, in my experience of using CRUD, dealing with these problems usually requires manually implementing event logs and asynchronous batch processes to handle them, so developers end up implementing both event sourcing and CRUD, which is far more code and far harder to maintain. In contrast, event sourcing inherently deals with these problems as a property of the architectural approach, with no special code implemented by developers.</p>
-<p>Put simply, using event sourcing over CRUD is an investment of more code and effort up front, but will yield a simpler, more resilient and easier to maintain system in the future. Lets take a look at how this looks in practice.</p>
-<p>A few months ago I had the chance to speak about this topic at the Reactive Summit&rsquo;17. Here&rsquo;s the recording of the talk.</p>
-<div id="meet-lagom" class="flex-video widescreen">
-  <iframe width="560" height="315" src="//www.youtube.com/embed/holjbuSbv3k" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-</div>]]></content>
-          <dc:date>2018-03-19T17:00:00.000-07:00</dc:date>
         </entry>
     </feed>

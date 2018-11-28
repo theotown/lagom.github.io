@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/b6c2994ee03ee0cf7134578d28264fd5cb525d13-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/0f959092a008959f74c710d8930ef3f5be6c5693-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -152,8 +152,8 @@
 <p>To achieve this decoupled architecture, Lagom&rsquo;s persistence module promotes the use of <a href="https://msdn.microsoft.com/en-us/library/jj591559.aspx">event sourcing</a> and <a href="https://msdn.microsoft.com/en-us/library/jj591573.aspx">CQRS</a>. Event sourcing is the practice of capturing all changes as domain events, which are immutable facts of things that have happened. For example, in a system using ES, when Mike withdraws money from his bank account, that event can be stored simply as &ldquo;$100.00 withdrawn&rdquo;, rather than the complex interaction that would take place in a CRUD application, where a variety of reads and updates would need to take place before the wrapping transaction commits.</p>
 <p>Event Sourcing is used for an Aggregate Root, such as a customer with a given customer identifier &mdash; Mike, in the previous example (see <a href="http://cqrs.nu/Faq/aggregates">What is an Aggregate</a> for more details). The write-side is fully consistent within the aggregate. This makes it easy to reason about things like maintaining invariants and validating incoming commands. A difference you will need to note when adopting this model is that the aggregate can reply to queries for a specific identifier but it cannot be used for serving queries that span more than one aggregate. Therefore, you need to create another view of the data that is tailored to the queries that the service provides.</p>
 <p>Lagom persists the event stream in the database. Event stream processors, other services or clients, read and optionally, act on, stored events. Lagom supports <a href="ReadSide.html">persistent read-side processors</a> and <a href="MessageBrokerApi.html">message broker topic subscribers</a>. You can also create your own event stream processor using the <a href="ReadSide.html">raw stream of events</a>.</p>
-<p>If you do not want to use event sourcing and CQRS, you should probably use something other than the Persistence module in Lagom. (However, we suggest that you read <a href="ESAdvantage.html">Advantages of Event Sourcing</a> first.) If you opt not to use Lagom&rsquo;s persistence module, the <code>CassandraSession</code> in the Lagom Persistence module provides an asynchronous API for storing data in Cassandra. But, you can implement your Lagom services with any data storage solution.</p>
-<p>Should you choose to use something other than Lagom&rsquo;s persistence module, remember to use asynchronous APIs to achieve better scalability. If you are using blocking APIs, such JDBC or JPA, you should carefully manage the blocking by using dedicated thread pools of fixed/limited size for the components that are calling those blocking APIs. Never cascade the blocking through several asynchronous calls, such as Service API calls.</p>
+<p>If you do not want to use event sourcing and CQRS, you should probably use something other than the Persistence module in Lagom. (However, we suggest that you read <a href="ESAdvantage.html">Advantages of Event Sourcing</a> first.) You might also want to watch the presentation <a href="https://www.reactivesummit.org/2018/schedule/what-can-lagom-do-for-you">What Can Lagom Do For You?</a>, which is approximately 50 minutes long and explains the benefits you gain from using the Lagom Persistence API.</p>
+<p>If you opt not to use Lagom&rsquo;s persistence module, the <code>CassandraSession</code> in the Lagom Persistence module provides an asynchronous API for storing data in Cassandra. But, you can implement your Lagom services with any data storage solution. Should you choose to use something other than Lagom&rsquo;s persistence module, remember to use asynchronous APIs to achieve better scalability. If you are using blocking APIs, such JDBC or JPA, you should carefully manage the blocking by using dedicated thread pools of fixed/limited size for the components that are calling those blocking APIs. Never cascade the blocking through several asynchronous calls, such as Service API calls.</p>
                 </article>
 
                 
@@ -406,7 +406,7 @@
             </div>
         </div>
     </body>
-    <script src="/b6c2994ee03ee0cf7134578d28264fd5cb525d13-all-scripts-concat.js"></script>
+    <script src="/0f959092a008959f74c710d8930ef3f5be6c5693-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

@@ -158,7 +158,7 @@ public interface <span class="typeNameLabel">ServiceCall&lt;Request,Response&gt;
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>default <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Request</a>,<a href="https://doc.akka.io/japi/akka/current/akka/japi/Pair.html?is-external=true" title="class or interface in akka.japi">Pair</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/transport/ResponseHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">ResponseHeader</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Response</a>&gt;&gt;</code></td>
+<td class="colFirst"><code>default <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Request</a>,akka.japi.Pair&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/transport/ResponseHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">ResponseHeader</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Response</a>&gt;&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html#withResponseHeader--">withResponseHeader</a></span>()</code>
 <div class="block">Allow handling of the response header.</div>
 </td>
@@ -270,7 +270,7 @@ public interface <span class="typeNameLabel">ServiceCall&lt;Request,Response&gt;
 <ul class="blockListLast">
 <li class="blockList">
 <h4>withResponseHeader</h4>
-<pre>default&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Request</a>,<a href="https://doc.akka.io/japi/akka/current/akka/japi/Pair.html?is-external=true" title="class or interface in akka.japi">Pair</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/transport/ResponseHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">ResponseHeader</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Response</a>&gt;&gt;&nbsp;withResponseHeader()</pre>
+<pre>default&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Request</a>,akka.japi.Pair&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/transport/ResponseHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">ResponseHeader</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Response</a>&gt;&gt;&nbsp;withResponseHeader()</pre>
 <div class="block">Allow handling of the response header.
 
  This converts the service call to one that returns both the response header and the response message.

@@ -147,14 +147,14 @@ var activeTableTab = "activeTableTab";
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html#atLeastOnce-akka.stream.javadsl.Flow-">atLeastOnce</a></span>(akka.stream.javadsl.Flow&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Message</a>,akka.Done,?&gt;&nbsp;flow)</code>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html#atLeastOnce-akka.stream.javadsl.Flow-">atLeastOnce</a></span>(<a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Flow.html?is-external=true" title="class or interface in akka.stream.javadsl">Flow</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Message</a>,<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>,?&gt;&nbsp;flow)</code>
 <div class="block">Applies the passed <code>flow</code> to the messages processed by this
  subscriber.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>akka.stream.javadsl.Source&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Message</a>,?&gt;</code></td>
+<td class="colFirst"><code><a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Source.html?is-external=true" title="class or interface in akka.stream.javadsl">Source</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Message</a>,?&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html#atMostOnceSource--">atMostOnceSource</a></span>()</code>
 <div class="block">Returns a stream of messages with at most once delivery semantic.</div>
 </td>
@@ -205,7 +205,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>atMostOnceSource</h4>
-<pre>akka.stream.javadsl.Source&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Message</a>,?&gt;&nbsp;atMostOnceSource()</pre>
+<pre><a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Source.html?is-external=true" title="class or interface in akka.stream.javadsl">Source</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Message</a>,?&gt;&nbsp;atMostOnceSource()</pre>
 <div class="block">Returns a stream of messages with at most once delivery semantic.
 
  If a failure occurs (e.g., an exception is thrown), the user is responsible
@@ -218,7 +218,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockListLast">
 <li class="blockList">
 <h4>atLeastOnce</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;&nbsp;atLeastOnce(akka.stream.javadsl.Flow&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Message</a>,akka.Done,?&gt;&nbsp;flow)</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;&nbsp;atLeastOnce(<a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Flow.html?is-external=true" title="class or interface in akka.stream.javadsl">Flow</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Message</a>,<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>,?&gt;&nbsp;flow)</pre>
 <div class="block">Applies the passed <code>flow</code> to the messages processed by this
  subscriber. Messages are delivered to the passed <code>flow</code> at least
  once.

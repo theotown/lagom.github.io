@@ -152,13 +152,13 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.ReadSideHandler.html#globalPrepare--">globalPrepare</a></span>()</code>
 <div class="block">Prepare the database for all processors.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>abstract akka.stream.javadsl.Flow&lt;akka.japi.Pair&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.ReadSideHandler.html" title="type parameter in ReadSideProcessor.ReadSideHandler">Event</a>,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/Offset.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset</a>&gt;,akka.Done,?&gt;</code></td>
+<td class="colFirst"><code>abstract <a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Flow.html?is-external=true" title="class or interface in akka.stream.javadsl">Flow</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/japi/Pair.html?is-external=true" title="class or interface in akka.japi">Pair</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.ReadSideHandler.html" title="type parameter in ReadSideProcessor.ReadSideHandler">Event</a>,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/Offset.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset</a>&gt;,<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>,?&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.ReadSideHandler.html#handle--">handle</a></span>()</code>
 <div class="block">Flow to handle the events.</div>
 </td>
@@ -214,7 +214,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>globalPrepare</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;&nbsp;globalPrepare()</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;&nbsp;globalPrepare()</pre>
 <div class="block">Prepare the database for all processors.
 
  This will be invoked at system startup. It is guaranteed to only be invoked once at a time across the entire
@@ -262,7 +262,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>handle</h4>
-<pre>public abstract&nbsp;akka.stream.javadsl.Flow&lt;akka.japi.Pair&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.ReadSideHandler.html" title="type parameter in ReadSideProcessor.ReadSideHandler">Event</a>,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/Offset.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset</a>&gt;,akka.Done,?&gt;&nbsp;handle()</pre>
+<pre>public abstract&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Flow.html?is-external=true" title="class or interface in akka.stream.javadsl">Flow</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/japi/Pair.html?is-external=true" title="class or interface in akka.japi">Pair</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.ReadSideHandler.html" title="type parameter in ReadSideProcessor.ReadSideHandler">Event</a>,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/Offset.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset</a>&gt;,<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>,?&gt;&nbsp;handle()</pre>
 <div class="block">Flow to handle the events.
 
  If the handler does any blocking, this flow should be configured to use a dispatcher that is configured to

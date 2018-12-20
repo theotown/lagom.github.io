@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/a235f8c438ff48ce1fa31abd4c9e73d351856ea0-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/24d8aefa87112c6c89d89d6d851b3c638d319b99-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -155,7 +155,7 @@
 <p>More advanced users may want direct access, as described in this section.</p><h2 id="Usage-from-Service-Implementation"><a class="section-marker" href="#Usage-from-Service-Implementation">§</a>Usage from Service Implementation</h2>
 <p>Pretty much everything in Akka is accessible through an <code>ActorSystem</code> object. You can inject the current <code>ActorSystem</code> into your service implementations or persistent entities with ordinary dependency injection.</p>
 <p>Let&rsquo;s look at an example of a <code>WorkerService</code> that accepts job requests and delegates the work to actors running on other nodes in the service&rsquo;s cluster.</p>
-<pre class="prettyprint"><code class="language-java">import static akka.pattern.PatternsCS.ask;
+<pre class="prettyprint"><code class="language-java">import static akka.pattern.Patterns.ask;
 
 import com.lightbend.lagom.javadsl.api.ServiceCall;
 
@@ -632,7 +632,7 @@ public class Worker2Module extends AbstractModule
             </div>
         </div>
     </body>
-    <script src="/a235f8c438ff48ce1fa31abd4c9e73d351856ea0-all-scripts-concat.js"></script>
+    <script src="/24d8aefa87112c6c89d89d6d851b3c638d319b99-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

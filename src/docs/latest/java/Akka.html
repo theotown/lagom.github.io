@@ -3,7 +3,7 @@
 <p>More advanced users may want direct access, as described in this section.</p><h2 id="Usage-from-Service-Implementation"><a class="section-marker" href="#Usage-from-Service-Implementation">§</a>Usage from Service Implementation</h2>
 <p>Pretty much everything in Akka is accessible through an <code>ActorSystem</code> object. You can inject the current <code>ActorSystem</code> into your service implementations or persistent entities with ordinary dependency injection.</p>
 <p>Let&rsquo;s look at an example of a <code>WorkerService</code> that accepts job requests and delegates the work to actors running on other nodes in the service&rsquo;s cluster.</p>
-<pre class="prettyprint"><code class="language-java">import static akka.pattern.PatternsCS.ask;
+<pre class="prettyprint"><code class="language-java">import static akka.pattern.Patterns.ask;
 
 import com.lightbend.lagom.javadsl.api.ServiceCall;
 

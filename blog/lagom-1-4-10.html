@@ -6,10 +6,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Importing an existing Maven project into Eclipse</title>
+        <title>Lagom - Lagom 1.4.10 released!</title>
         <meta name="description" content="Lagom">
-        
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.4.x/java/EclipseMavenInt.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
@@ -31,8 +29,7 @@
         </script>
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) end -->
          
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-    
+    <link href="/blog/atom.xml" type="application/atom+xml" rel="home" title="ATOM Feed" />
 
     </head>
     <body>
@@ -124,237 +121,161 @@
                         </div>
                     </div>
 
-                     
+                    
+
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Importing an existing Maven project into Eclipse</h1>
+                <div class="blog-meta">
+                    <div class="blog-author-image">
+                        <a href="https://github.com/ignasi35">
+                            <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                        </a>
+                    </div>
+                    <div class="blog-meta-details">
+                        <a class="blog-author-name" href="https://github.com/ignasi35">Ignasi Marimon-Clos</a>
+                        |
+                        <span class="blog-post-date">January 11, 2019</span>
+                        <div class="blog-meta-tags">
+                            
+                                <img src="/images/entypo/white/entypo_tag.svg" class="svg-icon"/>
+                                
+                                    <span class="blog-tag"><a href="tags/news.html">news</a></span>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                <h1>Lagom 1.4.10 released!</h1>
             </div>
         </div>
     </header>
 
-    <div class="fw-wrapper documentation-content">
+    <article class="fw-wrapper page-content">
         <div class="row">
             <div class="small-12 large-7 columns">
-                
-                    <nav class="breadcrumbs">
-                        <a href="Home.html">Java Home</a>
-                        
-                                    &raquo;
-                            <a href="ReferenceGuide.html">Lagom reference guide</a>
-                        
-                                    &raquo;
-                            <a href="LagomBuild.html">Configuring builds and the development environment</a>
-                        
-                    </nav>
-                
-
-                <article>
-                <h1 id="Importing-an-existing-Maven-project-into-Eclipse"><a class="section-marker" href="#Importing-an-existing-Maven-project-into-Eclipse">§</a>Importing an existing Maven project into Eclipse</h1>
-<p>If you have a Maven project created from an archetype (as described in <a href="GettingStartedMaven.html">Creating and running Hello World with Maven</a>) or one you created on your own, import it into Eclipse as follows:</p>
+                <p>The Lagom team has released Lagom 1.4.10.</p>
+<p>This release upgrades Play (and transitively upgrades Akka and Akka HTTP) and Scala.</p>
+<h2><a href="#highlights" name="highlights">Highlights</a></h2>
 <ul>
-  <li><a href="#Check-prerequisites">Check Prerequisites</a></li>
-  <li><a href="#Import-the-project">Import the project</a></li>
-</ul><h2 id="Check-prerequisites"><a class="section-marker" href="#Check-prerequisites">§</a>Check prerequisites</h2>
-<p>Before attempting to create a Lagom Maven project in Eclipse, ensure that Eclipse is configured with the following:</p>
-<ul>
-  <li>An <a href="https://www.eclipse.org/m2e/documentation/m2e-documentation.html">m2eclipse</a> plugin compatible with Maven 3.3 or higher.</li>
-  <li>A JDK 1.8</li>
-</ul><h1 id="Import-the-project"><a class="section-marker" href="#Import-the-project">§</a>Import the project</h1>
-<ol>
-  <li>From the <strong>File</strong> menu, select <strong>Import</strong>.<br/> The <strong>Select</strong> screen opens.</li>
-  <li>Expand <strong>Maven</strong> and select <strong>Existing Maven Projects</strong>.<br/><a href="resources/guide/build/EclSelectImportType.png"><img src="resources/guide/build/EclSelectImportType.png"/></a></li>
-  <li>Click <strong>Next</strong>.</li>
-  <li>For <strong>Root Directory</strong>, click <strong>Browse</strong> and select the top-level project folder.<br/><a href="resources/guide/build/EclBrowseMvnImp.png"><img src="resources/guide/build/EclBrowseMvnImp.png"/></a></li>
-  <li>Verify that the <strong>Projects</strong> list includes all subprojects and click <strong>Finish</strong>.</li>
-  <li>Run the project:
-    <ol>
-      <li>Right-click the parent project folder.<br/>Eclipse puts all of the Maven project folders at the same level, so be sure to select the correct one. For example, if you used <code>my-first-system</code> as the Maven artifact ID, right-click <code>my-first-system</code>.</li>
-      <li>Optionally, change the name.</li>
-      <li>Select <strong>Run as &hellip;</strong> &gt; <strong>Maven Build</strong>.</li>
-      <li>In the <strong>Goals</strong> field, enter <code>lagom:runAll</code>.</li>
-      <li>Select the <strong>JRE</strong> tab and make sure it is pointing at a JRE associated with a JDK.</li>
-      <li>Click <strong>Run</strong>.</li>
-    </ol>
-  </li>
-</ol>
-<p>The console should report that the services started. Verify that the services are indeed up and running by invoking the <code>hello</code> service endpoint from any HTTP client, such as a browser:</p>
-<pre class="prettyprint"><code>```
-http://localhost:9000/api/hello/World
-```
+  <li>Updates Play to <a href="https://blog.playframework.com/play-2-6-21-released//">2.6.21</a> with some minor improvements. This upgrade transitively upgrades Akka and Akka HTTP. Make sure you review Play&rsquo;s announcement for details.</li>
+</ul>
+<p>If you are a user of <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/setup/project-setup.html">Lightbend Orchestration</a> you will have to upgrade your dependency of the <code>sbt-reactive-app</code> plugin to <code>1.6.1</code>.</p>
+<p>See GitHub for the <a href="https://github.com/lagom/lagom/compare/1.4.9...1.4.10">full list of commits</a> and the issues and pull requests assigned to the <a href="https://github.com/lagom/lagom/milestone/41?closed=1">1.4.10 milestone</a>.</p>
+<h2>Updating a Lagom project to version 1.4.10</h2>
+<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
+<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
+<p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>
+<h2><a href="#credits" name="credits">Credits</a></h2>
+<p>Thanks to the community for their detailed bug reports and contributions.</p>
+<p>Thanks to <a href="https://www.lightbend.com/">Lightbend</a> for their continued sponsorship of the Lagom core team’s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>
+<p>Special thanks to the following contributors who helped with this release:</p>
+<pre class="prettyprint"><code>commits  added  removed  author    
+      2     673     661  Ignasi Marimon-Clos
+      1      28      28  Dale Wijnand
+      1       2       2  Fran Bermejo
 </code></pre>
-<p>The request returns the message <code>Hello, World!</code>.</p>
-                </article>
 
-                
-                    
-                        <nav class="next-links">
-                            <strong>Next:</strong>
-                            <ul>
-                            
-                                <li><a href="ImmutablesInIDEs.html">Set up Immutables in your IDE</a>
-                                </li>
-                            
-                                <li><a href="JVMMemoryOnDev.html">Increase memory for sbt and Maven</a>
-                                </li>
-                            
-                                <li><a href="RunningServices.html">Running Services</a>
-                                </li>
-                            
-                            </ul>
-                        </nav>
-                    
-                
+                <h2>Share</h2>
+                <div class="addthis_sharing_toolbox"></div>
 
-                
-                    <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.4.x/docs/manual/java/guide/build/EclipseMavenInt.md">here</a>. Please feel free to edit and contribute a pull request. </p>
-                
+                <br/>
+
+                <h2>Discuss</h2>
+                <div id="disqus_thread"><div class="cookie-warning"><p>Cookies are required for this functionality.<a class="optanon-allow-all">Allow Cookies</a><p></div></div>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
             </div>
-            <aside class="small-12 large-4 columns">
-                <nav class="side-menu">
+            <aside class="show-for-medium small-12 large-4 columns">
+            
 
-                    <input type="search" id="cross-docs-search" placeholder="Search..." />
+<nav class="side-menu">
+    
+        <h3>Recent posts</h3>
 
-                    <label for="docs-version">Version:</label>
-                    <select id="docs-version">
-                    
-                        <option value="/documentation/1.0.x/java/Home.html" >1.0.x</option>
-                    
-                        <option value="/documentation/1.1.x/java/Home.html" >1.1.x</option>
-                    
-                        <option value="/documentation/1.2.x/java/Home.html" >1.2.x</option>
-                    
-                        <option value="/documentation/1.3.x/java/EclipseMavenInt.html" >1.3.x</option>
-                    
-                        <option value="/documentation/1.4.x/java/EclipseMavenInt.html" 
-                            selected="selected">1.4.x</option>
-                    
-                        <option value="/documentation/current/java/EclipseMavenInt.html" >current</option>
-                    
-                        <option value="/documentation/latest/java/EclipseMavenInt.html" >latest</option>
-                    
-                    </select>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-4-10.html">Lagom 1.4.10 released!</a>
+                    <br/>
+                    January 11, 2019
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/renatocaval">
+                        <img src="https://avatars0.githubusercontent.com/u/502982?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-5-0-RC1.html">Lagom 1.5.0-RC1 released!</a>
+                    <br/>
+                    November 16, 2018
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-4-9.html">Lagom 1.4.9 released!</a>
+                    <br/>
+                    November 15, 2018
+                </div>
+            </div>
+        
 
-                    <a href="/documentation/1.4.x/java/api/index.html" class="api-docs">
-                        API Documentation</a>
+    
 
-                    
-                        <h3>Configuring builds and the development environment</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="LagomBuild.html">Defining a Lagom build</a></li>
-                            
-                        
-                            
-                                <li><a href="MultipleBuilds.html">Splitting a system into multiple builds</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="EclipseMavenInt.html">Importing an existing Maven project into Eclipse</a></li>
-                            
-                        
-                            
-                                <li><a href="EclipseMavenNew.html">Creating a new Maven Eclipse project with the Lagom archetype</a></li>
-                            
-                        
-                            
-                                <li><a href="EclipseSbt.html">Importing an sbt project into Eclipse</a></li>
-                            
-                        
-                            
-                                <li><a href="IntellijMaven.html">Importing an existing Maven Project into Intellij</a></li>
-                            
-                        
-                            
-                                <li><a href="IntellijSbtJava.html">Importing an sbt project into Intellij</a></li>
-                            
-                        
-                            
-                                <li><a href="ImmutablesInIDEs.html">Set up Immutables in your IDE</a></li>
-                            
-                        
-                            
-                                <li><a href="JVMMemoryOnDev.html">Increase memory for sbt and Maven</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Lagom reference guide</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="ReferenceGuide.html">Reference Guide</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="LagomBuild.html">Configuring builds and the development environment</a></li>
-                            
-                        
-                            
-                                <li><a href="DevEnvironment.html">Running Lagom in development</a></li>
-                            
-                        
-                            
-                                <li><a href="ServiceDescriptors.html">Writing Lagom services</a></li>
-                            
-                        
-                            
-                                <li><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
-                            
-                        
-                            
-                                <li><a href="MessageBroker.html">Decouple services with a message broker</a></li>
-                            
-                        
-                            
-                                <li><a href="ProductionOverview.html">Running Lagom in production</a></li>
-                            
-                        
-                            
-                                <li><a href="Logging.html">Logging</a></li>
-                            
-                        
-                            
-                                <li><a href="Akka.html">Advanced topics</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Java Home</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="Home.html">Home</a></li>
-                            
-                        
-                            
-                                <li><a href="WhatIsLagom.html">Welcome to Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="IntroGetStarted.html">Getting started with Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="CoreConcepts.html">Lagom core concepts</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="ReferenceGuide.html">Lagom reference guide</a></li>
-                            
-                        
-                            
-                                <li><a href="Migration14.html">Lagom releases</a></li>
-                            
-                        
-                        </ul>
-                    
-                </nav>
+    <h3>Tags</h3>
+
+    <div class="blog-tag-box">
+    
+        <a href="/blog/tags/conductr.html" data-count="1">conductr</a>
+    
+        <a href="/blog/tags/cookbook.html" data-count="1">cookbook</a>
+    
+        <a href="/blog/tags/crud.html" data-count="1">crud</a>
+    
+        <a href="/blog/tags/discuss.html" data-count="1">discuss</a>
+    
+        <a href="/blog/tags/event%20sourcing.html" data-count="1">event sourcing</a>
+    
+        <a href="/blog/tags/generator.html" data-count="1">generator</a>
+    
+        <a href="/blog/tags/java.html" data-count="1">java</a>
+    
+        <a href="/blog/tags/maven.html" data-count="1">maven</a>
+    
+        <a href="/blog/tags/news.html" data-count="44">news</a>
+    
+        <a href="/blog/tags/outreachy.html" data-count="1">outreachy</a>
+    
+        <a href="/blog/tags/recipes.html" data-count="1">recipes</a>
+    
+        <a href="/blog/tags/scala.html" data-count="2">scala</a>
+    
+        <a href="/blog/tags/screencast.html" data-count="1">screencast</a>
+    
+    </div>
+
+</nav>
+
+
             </aside>
         </div>
-    </div>
+    </article>
+
+
 
 
                     <footer>
@@ -461,109 +382,20 @@ http://localhost:9000/api/hello/World
     <script src="/65b74799ce067911a1b93f05d6b9782d2253cece-all-scripts-concat.js"></script>
     
      
-    <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-        <!-- Cross-site search. This is using Algolia's autocomplete.js  -->
-    <script>
-            var clientLagom = algoliasearch('BH4D9OD16A', '77ef1e29e6bddfca861f7a42cc51725e');
-            var clientAkka = algoliasearch('BH4D9OD16A', '543bad5ad786495d9ccd445ed34ed082');
-            var clientPlay = algoliasearch('BH4D9OD16A', 'a0b34e68c804cf96e76adcb02d47159b');
-            var lagomIndex = clientLagom.initIndex('lagomframework');
-            var akkaIndex = clientAkka.initIndex('akka_io');
-            var playIndex = clientPlay.initIndex('playframework');
-
-            var displayValue = function (suggestion, level) {
-                if (level === 0)
-                    return suggestion._highlightResult.hierarchy.lvl0.value;
-                if (suggestion._highlightResult.hierarchy['lvl' + level] !== undefined) {
-                    return suggestion._highlightResult.hierarchy['lvl' + level].value ;
-                } else {
-                    return displayValue(suggestion, level - 1) ;
-                }
-            };
-            var displaySnippet = function (suggestion) {
-                if (typeof suggestion._snippetResult !== 'undefined') {
-                    return '<div class="algolia-docsearch-suggestion--text">' + suggestion._snippetResult.content.value + '</div>'
-                } else {
-                    return ''
-                }
-            }
-
-            var wrap = function (content, wrapper) {
-                if (typeof wrapper !== 'undefined') {
-                    return '<span class=' + wrapper + '>' + content + '</span>';
-                } else {
-                    return content;
-                }
-            }
-
-            var buildIndexSettings = function (_indexObj, _hitsPerPage, _faceFilters, title, useFooter, wrapper) {
-                var _header = wrap('<span class="algolia-docsearch-suggestion algolia-docsearch-suggestion__main algolia-docsearch-suggestion__secondary algolia-docsearch-suggestion--category-header ">' + title + '</span>', wrapper);
-                var _templates = {
-                    header: _header,
-                    suggestion: function (suggestion) {
-                        var suggestionHtml = '<div class="algolia-docsearch-suggestion algolia-docsearch-suggestion__secondary" style="white-space: normal;">' +
-                                '<div class="algolia-docsearch-suggestion--wrapper">' +
-                                '<div class="algolia-docsearch-suggestion--subcategory-column ">' +
-                                '<span class="algolia-docsearch-suggestion--subcategory-column-text">' + displayValue(suggestion, 0) + '</span>' +
-                                '</div>' +
-                                '<div class="algolia-docsearch-suggestion--content">' +
-                                '<div class="algolia-docsearch-suggestion--subcategory-inline ">' + displayValue(suggestion, 1) + '</div>' +
-                                '<div class="algolia-docsearch-suggestion--title algolia-docsearch-suggestion--duplicate-content">' + displayValue(suggestion, 2) + '</div>' +
-                                displaySnippet(suggestion) +
-                                '</div>' +
-                                '</div>' +
-                                '</div>';
-                        return wrap(suggestionHtml, wrapper)
-                    }
-                };
-                if (useFooter) {
-                    _templates['footer'] = '<div class="algolia-docsearch-footer"><a class="algolia-docsearch-footer--logo" href="https://www.algolia.com/docsearch">Algolia</a></div>';
-                }
-
-                return {
-                    source: autocomplete.sources.hits(
-                            _indexObj,
-                            {hitsPerPage: _hitsPerPage, facetFilters: _faceFilters}
-                    )
-                    ,
-                    templates: _templates
-                };
-
-            };
-
-            var lagomFacetFilters = ['version:current'];
-            var akkaFacetFilters = [];
-            var playFacetFilters = ['version:2.6.x', 'tags:en'];
-
-            var useScalaFacetFilter = window.location.href.split('/').includes("scala");
-            if (useScalaFacetFilter) {
-                lagomFacetFilters.push('language:scala');
-                // The Akka faceting for language is not active. Instead, the paradox grouping is used.
-                // akkaFacetFilters.push('language:scala');
-            } else {
-                lagomFacetFilters.push('language:java');
-                // The Akka faceting for language is not active. Instead, the paradox grouping is used.
-                // akkaFacetFilters.push('language:java');
-            }
-
-
-            autocomplete('#cross-docs-search',
-                    {hint: false},
-                    [
-                        buildIndexSettings(lagomIndex, 5, lagomFacetFilters, "Lagom Documentation", false)
-                        ,
-                        buildIndexSettings(akkaIndex, 2, akkaFacetFilters, "Akka Documentation", false, "akka")
-                        ,
-                        buildIndexSettings(playIndex, 2, playFacetFilters, "Play Documentation", true, "play")
-                    ]
-            ).on('autocomplete:selected', function (event, suggestion, dataset) {
-                location.href = suggestion.url;
-            });
+    <script type="text/plain" class="optanon-category-4" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>
+    <script type="text/plain" class="optanon-category-4">
+        var disqus_config = function () {
+            this.page.url = "https://www.lagomframework.com/blog/lagom-1-4-10.html";
+            this.page.identifier = "lagom-1-4-10";
+            this.page.title = "Lagom 1.4.10 released!";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//lagomframework.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
-
-
-    
 
     <script type="text/plain" class="optanon-category-2">
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

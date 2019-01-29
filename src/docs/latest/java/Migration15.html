@@ -6,8 +6,8 @@
 <pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.lagom&quot; % &quot;lagom-sbt-plugin&quot; % &quot;1.5.0-RC1&quot;)
 </code></pre>
 <p>We also recommend upgrading to sbt 1.2.1 or later, by updating the <code>sbt.version</code> in <code>project/build.properties</code>.</p><h2 id="Deprecations"><a class="section-marker" href="#Deprecations">§</a>Deprecations</h2><h3 id="Service-Ports"><a class="section-marker" href="#Service-Ports">§</a>Service Ports</h3>
-<p>Lagom 1.5.0 now has support for SSL calls for gRPC integration and new a build setting was introduced to configure https port for a given service manually.</p>
-<p>In Maven, the new setting is called <code>serviceHttpsPost</code>. To keep the names aligned, we are deprecating <code>servicePort</code> in favour of <code>serviceHttpPort</code>.</p>
+<p>Lagom 1.5.0 now has support for SSL calls for gRPC integration and a new build setting was introduced to configure the https port for a given service manually.</p>
+<p>In Maven, the new setting is called <code>serviceHttpsPort</code>. To keep the names aligned, we are deprecating <code>servicePort</code> in favour of <code>serviceHttpPort</code>.</p>
 <p>In sbt, the new setting is called <code>lagomServiceHttpsPort</code>. To keep the names aligned, we are deprecating <code>lagomServicePort</code> in favour of <code>lagomServiceHttpPort</code>.</p>
 <p>TODO: add links to gRPC integration and SSL support documentation.</p><h3 id="Persistence-testkit-TestUtil"><a class="section-marker" href="#Persistence-testkit-TestUtil">§</a>Persistence testkit <code>TestUtil</code></h3>
 <p>The following:</p>

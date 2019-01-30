@@ -135,11 +135,11 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#CassandraSession-akka.actor.ActorSystem-">CassandraSession</a></span>(<a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a>&nbsp;system)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#CassandraSession-akka.actor.ActorSystem-">CassandraSession</a></span>(akka.actor.ActorSystem&nbsp;system)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#CassandraSession-akka.actor.ActorSystem-akka.persistence.cassandra.session.CassandraSessionSettings-scala.concurrent.ExecutionContext-">CassandraSession</a></span>(<a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a>&nbsp;system,
-                <a href="https://doc.akka.io/japi/akka/current/akka/persistence/cassandra.session.CassandraSessionSettings.html?is-external=true" title="class or interface in akka.persistence">akka.persistence.cassandra.session.CassandraSessionSettings</a>&nbsp;settings,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#CassandraSession-akka.actor.ActorSystem-akka.persistence.cassandra.session.CassandraSessionSettings-scala.concurrent.ExecutionContext-">CassandraSession</a></span>(akka.actor.ActorSystem&nbsp;system,
+                akka.persistence.cassandra.session.CassandraSessionSettings&nbsp;settings,
                 scala.concurrent.ExecutionContext&nbsp;executionContext)</code>&nbsp;</td>
 </tr>
 </table>
@@ -158,33 +158,33 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#executeCreateTable-java.lang.String-">executeCreateTable</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt)</code>
 <div class="block">See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useCreateTableTOC.html">Creating a table</a>.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#executeWrite-com.datastax.driver.core.Statement-">executeWrite</a></span>(com.datastax.driver.core.Statement&nbsp;stmt)</code>
 <div class="block">Execute one statement.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#executeWrite-java.lang.String-java.lang.Object...-">executeWrite</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
             <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;bindValues)</code>
 <div class="block">Prepare, bind and execute one statement in one go.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#executeWrite-java.lang.String-scala.collection.Seq-">executeWrite</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
             scala.collection.Seq&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;bindValues)</code>
 <div class="block">Prepare, bind and execute one statement in one go.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#executeWriteBatch-com.datastax.driver.core.BatchStatement-">executeWriteBatch</a></span>(com.datastax.driver.core.BatchStatement&nbsp;batch)</code>
 <div class="block">Execute several statements in a batch.</div>
 </td>
@@ -197,26 +197,26 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="https://doc.akka.io/japi/akka/current/akka/persistence/cassandra.session.scaladsl.CassandraSession.html?is-external=true" title="class or interface in akka.persistence">akka.persistence.cassandra.session.scaladsl.CassandraSession</a></code></td>
+<td class="colFirst"><code>akka.persistence.cassandra.session.scaladsl.CassandraSession</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#scalaDelegate--">scalaDelegate</a></span>()</code>
 <div class="block">Internal API</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Source.html?is-external=true" title="class or interface in akka.stream.javadsl">Source</a>&lt;com.datastax.driver.core.Row,<a href="https://doc.akka.io/japi/akka/current/akka/NotUsed.html?is-external=true" title="class or interface in akka">NotUsed</a>&gt;</code></td>
+<td class="colFirst"><code>akka.stream.javadsl.Source&lt;com.datastax.driver.core.Row,akka.NotUsed&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#select-com.datastax.driver.core.Statement-">select</a></span>(com.datastax.driver.core.Statement&nbsp;stmt)</code>
 <div class="block">Execute a select statement.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Source.html?is-external=true" title="class or interface in akka.stream.javadsl">Source</a>&lt;com.datastax.driver.core.Row,<a href="https://doc.akka.io/japi/akka/current/akka/NotUsed.html?is-external=true" title="class or interface in akka">NotUsed</a>&gt;</code></td>
+<td class="colFirst"><code>akka.stream.javadsl.Source&lt;com.datastax.driver.core.Row,akka.NotUsed&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#select-java.lang.String-java.lang.Object...-">select</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
       <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;bindValues)</code>
 <div class="block">Prepare, bind and execute a select statement in one go.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
-<td class="colFirst"><code><a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Source.html?is-external=true" title="class or interface in akka.stream.javadsl">Source</a>&lt;com.datastax.driver.core.Row,<a href="https://doc.akka.io/japi/akka/current/akka/NotUsed.html?is-external=true" title="class or interface in akka">NotUsed</a>&gt;</code></td>
+<td class="colFirst"><code>akka.stream.javadsl.Source&lt;com.datastax.driver.core.Row,akka.NotUsed&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#select-java.lang.String-scala.collection.Seq-">select</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
       scala.collection.Seq&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;bindValues)</code>
 <div class="block">Prepare, bind and execute a select statement in one go.</div>
@@ -297,8 +297,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>CassandraSession</h4>
-<pre>public&nbsp;CassandraSession(<a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a>&nbsp;system,
-                        <a href="https://doc.akka.io/japi/akka/current/akka/persistence/cassandra.session.CassandraSessionSettings.html?is-external=true" title="class or interface in akka.persistence">akka.persistence.cassandra.session.CassandraSessionSettings</a>&nbsp;settings,
+<pre>public&nbsp;CassandraSession(akka.actor.ActorSystem&nbsp;system,
+                        akka.persistence.cassandra.session.CassandraSessionSettings&nbsp;settings,
                         scala.concurrent.ExecutionContext&nbsp;executionContext)</pre>
 </li>
 </ul>
@@ -308,7 +308,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CassandraSession</h4>
-<pre>public&nbsp;CassandraSession(<a href="https://doc.akka.io/japi/akka/current/akka/actor/ActorSystem.html?is-external=true" title="class or interface in akka.actor">ActorSystem</a>&nbsp;system)</pre>
+<pre>public&nbsp;CassandraSession(akka.actor.ActorSystem&nbsp;system)</pre>
 </li>
 </ul>
 </li>
@@ -325,8 +325,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>executeWrite</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;&nbsp;executeWrite(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
-                                          <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;bindValues)</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;&nbsp;executeWrite(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
+                                               <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;bindValues)</pre>
 <div class="block">Prepare, bind and execute one statement in one go.
  <p>
  See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useInsertDataTOC.html">Inserting and updating data</a>.
@@ -343,8 +343,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>select</h4>
-<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Source.html?is-external=true" title="class or interface in akka.stream.javadsl">Source</a>&lt;com.datastax.driver.core.Row,<a href="https://doc.akka.io/japi/akka/current/akka/NotUsed.html?is-external=true" title="class or interface in akka">NotUsed</a>&gt;&nbsp;select(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
-                                                           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;bindValues)</pre>
+<pre>public&nbsp;akka.stream.javadsl.Source&lt;com.datastax.driver.core.Row,akka.NotUsed&gt;&nbsp;select(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
+                                                                                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;bindValues)</pre>
 <div class="block">Prepare, bind and execute a select statement in one go.
  <p>
  See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useQueryDataTOC.html">Querying tables</a>.
@@ -396,7 +396,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>scalaDelegate</h4>
-<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/persistence/cassandra.session.scaladsl.CassandraSession.html?is-external=true" title="class or interface in akka.persistence">akka.persistence.cassandra.session.scaladsl.CassandraSession</a>&nbsp;scalaDelegate()</pre>
+<pre>public&nbsp;akka.persistence.cassandra.session.scaladsl.CassandraSession&nbsp;scalaDelegate()</pre>
 <div class="block">Internal API</div>
 </li>
 </ul>
@@ -419,7 +419,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>executeCreateTable</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;&nbsp;executeCreateTable(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt)</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;&nbsp;executeCreateTable(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt)</pre>
 <div class="block">See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useCreateTableTOC.html">Creating a table</a>.
  <p>
  The returned <code>CompletionStage</code> is completed when the table has been created,
@@ -443,7 +443,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>executeWriteBatch</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;&nbsp;executeWriteBatch(com.datastax.driver.core.BatchStatement&nbsp;batch)</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;&nbsp;executeWriteBatch(com.datastax.driver.core.BatchStatement&nbsp;batch)</pre>
 <div class="block">Execute several statements in a batch. First you must <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#prepare-java.lang.String-"><code>prepare(java.lang.String)</code></a> the
  statements and bind its parameters.
  <p>
@@ -462,7 +462,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>executeWrite</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;&nbsp;executeWrite(com.datastax.driver.core.Statement&nbsp;stmt)</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;&nbsp;executeWrite(com.datastax.driver.core.Statement&nbsp;stmt)</pre>
 <div class="block">Execute one statement. First you must <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#prepare-java.lang.String-"><code>prepare(java.lang.String)</code></a> the
  statement and bind its parameters.
  <p>
@@ -481,8 +481,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>executeWrite</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="https://doc.akka.io/japi/akka/current/akka/Done.html?is-external=true" title="class or interface in akka">Done</a>&gt;&nbsp;executeWrite(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
-                                          scala.collection.Seq&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;bindValues)</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;&nbsp;executeWrite(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
+                                               scala.collection.Seq&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;bindValues)</pre>
 <div class="block">Prepare, bind and execute one statement in one go.
  <p>
  See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useInsertDataTOC.html">Inserting and updating data</a>.
@@ -499,7 +499,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>select</h4>
-<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Source.html?is-external=true" title="class or interface in akka.stream.javadsl">Source</a>&lt;com.datastax.driver.core.Row,<a href="https://doc.akka.io/japi/akka/current/akka/NotUsed.html?is-external=true" title="class or interface in akka">NotUsed</a>&gt;&nbsp;select(com.datastax.driver.core.Statement&nbsp;stmt)</pre>
+<pre>public&nbsp;akka.stream.javadsl.Source&lt;com.datastax.driver.core.Row,akka.NotUsed&gt;&nbsp;select(com.datastax.driver.core.Statement&nbsp;stmt)</pre>
 <div class="block">Execute a select statement. First you must <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#prepare-java.lang.String-"><code>prepare(java.lang.String)</code></a> the
  statement and bind its parameters.
  <p>
@@ -520,8 +520,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>select</h4>
-<pre>public&nbsp;<a href="https://doc.akka.io/japi/akka/current/akka/stream/javadsl/Source.html?is-external=true" title="class or interface in akka.stream.javadsl">Source</a>&lt;com.datastax.driver.core.Row,<a href="https://doc.akka.io/japi/akka/current/akka/NotUsed.html?is-external=true" title="class or interface in akka">NotUsed</a>&gt;&nbsp;select(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
-                                                           scala.collection.Seq&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;bindValues)</pre>
+<pre>public&nbsp;akka.stream.javadsl.Source&lt;com.datastax.driver.core.Row,akka.NotUsed&gt;&nbsp;select(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stmt,
+                                                                                    scala.collection.Seq&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;bindValues)</pre>
 <div class="block">Prepare, bind and execute a select statement in one go.
  <p>
  See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useQueryDataTOC.html">Querying tables</a>.

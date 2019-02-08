@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/258f13a1bfdab242314862cbcf78372a86d9d3f8-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/acb86138ccde80184bc074bf369b8b1c72876086-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -237,9 +237,28 @@ startElasticSearch in ThisBuild := {
 <p>This all happens automatically without special code or additional configuration.</p>
 <!--end copied section -->
 <p>You can verify that your services are running by viewing <code>http://localhost:9008/services</code> in a web browser (or with a command line tool such as <code>curl</code>). The Service Locator, running on port <code>9008</code>, will return JSON such as:</p>
-<pre class="prettyprint"><code>[{&quot;name&quot;:&quot;hello-stream&quot;,&quot;url&quot;:&quot;http://127.0.0.1:26230&quot;},
- {&quot;name&quot;:&quot;cas_native&quot;,&quot;url&quot;:&quot;tcp://127.0.0.1:4000/cas_native&quot;},
- {&quot;name&quot;:&quot;hello&quot;,&quot;url&quot;:&quot;http://127.0.0.1:24266&quot;}]
+<pre class="prettyprint"><code>[
+  {
+    &quot;name&quot;:&quot;cas_native&quot;,
+    &quot;url&quot;:&quot;tcp://127.0.0.1:4000/cas_native&quot;,
+    &quot;portName&quot;:null
+  },
+  {
+    &quot;name&quot;:&quot;kafka_native&quot;,
+    &quot;url&quot;:&quot;tcp://localhost:9092/kafka_native&quot;,
+    &quot;portName&quot;:null
+  },
+  {
+    &quot;name&quot;:&quot;hello&quot;,
+    &quot;url&quot;:&quot;http://127.0.0.1:65499&quot;,
+    &quot;portName&quot;:null
+  },
+  {
+    &quot;name&quot;:&quot;hello&quot;,
+    &quot;url&quot;:&quot;http://127.0.0.1:65499&quot;,
+    &quot;portName&quot;:&quot;http&quot;
+    }
+]
 </code></pre>
 <p><code>cas_native</code> is the <a href="https://cassandra.apache.org/">Cassandra</a> server. As you will learn in the <a href="PersistentEntity.html">documentation for writing persistent and clustered services</a>, Cassandra is the default database in Lagom, and it&rsquo;s an integral part of the development environment.</p>
 <p>The Service Locator, Cassandra, and Kafka are covered in more detail in the sections that follow.</p>
@@ -496,7 +515,7 @@ startElasticSearch in ThisBuild := {
             </div>
         </div>
     </body>
-    <script src="/258f13a1bfdab242314862cbcf78372a86d9d3f8-all-scripts-concat.js"></script>
+    <script src="/acb86138ccde80184bc074bf369b8b1c72876086-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/843e7d0bb17e54d5715d3e6f7cc1bd982dac8292-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/dd7390ac601d02dbde61375ad80bc8de729028b7-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -167,14 +167,23 @@
 <pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomJavadslCluster</code></pre><h2 id="Cluster-composition"><a class="section-marker" href="#Cluster-composition">§</a>Cluster composition</h2>
 <p>A cluster should only span nodes that are running the same service.</p>
 <p>You could imagine using cluster features across different services, but we recommend against that, because it would couple the services too tightly. Different services should only interact with each other through each service&rsquo;s API.</p><h2 id="Joining"><a class="section-marker" href="#Joining">§</a>Joining</h2>
-<p>A service instance joins a cluster when the service starts up. In development you are typically only running the service on one cluster node. No explicit joining is necessary; the <a href="DevEnvironment.html">Lagom Development Environment</a> handles it automatically. In production, you need to implement the joining yourself as follows.</p>
-<p>First, define some initial contact points of the cluster, so-called seed nodes. You can define seed nodes in <code>application.conf</code>:</p>
+<p>A service instance joins a cluster when the service starts up.</p><h3 id="Joining-during-development"><a class="section-marker" href="#Joining-during-development">§</a>Joining during development</h3>
+<p>In development you are typically only running the service on one cluster node. No explicit joining is necessary; the <a href="DevEnvironment.html">Lagom Development Environment</a> handles it automatically.</p><h3 id="Joining-during-production"><a class="section-marker" href="#Joining-during-production">§</a>Joining during production</h3>
+<p>Starting from version 1.5.0, Lagom offers support for <a href="https://developer.lightbend.com/docs/akka-management/current/bootstrap/">Akka Cluster Bootstrap</a>. Akka Cluster Bootstrap is enabled by default in production mode and disabled in development and test mode.</p>
+<p>Akka Cluster Bootstrap helps forming (or joining to) a cluster by using <a href="https://doc.akka.io/docs/akka/current/discovery/index.html">Akka Discovery</a> to discover peer nodes. It is an alternative to configuring static seed-nodes in dynamic deployment environments such as on Kubernetes or AWS.</p>
+<p>It builds on the flexibility of Akka Discovery, leveraging a range of discovery mechanisms depending on the environment you want to run your cluster in.</p><h3 id="Manual-Cluster-Formation"><a class="section-marker" href="#Manual-Cluster-Formation">§</a>Manual Cluster Formation</h3>
+<p>If you prefer to not use <strong>Akka Cluster Bootstrap</strong> and handle the cluster formation yourself, you can disable it in your <code>application.conf</code> file and configure the Akka Cluster seed nodes statically.</p>
+<p>First, disable the cluster bootstrap:</p>
+<pre class="prettyprint"><code>lagom.cluster.bootstrap.enabled = false
+</code></pre>
+<p>Then, define some initial contact points of the cluster, so-called seed nodes in your <code>application.conf</code>:</p>
 <pre class="prettyprint"><code>akka.cluster.seed-nodes = [
   &quot;akka.tcp://MyService@host1:2552&quot;,
   &quot;akka.tcp://MyService@host2:2552&quot;]
 </code></pre>
 <p>Alternatively, this can be defined as Java system properties when starting the JVM:</p>
-<pre class="prettyprint"><code>-Dakka.cluster.seed-nodes.0=akka.tcp://MyService@host1:2552
+<pre class="prettyprint"><code>-Dlagom.cluster.bootstrap.enabled=false
+-Dakka.cluster.seed-nodes.0=akka.tcp://MyService@host1:2552
 -Dakka.cluster.seed-nodes.1=akka.tcp://MyService@host2:2552
 </code></pre>
 <p>The node that is configured first in the list of <code>seed-nodes</code> is special. Only that node that will join itself. It is used for bootstrapping the cluster.</p>
@@ -459,7 +468,7 @@
             </div>
         </div>
     </body>
-    <script src="/843e7d0bb17e54d5715d3e6f7cc1bd982dac8292-all-scripts-concat.js"></script>
+    <script src="/dd7390ac601d02dbde61375ad80bc8de729028b7-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

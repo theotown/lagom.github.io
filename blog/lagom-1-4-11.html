@@ -6,10 +6,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Scala Components</title>
+        <title>Lagom - Lagom 1.4.11 released!</title>
         <meta name="description" content="Lagom">
-        
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.4.x/scala/ScalaComponents.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
@@ -31,8 +29,7 @@
         </script>
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) end -->
          
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-    
+    <link href="/blog/atom.xml" type="application/atom+xml" rel="home" title="ATOM Feed" />
 
     </head>
     <body>
@@ -124,278 +121,163 @@
                         </div>
                     </div>
 
-                     
+                    
+
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Scala Components</h1>
+                <div class="blog-meta">
+                    <div class="blog-author-image">
+                        <a href="https://github.com/marcospereira">
+                            <img src="https://avatars0.githubusercontent.com/u/4576?v=4"/>
+                        </a>
+                    </div>
+                    <div class="blog-meta-details">
+                        <a class="blog-author-name" href="https://github.com/marcospereira">Marcos Pereira</a>
+                        |
+                        <span class="blog-post-date">February 11, 2019</span>
+                        <div class="blog-meta-tags">
+                            
+                                <img src="/images/entypo/white/entypo_tag.svg" class="svg-icon"/>
+                                
+                                    <span class="blog-tag"><a href="tags/news.html">news</a></span>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                <h1>Lagom 1.4.11 released!</h1>
             </div>
         </div>
     </header>
 
-    <div class="fw-wrapper documentation-content">
+    <article class="fw-wrapper page-content">
         <div class="row">
             <div class="small-12 large-7 columns">
-                
-                    <nav class="breadcrumbs">
-                        <a href="Home.html">Scala Home</a>
-                        
-                                    &raquo;
-                            <a href="ReferenceGuide.html">Lagom reference guide</a>
-                        
-                                    &raquo;
-                            <a href="ServiceDescriptors.html">Writing Lagom services</a>
-                        
-                    </nav>
-                
-
-                <article>
-                <h1 id="Scala-Components"><a class="section-marker" href="#Scala-Components">§</a>Scala Components</h1>
-<p>This is a list of available Components you may use to build your application cake. This list contains Components provided by Lagom, Play and Lightbend Orchestration. You may develop your own Components and use those instead of the provided on this list as long as the contracts are fulfilled.</p><h5 id="Service-Components"><a class="section-marker" href="#Service-Components">§</a>Service Components</h5>
-<table>
-  <tbody>
-    <tr>
-      <td><a href="api/com/lightbend/lagom/scaladsl/server/LagomServerComponents.html">LagomServerComponents</a> </td>
-      <td>a main Component for any Lagom Service. See <a href="DependencyInjection.html#Defining-your-own-components">Defining your own components</a>.</td>
-    </tr>
-    <tr>
-      <td><a href="api/com/lightbend/lagom/scaladsl/client/LagomServiceClientComponents.html">LagomServiceClientComponents</a> </td>
-      <td>a main Component for any Lagom Service or application consuming Lagom Services. See <a href="DependencyInjection.html">Dependency Injection in Lagom</a> and <a href="ServiceClients.html#Binding-a-service-client">Binding a service client</a>.</td>
-    </tr>
-  </tbody>
-</table><h5 id="Persistence-and-Cluster-Components"><a class="section-marker" href="#Persistence-and-Cluster-Components">§</a>Persistence and Cluster Components</h5>
-<table>
-  <tbody>
-    <tr>
-      <td><a href="api/com/lightbend/lagom/scaladsl/cluster/ClusterComponents.html">ClusterComponents</a> </td>
-      <td>registers the node to the Akka Cluster. The Akka Cluster is required by Pub-Sub and Persistent Entity support and you will rarely need to use it explicitly. See <a href="Cluster.html">Cluster</a></td>
-    </tr>
-    <tr>
-      <td><a href="api/com/lightbend/lagom/scaladsl/pubsub/PubSubComponents.html">PubSubComponents</a> </td>
-      <td>provides <a href="PubSub.html#Publish-Subscribe">Publish-Subscribe</a>. This requires <code>ClusterComponents</code>. See <a href="PubSub.html#Publish-Subscribe">Publish-Subscribe</a></td>
-    </tr>
-    <tr>
-      <td><a href="api/com/lightbend/lagom/scaladsl/persistence/cassandra/CassandraPersistenceComponents.html">CassandraPersistenceComponents</a> </td>
-      <td>provides both Read-Side and Write-Side components for Cassandra-backed CQRS. It provides <code>ReadSideCassandraPersistenceComponents</code> and <code>WriteSideCassandraPersistenceComponents</code> which you might want to use in isolation. See <a href="PersistentEntityCassandra.html">PersistentEntityCassandra</a> for more info. </td>
-    </tr>
-    <tr>
-      <td><a href="api/com/lightbend/lagom/scaladsl/persistence/jdbc/JdbcPersistenceComponents.html">JdbcPersistenceComponents</a> </td>
-      <td>provides both Read-Side and Write-Side components for Cassandra-backed CQRS. It provides <code>ReadSideJdbcPersistenceComponents</code>and <code>WriteSideJdbcPersistenceComponents</code> which you might want to use in isolation. See <a href="PersistentEntityRDBMS.html">PersistentEntityRDBMS</a>. </td>
-    </tr>
-  </tbody>
-</table><h5 id="Broker-API-Components"><a class="section-marker" href="#Broker-API-Components">§</a>Broker API Components</h5>
-<table>
-  <tbody>
-    <tr>
-      <td><a href="api/com/lightbend/lagom/scaladsl/broker/kafka/LagomKafkaClientComponents.html">LagomKafkaClientComponents</a> </td>
-      <td>provide a Kafka implementation for the Broker API so that you Service can subscribe to a Kafka topic. See<a href="KafkaClient.html#Subscriber-only-Services">KafkaClient</a>. </td>
-    </tr>
-    <tr>
-      <td><a href="api/com/lightbend/lagom/scaladsl/broker/kafka/LagomKafkaComponents.html">LagomKafkaComponents</a> </td>
-      <td>provides a Kafka implementation for the Broker API so that you Service can <code>publish</code> to a Kafka topic. This component includes <code>LagomKafkaClientComponents</code> so if you mix this one in, you will be able to <code>publish</code> and <code>subscribe</code>. See <a href="KafkaClient.html#Dependency">Kafka Client</a>. </td>
-    </tr>
-    <tr>
-      <td><a href="api/com/lightbend/lagom/scaladsl/testkit/TestTopicComponents.html">TestTopicComponents</a> </td>
-      <td>provides stubbing tools to test services that use the Broker API. This is meant to be used only on Applications you build on your tests. See <a href="MessageBrokerTesting.html#Testing-publish">Testing publish</a> </td>
-    </tr>
-  </tbody>
-</table><h5 id="Service-Locator-Components"><a class="section-marker" href="#Service-Locator-Components">§</a>Service Locator Components</h5>
-<table>
-  <tbody>
-    <tr>
-      <td><a href="api/com/lightbend/lagom/scaladsl/devmode/LagomDevModeServiceLocatorComponents.html">LagomDevModeServiceLocatorComponents</a> </td>
-      <td>provides the dev mode service locator. This is meant to be used by Lagom Services and other applications such as Play Apps that want to interact with Lagom Services in Dev Mode. See the <a href="api/com/lightbend/lagom/scaladsl/devmode/LagomDevModeServiceLocatorComponents.html">scaladocs</a> for more details. </td>
-    </tr>
-    <tr>
-      <td><a href="api/com/lightbend/lagom/scaladsl/devmode/LagomDevModeComponents.html">LagomDevModeComponents</a> </td>
-      <td>provides the dev mode service locator and registers the services with it in dev mode. See <a href="DependencyInjection.html#Wiring-together-a-Lagom-application">Wiring together a Lagom application</a>.</td>
-    </tr>
-    <tr>
-      <td><a href="api/com/lightbend/lagom/scaladsl/client/StaticServiceLocatorComponents.html">StaticServiceLocatorComponents</a></td>
-      <td>provides a Service Locator that always resolves the same URI for a given Service name. </td>
-    </tr>
-    <tr>
-      <td><a href="api/com/lightbend/lagom/scaladsl/client/ConfigurationServiceLocatorComponents.html">ConfigurationServiceLocatorComponents</a></td>
-      <td>provides a Service Locator based on <code>application.conf</code> files. See <a href="ProductionOverview.html#Using-static-values-for-services-and-Cassandra">Using static values for services and Cassandra to simulate a managed runtime</a>.</td>
-    </tr>
-    <tr>
-      <td><a href="api/com/lightbend/lagom/scaladsl/client/RoundRobinServiceLocatorComponents.html">RoundRobinServiceLocatorComponents</a></td>
-      <td>provides a Service Locator that applies a Round Robin over the passed in sequence of URI. </td>
-    </tr>
-    <tr>
-      <td><a href="api/com/lightbend/lagom/scaladsl/client/CircuitBreakerComponents.html">CircuitBreakerComponents</a></td>
-      <td>implementors of a Service Locator will need to extend this to reuse the Circuit Breaker config provided by Lagom.</td>
-    </tr>
-  </tbody>
-</table><h5 id="Third-party-Components"><a class="section-marker" href="#Third-party-Components">§</a>Third party Components</h5>
-<p>You can mix in <code>Components</code> from other frameworks or libraries, for example:</p>
+                <p>The Lagom team has released Lagom 1.4.11.</p>
+<p>This release upgrades Akka to resolve a compatibility problem with Lightbend Orchestration 1.7.0.</p>
+<h2><a href="#highlights" name="highlights">Highlights</a></h2>
 <ul>
-  <li><a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/setup/project-configuration.html#lagom-scala">LagomServiceLocatorComponents</a>: is defined by the <code>reactive-lib</code> component of Lightbend Orchestration, and provides a Lagom <code>ServiceLocator</code> implementation that works with the native service discovery features of Kubernetes and DC/OS (Marathon).</li>
-  <li><a href="https://www.playframework.com/documentation/2.6.x/api/scala/index.html#play.api.libs.ws.ahc.AhcWSComponents">AhcWSComponents</a>: provides a <code>WSClient</code> based on an Async HTTP Client.</li>
-  <li><a href="https://www.playframework.com/documentation/2.6.x/api/scala/play/api/db/DBComponents.html">DBComponents</a></li>
-  <li><a href="https://www.playframework.com/documentation/2.6.x/api/scala/play/api/db/HikariCPComponents.html">HikariCPComponents</a></li>
+  <li>Updates Akka to version <a href="https://akka.io/blog/news/2019/01/29/akka-2.5.20-released">2.5.20</a> which stabilizes some APIs and brings bug fixes.</li>
 </ul>
-<p>Lagom inherits all Components provided by Play. You can find the complete list of inherited <code>Components</code> by searching for <em>components</em> in <a href="https://www.playframework.com/documentation/2.6.x/api/scala/index.html">Play docs</a>.</p>
-                </article>
+<p>If you are a user of <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/setup/project-setup.html">Lightbend Orchestration</a> you will have to upgrade your dependency of the <code>sbt-reactive-app</code> plugin to <code>1.7.0</code>.</p>
+<p>See GitHub for the <a href="https://github.com/lagom/lagom/compare/1.4.10...1.4.11">full list of commits</a> and the issues and pull requests assigned to the <a href="https://github.com/lagom/lagom/milestone/42?closed=1">1.4.11 milestone</a>.</p>
+<h2>Updating a Lagom project to version 1.4.11</h2>
+<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
+<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
+<p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>
+<h2><a href="#credits" name="credits">Credits</a></h2>
+<p>Thanks to the community for their detailed bug reports and contributions.</p>
+<p>Thanks to <a href="https://www.lightbend.com/">Lightbend</a> for their continued sponsorship of the Lagom core team’s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>
+<p>Special thanks to the following contributors who helped with this release:</p>
+<pre class="prettyprint"><code>commits  added  removed  author
+1            4        2  Renato Cavalcanti
+1           23       10  Ignasi Marimon-Clos
+1            1        1  Marcos Pereira
+1            3        3  Tim Moore
+1           26        7  Dale Wijnand
+</code></pre>
 
-                
-                    
-                        
-                            <nav class="next-link">
-                                <a href="ServiceInfo.html"><strong>Next: </strong>
-                                    Service Metadata</a>
-                            </nav>
-                        
-                    
-                
+                <h2>Share</h2>
+                <div class="addthis_sharing_toolbox"></div>
 
-                
-                    <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.4.x/docs/manual/scala/guide/services/ScalaComponents.md">here</a>. Please feel free to edit and contribute a pull request. </p>
-                
+                <br/>
+
+                <h2>Discuss</h2>
+                <div id="disqus_thread"><div class="cookie-warning"><p>Cookies are required for this functionality.<a class="optanon-allow-all">Allow Cookies</a><p></div></div>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
             </div>
-            <aside class="small-12 large-4 columns">
-                <nav class="side-menu">
+            <aside class="show-for-medium small-12 large-4 columns">
+            
 
-                    <input type="search" id="cross-docs-search" placeholder="Search..." />
+<nav class="side-menu">
+    
+        <h3>Recent posts</h3>
 
-                    <label for="docs-version">Version:</label>
-                    <select id="docs-version">
-                    
-                        <option value="/documentation/1.3.x/scala/ScalaComponents.html" >1.3.x</option>
-                    
-                        <option value="/documentation/1.4.x/scala/ScalaComponents.html" >1.4.x</option>
-                    
-                        <option value="/documentation/current/scala/ScalaComponents.html" 
-                            selected="selected">current</option>
-                    
-                        <option value="/documentation/latest/scala/ScalaComponents.html" >latest</option>
-                    
-                    </select>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/marcospereira">
+                        <img src="https://avatars0.githubusercontent.com/u/4576?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-4-11.html">Lagom 1.4.11 released!</a>
+                    <br/>
+                    February 11, 2019
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-4-10.html">Lagom 1.4.10 released!</a>
+                    <br/>
+                    January 11, 2019
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/renatocaval">
+                        <img src="https://avatars0.githubusercontent.com/u/502982?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-5-0-RC1.html">Lagom 1.5.0-RC1 released!</a>
+                    <br/>
+                    November 16, 2018
+                </div>
+            </div>
+        
 
-                    <a href="/documentation/current/scala/api/com/lightbend/lagom/scaladsl/index.html" class="api-docs">
-                        API Documentation</a>
+    
 
-                    
-                        <h3>Writing Lagom services</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="ServiceDescriptors.html">Service descriptors</a></li>
-                            
-                        
-                            
-                                <li><a href="ServiceImplementation.html">Implementing services</a></li>
-                            
-                        
-                            
-                                <li><a href="DependencyInjection.html">Dependency Injection</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="ScalaComponents.html">Scala Components</a></li>
-                            
-                        
-                            
-                                <li><a href="ServiceInfo.html">Service Metadata</a></li>
-                            
-                        
-                            
-                                <li><a href="ServiceClients.html">Consuming services</a></li>
-                            
-                        
-                            
-                                <li><a href="TestingServices.html">Testing Services</a></li>
-                            
-                        
-                            
-                                <li><a href="MessageSerializers.html">Message serializers</a></li>
-                            
-                        
-                            
-                                <li><a href="HeaderFilters.html">Header Filters</a></li>
-                            
-                        
-                            
-                                <li><a href="ServiceErrorHandling.html">Error handling</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Lagom reference guide</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="ReferenceGuide.html">Reference Guide</a></li>
-                            
-                        
-                            
-                                <li><a href="LagomBuild.html">Configuring builds and the development environment</a></li>
-                            
-                        
-                            
-                                <li><a href="DevEnvironment.html">Running Lagom in development</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="ServiceDescriptors.html">Writing Lagom services</a></li>
-                            
-                        
-                            
-                                <li><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
-                            
-                        
-                            
-                                <li><a href="MessageBroker.html">Decouple services with a message broker</a></li>
-                            
-                        
-                            
-                                <li><a href="ProductionOverview.html">Running Lagom in production</a></li>
-                            
-                        
-                            
-                                <li><a href="Logging.html">Logging</a></li>
-                            
-                        
-                            
-                                <li><a href="Akka.html">Advanced topics</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Scala Home</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="Home.html">Home</a></li>
-                            
-                        
-                            
-                                <li><a href="WhatIsLagom.html">Welcome to Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="Installation.html">Getting started with Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="CoreConcepts.html">Lagom core concepts</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="ReferenceGuide.html">Lagom reference guide</a></li>
-                            
-                        
-                            
-                                <li><a href="Migration14.html">Lagom releases</a></li>
-                            
-                        
-                        </ul>
-                    
-                </nav>
+    <h3>Tags</h3>
+
+    <div class="blog-tag-box">
+    
+        <a href="/blog/tags/conductr.html" data-count="1">conductr</a>
+    
+        <a href="/blog/tags/cookbook.html" data-count="1">cookbook</a>
+    
+        <a href="/blog/tags/crud.html" data-count="1">crud</a>
+    
+        <a href="/blog/tags/discuss.html" data-count="1">discuss</a>
+    
+        <a href="/blog/tags/event%20sourcing.html" data-count="1">event sourcing</a>
+    
+        <a href="/blog/tags/generator.html" data-count="1">generator</a>
+    
+        <a href="/blog/tags/java.html" data-count="1">java</a>
+    
+        <a href="/blog/tags/maven.html" data-count="1">maven</a>
+    
+        <a href="/blog/tags/news.html" data-count="45">news</a>
+    
+        <a href="/blog/tags/outreachy.html" data-count="1">outreachy</a>
+    
+        <a href="/blog/tags/recipes.html" data-count="1">recipes</a>
+    
+        <a href="/blog/tags/scala.html" data-count="2">scala</a>
+    
+        <a href="/blog/tags/screencast.html" data-count="1">screencast</a>
+    
+    </div>
+
+</nav>
+
+
             </aside>
         </div>
-    </div>
+    </article>
+
+
 
 
                     <footer>
@@ -502,109 +384,20 @@
     <script src="/dd7390ac601d02dbde61375ad80bc8de729028b7-all-scripts-concat.js"></script>
     
      
-    <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-        <!-- Cross-site search. This is using Algolia's autocomplete.js  -->
-    <script>
-            var clientLagom = algoliasearch('BH4D9OD16A', '77ef1e29e6bddfca861f7a42cc51725e');
-            var clientAkka = algoliasearch('BH4D9OD16A', '543bad5ad786495d9ccd445ed34ed082');
-            var clientPlay = algoliasearch('BH4D9OD16A', 'a0b34e68c804cf96e76adcb02d47159b');
-            var lagomIndex = clientLagom.initIndex('lagomframework');
-            var akkaIndex = clientAkka.initIndex('akka_io');
-            var playIndex = clientPlay.initIndex('playframework');
-
-            var displayValue = function (suggestion, level) {
-                if (level === 0)
-                    return suggestion._highlightResult.hierarchy.lvl0.value;
-                if (suggestion._highlightResult.hierarchy['lvl' + level] !== undefined) {
-                    return suggestion._highlightResult.hierarchy['lvl' + level].value ;
-                } else {
-                    return displayValue(suggestion, level - 1) ;
-                }
-            };
-            var displaySnippet = function (suggestion) {
-                if (typeof suggestion._snippetResult !== 'undefined') {
-                    return '<div class="algolia-docsearch-suggestion--text">' + suggestion._snippetResult.content.value + '</div>'
-                } else {
-                    return ''
-                }
-            }
-
-            var wrap = function (content, wrapper) {
-                if (typeof wrapper !== 'undefined') {
-                    return '<span class=' + wrapper + '>' + content + '</span>';
-                } else {
-                    return content;
-                }
-            }
-
-            var buildIndexSettings = function (_indexObj, _hitsPerPage, _faceFilters, title, useFooter, wrapper) {
-                var _header = wrap('<span class="algolia-docsearch-suggestion algolia-docsearch-suggestion__main algolia-docsearch-suggestion__secondary algolia-docsearch-suggestion--category-header ">' + title + '</span>', wrapper);
-                var _templates = {
-                    header: _header,
-                    suggestion: function (suggestion) {
-                        var suggestionHtml = '<div class="algolia-docsearch-suggestion algolia-docsearch-suggestion__secondary" style="white-space: normal;">' +
-                                '<div class="algolia-docsearch-suggestion--wrapper">' +
-                                '<div class="algolia-docsearch-suggestion--subcategory-column ">' +
-                                '<span class="algolia-docsearch-suggestion--subcategory-column-text">' + displayValue(suggestion, 0) + '</span>' +
-                                '</div>' +
-                                '<div class="algolia-docsearch-suggestion--content">' +
-                                '<div class="algolia-docsearch-suggestion--subcategory-inline ">' + displayValue(suggestion, 1) + '</div>' +
-                                '<div class="algolia-docsearch-suggestion--title algolia-docsearch-suggestion--duplicate-content">' + displayValue(suggestion, 2) + '</div>' +
-                                displaySnippet(suggestion) +
-                                '</div>' +
-                                '</div>' +
-                                '</div>';
-                        return wrap(suggestionHtml, wrapper)
-                    }
-                };
-                if (useFooter) {
-                    _templates['footer'] = '<div class="algolia-docsearch-footer"><a class="algolia-docsearch-footer--logo" href="https://www.algolia.com/docsearch">Algolia</a></div>';
-                }
-
-                return {
-                    source: autocomplete.sources.hits(
-                            _indexObj,
-                            {hitsPerPage: _hitsPerPage, facetFilters: _faceFilters}
-                    )
-                    ,
-                    templates: _templates
-                };
-
-            };
-
-            var lagomFacetFilters = ['version:current'];
-            var akkaFacetFilters = [];
-            var playFacetFilters = ['version:2.6.x', 'tags:en'];
-
-            var useScalaFacetFilter = window.location.href.split('/').includes("scala");
-            if (useScalaFacetFilter) {
-                lagomFacetFilters.push('language:scala');
-                // The Akka faceting for language is not active. Instead, the paradox grouping is used.
-                // akkaFacetFilters.push('language:scala');
-            } else {
-                lagomFacetFilters.push('language:java');
-                // The Akka faceting for language is not active. Instead, the paradox grouping is used.
-                // akkaFacetFilters.push('language:java');
-            }
-
-
-            autocomplete('#cross-docs-search',
-                    {hint: false},
-                    [
-                        buildIndexSettings(lagomIndex, 5, lagomFacetFilters, "Lagom Documentation", false)
-                        ,
-                        buildIndexSettings(akkaIndex, 2, akkaFacetFilters, "Akka Documentation", false, "akka")
-                        ,
-                        buildIndexSettings(playIndex, 2, playFacetFilters, "Play Documentation", true, "play")
-                    ]
-            ).on('autocomplete:selected', function (event, suggestion, dataset) {
-                location.href = suggestion.url;
-            });
+    <script type="text/plain" class="optanon-category-4" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>
+    <script type="text/plain" class="optanon-category-4">
+        var disqus_config = function () {
+            this.page.url = "https://www.lagomframework.com/blog/lagom-1-4-11.html";
+            this.page.identifier = "lagom-1-4-11";
+            this.page.title = "Lagom 1.4.11 released!";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//lagomframework.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
-
-
-    
 
     <script type="text/plain" class="optanon-category-2">
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

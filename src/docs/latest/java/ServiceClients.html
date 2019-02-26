@@ -92,8 +92,7 @@ default Descriptor descriptor() {
        .withCircuitBreaker(CircuitBreaker.identifiedBy(&quot;hello2&quot;))
     );
 }</code></pre>
-<p>In the above example the default identifier is used for the <code>sayHi</code> method, since no specific identifier is given. The default identifier is the same as the service name, i.e. <code>&quot;hello&quot;</code> in this example. The <code>hiAgain</code> method will use another circuit breaker instance, since <code>&quot;hello2&quot;</code> is specified as circuit breaker identifier.</p>
-<p>See <a href="https://github.com/lagom/lagom-recipes/tree/master/circuitbreakerpanel/circuitbreakerpanel-java-mvn">CircuitBreakerPanel recipe</a> for an example you can use with any arbitrary API to apply the circuit breaker pattern.</p><h3 id="Circuit-Breaker-Configuration"><a class="section-marker" href="#Circuit-Breaker-Configuration">§</a>Circuit Breaker Configuration</h3>
+<p>In the above example the default identifier is used for the <code>sayHi</code> method, since no specific identifier is given. The default identifier is the same as the service name, i.e. <code>&quot;hello&quot;</code> in this example. The <code>hiAgain</code> method will use another circuit breaker instance, since <code>&quot;hello2&quot;</code> is specified as circuit breaker identifier.</p><h3 id="Circuit-Breaker-Configuration"><a class="section-marker" href="#Circuit-Breaker-Configuration">§</a>Circuit Breaker Configuration</h3>
 <p>On the client side you can configure the circuit breakers. The default configuration is:</p>
 <pre class="prettyprint"><code class="language-conf"># Circuit breakers for calls to other services are configured
 # in this section. A child configuration section with the same

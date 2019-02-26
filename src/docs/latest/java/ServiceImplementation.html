@@ -79,8 +79,7 @@ public class Module extends AbstractModule implements ServiceGuiceSupport {
 
     return completedFuture(Pair.create(responseHeader, response));
   });
-}</code></pre>
-<p>See <a href="https://github.com/lagom/lagom-recipes/blob/master/http-header-handling/http-header-handling-java-sbt/README.md">Header Manipulation and HTTP testing</a> for an example of status code manipulation and how to test it.</p><h2 id="Service-call-composition"><a class="section-marker" href="#Service-call-composition">§</a>Service call composition</h2>
+}</code></pre><h2 id="Service-call-composition"><a class="section-marker" href="#Service-call-composition">§</a>Service call composition</h2>
 <p>You may have situations where you want to compose service calls with cross cutting concerns such as security or logging. In Lagom, this is done by composing service calls explicitly. The following shows a simple logging service call:</p>
 <pre class="prettyprint"><code class="language-java">public &lt;Request, Response&gt; ServerServiceCall&lt;Request, Response&gt; logged(
     ServerServiceCall&lt;Request, Response&gt; serviceCall) {

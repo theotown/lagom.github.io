@@ -120,6 +120,35 @@ public class AdvancedHelloServiceTest {
     assertEquals(&quot;Hello Bob&quot;, msg);
   }
 
+}</code></pre><h2 id="How-to-use-TLS-on-tests"><a class="section-marker" href="#How-to-use-TLS-on-tests">§</a>How to use TLS on tests</h2>
+<p>To open an SSL port on the <code>TestServer</code> used in your tests, you may enable SSL support using <code>withSsl</code>:</p>
+<pre class="prettyprint"><code class="language-java">Setup.defaultSetup.withSsl()
+</code></pre>
+<p>Enabling SSL will automatically open a new random port and provide an <code>javax.net.ssl.SSLContext</code> on the TestServer. Lagom doesn&rsquo;t provide any client factory that allows sending requests to the HTTPS port at the moment. You should create an HTTP client using Play-WS, Akka-HTTP or Akka-gRPC. Then, use the <code>httpsPort</code> and the <code>sslContext</code> provided by the <code>testServer</code> instance to send the request. Note that the <code>SSLContext</code> provided is built by Lagom&rsquo;s testkit to trust the <code>testServer</code> certificates. Finally, because the server certificate is issued for <code>CN=localhost</code> you will have to make sure that&rsquo;s the <code>authority</code> on the requests you generate, otherwise the server may decline and fail the request. At the moment it is not possible to setup the test server with different SSL Certificates. </p>
+<pre class="prettyprint"><code class="language-java">@Test
+public void testOverTlsWithCustomClient() {
+    ServiceTest.withServer(
+        ServiceTest.defaultSetup()
+            .withCluster(false)
+            .withSsl()
+            .configureBuilder(builder -&gt;
+                builder.bindings(new TestTlsServiceModule())), server -&gt; {
+
+            SSLContext sslContext = server.clientSslContext().get();
+            // Builds an instance of a WSClient with the provided SSLContext so
+            // the fake SSLContext prepared by Lagom&#39;s testkit is used.
+            WSClient wsClient = buildCustomWS(sslContext);
+            // use `localhost` as authority
+            String url = &quot;https://localhost:&quot; + server.portSsl().get() + &quot;/api/sample&quot;;
+            String response = wsClient
+                .url(url)
+                .get()
+                .thenApply(WSResponse::getBody)
+                .toCompletableFuture()
+                .get(5, TimeUnit.SECONDS);
+
+            assertEquals(&quot;sample response&quot;, response);
+        });
 }</code></pre><h2 id="How-to-test-several-services"><a class="section-marker" href="#How-to-test-several-services">§</a>How to test several services</h2>
 <p>Lagom will provide support for writing integration tests that involve several interacting services. This feature is <a href="https://github.com/lagom/lagom/issues/38">not yet implemented</a>.</p><h2 id="How-to-test-streamed-request/response"><a class="section-marker" href="#How-to-test-streamed-request/response">§</a>How to test streamed request/response</h2>
 <p>Let&rsquo;s say we have a service that have streaming request and/or response parameters. For example an <code>EchoService</code> like this:</p>

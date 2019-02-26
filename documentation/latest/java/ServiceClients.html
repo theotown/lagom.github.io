@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/cf8fc6498644dfd094879380ec23106fec9ea2c1-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/52266186b100a183337cb16649cb42403421dc4a-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -244,8 +244,7 @@ default Descriptor descriptor() {
        .withCircuitBreaker(CircuitBreaker.identifiedBy(&quot;hello2&quot;))
     );
 }</code></pre>
-<p>In the above example the default identifier is used for the <code>sayHi</code> method, since no specific identifier is given. The default identifier is the same as the service name, i.e. <code>&quot;hello&quot;</code> in this example. The <code>hiAgain</code> method will use another circuit breaker instance, since <code>&quot;hello2&quot;</code> is specified as circuit breaker identifier.</p>
-<p>See <a href="https://github.com/lagom/lagom-recipes/tree/master/circuitbreakerpanel/circuitbreakerpanel-java-mvn">CircuitBreakerPanel recipe</a> for an example you can use with any arbitrary API to apply the circuit breaker pattern.</p><h3 id="Circuit-Breaker-Configuration"><a class="section-marker" href="#Circuit-Breaker-Configuration">§</a>Circuit Breaker Configuration</h3>
+<p>In the above example the default identifier is used for the <code>sayHi</code> method, since no specific identifier is given. The default identifier is the same as the service name, i.e. <code>&quot;hello&quot;</code> in this example. The <code>hiAgain</code> method will use another circuit breaker instance, since <code>&quot;hello2&quot;</code> is specified as circuit breaker identifier.</p><h3 id="Circuit-Breaker-Configuration"><a class="section-marker" href="#Circuit-Breaker-Configuration">§</a>Circuit Breaker Configuration</h3>
 <p>On the client side you can configure the circuit breakers. The default configuration is:</p>
 <pre class="prettyprint"><code class="language-conf"># Circuit breakers for calls to other services are configured
 # in this section. A child configuration section with the same
@@ -310,7 +309,7 @@ lagom.circuit-breaker {
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/services/ServiceClients.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/java/guide/services/ServiceClients.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -556,7 +555,7 @@ lagom.circuit-breaker {
             </div>
         </div>
     </body>
-    <script src="/cf8fc6498644dfd094879380ec23106fec9ea2c1-all-scripts-concat.js"></script>
+    <script src="/52266186b100a183337cb16649cb42403421dc4a-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

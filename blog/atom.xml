@@ -4,12 +4,56 @@
       <link rel="self" type="application/atom+xml" href="https://www.lagomframework.com/blog/atom.xml"/>
       <id>https://www.lagomframework.com/blog</id>
       <rights>Copyright 2019, Lightbend</rights>
-      <updated>2019-02-10T16:00:00.000-08:00</updated>
+      <updated>2019-02-25T00:00:00.000Z</updated>
       <dc:creator>Lightbend</dc:creator>
-      <dc:date>2019-02-10T16:00:00.000-08:00</dc:date>
+      <dc:date>2019-02-25T00:00:00.000Z</dc:date>
       <dc:language>en</dc:language>
       <dc:rights>Copyright 2019, Lightbend</dc:rights>
       <entry>
+          <title>Lagom 1.5.0-RC2 released!</title>
+          <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-5-0-RC2.html"/>
+          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
+          <author>
+            <name>Marcos Pereira</name>
+            <uri>https://github.com/marcospereira</uri>
+          </author>
+          <id>https://www.lagomframework.com/blog/lagom-1-5-0-RC2.html</id>
+          <updated>2019-02-25T00:00:00.000Z</updated>
+          <published>2019-02-25T00:00:00.000Z</published>
+          <content type="html"><![CDATA[<p>We are happy to announce the availability of Lagom 1.5.0-RC2. This is the second release candidate of Lagom 1.5.0. We expect this to be considerably more stable than the milestone releases, not only in terms of functionality but we are also moving closer to the idea of freezing the APIs. Our plan is to later promote this release candidate to a stable release if we don&rsquo;t find major issues.</p>
+<p>Because of that, and as with milestones, the primary goal is to get feedback, so please let us know if something isn&rsquo;t working or you see something that should be improved. If there are changes not well documented in javadocs, scaladocs or our migration guides, please, let us know so that we can improve them before the general availability release.</p>
+<h2><a href="#highlights" name="highlights">Highlights</a></h2>
+<h3><a href="#upgrades-for-major-dependencies" name="upgrades-for-major-dependencies">Upgrades for major dependencies</a></h3>
+<ul>
+  <li>Play upgraded to 2.7.0 (<a href="https://blog.playframework.com/play-2-7-0-is-here/">release notes</a>)</li>
+  <li>Akka upgraded to 2.5.21 (<a href="https://akka.io/blog/news/2019/02/13/akka-2.5.21-released">release notes</a>, but we also recommend that you read other release notes since Akka 2.5.18)</li>
+  <li>Alpakka Kafka upgraded to 1.0-RC2 (<a href="https://doc.akka.io/docs/akka-stream-kafka/current/release-notes/1.0-RC2.html">release notes</a>)</li>
+  <li>Slick upgraded to 3.3.0 (<a href="http://slick.lightbend.com/news/2019/01/30/slick-3.3.0-released.html">release notes</a>)</li>
+</ul>
+<p>There is also a brand new integration with <a href="https://developer.lightbend.com/docs/akka-management/current/">Akka Management</a> providing an easier way to do cluster bootstrap, health-checks enabled by default, and works better with our <a href="https://github.com/lagom/akka-discovery-service-locator">new implementation of ServiceLocator</a> based on <a href="https://doc.akka.io/docs/akka/2.5/discovery/index.html">Akka Discovery</a>.</p>
+<p>See GitHub for the <a href="https://github.com/lagom/lagom/compare/1.5.0-RC1...1.5.0-RC2">full list of commits</a> and the issues and pull requests assigned to the <a href="https://github.com/lagom/lagom/milestone/44?closed=1">1.5.0-RC2 milestone</a>.</p>
+<h2>Updating a Lagom project to version 1.5.0-RC2</h2>
+<p>First, make sure you read the Lagom 1.5 Migration Guide for <a href="https://www.lagomframework.com/documentation/latest/scala/Migration15.html">Scala</a> or <a href="https://www.lagomframework.com/documentation/latest/java/Migration15.html">Java</a>.</p>
+<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
+<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
+<p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>
+<h2><a href="#credits" name="credits">Credits</a></h2>
+<p>Thanks to the community for their detailed bug reports and contributions.</p>
+<p>Thanks to <a href="https://www.lightbend.com/">Lightbend</a> for their continued sponsorship of the Lagom core team’s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>
+<p>Special thanks to the following contributors who helped with this release:</p>
+<pre class="prettyprint"><code>commits  added  removed  author
+     13    767      362   Renato Cavalcanti
+      7   1090      697   Ignasi Marimon-Clos
+      4    176      100   Marcos Pereira
+      2      6        5   Martynas Mickevičius
+      2     55       36   Dale Wijnand
+      1     10        0   Zhonglai Zhang
+      1     24       18   Enno
+      1      2        2   Fran Bermejo
+      1      2        2   Prashant Sharma
+</code></pre>]]></content>
+          <dc:date>2019-02-25T00:00:00.000Z</dc:date>
+        </entry><entry>
           <title>Lagom 1.4.11 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-11.html"/>
           <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
@@ -18,8 +62,8 @@
             <uri>https://github.com/marcospereira</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-4-11.html</id>
-          <updated>2019-02-10T16:00:00.000-08:00</updated>
-          <published>2019-02-10T16:00:00.000-08:00</published>
+          <updated>2019-02-11T00:00:00.000Z</updated>
+          <published>2019-02-11T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.4.11.</p>
 <p>This release upgrades Akka to resolve a compatibility problem with Lightbend Orchestration 1.7.0.</p>
 <h2><a href="#highlights" name="highlights">Highlights</a></h2>
@@ -43,7 +87,7 @@
 1            3        3  Tim Moore
 1           26        7  Dale Wijnand
 </code></pre>]]></content>
-          <dc:date>2019-02-10T16:00:00.000-08:00</dc:date>
+          <dc:date>2019-02-11T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.4.10 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-10.html"/>
@@ -53,8 +97,8 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-4-10.html</id>
-          <updated>2019-01-10T16:00:00.000-08:00</updated>
-          <published>2019-01-10T16:00:00.000-08:00</published>
+          <updated>2019-01-11T00:00:00.000Z</updated>
+          <published>2019-01-11T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.4.10.</p>
 <p>This release upgrades Play (and transitively upgrades Akka and Akka HTTP) and Scala.</p>
 <h2><a href="#highlights" name="highlights">Highlights</a></h2>
@@ -76,7 +120,7 @@
       1      28      28  Dale Wijnand
       1       2       2  Fran Bermejo
 </code></pre>]]></content>
-          <dc:date>2019-01-10T16:00:00.000-08:00</dc:date>
+          <dc:date>2019-01-11T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.5.0-RC1 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-5-0-RC1.html"/>
@@ -86,8 +130,8 @@
             <uri>https://github.com/renatocaval</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-5-0-RC1.html</id>
-          <updated>2018-11-15T16:00:00.000-08:00</updated>
-          <published>2018-11-15T16:00:00.000-08:00</published>
+          <updated>2018-11-16T00:00:00.000Z</updated>
+          <published>2018-11-16T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>We are happy to announce the availability of Lagom 1.5.0-RC1. This is the first release candidate of Lagom 1.5.0. We expect this to be considerably more stable than the milestone releases, not only in terms of functionality but we are also moving closer to the idea of freezing the APIs.</p>
 <p>As with milestones, the primary goal is to get feedback, so please let us know if something isn&rsquo;t working or you see something that should be improved. If there are changes not well documented in javadocs, scaladocs or our migration guides, please, let us know so that we can improve them before the general availability release.</p>
 <h2><a href="#highlights" name="highlights">Highlights</a></h2>
@@ -113,7 +157,7 @@
       1      4        4  danielklein45
       1     21       19  Martynas Mickevičius
 </code></pre>]]></content>
-          <dc:date>2018-11-15T16:00:00.000-08:00</dc:date>
+          <dc:date>2018-11-16T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.4.9 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-9.html"/>
@@ -123,8 +167,8 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-4-9.html</id>
-          <updated>2018-11-14T16:00:00.000-08:00</updated>
-          <published>2018-11-14T16:00:00.000-08:00</published>
+          <updated>2018-11-15T00:00:00.000Z</updated>
+          <published>2018-11-15T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.4.9.</p>
 <p>This release provides a few bug fixes and an improvement.</p>
 <h2><a href="#highlights" name="highlights">Highlights</a></h2>
@@ -150,7 +194,7 @@
     1       1       1    Ravi Thinakkal
     1     506      76    Renato Cavalcanti
 </code></pre>]]></content>
-          <dc:date>2018-11-14T16:00:00.000-08:00</dc:date>
+          <dc:date>2018-11-15T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.5.0-M4 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-5-0-M4.html"/>
@@ -160,8 +204,8 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-5-0-M4.html</id>
-          <updated>2018-10-14T17:00:00.000-07:00</updated>
-          <published>2018-10-14T17:00:00.000-07:00</published>
+          <updated>2018-10-15T00:00:00.000Z</updated>
+          <published>2018-10-15T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>We are happy to announce the availability of Lagom 1.5.0-M4. This new milestone towards the releasing of Lagom 1.5.0 continues to improve support for gRPC in Lagom. This release includes Play 2.7.0-M4, Akka 2.5.17 and Akka-HTTP 10.1.5.</p>
 <p>Note that ConductR will not be supported for Lagom 1.5.0. Also note that this is an unsupported, pre-release milestone and we don&rsquo;t guarantee API stability or binary compatibility between milestones.</p>
 <h2><a href="#highlights" name="highlights">Highlights</a></h2>
@@ -201,7 +245,7 @@
     1     148     146    Kunal sethi
     1     156       2    Ido Shamun
 </code></pre>]]></content>
-          <dc:date>2018-10-14T17:00:00.000-07:00</dc:date>
+          <dc:date>2018-10-15T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.5.0-M3 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-5-0-M3.html"/>
@@ -211,8 +255,8 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-5-0-M3.html</id>
-          <updated>2018-09-03T17:00:00.000-07:00</updated>
-          <published>2018-09-03T17:00:00.000-07:00</published>
+          <updated>2018-09-04T00:00:00.000Z</updated>
+          <published>2018-09-04T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>We are happy to announce the availability of Lagom 1.5.0-M3. This new milestone towards the releasing of Lagom 1.5.0 introduces important improvements to support gRPC in Lagom. This release includes Play 2.7.0-M3 and Akka 2.5.16.</p>
 <p>Note that this should not be used in production, that Lightbend Orchestration (sbt-reactive-app) does not yet support Lagom 1.5.0-M3, and that ConductR will not be supported for Lagom 1.5.0. Also note that this is an unsupported, pre-release milestone and we don&rsquo;t guarantee API stability or binary compatibility between milestones.</p>
 <h2><a href="#highlights" name="highlights">Highlights</a></h2>
@@ -248,7 +292,7 @@
     1       1       1    Jo Vanthournout
     1      16      14    João Guitana
 </code></pre>]]></content>
-          <dc:date>2018-09-03T17:00:00.000-07:00</dc:date>
+          <dc:date>2018-09-04T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.4.8 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-8.html"/>
@@ -258,8 +302,8 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-4-8.html</id>
-          <updated>2018-08-30T17:00:00.000-07:00</updated>
-          <published>2018-08-30T17:00:00.000-07:00</published>
+          <updated>2018-08-31T00:00:00.000Z</updated>
+          <published>2018-08-31T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.4.8.</p>
 <p>This release provides a bug fix and an improvement.</p>
 <h2><a href="#highlights" name="highlights">Highlights</a></h2>
@@ -287,7 +331,7 @@
     1       2       2    Himani Arora
     1      14       2    Elijah Rippeth
 </code></pre>]]></content>
-          <dc:date>2018-08-30T17:00:00.000-07:00</dc:date>
+          <dc:date>2018-08-31T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.5.0-M2 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-5-0-M1.html"/>
@@ -297,8 +341,8 @@
             <uri>https://github.com/ignasi35</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-5-0-M1.html</id>
-          <updated>2018-07-29T17:00:00.000-07:00</updated>
-          <published>2018-07-29T17:00:00.000-07:00</published>
+          <updated>2018-07-30T00:00:00.000Z</updated>
+          <published>2018-07-30T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>We are happy to announce the availability of Lagom 1.5.0-M2 (we skipped Lagom 1.5.0-M1 due to an issue with the release process). This is the first milestone towards the releasing of Lagom 1.5.0 which moves Lagom closer to Play and Akka. This release includes Play 2.7.0-M2 and lays the groundwork for gRPC support in future 1.5.0 milestones with Akka Service Discovery integration.</p>
 <p>The motivation behind moving Lagom closer to Play and Akka is twofold: Play and Akka users will be able to adopt Lagom more easily by reusing existing code or APIs they are already familiar with, and framework maintainers will reduce the amount of code to maintain and converge in conventions speeding up the development process.</p>
 <p>Note that this should not be used in production, that Lightbend Orchestration (sbt-reactive-app) does not yet support Lagom 1.5.0-M2, and that ConductR will not be supported for Lagom 1.5.0. Also note that this is an unsupported, pre-release milestone and we don&rsquo;t guarantee API stability or binary compatibility between milestones.</p>
@@ -329,7 +373,7 @@
 <p>Thanks to the community for their detailed bug reports and contributions.</p>
 <p>Thanks to <a href="https://www.lightbend.com/">Lightbend</a> for their continued sponsorship of the Lagom core team’s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>
 <p>Special thanks to the following contributors who helped with this release:<br/><em>Elijah Rippeth, Ayush Prashar, sullis, Tim Moore, Renato Cavalcanti, Marcos Pereira and Ignasi Marimon-Clos</em>.</p>]]></content>
-          <dc:date>2018-07-29T17:00:00.000-07:00</dc:date>
+          <dc:date>2018-07-30T00:00:00.000Z</dc:date>
         </entry><entry>
           <title>Lagom 1.4.7 released!</title>
           <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1-4-7.html"/>
@@ -339,8 +383,8 @@
             <uri>https://github.com/marcospereira</uri>
           </author>
           <id>https://www.lagomframework.com/blog/lagom-1-4-7.html</id>
-          <updated>2018-07-18T17:00:00.000-07:00</updated>
-          <published>2018-07-18T17:00:00.000-07:00</published>
+          <updated>2018-07-19T00:00:00.000Z</updated>
+          <published>2018-07-19T00:00:00.000Z</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.4.7.</p>
 <p>This release provides several bug fixes and updates.</p>
 <h2><a href="#highlights" name="highlights">Highlights</a></h2>
@@ -370,46 +414,6 @@
  1         5      1      anmolmehta93
  1        34     13      Elijah Rippeth
 </code></pre>]]></content>
-          <dc:date>2018-07-18T17:00:00.000-07:00</dc:date>
-        </entry><entry>
-          <title>Lagom 1.4.6 released!</title>
-          <link rel="alternate" href="https://www.lagomframework.com/blog/lagom-1.4.6.html"/>
-          <category term="news" scheme="https://www.lagomframework.com/blog/tags/news.html"/>
-          <author>
-            <name>Ignasi Marimon-Clos</name>
-            <uri>https://github.com/ignasi35</uri>
-          </author>
-          <id>https://www.lagomframework.com/blog/lagom-1.4.6.html</id>
-          <updated>2018-05-30T17:00:00.000-07:00</updated>
-          <published>2018-05-30T17:00:00.000-07:00</published>
-          <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.4.6.</p>
-<p>This release provides several bug fixes and updates.</p>
-<h2>Highlights:</h2>
-<ul>
-  <li>Updates Akka to <a href="https://akka.io/blog/news/2018/06/08/akka-2.5.13-released">2.5.13</a></li>
-  <li>Updates Akka Persistence JDBC to <a href="https://github.com/dnvriend/akka-persistence-jdbc/releases/tag/v3.4.0">3.4.0</a></li>
-  <li>Fix in testkit to <a href="https://github.com/lagom/lagom/pull/1355">allow tests using Play&rsquo;s DBAPI</a></li>
-  <li>Small fixes improving the error reporting for developers. E.g. improved error message in <a href="https://github.com/lagom/lagom/issues/1362">some issues in the Service.Descriptor</a> and improved error message when there&rsquo;s <a href="https://github.com/lagom/lagom/pull/1372">no connection settings for userland read-side DB</a></li>
-</ul>
-<p>See GitHub for the <a href="https://github.com/lagom/lagom/compare/1.4.5...1.4.6">full list of commits</a> and the issues and pull requests assigned to the <a href="https://github.com/lagom/lagom/milestone/31?closed=1">1.4.6 milestone</a>.</p>
-<h2>Updating a Lagom project to version 1.4.6</h2>
-<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
-<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
-<p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>
-<h2><a href="#credits" name="credits">Credits</a></h2>
-<p>Thanks to the community for their detailed bug reports and contributions.</p>
-<p>Thanks to <a href="https://www.lightbend.com">Lightbend</a> for their continued sponsorship of the Lagom core team&rsquo;s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>
-<p>Special thanks to the following contributors who helped with this release:</p>
-<pre>
-  commits  added  removed
-      7     158     652 Tim Moore
-      3      82      52 Ignasi Marimon-Clos
-      1      22      14 Patrik Nordwall
-      1     100      10 James Roper
-      1      21       6 Renato Cavalcanti
-      1       2       2 Wade Waldron
-      1       2       2 Markus Hennerbichler
-</pre>]]></content>
-          <dc:date>2018-05-30T17:00:00.000-07:00</dc:date>
+          <dc:date>2018-07-19T00:00:00.000Z</dc:date>
         </entry>
     </feed>

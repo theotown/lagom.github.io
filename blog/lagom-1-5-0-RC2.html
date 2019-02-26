@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Import a Lagom build in your IDE</title>
+        <title>Lagom - Lagom 1.5.0-RC2 released!</title>
         <meta name="description" content="Lagom">
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
@@ -29,8 +29,7 @@
         </script>
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) end -->
          
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-    
+    <link href="/blog/atom.xml" type="application/atom+xml" rel="home" title="ATOM Feed" />
 
     </head>
     <body>
@@ -122,202 +121,172 @@
                         </div>
                     </div>
 
-                     
+                    
+
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Import a Lagom build in your IDE</h1>
+                <div class="blog-meta">
+                    <div class="blog-author-image">
+                        <a href="https://github.com/marcospereira">
+                            <img src="https://avatars0.githubusercontent.com/u/4576?v=4"/>
+                        </a>
+                    </div>
+                    <div class="blog-meta-details">
+                        <a class="blog-author-name" href="https://github.com/marcospereira">Marcos Pereira</a>
+                        |
+                        <span class="blog-post-date">February 25, 2019</span>
+                        <div class="blog-meta-tags">
+                            
+                                <img src="/images/entypo/white/entypo_tag.svg" class="svg-icon"/>
+                                
+                                    <span class="blog-tag"><a href="tags/news.html">news</a></span>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                <h1>Lagom 1.5.0-RC2 released!</h1>
             </div>
         </div>
     </header>
 
-    <div class="fw-wrapper documentation-content">
+    <article class="fw-wrapper page-content">
         <div class="row">
             <div class="small-12 large-7 columns">
-                
-                    <nav class="breadcrumbs">
-                        <a href="Home.html">Home</a>
-                        
-                                    &raquo;
-                            <a href="Installation.html">Getting started with Lagom</a>
-                        
-                    </nav>
-                
-
-                <article>
-                <h1 id="Import-a-Lagom-build-in-your-IDE"><a class="section-marker" href="#Import-a-Lagom-build-in-your-IDE">§</a><a href="#import-a-lagom-build-in-your-ide" name="import-a-lagom-build-in-your-ide">Import a Lagom build in your IDE</a></h1>
-<p>Here you will learn how to import projects defined in a Lagom build into your preferred IDE.</p><h2 id="Using-Maven"><a class="section-marker" href="#Using-Maven">§</a><a href="#using-maven" name="using-maven">Using Maven</a></h2>
-<p>If using Maven, use the m2clipse plugin in Eclipse, or the built in IntelliJ Maven support in IntelliJ, to import your project.</p><h2 id="Using-sbt"><a class="section-marker" href="#Using-sbt">§</a><a href="#using-sbt" name="using-sbt">Using sbt</a></h2><h3 id="Eclipse"><a class="section-marker" href="#Eclipse">§</a><a href="#eclipse" name="eclipse">Eclipse</a></h3>
-<p><a href="https://github.com/typesafehub/sbteclipse">sbt-eclipse</a> is needed to generate the Eclipse project files, which are required to import all projects defined in your Lagom build into Eclipse.</p>
-<p>If your Lagom build file is in directory <code>helloworld</code>, create a <code>project/eclipse.sbt</code> with the following content:</p>
-<pre class="prettyprint"><code>addSbtPlugin(&quot;com.typesafe.sbteclipse&quot; % &quot;sbteclipse-plugin&quot; % &quot;3.0.0&quot;)
+                <p>We are happy to announce the availability of Lagom 1.5.0-RC2. This is the second release candidate of Lagom 1.5.0. We expect this to be considerably more stable than the milestone releases, not only in terms of functionality but we are also moving closer to the idea of freezing the APIs. Our plan is to later promote this release candidate to a stable release if we don&rsquo;t find major issues.</p>
+<p>Because of that, and as with milestones, the primary goal is to get feedback, so please let us know if something isn&rsquo;t working or you see something that should be improved. If there are changes not well documented in javadocs, scaladocs or our migration guides, please, let us know so that we can improve them before the general availability release.</p>
+<h2><a href="#highlights" name="highlights">Highlights</a></h2>
+<h3><a href="#upgrades-for-major-dependencies" name="upgrades-for-major-dependencies">Upgrades for major dependencies</a></h3>
+<ul>
+  <li>Play upgraded to 2.7.0 (<a href="https://blog.playframework.com/play-2-7-0-is-here/">release notes</a>)</li>
+  <li>Akka upgraded to 2.5.21 (<a href="https://akka.io/blog/news/2019/02/13/akka-2.5.21-released">release notes</a>, but we also recommend that you read other release notes since Akka 2.5.18)</li>
+  <li>Alpakka Kafka upgraded to 1.0-RC2 (<a href="https://doc.akka.io/docs/akka-stream-kafka/current/release-notes/1.0-RC2.html">release notes</a>)</li>
+  <li>Slick upgraded to 3.3.0 (<a href="http://slick.lightbend.com/news/2019/01/30/slick-3.3.0-released.html">release notes</a>)</li>
+</ul>
+<p>There is also a brand new integration with <a href="https://developer.lightbend.com/docs/akka-management/current/">Akka Management</a> providing an easier way to do cluster bootstrap, health-checks enabled by default, and works better with our <a href="https://github.com/lagom/akka-discovery-service-locator">new implementation of ServiceLocator</a> based on <a href="https://doc.akka.io/docs/akka/2.5/discovery/index.html">Akka Discovery</a>.</p>
+<p>See GitHub for the <a href="https://github.com/lagom/lagom/compare/1.5.0-RC1...1.5.0-RC2">full list of commits</a> and the issues and pull requests assigned to the <a href="https://github.com/lagom/lagom/milestone/44?closed=1">1.5.0-RC2 milestone</a>.</p>
+<h2>Updating a Lagom project to version 1.5.0-RC2</h2>
+<p>First, make sure you read the Lagom 1.5 Migration Guide for <a href="https://www.lagomframework.com/documentation/latest/scala/Migration15.html">Scala</a> or <a href="https://www.lagomframework.com/documentation/latest/java/Migration15.html">Java</a>.</p>
+<p>To update an sbt project, change the version of <code>lagom-sbt-plugin</code> in your <code>project/plugins.sbt</code> file.</p>
+<p>To update a Maven project, change the <code>lagom.version</code> property in your top-level <code>pom.xml</code>.</p>
+<p>After updating, it is recommended to fix any new deprecation warnings you see when compiling or running your services.</p>
+<h2><a href="#credits" name="credits">Credits</a></h2>
+<p>Thanks to the community for their detailed bug reports and contributions.</p>
+<p>Thanks to <a href="https://www.lightbend.com/">Lightbend</a> for their continued sponsorship of the Lagom core team’s efforts. Lightbend offers <a href="https://www.lightbend.com/subscription">commercial support</a> for Lagom.</p>
+<p>Special thanks to the following contributors who helped with this release:</p>
+<pre class="prettyprint"><code>commits  added  removed  author
+     13    767      362   Renato Cavalcanti
+      7   1090      697   Ignasi Marimon-Clos
+      4    176      100   Marcos Pereira
+      2      6        5   Martynas Mickevičius
+      2     55       36   Dale Wijnand
+      1     10        0   Zhonglai Zhang
+      1     24       18   Enno
+      1      2        2   Fran Bermejo
+      1      2        2   Prashant Sharma
 </code></pre>
-<p>Save the file. Now, open the terminal, and <code>cd</code> to the <code>helloworld</code> directory, and type <code>activator</code>:</p>
-<pre class="prettyprint"><code>$ cd helloworld
-$ activator
-... (booting up)
-&gt;
-</code></pre>
-<p>If you have configured things correctly, typing <code>eclipse</code> will generate the Eclipse project files for all projects in your build:</p>
-<pre class="prettyprint"><code>&gt; eclipse
-...
-[info] Successfully created Eclipse project files for project(s):
-[info] helloworld-impl
-[info] helloworld-api
-[info] hellostream-impl
-[info] hellostream-api
-[info] lagom-internal-meta-project-service-locator
-[info] lagom-internal-meta-project-cassandra
-&gt;
-</code></pre>
-<p>Open Eclipse and follow the <a href="http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.platform.doc.user%2Ftasks%2Ftasks-importproject.htm">Eclipse instructions</a> for importing existing projects. Also, mind that <code>lagom-internal-meta-project-service-locator</code> and <code>lagom-internal-meta-project-cassandra</code> are internal projects that you don&rsquo;t need to import, so just unselect them:</p>
-<p><a href="resources/gettingstarted/eclipse_import_unselect_synthetic_projects.png"><img src="resources/gettingstarted/eclipse_import_unselect_synthetic_projects.png"/></a></p>
-<p>One thing you&rsquo;ll notice after opening the imported projects in Eclipse is that a few unneeded source directories such as <code>src/main/scala</code> and <code>src/test/scala</code> have been created. It is possible to correct this behavior, but you will need to make a few changes in your Lagom build file. First, add the following definitions in your build (anywhere):</p>
-<pre class="prettyprint"><code>// All projects that you would like to import in Eclipse should use 
-// this factory.
-// Here is an usage example:
-// {{{
-//   lazy val userApi = project(&quot;user-api&quot;)
-//     .settings(libraryDependencies += lagomJavadslApi)
-//
-//   lazy val userImpl = project(&quot;user-impl&quot;)
-//     .settings(libraryDependencies += lagomJavadslServer)
-//     .dependsOn(userApi)
-// }}}
-def project(id: String) = Project(id, base = file(id))
-  .settings(eclipseSettings: _*)
 
-// Configuration of sbteclipse
-// Needed for importing the project into Eclipse
-lazy val eclipseSettings = Seq(
-  EclipseKeys.projectFlavor := EclipseProjectFlavor.Java,
-  EclipseKeys.withBundledScalaContainers := false,
-  EclipseKeys.createSrc := EclipseCreateSrc.Default + EclipseCreateSrc.Resource,
-  EclipseKeys.eclipseOutput := Some(&quot;.target&quot;),
-  // will automatically download and attach sources if available
-  EclipseKeys.withSource := true,
-  // will automatically download and attach javadoc if available
-  EclipseKeys.withJavadoc := true,
-  // avoid some scala specific source directories
-  unmanagedSourceDirectories in Compile := Seq((javaSource in Compile).value),
-  unmanagedSourceDirectories in Test := Seq((javaSource in Test).value)
-)
-</code></pre>
-<p>Now update all projects declarations in your Lagom build to use the newly created <code>project</code> method, so that the defined <code>eclipseSettings</code> are successfully applied to all projects.</p>
-<p>Finally, you will need to regenerate the Eclipse project files to account for the changes made in the build file. Go back to the activator console, type <code>reload</code> to reload the build file, and type <code>eclipse</code>. Once the <code>eclipse</code> task completes, go back to Eclipse, hit F5 to refresh all previously imported projects, and you are done.</p><h3 id="IntelliJ"><a class="section-marker" href="#IntelliJ">§</a><a href="#intellij" name="intellij">IntelliJ</a></h3>
-<p>Because the Lagom build file is written in sbt, we recommend to install the IntelliJ IDEA sbt plugin to facilitate importing projects. Unfortunately, for sbt plugin to properly work, you will need to install the Scala plugin as well. To do so, open the <code>Plugins</code> modal for installing plugins, search for the &ldquo;SBT&rdquo; plugin. If no match is found, you&rsquo;ll have to hit &ldquo;Browse&rdquo;.</p>
-<p><a href="resources/gettingstarted/idea_search_sbt_plugin.png"><img src="resources/gettingstarted/idea_search_sbt_plugin.png"/></a></p>
-<p>Select and install the plugin.</p>
-<p><a href="resources/gettingstarted/idea_install_sbt_plugin.png"><img src="resources/gettingstarted/idea_install_sbt_plugin.png"/></a></p>
-<p>Repeat the same process for the &ldquo;Scala&rdquo; plugin.</p>
-<p>After restarting IntelliJ IDEA, go to &ldquo;Import Project&rdquo;, and select your Lagom <code>build.sbt</code> file. An &ldquo;Import Project from SBT&rdquo; modal will open, and we suggest you to tick &ldquo;Use auto-import&rdquo;, and also tick the option to download sources and javadocs:</p>
-<p><a href="resources/gettingstarted/idea_sbt_project_import.png"><img src="resources/gettingstarted/idea_sbt_project_import.png"/></a></p>
-<p>Click &ldquo;OK&rdquo; and continue by importing all projects.</p>
-                </article>
+                <h2>Share</h2>
+                <div class="addthis_sharing_toolbox"></div>
 
-                
-                    
-                        
-                            <nav class="next-link">
-                                <a href="ReferenceGuide.html"><strong>Next: </strong>
-                                    Lagom reference guide</a>
-                            </nav>
-                        
-                    
-                
+                <br/>
 
-                
-                    <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/tree/1.1.x/docs/manual/gettingstarted/IDEs.md">here</a>. Please feel free to edit and contribute a pull request. </p>
-                
+                <h2>Discuss</h2>
+                <div id="disqus_thread"><div class="cookie-warning"><p>Cookies are required for this functionality.<a class="optanon-allow-all">Allow Cookies</a><p></div></div>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
             </div>
-            <aside class="small-12 large-4 columns">
-                <nav class="side-menu">
+            <aside class="show-for-medium small-12 large-4 columns">
+            
 
-                    <input type="search" id="cross-docs-search" placeholder="Search..." />
+<nav class="side-menu">
+    
+        <h3>Recent posts</h3>
 
-                    <label for="docs-version">Version:</label>
-                    <select id="docs-version">
-                    
-                        <option value="/documentation/1.0.x/java/IDEs.html" >1.0.x</option>
-                    
-                        <option value="/documentation/1.1.x/java/IDEs.html" 
-                            selected="selected">1.1.x</option>
-                    
-                        <option value="/documentation/1.2.x/java/IDEs.html" >1.2.x</option>
-                    
-                        <option value="/documentation/1.3.x/java/Home.html" >1.3.x</option>
-                    
-                        <option value="/documentation/1.4.x/java/Home.html" >1.4.x</option>
-                    
-                        <option value="/documentation/current/java/Home.html" >current</option>
-                    
-                        <option value="/documentation/latest/java/Home.html" >latest</option>
-                    
-                    </select>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/marcospereira">
+                        <img src="https://avatars0.githubusercontent.com/u/4576?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-5-0-RC2.html">Lagom 1.5.0-RC2 released!</a>
+                    <br/>
+                    February 25, 2019
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/marcospereira">
+                        <img src="https://avatars0.githubusercontent.com/u/4576?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-4-11.html">Lagom 1.4.11 released!</a>
+                    <br/>
+                    February 11, 2019
+                </div>
+            </div>
+        
+            <div class="blog-meta">
+                <div class="blog-author-image">
+                    <a href="https://github.com/ignasi35">
+                        <img src="https://avatars2.githubusercontent.com/u/762126?v=4"/>
+                    </a>
+                </div>
+                <div class="blog-meta-details">
+                    <a href="/blog/lagom-1-4-10.html">Lagom 1.4.10 released!</a>
+                    <br/>
+                    January 11, 2019
+                </div>
+            </div>
+        
 
-                    <a href="/documentation/1.1.x/java/api/index.html" class="api-docs">
-                        API Documentation</a>
+    
 
-                    
-                        <h3>Getting started with Lagom</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="Installation.html">Installing Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="GettingStarted.html">Getting started with Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="GettingStartedMaven.html">Getting started with Lagom in Maven</a></li>
-                            
-                        
-                            
-                                <li><a href="GettingStartedSbt.html">Getting started with Lagom in Sbt</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="IDEs.html">Import a Lagom build in your IDE</a></li>
-                            
-                        
-                        </ul>
-                    
-                        <h3>Home</h3>
-                        <ul>
-                        
-                            
-                                <li><a href="Home.html">Home</a></li>
-                            
-                        
-                            
-                                <li><a href="WhatIsLagom.html">Welcome to Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="CoreConcepts.html">Lagom core concepts</a></li>
-                            
-                        
-                            
-                                <li class="current-page"><a href="Installation.html">Getting started with Lagom</a></li>
-                            
-                        
-                            
-                                <li><a href="ReferenceGuide.html">Lagom reference guide</a></li>
-                            
-                        
-                            
-                                <li><a href="ImmutablesInIDEs.html">Appendix</a></li>
-                            
-                        
-                        </ul>
-                    
-                </nav>
+    <h3>Tags</h3>
+
+    <div class="blog-tag-box">
+    
+        <a href="/blog/tags/conductr.html" data-count="1">conductr</a>
+    
+        <a href="/blog/tags/cookbook.html" data-count="1">cookbook</a>
+    
+        <a href="/blog/tags/crud.html" data-count="1">crud</a>
+    
+        <a href="/blog/tags/discuss.html" data-count="1">discuss</a>
+    
+        <a href="/blog/tags/event%20sourcing.html" data-count="1">event sourcing</a>
+    
+        <a href="/blog/tags/generator.html" data-count="1">generator</a>
+    
+        <a href="/blog/tags/java.html" data-count="1">java</a>
+    
+        <a href="/blog/tags/maven.html" data-count="1">maven</a>
+    
+        <a href="/blog/tags/news.html" data-count="46">news</a>
+    
+        <a href="/blog/tags/outreachy.html" data-count="1">outreachy</a>
+    
+        <a href="/blog/tags/recipes.html" data-count="1">recipes</a>
+    
+        <a href="/blog/tags/scala.html" data-count="2">scala</a>
+    
+        <a href="/blog/tags/screencast.html" data-count="1">screencast</a>
+    
+    </div>
+
+</nav>
+
+
             </aside>
         </div>
-    </div>
+    </article>
+
+
 
 
                     <footer>
@@ -424,109 +393,20 @@ lazy val eclipseSettings = Seq(
     <script src="/52266186b100a183337cb16649cb42403421dc4a-all-scripts-concat.js"></script>
     
      
-    <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-        <!-- Cross-site search. This is using Algolia's autocomplete.js  -->
-    <script>
-            var clientLagom = algoliasearch('BH4D9OD16A', '77ef1e29e6bddfca861f7a42cc51725e');
-            var clientAkka = algoliasearch('BH4D9OD16A', '543bad5ad786495d9ccd445ed34ed082');
-            var clientPlay = algoliasearch('BH4D9OD16A', 'a0b34e68c804cf96e76adcb02d47159b');
-            var lagomIndex = clientLagom.initIndex('lagomframework');
-            var akkaIndex = clientAkka.initIndex('akka_io');
-            var playIndex = clientPlay.initIndex('playframework');
-
-            var displayValue = function (suggestion, level) {
-                if (level === 0)
-                    return suggestion._highlightResult.hierarchy.lvl0.value;
-                if (suggestion._highlightResult.hierarchy['lvl' + level] !== undefined) {
-                    return suggestion._highlightResult.hierarchy['lvl' + level].value ;
-                } else {
-                    return displayValue(suggestion, level - 1) ;
-                }
-            };
-            var displaySnippet = function (suggestion) {
-                if (typeof suggestion._snippetResult !== 'undefined') {
-                    return '<div class="algolia-docsearch-suggestion--text">' + suggestion._snippetResult.content.value + '</div>'
-                } else {
-                    return ''
-                }
-            }
-
-            var wrap = function (content, wrapper) {
-                if (typeof wrapper !== 'undefined') {
-                    return '<span class=' + wrapper + '>' + content + '</span>';
-                } else {
-                    return content;
-                }
-            }
-
-            var buildIndexSettings = function (_indexObj, _hitsPerPage, _faceFilters, title, useFooter, wrapper) {
-                var _header = wrap('<span class="algolia-docsearch-suggestion algolia-docsearch-suggestion__main algolia-docsearch-suggestion__secondary algolia-docsearch-suggestion--category-header ">' + title + '</span>', wrapper);
-                var _templates = {
-                    header: _header,
-                    suggestion: function (suggestion) {
-                        var suggestionHtml = '<div class="algolia-docsearch-suggestion algolia-docsearch-suggestion__secondary" style="white-space: normal;">' +
-                                '<div class="algolia-docsearch-suggestion--wrapper">' +
-                                '<div class="algolia-docsearch-suggestion--subcategory-column ">' +
-                                '<span class="algolia-docsearch-suggestion--subcategory-column-text">' + displayValue(suggestion, 0) + '</span>' +
-                                '</div>' +
-                                '<div class="algolia-docsearch-suggestion--content">' +
-                                '<div class="algolia-docsearch-suggestion--subcategory-inline ">' + displayValue(suggestion, 1) + '</div>' +
-                                '<div class="algolia-docsearch-suggestion--title algolia-docsearch-suggestion--duplicate-content">' + displayValue(suggestion, 2) + '</div>' +
-                                displaySnippet(suggestion) +
-                                '</div>' +
-                                '</div>' +
-                                '</div>';
-                        return wrap(suggestionHtml, wrapper)
-                    }
-                };
-                if (useFooter) {
-                    _templates['footer'] = '<div class="algolia-docsearch-footer"><a class="algolia-docsearch-footer--logo" href="https://www.algolia.com/docsearch">Algolia</a></div>';
-                }
-
-                return {
-                    source: autocomplete.sources.hits(
-                            _indexObj,
-                            {hitsPerPage: _hitsPerPage, facetFilters: _faceFilters}
-                    )
-                    ,
-                    templates: _templates
-                };
-
-            };
-
-            var lagomFacetFilters = ['version:current'];
-            var akkaFacetFilters = [];
-            var playFacetFilters = ['version:2.6.x', 'tags:en'];
-
-            var useScalaFacetFilter = window.location.href.split('/').includes("scala");
-            if (useScalaFacetFilter) {
-                lagomFacetFilters.push('language:scala');
-                // The Akka faceting for language is not active. Instead, the paradox grouping is used.
-                // akkaFacetFilters.push('language:scala');
-            } else {
-                lagomFacetFilters.push('language:java');
-                // The Akka faceting for language is not active. Instead, the paradox grouping is used.
-                // akkaFacetFilters.push('language:java');
-            }
-
-
-            autocomplete('#cross-docs-search',
-                    {hint: false},
-                    [
-                        buildIndexSettings(lagomIndex, 5, lagomFacetFilters, "Lagom Documentation", false)
-                        ,
-                        buildIndexSettings(akkaIndex, 2, akkaFacetFilters, "Akka Documentation", false, "akka")
-                        ,
-                        buildIndexSettings(playIndex, 2, playFacetFilters, "Play Documentation", true, "play")
-                    ]
-            ).on('autocomplete:selected', function (event, suggestion, dataset) {
-                location.href = suggestion.url;
-            });
+    <script type="text/plain" class="optanon-category-4" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>
+    <script type="text/plain" class="optanon-category-4">
+        var disqus_config = function () {
+            this.page.url = "https://www.lagomframework.com/blog/lagom-1-5-0-RC2.html";
+            this.page.identifier = "lagom-1-5-0-RC2";
+            this.page.title = "Lagom 1.5.0-RC2 released!";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//lagomframework.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
-
-
-    
 
     <script type="text/plain" class="optanon-category-2">
   		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

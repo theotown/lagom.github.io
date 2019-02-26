@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/cf8fc6498644dfd094879380ec23106fec9ea2c1-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/52266186b100a183337cb16649cb42403421dc4a-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -151,7 +151,7 @@
 
                 <article>
                 <h1 id="Persistent-Entity"><a class="section-marker" href="#Persistent-Entity">§</a>Persistent Entity</h1>
-<p>We recommend reading <a href="ES_CQRS.html">Event Sourcing and CQRS</a> as a prerequisite to this section.</p>
+<p><a href="ES_CQRS.html">Event Sourcing and CQRS</a> is a recommended introduction to this section.</p>
 <p>A <code>PersistentEntity</code> has a stable entity identifier, with which it can be accessed from the service implementation or other places. The state of an entity is persistent (durable) using <a href="https://msdn.microsoft.com/en-us/library/jj591559.aspx">Event Sourcing</a>. We represent all state changes as events and those immutable facts are appended to an event log. To recreate the current state of an entity when it is started we replay these events.</p>
 <p>A persistent entity corresponds to an <a href="https://martinfowler.com/bliki/DDD_Aggregate.html">Aggregate Root</a> in Domain-Driven Design terms. Each instance has a stable identifier and for a given id there will only be one instance of the entity. Lagom takes care of distributing those instances across the cluster of the service. If you know the identifier you can send messages, so called commands, to the entity.</p>
 <p>The persistent entity is also a transaction boundary. Invariants can be maintained within one entity but not across several entities.</p>
@@ -170,8 +170,8 @@
 </ul>
 <p>We recommend using Cassandra. Cassandra is a very scalable distributed database, and it is also flexible enough to support typical use cases of reactive services. In contrast to most relational databases, it natively supports sharding and replication, and is emerging as an industry standard open source NoSQL database.</p>
 <p>Lagom also provides out of the box support for running Cassandra in a development environment - developers do not need to install, configure or manage Cassandra at all themselves when using Lagom, which makes for great developer velocity, and it means gone are the days where developers spend days setting up their development environment before they can start to be productive on a project.</p>
-<p>For instructions on configuring your project to use Cassandra, see <a href="PersistentEntityCassandra.html">Using Cassandra for Persistent Entities</a>. If instead you want to use one of the relational databases listed above, see <a href="PersistentEntityRDBMS.html">Using a Relational Database for Persistent Entities</a> on how to configure your project. To see how to use Cassandra for write-side persistence and JPA for a read-side view, see the <a href="https://github.com/lagom/lagom-recipes/blob/master/mixed-persistence/mixed-persistence-java-sbt/README.md">Mixed Persistence Service</a> recipe.</p><h2 id="PersistentEntity-Stub"><a class="section-marker" href="#PersistentEntity-Stub">§</a>PersistentEntity Stub</h2>
-<p>This is what a <a href="api/index.html?com/lightbend/lagom/javadsl/persistence/PersistentEntity.html">PersistentEntity</a> class looks like before filling in the implementation details:</p>
+<p>For instructions on configuring your project to use Cassandra, see <a href="PersistentEntityCassandra.html">Using Cassandra for Persistent Entities</a>. If instead you want to use one of the relational databases listed above, see <a href="PersistentEntityRDBMS.html">Using a Relational Database for Persistent Entities</a> on how to configure your project.</p><h2 id="PersistentEntity-Stub"><a class="section-marker" href="#PersistentEntity-Stub">§</a>PersistentEntity Stub</h2>
+<p>This is how a <a href="api/index.html?com/lightbend/lagom/javadsl/persistence/PersistentEntity.html">PersistentEntity</a> class looks like before filling in the implementation details:</p>
 <pre class="prettyprint"><code class="language-java">import com.lightbend.lagom.javadsl.persistence.PersistentEntity;
 
 public class Post1
@@ -865,7 +865,7 @@ interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/PersistentEntity.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/java/guide/cluster/PersistentEntity.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -1123,7 +1123,7 @@ interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
             </div>
         </div>
     </body>
-    <script src="/cf8fc6498644dfd094879380ec23106fec9ea2c1-all-scripts-concat.js"></script>
+    <script src="/52266186b100a183337cb16649cb42403421dc4a-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

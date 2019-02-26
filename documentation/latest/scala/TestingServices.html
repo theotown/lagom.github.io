@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/70cdad95dc3f6898e92c117a67009fbacdbd207b-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/cf8fc6498644dfd094879380ec23106fec9ea2c1-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -260,7 +260,32 @@ class HelloServiceSpec extends AsyncWordSpec with Matchers with BeforeAndAfterAl
 ) { ctx =&gt;
   new HelloApplication(ctx) with LocalServiceLocator
 }</code></pre>
-<p>There&rsquo;s no way to explicitly enable or disable <a href="PubSub.html">pubsub</a>. When cluster is enabled (either explicitly or transitively via enabling Cassandra or JDBC), pubsub will be available.</p><h2 id="How-to-test-several-services"><a class="section-marker" href="#How-to-test-several-services">§</a>How to test several services</h2>
+<p>There&rsquo;s no way to explicitly enable or disable <a href="PubSub.html">pubsub</a>. When cluster is enabled (either explicitly or transitively via enabling Cassandra or JDBC), pubsub will be available.</p><h2 id="How-to-use-TLS-on-tests"><a class="section-marker" href="#How-to-use-TLS-on-tests">§</a>How to use TLS on tests</h2>
+<p>To open an SSL port on the <code>TestServer</code> used in your tests, you may enable SSL support using <code>withSsl</code>:</p>
+<pre class="prettyprint"><code class="language-java">Setup.defaultSetup.withSsl()
+</code></pre>
+<p>Enabling SSL will automatically open a new random port and provide an <code>javax.net.ssl.SSLContext</code> on the TestServer. Lagom doesn&rsquo;t provide any client factory that allows sending requests to the HTTPS port at the moment. You should create an HTTP client using Play-WS, Akka-HTTP or Akka-gRPC. Then, use the <code>httpsPort</code> and the <code>sslContext</code> provided by the <code>testServer</code> instance to send the request. Note that the <code>SSLContext</code> provided is built by Lagom&rsquo;s testkit to trust the <code>testServer</code> certificates. Finally, because the server certificate is issued for <code>CN=localhost</code> you will have to make sure that&rsquo;s the <code>authority</code> on the requests you generate, otherwise the server may decline and fail the request. At the moment it is not possible to setup the test server with different SSL Certificates. </p>
+<pre class="prettyprint"><code class="language-scala">&quot;complete a WS call over HTTPS&quot; in {
+  val setup = defaultSetup.withSsl()
+  ServiceTest.withServer(setup)(new TestTlsApplication(_)) { server =&gt;
+    implicit val ctx = server.application.executionContext
+    // To explicitly use HTTPS on a test you must create a client of your
+    // own and make sure it uses the provided SSLContext
+    val wsClient = buildCustomWS(server.clientSslContext.get)
+    // use `localhost` as authority
+    val url = s&quot;https://localhost:${server.playServer.httpsPort.get}/api/sample&quot;
+    val response =
+      wsClient
+        .url(url)
+        .get()
+        .map {
+          _.body[String]
+        }
+    whenReady(response, timeout) { r =&gt;
+      r should be(&quot;sample response&quot;)
+    }
+  }
+}</code></pre><h2 id="How-to-test-several-services"><a class="section-marker" href="#How-to-test-several-services">§</a>How to test several services</h2>
 <p>Lagom will provide support for writing integration tests that involve several interacting services. This feature is <a href="https://github.com/lagom/lagom/issues/38">not yet implemented</a>.</p><h2 id="How-to-test-streamed-request/response"><a class="section-marker" href="#How-to-test-streamed-request/response">§</a>How to test streamed request/response</h2>
 <p>Let&rsquo;s say we have a service that has streaming request and/or response parameters. For example an <code>EchoService</code> like this:</p>
 <pre class="prettyprint"><code class="language-scala">trait EchoService extends Service {
@@ -556,7 +581,7 @@ class HelloServiceSpec extends AsyncWordSpec with Matchers with BeforeAndAfterAl
             </div>
         </div>
     </body>
-    <script src="/70cdad95dc3f6898e92c117a67009fbacdbd207b-all-scripts-concat.js"></script>
+    <script src="/cf8fc6498644dfd094879380ec23106fec9ea2c1-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

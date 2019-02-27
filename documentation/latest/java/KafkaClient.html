@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/52266186b100a183337cb16649cb42403421dc4a-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/60ff5dfe80ddc72ecd63501b909d2b0493ecb364-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -151,7 +151,7 @@
 
                 <article>
                 <h1 id="Lagom-Kafka-Client"><a class="section-marker" href="#Lagom-Kafka-Client">§</a>Lagom Kafka Client</h1>
-<p>Lagom provides an implementation of the Message Broker API that uses Kafka. In the remainder you will learn how to add the dependency in your build, and how to configure and tune topic&rsquo;s publishers and subscribers.</p><h2 id="Dependency"><a class="section-marker" href="#Dependency">§</a>Dependency</h2>
+<p>Lagom provides an implementation of the Message Broker API that uses Kafka. The following sections show how to add the dependency in your build, and how to configure and tune topic publishers and subscribers. For information on running Kafka in development, see the <a href="KafkaServer.html">Kafka Server</a> page. </p><h2 id="Dependency"><a class="section-marker" href="#Dependency">§</a>Dependency</h2>
 <p>To use this feature add the following in your project&rsquo;s build.</p>
 <p>In Maven:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
@@ -247,6 +247,7 @@
 <pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomJavadslKafkaClient</code></pre>
 <p>If/when your subscriber-only service evolves to include features that publish data to a topic, you will need to depend on Lagom Kafka Broker and remove the dependency to Lagom Kafka Client. The Lagom Kafka Broker module includes the Lagom Kafka Client module.</p><h3 id="Consuming-Topics-from-3rd-parties"><a class="section-marker" href="#Consuming-Topics-from-3rd-parties">§</a>Consuming Topics from 3rd parties</h3>
 <p>You may want your Lagom service to consume data produced on services not implemented in Lagom. In that case, as described in the <a href="ServiceClients.html">Service Clients</a> section, you can create a <code>third-party-service-api</code> module in your Lagom project. That module will contain a Service Descriptor <a href="MessageBrokerApi.html#Declaring-a-topic">declaring the topic</a> you will consume from. Once you have your <code>ThirdPartyService</code> interface and related classes implemented, you should add <code>third-party-service-api</code> as a dependency on your <code>fancy-service-impl</code>. Finally, you can consume from the topic described in <code>ThirdPartyService</code> as documented in the <a href="MessageBrokerApi.html#Subscribe-to-a-topic">Subscribe to a topic</a> section.</p>
+<p>For an example, see the <a href="https://github.com/lagom/lagom-recipes/blob/master/consumer-service/consumer-service-java-sbt/README.md">consumer service recipe</a>.</p>
                 </article>
 
                 
@@ -262,7 +263,7 @@
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/java/guide/broker/KafkaClient.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/broker/KafkaClient.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -492,7 +493,7 @@
             </div>
         </div>
     </body>
-    <script src="/52266186b100a183337cb16649cb42403421dc4a-all-scripts-concat.js"></script>
+    <script src="/60ff5dfe80ddc72ecd63501b909d2b0493ecb364-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

@@ -207,6 +207,10 @@
         "title" : "Error handling",
         "url" : "ServiceErrorHandling.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/services/ServiceErrorHandling.md"
+      }, {
+        "title" : "Additional Routers",
+        "url" : "AdditionalRouters.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/services/AdditionalRouters.md"
       } ]
     }, {
       "title" : "Writing persistent and clustered services",

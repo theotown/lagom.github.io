@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/f6fc36398c168b48fc7b4dfb6aea0f6106211c3e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/e3d2d499b6421ab3379000ba21a95263481f8d67-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -147,7 +147,8 @@
                 <article>
                 <h1 id="Lagom-1.5-Migration-Guide"><a class="section-marker" href="#Lagom-1.5-Migration-Guide">§</a>Lagom 1.5 Migration Guide</h1>
 <p>This guide explains how to migrate from Lagom 1.4 to Lagom 1.5. If you are upgrading from an earlier version, be sure to review previous migration guides.</p>
-<p>Lagom 1.5 also updates to the latest major versions of Play (2.7), Aka (2.5.18) and Akka HTTP (10.1). We have highlighted the changes that are relevant to most Lagom users, but you may need to change code in your services that uses Play APIs directly. You&rsquo;ll also need to update any Play services in your Lagom project repositories to be compatible with Play 2.7. Please refer to the Play 2.7 migration guide (<a href="https://www.playframework.com/documentation/2.7.0-RC8/Migration27)">https://www.playframework.com/documentation/2.7.0-RC8/Migration27)</a>, <a href="https://akka.io/blog/news/2018/10/07/akka-2.5.18-released">Akka 2.5.18 release announcement</a> and the <a href="https://akka.io/blog/news/2018/03/08/akka-http-10.1.0-released.html">Akka HTTP 10.1.0 release announcement</a> for more details.</p><h2 id="Build-changes"><a class="section-marker" href="#Build-changes">§</a>Build changes</h2>
+<p>Lagom 1.5 updates to the latest major versions of Play (2.7), Akka (2.5.21) and Akka HTTP (10.1). We have highlighted the changes that are relevant to most Lagom users, but you may need to change code in your services that uses Play APIs directly. You&rsquo;ll also need to update any Play services in your Lagom project repositories to be compatible with Play 2.7. Please refer to the Play 2.7 migration guide (<a href="https://www.playframework.com/documentation/2.7.0/Migration27)">https://www.playframework.com/documentation/2.7.0/Migration27)</a>, <a href="https://akka.io/blog/news/2019/02/13/akka-2.5.21-released">Akka 2.5.21 release announcement</a> and the <a href="https://akka.io/blog/news-archive.html">Akka HTTP 10.1.x release announcements</a> for more details.</p>
+<p>For a detailed list of version upgrades for Slick, Alpakka-Kafka, Kafka, etc&hellip; refer to the <a href="https://github.com/lagom/lagom/releases">release notes</a>.</p><h2 id="Build-changes"><a class="section-marker" href="#Build-changes">§</a>Build changes</h2>
 <p>The version of Lagom can be updated by editing the <code>project/plugins.sbt</code> file, and updating the version of the Lagom sbt plugin. For example:</p>
 <pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.lagom&quot; % &quot;lagom-sbt-plugin&quot; % &quot;1.5.0-RC1&quot;)
 </code></pre>
@@ -372,7 +373,7 @@
             </div>
         </div>
     </body>
-    <script src="/f6fc36398c168b48fc7b4dfb6aea0f6106211c3e-all-scripts-concat.js"></script>
+    <script src="/e3d2d499b6421ab3379000ba21a95263481f8d67-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

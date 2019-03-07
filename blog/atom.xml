@@ -23,6 +23,9 @@
           <content type="html"><![CDATA[<p>We are happy to announce the availability of Lagom 1.5.0-RC2. This is the second release candidate of Lagom 1.5.0. We expect this to be considerably more stable than the milestone releases, not only in terms of functionality but we are also moving closer to the idea of freezing the APIs. Our plan is to later promote this release candidate to a stable release if we don&rsquo;t find major issues.</p>
 <p>Because of that, and as with milestones, the primary goal is to get feedback, so please let us know if something isn&rsquo;t working or you see something that should be improved. If there are changes not well documented in javadocs, scaladocs or our migration guides, please, let us know so that we can improve them before the general availability release.</p>
 <h2><a href="#highlights" name="highlights">Highlights</a></h2>
+<h3><a href="#deployment" name="deployment">Deployment</a></h3>
+<p>Since version <code>1.5.0-RC2</code> Lagom no longer supports <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/">Lightbend Orchestration</a>. If you depend on Lightbend Orchestration to produce your <code>Dockerfile</code> and deployment specs (Kubernetes or DC/OS) refer to the <a href="https://www.lagomframework.com/documentation/latest/scala/Migration15.html">Lagom 1.5 Migration Guide</a>.</p>
+<p>If your deployment target is OpenShift you can also refer to the <a href="https://developer.lightbend.com/guides/openshift-deployment/">Deploying Lightbend applications to OpenShift</a> guide.</p>
 <h3><a href="#upgrades-for-major-dependencies" name="upgrades-for-major-dependencies">Upgrades for major dependencies</a></h3>
 <ul>
   <li>Play upgraded to 2.7.0 (<a href="https://blog.playframework.com/play-2-7-0-is-here/">release notes</a>)</li>
@@ -65,7 +68,7 @@
           <updated>2019-02-10T16:00:00.000-08:00</updated>
           <published>2019-02-10T16:00:00.000-08:00</published>
           <content type="html"><![CDATA[<p>The Lagom team has released Lagom 1.4.11.</p>
-<p>This release upgrades Akka to resolve a compatibility problem with Lightbend Orchestration 1.7.0.</p>
+<p>This release upgrades Akka to resolve a compatibility problem with Lightbend Orchestration 1.7.3.</p>
 <h2><a href="#highlights" name="highlights">Highlights</a></h2>
 <ul>
   <li>Updates Akka to version <a href="https://akka.io/blog/news/2019/01/29/akka-2.5.20-released">2.5.20</a> which stabilizes some APIs and brings bug fixes.</li>

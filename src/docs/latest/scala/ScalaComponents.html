@@ -1,5 +1,5 @@
 <h1 id="Scala-Components"><a class="section-marker" href="#Scala-Components">§</a>Scala Components</h1>
-<p>This is a list of available Components you may use to build your application cake. This list contains Components provided by Lagom, Play and Lightbend Orchestration. You may develop your own Components and use those instead of the provided on this list as long as the contracts are fulfilled.</p><h5 id="Service-Components"><a class="section-marker" href="#Service-Components">§</a>Service Components</h5>
+<p>This is a list of available Components you may use to build your application cake. This list contains Components provided by Lagom, Play and other libraries. You may develop your own Components and use those instead of the provided on this list as long as the contracts are fulfilled.</p><h5 id="Service-Components"><a class="section-marker" href="#Service-Components">§</a>Service Components</h5>
 <table>
   <tbody>
     <tr>
@@ -78,7 +78,7 @@
 </table><h5 id="Third-party-Components"><a class="section-marker" href="#Third-party-Components">§</a>Third party Components</h5>
 <p>You can mix in <code>Components</code> from other frameworks or libraries, for example:</p>
 <ul>
-  <li><a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/setup/project-configuration.html#lagom-scala">LagomServiceLocatorComponents</a>: is defined by the <code>reactive-lib</code> component of Lightbend Orchestration, and provides a Lagom <code>ServiceLocator</code> implementation that works with the native service discovery features of Kubernetes and DC/OS (Marathon).</li>
+  <li><a href="https://github.com/lagom/lagom-akka-discovery-service-locator">AkkaDiscoveryComponents</a>: is defined by the <code>lagom-akka-discovery-service-locator</code> library and provides a Lagom <code>ServiceLocator</code> implementation built on <a href="https://doc.akka.io/docs/akka/current/discovery/index.html">Akka Service Discovery</a>. It is the recommended implementation for production specially for users targeting Kubernetes and DC/OS (Marathon).</li>
   <li><a href="https://www.playframework.com/documentation/2.6.x/api/scala/index.html#play.api.libs.ws.ahc.AhcWSComponents">AhcWSComponents</a>: provides a <code>WSClient</code> based on an Async HTTP Client.</li>
   <li><a href="https://www.playframework.com/documentation/2.6.x/api/scala/play/api/db/DBComponents.html">DBComponents</a></li>
   <li><a href="https://www.playframework.com/documentation/2.6.x/api/scala/play/api/db/HikariCPComponents.html">HikariCPComponents</a></li>

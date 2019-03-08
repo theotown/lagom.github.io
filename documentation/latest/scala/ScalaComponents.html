@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/e3d2d499b6421ab3379000ba21a95263481f8d67-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/185eb6b4c9b0a7ed658333c5b7c5e7fc0984107b-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -151,7 +151,7 @@
 
                 <article>
                 <h1 id="Scala-Components"><a class="section-marker" href="#Scala-Components">§</a>Scala Components</h1>
-<p>This is a list of available Components you may use to build your application cake. This list contains Components provided by Lagom, Play and Lightbend Orchestration. You may develop your own Components and use those instead of the provided on this list as long as the contracts are fulfilled.</p><h5 id="Service-Components"><a class="section-marker" href="#Service-Components">§</a>Service Components</h5>
+<p>This is a list of available Components you may use to build your application cake. This list contains Components provided by Lagom, Play and other libraries. You may develop your own Components and use those instead of the provided on this list as long as the contracts are fulfilled.</p><h5 id="Service-Components"><a class="section-marker" href="#Service-Components">§</a>Service Components</h5>
 <table>
   <tbody>
     <tr>
@@ -230,7 +230,7 @@
 </table><h5 id="Third-party-Components"><a class="section-marker" href="#Third-party-Components">§</a>Third party Components</h5>
 <p>You can mix in <code>Components</code> from other frameworks or libraries, for example:</p>
 <ul>
-  <li><a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/setup/project-configuration.html#lagom-scala">LagomServiceLocatorComponents</a>: is defined by the <code>reactive-lib</code> component of Lightbend Orchestration, and provides a Lagom <code>ServiceLocator</code> implementation that works with the native service discovery features of Kubernetes and DC/OS (Marathon).</li>
+  <li><a href="https://github.com/lagom/lagom-akka-discovery-service-locator">AkkaDiscoveryComponents</a>: is defined by the <code>lagom-akka-discovery-service-locator</code> library and provides a Lagom <code>ServiceLocator</code> implementation built on <a href="https://doc.akka.io/docs/akka/current/discovery/index.html">Akka Service Discovery</a>. It is the recommended implementation for production specially for users targeting Kubernetes and DC/OS (Marathon).</li>
   <li><a href="https://www.playframework.com/documentation/2.6.x/api/scala/index.html#play.api.libs.ws.ahc.AhcWSComponents">AhcWSComponents</a>: provides a <code>WSClient</code> based on an Async HTTP Client.</li>
   <li><a href="https://www.playframework.com/documentation/2.6.x/api/scala/play/api/db/DBComponents.html">DBComponents</a></li>
   <li><a href="https://www.playframework.com/documentation/2.6.x/api/scala/play/api/db/HikariCPComponents.html">HikariCPComponents</a></li>
@@ -503,7 +503,7 @@
             </div>
         </div>
     </body>
-    <script src="/e3d2d499b6421ab3379000ba21a95263481f8d67-all-scripts-concat.js"></script>
+    <script src="/185eb6b4c9b0a7ed658333c5b7c5e7fc0984107b-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

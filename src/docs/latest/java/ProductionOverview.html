@@ -1,7 +1,6 @@
 <h1 id="Running-Lagom-in-production"><a class="section-marker" href="#Running-Lagom-in-production">§</a>Running Lagom in production</h1>
-<p>Lagom can be set up to work with most production environments, ranging from basic, manual deployments on physical servers to fully-managed service orchestration platforms such as <a href="https://kubernetes.io/">Kubernetes</a> and <a href="https://dcos.io/">Mesosphere DC/OS</a>. The core APIs in Lagom are independent of any particular deployment platform. Where Lagom does need to interface with the environment, it provides extensible plugin points that allow you to configure your services for production without requiring changes to your service implementation code.</p>
-<p><a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/">Lightbend Orchestration</a> is an open-source suite of tools that helps you deploy Lagom services to Kubernetes and DC/OS. It provides an easy way to create Docker images for your applications and introduces an automated process for generating Kubernetes and DC/OS resource and configuration files for you from those images. This process helps reduce the friction between development and operations. If you are using Kubernetes or DC/OS, or interested in trying one of these platforms, we encourage you to read the Lightbend Orchestration documentation to understand how to use it with Lagom and other components of the <a href="https://www.lightbend.com/products/reactive-platform">Lightbend Reactive Platform</a>.</p>
-<p>If you are not using Kubernetes or DC/OS, you must configure your services in a way that suits your production environment. The following information provides an overview of production considerations that apply to any environment.</p><h2 id="Production-considerations"><a class="section-marker" href="#Production-considerations">§</a>Production considerations</h2>
+<p>Lagom can be set up to work with most production environments, ranging from basic, manual deployments on physical servers to fully-managed service orchestration platforms such as <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://kubernetes.io/">Kubernetes</a> and <a href="https://dcos.io/">Mesosphere DC/OS</a>. The core APIs in Lagom are independent of any particular deployment platform. Where Lagom does need to interface with the environment, it provides extensible plugin points that allow you to configure your services for production without requiring changes to your service implementation code.</p>
+<p>The following information provides an overview of production considerations that apply to any environment. If you are deploying your service in OpenShift clusters, you can also refer to the <a href="https://developer.lightbend.com/guides/openshift-deployment/">Deploying Lightbend applications to OpenShift</a> guide.</p><h2 id="Production-considerations"><a class="section-marker" href="#Production-considerations">§</a>Production considerations</h2>
 <p>The production environment determines the methods for packaging your services, managing Akka Cluster formation, and providing service location, including that for Cassandra and Kafka:</p>
 <ul>
   <li>
@@ -10,7 +9,7 @@
       <li>
       <p>By default, sbt produces standalone &ldquo;universal&rdquo; <a href="https://www.scala-sbt.org/sbt-native-packager/formats/universal.html">zip archives</a> containing the compiled service, all of its dependencies, and a start script. These have no special infrastructure requirements and can be unzipped and run just about anywhere that supports Java. However, this includes no built-in facility for process monitoring and recovering from crashes, so for a resilient production environment, you&rsquo;ll need to provide this another way.</p></li>
       <li>
-      <p>Lightbend Orchestration automatically configures <code>sbt-native-packager</code> to build and publish <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/building.html">Docker images</a> that can be used with Kubernetes, DC/OS, or any other Docker-compatible production environment.</p></li>
+      <p>You can also use <code>sbt-native-packager</code> to build and publish <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/building.html">Docker images</a> that can be used with Kubernetes, DC/OS, or any other Docker-compatible production environment.</p></li>
       <li>
       <p>Otherwise, you can configure <code>sbt-native-packager</code> to produce <a href="https://www.scala-sbt.org/sbt-native-packager/formats/universal.html#build">other archive formats</a>, <a href="https://www.scala-sbt.org/sbt-native-packager/formats/windows.html">Windows (MSI) installers</a>, Linux packages in <a href="https://www.scala-sbt.org/sbt-native-packager/formats/debian.html">Debian</a> or <a href="https://www.scala-sbt.org/sbt-native-packager/formats/rpm.html">RPM</a> format and more.</p></li>
     </ul>
@@ -21,7 +20,7 @@
       <li>
       <p>The <a href="http://maven.apache.org/plugins/maven-assembly-plugin/">Maven Assembly Plugin</a> can be used to build archives in zip, tar and other similar formats.</p></li>
       <li>
-      <p>The <a href="https://dmp.fabric8.io/">Docker Maven Plugin</a> is recommended for building Docker images. Maven support in Lightbend Orchestration is currently under development.</p></li>
+      <p>The <a href="https://dmp.fabric8.io/">Docker Maven Plugin</a> is recommended for building Docker images.</p></li>
       <li>
       <p>Other Maven packaging plugins in varying states of maturity are available from the <a href="https://www.mojohaus.org/plugins.html">MojoHaus Project</a>.</p></li>
     </ul>
@@ -30,22 +29,27 @@
     <p>At runtime, services need to locate the addresses of other services to communicate with them. This requires you to configure an implementation of a <a href="api/index.html?com/lightbend/lagom/javadsl/api/ServiceLocator.html"><code>ServiceLocator</code></a> that Lagom uses to look up the addresses of services by their names. The production environment you choose might provide a service discovery mechanism that you can use with Lagom.</p>
     <ul>
       <li>
-      <p>For simple deployments, Lagom includes a built-in service locator that uses addresses specified in the service configuration (<a href="#Using-static-values-for-services-and-Cassandra">described below</a>).</p></li>
+      <p>For simple deployments, Lagom includes a built-in service locator that uses hardcoded addresses specified in the service configuration (<a href="#Using-static-values-for-services-and-Cassandra">described below</a>).</p></li>
       <li>
-      <p>Lightbend Orchestration provides an open-source <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/features/service-location.html"><code>ServiceLocator</code> implementation</a> that integrates with the service discovery features of Kubernetes or DC/OS, or any other environment that supports service discovery via DNS.</p></li>
+      <p>When using dynamic deployments where processes don&rsquo;t run on static IPs, you can use the open-source <a href="https://github.com/lagom/lagom-akka-discovery-service-locator"><code>lagom-akka-discovery-service-locator</code></a> that can integrate with the service discovery features of Kubernetes or DC/OS, or any other environment supported by <a href="https://doc.akka.io/docs/akka/2.5/discovery/index.html">Akka&rsquo;s Service Discovery</a>.</p></li>
       <li>
       <p>Otherwise, you can implement the interface yourself to integrate with a service registry of your choosing (such as <a href="https://www.consul.io/">Consul</a>, <a href="https://zookeeper.apache.org/">ZooKeeper</a>, or <a href="https://coreos.com/etcd/">etcd</a>) or start with an open-source example implementation such as <a href="https://github.com/jboner/lagom-service-locator-consul"><code>lagom-service-locator-consul</code></a> or <a href="https://github.com/jboner/lagom-service-locator-zookeeper"><code>lagom-service-locator-zookeeper</code></a>.</p></li>
     </ul>
   </li>
   <li>
-    <p>Services that require an <a href="https://doc.akka.io/docs/akka/current/cluster-usage.html">Akka Cluster</a> (which includes any that use the Lagom <a href="PersistentEntity.html">Persistence</a> or <a href="PubSub.html">Publish-Subscribe</a> APIs) must have a strategy for forming a cluster or joining an existing cluster on startup.</p>
+    <p>Lagom services that require an <a href="https://doc.akka.io/docs/akka/current/cluster-usage.html">Akka Cluster</a> (which includes any that use the Lagom <a href="PersistentEntity.html">Persistence</a> or <a href="PubSub.html">Publish-Subscribe</a> APIs) must have a strategy for forming a cluster or joining an existing cluster on startup.</p>
     <ul>
       <li>
       <p>If you don&rsquo;t use a service orchestration platform and can determine the addresses of some of your nodes in advance of deploying them, Akka Cluster can be configured manually by listing the addresses of <a href="https://doc.akka.io/docs/akka/current/cluster-usage.html#joining-to-seed-nodes">seed nodes</a> in the service configuration.</p></li>
       <li>
-      <p>Lightbend Orchestration includes open-source support for <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/features/akka-cluster-bootstrap.html">automatic Akka Cluster formation</a> on Kubernetes or DC/OS.</p></li>
+      <p>When you don&rsquo;t specify a static list of <code>seed-nodes</code>, Lagom will enable the <a href="https://developer.lightbend.com/docs/akka-management/current/bootstrap.html">Akka Cluster Bootstrap</a> extension for integration with other service discovery infrastructure. Using Akka Cluster Bootstrap requires setting up a <code>Service Discovery</code> method (for example <a href="https://developer.lightbend.com/docs/akka-management/current/discovery/kubernetes.html">Service Discovery for Kubernetes</a>). See the <a href="Cluster.html">Lagom Cluster</a> documentation for more information.</p></li>
+    </ul>
+  </li>
+  <li>
+    <p>The Akka Cluster Bootstrap feature introduced above requires enabling <a href="https://developer.lightbend.com/docs/akka-management/current/">Akka management HTTP</a>. That is an Akka HTTP server shared by multiple features, running on <a href="https://github.com/akka/akka-management/blob/v1.0.0-RC3/management/src/main/resources/reference.conf#L17">port 8558</a> by default (that port is configurable). Lagom will start the Akka management HTTP automatically anytime a feature that requires it is enabled. See also the <a href="Cluster.html#Akka-Management">Lagom Cluster</a> documentation.</p>
+    <ul>
       <li>
-      <p>Otherwise, you can use the open-source <a href="https://developer.lightbend.com/docs/akka-management/current/bootstrap.html">Akka Cluster Bootstrap</a> extension for integration with other service discovery infrastructure, or write your own programmatic cluster formation implementation. See the <a href="Cluster.html">Lagom Cluster</a> documentation for more information.</p></li>
+      <p>Akka management HTTP also powers Akka-provided Health Checks. <a href="https://developer.lightbend.com/docs/akka-management/current/healthchecks.html">Health Checks</a> is a pluggable mechanism where library providers and users can register logic to determine if a service is alive and/or ready. Lagom will enable Akka Cluster Membership Health Checks by default any time the Lagom service requires a cluster. Akka Health Checks register, by default, the <code>ready/</code> and <code>alive/</code> routes and implement the <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes">readiness and aliveness</a> semantics as described by Kubernetes.</p></li>
     </ul>
   </li>
   <li>

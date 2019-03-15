@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/0657663fb17e29db059e28155444b490ef70f93e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/b52e74f6f254a9fc9a969a8420c5cc8e8043c9fe-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -146,7 +146,14 @@
 
                 <article>
                 <h1 id="Whats-new-in-Lagom-1.5?"><a class="section-marker" href="#Whats-new-in-Lagom-1.5?">§</a>What&rsquo;s new in Lagom 1.5?</h1>
-<p>This page highlights the new features of Lagom 1.5. If you want to learn about the changes you need to make when you migrate to Lagom 1.5, check out the <a href="Migration15.html">Lagom 1.5 Migration Guide</a>.</p>
+<p>This page highlights the new features of Lagom 1.5. If you want to learn about the changes you need to make when you migrate to Lagom 1.5, check out the <a href="Migration15.html">Lagom 1.5 Migration Guide</a>.</p><h2 id="TLS-Support"><a class="section-marker" href="#TLS-Support">§</a>TLS Support</h2>
+<p>Lagom in both <a href="ConfiguringServicesInDevelopment.html#Using-HTTPS-in-development-mode">dev mode</a> and <a href="Test.html#How-to-use-TLS-on-tests">tests</a> supports basic usage of TLS by means of self-signed certificates provided by the framework.</p><h2 id="Cluster-Formation"><a class="section-marker" href="#Cluster-Formation">§</a>Cluster Formation</h2>
+<p>A new mechanism to form and <a href="Cluster.html#Joining">join an Akka Cluster</a> is introduced in Lagom 1.5. Apart from the original <code>Manual Cluster Formation</code> the new <code>Akka Cluster Bootstrap</code> is now supported. This new mechanism is introduced with lower precedence than <code>Manual Cluster Formation</code> so if you rely on the use of a list of <code>seed-nodes</code> then everything will work as before. On the other hand, <code>Akka Cluster Bootstrap</code> takes precedence over the <code>join-self</code> cluster formation for single-node clusters. If you use single-node clusters via <code>join-self</code> you will have to explicitly disable <code>Akka Cluster Bootstrap</code>:</p>
+<pre class="prettyprint"><code>lagom.cluster.bootstrap.enabled = false
+</code></pre><h2 id="Additional-Routers"><a class="section-marker" href="#Additional-Routers">§</a>Additional Routers</h2>
+<p>As of Lagom 1.5 it is possible to extend the routes exposed by your service. So your service will not only expose the calls listed in <code>Service.Descriptor</code> but will also serve endpoints handled by <code>additionalRouters</code>. The <a href="AdditionalRouters.html">documentation</a> covers all the details. Additional routers make it trivial to extend a <code>Service.Descriptor</code> with features natively supported by Play such as uploading a file. There is also a <a href="https://github.com/lagom/lagom-recipes/tree/master/file-upload">Lagom recipe</a> detailing such a use case.</p><h2 id="gRPC"><a class="section-marker" href="#gRPC">§</a>gRPC</h2>
+<p>Lagom 1.5 introduces support for cross-service gRPC communication. <a href="https://grpc.io/">gRPC</a> is a high-performance, open-source universal RPC framework. Lagom&rsquo;s support for gRPC is built on top of <a href="https://developer.lightbend.com/docs/play-grpc/current/">Play-gRPC</a> using the new <code>additionalRouter</code> feature in Lagom. </p><h2 id="Deployment"><a class="section-marker" href="#Deployment">§</a>Deployment</h2>
+<p>Neither ConductR not <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/">Lightbend Orchestration</a> are supported in Lagom 1.5. See the <a href="Migration15.html#Deployment">Deployment</a> section on the migration guide for more details.</p>
                 </article>
 
                 
@@ -162,7 +169,7 @@
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/common/releases/Highlights15.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/java/releases/Highlights15.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -357,7 +364,7 @@
             </div>
         </div>
     </body>
-    <script src="/0657663fb17e29db059e28155444b490ef70f93e-all-scripts-concat.js"></script>
+    <script src="/b52e74f6f254a9fc9a969a8420c5cc8e8043c9fe-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

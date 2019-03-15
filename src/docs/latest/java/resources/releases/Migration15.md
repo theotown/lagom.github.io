@@ -48,22 +48,6 @@ The following:
 were never intended for public consumption, and therefore have been marked deprecated in 1.5.0 for removal in
 2.0.0.
 
-## TLS Support
-
-Lagom in both [[dev mode|ConfiguringServicesInDevelopment#Using-HTTPS-in-development-mode]] and [[tests|Test#How-to-use-TLS-on-tests]] supports basic usage of TLS by means of self-signed certificates provided by the framework.
-
-## Cluster Formation
-
-A new mechanism to form and [[join an Akka Cluster|Cluster#Joining]] is introduced in Lagom 1.5. Apart from the original `Manual Cluster Formation` the new `Akka Cluster Bootstrap` is now supported. This new mechanism is introduced with lower precedence than `Manual Cluster Formation` so if you rely on the use of a list of `seed-nodes` then everything will work as before. On the other hand, `Akka Cluster Bootstrap` takes precedence over the `join-self` cluster formation for single-node clusters. If you use single-node clusters via `join-self` you will have to explicitly disable `Akka Cluster Bootstrap`:
-
-```
-lagom.cluster.bootstrap.enabled = false
-```
-
-## Service Discovery
-
-When opting in to Akka Cluster Bootstrapping as a mechanism for Cluster formation you will have to setup a [[Service Discovery|Cluster#Akka-Discovery]]  method for nodes to locate each other.
-
 ## ConductR
 
 ConductR is no longer supported with Lagom 1.5.
@@ -100,7 +84,7 @@ These new defaults may require at least two changes on your codebase. First, if 
 
 #### Service Location
 
-You no longer have a `ServiceLocator `provided by the tooling libraries so you will have to provide one of your choice. We recommend using the new [`lagom-akka-discovery-service-locator`](https://github.com/lagom/lagom-akka-discovery-service-locator) which is implemented using [Akka Service Discovery](https://doc.akka.io/docs/akka/current/discovery/index.html) implementations.
+You no longer have a `ServiceLocator` provided by the tooling libraries so you will have to provide one of your choice. We recommend using the new [`lagom-akka-discovery-service-locator`](https://github.com/lagom/lagom-akka-discovery-service-locator) which is implemented using [Akka Service Discovery](https://doc.akka.io/docs/akka/current/discovery/index.html) implementations.
 
 Read the [docs](https://github.com/lagom/lagom-akka-discovery-service-locator) of the new `lagom-akka-discovery-service-locator` for details on how to setup the Akka Service Discovery [method](https://doc.akka.io/docs/akka/current/discovery/index.html). For example, 
 
@@ -114,11 +98,11 @@ akka {
 
 #### Docker images and deployment specs
 
-With the removal of ConductR or Lightbend Orchestration, the docker images and deployment specs will have to be maintained manually. Therefore the recommended migration is to take ownership of the `Dockerfile`, deployment scripts and orchestration specs created by such tooling, such as by committing them to the source repository and then maintaining them.  We also found that such maintenance can be made easier by making use of [kustomize](https://github.com/kubernetes-sigs/kustomize).
+With the removal of ConductR or Lightbend Orchestration, the docker images and deployment specs will have to be maintained manually. Therefore the recommended migration is to take ownership of the `Dockerfile`, deployment scripts and orchestration specs.  
 
-For example, using `docker:stage` on your project you will generate `<project-name>/target/docker/stage/Dockerfile` and other files required to build the image. You may use these files directly or have them as a guide to tune the `sbt-native-packager` plugin to produce a similar `Dockerfile`.
+We have written a [comprehensive guide](https://developer.lightbend.com/guides/openshift-deployment/lagom/index.html) on how to deploy a Lagom application in Kubernetes or OpenShift. 
 
-Similarly, with a docker image produced with Lightbend Orchestration still enabled, you may use `rp generate-kubernetes-resources …` to produce Kubernetes YAML files that you can keep under SCM.
+We also found that such maintenance can be made easier by using [kustomize](https://github.com/kubernetes-sigs/kustomize).
 
 #### Secrets
 
@@ -129,6 +113,12 @@ my-database {
   password = "${DB_PASSWORD}"
 }
 ```
+
+
+
+## Service Discovery
+
+When opting in to Akka Cluster Bootstrapping as a mechanism for Cluster formation you will have to setup a [[Service Discovery|Cluster#Akka-Discovery]]  method for nodes to locate each other.
 
 ## Upgrading a production system
 

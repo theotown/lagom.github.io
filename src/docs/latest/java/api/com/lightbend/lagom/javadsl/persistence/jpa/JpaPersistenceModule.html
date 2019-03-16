@@ -101,7 +101,12 @@ var activeTableTab = "activeTableTab";
 <li><a href="https://www.playframework.com/documentation/latest/api/java/play/api.inject.Module.html?is-external=true" title="class or interface in play">play.api.inject.Module</a></li>
 <li>
 <ul class="inheritance">
+<li><a href="https://www.playframework.com/documentation/latest/api/java/play/inject/Module.html?is-external=true" title="class or interface in play.inject">play.inject.Module</a></li>
+<li>
+<ul class="inheritance">
 <li>com.lightbend.lagom.javadsl.persistence.jpa.JpaPersistenceModule</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -113,7 +118,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">JpaPersistenceModule</span>
-extends <a href="https://www.playframework.com/documentation/latest/api/java/play/api.inject.Module.html?is-external=true" title="class or interface in play">play.api.inject.Module</a></pre>
+extends <a href="https://www.playframework.com/documentation/latest/api/java/play/inject/Module.html?is-external=true" title="class or interface in play.inject">Module</a></pre>
 </li>
 </ul>
 </div>
@@ -150,11 +155,18 @@ extends <a href="https://www.playframework.com/documentation/latest/api/java/pla
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>scala.collection.Seq&lt;<a href="https://www.playframework.com/documentation/latest/api/java/play/api.inject.Binding.html?is-external=true" title="class or interface in play">play.api.inject.Binding</a>&lt;?&gt;&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/jpa/JpaPersistenceModule.html#bindings-play.api.Environment-play.api.Configuration-">bindings</a></span>(<a href="https://www.playframework.com/documentation/latest/api/java/play/api.Environment.html?is-external=true" title="class or interface in play">play.api.Environment</a>&nbsp;environment,
-        <a href="https://www.playframework.com/documentation/latest/api/java/play/api.Configuration.html?is-external=true" title="class or interface in play">play.api.Configuration</a>&nbsp;configuration)</code>&nbsp;</td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/Binding.html?is-external=true" title="class or interface in play.inject">Binding</a>&lt;?&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/jpa/JpaPersistenceModule.html#bindings-play.Environment-com.typesafe.config.Config-">bindings</a></span>(<a href="https://www.playframework.com/documentation/latest/api/java/play/Environment.html?is-external=true" title="class or interface in play">Environment</a>&nbsp;environment,
+        com.typesafe.config.Config&nbsp;config)</code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.play.inject.Module">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;play.inject.<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/Module.html?is-external=true" title="class or interface in play.inject">Module</a></h3>
+<code><a href="https://www.playframework.com/documentation/latest/api/java/play/inject/Module.html?is-external=true#bindClass-java.lang.Class-" title="class or interface in play.inject">bindClass</a>, <a href="https://www.playframework.com/documentation/latest/api/java/play/inject/Module.html?is-external=true#bindings-play.api.Environment-play.api.Configuration-" title="class or interface in play.inject">bindings</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.play.api.inject.Module">
 <!--   -->
@@ -200,17 +212,17 @@ extends <a href="https://www.playframework.com/documentation/latest/api/java/pla
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="bindings-play.api.Environment-play.api.Configuration-">
+<a name="bindings-play.Environment-com.typesafe.config.Config-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>bindings</h4>
-<pre>public&nbsp;scala.collection.Seq&lt;<a href="https://www.playframework.com/documentation/latest/api/java/play/api.inject.Binding.html?is-external=true" title="class or interface in play">play.api.inject.Binding</a>&lt;?&gt;&gt;&nbsp;bindings(<a href="https://www.playframework.com/documentation/latest/api/java/play/api.Environment.html?is-external=true" title="class or interface in play">play.api.Environment</a>&nbsp;environment,
-                                                                 <a href="https://www.playframework.com/documentation/latest/api/java/play/api.Configuration.html?is-external=true" title="class or interface in play">play.api.Configuration</a>&nbsp;configuration)</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="https://www.playframework.com/documentation/latest/api/java/play/inject/Binding.html?is-external=true" title="class or interface in play.inject">Binding</a>&lt;?&gt;&gt;&nbsp;bindings(<a href="https://www.playframework.com/documentation/latest/api/java/play/Environment.html?is-external=true" title="class or interface in play">Environment</a>&nbsp;environment,
+                                 com.typesafe.config.Config&nbsp;config)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="https://www.playframework.com/documentation/latest/api/java/play/api.inject.Module.html?is-external=true#bindings-play.api.Environment-play.api.Configuration-" title="class or interface in play">bindings</a></code>&nbsp;in class&nbsp;<code><a href="https://www.playframework.com/documentation/latest/api/java/play/api.inject.Module.html?is-external=true" title="class or interface in play">play.api.inject.Module</a></code></dd>
+<dd><code><a href="https://www.playframework.com/documentation/latest/api/java/play/inject/Module.html?is-external=true#bindings-play.Environment-com.typesafe.config.Config-" title="class or interface in play.inject">bindings</a></code>&nbsp;in class&nbsp;<code><a href="https://www.playframework.com/documentation/latest/api/java/play/inject/Module.html?is-external=true" title="class or interface in play.inject">Module</a></code></dd>
 </dl>
 </li>
 </ul>

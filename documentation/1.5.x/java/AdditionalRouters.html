@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/17be93b96a4806903bf4495d9eb3a08637c73b10-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/4c73b1f37f73c32cd1daf001d5d748b6f11ada46-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -150,7 +150,7 @@
                 <article>
                 <h1 id="Additional-Routers"><a class="section-marker" href="#Additional-Routers">§</a>Additional Routers</h1>
 <p>Since Lagom 1.5.0, it is possible to extend a Lagom Service with additional Play Routers.</p>
-<p>This is particularly useful when integrating Lagom with existing Play Routers, for instance a <a href="https://developer.lightbend.com/docs/play-grpc/0.5.0/lagom/serving-grpc.html">Play gRPC Router</a> , or any other Play router that you have at your disposal.</p>
+<p>This is particularly useful when integrating Lagom with existing Play Routers, for instance a <a href="https://developer.lightbend.com/docs/play-grpc/0.6.0/lagom/serving-grpc.html?language=java">Play gRPC Router</a>, or any other Play router that you have at your disposal.</p>
 <p>You add an additional router when binding your Lagom Service in your Guice module. You should pass the additional routers to the <code>bindService</code> method together with the Service interface and its implementation. You do this by means of a helper method called <code>additionalRouters</code>.</p>
 <p>There are two variants for <code>additionalRouters</code>, one that receives a <code>Class&lt;play.api.routing.Router&gt;</code> and one that receives an instance of <code>play.api.routing.Router</code>.</p>
 <p>The first one should be used when your Router has some dependencies and needs to get them injected by Lagom&rsquo;s runtime DI infrastructure (Guice). In this case, you pass the class and Guice will initialize it with the right dependencies.</p>
@@ -506,7 +506,7 @@
             </div>
         </div>
     </body>
-    <script src="/17be93b96a4806903bf4495d9eb3a08637c73b10-all-scripts-concat.js"></script>
+    <script src="/4c73b1f37f73c32cd1daf001d5d748b6f11ada46-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/17be93b96a4806903bf4495d9eb3a08637c73b10-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/4c73b1f37f73c32cd1daf001d5d748b6f11ada46-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -156,7 +156,7 @@
   <li><a href="#Server-side-service-discovery">Server-side service discovery</a></li>
 </ul>
 <p><em>Note</em>: This page uses HTTP examples but the concepts apply to any kind of traffic such as binary over TCP.</p><h2 id="Service-registration"><a class="section-marker" href="#Service-registration">§</a>Service registration</h2>
-<p>A Service Registry collaborates with microservice instances to maintain an up-to-date lookup table. The table includes the host and port for each available microservice instance. As load changes, the system can spawn or destroy instances in any location while continuing to satisfy requests. You can design a system to enable microservices to self-register or you can use a <a href="http://microservices.io/patterns/3rd-party-registration.html">3rd Party Registration service</a>.</p>
+<p>A Service Registry collaborates with microservice instances to maintain an up-to-date lookup table. The table includes the host and port for each available microservice instance. As load changes, the system can spawn or destroy instances in any location while continuing to satisfy requests. You can design a system to enable microservices to self-register or you can use a <a href="https://microservices.io/patterns/3rd-party-registration.html">3rd Party Registration service</a>.</p>
 <p>When booting a Lagom microservice instance, a registrar will register the name of the microservice, the URL and the names of the locatable Service Descriptors on the Service Registry so that they can be located. When powering down an instance of a service, the registrar will have to update the Service Registry too. Lagom&rsquo;s <a href="DevEnvironment.html">Developer Environment</a> provides an implementation of a Service Registry and a registrar so you can run your microservices locally.</p>
 <!---The following illustrates service registration. (TBA) --->
 <p>Many available technologies provide Service Registry capabilities. You will need to choose and/or develop a Service Locator for your services to run in your deployment environment (see for example <a href="https://github.com/jboner/lagom-service-locator-zookeeper">Lagom ZooKeeper Service Locator</a>). You may need to work out a way to plug your Lagom services with a registrar. </p><h2 id="Client-side-service-discovery"><a class="section-marker" href="#Client-side-service-discovery">§</a>Client-side service discovery</h2>
@@ -428,7 +428,7 @@
             </div>
         </div>
     </body>
-    <script src="/17be93b96a4806903bf4495d9eb3a08637c73b10-all-scripts-concat.js"></script>
+    <script src="/4c73b1f37f73c32cd1daf001d5d748b6f11ada46-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

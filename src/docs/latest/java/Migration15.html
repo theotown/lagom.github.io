@@ -55,6 +55,5 @@
 }
 </code></pre><h2 id="Service-Discovery"><a class="section-marker" href="#Service-Discovery">§</a>Service Discovery</h2>
 <p>When opting in to Akka Cluster Bootstrapping as a mechanism for Cluster formation you will have to setup a <a href="Cluster.html#Akka-Discovery">Service Discovery</a> method for nodes to locate each other.</p><h2 id="Upgrading-a-production-system"><a class="section-marker" href="#Upgrading-a-production-system">§</a>Upgrading a production system</h2>
-<p>TODO</p><h3 id="Rolling-upgrade"><a class="section-marker" href="#Rolling-upgrade">§</a>Rolling upgrade</h3>
-<p>TODO</p><h3 id="Downtime-upgrade"><a class="section-marker" href="#Downtime-upgrade">§</a>Downtime upgrade</h3>
-<p>TODO</p>
+<p>There are no changes affecting a Production Upgrade. If you are running a Lagom 1.4 cluster you can perform a rolling upgrade, just make sure you are using the latest version on the 1.4.x series and, from that, you migrate to the latest version available of the 1.5.x series.</p><h3 id="Downtime-upgrade"><a class="section-marker" href="#Downtime-upgrade">§</a>Downtime upgrade</h3>
+<p>If you still haven&rsquo;t adopted <code>ddata</code> as the cluster sharding mode and your application can tolerate a <em>one time only</em> downtime upgrade, we recommend you to enable <code>ddata</code>. Taking advantage of that downtime we recommend you also enable the serializers for <code>akka.Done</code>, <code>akka.actor.Address</code> and <code>akka.remote.UniqueAddress</code>. Once this upgrade is complete, further downtime is not required. Read all the details of this migration on the <a href="Migration14.html#Rolling-upgrade">1.4 Migration Guide</a></p>

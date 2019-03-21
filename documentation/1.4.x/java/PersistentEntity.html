@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/4f6e461dcf01dafec49cac79b23e95d199fc533d-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/16b0124e6f2b25f8b47d68fc52aa4f4c50428c2a-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -847,7 +847,7 @@ interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
 <p>If you are familiar with <a href="https://doc.akka.io/docs/akka/2.5/persistence.html">Akka Persistence</a> this process is slightly different in few places:</p>
 <ul>
   <li>new commands are not processed until events are stored, the <code>Effect</code> completed and the snapshot updated (if necessary). Akka provides the same behavior and also <code>async</code> alternatives that cause new commands to be processed even before all event handlers have completed.</li>
-  <li>saving snapshots is an operation run under the covers <em>at least</em> every <code>lagom.persistence. snapshot-after</code> events (see <a href="#Configuration">Configuration</a> above) but &ldquo;storing events atomically&rdquo; takes precedence. Imagine we want a snapshot every 100 events and we already have 99 events, if the next command emits 3 events the snapshot will only be stored after event number 102 because events <code>[100, 101, 102]</code> will be stored atomically and only after it&rsquo;ll be possible to create a snapshot.</li>
+  <li>saving snapshots is an operation run under the covers <em>at least</em> every <code>lagom.persistence.snapshot-after</code> events (see <a href="#Configuration">Configuration</a> above) but &ldquo;storing events atomically&rdquo; takes precedence. Imagine we want a snapshot every 100 events and we already have 99 events, if the next command emits 3 events the snapshot will only be stored after event number 102 because events <code>[100, 101, 102]</code> will be stored atomically and only after it&rsquo;ll be possible to create a snapshot.</li>
 </ul>
                 </article>
 
@@ -1124,7 +1124,7 @@ interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
             </div>
         </div>
     </body>
-    <script src="/4f6e461dcf01dafec49cac79b23e95d199fc533d-all-scripts-concat.js"></script>
+    <script src="/16b0124e6f2b25f8b47d68fc52aa4f4c50428c2a-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

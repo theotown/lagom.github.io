@@ -1,6 +1,13 @@
 <h1 id="Running-Lagom-in-production"><a class="section-marker" href="#Running-Lagom-in-production">§</a>Running Lagom in production</h1>
 <p>Lagom can be set up to work with most production environments, ranging from basic, manual deployments on physical servers to fully-managed service orchestration platforms such as <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://kubernetes.io/">Kubernetes</a> and <a href="https://dcos.io/">Mesosphere DC/OS</a>. The core APIs in Lagom are independent of any particular deployment platform. Where Lagom does need to interface with the environment, it provides extensible plugin points that allow you to configure your services for production without requiring changes to your service implementation code.</p>
-<p>The following information provides an overview of production considerations that apply to any environment. If you are deploying your service in OpenShift clusters, you can also refer to the <a href="https://developer.lightbend.com/guides/openshift-deployment/">Deploying Lightbend applications to OpenShift</a> guide.</p><h2 id="Production-considerations"><a class="section-marker" href="#Production-considerations">§</a>Production considerations</h2>
+<p>The following information provides an overview of production considerations that apply to any environment. If you are deploying your service in OpenShift clusters, you can also refer to the <a href="https://developer.lightbend.com/guides/openshift-deployment/">Deploying Lightbend applications to OpenShift</a> guide.</p>
+<p>The production considerations can be summed up as setting up and tuning some or all of the following:</p>
+<ul>
+  <li>production of artifacts (ZIP archives, docker images, &hellip;)</li>
+  <li>service location (other lagom services, external services, databases, etc&hellip;)</li>
+  <li>Akka Cluster formation</li>
+  <li>expose lifecycle data (readiness, liveness)</li>
+</ul><h2 id="Production-considerations"><a class="section-marker" href="#Production-considerations">§</a>Production considerations</h2>
 <p>The production environment determines the methods for packaging your services, managing Akka Cluster formation, and providing service location, including that for Cassandra and Kafka:</p>
 <ul>
   <li>

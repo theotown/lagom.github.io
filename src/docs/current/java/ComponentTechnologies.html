@@ -2,6 +2,8 @@
 <p>As a complete microservices platform, Lagom assembles a collection of technologies and adds value on top of them. Some of the libraries, tools, and servers that Lagom uses and supports were developed at <a href="https://lightbend.com">Lightbend</a>, others are third-party and open-source. As you develop with Lagom, you can also take advantage of these technologies:</p>
 <ul>
   <li>
+  <p>Play Framework &mdash; Lagom is implemented on top of <a href="https://www.playframework.com">Play Framework</a>, Lightbend&rsquo;s web framework. This is an implementation detail that does not directly concern you when developing simple microservices. However, advanced users can call some Play APIs directly. If you have an existing Play Framework application to which you want to add microservices, Lagom provides support for that use case.</p></li>
+  <li>
     <p>Akka &mdash; Lagom <a href="PersistentEntity.html">Persistence</a>, <a href="PubSub.html">Publish-Subscribe</a>, and <a href="Cluster.html">Cluster</a> are implemented on top of <a href="https://akka.io/">Akka</a>, Lightbend&rsquo;s toolkit for building concurrent, distributed, and resilient message-driven applications. (This is an implementation detail that does not directly concern you when developing simple microservices. However, you can call also <a href="Akka.html">Akka APIs</a> directly.)</p>
     <ul>
       <li>
@@ -11,22 +13,20 @@
     </ul>
   </li>
   <li>
-    <p>Lightbend customers can additionally use <a href="https://www.lightbend.com/platform/production">Enterprise Suite</a> components to operationalize and production-harden their systems.</p>
+    <p><a href="https://www.lightbend.com/lightbend-platform">Lightbend Platform</a> subscribers can use additional components to operationalize and production-harden their systems.</p>
     <ul>
       <li>
-      <p>Akka&rsquo;s <a href="https://developer.lightbend.com/docs/akka-commercial-addons/current/split-brain-resolver.html">Split Brain Resolver</a> handles network failures and system crashes.</p></li>
+      <p>Akka <a href="https://developer.lightbend.com/docs/akka-commercial-addons/current/split-brain-resolver.html">Split Brain Resolver</a> handles network failures and system crashes.</p></li>
       <li>
-      <p><a href="https://developer.lightbend.com/docs/cinnamon/current/home.html">Lightbend&rsquo;s Telemetry (Cinnamon) product</a> provides real time monitoring of system health, availability and performance.</p></li>
+      <p><a href="https://developer.lightbend.com/docs/telemetry/current/home.html">Lightbend Telemetry</a> and <a href="https://developer.lightbend.com/docs/console/current/">Lightbend Console</a> give you visibility into system health, availability and performance.</p></li>
       <li>
-      <p>See <a href="Cluster.html">Cluster</a> for more details.</p></li>
+      <p>See <a href="LightbendPlatform.html">Lightbend Platform</a> for more details.</p></li>
     </ul>
   </li>
   <li>
   <p>Cassandra &mdash; By default, Lagom microservices that need to persist data use the <a href="https://cassandra.apache.org">Cassandra</a> instance that runs as part of the development environment. You can also use an existing <a href="CassandraServer.html">Cassandra Server</a> database or another type of database. See <a href="ES_CQRS.html">Managing data persistence</a> for more information.</p></li>
   <li>
   <p>Guice &mdash; Like Play, Lagom uses <a href="https://github.com/google/guice">Guice</a> for dependency injection.</p></li>
-  <li>
-  <p>Play Framework &mdash; Lagom is implemented on top of <a href="https://www.playframework.com">Play Framework</a>, Lightbend&rsquo;s web framework. This is an implementation detail that does not directly concern you when developing simple microservices. However, advanced users can call some Play APIs directly. If you have an existing Play Framework application to which you want to add microservices, Lagom provides support for that use case.</p></li>
   <li>
   <p>SLF4J &amp; Logback &mdash; Lagom uses <a href="https://www.slf4j.org/">SLF4J</a> for logging, backed by <a href="https://logback.qos.ch/">Logback</a> as its default logging engine. See <a href="Logging.html">Logging</a> for more information.</p></li>
   <li>

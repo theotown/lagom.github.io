@@ -282,9 +282,9 @@
         "url" : "ProductionOverview.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/1.4.x/docs/manual/scala/guide/production/ProductionOverview.md"
       }, {
-        "title" : "Lightbend Enterprise Suite",
-        "url" : "EnterpriseSuite.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/1.4.x/docs/manual/common/guide/production/EnterpriseSuite.md"
+        "title" : "Lightbend Platform",
+        "url" : "LightbendPlatform.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/1.4.x/docs/manual/common/guide/production/LightbendPlatform.md"
       } ]
     }, {
       "title" : "Logging",

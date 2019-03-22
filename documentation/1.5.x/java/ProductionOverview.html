@@ -13,7 +13,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/16b0124e6f2b25f8b47d68fc52aa4f4c50428c2a-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/efa76bafa2cda797cb1ec4da35ec1e8d0833f026-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -152,7 +152,14 @@
                 <article>
                 <h1 id="Running-Lagom-in-production"><a class="section-marker" href="#Running-Lagom-in-production">§</a>Running Lagom in production</h1>
 <p>Lagom can be set up to work with most production environments, ranging from basic, manual deployments on physical servers to fully-managed service orchestration platforms such as <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://kubernetes.io/">Kubernetes</a> and <a href="https://dcos.io/">Mesosphere DC/OS</a>. The core APIs in Lagom are independent of any particular deployment platform. Where Lagom does need to interface with the environment, it provides extensible plugin points that allow you to configure your services for production without requiring changes to your service implementation code.</p>
-<p>The following information provides an overview of production considerations that apply to any environment. If you are deploying your service in OpenShift clusters, you can also refer to the <a href="https://developer.lightbend.com/guides/openshift-deployment/">Deploying Lightbend applications to OpenShift</a> guide.</p><h2 id="Production-considerations"><a class="section-marker" href="#Production-considerations">§</a>Production considerations</h2>
+<p>The following information provides an overview of production considerations that apply to any environment. If you are deploying your service in OpenShift clusters, you can also refer to the <a href="https://developer.lightbend.com/guides/openshift-deployment/">Deploying Lightbend applications to OpenShift</a> guide.</p>
+<p>The production considerations can be summed up as setting up and tuning some or all of the following:</p>
+<ul>
+  <li>production of artifacts (ZIP archives, docker images, &hellip;)</li>
+  <li>service location (other lagom services, external services, databases, etc&hellip;)</li>
+  <li>Akka Cluster formation</li>
+  <li>expose lifecycle data (readiness, liveness)</li>
+</ul><h2 id="Production-considerations"><a class="section-marker" href="#Production-considerations">§</a>Production considerations</h2>
 <p>The production environment determines the methods for packaging your services, managing Akka Cluster formation, and providing service location, including that for Cassandra and Kafka:</p>
 <ul>
   <li>
@@ -513,7 +520,7 @@ public class ConfigurationServiceLocatorModule extends AbstractModule {
             </div>
         </div>
     </body>
-    <script src="/16b0124e6f2b25f8b47d68fc52aa4f4c50428c2a-all-scripts-concat.js"></script>
+    <script src="/efa76bafa2cda797cb1ec4da35ec1e8d0833f026-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/735687f65c20eba2dbd86ced73bf6965463b3f94-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/e61b5081d05b129c08bf8f38dcf45a86298bb156-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -182,26 +182,30 @@
   <li>preparing the deployment specs for the target orchestrator</li>
   <li>Secrets</li>
 </ol><h4 id="Application-extensions"><a class="section-marker" href="#Application-extensions">§</a>Application extensions</h4>
-<p>Starting with Lagom 1.5 your application will include <a href="Cluster.html#Akka-Management">Akka management HTTP</a> out of the box with <a href="Cluster.html#Health-Checks">health checks</a> enabled by default. Akka management HTTP is a supporting tool for health checks, cluster bootstrap and a few other new features in Lagom 1.5. </p>
-<p>Cluster formation now also supports <a href="Cluster.html#Joining-during-production-(Akka-Cluster-Bootstrap)">Cluster Bootstrapping</a> as a new way to form a cluster. </p>
-<p>These new defaults may require at least two changes on your codebase. First, if you want to opt-in to cluster bootstrapping you must make sure you don&rsquo;t set <code>seed-nodes</code>. <code>seed-nodes</code> always takes precedence over any other cluster formation mechanism. Second, if you use Cluster Bootstrapping, you will have to setup a <a href="https://doc.akka.io/docs/akka/2.5/discovery/index.html">discovery</a> mechanism (see the <a href="Cluster.html#Akka-Discovery">Lagom Cluster reference guide</a> for more details). </p><h4 id="Service-Location"><a class="section-marker" href="#Service-Location">§</a>Service Location</h4>
+<p>Starting with Lagom 1.5 your application will include <a href="Cluster.html#Akka-Management">Akka management HTTP</a> out of the box with <a href="Cluster.html#Health-Checks">health checks</a> enabled by default. Akka management HTTP is a supporting tool for health checks, cluster bootstrap and a few other new features in Lagom 1.5.</p>
+<p>Cluster formation now also supports <a href="Cluster.html#Joining-during-production-(Akka-Cluster-Bootstrap)">Cluster Bootstrapping</a> as a new way to form a cluster.</p>
+<p>These new defaults may require at least two changes on your codebase. First, if you want to opt-in to cluster bootstrapping you must make sure you don&rsquo;t set <code>seed-nodes</code>. <code>seed-nodes</code> always takes precedence over any other cluster formation mechanism. Second, if you use Cluster Bootstrapping, you will have to setup a <a href="https://doc.akka.io/docs/akka/2.5/discovery/index.html">discovery</a> mechanism (see the <a href="Cluster.html#Akka-Discovery">Lagom Cluster reference guide</a> for more details).</p><h4 id="Service-Location"><a class="section-marker" href="#Service-Location">§</a>Service Location</h4>
 <p>You no longer have a <code>ServiceLocator</code> provided by the tooling libraries so you will have to provide one of your choice. We recommend using the new <a href="https://github.com/lagom/lagom-akka-discovery-service-locator"><code>lagom-akka-discovery-service-locator</code></a> which is implemented using <a href="https://doc.akka.io/docs/akka/current/discovery/index.html">Akka Service Discovery</a> implementations.</p>
-<p>Read the <a href="https://github.com/lagom/lagom-akka-discovery-service-locator">docs</a> of the new <code>lagom-akka-discovery-service-locator</code> for details on how to setup the Akka Service Discovery <a href="https://doc.akka.io/docs/akka/current/discovery/index.html">method</a>. For example, </p>
+<p>Read the <a href="https://github.com/lagom/lagom-akka-discovery-service-locator">docs</a> of the new <code>lagom-akka-discovery-service-locator</code> for details on how to setup the Akka Service Discovery <a href="https://doc.akka.io/docs/akka/current/discovery/index.html">method</a>. For example,</p>
 <pre class="prettyprint"><code>akka {
   discovery {
    method = akka-dns
   }
 }
 </code></pre><h4 id="Docker-images-and-deployment-specs"><a class="section-marker" href="#Docker-images-and-deployment-specs">§</a>Docker images and deployment specs</h4>
-<p>With the removal of ConductR or Lightbend Orchestration, the docker images and deployment specs will have to be maintained manually. Therefore the recommended migration is to take ownership of the <code>Dockerfile</code>, deployment scripts and orchestration specs. </p>
-<p>We have written a <a href="https://developer.lightbend.com/guides/openshift-deployment/lagom/index.html">comprehensive guide</a> on how to deploy a Lagom application in Kubernetes or OpenShift. </p>
+<p>With the removal of ConductR or Lightbend Orchestration, the docker images and deployment specs will have to be maintained manually. Therefore the recommended migration is to take ownership of the <code>Dockerfile</code>, deployment scripts and orchestration specs.</p>
+<p>We have written a <a href="https://developer.lightbend.com/guides/openshift-deployment/lagom/index.html">comprehensive guide</a> on how to deploy a Lagom application in Kubernetes or OpenShift.</p>
 <p>We also found that such maintenance can be made easier by using <a href="https://github.com/kubernetes-sigs/kustomize">kustomize</a>.</p><h4 id="Secrets"><a class="section-marker" href="#Secrets">§</a>Secrets</h4>
 <p>Lightbend Orchestration supported declaring <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/features/secrets.html">secrets</a> on <code>build.sbt</code> which user&rsquo;s code could then read from a file in the pod. Starting from Lagom 1.5 there is no specific support for secrets and the recommendation is to use the default option suggested by each target orchestrator. For example, when deploying to Kubernetes or OpenShift <a href="https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables">declare the secret as an environment variable</a> on your <code>Deployment</code> and inject the environment variable in your <code>application.conf</code>. For example:</p>
 <pre class="prettyprint"><code>my-database {
   password = &quot;${DB_PASSWORD}&quot;
 }
 </code></pre><h2 id="Service-Discovery"><a class="section-marker" href="#Service-Discovery">§</a>Service Discovery</h2>
-<p>When opting in to Akka Cluster Bootstrapping as a mechanism for Cluster formation you will have to setup a <a href="Cluster.html#Akka-Discovery">Service Discovery</a> method for nodes to locate each other.</p><h2 id="Upgrading-a-production-system"><a class="section-marker" href="#Upgrading-a-production-system">§</a>Upgrading a production system</h2>
+<p>When opting in to Akka Cluster Bootstrapping as a mechanism for Cluster formation you will have to setup a <a href="Cluster.html#Akka-Discovery">Service Discovery</a> method for nodes to locate each other.</p><h2 id="Production-Settings"><a class="section-marker" href="#Production-Settings">§</a>Production Settings</h2>
+<p>New defaults have been added to the Lagom clustering configuration.</p>
+<p>The first default configuration concerns how long a node should try to join an cluster. This is configured by the setting <code>akka.cluster.shutdown-after-unsuccessful-join-seed-nodes</code>. Lagom will default this value to 60 seconds. After that period, the Actor System will shutdown if it fails to join a cluster.</p>
+<p>The second important change is the default value for <code>lagom.cluster.exit-jvm-when-system-terminated</code>. This was previously <code>off</code>, but we always recommended it to be <code>on</code> in production environments. As of Lagom 1.5.0, that setting defaults to <code>on</code>. When enabled, Lagom will exit the JVM when the application leave the cluster or fail to join the cluster. In Dev and Test mode, this setting is automatically set to <code>off</code>.</p>
+<p>These two properties together are essential for recovering applications in production environments like Kubernetes. Without them, a Lagom node could reach a zombie state in which it wouldn&rsquo;t provide any functionality but stay around consuming resources. The desired behavior for a node that is not participating on a cluster is to shut itself down and let the orchestration infrastructure re-start it.</p><h2 id="Upgrading-a-production-system"><a class="section-marker" href="#Upgrading-a-production-system">§</a>Upgrading a production system</h2>
 <p>There are no changes affecting a Production Upgrade. If you are running a Lagom 1.4 cluster you can perform a rolling upgrade, just make sure you are using the latest version on the 1.4.x series and, from that, you migrate to the latest version available of the 1.5.x series.</p><h3 id="Downtime-upgrade"><a class="section-marker" href="#Downtime-upgrade">§</a>Downtime upgrade</h3>
 <p>If you still haven&rsquo;t adopted <code>ddata</code> as the cluster sharding mode and your application can tolerate a <em>one time only</em> downtime upgrade, we recommend you to enable <code>ddata</code>. Taking advantage of that downtime we recommend you also enable the serializers for <code>akka.Done</code>, <code>akka.actor.Address</code> and <code>akka.remote.UniqueAddress</code>. Once this upgrade is complete, further downtime is not required. Read all the details of this migration on the <a href="Migration14.html#Rolling-upgrade">1.4 Migration Guide</a></p>
                 </article>
@@ -414,7 +418,7 @@
             </div>
         </div>
     </body>
-    <script src="/735687f65c20eba2dbd86ced73bf6965463b3f94-all-scripts-concat.js"></script>
+    <script src="/e61b5081d05b129c08bf8f38dcf45a86298bb156-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

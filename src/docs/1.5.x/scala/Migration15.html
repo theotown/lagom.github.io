@@ -34,7 +34,10 @@
 <p>Cluster formation now also supports <a href="Cluster.html#Joining-during-production-(Akka-Cluster-Bootstrap)">Cluster Bootstrapping</a> as a new way to form a cluster.</p>
 <p>These new defaults may require at least two changes on your codebase. First, if you want to opt-in to cluster bootstrapping you must make sure you don&rsquo;t set <code>seed-nodes</code>. <code>seed-nodes</code> always takes precedence over any other cluster formation mechanism. Second, if you use Cluster Bootstrapping, you will have to setup a <a href="https://doc.akka.io/docs/akka/2.5/discovery/index.html">discovery</a> mechanism (see the <a href="Cluster.html#Akka-Discovery">Lagom Cluster reference guide</a> for more details).</p><h4 id="Service-Location"><a class="section-marker" href="#Service-Location">§</a>Service Location</h4>
 <p>You no longer have a <code>ServiceLocator</code>provided by the tooling libraries so you will have to provide one of your choice. We recommend using the new <a href="https://github.com/lagom/lagom-akka-discovery-service-locator"><code>lagom-akka-discovery-service-locator</code></a> which is implemented using <a href="https://doc.akka.io/docs/akka/current/discovery/index.html">Akka Service Discovery</a> implementations.</p>
-<p>This means you will have to change you <code>Loader</code> code:</p>
+<p>You first need to add the following dependency to each service implementation in your <code>build.sbt</code>.</p>
+<pre class="prettyprint"><code class="language-scala">&quot;com.lightbend.lagom&quot; %% &quot;lagom-scaladsl-akka-discovery-service-locator&quot; % &quot;1.0.0&quot;
+</code></pre>
+<p>Next you will have to change the <code>Loader</code> code in each service implementation:</p>
 <pre class="prettyprint"><code class="language-scala">// before
   import com.lightbend.rp.servicediscovery.lagom.scaladsl.LagomServiceLocatorComponents
   override def load(context: LagomApplicationContext) =

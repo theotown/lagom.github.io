@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/e61b5081d05b129c08bf8f38dcf45a86298bb156-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/42ec64832923d995b9f1fcd6e29df0611d888f5b-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -186,6 +186,16 @@
 <p>Cluster formation now also supports <a href="Cluster.html#Joining-during-production-(Akka-Cluster-Bootstrap)">Cluster Bootstrapping</a> as a new way to form a cluster.</p>
 <p>These new defaults may require at least two changes on your codebase. First, if you want to opt-in to cluster bootstrapping you must make sure you don&rsquo;t set <code>seed-nodes</code>. <code>seed-nodes</code> always takes precedence over any other cluster formation mechanism. Second, if you use Cluster Bootstrapping, you will have to setup a <a href="https://doc.akka.io/docs/akka/2.5/discovery/index.html">discovery</a> mechanism (see the <a href="Cluster.html#Akka-Discovery">Lagom Cluster reference guide</a> for more details).</p><h4 id="Service-Location"><a class="section-marker" href="#Service-Location">§</a>Service Location</h4>
 <p>You no longer have a <code>ServiceLocator</code> provided by the tooling libraries so you will have to provide one of your choice. We recommend using the new <a href="https://github.com/lagom/lagom-akka-discovery-service-locator"><code>lagom-akka-discovery-service-locator</code></a> which is implemented using <a href="https://doc.akka.io/docs/akka/current/discovery/index.html">Akka Service Discovery</a> implementations.</p>
+<p>You first need to add the following dependency to each service implementation in your <code>build.sbt</code>.</p>
+<pre class="prettyprint"><code>&quot;com.lightbend.lagom&quot; %% &quot;lagom-javadsl-akka-discovery-service-locator&quot; % &quot;1.0.0&quot;
+</code></pre>
+<p>or if you are using <code>maven</code>.</p>
+<pre class="prettyprint"><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
+    &lt;artifactId&gt;lagom-javadsl-akka-discovery-service-locator_2.12&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
 <p>Read the <a href="https://github.com/lagom/lagom-akka-discovery-service-locator">docs</a> of the new <code>lagom-akka-discovery-service-locator</code> for details on how to setup the Akka Service Discovery <a href="https://doc.akka.io/docs/akka/current/discovery/index.html">method</a>. For example,</p>
 <pre class="prettyprint"><code>akka {
   discovery {
@@ -418,7 +428,7 @@
             </div>
         </div>
     </body>
-    <script src="/e61b5081d05b129c08bf8f38dcf45a86298bb156-all-scripts-concat.js"></script>
+    <script src="/42ec64832923d995b9f1fcd6e29df0611d888f5b-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

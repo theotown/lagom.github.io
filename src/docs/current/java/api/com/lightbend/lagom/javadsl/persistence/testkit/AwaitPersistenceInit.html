@@ -17,12 +17,6 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
-var altColor = "altColor";
-var rowColor = "rowColor";
-var tableTab = "tableTab";
-var activeTableTab = "activeTableTab";
 </script>
 <noscript>
 <div>JavaScript is disabled on your browser.</div>
@@ -75,13 +69,13 @@ var activeTableTab = "activeTableTab";
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
+<li><a href="#methods.inherited.from.class.com.lightbend.lagom.internal.persistence.testkit.AwaitPersistenceInit">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
+<li>Method</li>
 </ul>
 </div>
 <a name="skip.navbar.top">
@@ -98,7 +92,12 @@ var activeTableTab = "activeTableTab";
 <li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></li>
 <li>
 <ul class="inheritance">
+<li>com.lightbend.lagom.internal.persistence.testkit.AwaitPersistenceInit</li>
+<li>
+<ul class="inheritance">
 <li>com.lightbend.lagom.javadsl.persistence.testkit.AwaitPersistenceInit</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -110,10 +109,12 @@ var activeTableTab = "activeTableTab";
 <dd>akka.actor.Actor, akka.actor.Stash, akka.actor.StashFactory, akka.actor.StashSupport, akka.actor.UnrestrictedStash, akka.dispatch.RequiresMessageQueue&lt;akka.dispatch.DequeBasedMessageQueueSemantics&gt;, akka.persistence.Eventsourced, akka.persistence.PersistenceIdentity, akka.persistence.PersistenceRecovery, akka.persistence.PersistenceStash, akka.persistence.PersistentActor, akka.persistence.Snapshotter</dd>
 </dl>
 <hr>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">Internal class, not intended for direct use. Since 1.5.0.</span></div>
+</div>
 <br>
 <pre>public class <span class="typeNameLabel">AwaitPersistenceInit</span>
-extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
-implements akka.persistence.PersistentActor</pre>
+extends com.lightbend.lagom.internal.persistence.testkit.AwaitPersistenceInit</pre>
 </li>
 </ul>
 </div>
@@ -154,7 +155,9 @@ implements akka.persistence.PersistentActor</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/testkit/AwaitPersistenceInit.html#AwaitPersistenceInit--">AwaitPersistenceInit</a></span>()</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/testkit/AwaitPersistenceInit.html#AwaitPersistenceInit--">AwaitPersistenceInit</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -165,37 +168,13 @@ implements akka.persistence.PersistentActor</pre>
 <!--   -->
 </a>
 <h3>Method Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Method and Description</th>
-</tr>
-<tr id="i0" class="altColor">
-<td class="colFirst"><code>akka.actor.ActorContext</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/testkit/AwaitPersistenceInit.html#context--">context</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>akka.dispatch.DequeBasedMessageQueueSemantics</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/testkit/AwaitPersistenceInit.html#mailbox--">mailbox</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/testkit/AwaitPersistenceInit.html#persistenceId--">persistenceId</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>scala.PartialFunction&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,scala.runtime.BoxedUnit&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/testkit/AwaitPersistenceInit.html#receiveCommand--">receiveCommand</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>scala.PartialFunction&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,scala.runtime.BoxedUnit&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/testkit/AwaitPersistenceInit.html#receiveRecover--">receiveRecover</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>akka.actor.ActorRef</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/testkit/AwaitPersistenceInit.html#self--">self</a></span>()</code>&nbsp;</td>
-</tr>
-</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.com.lightbend.lagom.internal.persistence.testkit.AwaitPersistenceInit">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;com.lightbend.lagom.internal.persistence.testkit.AwaitPersistenceInit</h3>
+<code>akka$actor$Actor$_setter_$context_$eq, akka$actor$Actor$_setter_$self_$eq, akka$actor$StashSupport$_setter_$akka$actor$StashSupport$$capacity_$eq, akka$actor$StashSupport$_setter_$mailbox_$eq, akka$actor$StashSupport$$capacity, akka$actor$StashSupport$$theStash_$eq, akka$actor$StashSupport$$theStash, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$extension_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$instanceId_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$internalStash_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$maxMessageBatchSize_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$pendingInvocations_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$persistingEvents_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$processingCommands_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$unstashFilterPredicate_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$writerUuid_$eq, akka$persistence$Eventsourced$$_lastSequenceNr_$eq, akka$persistence$Eventsourced$$_lastSequenceNr, akka$persistence$Eventsourced$$currentState_$eq, akka$persistence$Eventsourced$$currentState, akka$persistence$Eventsourced$$eventBatch_$eq, akka$persistence$Eventsourced$$eventBatch, akka$persistence$Eventsourced$$extension, akka$persistence$Eventsourced$$instanceId, akka$persistence$Eventsourced$$internalStash, akka$persistence$Eventsourced$$journalBatch_$eq, akka$persistence$Eventsourced$$journalBatch, akka$persistence$Eventsourced$$maxMessageBatchSize, akka$persistence$Eventsourced$$pendingInvocations, akka$persistence$Eventsourced$$pendingStashingPersistInvocations_$eq, akka$persistence$Eventsourced$$pendingStashingPersistInvocations, akka$persistence$Eventsourced$$persistingEvents, akka$persistence$Eventsourced$$processingCommands, akka$persistence$Eventsourced$$sequenceNr_$eq, akka$persistence$Eventsourced$$sequenceNr, akka$persistence$Eventsourced$$unstashFilterPredicate, akka$persistence$Eventsourced$$writeInProgress_$eq, akka$persistence$Eventsourced$$writeInProgress, akka$persistence$Eventsourced$$writerUuid, aroundPostRestart, aroundPostStop, aroundPreRestart, aroundPreStart, aroundReceive, awaitPersistenceInit, clearStash, context, createStash, defer, deferAsync, deleteMessages, deleteSnapshot, deleteSnapshots, internalDefer, internalDeferAsync, internalDeleteMessagesBeforeSnapshot, internalPersist, internalPersistAll, internalPersistAllAsync, internalPersistAsync, internalStashOverflowStrategy, journal, journalPluginId, lastSequenceNr, loadSnapshot, mailbox, onPersistFailure, onPersistRejected, onRecoveryFailure, onReplaySuccess, persist, persistAll, persistAllAsync, persistAsync, persistenceId, postRestart, postStop, prepend, preRestart, preStart, receive, receiveCommand, receiveRecover, recovery, recoveryFinished, recoveryRunning, saveSnapshot, self, sender, snapshotPluginId, snapshotSequenceNr, snapshotStore, snapshotterId, stash, supervisorStrategy, unhandled, unstash, unstashAll, unstashAll</code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.Object">
 <!--   -->
@@ -208,28 +187,28 @@ implements akka.persistence.PersistentActor</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;akka.persistence.PersistentActor</h3>
-<code>$init$, defer, deferAsync, persist, persistAll, persistAllAsync, persistAsync, receive</code></li>
+<code>$init$</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.akka.persistence.Eventsourced">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;akka.persistence.Eventsourced</h3>
-<code>$init$, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$extension_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$instanceId_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$internalStash_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$maxMessageBatchSize_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$pendingInvocations_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$persistingEvents_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$processingCommands_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$unstashFilterPredicate_$eq, akka$persistence$Eventsourced$_setter_$akka$persistence$Eventsourced$$writerUuid_$eq, akka$persistence$Eventsourced$$_lastSequenceNr_$eq, akka$persistence$Eventsourced$$_lastSequenceNr, akka$persistence$Eventsourced$$changeState, akka$persistence$Eventsourced$$currentState_$eq, akka$persistence$Eventsourced$$currentState, akka$persistence$Eventsourced$$eventBatch_$eq, akka$persistence$Eventsourced$$eventBatch, akka$persistence$Eventsourced$$extension, akka$persistence$Eventsourced$$flushBatch, akka$persistence$Eventsourced$$flushJournalBatch, akka$persistence$Eventsourced$$instanceId, akka$persistence$Eventsourced$$internalStash, akka$persistence$Eventsourced$$journalBatch_$eq, akka$persistence$Eventsourced$$journalBatch, akka$persistence$Eventsourced$$maxMessageBatchSize, akka$persistence$Eventsourced$$peekApplyHandler, akka$persistence$Eventsourced$$pendingInvocations, akka$persistence$Eventsourced$$pendingStashingPersistInvocations_$eq, akka$persistence$Eventsourced$$pendingStashingPersistInvocations, akka$persistence$Eventsourced$$persistingEvents, akka$persistence$Eventsourced$$processingCommands, akka$persistence$Eventsourced$$recovering, akka$persistence$Eventsourced$$sequenceNr_$eq, akka$persistence$Eventsourced$$sequenceNr, akka$persistence$Eventsourced$$setLastSequenceNr, akka$persistence$Eventsourced$$startRecovery, akka$persistence$Eventsourced$$stashInternally, akka$persistence$Eventsourced$$unstashFilterPredicate, akka$persistence$Eventsourced$$unstashInternally, akka$persistence$Eventsourced$$updateLastSequenceNr, akka$persistence$Eventsourced$$writeInProgress_$eq, akka$persistence$Eventsourced$$writeInProgress, akka$persistence$Eventsourced$$writerUuid, aroundPostRestart, aroundPostStop, aroundPreRestart, aroundPreStart, aroundReceive, deleteMessages, internalDefer, internalDeferAsync, internalPersist, internalPersistAll, internalPersistAllAsync, internalPersistAsync, lastSequenceNr, onPersistFailure, onPersistRejected, onRecoveryFailure, onReplaySuccess, recoveryFinished, recoveryRunning, snapshotSequenceNr, snapshotterId, stash, unhandled, unstashAll</code></li>
+<code>$init$, akka$persistence$Eventsourced$$changeState, akka$persistence$Eventsourced$$flushBatch, akka$persistence$Eventsourced$$flushJournalBatch, akka$persistence$Eventsourced$$peekApplyHandler, akka$persistence$Eventsourced$$recovering, akka$persistence$Eventsourced$$setLastSequenceNr, akka$persistence$Eventsourced$$startRecovery, akka$persistence$Eventsourced$$stashInternally, akka$persistence$Eventsourced$$unstashInternally, akka$persistence$Eventsourced$$updateLastSequenceNr</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.akka.persistence.Snapshotter">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;akka.persistence.Snapshotter</h3>
-<code>$init$, deleteSnapshot, deleteSnapshots, loadSnapshot, saveSnapshot</code></li>
+<code>$init$</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.akka.persistence.PersistenceStash">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;akka.persistence.PersistenceStash</h3>
-<code>$init$, internalStashOverflowStrategy</code></li>
+<code>$init$</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.akka.actor.UnrestrictedStash">
@@ -243,35 +222,35 @@ implements akka.persistence.PersistentActor</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;akka.actor.Actor</h3>
-<code>$init$, akka$actor$Actor$_setter_$context_$eq, akka$actor$Actor$_setter_$self_$eq, noSender, postRestart, preStart, sender, supervisorStrategy</code></li>
+<code>$init$, noSender</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.akka.actor.StashSupport">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;akka.actor.StashSupport</h3>
-<code>$init$, akka$actor$StashSupport$_setter_$akka$actor$StashSupport$$capacity_$eq, akka$actor$StashSupport$_setter_$mailbox_$eq, akka$actor$StashSupport$$capacity, akka$actor$StashSupport$$theStash_$eq, akka$actor$StashSupport$$theStash, clearStash, prepend, unstash, unstashAll</code></li>
+<code>$init$</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.akka.actor.StashFactory">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;akka.actor.StashFactory</h3>
-<code>$init$, createStash</code></li>
+<code>$init$</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.akka.persistence.PersistenceIdentity">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;akka.persistence.PersistenceIdentity</h3>
-<code>$init$, journalPluginId, snapshotPluginId</code></li>
+<code>$init$</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.akka.persistence.PersistenceRecovery">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;akka.persistence.PersistenceRecovery</h3>
-<code>$init$, recovery</code></li>
+<code>$init$</code></li>
 </ul>
 </li>
 </ul>
@@ -294,96 +273,7 @@ implements akka.persistence.PersistentActor</pre>
 <li class="blockList">
 <h4>AwaitPersistenceInit</h4>
 <pre>public&nbsp;AwaitPersistenceInit()</pre>
-</li>
-</ul>
-</li>
-</ul>
-<!-- ============ METHOD DETAIL ========== -->
-<ul class="blockList">
-<li class="blockList"><a name="method.detail">
-<!--   -->
-</a>
-<h3>Method Detail</h3>
-<a name="context--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>context</h4>
-<pre>public&nbsp;akka.actor.ActorContext&nbsp;context()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>context</code>&nbsp;in interface&nbsp;<code>akka.actor.Actor</code></dd>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>context</code>&nbsp;in interface&nbsp;<code>akka.actor.StashSupport</code></dd>
-</dl>
-</li>
-</ul>
-<a name="mailbox--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mailbox</h4>
-<pre>public&nbsp;akka.dispatch.DequeBasedMessageQueueSemantics&nbsp;mailbox()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>mailbox</code>&nbsp;in interface&nbsp;<code>akka.actor.StashSupport</code></dd>
-</dl>
-</li>
-</ul>
-<a name="persistenceId--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>persistenceId</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;persistenceId()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>persistenceId</code>&nbsp;in interface&nbsp;<code>akka.persistence.PersistenceIdentity</code></dd>
-</dl>
-</li>
-</ul>
-<a name="receiveCommand--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>receiveCommand</h4>
-<pre>public&nbsp;scala.PartialFunction&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,scala.runtime.BoxedUnit&gt;&nbsp;receiveCommand()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>receiveCommand</code>&nbsp;in interface&nbsp;<code>akka.persistence.Eventsourced</code></dd>
-</dl>
-</li>
-</ul>
-<a name="receiveRecover--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>receiveRecover</h4>
-<pre>public&nbsp;scala.PartialFunction&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,scala.runtime.BoxedUnit&gt;&nbsp;receiveRecover()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>receiveRecover</code>&nbsp;in interface&nbsp;<code>akka.persistence.Eventsourced</code></dd>
-</dl>
-</li>
-</ul>
-<a name="self--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>self</h4>
-<pre>public final&nbsp;akka.actor.ActorRef&nbsp;self()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>self</code>&nbsp;in interface&nbsp;<code>akka.actor.Actor</code></dd>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>self</code>&nbsp;in interface&nbsp;<code>akka.actor.StashSupport</code></dd>
-</dl>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 </ul>
 </li>
@@ -410,11 +300,7 @@ implements akka.persistence.PersistentActor</pre>
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><script type="text/javascript">
-  if (window.name == "classFrame" && window.top.location.hash) {
-    window.location.href = window.top.location.hash;
-  }
-</script></div>
+<div class="aboutLanguage"><script type=\"text/javascript\">\n  if (window.name == \"classFrame\" && window.top.location.hash) {\n    window.location.href = window.top.location.hash;\n  }\n</script></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -446,13 +332,13 @@ implements akka.persistence.PersistentActor</pre>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
+<li><a href="#methods.inherited.from.class.com.lightbend.lagom.internal.persistence.testkit.AwaitPersistenceInit">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
+<li>Method</li>
 </ul>
 </div>
 <a name="skip.navbar.bottom">

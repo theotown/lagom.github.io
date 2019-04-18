@@ -58,7 +58,9 @@ The server is by default running with [[pubsub|PubSub]], [[cluster|Cluster]] and
 
 @[enable-cluster](code/TestingServices.scala)
 
-If your service needs [[persistence|PersistentEntity]] you will need to enable it explicitly. This can be done by enabling Cassandra or JDBC, depending on which kind of persistence is used by your service. In any case, Lagom persistence requires clustering, so when when enabling one or another, cluster will also be enabled automatically.
+If your service needs [[persistence|PersistentEntity]] you will need to enable it explicitly. This can be done by enabling Cassandra or JDBC, depending on which kind of persistence is used by your service. In any case, Lagom persistence requires clustering, so when enabling one or another, cluster will also be enabled automatically.
+
+You can't enable both (Cassandra and JDBC) at the same time for testing, which could be a problem if you are mixing persistence for write and read side. If you are using Cassandra for write-side and JDBC for read-side, just enable Cassandra.
 
 To enable Cassandra Persistence:
 
@@ -69,6 +71,23 @@ To enable JDBC Persistence:
 @[enable-jdbc](code/TestingServices.scala)
 
 There's no way to explicitly enable or disable [[pubsub|PubSub]]. When cluster is enabled (either explicitly or transitively via enabling Cassandra or JDBC), pubsub will be available.
+
+
+## How to use TLS on tests
+
+To open an SSL port on the `TestServer` used in your tests, you may enable SSL support using `withSsl`:
+
+```java
+Setup.defaultSetup.withSsl()
+```
+
+Enabling SSL will automatically open a new random port and provide an `javax.net.ssl.SSLContext` on the TestServer. Lagom doesn't provide any client factory that allows sending requests to the HTTPS port at the moment. You should create an HTTP client using Play-WS, Akka-HTTP or Akka-gRPC. Then, use the `httpsPort` and the `sslContext` provided by the `testServer` instance to send the request. Note that the `SSLContext` provided is built by Lagom's testkit to trust the `testServer` certificates. Finally, because the server certificate is issued for `CN=localhost` you will have to make sure that's the `authority` on the requests you generate, otherwise the server may decline and fail the request. At the moment it is not possible to setup the test server with different SSL Certificates.  
+
+
+@[tls-test-service](../../../../../testkit/scaladsl/src/test/scala/com/lightbend/lagom/scaladsl/testkit/TestOverTlsSpec.scala)
+
+
+
 
 ## How to test several services
 

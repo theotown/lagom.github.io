@@ -167,6 +167,10 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="index.html" class="extype" name="com.lightbend.lagom.scaladsl.server">server</a></dd></dl></div>
     </li><li class="current-entities indented5">
                         <span class="separator"></span>
+                        <a class="trait" href="AkkaManagementComponents.html" title=""></a>
+                        <a href="AkkaManagementComponents.html" title="">AkkaManagementComponents</a>
+                      </li><li class="current-entities indented5">
+                        <span class="separator"></span>
                         <a class="class" href="LagomApplication.html" title="A Lagom application."></a>
                         <a href="LagomApplication.html" title="A Lagom application.">LagomApplication</a>
                       </li><li class="current-entities indented5">
@@ -452,6 +456,30 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.server.LagomServer#additionalRouter" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="additionalRouter(otherRouter:play.api.routing.Router):com.lightbend.lagom.scaladsl.server.LagomServer"></a><a id="additionalRouter(Router):LagomServer"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/server/LagomServer.html#additionalRouter(otherRouter:play.api.routing.Router):com.lightbend.lagom.scaladsl.server.LagomServer" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">additionalRouter</span><span class="params">(<span name="otherRouter">otherRouter: <a href="https://www.playframework.com/documentation/2.7.0/api/scala/play/api/routing/Router.html#play.api.routing.Router" class="extype" name="play.api.routing.Router">Router</a></span>)</span><span class="result">: <a href="" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServer">LagomServer</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Allows the configuration of additional Play <span class="extype" name="Router">Router</span>s.</p><div class="fullcomment"><div class="comment cmt"><p>Allows the configuration of additional Play <span class="extype" name="Router">Router</span>s.</p><p>Typically, this will be a <span class="extype" name="Router">Router</span> generated from a Play <span class="extype" name="Router">Router</span>
+or a akka-grpc generated Play <span class="extype" name="Router">Router</span>.</p><p>Once you declare a <span class="extype" name="Router">Router</span>, you may need to define it's prefix to indicate on which path it should be available.</p><pre><span class="kw">new</span> LagomApplication(context) <span class="kw">with</span> AhcWSComponents <span class="kw">with</span> LocalServiceLocator {
+  <span class="kw">override</span> <span class="kw">def</span> lagomServer: LagomServer =
+    serverFor[MyService](<span class="kw">new</span> MyServiceImpl)
+      .additionalRouter(<span class="kw">new</span> HelloWorldRouter().withPrefix(<span class="lit">"/hello"</span>))
+}</pre><p>You don't need to configure a prefix if the <span class="extype" name="Router">Router</span> has it pre-configured.
+A akka-grpc generated Play <span class="extype" name="Router">Router</span>, for instance, has its prefix already defined by the gRPC descriptor
+and doesn't need to have its prefix reconfigured.
+</p></div></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">

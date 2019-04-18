@@ -95,7 +95,8 @@ class HelloServiceSpec extends AsyncWordSpec with Matchers with BeforeAndAfterAl
 ) { ctx =&gt;
   new HelloApplication(ctx) with LocalServiceLocator
 }</code></pre>
-<p>If your service needs <a href="PersistentEntity.html">persistence</a> you will need to enable it explicitly. This can be done by enabling Cassandra or JDBC, depending on which kind of persistence is used by your service. In any case, Lagom persistence requires clustering, so when when enabling one or another, cluster will also be enabled automatically.</p>
+<p>If your service needs <a href="PersistentEntity.html">persistence</a> you will need to enable it explicitly. This can be done by enabling Cassandra or JDBC, depending on which kind of persistence is used by your service. In any case, Lagom persistence requires clustering, so when enabling one or another, cluster will also be enabled automatically.</p>
+<p>You can&rsquo;t enable both (Cassandra and JDBC) at the same time for testing, which could be a problem if you are mixing persistence for write and read side. If you are using Cassandra for write-side and JDBC for read-side, just enable Cassandra.</p>
 <p>To enable Cassandra Persistence:</p>
 <pre class="prettyprint"><code class="language-scala">lazy val server = ServiceTest.startServer(
   ServiceTest.defaultSetup.withCassandra()

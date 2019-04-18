@@ -1,302 +1,314 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/Migration13.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/Migration13.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/WhatsNext.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/WhatsNext.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/Akka.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/Akka.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ReferenceGuide.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ReferenceGuide.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/Cluster.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/Cluster.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/Home.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/Home.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ReadSideCassandra.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ConfiguringServicesInDevelopment.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/KafkaClient.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ReadSideCassandra.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ReadSide.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/KafkaClient.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ServiceImplementation.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ReadSide.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/IntroGetStarted.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ServiceImplementation.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/InternalAndExternalCommunication.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/IntroGetStarted.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/EclipseSbt.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/InternalAndExternalCommunication.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/EclipseMavenNew.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/EclipseSbt.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/IntellijSbtJava.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/Migration15.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/LightbendPlatform.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/EclipseMavenNew.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/PersistentEntityCassandra.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/AdditionalRouters.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/IntegratingNonLagom.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/IntellijSbtJava.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ScalableDeployment.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/LightbendPlatform.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/Migration12.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/PersistentEntityCassandra.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ServicePort.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/IntegratingNonLagom.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ImmutablesInIDEs.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ScalableDeployment.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ReadSideJPA.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/Migration12.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/Immutable.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ImmutablesInIDEs.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/GettingStartedSbt.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ReadSideJPA.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ComponentTechnologies.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/Immutable.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/PolyglotSystems.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/GettingStartedSbt.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ESAdvantage.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ComponentTechnologies.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/GettingStartedMaven.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/PolyglotSystems.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/CoreConcepts.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ESAdvantage.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/Logging.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/GettingStartedMaven.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/DevEnvironment.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/CoreConcepts.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ServiceDiscovery.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/Logging.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/BuildConcepts.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/DevEnvironment.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/MessageBrokerTesting.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ServiceDiscovery.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/PubSub.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/BuildConcepts.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/JavaPrereqs.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/MessageBrokerTesting.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ServiceLocator.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/PubSub.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/LagomBuild.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/JavaPrereqs.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/KafkaServer.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ServiceLocator.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/Migration14.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/LagomBuild.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ES_CQRS.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/KafkaServer.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/MultipleBuilds.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/Migration14.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/SettingsLogger.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ES_CQRS.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ServiceClients.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/Highlights15.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/PersistentEntityRDBMS.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/MultipleBuilds.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/MessageSerializers.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/SettingsLogger.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/APIOverview.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ServiceClients.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/Serialization.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/PersistentEntityRDBMS.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/MicroserviceDesign.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/MessageSerializers.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/DevelopmentEnvironmentOverview.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/APIOverview.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/UnderstandHello.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/Serialization.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/LagomExamples.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/MicroserviceDesign.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/JVMMemoryOnDev.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/DevelopmentEnvironmentOverview.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/Test.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/UnderstandHello.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ReadSideRDBMS.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/LagomExamples.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ServiceInfo.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/JVMMemoryOnDev.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/WhatDoesLagomMean.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/Test.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ProductionOverview.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ReadSideRDBMS.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ServiceErrorHandling.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ServiceInfo.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/WhereToStart.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/WhatDoesLagomMean.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/PersistentEntity.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ProductionOverview.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ReadVsWrite.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ServiceErrorHandling.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/EclipseMavenInt.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/WhereToStart.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/MessageBroker.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/PersistentEntity.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/RunningServices.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ReadVsWrite.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/MicroserviceSystemDesign.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/EclipseMavenInt.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ServiceDescriptors.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/MessageBroker.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/IntellijMaven.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/RunningServices.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/WhatIsLagom.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/MicroserviceSystemDesign.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/CassandraServer.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ServiceDescriptors.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/LagomDesignPhilosophy.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/IntellijMaven.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/HeaderFilters.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/WhatIsLagom.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/ReadSideJDBC.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/CassandraServer.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/documentation/1.4.x/java/MessageBrokerApi.html</loc>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/LagomDesignPhilosophy.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/HeaderFilters.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/ReadSideJDBC.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.lagomframework.com/documentation/1.5.x/java/MessageBrokerApi.html</loc>
     <priority>0.9</priority>
   </url>
 </urlset>

@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var methods = {"i0":6,"i1":38,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":38};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -145,7 +145,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -158,7 +158,11 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>abstract <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#getState--">getState</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#getState--">getState</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">The method is deprecated because it was deemed obsolete. Since 1.5.0.</span></div>
+</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>abstract void</code></td>
@@ -202,7 +206,11 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>abstract void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#setState-State-">setState</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&nbsp;state)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#setState-State-">setState</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&nbsp;state)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">The method is deprecated because it was deemed obsolete. Since 1.5.0.</span></div>
+</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -260,6 +268,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>getState</h4>
 <pre>public abstract&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&nbsp;getState()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">The method is deprecated because it was deemed obsolete. Since 1.5.0.</span></div>
 </li>
 </ul>
 <a name="removeCommandHandler-java.lang.Class-">
@@ -365,6 +374,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>setState</h4>
 <pre>public abstract&nbsp;void&nbsp;setState(<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="type parameter in PersistentEntity">State</a>&nbsp;state)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">The method is deprecated because it was deemed obsolete. Since 1.5.0.</span></div>
 </li>
 </ul>
 </li>
@@ -391,11 +401,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><script type="text/javascript">
-  if (window.name == "classFrame" && window.top.location.hash) {
-    window.location.href = window.top.location.hash;
-  }
-</script></div>
+<div class="aboutLanguage"><script type=\"text/javascript\">\n  if (window.name == \"classFrame\" && window.top.location.hash) {\n    window.location.href = window.top.location.hash;\n  }\n</script></div>
 </div>
 <div class="subNav">
 <ul class="navList">

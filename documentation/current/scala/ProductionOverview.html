@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html class="noios">
     <head>
@@ -9,11 +7,11 @@
         <title>Lagom - Production Overview</title>
         <meta name="description" content="Lagom">
         
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.4.x/scala/ProductionOverview.html"/>
+            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.5.x/scala/ProductionOverview.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/e5dceb66b2ddab4b5af2ceac4e0a98c47794a6f1-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/c2cc98f846667d40f28dfa85ec206a0da81fddf2-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -45,7 +43,6 @@
                         </button>
                         <a href="/get-started.html">Try Lagom</a>
                         
-
 <h3>Documentation</h3>
 <ul>
     <li><a href="/documentation">By release</a></li>
@@ -80,7 +77,6 @@
                                 <a class="logo" href="/"><svg id="Lagom_Full_Color" class="svg-logo svg-logo-lagom-full-color" data-name="Lagom Full Color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 752 192"><title>logom</title><g id="Lagom"><path d="M291.58,31.79h19.83v87.91c0,8.1,2.64,11.57,9.91,11.57a21.11,21.11,0,0,0,5.95-.66V148.3a35.63,35.63,0,0,1-9.42,1c-17.52,0-26.28-8.92-26.28-26.94V31.79Z" fill="#652b7c"/><path d="M398.34,75.75V63.69h19.83v58.17c0,7.11,1.65,9.75,6.11,9.75a41.28,41.28,0,0,0,4.13-.33v16a28.65,28.65,0,0,1-9.75,1.32c-4.79,0-8.59-.83-11.57-2.64a15.33,15.33,0,0,1-6.78-10.08C394.53,144.66,385,149,371.73,149A39.58,39.58,0,0,1,342,136.4c-7.93-8.43-11.9-18.67-11.9-31.07s4-22.64,11.9-30.9a39.58,39.58,0,0,1,29.75-12.56C385.12,61.87,395.2,67.82,398.34,75.75Zm-5.95,47.76a24.29,24.29,0,0,0,7.44-18.18,24.29,24.29,0,0,0-7.44-18.18,24.68,24.68,0,0,0-18-7.27,23.93,23.93,0,0,0-17.68,7.27c-4.63,4.79-6.94,10.91-6.94,18.18s2.31,13.39,6.94,18.18a23.93,23.93,0,0,0,17.68,7.27A24.68,24.68,0,0,0,392.39,123.51Z" fill="#652b7c"/><path d="M495.67,63.69H515.5v69.41c0,20-2.81,32.23-14,41-7.93,6.11-17.68,9.25-29.42,9.25-15.53,0-28.92-4-40.32-12.06l9.59-14.71a50.47,50.47,0,0,0,28.59,9.09q11.65,0,18.34-5c5.29-3.8,7.93-10.91,7.93-21.15v-4.13c-4,7.11-13.88,12.23-27.1,12.23a40.53,40.53,0,0,1-29.75-12.23c-7.93-8.1-11.9-18.34-11.9-30.41s4-22.31,12.06-30.57a39.23,39.23,0,0,1,29.58-12.56c13.72,0,23.8,5.78,26.61,13.88V63.69ZM489.72,123a24.19,24.19,0,0,0,7.44-18,23.82,23.82,0,0,0-7.44-17.85,24.68,24.68,0,0,0-18-7.27A23.93,23.93,0,0,0,454,87.15,24.69,24.69,0,0,0,447.09,105,25.08,25.08,0,0,0,454,123a23.79,23.79,0,0,0,17.68,7.11C478.81,130.12,484.93,127.81,489.72,123Z" fill="#652b7c"/><path d="M522.44,105.33a42.05,42.05,0,0,1,13.22-31.4c8.76-8.43,19.5-12.72,32.22-12.72s23.47,4.3,32.23,12.72a42.05,42.05,0,0,1,13.22,31.4,42.05,42.05,0,0,1-13.22,31.4c-8.76,8.43-19.5,12.72-32.23,12.72s-23.47-4.3-32.22-12.72A42.05,42.05,0,0,1,522.44,105.33ZM586.23,124a25.67,25.67,0,0,0,7.44-18.67,25,25,0,0,0-7.44-18.51,26.13,26.13,0,0,0-36.85,0,25.56,25.56,0,0,0-7.27,18.51A26.22,26.22,0,0,0,549.38,124,26.54,26.54,0,0,0,586.23,124Z" fill="#652b7c"/><path d="M620.6,147V63.69h19.67v11.9C643.74,67.49,652,62,662.58,62,674,62,681.91,66.83,686,76.58,690.84,66.83,699.76,62,712.81,62c18,0,28.42,12.72,28.42,33.38v26.28c0,6.44,1.16,8.76,5.62,8.76a14.56,14.56,0,0,0,2.81-.33v16.69a28.37,28.37,0,0,1-8.59,1c-13.05,0-19.5-7.27-19.5-21.81V98.23c0-11.4-5.29-18.51-14.54-18.51s-16,8.1-16,19.33V147H671.34V98.23c0-11.4-5.45-18.51-14.87-18.51-9.25,0-16.2,8.1-16.2,19.33V147H620.6Z" fill="#652b7c"/></g><g id="Icon"><path d="M261,84l-70,34,70,34S260.78,84.27,261,84Z" fill="#652b7c"/><polygon points="121 152 191 118 121 84 121 152" fill="#652b7c"/><path d="M191,118l70,34c-0.27,0-41.76,25-60.63,36.24a17.64,17.64,0,0,1-18,0C163.47,177,121,152,121,152Z" fill="#421540"/><path d="M200.23,47.65C219.09,58.88,261,84,261,84l-70,34L121,84c0.27,0,42.31-25.12,61.18-36.36A17.64,17.64,0,0,1,200.23,47.65Z" fill="#bf97c6"/><path d="M145,20.58l-35,17,35,17S144.89,20.72,145,20.58Z" fill="#652b7c"/><polygon points="75 54.58 110 37.58 75 20.58 75 54.58" fill="#652b7c"/><path d="M110,37.58l35,17c-0.14,0-20.88,12.5-30.31,18.12a8.82,8.82,0,0,1-9,0C96.23,67.08,75,54.58,75,54.58Z" fill="#421540"/><path d="M114.61,2.4C124,8,145,20.58,145,20.58l-35,17-35-17C75.14,20.59,96.16,8,105.59,2.4A8.82,8.82,0,0,1,114.61,2.4Z" fill="#bf97c6"/><path d="M101,91L51,115.54l50,24.53S100.84,91.21,101,91Z" fill="#652b7c"/><polygon points="1 140.07 51 115.54 1 91.02 1 140.07" fill="#652b7c"/><path d="M51,115.54l50,24.53c-0.19,0-29.83,18-43.3,26.14a12.5,12.5,0,0,1-12.89,0C31.34,158.1,1,140.07,1,140.07Z" fill="#421540"/><path d="M57.59,64.79C71.06,72.9,101,91,101,91L51,115.54,1,91C1.19,91,31.22,72.9,44.7,64.79A12.5,12.5,0,0,1,57.59,64.79Z" fill="#bf97c6"/></g></svg></a>
                                 <nav class="sections show-for-medium">
                                     
-
 <a href="/get-started.html">Try Lagom</a>
 <a href="/documentation/">Documentation</a>
 <a href="/faq.html">FAQ</a>
@@ -111,7 +107,6 @@
                                 </nav>
                                 <nav class="sections-scroll">
                                     
-
 <a href="/get-started.html">Try Lagom</a>
 <a href="/documentation/">Documentation</a>
 <a href="/faq.html">FAQ</a>
@@ -151,9 +146,15 @@
 
                 <article>
                 <h1 id="Running-Lagom-in-production"><a class="section-marker" href="#Running-Lagom-in-production">§</a>Running Lagom in production</h1>
-<p>Lagom can be set up to work with most production environments, ranging from basic, manual deployments on physical servers to fully-managed service orchestration platforms such as <a href="https://kubernetes.io/">Kubernetes</a> and <a href="https://dcos.io/">Mesosphere DC/OS</a>. The core APIs in Lagom are independent of any particular deployment platform. Where Lagom does need to interface with the environment, it provides extensible plugin points that allow you to configure your services for production without requiring changes to your service implementation code.</p>
-<p><a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/">Lightbend Orchestration</a> is an open-source suite of tools that helps you deploy Lagom services to Kubernetes and DC/OS. It provides an easy way to create Docker images for your applications and introduces an automated process for generating Kubernetes and DC/OS resource and configuration files for you from those images. This process helps reduce the friction between development and operations. If you are using Kubernetes or DC/OS, or interested in trying one of these platforms, we encourage you to read the Lightbend Orchestration documentation to understand how to use it with Lagom and other components of the <a href="https://www.lightbend.com/products/reactive-platform">Lightbend Reactive Platform</a>.</p>
-<p>If you are not using Kubernetes or DC/OS, you must configure your services in a way that suits your production environment. The following information provides an overview of production considerations that apply to any environment.</p><h2 id="Production-considerations"><a class="section-marker" href="#Production-considerations">§</a>Production considerations</h2>
+<p>Lagom can be set up to work with most production environments, ranging from basic, manual deployments on physical servers to fully-managed service orchestration platforms such as <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://kubernetes.io/">Kubernetes</a> and <a href="https://dcos.io/">Mesosphere DC/OS</a>. The core APIs in Lagom are independent of any particular deployment platform. Where Lagom does need to interface with the environment, it provides extensible plugin points that allow you to configure your services for production without requiring changes to your service implementation code.</p>
+<p>The following information provides an overview of production considerations that apply to any environment. If you are deploying your service in OpenShift clusters, you can also refer to the <a href="https://developer.lightbend.com/guides/openshift-deployment/">Deploying Lightbend applications to OpenShift</a> guide.</p>
+<p>The production considerations can be summed up as setting up and tuning some or all of the following:</p>
+<ul>
+  <li>production of artifacts (ZIP archives, docker images, &hellip;)</li>
+  <li>service location (other lagom services, external services, databases, etc&hellip;)</li>
+  <li>Akka Cluster formation</li>
+  <li>expose lifecycle data (readiness, liveness)</li>
+</ul><h2 id="Production-considerations"><a class="section-marker" href="#Production-considerations">§</a>Production considerations</h2>
 <p>The production environment determines the methods for packaging your services, managing Akka Cluster formation, and providing service location, including that for Cassandra and Kafka:</p>
 <ul>
   <li>
@@ -162,7 +163,7 @@
       <li>
       <p>By default, sbt produces standalone &ldquo;universal&rdquo; <a href="https://www.scala-sbt.org/sbt-native-packager/formats/universal.html">zip archives</a> containing the compiled service, all of its dependencies, and a start script. These have no special infrastructure requirements and can be unzipped and run just about anywhere that supports Java. However, this includes no built-in facility for process monitoring and recovering from crashes, so for a resilient production environment, you&rsquo;ll need to provide this another way.</p></li>
       <li>
-      <p>Lightbend Orchestration automatically configures <code>sbt-native-packager</code> to build and publish <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/building.html">Docker images</a> that can be used with Kubernetes, DC/OS, or any other Docker-compatible production environment.</p></li>
+      <p>You can also use <code>sbt-native-packager</code> to build and publish <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/building.html">Docker images</a> that can be used with Kubernetes, DC/OS, or any other Docker-compatible production environment.</p></li>
       <li>
       <p>Otherwise, you can configure <code>sbt-native-packager</code> to produce <a href="https://www.scala-sbt.org/sbt-native-packager/formats/universal.html#build">other archive formats</a>, <a href="https://www.scala-sbt.org/sbt-native-packager/formats/windows.html">Windows (MSI) installers</a>, Linux packages in <a href="https://www.scala-sbt.org/sbt-native-packager/formats/debian.html">Debian</a> or <a href="https://www.scala-sbt.org/sbt-native-packager/formats/rpm.html">RPM</a> format and more.</p></li>
     </ul>
@@ -171,22 +172,27 @@
     <p>At runtime, services need to locate the addresses of other services to communicate with them. This requires you to configure an implementation of a <a href="api/com/lightbend/lagom/scaladsl/api/ServiceLocator.html"><code>ServiceLocator</code></a> that Lagom uses to look up the addresses of services by their names. The production environment you choose might provide a service discovery mechanism that you can use with Lagom.</p>
     <ul>
       <li>
-      <p>For simple deployments, Lagom includes a built-in service locator that uses addresses specified in the service configuration (<a href="#Using-static-values-for-services-and-Cassandra">described below</a>).</p></li>
+      <p>For simple deployments, Lagom includes a built-in service locator that uses hardcoded addresses specified in the service configuration (<a href="#Using-static-values-for-services-and-Cassandra">described below</a>).</p></li>
       <li>
-      <p>Lightbend Orchestration provides an open-source <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/features/service-location.html"><code>ServiceLocator</code> implementation</a> that integrates with the service discovery features of Kubernetes or DC/OS, or any other environment that supports service discovery via DNS.</p></li>
+      <p>When using dynamic deployments where processes don&rsquo;t run on static IPs, you can use the open-source <a href="https://github.com/lagom/lagom-akka-discovery-service-locator"><code>lagom-akka-discovery-service-locator</code></a> that can integrate with the service discovery features of Kubernetes or DC/OS, or any other environment supported by <a href="https://doc.akka.io/docs/akka/2.5/discovery/index.html">Akka&rsquo;s Service Discovery</a>.</p></li>
       <li>
       <p>Otherwise, you can implement the interface yourself to integrate with a service registry of your choosing (such as <a href="https://www.consul.io/">Consul</a>, <a href="https://zookeeper.apache.org/">ZooKeeper</a>, or <a href="https://coreos.com/etcd/">etcd</a>) or start with an open-source example implementation such as <a href="https://github.com/jboner/lagom-service-locator-consul"><code>lagom-service-locator-consul</code></a> or <a href="https://github.com/jboner/lagom-service-locator-zookeeper"><code>lagom-service-locator-zookeeper</code></a>.</p></li>
     </ul>
   </li>
   <li>
-    <p>Services that require an <a href="https://doc.akka.io/docs/akka/current/cluster-usage.html">Akka Cluster</a> (which includes any that use the Lagom <a href="PersistentEntity.html">Persistence</a> or <a href="PubSub.html">Publish-Subscribe</a> APIs) must have a strategy for forming a cluster or joining an existing cluster on startup.</p>
+    <p>Lagom services that require an <a href="https://doc.akka.io/docs/akka/current/cluster-usage.html">Akka Cluster</a> (which includes any that use the Lagom <a href="PersistentEntity.html">Persistence</a> or <a href="PubSub.html">Publish-Subscribe</a> APIs) must have a strategy for forming a cluster or joining an existing cluster on startup.</p>
     <ul>
       <li>
       <p>If you don&rsquo;t use a service orchestration platform and can determine the addresses of some of your nodes in advance of deploying them, Akka Cluster can be configured manually by listing the addresses of <a href="https://doc.akka.io/docs/akka/current/cluster-usage.html#joining-to-seed-nodes">seed nodes</a> in the service configuration.</p></li>
       <li>
-      <p>Lightbend Orchestration includes open-source support for <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/features/akka-cluster-bootstrap.html">automatic Akka Cluster formation</a> on Kubernetes or DC/OS.</p></li>
+      <p>When you don&rsquo;t specify a static list of <code>seed-nodes</code>, Lagom will enable the <a href="https://developer.lightbend.com/docs/akka-management/current/bootstrap/index.html">Akka Cluster Bootstrap</a> extension for integration with other service discovery infrastructure. Using Akka Cluster Bootstrap requires setting up a <code>Service Discovery</code> method (for example <a href="https://developer.lightbend.com/docs/akka-management/current/discovery/kubernetes.html">Service Discovery for Kubernetes</a>). See the <a href="Cluster.html">Lagom Cluster</a> documentation for more information.</p></li>
+    </ul>
+  </li>
+  <li>
+    <p>The Akka Cluster Bootstrap feature introduced above requires enabling <a href="https://developer.lightbend.com/docs/akka-management/current/">Akka management HTTP</a>. That is an Akka HTTP server shared by multiple features, running on <a href="https://github.com/akka/akka-management/blob/v1.0.0-RC3/management/src/main/resources/reference.conf#L17">port 8558</a> by default (that port is configurable). Lagom will start the Akka management HTTP automatically anytime a feature that requires it is enabled. See also the <a href="Cluster.html#Akka-Management">Lagom Cluster</a> documentation.</p>
+    <ul>
       <li>
-      <p>Otherwise, you can use the open-source <a href="https://developer.lightbend.com/docs/akka-management/current/bootstrap/index.html">Akka Cluster Bootstrap</a> extension for integration with other service discovery infrastructure, or write your own programmatic cluster formation implementation. See the <a href="Cluster.html">Lagom Cluster</a> documentation for more information.</p></li>
+      <p>Akka management HTTP also powers Akka-provided Health Checks. <a href="https://developer.lightbend.com/docs/akka-management/current/healthchecks.html">Health Checks</a> is a pluggable mechanism where library providers and users can register logic to determine if a service is alive and/or ready. Lagom will enable Akka Cluster Membership Health Checks by default any time the Lagom service requires a cluster. Akka Health Checks register, by default, the <code>ready/</code> and <code>alive/</code> routes and implement the <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes">readiness and aliveness</a> semantics as described by Kubernetes.</p></li>
     </ul>
   </li>
   <li>
@@ -264,7 +270,7 @@ class HelloApplicationLoader extends LagomApplicationLoader {
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.4.x/docs/manual/scala/guide/production/ProductionOverview.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/scala/guide/production/ProductionOverview.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -370,7 +376,7 @@ class HelloApplicationLoader extends LagomApplicationLoader {
                             
                         
                             
-                                <li><a href="Migration14.html">Lagom releases</a></li>
+                                <li><a href="Highlights15.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -482,7 +488,7 @@ class HelloApplicationLoader extends LagomApplicationLoader {
             </div>
         </div>
     </body>
-    <script src="/e5dceb66b2ddab4b5af2ceac4e0a98c47794a6f1-all-scripts-concat.js"></script>
+    <script src="/c2cc98f846667d40f28dfa85ec206a0da81fddf2-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

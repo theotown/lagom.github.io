@@ -11,3 +11,6 @@ Lagom persists the event stream in the database. Event stream processors, other 
 If you do not want to use event sourcing and CQRS, you should probably use something other than the Persistence module in Lagom. (However, we suggest that you read [[Advantages of Event Sourcing|ESAdvantage]] first.) If you opt not to use Lagom's persistence module, the `CassandraSession` in the Lagom Persistence module provides an asynchronous API for storing data in Cassandra. But, you can implement your Lagom services with any data storage solution.
 
 Should you choose to use something other than Lagom's persistence module, remember to use asynchronous APIs to achieve better scalability. If you are using blocking APIs, such JDBC or JPA, you should carefully manage the blocking by using dedicated thread pools of fixed/limited size for the components that are calling those blocking APIs. Never cascade the blocking through several asynchronous calls, such as Service API calls.
+
+
+

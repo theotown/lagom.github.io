@@ -167,6 +167,10 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="index.html" class="extype" name="com.lightbend.lagom.scaladsl.server">server</a></dd></dl></div>
     </li><li class="current-entities indented5">
                         <span class="separator"></span>
+                        <a class="trait" href="AkkaManagementComponents.html" title=""></a>
+                        <a href="AkkaManagementComponents.html" title="">AkkaManagementComponents</a>
+                      </li><li class="current-entities indented5">
+                        <span class="separator"></span>
                         <a class="class" href="LagomApplication.html" title="A Lagom application."></a>
                         <a href="LagomApplication.html" title="A Lagom application.">LagomApplication</a>
                       </li><li class="current-entities indented5">
@@ -672,7 +676,7 @@ to be provided after the application has been created using the
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">lagomServicePort</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>]</span>
+        <span class="name">lagomServicePort</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a>]</span>
       </span>
       
       <p class="shortcomment cmt">The service port.</p><div class="fullcomment"><div class="comment cmt"><p>The service port. This will be redeemed when <span class="extype" name="provideLagomServicePort()">provideLagomServicePort()</span> is invoked.</p><p>Anything that needs to know what port the app is running on can attach callbacks to this to handle it.

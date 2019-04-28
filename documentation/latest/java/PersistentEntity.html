@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/b60de71fdd748575088c30de3bc235c39ced39a3-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/1216c7d360eef4bc98321c4874344018cbde1863-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -155,17 +155,19 @@
 <p>The entities are automatically distributed across the nodes in the cluster of the service. Each entity runs only at one place, and messages can be sent to the entity without requiring the sender to know the location of the entity. If a node is stopped the entities running on that node will be started on another node when a message is sent to it next time. When new nodes are added to the cluster some existing entities are rebalanced to the new nodes to spread the load.</p>
 <p>An entity is kept alive, holding its current state in memory, as long as it is used. When it has not been used for a while it will automatically be passivated to free up resources.</p>
 <p>When an entity is started it replays the stored events to restore the current state. This can be either the full history of changes or starting from a snapshot which will reduce recovery times.</p><h2 id="Choosing-a-database"><a class="section-marker" href="#Choosing-a-database">§</a>Choosing a database</h2>
-<p>Lagom supports the following databases:</p>
+<p>Lagom is compatible with the following databases:</p>
 <ul>
   <li><a href="https://cassandra.apache.org/">Cassandra</a></li>
   <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
   <li><a href="https://www.mysql.com/">MySQL</a></li>
   <li><a href="https://www.oracle.com/database/index.html">Oracle</a></li>
   <li><a href="https://www.h2database.com/">H2</a></li>
+  <li><a href="https://www.microsoft.com/en-us/sql-server/">Microsoft SQL Server</a></li>
+  <li><a href="https://www.couchbase.com/">Couchbase</a></li>
 </ul>
-<p>We recommend using Cassandra. Cassandra is a very scalable distributed database, and it is also flexible enough to support typical use cases of reactive services. In contrast to most relational databases, it natively supports sharding and replication, and is emerging as an industry standard open source NoSQL database.</p>
-<p>Lagom also provides out of the box support for running Cassandra in a development environment - developers do not need to install, configure or manage Cassandra at all themselves when using Lagom, which makes for great developer velocity, and it means gone are the days where developers spend days setting up their development environment before they can start to be productive on a project.</p>
-<p>For instructions on configuring your project to use Cassandra, see <a href="PersistentEntityCassandra.html">Using Cassandra for Persistent Entities</a>. If instead you want to use one of the relational databases listed above, see <a href="PersistentEntityRDBMS.html">Using a Relational Database for Persistent Entities</a> on how to configure your project. To see how to use Cassandra for write-side persistence and JPA for a read-side view, see the <a href="https://github.com/lagom/lagom-recipes/blob/master/mixed-persistence/mixed-persistence-java-sbt/README.md">Mixed Persistence Service</a> recipe.</p><h2 id="PersistentEntity-Stub"><a class="section-marker" href="#PersistentEntity-Stub">§</a>PersistentEntity Stub</h2>
+<p>For instructions on configuring your project to use Cassandra, see <a href="PersistentEntityCassandra.html">Using Cassandra for Persistent Entities</a>. If instead you want to use one of the relational databases listed above, see <a href="PersistentEntityRDBMS.html">Using a Relational Database for Persistent Entities</a> on how to configure your project. If you wish to use Couchbase, proceed to the <a href="https://doc.akka.io/docs/akka-persistence-couchbase/current/lagom-persistent-entity.html">Lagom section of the Akka Persistence Couchbase site</a> for all the details.</p>
+<p>To see how to combine Cassandra for write-side persistence and JPA for a read-side view, see the <a href="https://github.com/lagom/lagom-recipes/blob/master/mixed-persistence/mixed-persistence-java-sbt/README.md">Mixed Persistence Service</a> recipe.</p>
+<p>Lagom provides out of the box support for running Cassandra in a development environment - developers do not need to install, configure or manage Cassandra at all themselves when using Lagom, which makes for great developer velocity, and it means gone are the days where developers spend days setting up their development environment before they can start to be productive on a project.</p><h2 id="PersistentEntity-Stub"><a class="section-marker" href="#PersistentEntity-Stub">§</a>PersistentEntity Stub</h2>
 <p>This is what a <a href="api/index.html?com/lightbend/lagom/javadsl/persistence/PersistentEntity.html">PersistentEntity</a> class looks like before filling in the implementation details:</p>
 <pre class="prettyprint"><code class="language-java">import com.lightbend.lagom.javadsl.persistence.PersistentEntity;
 
@@ -1120,7 +1122,7 @@ interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
             </div>
         </div>
     </body>
-    <script src="/b60de71fdd748575088c30de3bc235c39ced39a3-all-scripts-concat.js"></script>
+    <script src="/1216c7d360eef4bc98321c4874344018cbde1863-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

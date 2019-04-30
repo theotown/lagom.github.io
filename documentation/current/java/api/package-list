@@ -1,3 +1,4 @@
+com.lightbend.lagom.javadsl.akka.discovery
 com.lightbend.lagom.javadsl.api
 com.lightbend.lagom.javadsl.api.broker
 com.lightbend.lagom.javadsl.api.broker.kafka

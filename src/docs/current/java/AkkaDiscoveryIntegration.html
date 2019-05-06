@@ -9,7 +9,7 @@
 &lt;/dependency&gt;
 </code></pre>
 <p>In sbt:</p>
-<pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomJavadslAkkaDiscovery</code></pre><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
+<pre class="prettyprint"><code class="language-sbt">libraryDependencies +=  &quot;com.lightbend.lagom&quot; %% &quot;lagom-javadsl-akka-discovery-service-locator&quot; % &quot;1.5.1&quot;</code></pre><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
 <p>The Guice module <a href="api/index.html?com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocatorModule.html">AkkaDiscoveryServiceLocatorModule</a> will be added by default to your project, but will only wire in the <a href="api/index.html?com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocator.html">AkkaDiscoveryServiceLocator</a> when running in production mode.</p>
 <p>In development, your Lagom application will keep using the Lagom&rsquo;s dev-mode <a href="api/index.html?com/lightbend/lagom/javadsl/api/ServiceLocator.html">ServiceLocator</a>.</p>
 <p>Next, you will need to choose one of the available Akka Discovery implementations and configure it in your <code>application.conf</code> file. Consult the <a href="https://doc.akka.io/docs/akka/2.5/discovery/index.html">Akka Discovery</a> documentation for further instructions.</p>

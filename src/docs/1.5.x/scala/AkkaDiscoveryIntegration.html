@@ -1,7 +1,10 @@
 <h1 id="Using-Akka-Discovery"><a class="section-marker" href="#Using-Akka-Discovery">§</a>Using Akka Discovery</h1>
 <p>As of version 1.5.1, Lagom has built-in integration with <a href="https://doc.akka.io/docs/akka/2.5/discovery/index.html">Akka Discovery</a> throught a <a href="api/com/lightbend/lagom/scaladsl/api/ServiceLocator.html">ServiceLocator</a> that wraps Akka Discovery. This is the recommended implementation for production specially for users targeting Kubernetes and DC/OS (Marathon).</p><h2 id="Dependency"><a class="section-marker" href="#Dependency">§</a>Dependency</h2>
 <p>To use this feature add the following in your project&rsquo;s build:</p>
-<pre class="prettyprint"><code class="language-sbt">libraryDependencies += &quot;com.lightbend.lagom&quot; %% &quot;lagom-scaladsl-akka-discovery-service-locator&quot; % &quot;1.5.1&quot;</code></pre><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
+<pre class="prettyprint"><code class="language-sbt">import com.lightbend.lagom.core.LagomVersion
+
+libraryDependencies += &quot;com.lightbend.lagom&quot; %% &quot;lagom-scaladsl-akka-discovery-service-locator&quot; % LagomVersion.current</code></pre>
+<p>The example above uses <code>LagomVersion.current</code> in order to guarantee that dependency stays aligned with your current Lagom plugin version.</p><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
 <p>Once you have it in your project you can add the component to your <code>LagomApplicationLoader</code>.</p>
 <pre class="prettyprint"><code class="language-scala">import com.lightbend.lagom.scaladsl.devmode.LagomDevModeComponents
 import com.lightbend.lagom.scaladsl.server._

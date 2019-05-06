@@ -12,9 +12,9 @@
 
   @Override
   default Descriptor descriptor() {
-    return named(&quot;helloservice&quot;).withCalls(
-        restCall(Method.GET,  &quot;/api/hello/:id&quot;, this::hello)
-      ).withAutoAcl(true);
+    return named(&quot;helloservice&quot;)
+        .withCalls(restCall(Method.GET, &quot;/api/hello/:id&quot;, this::hello))
+        .withAutoAcl(true);
   }
 }</code></pre>
 <p>Note that:</p>

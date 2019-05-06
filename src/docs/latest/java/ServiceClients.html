@@ -8,10 +8,10 @@ import com.lightbend.lagom.javadsl.api.ServiceInfo;
 
 public class Module extends AbstractModule implements ServiceClientGuiceSupport {
 
-    protected void configure() {
-        bindServiceInfo(ServiceInfo.of(&quot;hello-service&quot;));
-        bindClient(HelloService.class);
-    }
+  protected void configure() {
+    bindServiceInfo(ServiceInfo.of(&quot;hello-service&quot;));
+    bindClient(HelloService.class);
+  }
 }</code></pre>
 <p>When using a client Lagom will need a <a href="api/com/lightbend/lagom/javadsl/api/ServiceInfo.html"><code>ServiceInfo</code></a> implementation and use it to identify itself to the remote service. When you are developing an application that&rsquo;s only implementing <code>ServiceClientGuiceSupport</code> to consume Lagom services you will need to invoke <code>bindServiceInfo()</code> and provide a <code>ServiceInfo</code> instance describing your app.</p>
 <p>If you&rsquo;re already binding a service implementation using <a href="api/index.html?com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html">ServiceGuiceSupport</a>, this interface extends <code>ServiceClientGuiceSupport</code>, so your existing module can be used as is:</p>
@@ -20,10 +20,10 @@ import com.lightbend.lagom.javadsl.server.ServiceGuiceSupport;
 
 public class ServiceModule extends AbstractModule implements ServiceGuiceSupport {
 
-    protected void configure() {
-        bindService(HelloService.class, HelloServiceImpl.class);
-        bindClient(EchoService.class);
-    }
+  protected void configure() {
+    bindService(HelloService.class, HelloServiceImpl.class);
+    bindClient(EchoService.class);
+  }
 }</code></pre>
 <p>Note that when you bind a server using <code>bindService</code>, this will automatically bind a client for that service as well. So in the previous example, when we start the application there will be one service (<code>HelloService</code>) and two clients (<code>HelloService</code> and <code>EchoService</code>) available.</p><h2 id="Using-a-service-client"><a class="section-marker" href="#Using-a-service-client">§</a>Using a service client</h2>
 <p>Having bound the client, you can now have it injected into any Lagom component using <code>@Inject</code> annotations. Here&rsquo;s an example of consuming one service from another service:</p>
@@ -39,9 +39,7 @@ public class ServiceModule extends AbstractModule implements ServiceGuiceSupport
   public ServiceCall&lt;NotUsed, String&gt; sayHelloLagom() {
     return msg -&gt; {
       CompletionStage&lt;String&gt; response = helloService.sayHello().invoke(&quot;Lagom&quot;);
-      return response.thenApply(answer -&gt;
-          &quot;Hello service said: &quot; + answer
-      );
+      return response.thenApply(answer -&gt; &quot;Hello service said: &quot; + answer);
     };
   }
 }</code></pre><h2 id="Streaming-service-client-configuration"><a class="section-marker" href="#Streaming-service-client-configuration">§</a>Streaming service client configuration</h2>
@@ -86,11 +84,11 @@ lagom.client.websocket {
 <p>All service calls with Lagom service clients are by default using circuit breakers. Circuit Breakers are used and configured on the client side, but the granularity and configuration identifiers are defined by the service provider. By default, one circuit breaker instance is used for all calls (methods) to another service. It is possible to set a unique circuit breaker identifier for each method to use a separate circuit breaker instance for each method. It is also possible to group related methods by using the same identifier on several methods.</p>
 <pre class="prettyprint"><code class="language-java">@Override
 default Descriptor descriptor() {
-    return named(&quot;hello&quot;).withCalls(
-      namedCall(&quot;hi&quot;, this::sayHi),
-      namedCall(&quot;hiAgain&quot;, this::hiAgain)
-       .withCircuitBreaker(CircuitBreaker.identifiedBy(&quot;hello2&quot;))
-    );
+  return named(&quot;hello&quot;)
+      .withCalls(
+          namedCall(&quot;hi&quot;, this::sayHi),
+          namedCall(&quot;hiAgain&quot;, this::hiAgain)
+              .withCircuitBreaker(CircuitBreaker.identifiedBy(&quot;hello2&quot;)));
 }</code></pre>
 <p>In the above example the default identifier is used for the <code>sayHi</code> method, since no specific identifier is given. The default identifier is the same as the service name, i.e. <code>&quot;hello&quot;</code> in this example. The <code>hiAgain</code> method will use another circuit breaker instance, since <code>&quot;hello2&quot;</code> is specified as circuit breaker identifier.</p>
 <p>See <a href="https://github.com/lagom/lagom-recipes/tree/master/circuitbreakerpanel/circuitbreakerpanel-java-mvn">CircuitBreakerPanel recipe</a> for an example you can use with any arbitrary API to apply the circuit breaker pattern.</p><h3 id="Circuit-Breaker-Configuration"><a class="section-marker" href="#Circuit-Breaker-Configuration">§</a>Circuit Breaker Configuration</h3>

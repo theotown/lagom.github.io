@@ -13,20 +13,16 @@
 import static com.lightbend.lagom.javadsl.api.Service.*;
 
 public interface HelloService extends Service {
-    ServiceCall&lt;String, String&gt; sayHello();
+  ServiceCall&lt;String, String&gt; sayHello();
 
-    default Descriptor descriptor() {
-        return named(&quot;hello&quot;).withCalls(
-                call(this::sayHello)
-        );
-    }
+  default Descriptor descriptor() {
+    return named(&quot;hello&quot;).withCalls(call(this::sayHello));
+  }
 }</code></pre>
 <p>If Greetings Service packaged <code>HelloService</code> and Greetings Service was invoking I18n Service (not in the snippet) those calls would include the identity <code>hello</code> since that is the <code>HelloService</code> name (see <code>named(&quot;hello&quot;)</code>).</p>
 <p>Services may publish ACLs in a Service Gateway to list what endpoints are provided by the service. These ACLs will allow you to develop <a href="ServiceDiscovery.html#Server-side-service-discovery">Server-Side Service Discovery</a> via a Service Gateway.</p>
 <pre class="prettyprint"><code class="language-java">default Descriptor descriptor() {
-    return named(&quot;users&quot;)
-            .withCalls(
-                    restCall(Method.POST, &quot;/api/users/login&quot;, this::login)
-            )
-            .withAutoAcl(true);</code></pre>
+  return named(&quot;users&quot;)
+      .withCalls(restCall(Method.POST, &quot;/api/users/login&quot;, this::login))
+      .withAutoAcl(true);</code></pre>
 <p>In this example, the developer of <code>UsersService</code> set <code>withAutoAcl</code> to <code>true</code>. That is instructing Lagom to generate Service ACLs from each call&rsquo;s <code>pathPattern</code>. In this example, an ACL for <code>/api/users/login</code> will be created. When deploying, your tools should honour these specifications and make sure your API Gateway is properly setup.</p>

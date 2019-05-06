@@ -24,19 +24,16 @@
 <p>This is what a <a href="api/index.html?com/lightbend/lagom/javadsl/persistence/PersistentEntity.html">PersistentEntity</a> class looks like before filling in the implementation details:</p>
 <pre class="prettyprint"><code class="language-java">import com.lightbend.lagom.javadsl.persistence.PersistentEntity;
 
-public class Post1
-  extends PersistentEntity&lt;BlogCommand, BlogEvent, BlogState&gt; {
+public class Post1 extends PersistentEntity&lt;BlogCommand, BlogEvent, BlogState&gt; {
 
   @Override
   public Behavior initialBehavior(Optional&lt;BlogState&gt; snapshotState) {
-    BehaviorBuilder b = newBehaviorBuilder(
-        snapshotState.orElse(BlogState.EMPTY));
+    BehaviorBuilder b = newBehaviorBuilder(snapshotState.orElse(BlogState.EMPTY));
 
     // TODO define command and event handlers
 
     return b.build();
   }
-
 }</code></pre>
 <p>The three type parameters of the extended <code>PersistentEntity</code> class define:</p>
 <ul>
@@ -48,12 +45,16 @@ public class Post1
 <p>The functions that process incoming commands are registered in the <code>Behavior</code> using <code>setCommandHandler</code> of the <code>BehaviorBuilder</code>.</p>
 <pre class="prettyprint"><code class="language-java">// Command handlers are invoked for incoming messages (commands).
 // A command handler must &quot;return&quot; the events to be persisted (if any).
-b.setCommandHandler(AddPost.class, (AddPost cmd, CommandContext&lt;AddPostDone&gt; ctx) -&gt; {
-  final PostAdded postAdded = new PostAdded(entityId(), cmd.getContent());
-  return ctx.thenPersist(postAdded, (PostAdded evt) -&gt;
-    // After persist is done additional side effects can be performed
-    ctx.reply(new AddPostDone(entityId())));
-});</code></pre>
+b.setCommandHandler(
+    AddPost.class,
+    (AddPost cmd, CommandContext&lt;AddPostDone&gt; ctx) -&gt; {
+      final PostAdded postAdded = new PostAdded(entityId(), cmd.getContent());
+      return ctx.thenPersist(
+          postAdded,
+          (PostAdded evt) -&gt;
+              // After persist is done additional side effects can be performed
+              ctx.reply(new AddPostDone(entityId())));
+    });</code></pre>
 <p>You should define one command handler for each command class that the entity can receive.</p>
 <p>A command handler returns a <a href="api/index.html?com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html">Persist</a> directive that defines what event or events, if any, to persist. Use the <code>thenPersist</code>, <code>thenPersistAll</code> or <code>done</code> methods of the context that is passed to the command handler function to create the <code>Persist</code> directive.</p>
 <ul>
@@ -63,22 +64,22 @@ b.setCommandHandler(AddPost.class, (AddPost cmd, CommandContext&lt;AddPostDone&g
 </ul>
 <p>External side effects can be performed after successful persist in the <code>afterPersist</code> function. In the above example a reply is sent with the <code>ctx.reply</code> method.</p>
 <p>The command can be validated before persisting state changes. Use <code>ctx.invalidCommand</code> or <code>ctx.commandFailed</code> to reject an invalid command.</p>
-<pre class="prettyprint"><code class="language-java">b.setCommandHandler(AddPost.class, (AddPost cmd, CommandContext&lt;AddPostDone&gt; ctx) -&gt; {
-  if (cmd.getContent().getTitle() == null || cmd.getContent().getTitle().equals(&quot;&quot;)) {
-    ctx.invalidCommand(&quot;Title must be defined&quot;);
-    return ctx.done();
-  }</code></pre>
+<pre class="prettyprint"><code class="language-java">b.setCommandHandler(
+    AddPost.class,
+    (AddPost cmd, CommandContext&lt;AddPostDone&gt; ctx) -&gt; {
+      if (cmd.getContent().getTitle() == null || cmd.getContent().getTitle().equals(&quot;&quot;)) {
+        ctx.invalidCommand(&quot;Title must be defined&quot;);
+        return ctx.done();
+      }</code></pre>
 <p>A <code>PersistentEntity</code> may also process commands that do not change application state, such as query commands or commands that are not valid in the entity&rsquo;s current state (such as a bid placed after the auction closed). Such command handlers are registered using <code>setReadOnlyCommandHandler</code> of the <code>BehaviorBuilder</code>. Replies are sent with the <code>reply</code> method of the context that is passed to the command handler function.</p>
 <p>The <code>setReadOnlyCommandHandler</code> is simply a convenience function that avoids you having to return no events followed by a side effect.</p>
-<pre class="prettyprint"><code class="language-java">b.setReadOnlyCommandHandler(GetPost.class, (cmd, ctx) -&gt;
-  ctx.reply(state().getContent().get()));</code></pre>
+<pre class="prettyprint"><code class="language-java">b.setReadOnlyCommandHandler(GetPost.class, (cmd, ctx) -&gt; ctx.reply(state().getContent().get()));</code></pre>
 <p>The commands must be immutable to avoid concurrency issues that may occur from changing a command instance that has been sent.</p>
 <p>The section <a href="Immutable.html">Immutable Objects</a> describes how to define immutable command classes.</p><h2 id="Event-Handlers"><a class="section-marker" href="#Event-Handlers">§</a>Event Handlers</h2>
 <p>When an event has been persisted successfully the current state is updated by applying the event to the current state. The functions for updating the state are registered with the <code>setEventHandler</code> method of the <code>BehaviorBuilder</code>.</p>
 <pre class="prettyprint"><code class="language-java">// Event handlers are used both when persisting new events
 // and when replaying events.
-b.setEventHandler(PostAdded.class, evt -&gt;
-  new BlogState(Optional.of(evt.getContent()), false));</code></pre>
+b.setEventHandler(PostAdded.class, evt -&gt; new BlogState(Optional.of(evt.getContent()), false));</code></pre>
 <p>You should define one event handler for each event class that the entity can persist.</p>
 <p>The event handler returns the new state. The state must be immutable, so you return a new instance of the state. Current state can be accessed from the event handler with the <code>state</code> method of the <code>PersistentEntity</code>. The same event handlers are also used when the entity is started up to recover its state from the stored events.</p>
 <p>The events must be immutable to avoid concurrency issues that may occur from changing an event instance that is about to be persisted.</p>
@@ -104,7 +105,6 @@ b.setEventHandler(PostAdded.class, evt -&gt;
     AddPost addPost = (AddPost) o;
 
     return content.equals(addPost.content);
-
   }
 
   @Override
@@ -114,30 +114,33 @@ b.setEventHandler(PostAdded.class, evt -&gt;
 }</code></pre>
 <p>You send the reply message using the <code>reply</code> method of the context that is passed to the command handler function.</p>
 <p>Typically the reply will be an acknowledgment that the entity processed the command successfully, i.e. you send it after persist.</p>
-<pre class="prettyprint"><code class="language-java">b.setCommandHandler(ChangeBody.class,
-    (cmd, ctx) -&gt; ctx.thenPersist(new BodyChanged(entityId(), cmd.getBody()), evt -&gt;
-      ctx.reply(Done.getInstance())));</code></pre>
+<pre class="prettyprint"><code class="language-java">b.setCommandHandler(
+    ChangeBody.class,
+    (cmd, ctx) -&gt;
+        ctx.thenPersist(
+            new BodyChanged(entityId(), cmd.getBody()), evt -&gt; ctx.reply(Done.getInstance())));</code></pre>
 <p>For convenience you may use the <code>akka.Done</code> as acknowledgment message.</p>
 <p>It can also be a reply to a read-only query command.</p>
-<pre class="prettyprint"><code class="language-java">b.setReadOnlyCommandHandler(GetPost.class, (cmd, ctx) -&gt;
-  ctx.reply(state().getContent().get()));</code></pre>
+<pre class="prettyprint"><code class="language-java">b.setReadOnlyCommandHandler(GetPost.class, (cmd, ctx) -&gt; ctx.reply(state().getContent().get()));</code></pre>
 <p>You can use <code>ctx.invalidCommand</code> to reject an invalid command, which will fail the <code>CompletionStage</code> with <code>PersistentEntity.InvalidCommandException</code> on the sender side.</p>
 <p>You can send a negative acknowledgment with <code>ctx.commandFailed</code>, which will fail the <code>CompletionStage</code> on the sender side with the given exception.</p>
 <p>If persisting the events fails a negative acknowledgment is automatically sent, which will fail the <code>CompletionStage</code> on the sender side with <code>PersistentEntity.PersistException</code>.</p>
 <p>If the <code>PersistentEntity</code> receives a command for which there is no registered command handler a negative acknowledgment is automatically sent, which will fail the <code>CompletionStage</code> on the sender side with <code>PersistentEntity.UnhandledCommandException</code>.</p>
 <p>If you don&rsquo;t reply to a command the <code>CompletionStage</code> on the sender side will be completed with a <code>akka.pattern.AskTimeoutException</code> after a timeout.</p><h2 id="Changing-Behavior"><a class="section-marker" href="#Changing-Behavior">§</a>Changing Behavior</h2>
 <p>The event handlers are typically only updating the state, but they may also change the behavior of the entity in the sense that new functions for processing commands and events may be defined. This is useful when implementing finite state machine (FSM) like entities. Event handlers that change the behavior are registered with the <code>setEventHandlerChangingBehavior</code> of the <code>BehaviorBuilder</code>. Such an event handler returns the new <code>Behavior</code> instead of just returning the new state.</p>
-<pre class="prettyprint"><code class="language-java">b.setEventHandlerChangingBehavior(PostAdded.class, evt -&gt;
-  becomePostAdded(new BlogState(Optional.of(evt.getContent()), false)));</code></pre>
+<pre class="prettyprint"><code class="language-java">b.setEventHandlerChangingBehavior(
+    PostAdded.class,
+    evt -&gt; becomePostAdded(new BlogState(Optional.of(evt.getContent()), false)));</code></pre>
 <pre class="prettyprint"><code class="language-java">private Behavior becomePostAdded(BlogState newState) {
   BehaviorBuilder b = newBehaviorBuilder(newState);
 
-  b.setReadOnlyCommandHandler(GetPost.class, (cmd, ctx) -&gt;
-    ctx.reply(state().getContent().get()));
+  b.setReadOnlyCommandHandler(GetPost.class, (cmd, ctx) -&gt; ctx.reply(state().getContent().get()));
 
-  b.setCommandHandler(ChangeBody.class,
-      (cmd, ctx) -&gt; ctx.thenPersist(new BodyChanged(entityId(), cmd.getBody()), evt -&gt;
-        ctx.reply(Done.getInstance())));
+  b.setCommandHandler(
+      ChangeBody.class,
+      (cmd, ctx) -&gt;
+          ctx.thenPersist(
+              new BodyChanged(entityId(), cmd.getBody()), evt -&gt; ctx.reply(Done.getInstance())));
 
   b.setEventHandler(BodyChanged.class, evt -&gt; state().withBody(evt.getBody()));
 
@@ -187,8 +190,7 @@ public class BlogServiceImpl implements BlogService {
   @Override
   public ServiceCall&lt;BlogCommand.AddPost, String&gt; addPost(String id) {
     return request -&gt; {
-      PersistentEntityRef&lt;BlogCommand&gt; ref =
-        persistentEntities.refFor(Post.class, id);
+      PersistentEntityRef&lt;BlogCommand&gt; ref = persistentEntities.refFor(Post.class, id);
       return ref.ask(request).thenApply(ack -&gt; &quot;OK&quot;);
     };
   }
@@ -234,10 +236,8 @@ public class PostTest {
         new PersistentEntityTestDriver&lt;&gt;(system, new Post(), &quot;post-1&quot;);
 
     PostContent content = new PostContent(&quot;Title&quot;, &quot;Body&quot;);
-    Outcome&lt;BlogEvent, BlogState&gt; outcome = driver.run(
-        new AddPost(content));
-    assertEquals(new PostAdded(&quot;post-1&quot;, content),
-        outcome.events().get(0));
+    Outcome&lt;BlogEvent, BlogState&gt; outcome = driver.run(new AddPost(content));
+    assertEquals(new PostAdded(&quot;post-1&quot;, content), outcome.events().get(0));
     assertEquals(1, outcome.events().size());
     assertEquals(false, outcome.state().isPublished());
     assertEquals(Optional.of(content), outcome.state().getContent());
@@ -250,10 +250,8 @@ public class PostTest {
     PersistentEntityTestDriver&lt;BlogCommand, BlogEvent, BlogState&gt; driver =
         new PersistentEntityTestDriver&lt;&gt;(system, new Post(), &quot;post-1&quot;);
 
-    Outcome&lt;BlogEvent, BlogState&gt; outcome = driver.run(
-        new AddPost(new PostContent(&quot;&quot;, &quot;Body&quot;)));
-    assertEquals(InvalidCommandException.class,
-        outcome.getReplies().get(0).getClass());
+    Outcome&lt;BlogEvent, BlogState&gt; outcome = driver.run(new AddPost(new PostContent(&quot;&quot;, &quot;Body&quot;)));
+    assertEquals(InvalidCommandException.class, outcome.getReplies().get(0).getClass());
     assertEquals(0, outcome.events().size());
     assertEquals(Collections.emptyList(), outcome.issues());
   }
@@ -265,9 +263,8 @@ public class PostTest {
 
     driver.run(new AddPost(new PostContent(&quot;Title&quot;, &quot;Body&quot;)));
 
-    Outcome&lt;BlogEvent, BlogState&gt; outcome = driver.run(
-      new ChangeBody(&quot;New body 1&quot;),
-      new ChangeBody(&quot;New body 2&quot;));
+    Outcome&lt;BlogEvent, BlogState&gt; outcome =
+        driver.run(new ChangeBody(&quot;New body 1&quot;), new ChangeBody(&quot;New body 2&quot;));
 
     assertEquals(new BodyChanged(&quot;post-1&quot;, &quot;New body 1&quot;), outcome.events().get(0));
     assertEquals(new BodyChanged(&quot;post-1&quot;, &quot;New body 2&quot;), outcome.events().get(1));
@@ -279,7 +276,6 @@ public class PostTest {
     assertEquals(2, outcome.getReplies().size());
     assertEquals(Collections.emptyList(), outcome.issues());
   }
-
 }</code></pre>
 <p><code>run</code> may be invoked multiple times to divide the sequence of commands into manageable steps. The <a href="api/index.html?com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Outcome.html">Outcome</a> contains the events and side-effects of the last <code>run</code>, but the state is not reset between different runs.</p>
 <p>Note that it also verifies that all commands, events, replies and state are <a href="Serialization.html">serializable</a>, and reports any such problems in the <code>issues</code> of the <code>Outcome</code>.</p>
@@ -311,23 +307,27 @@ public class Post extends PersistentEntity&lt;BlogCommand, BlogEvent, BlogState&
 
       // Command handlers are invoked for incoming messages (commands).
       // A command handler must &quot;return&quot; the events to be persisted (if any).
-      b.setCommandHandler(AddPost.class, (AddPost cmd, CommandContext&lt;AddPostDone&gt; ctx) -&gt; {
-        if (cmd.getContent().getTitle() == null || cmd.getContent().getTitle().equals(&quot;&quot;)) {
-          ctx.invalidCommand(&quot;Title must be defined&quot;);
-          return ctx.done();
-        }
+      b.setCommandHandler(
+          AddPost.class,
+          (AddPost cmd, CommandContext&lt;AddPostDone&gt; ctx) -&gt; {
+            if (cmd.getContent().getTitle() == null || cmd.getContent().getTitle().equals(&quot;&quot;)) {
+              ctx.invalidCommand(&quot;Title must be defined&quot;);
+              return ctx.done();
+            }
 
-        final PostAdded postAdded =
-            new PostAdded(entityId(), cmd.getContent());
-        return ctx.thenPersist(postAdded, (PostAdded evt) -&gt;
-        // After persist is done additional side effects can be performed
-            ctx.reply(new AddPostDone(entityId())));
-      });
+            final PostAdded postAdded = new PostAdded(entityId(), cmd.getContent());
+            return ctx.thenPersist(
+                postAdded,
+                (PostAdded evt) -&gt;
+                    // After persist is done additional side effects can be performed
+                    ctx.reply(new AddPostDone(entityId())));
+          });
 
       // Event handlers are used both when persisting new events and when replaying
       // events.
-      b.setEventHandlerChangingBehavior(PostAdded.class, evt -&gt;
-        becomePostAdded(new BlogState(Optional.of(evt.getContent()), false)));
+      b.setEventHandlerChangingBehavior(
+          PostAdded.class,
+          evt -&gt; becomePostAdded(new BlogState(Optional.of(evt.getContent()), false)));
 
       return b.build();
     }
@@ -337,15 +337,16 @@ public class Post extends PersistentEntity&lt;BlogCommand, BlogEvent, BlogState&
   private Behavior becomePostAdded(BlogState newState) {
     BehaviorBuilder b = newBehaviorBuilder(newState);
 
-    b.setCommandHandler(ChangeBody.class,
-        (cmd, ctx) -&gt; ctx.thenPersist(new BodyChanged(entityId(), cmd.getBody()), evt -&gt;
-          ctx.reply(Done.getInstance())));
+    b.setCommandHandler(
+        ChangeBody.class,
+        (cmd, ctx) -&gt;
+            ctx.thenPersist(
+                new BodyChanged(entityId(), cmd.getBody()), evt -&gt; ctx.reply(Done.getInstance())));
 
     b.setEventHandler(BodyChanged.class, evt -&gt; state().withBody(evt.getBody()));
 
     return b.build();
   }
-
 }</code></pre>
 <pre class="prettyprint"><code class="language-java">import com.fasterxml.jackson.annotation.JsonCreator;
 import com.lightbend.lagom.javadsl.persistence.PersistentEntity;
@@ -354,7 +355,7 @@ import akka.Done;
 
 public interface BlogCommand extends Jsonable {
 
-  //#AddPost
+  // #AddPost
   final class AddPost implements BlogCommand, PersistentEntity.ReplyType&lt;AddPostDone&gt; {
     private final PostContent content;
 
@@ -375,7 +376,6 @@ public interface BlogCommand extends Jsonable {
       AddPost addPost = (AddPost) o;
 
       return content.equals(addPost.content);
-
     }
 
     @Override
@@ -383,7 +383,7 @@ public interface BlogCommand extends Jsonable {
       return content.hashCode();
     }
   }
-  //#AddPost
+  // #AddPost
 
   final class AddPostDone implements Jsonable {
     private final String postId;
@@ -405,7 +405,6 @@ public interface BlogCommand extends Jsonable {
       AddPostDone that = (AddPostDone) o;
 
       return postId.equals(that.postId);
-
     }
 
     @Override
@@ -438,7 +437,6 @@ public interface BlogCommand extends Jsonable {
       ChangeBody that = (ChangeBody) o;
 
       return body.equals(that.body);
-
     }
 
     @Override
@@ -450,7 +448,6 @@ public interface BlogCommand extends Jsonable {
   enum Publish implements BlogCommand, PersistentEntity.ReplyType&lt;Done&gt; {
     INSTANCE
   }
-
 }</code></pre>
 <pre class="prettyprint"><code class="language-java">import com.fasterxml.jackson.annotation.JsonCreator;
 import com.lightbend.lagom.javadsl.persistence.AggregateEvent;
@@ -460,19 +457,18 @@ import com.lightbend.lagom.javadsl.persistence.AggregateEventTag;
 import com.lightbend.lagom.serialization.Jsonable;
 import org.pcollections.PSequence;
 
-//#sharded-tags
+// #sharded-tags
 interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
 
   int NUM_SHARDS = 20;
 
-  AggregateEventShards&lt;BlogEvent&gt; TAG =
-          AggregateEventTag.sharded(BlogEvent.class, NUM_SHARDS);
+  AggregateEventShards&lt;BlogEvent&gt; TAG = AggregateEventTag.sharded(BlogEvent.class, NUM_SHARDS);
 
   @Override
   default AggregateEventShards&lt;BlogEvent&gt; aggregateTag() {
     return TAG;
   }
-  //#sharded-tags
+  // #sharded-tags
 
   final class PostAdded implements BlogEvent {
     private final String postId;
@@ -501,7 +497,6 @@ interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
 
       if (!postId.equals(postAdded.postId)) return false;
       return content.equals(postAdded.content);
-
     }
 
     @Override
@@ -511,7 +506,6 @@ interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
       return result;
     }
   }
-
 
   final class BodyChanged implements BlogEvent {
     private final String postId;
@@ -540,7 +534,6 @@ interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
 
       if (!postId.equals(that.postId)) return false;
       return body.equals(that.body);
-
     }
 
     @Override
@@ -571,16 +564,13 @@ interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
       PostPublished that = (PostPublished) o;
 
       return postId.equals(that.postId);
-
     }
 
     @Override
     public int hashCode() {
       return postId.hashCode();
     }
-
   }
-
 }</code></pre>
 <pre class="prettyprint"><code class="language-java">public final class BlogState implements Jsonable {
 
@@ -596,8 +586,7 @@ interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
   }
 
   public BlogState withBody(String body) {
-    if (isEmpty())
-      throw new IllegalStateException(&quot;Can&#39;t set body without content&quot;);
+    if (isEmpty()) throw new IllegalStateException(&quot;Can&#39;t set body without content&quot;);
     PostContent c = content.get();
     return new BlogState(Optional.of(new PostContent(c.getTitle(), body)), published);
   }
@@ -624,7 +613,6 @@ interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
 
     if (published != blogState.published) return false;
     return content.equals(blogState.content);
-
   }
 
   @Override

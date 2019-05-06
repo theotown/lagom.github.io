@@ -593,7 +593,7 @@ is also set as the current keyspace, i.e. it doesn't have to be qualified in the
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">executeCreateTable</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="https://doc.akka.io/api/akka/2.5.22/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
+        <span class="name">executeCreateTable</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.5.22/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
       </span>
       
       <p class="shortcomment cmt">See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useCreateTableTOC.html">Creating a table</a>.</p><div class="fullcomment"><div class="comment cmt"><p>See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useCreateTableTOC.html">Creating a table</a>.</p><p>The returned <code>CompletionStage</code> is completed when the table has been created,
@@ -611,7 +611,7 @@ or if the statement fails.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">executeWrite</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bindValues">bindValues: <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>*</span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="https://doc.akka.io/api/akka/2.5.22/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
+        <span class="name">executeWrite</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bindValues">bindValues: <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.5.22/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Prepare, bind and execute one statement in one go.</p><div class="fullcomment"><div class="comment cmt"><p>Prepare, bind and execute one statement in one go.</p><p>See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useInsertDataTOC.html">Inserting and updating data</a>.</p><p>The configured write consistency level is used.</p><p>The returned <code>CompletionStage</code> is completed when the statement has been
@@ -632,7 +632,7 @@ successfully executed, or if it fails.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">executeWrite</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="com.datastax.driver.core.Statement">Statement</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="https://doc.akka.io/api/akka/2.5.22/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
+        <span class="name">executeWrite</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="com.datastax.driver.core.Statement">Statement</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.5.22/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Execute one statement.</p><div class="fullcomment"><div class="comment cmt"><p>Execute one statement. First you must <a href="#prepare(stmt:String):scala.concurrent.Future[com.datastax.driver.core.PreparedStatement]" class="extmbr" name="com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession#prepare">#prepare</a> the
@@ -652,7 +652,7 @@ successfully executed, or if it fails.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">executeWriteBatch</span><span class="params">(<span name="batch">batch: <span class="extype" name="com.datastax.driver.core.BatchStatement">BatchStatement</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="https://doc.akka.io/api/akka/2.5.22/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
+        <span class="name">executeWriteBatch</span><span class="params">(<span name="batch">batch: <span class="extype" name="com.datastax.driver.core.BatchStatement">BatchStatement</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.5.22/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Execute several statements in a batch.</p><div class="fullcomment"><div class="comment cmt"><p>Execute several statements in a batch. First you must <a href="#prepare(stmt:String):scala.concurrent.Future[com.datastax.driver.core.PreparedStatement]" class="extmbr" name="com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession#prepare">#prepare</a> the
@@ -825,7 +825,7 @@ successfully executed, or if it fails.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">prepare</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="com.datastax.driver.core.PreparedStatement">PreparedStatement</span>]</span>
+        <span class="name">prepare</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="com.datastax.driver.core.PreparedStatement">PreparedStatement</span>]</span>
       </span>
       
       <p class="shortcomment cmt">Create a <code>PreparedStatement</code> that can be bound and used in
@@ -887,7 +887,7 @@ this <code>Source</code> and then <code>run</code> the stream.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">selectAll</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bindValues">bindValues: <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>*</span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>]]</span>
+        <span class="name">selectAll</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bindValues">bindValues: <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>]]</span>
       </span>
       
       <p class="shortcomment cmt">Prepare, bind and execute a select statement in one go.</p><div class="fullcomment"><div class="comment cmt"><p>Prepare, bind and execute a select statement in one go. Only use this method
@@ -909,7 +909,7 @@ Otherwise you should use the <code>select</code> method that returns a <code>Sou
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">selectAll</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="com.datastax.driver.core.Statement">Statement</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>]]</span>
+        <span class="name">selectAll</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="com.datastax.driver.core.Statement">Statement</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>]]</span>
       </span>
       
       <p class="shortcomment cmt">Execute a select statement.</p><div class="fullcomment"><div class="comment cmt"><p>Execute a select statement. First you must <a href="#prepare(stmt:String):scala.concurrent.Future[com.datastax.driver.core.PreparedStatement]" class="extmbr" name="com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession#prepare">#prepare</a> the statement and
@@ -930,7 +930,7 @@ level has not been set on the <code>Statement</code>.</p><p>The returned <code>C
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">selectOne</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bindValues">bindValues: <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>*</span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>]]</span>
+        <span class="name">selectOne</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bindValues">bindValues: <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>]]</span>
       </span>
       
       <p class="shortcomment cmt">Prepare, bind and execute a select statement that returns one row.</p><div class="fullcomment"><div class="comment cmt"><p>Prepare, bind and execute a select statement that returns one row.</p><p>The configured read consistency level is used.</p><p>The returned <code>CompletionStage</code> is completed with the first row,
@@ -951,7 +951,7 @@ if any.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">selectOne</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="com.datastax.driver.core.Statement">Statement</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>]]</span>
+        <span class="name">selectOne</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="com.datastax.driver.core.Statement">Statement</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>]]</span>
       </span>
       
       <p class="shortcomment cmt">Execute a select statement that returns one row.</p><div class="fullcomment"><div class="comment cmt"><p>Execute a select statement that returns one row. First you must <a href="#prepare(stmt:String):scala.concurrent.Future[com.datastax.driver.core.PreparedStatement]" class="extmbr" name="com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession#prepare">#prepare</a> the
@@ -1003,7 +1003,7 @@ if any.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">underlying</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="com.datastax.driver.core.Session">Session</span>]</span>
+        <span class="name">underlying</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="com.datastax.driver.core.Session">Session</span>]</span>
       </span>
       
       <p class="shortcomment cmt">The <code>Session</code> of the underlying

@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/e2d7f77eb6982cc857279e4bc4f4467b381262fd-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -168,6 +168,8 @@
       <li>
       <p>For simple deployments, Lagom includes a built-in service locator that uses addresses specified in the service configuration (<a href="#Using-static-values-for-services-and-Cassandra">described below</a>).</p></li>
       <li>
+      <p>Since Lagom 1.4.12, you can use <a href="AkkaDiscoveryIntegration.html">Akka Discovery Service Locator</a> that integrates with the service discovery features of Kubernetes or DC/OS, or any other environment supported by <a href="https://doc.akka.io/docs/akka/2.5/discovery/index.html">Akka&rsquo;s Service Discovery</a>.</p></li>
+      <li>
       <p>Lightbend Orchestration provides an open-source <a href="https://developer.lightbend.com/docs/lightbend-orchestration/current/features/service-location.html"><code>ServiceLocator</code> implementation</a> that integrates with the service discovery features of Kubernetes or DC/OS, or any other environment that supports service discovery via DNS.</p></li>
       <li>
       <p>Otherwise, you can implement the interface yourself to integrate with a service registry of your choosing (such as <a href="https://www.consul.io/">Consul</a>, <a href="https://zookeeper.apache.org/">ZooKeeper</a>, or <a href="https://coreos.com/etcd/">etcd</a>) or start with an open-source example implementation such as <a href="https://github.com/jboner/lagom-service-locator-consul"><code>lagom-service-locator-consul</code></a> or <a href="https://github.com/jboner/lagom-service-locator-zookeeper"><code>lagom-service-locator-zookeeper</code></a>.</p></li>
@@ -250,8 +252,8 @@ class HelloApplicationLoader extends LagomApplicationLoader {
                     
                         
                             <nav class="next-link">
-                                <a href="LightbendPlatform.html"><strong>Next: </strong>
-                                    Lightbend Platform</a>
+                                <a href="AkkaDiscoveryIntegration.html"><strong>Next: </strong>
+                                    Akka Discovery Integration</a>
                             </nav>
                         
                     
@@ -292,6 +294,10 @@ class HelloApplicationLoader extends LagomApplicationLoader {
                         
                             
                                 <li class="current-page"><a href="ProductionOverview.html">Production Overview</a></li>
+                            
+                        
+                            
+                                <li><a href="AkkaDiscoveryIntegration.html">Akka Discovery Integration</a></li>
                             
                         
                             
@@ -477,7 +483,7 @@ class HelloApplicationLoader extends LagomApplicationLoader {
             </div>
         </div>
     </body>
-    <script src="/e2d7f77eb6982cc857279e4bc4f4467b381262fd-all-scripts-concat.js"></script>
+    <script src="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

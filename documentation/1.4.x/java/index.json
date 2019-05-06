@@ -307,6 +307,10 @@
         "url" : "ProductionOverview.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/1.4.x/docs/manual/java/guide/production/ProductionOverview.md"
       }, {
+        "title" : "Akka Discovery Integration",
+        "url" : "AkkaDiscoveryIntegration.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/1.4.x/docs/manual/java/guide/production/AkkaDiscoveryIntegration.md"
+      }, {
         "title" : "Lightbend Platform",
         "url" : "LightbendPlatform.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/1.4.x/docs/manual/common/guide/production/LightbendPlatform.md"

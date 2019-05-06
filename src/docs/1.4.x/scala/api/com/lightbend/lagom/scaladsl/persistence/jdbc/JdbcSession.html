@@ -302,7 +302,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">withConnection</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="block">block: (<span class="extype" name="java.sql.Connection">Connection</span>) ⇒ <span class="extype" name="com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession.withConnection.T">T</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession.withConnection.T">T</span>]</span>
+        <span class="name">withConnection</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="block">block: (<span class="extype" name="java.sql.Connection">Connection</span>) ⇒ <span class="extype" name="com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession.withConnection.T">T</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession.withConnection.T">T</span>]</span>
       </span>
       
       <p class="shortcomment cmt">Execute the given function with a connection.</p><div class="fullcomment"><div class="comment cmt"><p>Execute the given function with a connection.</p><p>This will execute the callback in a thread pool that is specifically designed for use with JDBC calls.
@@ -319,7 +319,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">withTransaction</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="block">block: (<span class="extype" name="java.sql.Connection">Connection</span>) ⇒ <span class="extype" name="com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession.withTransaction.T">T</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession.withTransaction.T">T</span>]</span>
+        <span class="name">withTransaction</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="block">block: (<span class="extype" name="java.sql.Connection">Connection</span>) ⇒ <span class="extype" name="com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession.withTransaction.T">T</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession.withTransaction.T">T</span>]</span>
       </span>
       
       <p class="shortcomment cmt">Execute the given function in a transaction.</p><div class="fullcomment"><div class="comment cmt"><p>Execute the given function in a transaction.</p><p>This will execute the callback in a thread pool that is specifically designed for use with JDBC calls.

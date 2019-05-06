@@ -155,6 +155,18 @@
 <dd>
 <div class="block">The tags to aggregate.</div>
 </dd>
+<dt><a href="com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocator.html" title="class in com.lightbend.lagom.javadsl.akka.discovery"><span class="typeNameLink">AkkaDiscoveryServiceLocator</span></a> - Class in <a href="com/lightbend/lagom/javadsl/akka/discovery/package-summary.html">com.lightbend.lagom.javadsl.akka.discovery</a></dt>
+<dd>
+<div class="block">Akka Discovery based implementation of the <a href="com/lightbend/lagom/javadsl/api/ServiceLocator.html" title="interface in com.lightbend.lagom.javadsl.api"><code>ServiceLocator</code></a>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocator.html#AkkaDiscoveryServiceLocator-com.lightbend.lagom.javadsl.client.CircuitBreakersPanel-akka.actor.ActorSystem-">AkkaDiscoveryServiceLocator(CircuitBreakersPanel, ActorSystem)</a></span> - Constructor for class com.lightbend.lagom.javadsl.akka.discovery.<a href="com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocator.html" title="class in com.lightbend.lagom.javadsl.akka.discovery">AkkaDiscoveryServiceLocator</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocatorModule.html" title="class in com.lightbend.lagom.javadsl.akka.discovery"><span class="typeNameLink">AkkaDiscoveryServiceLocatorModule</span></a> - Class in <a href="com/lightbend/lagom/javadsl/akka/discovery/package-summary.html">com.lightbend.lagom.javadsl.akka.discovery</a></dt>
+<dd>
+<div class="block">Module providing the Akka Discovery based Lagom <a href="com/lightbend/lagom/javadsl/api/ServiceLocator.html" title="interface in com.lightbend.lagom.javadsl.api"><code>ServiceLocator</code></a>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocatorModule.html#AkkaDiscoveryServiceLocatorModule--">AkkaDiscoveryServiceLocatorModule()</a></span> - Constructor for class com.lightbend.lagom.javadsl.akka.discovery.<a href="com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocatorModule.html" title="class in com.lightbend.lagom.javadsl.akka.discovery">AkkaDiscoveryServiceLocatorModule</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html#allTags--">allTags()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventShards</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#app--">app()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.TestServer</a></dt>
@@ -241,6 +253,8 @@
 <div class="block">Binds a client for <code>clientInterface</code> which Guice's Injector makes available
  so client classes may declare the dependency on their <code>@Inject</code> annotated constructor.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocatorModule.html#bindings-play.Environment-com.typesafe.config.Config-">bindings(Environment, Config)</a></span> - Method in class com.lightbend.lagom.javadsl.akka.discovery.<a href="com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocatorModule.html" title="class in com.lightbend.lagom.javadsl.akka.discovery">AkkaDiscoveryServiceLocatorModule</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/jackson/JacksonModule.html#bindings-play.api.Environment-play.api.Configuration-">bindings(Environment, Configuration)</a></span> - Method in class com.lightbend.lagom.javadsl.jackson.<a href="com/lightbend/lagom/javadsl/jackson/JacksonModule.html" title="class in com.lightbend.lagom.javadsl.jackson">JacksonModule</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/jpa/JpaPersistenceModule.html#bindings-play.api.Environment-play.api.Configuration-">bindings(Environment, Configuration)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.jpa.<a href="com/lightbend/lagom/javadsl/persistence/jpa/JpaPersistenceModule.html" title="class in com.lightbend.lagom.javadsl.persistence.jpa">JpaPersistenceModule</a></dt>
@@ -517,6 +531,8 @@
 <dd>
 <div class="block">Create a PathParamSerializer for Collection parameters.</div>
 </dd>
+<dt><a href="com/lightbend/lagom/javadsl/akka/discovery/package-summary.html">com.lightbend.lagom.javadsl.akka.discovery</a> - package com.lightbend.lagom.javadsl.akka.discovery</dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/api/package-summary.html">com.lightbend.lagom.javadsl.api</a> - package com.lightbend.lagom.javadsl.api</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/api/broker/package-summary.html">com.lightbend.lagom.javadsl.api.broker</a> - package com.lightbend.lagom.javadsl.api.broker</dt>
@@ -1700,6 +1716,8 @@
 <dd>
 <div class="block">Whether this is a locatable service.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocator.html#locate-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-">locate(String, Descriptor.Call&lt;?, ?&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.akka.discovery.<a href="com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocator.html" title="class in com.lightbend.lagom.javadsl.akka.discovery">AkkaDiscoveryServiceLocator</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/ConfigurationServiceLocator.html#locate-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-">locate(String, Descriptor.Call&lt;?, ?&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/ConfigurationServiceLocator.html" title="class in com.lightbend.lagom.javadsl.api">ConfigurationServiceLocator</a></dt>
 <dd>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
@@ -1713,6 +1731,8 @@
 <div class="block">Locate a service's URI for the given name.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/client/ConfigurationServiceLocator.html#locate-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-">locate(String, Descriptor.Call&lt;?, ?&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.client.<a href="com/lightbend/lagom/javadsl/client/ConfigurationServiceLocator.html" title="class in com.lightbend.lagom.javadsl.client">ConfigurationServiceLocator</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocator.html#locateAll-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-">locateAll(String, Descriptor.Call&lt;?, ?&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.akka.discovery.<a href="com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocator.html" title="class in com.lightbend.lagom.javadsl.akka.discovery">AkkaDiscoveryServiceLocator</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/ServiceLocator.html#locateAll-java.lang.String-">locateAll(String)</a></span> - Method in interface com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/ServiceLocator.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceLocator</a></dt>
 <dd>

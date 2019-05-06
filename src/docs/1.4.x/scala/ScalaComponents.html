@@ -74,6 +74,10 @@
       <td><a href="api/com/lightbend/lagom/scaladsl/client/CircuitBreakerComponents.html">CircuitBreakerComponents</a></td>
       <td>implementors of a Service Locator will need to extend this to reuse the Circuit Breaker config provided by Lagom.</td>
     </tr>
+    <tr>
+      <td><a href="api/com/lightbend/lagom/scaladsl/akka/discovery/AkkaDiscoveryComponents.html">AkkaDiscoveryComponents</a></td>
+      <td>implementors of a Service Locator based on Akka Discovery. Available as <a href="AkkaDiscoveryIntegration.html">opt-in dependency</a>. It is the recommended implementation for production specially for users targeting Kubernetes and DC/OS (Marathon).</td>
+    </tr>
   </tbody>
 </table><h5 id="Third-party-Components"><a class="section-marker" href="#Third-party-Components">§</a>Third party Components</h5>
 <p>You can mix in <code>Components</code> from other frameworks or libraries, for example:</p>

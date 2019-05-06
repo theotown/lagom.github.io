@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/3338b21fad93590c2d00ff58dba7fb5796e61750-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/4af4159b1b3829c45681d7c93d74677385d9ed62-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -153,16 +153,15 @@
 <p>When a Service publishes data into a <code>Topic</code> the descriptor lists a <code>TopicCall</code> on the public API. Testing the event publishing is very similar to testing <code>ServiceCall</code>&rsquo;s in your Service API (see <a href="TestingServices.html#How-to-test-one-service">Service testing</a>). </p>
 <pre class="prettyprint"><code class="language-scala">&quot;The PublishService&quot; should {
   &quot;publish events on the topic&quot; in ServiceTest.withServer(ServiceTest.defaultSetup) { ctx =&gt;
-    new PublishApplication(ctx) with LocalServiceLocator
-      with TestTopicComponents
+    new PublishApplication(ctx) with LocalServiceLocator with TestTopicComponents
   } { server =&gt;
-
     implicit val system = server.actorSystem
-    implicit val mat = server.materializer
+    implicit val mat    = server.materializer
 
     val client: PublishService = server.serviceClient.implement[PublishService]
-    val source = client.events().subscribe.atMostOnceSource
-    source.runWith(TestSink.probe[PubMessage])
+    val source                 = client.events().subscribe.atMostOnceSource
+    source
+      .runWith(TestSink.probe[PubMessage])
       .request(1)
       .expectNext should ===(PubMessage(&quot;msg 1&quot;))
 
@@ -187,15 +186,13 @@
 
           // (1) creates an in-memory topic and binds it to a producer stub
           val stubFactory = new ProducerStubFactory(actorSystem, materializer)
-          producerStub =
-            stubFactory.producer[GreetingMessage](HelloService.TOPIC_NAME)
+          producerStub = stubFactory.producer[GreetingMessage](HelloService.TOPIC_NAME)
 
           // (2) Override the default Hello service with our service stub
           // which gets the producer stub injected
           override lazy val helloService = new HelloServiceStub(producerStub)
         }
       } { server =&gt;
-
         // (3) produce a message in the stubbed topic via it&#39;s producer
         producerStub.send(GreetingMessage(&quot;Hi there!&quot;))
 
@@ -215,8 +212,7 @@
 
 // (2) a Service stub that will use the in-memoru topic bound to
 // our producer stub
-class HelloServiceStub(stub: ProducerStub[GreetingMessage])
-  extends HelloService {
+class HelloServiceStub(stub: ProducerStub[GreetingMessage]) extends HelloService {
   override def greetingsTopic(): Topic[GreetingMessage] = stub.topic
 
   override def hello(id: String): ServiceCall[NotUsed, String] = ???
@@ -466,7 +462,7 @@ class HelloServiceStub(stub: ProducerStub[GreetingMessage])
             </div>
         </div>
     </body>
-    <script src="/3338b21fad93590c2d00ff58dba7fb5796e61750-all-scripts-concat.js"></script>
+    <script src="/4af4159b1b3829c45681d7c93d74677385d9ed62-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

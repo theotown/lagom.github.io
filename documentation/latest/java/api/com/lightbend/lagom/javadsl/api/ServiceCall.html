@@ -111,10 +111,10 @@ var activeTableTab = "activeTableTab";
 public interface <span class="typeNameLabel">ServiceCall&lt;Request,Response&gt;</span></pre>
 <div class="block">A service call for an entity.
 
- A service call has a request and a response entity. Either entity may be NotUsed, if there is no entity associated
- with the call. They may also be an Akka streams Source, in situations where the endpoint serves a stream. In all
- other cases, the entities will be considered "strict" entities, that is, they will be parsed into memory, eg,
- using json.</div>
+ <p>A service call has a request and a response entity. Either entity may be NotUsed, if there is
+ no entity associated with the call. They may also be an Akka streams Source, in situations where
+ the endpoint serves a stream. In all other cases, the entities will be considered "strict"
+ entities, that is, they will be parsed into memory, eg, using json.</div>
 </li>
 </ul>
 </div>
@@ -142,7 +142,8 @@ public interface <span class="typeNameLabel">ServiceCall&lt;Request,Response&gt;
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>default &lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Request</a>,T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html#handleResponseHeader-java.util.function.BiFunction-">handleResponseHeader</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html?is-external=true" title="class or interface in java.util.function">BiFunction</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/transport/ResponseHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">ResponseHeader</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Response</a>,T&gt;&nbsp;handler)</code>
-<div class="block">Transform the response using the given function that takes the response header and the response.</div>
+<div class="block">Transform the response using the given function that takes the response header and the
+ response.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -205,7 +206,7 @@ public interface <span class="typeNameLabel">ServiceCall&lt;Request,Response&gt;
 <pre>default&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Response</a>&gt;&nbsp;invoke()</pre>
 <div class="block">Invoke the service call with unit id argument and a unit request message.
 
- This should only be used when the request message is NotUsed.</div>
+ <p>This should only be used when the request message is NotUsed.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A future of the response entity.</dd>
@@ -221,18 +222,20 @@ public interface <span class="typeNameLabel">ServiceCall&lt;Request,Response&gt;
 <pre>default&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Request</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Response</a>&gt;&nbsp;handleRequestHeader(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/transport/RequestHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">RequestHeader</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/transport/RequestHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">RequestHeader</a>&gt;&nbsp;handler)</pre>
 <div class="block">Make any modifications necessary to the request header.
 
- For client service calls, this gives clients an opportunity to add custom headers and/or modify the request in
- some way before it is made.  The passed in handler is applied before the header transformers
- configured for the descriptor/endpoint are applied.
+ <p>For client service calls, this gives clients an opportunity to add custom headers and/or
+ modify the request in some way before it is made. The passed in handler is applied before the
+ header transformers configured for the descriptor/endpoint are applied.
 
- For server implementations of service calls, this will be invoked by the server in order to supply the request
- header.  A new service call can then be returned that uses the header.  The header passed in to the handler by
- the service call can be anything, it will be ignored - <a href="../../../../../com/lightbend/lagom/javadsl/api/transport/RequestHeader.html#DEFAULT"><code>RequestHeader.DEFAULT</code></a> exists for this
- purpose.  Generally, server implementations should not implement this method directly, rather, they should use
- <tt>ServerServiceCall</tt>, which provides an appropriate implementation.</div>
+ <p>For server implementations of service calls, this will be invoked by the server in order to
+ supply the request header. A new service call can then be returned that uses the header. The
+ header passed in to the handler by the service call can be anything, it will be ignored -
+ <a href="../../../../../com/lightbend/lagom/javadsl/api/transport/RequestHeader.html#DEFAULT"><code>RequestHeader.DEFAULT</code></a> exists for this purpose. Generally, server implementations should
+ not implement this method directly, rather, they should use <tt>ServerServiceCall</tt>, which
+ provides an appropriate implementation.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>handler</code> - A function that takes in the request header representing the request, and transforms it.</dd>
+<dd><code>handler</code> - A function that takes in the request header representing the request, and
+     transforms it.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A service call that will use the given handler.</dd>
 </dl>
@@ -245,17 +248,18 @@ public interface <span class="typeNameLabel">ServiceCall&lt;Request,Response&gt;
 <li class="blockList">
 <h4>handleResponseHeader</h4>
 <pre>default&nbsp;&lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Request</a>,T&gt;&nbsp;handleResponseHeader(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html?is-external=true" title="class or interface in java.util.function">BiFunction</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/transport/ResponseHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">ResponseHeader</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Response</a>,T&gt;&nbsp;handler)</pre>
-<div class="block">Transform the response using the given function that takes the response header and the response.
+<div class="block">Transform the response using the given function that takes the response header and the
+ response.
 
- For client service calls, this gives clients an opportunity to inspect the response headers and status code.
- The passed in handler is applied after the header transformers configured for the descriptor/endpoint are
- applied.
+ <p>For client service calls, this gives clients an opportunity to inspect the response headers
+ and status code. The passed in handler is applied after the header transformers configured for
+ the descriptor/endpoint are applied.
 
- For server implementations of service calls, this will be invoked by the server in order to give the service
- call an opportunity to supply the response header when it supplies the response, but only if the underlying
- transport supports sending a response header.  Generally, server implementations should not implement this
- method directly, rather, they should use <tt>ServerServiceCall</tt>, which provides an appropriate
- implementation.</div>
+ <p>For server implementations of service calls, this will be invoked by the server in order to
+ give the service call an opportunity to supply the response header when it supplies the
+ response, but only if the underlying transport supports sending a response header. Generally,
+ server implementations should not implement this method directly, rather, they should use
+ <tt>ServerServiceCall</tt>, which provides an appropriate implementation.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>handler</code> - The handler.</dd>
@@ -273,9 +277,11 @@ public interface <span class="typeNameLabel">ServiceCall&lt;Request,Response&gt;
 <pre>default&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Request</a>,akka.japi.Pair&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/transport/ResponseHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">ResponseHeader</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="type parameter in ServiceCall">Response</a>&gt;&gt;&nbsp;withResponseHeader()</pre>
 <div class="block">Allow handling of the response header.
 
- This converts the service call to one that returns both the response header and the response message.
+ <p>This converts the service call to one that returns both the response header and the response
+ message.
 
- This is simply a convenience method for invoking <code>handleResponseHeader(Pair::create)</code>.</div>
+ <p>This is simply a convenience method for invoking <code>handleResponseHeader(Pair::create)
+ </code>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The a service call that returns the response header and the response message.</dd>

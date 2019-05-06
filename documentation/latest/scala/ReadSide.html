@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/3338b21fad93590c2d00ff58dba7fb5796e61750-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/4af4159b1b3829c45681d7c93d74677385d9ed62-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -180,7 +180,7 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
 <p>Lagom provides some utilities for helping create sharded tags. To create the sharded tags, define the number of shards in a static variable, as the shards tag, and implement the <code>aggregateTag</code> method to return the shards tag:</p>
 <pre class="prettyprint"><code class="language-scala">object BlogEvent {
   val NumShards = 20
-  val Tag = AggregateEventTag.sharded[BlogEvent](NumShards)
+  val Tag       = AggregateEventTag.sharded[BlogEvent](NumShards)
 }
 
 sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
@@ -205,6 +205,7 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
   BlogEvent.Tag.allTags</code></pre>
 <p>Now we need to implement the <code>buildHandler</code> method. Let&rsquo;s assume that you have created a component to interact with your preferred database, it provides the following methods:</p>
 <pre class="prettyprint"><code class="language-scala">trait MyDatabase {
+
   /**
    * Create the tables needed for this read side if not already created.
    */
@@ -245,17 +246,16 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
 <p>The <code>prepare</code> method is used to load the last offset, and is useful for any other things that need to be prepared, such as optimizing update statements, before processing begins. It will be executed once per read side processor.</p>
 <p>The <code>handle</code> method must return an Akka streams <code>Flow</code> to handle the event stream. Typically it will use <code>mapAsync</code>, with a parallelism of 1, to handle the events.</p><h3 id="Registering-your-read-side-processor"><a class="section-marker" href="#Registering-your-read-side-processor">§</a>Registering your read-side processor</h3>
 <p>Once you&rsquo;ve created your read-side processor, you need to register it with Lagom. This is done using the <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/ReadSide"><code>ReadSide</code></a> component:</p>
-<pre class="prettyprint"><code class="language-scala">class BlogServiceImpl(
-  persistentEntityRegistry: PersistentEntityRegistry,
-  readSide: ReadSide,
-  myDatabase: MyDatabase) extends BlogService {
+<pre class="prettyprint"><code class="language-scala">class BlogServiceImpl(persistentEntityRegistry: PersistentEntityRegistry, readSide: ReadSide, myDatabase: MyDatabase)
+    extends BlogService {
 
   readSide.register[BlogEvent](new BlogEventProcessor(myDatabase))</code></pre><h2 id="Raw-Stream-of-Events"><a class="section-marker" href="#Raw-Stream-of-Events">§</a>Raw Stream of Events</h2>
 <p>There is another tool that can be used if you want more flexible event processing. You can get a stream of the persistent events directly from Lagom with the <code>eventStream</code> method of the <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/PersistentEntityRegistry">PersistentEntityRegistry</a>.</p>
 <pre class="prettyprint"><code class="language-scala">override def newPosts(): ServiceCall[NotUsed, Source[PostSummary, _]] =
   ServiceCall { request =&gt;
     val response: Source[PostSummary, NotUsed] =
-      persistentEntityRegistry.eventStream(BlogEvent.Tag.forEntityId(&quot;&quot;), NoOffset)
+      persistentEntityRegistry
+        .eventStream(BlogEvent.Tag.forEntityId(&quot;&quot;), NoOffset)
         .collect {
           case EventStreamElement(entityId, event: PostAdded, offset) =&gt;
             PostSummary(event.postId, event.content.title)
@@ -565,7 +565,7 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
             </div>
         </div>
     </body>
-    <script src="/3338b21fad93590c2d00ff58dba7fb5796e61750-all-scripts-concat.js"></script>
+    <script src="/4af4159b1b3829c45681d7c93d74677385d9ed62-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

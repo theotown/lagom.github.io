@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/3338b21fad93590c2d00ff58dba7fb5796e61750-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/4af4159b1b3829c45681d7c93d74677385d9ed62-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -150,17 +150,20 @@
 <p>This is particularly useful when integrating Lagom with existing Play Routers, for instance a <a href="https://developer.lightbend.com/docs/play-grpc/0.6.0/lagom/serving-grpc.html?language=scala">Play gRPC Router</a> , or any other Play router that you have at your disposal.</p>
 <p>You add an additional router when wiring your Lagom Server. After wiring the Lagom Server, you append the additional Play routers to it.</p>
 <pre class="prettyprint"><code class="language-scala">override lazy val lagomServer =
-    serverFor[HelloService](wire[HelloServiceImpl])
+  serverFor[HelloService](wire[HelloServiceImpl])
     .additionalRouter(wire[SomePlayRouter])</code></pre><h2 id="File-Upload-Example"><a class="section-marker" href="#File-Upload-Example">§</a>File Upload Example</h2>
 <p>The following example shows how you can add a file upload endpoint to an existing Lagom Service.</p>
 <p>The example is based on <a href="https://www.playframework.com/documentation/2.7.x/ScalaSirdRouter">ScalaSirdRouter</a> that allows you to build a Play Router programmatically. It adds an extra path (<code>/api/files</code>) that receives POST calls for multipart-form data.</p>
-<pre class="prettyprint"><code class="language-scala">import play.api.mvc.{DefaultActionBuilder, PlayBodyParsers, Results}
+<pre class="prettyprint"><code class="language-scala">import play.api.mvc.DefaultActionBuilder
+import play.api.mvc.PlayBodyParsers
+import play.api.mvc.Results
 import play.api.routing.Router
 import play.api.routing.sird._
 
 class FileUploadRouter(action: DefaultActionBuilder, parser: PlayBodyParsers) {
   val router = Router.from {
-    case POST(p&quot;/api/files&quot;) =&gt; action(parser.multipartFormData) { request =&gt;
+    case POST(p&quot;/api/files&quot;) =&gt;
+      action(parser.multipartFormData) { request =&gt;
         val filePaths = request.body.files.map(_.ref.getAbsolutePath)
         Results.Ok(filePaths.mkString(&quot;Uploaded[&quot;, &quot;, &quot;, &quot;]&quot;))
       }
@@ -168,8 +171,8 @@ class FileUploadRouter(action: DefaultActionBuilder, parser: PlayBodyParsers) {
 }</code></pre>
 <p>In your application loader, you can wire the router and append it to your Lagom server.</p>
 <pre class="prettyprint"><code class="language-scala">override lazy val lagomServer =
-    serverFor[HelloService](wire[HelloServiceImpl])
-      .additionalRouter(wire[FileUploadRouter].router)</code></pre>
+  serverFor[HelloService](wire[HelloServiceImpl])
+    .additionalRouter(wire[FileUploadRouter].router)</code></pre>
 <p>The path <code>/api/files</code> will now be available on your Lagom service:</p>
 <pre class="prettyprint"><code class="language-bash">curl -X POST -F &quot;data=@somefile.txt&quot; -v  http://localhost:65499/api/files
 </code></pre>
@@ -182,7 +185,7 @@ class FileUploadRouter(action: DefaultActionBuilder, parser: PlayBodyParsers) {
 
   def hello(id: String): ServiceCall[NotUsed, String]
 
-  override final def descriptor = {
+  final override def descriptor = {
     import Service._
     named(&quot;hello&quot;)
       .withCalls(
@@ -471,7 +474,7 @@ class FileUploadRouter(action: DefaultActionBuilder, parser: PlayBodyParsers) {
             </div>
         </div>
     </body>
-    <script src="/3338b21fad93590c2d00ff58dba7fb5796e61750-all-scripts-concat.js"></script>
+    <script src="/4af4159b1b3829c45681d7c93d74677385d9ed62-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

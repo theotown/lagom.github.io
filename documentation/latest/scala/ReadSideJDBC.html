@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/3338b21fad93590c2d00ff58dba7fb5796e61750-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/4af4159b1b3829c45681d7c93d74677385d9ed62-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -185,7 +185,7 @@ import scala.concurrent.ExecutionContext
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession.tryWith
 </code></pre>
 <pre class="prettyprint"><code class="language-scala">class BlogEventProcessor(readSide: JdbcReadSide)(implicit ec: ExecutionContext)
-  extends ReadSideProcessor[BlogEvent] {
+    extends ReadSideProcessor[BlogEvent] {
 
   override def buildHandler(): ReadSideProcessor.ReadSideHandler[BlogEvent] = {
     // TODO build read side handler
@@ -216,8 +216,12 @@ import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession.tryWith
 <p>Of course, setting a global prepare callback is completely optional, you may prefer to manage database tables manually, but it is very convenient for development and test environments to use this callback to create them for you.</p>
 <p>Below is an example method that we&rsquo;ve implemented to create tables:</p>
 <pre class="prettyprint"><code class="language-scala">private def createTable(connection: Connection): Unit = {
-  tryWith(connection.prepareStatement(&quot;CREATE TABLE IF NOT EXISTS blogsummary ( &quot; +
-    &quot;id VARCHAR(64), title VARCHAR(256), PRIMARY KEY (id))&quot;)) { ps =&gt;
+  tryWith(
+    connection.prepareStatement(
+      &quot;CREATE TABLE IF NOT EXISTS blogsummary ( &quot; +
+        &quot;id VARCHAR(64), title VARCHAR(256), PRIMARY KEY (id))&quot;
+    )
+  ) { ps =&gt;
     ps.execute()
   }
 }</code></pre>
@@ -227,18 +231,14 @@ import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession.tryWith
 <p>If you read the <a href="ReadSideCassandra.html">Cassandra read-side support</a> guide, you may have seen this used to prepare database statements for later use. JDBC <code>PreparedStatement</code> instances, however, are not guaranteed to be thread-safe, so the prepare callback should not be used for this purpose with relational databases.</p>
 <p>Again this callback is optional, and in our example we have no need for a prepare callback, so none is specified.</p><h3 id="Registering-your-read-side-processor"><a class="section-marker" href="#Registering-your-read-side-processor">§</a>Registering your read-side processor</h3>
 <p>Once you&rsquo;ve created your read-side processor, you need to register it with Lagom. This is done using the <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/ReadSide"><code>ReadSide</code></a> component:</p>
-<pre class="prettyprint"><code class="language-scala">class BlogServiceImpl(
-  persistentEntityRegistry: PersistentEntityRegistry,
-  readSide: ReadSide,
-  myDatabase: MyDatabase) extends BlogService {
+<pre class="prettyprint"><code class="language-scala">class BlogServiceImpl(persistentEntityRegistry: PersistentEntityRegistry, readSide: ReadSide, myDatabase: MyDatabase)
+    extends BlogService {
 
   readSide.register[BlogEvent](new BlogEventProcessor(myDatabase))</code></pre><h3 id="Event-handlers"><a class="section-marker" href="#Event-handlers">§</a>Event handlers</h3>
 <p>The event handlers take an event and a connection, and update the read-side accordingly.</p>
 <p>Here&rsquo;s an example callback for handling the <code>PostAdded</code> event:</p>
-<pre class="prettyprint"><code class="language-scala">private def processPostAdded(connection: Connection,
-  eventElement: EventStreamElement[PostAdded]): Unit = {
-  tryWith(connection.prepareStatement(
-    &quot;INSERT INTO blogsummary (id, title) VALUES (?, ?)&quot;)) { statement =&gt;
+<pre class="prettyprint"><code class="language-scala">private def processPostAdded(connection: Connection, eventElement: EventStreamElement[PostAdded]): Unit = {
+  tryWith(connection.prepareStatement(&quot;INSERT INTO blogsummary (id, title) VALUES (?, ?)&quot;)) { statement =&gt;
     statement.setString(1, eventElement.event.postId)
     statement.setString(2, eventElement.event.content.title)
     statement.execute()
@@ -517,7 +517,7 @@ import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession.tryWith
             </div>
         </div>
     </body>
-    <script src="/3338b21fad93590c2d00ff58dba7fb5796e61750-all-scripts-concat.js"></script>
+    <script src="/4af4159b1b3829c45681d7c93d74677385d9ed62-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

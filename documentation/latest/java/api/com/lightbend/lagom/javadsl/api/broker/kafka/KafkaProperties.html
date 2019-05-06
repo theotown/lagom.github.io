@@ -165,8 +165,9 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public static&nbsp;&lt;Message&gt;&nbsp;<a href="../../../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties.Property</a>&lt;Message,<a href="../../../../../../../com/lightbend/lagom/javadsl/api/broker/kafka/PartitionKeyStrategy.html" title="interface in com.lightbend.lagom.javadsl.api.broker.kafka">PartitionKeyStrategy</a>&lt;Message&gt;&gt;&nbsp;partitionKeyStrategy()</pre>
 <div class="block">A PartitionKeyStrategy produces a key for each message published to a Kafka topic.
 
- The key is used to determine on which topic's partition a message is published. It is guaranteed that messages
- with the same key will arrive to the same partition, in the order they are published.</div>
+ <p>The key is used to determine on which topic's partition a message is published. It is
+ guaranteed that messages with the same key will arrive to the same partition, in the order they
+ are published.</div>
 </li>
 </ul>
 </li>

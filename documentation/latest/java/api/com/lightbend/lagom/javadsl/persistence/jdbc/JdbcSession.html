@@ -175,7 +175,8 @@ var activeTableTab = "activeTableTab";
 <pre>&lt;T&gt;&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;T&gt;&nbsp;withConnection(<a href="../../../../../../com/lightbend/lagom/javadsl/persistence/jdbc/JdbcSession.ConnectionFunction.html" title="interface in com.lightbend.lagom.javadsl.persistence.jdbc">JdbcSession.ConnectionFunction</a>&lt;T&gt;&nbsp;block)</pre>
 <div class="block">Execute the given function with a connection.
 
- This will execute the callback in a thread pool that is specifically designed for use with JDBC calls.</div>
+ <p>This will execute the callback in a thread pool that is specifically designed for use with
+ JDBC calls.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>block</code> - The block to execute.</dd>
@@ -193,7 +194,8 @@ var activeTableTab = "activeTableTab";
 <pre>&lt;T&gt;&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;T&gt;&nbsp;withTransaction(<a href="../../../../../../com/lightbend/lagom/javadsl/persistence/jdbc/JdbcSession.ConnectionFunction.html" title="interface in com.lightbend.lagom.javadsl.persistence.jdbc">JdbcSession.ConnectionFunction</a>&lt;T&gt;&nbsp;block)</pre>
 <div class="block">Execute the given function in a transaction.
 
- This will execute the callback in a thread pool that is specifically designed for use with JDBC calls.</div>
+ <p>This will execute the callback in a thread pool that is specifically designed for use with
+ JDBC calls.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>block</code> - The block to execute.</dd>

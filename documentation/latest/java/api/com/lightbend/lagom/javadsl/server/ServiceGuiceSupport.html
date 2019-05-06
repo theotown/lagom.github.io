@@ -105,14 +105,13 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public interface <span class="typeNameLabel">ServiceGuiceSupport</span>
 extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClientGuiceSupport.html" title="interface in com.lightbend.lagom.javadsl.client">ServiceClientGuiceSupport</a></pre>
-<div class="block">Lagom service implementations must create one implementation of this interface and use it to bind Service
- implementations.
- <p>
- Implementors of this interface must invoke <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-"><code>bindService(java.lang.Class&lt;T&gt;, java.lang.Class&lt;? extends T&gt;)</code></a>,
- <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-"><code>bindServices(ServiceBinding[])</code></a> or
- <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServiceInfo-com.lightbend.lagom.javadsl.api.ServiceInfo-"><code>bindServiceInfo(ServiceInfo)</code></a> exactly-once depending on the type of Lagom service being
- implemented (1 service, many services, consume-only). These methods setup the service and may transparently add
- cross-cutting services like <a href="../../../../../com/lightbend/lagom/javadsl/server/status/MetricsService.html" title="interface in com.lightbend.lagom.javadsl.server.status"><code>MetricsService</code></a> (allows monitoring circuit-breakers from the outside).</div>
+<div class="block">Lagom service implementations must create one implementation of this interface and use it to bind
+ Service implementations.
+
+ <p>Implementors of this interface must invoke <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-"><code>bindService(java.lang.Class&lt;T&gt;, java.lang.Class&lt;? extends T&gt;)</code></a>, <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-"><code>bindServices(ServiceBinding[])</code></a> or <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServiceInfo-com.lightbend.lagom.javadsl.api.ServiceInfo-"><code>bindServiceInfo(ServiceInfo)</code></a> exactly-once depending on the type of Lagom
+ service being implemented (1 service, many services, consume-only). These methods setup the
+ service and may transparently add cross-cutting services like <a href="../../../../../com/lightbend/lagom/javadsl/server/status/MetricsService.html" title="interface in com.lightbend.lagom.javadsl.server.status"><code>MetricsService</code></a> (allows
+ monitoring circuit-breakers from the outside).</div>
 </li>
 </ul>
 </div>
@@ -165,15 +164,15 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClient
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>default &lt;R extends play.api.routing.Router&gt;<br><a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server">AdditionalRouter</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#additionalRouter-java.lang.Class-">additionalRouter</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;R&gt;&nbsp;router)</code>
-<div class="block">Helper method to create an <a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server"><code>AdditionalRouter</code></a> instance that can be used to
- declare additional Play <code>Router</code>s on a Lagom Service.</div>
+<div class="block">Helper method to create an <a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server"><code>AdditionalRouter</code></a> instance that can be used to declare
+ additional Play <code>Router</code>s on a Lagom Service.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server">AdditionalRouter</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#additionalRouter-play.api.routing.Router-">additionalRouter</a></span>(play.api.routing.Router&nbsp;router)</code>
-<div class="block">Helper method to create an <a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server"><code>AdditionalRouter</code></a> instance that can be used to
- declare additional Play <code>Router</code>s on a Lagom Service.</div>
+<div class="block">Helper method to create an <a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server"><code>AdditionalRouter</code></a> instance that can be used to declare
+ additional Play <code>Router</code>s on a Lagom Service.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -218,8 +217,8 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClient
 <td class="colFirst"><code>default void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-">bindServices</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;?&gt;...&nbsp;serviceBindings)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">support for multiple locatable ServiceDescriptors per Lagom service will be removed.
- Use <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-"><code>bindService(java.lang.Class&lt;T&gt;, java.lang.Class&lt;? extends T&gt;)</code></a> instead</span></div>
+<div class="block"><span class="deprecationComment">support for multiple locatable ServiceDescriptors per Lagom service will be
+     removed. Use <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-"><code>bindService(java.lang.Class&lt;T&gt;, java.lang.Class&lt;? extends T&gt;)</code></a> instead</span></div>
 </div>
 </td>
 </tr>
@@ -267,17 +266,17 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClient
 <h4>additionalRouter</h4>
 <pre>@ApiMayChange
 default&nbsp;&lt;R extends play.api.routing.Router&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server">AdditionalRouter</a>&nbsp;additionalRouter(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;R&gt;&nbsp;router)</pre>
-<div class="block">Helper method to create an <a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server"><code>AdditionalRouter</code></a> instance that can be used to
- declare additional Play <code>Router</code>s on a Lagom Service.
+<div class="block">Helper method to create an <a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server"><code>AdditionalRouter</code></a> instance that can be used to declare
+ additional Play <code>Router</code>s on a Lagom Service.
 
+ <p>This method should be used when the <code>Router</code> has some dependencies and needs to get
+ them injected by Lagom's runtime DI infrastructure (Guice).
 
- <p>This method should be used when the <code>Router</code> has some dependencies and needs to get them injected
- by Lagom's runtime DI infrastructure (Guice).
+ <p>Typically, this will be a <code>Router</code> generated from a Play <code>routes</code> or a akka-grpc
+ generated Play <code>Router</code>.
 
- <p>Typically, this will be a <code>Router</code> generated from a Play <code>routes</code>
- or a akka-grpc generated Play <code>Router</code>.
-
- <p>Once you declare a <code>Router</code>, you may need to define its prefix to indicate on which path it should be available.
+ <p>Once you declare a <code>Router</code>, you may need to define its prefix to indicate on which
+ path it should be available.
 
  <pre>
  bindService(
@@ -286,14 +285,14 @@ default&nbsp;&lt;R extends play.api.routing.Router&gt;&nbsp;<a href="../../../..
  );
  </pre>
 
- You don't need to configure a prefix if the <code>Router</code> has it pre-configured.
- A akka-grpc generated Play <code>Router</code>, for instance, has its prefix already defined by the gRPC descriptor
- and doesn't need to have its prefix reconfigured.
+ You don't need to configure a prefix if the <code>Router</code> has it pre-configured. A akka-grpc
+ generated Play <code>Router</code>, for instance, has its prefix already defined by the gRPC
+ descriptor and doesn't need to have its prefix reconfigured.
 
  <p>Note that this method won't create a binding and is intended to be used in conjunction with
  <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-T-com.lightbend.lagom.javadsl.server.AdditionalRouter-com.lightbend.lagom.javadsl.server.AdditionalRouter...-"><code>bindService(Class, Service, AdditionalRouter, AdditionalRouter...)</code></a>
- or <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-com.lightbend.lagom.javadsl.server.AdditionalRouter-com.lightbend.lagom.javadsl.server.AdditionalRouter...-"><code>bindService(Class, Class, AdditionalRouter, AdditionalRouter...)</code></a>.
- Calling this method outside this context will have no effect.</div>
+ or <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-com.lightbend.lagom.javadsl.server.AdditionalRouter-com.lightbend.lagom.javadsl.server.AdditionalRouter...-"><code>bindService(Class, Class, AdditionalRouter,
+ AdditionalRouter...)</code></a>. Calling this method outside this context will have no effect.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>router</code> - an additional Play Router class</dd>
@@ -310,14 +309,14 @@ default&nbsp;&lt;R extends play.api.routing.Router&gt;&nbsp;<a href="../../../..
 <h4>additionalRouter</h4>
 <pre>@ApiMayChange
 default&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server">AdditionalRouter</a>&nbsp;additionalRouter(play.api.routing.Router&nbsp;router)</pre>
-<div class="block">Helper method to create an <a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server"><code>AdditionalRouter</code></a> instance that can be used to
- declare additional Play <code>Router</code>s on a Lagom Service.
+<div class="block">Helper method to create an <a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server"><code>AdditionalRouter</code></a> instance that can be used to declare
+ additional Play <code>Router</code>s on a Lagom Service.
 
+ <p>This method should be used when the <code>Router</code> does not have any other dependencies and
+ therefore can be immediately passed as an instance.
 
- <p>This method should be used when the <code>Router</code> does not have any
- other dependencies and therefore can be immediately passed as an instance.
-
- <p>Once you declare a <code>Router</code>, you may need to define its prefix to indicate on which path it should be available.
+ <p>Once you declare a <code>Router</code>, you may need to define its prefix to indicate on which
+ path it should be available.
 
  <pre>
  bindService(
@@ -330,8 +329,8 @@ default&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/Addition
 
  <p>Note that this method won't create a binding and is intended to be used in conjunction with
  <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-T-com.lightbend.lagom.javadsl.server.AdditionalRouter-com.lightbend.lagom.javadsl.server.AdditionalRouter...-"><code>bindService(Class, Service, AdditionalRouter, AdditionalRouter...)</code></a>
- or <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-com.lightbend.lagom.javadsl.server.AdditionalRouter-com.lightbend.lagom.javadsl.server.AdditionalRouter...-"><code>bindService(Class, Class, AdditionalRouter, AdditionalRouter...)</code></a>.
- Calling this method outside this context will have no effect.</div>
+ or <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-com.lightbend.lagom.javadsl.server.AdditionalRouter-com.lightbend.lagom.javadsl.server.AdditionalRouter...-"><code>bindService(Class, Class, AdditionalRouter,
+ AdditionalRouter...)</code></a>. Calling this method outside this context will have no effect.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>router</code> - an additional Play Router instance</dd>
@@ -347,9 +346,8 @@ default&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/Addition
 <li class="blockList">
 <h4>bindServiceInfo</h4>
 <pre>default&nbsp;void&nbsp;bindServiceInfo(<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api">ServiceInfo</a>&nbsp;serviceInfo)</pre>
-<div class="block">Creates a custom <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> for this Lagom service. This method overrides
- <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClientGuiceSupport.html#bindServiceInfo-com.lightbend.lagom.javadsl.api.ServiceInfo-"><code>ServiceClientGuiceSupport.bindServiceInfo(ServiceInfo)</code></a> with custom behavior for consume-only Lagom
- services.</div>
+<div class="block">Creates a custom <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> for this Lagom service. This method overrides <a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClientGuiceSupport.html#bindServiceInfo-com.lightbend.lagom.javadsl.api.ServiceInfo-"><code>ServiceClientGuiceSupport.bindServiceInfo(ServiceInfo)</code></a> with custom behavior for consume-only
+ Lagom services.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClientGuiceSupport.html#bindServiceInfo-com.lightbend.lagom.javadsl.api.ServiceInfo-">bindServiceInfo</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/client/ServiceClientGuiceSupport.html" title="interface in com.lightbend.lagom.javadsl.client">ServiceClientGuiceSupport</a></code></dd>
@@ -365,19 +363,19 @@ default&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/Addition
 <li class="blockList">
 <h4>bindServices</h4>
 <pre>default&nbsp;void&nbsp;bindServices(<a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ServiceBinding</a>&lt;?&gt;...&nbsp;serviceBindings)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">support for multiple locatable ServiceDescriptors per Lagom service will be removed.
- Use <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-"><code>bindService(java.lang.Class&lt;T&gt;, java.lang.Class&lt;? extends T&gt;)</code></a> instead</span></div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">support for multiple locatable ServiceDescriptors per Lagom service will be
+     removed. Use <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindService-java.lang.Class-java.lang.Class-"><code>bindService(java.lang.Class&lt;T&gt;, java.lang.Class&lt;? extends T&gt;)</code></a> instead</span></div>
 <div class="block">Binds Service interfaces with their implementations and registers them for publishing.
- <p>
- Inspects all bindings and creates routes to serve every call described in the bound services.
- <p>
- Builds the <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> metadata using only the <code>locatable</code> services.</div>
+
+ <p>Inspects all bindings and creates routes to serve every call described in the bound
+ services.
+
+ <p>Builds the <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> metadata using only the <code>locatable</code> services.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>serviceBindings</code> - an arbitrary list of <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a>s. Use the convenience method
-                        <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#serviceBinding-java.lang.Class-java.lang.Class-"><code>serviceBinding(Class, Class)</code></a> to build the
-                        <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a>s. Despite being a <code>varargs</code> argument, it is required to
-                        provide at least one <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a> as argument.</dd>
+     <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#serviceBinding-java.lang.Class-java.lang.Class-"><code>serviceBinding(Class, Class)</code></a> to build the <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a>s. Despite being a <code>varargs</code> argument, it is required to provide
+     at least one <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a> as argument.</dd>
 </dl>
 </li>
 </ul>
@@ -390,13 +388,14 @@ default&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/Addition
 <pre>default&nbsp;&lt;T extends <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api">Service</a>&gt;&nbsp;void&nbsp;bindService(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;serviceInterface,
                                              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends T&gt;&nbsp;serviceImplementation)</pre>
 <div class="block">Binds a Service interface with its implementation.
- <p>
- Inspects the service descriptor and creates routes to serve every call described.
- <p>
- Builds the <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> metadata.</div>
+
+ <p>Inspects the service descriptor and creates routes to serve every call described.
+
+ <p>Builds the <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> metadata.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - type constraint ensuring <code>serviceImplementation</code> implements <code>serviceInterface</code></dd>
+<dd><code>T</code> - type constraint ensuring <code>serviceImplementation</code> implements <code>
+     serviceInterface</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>serviceInterface</code> - the interface class for a <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api"><code>Service</code></a></dd>
 <dd><code>serviceImplementation</code> - the implementation class for the <code>serviceInterface</code></dd>
@@ -414,15 +413,16 @@ default&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/Addition
                                              <a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server">AdditionalRouter</a>&nbsp;additionalRouter,
                                              <a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server">AdditionalRouter</a>...&nbsp;additionalRouters)</pre>
 <div class="block">Binds a Service interface with its implementation.
- <p>
- Inspects the service descriptor and creates routes to serve every call described.
- <p>
- Allows the configuration of additional Play routers.
- <p>
- Builds the <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> metadata.</div>
+
+ <p>Inspects the service descriptor and creates routes to serve every call described.
+
+ <p>Allows the configuration of additional Play routers.
+
+ <p>Builds the <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> metadata.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - type constraint ensuring <code>serviceImplementation</code> implements <code>serviceInterface</code></dd>
+<dd><code>T</code> - type constraint ensuring <code>serviceImplementation</code> implements <code>
+     serviceInterface</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>serviceInterface</code> - the interface class for a <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api"><code>Service</code></a></dd>
 <dd><code>serviceImplementation</code> - the implementation class for the <code>serviceInterface</code></dd>
@@ -442,13 +442,14 @@ default&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/Addition
 <pre>default&nbsp;&lt;T extends <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api">Service</a>&gt;&nbsp;void&nbsp;bindService(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;serviceInterface,
                                              T&nbsp;service)</pre>
 <div class="block">Binds a Service interface with an instance that implements it.
- <p>
- Inspects the service descriptor and creates routes to serve every call described.
- <p>
- Builds the <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> metadata.</div>
+
+ <p>Inspects the service descriptor and creates routes to serve every call described.
+
+ <p>Builds the <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> metadata.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - type constraint ensuring <code>serviceImplementation</code> implements <code>serviceInterface</code></dd>
+<dd><code>T</code> - type constraint ensuring <code>serviceImplementation</code> implements <code>
+     serviceInterface</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>serviceInterface</code> - the interface class for a <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api"><code>Service</code></a></dd>
 <dd><code>service</code> - an instance of a class implementing <code>serviceInterface</code></dd>
@@ -468,17 +469,17 @@ default&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/Addition
                                              <a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server">AdditionalRouter</a>&nbsp;additionalRouter,
                                              <a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server">AdditionalRouter</a>...&nbsp;additionalRouters)</pre>
 <div class="block">Binds a Service interface with an instance that implements it.
- <p>
- Inspects the service descriptor and creates routes to serve every call described.
- <p>
- Allows the configuration of additional Play routers. <a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server"><code>AdditionalRouter</code></a> can be configured using
- <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#additionalRouter-java.lang.Class-"><code>additionalRouter(Class)</code></a> or <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#additionalRouter-play.api.routing.Router-"><code>additionalRouter(Router)</code></a>.
 
- <p>
- Builds the <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> metadata.</div>
+ <p>Inspects the service descriptor and creates routes to serve every call described.
+
+ <p>Allows the configuration of additional Play routers. <a href="../../../../../com/lightbend/lagom/javadsl/server/AdditionalRouter.html" title="interface in com.lightbend.lagom.javadsl.server"><code>AdditionalRouter</code></a> can be
+ configured using <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#additionalRouter-java.lang.Class-"><code>additionalRouter(Class)</code></a> or <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#additionalRouter-play.api.routing.Router-"><code>additionalRouter(Router)</code></a>.
+
+ <p>Builds the <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceInfo</code></a> metadata.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - type constraint ensuring <code>serviceImplementation</code> implements <code>serviceInterface</code></dd>
+<dd><code>T</code> - type constraint ensuring <code>serviceImplementation</code> implements <code>
+     serviceInterface</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>serviceInterface</code> - the interface class for a <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html" title="interface in com.lightbend.lagom.javadsl.api"><code>Service</code></a></dd>
 <dd><code>service</code> - an instance of a class implementing <code>serviceInterface</code></dd>
@@ -515,7 +516,8 @@ default&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/Addition
 <div class="block">Convenience method to create <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server"><code>ServiceGuiceSupport.ServiceBinding</code></a> when using <a href="../../../../../com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html#bindServices-com.lightbend.lagom.javadsl.server.ServiceGuiceSupport.ServiceBinding...-"><code>bindServices(ServiceBinding[])</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - type constraint ensuring <code>service</code> implements <code>serviceInterface</code></dd>
+<dd><code>T</code> - type constraint ensuring <code>service</code> implements <code>serviceInterface
+     </code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>serviceInterface</code> - the interface class for a service</dd>
 <dd><code>service</code> - an instance of the service</dd>

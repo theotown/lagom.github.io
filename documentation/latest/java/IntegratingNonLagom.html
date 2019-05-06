@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/3338b21fad93590c2d00ff58dba7fb5796e61750-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/4af4159b1b3829c45681d7c93d74677385d9ed62-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -158,17 +158,15 @@
 <p>Of course, you will also need to add a dependency to the API project that you have created in your Lagom project. For more details, see <a href="LagomBuild.html#Understanding-your-project-structure">Understanding your project structure</a>.</p><h4 id="Managing-the-client-factory"><a class="section-marker" href="#Managing-the-client-factory">§</a>Managing the client factory</h4>
 <p>The Lagom integration client provides <a href="api/index.html?com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html"><code>LagomClientFactory</code></a> creating Lagom client services. This factory creates and manages thread pools and connection pools, so it&rsquo;s important to manage its lifecycle correctly in your application, ensuring that you only create one instance of it, and to shut it down when you&rsquo;re finished with it.</p>
 <p>A <code>LagomClientFactory</code> needs an <code>ActorSystem</code> and Akka Streams <code>Materializer</code> and therefore there are two ways of creating it depending if your application is already using Akka or not. You can create it by calling one of the following methods:</p>
-<pre class="prettyprint"><code class="language-java">LagomClientFactory clientFactory = LagomClientFactory.create(
-    &quot;legacy-system&quot;,
-    LagomClientFactory.class.getClassLoader()
-);</code></pre>
+<pre class="prettyprint"><code class="language-java">LagomClientFactory clientFactory =
+    LagomClientFactory.create(&quot;legacy-system&quot;, LagomClientFactory.class.getClassLoader());</code></pre>
 <p>or</p>
-<pre class="prettyprint"><code class="language-java">LagomClientFactory clientFactory = LagomClientFactory.create(
-    &quot;legacy-system&quot;,
-    LagomClientFactory.class.getClassLoader(),
-    actorSystem,
-    materializer
-);</code></pre>
+<pre class="prettyprint"><code class="language-java">LagomClientFactory clientFactory =
+    LagomClientFactory.create(
+        &quot;legacy-system&quot;,
+        LagomClientFactory.class.getClassLoader(),
+        actorSystem,
+        materializer);</code></pre>
 <p>The <a href="api/index.html?com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#create-java.lang.String-java.lang.ClassLoader-">first variant</a> should be used in applications that do not have a running <code>ActorSystem</code>. Internally, the <code>LagomClientFactory</code> will create a dedicated <code>ActorSystem</code> and <code>Materializer</code> to be used by the clients. Both will be managed by the <code>LagomClientFactory</code> and will be shutdown when the factory is closed.</p>
 <p>We highly recommend you to not use this first variant if your application has already an <code>ActorSystem</code>. The reason for that is that the factory will start its own <code>ActorSystem</code> and will read the same configuration as your default <code>ActorSystem</code>. This can cause a few unexpected errors, for instances, you may get port binding conflicts when both Actor Systems try to bind the akka-remote port.</p>
 <p>The <a href="api/index.html?com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#create-java.lang.String-java.lang.ClassLoader-akka.actor.ActorSystem-akka.stream.Materializer-">second variant</a> should be used in applications that have a running <code>ActorSystem</code>. In which case, we recommend to reuse the existing <code>ActorSystem</code> and <code>Materializer</code>. The passed <code>ActorSystem</code> and <code>Materializer</code> won&rsquo;t be shutdown when closing the factory.</p>
@@ -177,15 +175,16 @@
 <pre class="prettyprint"><code class="language-java">clientFactory.close();</code></pre>
 <p>Typically the factory will be a singleton in your system. If your system is using Spring for example, you would create a <code>FactoryBean</code> that instantiates it, and you would implement a <code>@PreDestroy</code> annotated method that closed the client factory.</p><h4 id="Creating-a-client"><a class="section-marker" href="#Creating-a-client">§</a>Creating a client</h4>
 <p>Once you have created a client factory, you can easily create a client using it, for example:</p>
-<pre class="prettyprint"><code class="language-java">HelloService serviceClient = clientFactory.createClient(HelloService.class, helloServiceUri);</code></pre>
+<pre class="prettyprint"><code class="language-java">HelloService serviceClient =
+    clientFactory.createClient(HelloService.class, helloServiceUri);</code></pre>
 <p>Here we&rsquo;ve created a client for the <code>HelloService</code> using the <a href="api/index.html?com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#createClient-java.lang.Class-java.net.URI-"><code>createClient</code></a> method. We&rsquo;ve passed in static URI to tell the client where the <code>HelloService</code> lives, typically you would read this from a configuration file on your service.</p>
 <p>You can also pass a list of URIs using <a href="api/index.html?com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#createClient-java.lang.Class-java.util.Collection-"><code>createClient</code></a>, and finally, if your environment is capable of looking up service URIs dynamically, you can pass an implementation of <a href="api/index.html?com/lightbend/lagom/javadsl/api/ServiceLocator.html"><code>ServiceLocator</code></a>.</p><h4 id="Working-with-dev-mode"><a class="section-marker" href="#Working-with-dev-mode">§</a>Working with dev mode</h4>
 <p>When running your service in development, you can tell the service to use Lagom&rsquo;s dev mode service locator, using <a href="api/index.html?com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#createDevClient-java.lang.Class-"><code>createDevClient</code></a>. Typically, you would want to have some configuration in your application that tells you whether it is running in development or not, and only create the dev mode client if you are in development. For example:</p>
 <pre class="prettyprint"><code class="language-java">HelloService helloService;
 if (isDevelopment) {
-    helloService = clientFactory.createDevClient(HelloService.class);
+  helloService = clientFactory.createDevClient(HelloService.class);
 } else {
-    helloService = clientFactory.createClient(HelloService.class, helloServiceUri);
+  helloService = clientFactory.createClient(HelloService.class, helloServiceUri);
 }</code></pre>
 <p>This means that you don&rsquo;t have to worry about what URI your services are running on in development, you just need to ensure the Lagom <code>runAll</code> command has been run to run the service locator.</p>
                 </article>
@@ -427,7 +426,7 @@ if (isDevelopment) {
             </div>
         </div>
     </body>
-    <script src="/3338b21fad93590c2d00ff58dba7fb5796e61750-all-scripts-concat.js"></script>
+    <script src="/4af4159b1b3829c45681d7c93d74677385d9ed62-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

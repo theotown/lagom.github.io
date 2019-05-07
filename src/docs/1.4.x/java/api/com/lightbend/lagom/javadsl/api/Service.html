@@ -106,10 +106,11 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">Service</span></pre>
 <div class="block">A Lagom service descriptor.
 
- This interface implements a DSL for describing a service. It is inherently constrained in its use.
+ <p>This interface implements a DSL for describing a service. It is inherently constrained in its
+ use.
 
- A service can describe itself by defining an interface that extends this interface, and provides a default
- implementation for the <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html#descriptor--"><code>descriptor()</code></a> method.</div>
+ <p>A service can describe itself by defining an interface that extends this interface, and
+ provides a default implementation for the <a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html#descriptor--"><code>descriptor()</code></a> method.</div>
 </li>
 </ul>
 </div>
@@ -413,7 +414,8 @@ var activeTableTab = "activeTableTab";
 <pre><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a>&nbsp;descriptor()</pre>
 <div class="block">Describe this service.
 
- The intended mechanism for implementing this is to provide it as a default implementation on an interface.</div>
+ <p>The intended mechanism for implementing this is to provide it as a default implementation on
+ an interface.</div>
 </li>
 </ul>
 <a name="named-java.lang.String-">
@@ -971,7 +973,7 @@ var activeTableTab = "activeTableTab";
 <pre>static&nbsp;&lt;Request,Response&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Call</a>&lt;Request,Response&gt;&nbsp;call(akka.japi.function.Creator&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;Request,Response&gt;&gt;&nbsp;methodRef)</pre>
 <div class="block">Create a service call descriptor.
 
- The identifier for this descriptor will be automatically selected by Lagom.</div>
+ <p>The identifier for this descriptor will be automatically selected by Lagom.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>methodRef</code> - The service call.</dd>
@@ -989,7 +991,7 @@ var activeTableTab = "activeTableTab";
 <pre>static&nbsp;&lt;Request,Response&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Call</a>&lt;Request,Response&gt;&nbsp;call(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a>&nbsp;methodRef)</pre>
 <div class="block">Create a service call descriptor.
 
- The identifier for this descriptor will be automatically selected by Lagom.</div>
+ <p>The identifier for this descriptor will be automatically selected by Lagom.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>methodRef</code> - The service call.</dd>
@@ -1028,7 +1030,7 @@ var activeTableTab = "activeTableTab";
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>topicId</code> - The topic identifier.</dd>
-<dd><code>methodRef</code> - The topic  call.</dd>
+<dd><code>methodRef</code> - The topic call.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A topic call descriptor.</dd>
 </dl>
@@ -1046,7 +1048,7 @@ var activeTableTab = "activeTableTab";
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>topicId</code> - The topic identifier.</dd>
-<dd><code>methodRef</code> - The topic  call.</dd>
+<dd><code>methodRef</code> - The topic call.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A topic call descriptor.</dd>
 </dl>
@@ -1064,7 +1066,7 @@ var activeTableTab = "activeTableTab";
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>topicId</code> - The topic identifier.</dd>
-<dd><code>methodRef</code> - The topic  call.</dd>
+<dd><code>methodRef</code> - The topic call.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A topic call descriptor.</dd>
 </dl>

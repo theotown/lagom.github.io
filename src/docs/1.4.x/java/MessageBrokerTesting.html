@@ -6,20 +6,19 @@
 <p>When a Service publishes data into a <code>Topic</code> the descriptor lists a <code>TopicCall</code> on the public API. Testing the event publishing is very similar to testing <code>ServiceCall</code>&rsquo;s in your Service API (see <a href="Test.html#How-to-test-one-service">Service testing</a>). </p>
 <pre class="prettyprint"><code class="language-java">@Test
 public void shouldEmitGreetingsMessageWhenHelloEntityEmitsEnEvent() {
-    withServer(setup, server -&gt; {
+  withServer(
+      setup,
+      server -&gt; {
         PublishService client = server.client(PublishService.class);
-        Source&lt;PublishEvent, ?&gt; source = 
-              client.messageTopic().subscribe().atMostOnceSource();
+        Source&lt;PublishEvent, ?&gt; source = client.messageTopic().subscribe().atMostOnceSource();
 
         // use akka stream testkit
         TestSubscriber.Probe&lt;PublishEvent&gt; probe =
-              source.runWith(
-                    TestSink.probe(server.system()), server.materializer()
-              );
+            source.runWith(TestSink.probe(server.system()), server.materializer());
 
         PublishEvent actual = probe.request(1).expectNext();
         assertEquals(new PublishEvent(23), actual);
-    });
+      });
 }</code></pre>
 <p>Using a <a href="api/com/lightbend/lagom/javadsl/testkit/ServiceTest.html"><code>ServiceTest</code></a> you create a client to your Service. Using that client you can <code>subscribe</code> to the published topics. Finally, after interacting with the Service to cause the emission of some events you can assert events were published on the <code>Topic</code>.</p>
 <p>The producer end is responsible to describe the public API and provide the serializable mappings for all messages exchanged (both in <code>ServiceCall</code>s and <code>TopicCall</code>s). The tests granting the proper behavior of the publishing operations should also test the serializability and deserializability of the messages.</p><h2 id="Testing-subscription"><a class="section-marker" href="#Testing-subscription">§</a>Testing subscription</h2>
@@ -32,68 +31,70 @@ public void shouldEmitGreetingsMessageWhenHelloEntityEmitsEnEvent() {
 </ol>
 <pre class="prettyprint"><code class="language-java">public class AnotherServiceTest {
 
-    // (1) creates a server using the Module for this service Module
-    // and we override the config to use HelloServiceStub
-    // implemented below.
-    private Setup setup = defaultSetup().configureBuilder(b -&gt;
-            b.overrides(
-                    bind(HelloService.class).to(HelloServiceStub.class),
-                    bind(AnotherService.class).to(AnotherServiceImpl.class))
-    );
+  // (1) creates a server using the Module for this service Module
+  // and we override the config to use HelloServiceStub
+  // implemented below.
+  private Setup setup =
+      defaultSetup()
+          .configureBuilder(
+              b -&gt;
+                  b.overrides(
+                      bind(HelloService.class).to(HelloServiceStub.class),
+                      bind(AnotherService.class).to(AnotherServiceImpl.class)));
 
-    // (2) an instance of ProducerStub allows test code to inject
-    // messages on the topic.
-    private static ProducerStub&lt;GreetingMessage&gt; helloProducer;
+  // (2) an instance of ProducerStub allows test code to inject
+  // messages on the topic.
+  private static ProducerStub&lt;GreetingMessage&gt; helloProducer;
 
+  @Test
+  public void shouldReceiveMessagesFromUpstream() {
+    // (1)
+    withServer(
+        setup,
+        server -&gt; {
+          GreetingMessage message = new GreetingMessage(&quot;someId&quot;, &quot;Hi there!&quot;);
 
-    @Test
-    public void shouldReceiveMessagesFromUpstream() {
-        // (1)
-        withServer(setup, server -&gt; {
+          AnotherService client = server.client(AnotherService.class);
+          client.audit().invoke().toCompletableFuture().get(3, SECONDS);
 
-            GreetingMessage message = new GreetingMessage(&quot;someId&quot;, &quot;Hi there!&quot;);
+          // (4) send a message in the topic
+          helloProducer.send(message);
 
-            AnotherService client = server.client(AnotherService.class);
-            client.audit().invoke().toCompletableFuture().get(3, SECONDS);
+          // use a service client instance to interact with the service
+          // and assert the message was processed as expected.
+          // ...
 
-            // (4) send a message in the topic
-            helloProducer.send(message);
-
-            // use a service client instance to interact with the service
-            // and assert the message was processed as expected.
-            // ...
-
-            // You will probably need to wrap your assertion in an
-            // `eventually()` clause so you can retry your assertion
-            // since your invocation via the service client may arrive
-            // before the message was consumed.
+          // You will probably need to wrap your assertion in an
+          // `eventually()` clause so you can retry your assertion
+          // since your invocation via the service client may arrive
+          // before the message was consumed.
 
         });
+  }
+
+  // (1) Stub for the upstream Service
+  static class HelloServiceStub implements HelloService {
+    // (2) Receives a ProducerStubFactory that factors ProducerStubs
+    @Inject
+    HelloServiceStub(ProducerStubFactory producerFactory) {
+      // (3) Create a stub to request a producer for a specific topic
+      helloProducer = producerFactory.producer(GREETINGS_TOPIC);
     }
 
-    // (1) Stub for the upstream Service
-    static class HelloServiceStub implements HelloService {
-        // (2) Receives a ProducerStubFactory that factors ProducerStubs
-        @Inject
-        HelloServiceStub(ProducerStubFactory producerFactory) {
-            // (3) Create a stub to request a producer for a specific topic
-            helloProducer = producerFactory.producer(GREETINGS_TOPIC);
-        }
-
-        @Override
-        public Topic&lt;GreetingMessage&gt; greetingsTopic() {
-            // (3) the upstream stub must return the topic bound to the producer stub
-            return helloProducer.topic();
-        }
-
-        @Override
-        public ServiceCall&lt;NotUsed, String&gt; hello(String id) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public ServiceCall&lt;GreetingMessage, Done&gt; useGreeting(String id) {
-            throw new UnsupportedOperationException();
-        }
+    @Override
+    public Topic&lt;GreetingMessage&gt; greetingsTopic() {
+      // (3) the upstream stub must return the topic bound to the producer stub
+      return helloProducer.topic();
     }
+
+    @Override
+    public ServiceCall&lt;NotUsed, String&gt; hello(String id) {
+      throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ServiceCall&lt;GreetingMessage, Done&gt; useGreeting(String id) {
+      throw new UnsupportedOperationException();
+    }
+  }
 }</code></pre>

@@ -100,8 +100,7 @@ var activeTableTab = "activeTableTab";
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>Payload</code> - The message type.
-
- Note: This class is not meant to be extended by client code.</dd>
+     <p>Note: This class is not meant to be extended by client code.</dd>
 </dl>
 <hr>
 <br>
@@ -149,8 +148,7 @@ var activeTableTab = "activeTableTab";
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html#atLeastOnce-akka.stream.javadsl.Flow-">atLeastOnce</a></span>(akka.stream.javadsl.Flow&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>,akka.Done,?&gt;&nbsp;flow)</code>
-<div class="block">Applies the passed <code>flow</code> to the messages processed by this
- subscriber.</div>
+<div class="block">Applies the passed <code>flow</code> to the messages processed by this subscriber.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -168,9 +166,8 @@ var activeTableTab = "activeTableTab";
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="interface in com.lightbend.lagom.javadsl.api.broker">Subscriber</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Message.html" title="class in com.lightbend.lagom.javadsl.api.broker">Message</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>&gt;&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html#withMetadata--">withMetadata</a></span>()</code>
-<div class="block">Returns this subscriber, but message payloads are wrapped
- in <a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Message.html" title="class in com.lightbend.lagom.javadsl.api.broker"><code>Message</code></a> instances to allow accessing any metadata
- associated with the message.</div>
+<div class="block">Returns this subscriber, but message payloads are wrapped in <a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Message.html" title="class in com.lightbend.lagom.javadsl.api.broker"><code>Message</code></a> instances to allow
+ accessing any metadata associated with the message.</div>
 </td>
 </tr>
 </table>
@@ -214,9 +211,8 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>withMetadata</h4>
 <pre>default&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="interface in com.lightbend.lagom.javadsl.api.broker">Subscriber</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Message.html" title="class in com.lightbend.lagom.javadsl.api.broker">Message</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>&gt;&gt;&nbsp;withMetadata()</pre>
-<div class="block">Returns this subscriber, but message payloads are wrapped
- in <a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Message.html" title="class in com.lightbend.lagom.javadsl.api.broker"><code>Message</code></a> instances to allow accessing any metadata
- associated with the message.</div>
+<div class="block">Returns this subscriber, but message payloads are wrapped in <a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Message.html" title="class in com.lightbend.lagom.javadsl.api.broker"><code>Message</code></a> instances to allow
+ accessing any metadata associated with the message.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A copy of this subscriber.</dd>
@@ -232,8 +228,8 @@ var activeTableTab = "activeTableTab";
 <pre>akka.stream.javadsl.Source&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>,?&gt;&nbsp;atMostOnceSource()</pre>
 <div class="block">Returns a stream of messages with at most once delivery semantic.
 
- If a failure occurs (e.g., an exception is thrown), the user is responsible
- of deciding how to recover from it (e.g., restarting the stream, aborting, ...).</div>
+ <p>If a failure occurs (e.g., an exception is thrown), the user is responsible of deciding how
+ to recover from it (e.g., restarting the stream, aborting, ...).</div>
 </li>
 </ul>
 <a name="atLeastOnce-akka.stream.javadsl.Flow-">
@@ -243,37 +239,31 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>atLeastOnce</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;&nbsp;atLeastOnce(akka.stream.javadsl.Flow&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/broker/Subscriber.html" title="type parameter in Subscriber">Payload</a>,akka.Done,?&gt;&nbsp;flow)</pre>
-<div class="block">Applies the passed <code>flow</code> to the messages processed by this
- subscriber. Messages are delivered to the passed <code>flow</code> at least
- once.
+<div class="block">Applies the passed <code>flow</code> to the messages processed by this subscriber. Messages are
+ delivered to the passed <code>flow</code> at least once.
 
- If a failure occurs (e.g., an exception is thrown), the stream may be
- automatically restarted starting with the message that caused the failure.
+ <p>If a failure occurs (e.g., an exception is thrown), the stream may be automatically
+ restarted starting with the message that caused the failure.
 
- Whether the stream is automatically restarted depends on the Lagom message
- broker implementation in use. If the Kafka Lagom message broker module is
- being used, then by default the stream is automatically restarted when a
- failure occurs.
+ <p>Whether the stream is automatically restarted depends on the Lagom message broker
+ implementation in use. If the Kafka Lagom message broker module is being used, then by default
+ the stream is automatically restarted when a failure occurs.
 
- The <code>flow</code> may pull more elements from upstream but it must emit
- exactly one <code>Done</code> message for each message that it receives. It
- must also emit them in the same order that the messages were received. This
- means that the <code>flow</code> must not filter or collect a subset of the
- messages, instead it must split the messages into separate streams and map
- those that would have been dropped to <code>Done</code>.</div>
+ <p>The <code>flow</code> may pull more elements from upstream but it must emit exactly one
+ <code>Done</code> message for each message that it receives. It must also emit them in the same
+ order that the messages were received. This means that the <code>flow</code> must not filter or
+ collect a subset of the messages, instead it must split the messages into separate streams and
+ map those that would have been dropped to <code>Done</code>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>flow</code> - The flow to apply to each received message.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>A <code>CompletionStage</code> that may never complete if messages
-         go through the passed <code>flow</code> flawlessly. However, the
-         returned <code>CompletionStage</code> may complete with success if
-         the passed <code>flow</code> signals cancellation upstream.
- 
-         If the returned <code>CompletionStage</code> is completed with a
-         failure, user-code is responsible of deciding what to do (e.g., it
-         could retry to process the message that caused the failure, or it
-         could report an application error).</dd>
+<dd>A <code>CompletionStage</code> that may never complete if messages go through the
+     passed <code>flow</code> flawlessly. However, the returned <code>CompletionStage</code> may
+     complete with success if the passed <code>flow</code> signals cancellation upstream.
+     <p>If the returned <code>CompletionStage</code> is completed with a failure, user-code is
+     responsible of deciding what to do (e.g., it could retry to process the message that caused
+     the failure, or it could report an application error).</dd>
 </dl>
 </li>
 </ul>

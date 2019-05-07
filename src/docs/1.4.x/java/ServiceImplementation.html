@@ -7,9 +7,9 @@ import static java.util.concurrent.CompletableFuture.completedFuture;
 
 public class HelloServiceImpl implements HelloService {
 
-    public ServiceCall&lt;String, String&gt; sayHello() {
-        return name -&gt; completedFuture(&quot;Hello &quot; + name);
-    }
+  public ServiceCall&lt;String, String&gt; sayHello() {
+    return name -&gt; completedFuture(&quot;Hello &quot; + name);
+  }
 }</code></pre>
 <p>As you can see, the <code>sayHello()</code> method is implemented using a lambda. An important thing to realise here is that the invocation of <code>sayHello()</code> itself does not execute the call, it only returns the call to be executed. The advantage here is that when it comes to composing the call with other cross cutting concerns, such as authentication, this can easily be done using ordinary function based composition.</p>
 <p>If you&rsquo;ve used a Java based web framework before, you may be familiar with using annotations for composition of cross cutting concerns. Annotations have their limits - they don&rsquo;t compose, that is, if you have two different annotations that you want to apply to many different methods, it&rsquo;s not straight forward to simply create a new annotation that combines them. In contrast, functions are just methods, if you want to compose two methods together, you create a new method that invokes both of them. Additionally, you&rsquo;re in complete control over how they get composed, you know exactly what order they are composed in, as opposed to annotations where it&rsquo;s up to the framework to magically read them via reflection and somehow gain meaning from that.</p>
@@ -26,9 +26,9 @@ import com.lightbend.lagom.javadsl.server.ServiceGuiceSupport;
 
 public class Module extends AbstractModule implements ServiceGuiceSupport {
 
-    protected void configure() {
-        bindService(HelloService.class, HelloServiceImpl.class);
-    }
+  protected void configure() {
+    bindService(HelloService.class, HelloServiceImpl.class);
+  }
 }</code></pre>
 <p>As you can see, the module extends Guice&rsquo;s <code>AbstractModule</code>, as well as Lagom&rsquo;s <code>ServiceGuiceSupport</code>. In this module, you can provide any Guice bindings you like. In this case, we&rsquo;re just providing a binding for the <code>HelloService</code>. <code>bindService()</code> may only be invoked once, as this will bind a router for Play to use to route Lagom service calls, which if bound multiple times, will cause a Guice configuration error. The name in the Descriptor bound will be used to name your Service. This name will be used by Lagom as the default value to identify your microservice when interacting with other microservices.</p>
 <p>By convention, Play will automatically load a module called <code>Module</code> in the root package if it can find one, however if you&rsquo;d prefer to call your module another name, or not put it in the root package, then you can manually add your module to Play&rsquo;s list of enabled modules by adding the following to <code>application.conf</code>:</p>
@@ -55,45 +55,39 @@ public class Module extends AbstractModule implements ServiceGuiceSupport {
 <p>If you&rsquo;re implementing the service call directly, you can simply change the return type to be <code>HeaderServiceCall</code>, like so:</p>
 <pre class="prettyprint"><code class="language-java">public HeaderServiceCall&lt;String, String&gt; sayHello() {
   return (requestHeader, name) -&gt; {
-
-    String user = requestHeader.principal()
-        .map(Principal::getName).orElse(&quot;No one&quot;);
+    String user = requestHeader.principal().map(Principal::getName).orElse(&quot;No one&quot;);
     String response = user + &quot; wants to say hello to &quot; + name;
 
-    ResponseHeader responseHeader = ResponseHeader.OK
-        .withHeader(&quot;Server&quot;, &quot;Hello service&quot;);
+    ResponseHeader responseHeader = ResponseHeader.OK.withHeader(&quot;Server&quot;, &quot;Hello service&quot;);
 
     return completedFuture(Pair.create(responseHeader, response));
   };
 }</code></pre>
 <p>If you&rsquo;re required to pass or return a <code>ServerServiceCall</code>, you can use the <code>HeaderServiceCall.of</code> method, like so:</p>
 <pre class="prettyprint"><code class="language-java">public ServerServiceCall&lt;String, String&gt; sayHello() {
-  return HeaderServiceCall.of((requestHeader, name) -&gt; {
+  return HeaderServiceCall.of(
+      (requestHeader, name) -&gt; {
+        String user = requestHeader.principal().map(Principal::getName).orElse(&quot;No one&quot;);
+        String response = user + &quot; wants to say hello to &quot; + name;
 
-    String user = requestHeader.principal()
-        .map(Principal::getName).orElse(&quot;No one&quot;);
-    String response = user + &quot; wants to say hello to &quot; + name;
+        ResponseHeader responseHeader = ResponseHeader.OK.withHeader(&quot;Server&quot;, &quot;Hello service&quot;);
 
-    ResponseHeader responseHeader = ResponseHeader.OK
-        .withHeader(&quot;Server&quot;, &quot;Hello service&quot;);
-
-    return completedFuture(Pair.create(responseHeader, response));
-  });
+        return completedFuture(Pair.create(responseHeader, response));
+      });
 }</code></pre><h2 id="Service-call-composition"><a class="section-marker" href="#Service-call-composition">§</a>Service call composition</h2>
 <p>You may have situations where you want to compose service calls with cross cutting concerns such as security or logging. In Lagom, this is done by composing service calls explicitly. The following shows a simple logging service call:</p>
 <pre class="prettyprint"><code class="language-java">public &lt;Request, Response&gt; ServerServiceCall&lt;Request, Response&gt; logged(
     ServerServiceCall&lt;Request, Response&gt; serviceCall) {
-  return HeaderServiceCall.compose(requestHeader -&gt; {
-    System.out.println(&quot;Received &quot; + requestHeader.method() + &quot; &quot; + requestHeader.uri());
-    return serviceCall;
-  });
+  return HeaderServiceCall.compose(
+      requestHeader -&gt; {
+        System.out.println(&quot;Received &quot; + requestHeader.method() + &quot; &quot; + requestHeader.uri());
+        return serviceCall;
+      });
 }</code></pre>
 <p>This uses the <code>compose</code> method from <code>HeaderServiceCall</code>, which takes a callback that takes the request header, and returns a service call.</p>
 <p>If we were to implement the <code>HelloService</code> to be logged, we would use it like this:</p>
 <pre class="prettyprint"><code class="language-java">public ServerServiceCall&lt;String, String&gt; sayHello() {
-  return logged(
-      name -&gt; completedFuture(&quot;Hello &quot; + name)
-  );
+  return logged(name -&gt; completedFuture(&quot;Hello &quot; + name));
 }</code></pre>
 <p>Another common cross cutting concern is authentication. Imagine you have a user storage interface:</p>
 <pre class="prettyprint"><code class="language-java">interface UserStorage {
@@ -102,28 +96,30 @@ public class Module extends AbstractModule implements ServiceGuiceSupport {
 <p>You could use it like this to implement an authenticated service call:</p>
 <pre class="prettyprint"><code class="language-java">public &lt;Request, Response&gt; ServerServiceCall&lt;Request, Response&gt; authenticated(
     Function&lt;User, ServerServiceCall&lt;Request, Response&gt;&gt; serviceCall) {
-  return HeaderServiceCall.composeAsync(requestHeader -&gt; {
+  return HeaderServiceCall.composeAsync(
+      requestHeader -&gt; {
 
-    // First lookup user
-    CompletionStage&lt;Optional&lt;User&gt;&gt; userLookup = requestHeader.principal()
-        .map(principal -&gt; userStorage.lookupUser(principal.getName()))
-        .orElse(completedFuture(Optional.empty()));
+        // First lookup user
+        CompletionStage&lt;Optional&lt;User&gt;&gt; userLookup =
+            requestHeader
+                .principal()
+                .map(principal -&gt; userStorage.lookupUser(principal.getName()))
+                .orElse(completedFuture(Optional.empty()));
 
-    // Then, if it exists, apply it to the service call
-    return userLookup.thenApply(maybeUser -&gt; {
-      if (maybeUser.isPresent()) {
-        return serviceCall.apply(maybeUser.get());
-      } else {
-        throw new Forbidden(&quot;User must be authenticated to access this service call&quot;);
-      }
-    });
-  });
+        // Then, if it exists, apply it to the service call
+        return userLookup.thenApply(
+            maybeUser -&gt; {
+              if (maybeUser.isPresent()) {
+                return serviceCall.apply(maybeUser.get());
+              } else {
+                throw new Forbidden(&quot;User must be authenticated to access this service call&quot;);
+              }
+            });
+      });
 }</code></pre>
 <p>This time, since the lookup of the user is asynchronous, we&rsquo;re using <code>composeAsync</code>, which allows us to asynchronously return the service call to handle the service. Also, instead of simply accepting a service call, we accept a function of a user to a service call. This means the service call can access the user:</p>
 <pre class="prettyprint"><code class="language-java">public ServerServiceCall&lt;String, String&gt; sayHello() {
-  return authenticated( user -&gt;
-      name -&gt; completedFuture(&quot;Hello &quot; + user)
-  );
+  return authenticated(user -&gt; name -&gt; completedFuture(&quot;Hello &quot; + user));
 }</code></pre>
 <p>Notice here, in contrast to other frameworks where a user object may be passed using thread locals or in an untyped map by filters, the user object is explicitly passed. If your code requires access to the user object, it&rsquo;s impossible to have a configuration error where you forgot to put the filter in place, the code simply will not compile.</p>
 <p>Often you will want to compose multiple service calls together. This is where the power of function based composition really shines, in contrast to annotations. Since service calls are just regular methods, you can simply define a new method that combines them, like so:</p>
@@ -133,7 +129,5 @@ public class Module extends AbstractModule implements ServiceGuiceSupport {
 }</code></pre>
 <p>Using this in the hello service:</p>
 <pre class="prettyprint"><code class="language-java">public ServerServiceCall&lt;String, String&gt; sayHello() {
-  return filter( user -&gt;
-      name -&gt; completedFuture(&quot;Hello &quot; + user)
-  );
+  return filter(user -&gt; name -&gt; completedFuture(&quot;Hello &quot; + user));
 }</code></pre>

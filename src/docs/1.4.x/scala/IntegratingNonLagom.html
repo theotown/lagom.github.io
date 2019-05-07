@@ -15,12 +15,12 @@
 import com.lightbend.lagom.scaladsl.client._
 import play.api.libs.ws.ahc.AhcWSComponents
 
-val clientFactory = new StandaloneLagomClientFactory(&quot;my-client&quot;, classOf[StandaloneLagomClientFactory].getClassLoader)
-  with StaticServiceLocatorComponents
-  with AhcWSComponents {
+val clientFactory =
+  new StandaloneLagomClientFactory(&quot;my-client&quot;, classOf[StandaloneLagomClientFactory].getClassLoader)
+  with StaticServiceLocatorComponents with AhcWSComponents {
 
-  override def staticServiceUri = URI.create(&quot;http://localhost:8080&quot;)
-}</code></pre>
+    override def staticServiceUri = URI.create(&quot;http://localhost:8080&quot;)
+  }</code></pre>
 <p>We highly recommend you to not use <code>StandaloneLagomClientFactory</code> if your application has already an <code>ActorSystem</code>. The reason for that is that the factory will start its own <code>ActorSystem</code> and will read the same configuration as your default <code>ActorSystem</code>. This can cause a few unexpected errors, for instances, you may get port binding conflicts when both Actor Systems try to bind the akka-remote port.</p>
 <p>The <a href="api/com/lightbend/lagom/scaladsl/client/LagomClientFactory.html"><code>LagomClientFactory</code></a> variant is useful for applications that have a running <code>ActorSystem</code>. In which case, we recommend to reuse the existing <code>ActorSystem</code> and <code>Materializer</code>.</p>
 <p>The easiest way to reuse your existing <code>ActorSystem</code> and Akka Stream <code>Materializer</code> is to extend the <code>LagomClientFactory</code> and add a constructor where you can pass them as arguments.</p>
@@ -30,14 +30,14 @@ import com.lightbend.lagom.scaladsl.client._
 import play.api.libs.ws.ahc.AhcWSComponents
 
 class MyLagomClientFactory(val actorSystem: ActorSystem, val materializer: Materializer)
-  extends LagomClientFactory(&quot;my-client&quot;, classOf[MyLagomClientFactory].getClassLoader)
-  with StaticServiceLocatorComponents
-  with AhcWSComponents {
-    override def staticServiceUri = URI.create(&quot;http://localhost:8080&quot;)
+    extends LagomClientFactory(&quot;my-client&quot;, classOf[MyLagomClientFactory].getClassLoader)
+    with StaticServiceLocatorComponents
+    with AhcWSComponents {
+  override def staticServiceUri = URI.create(&quot;http://localhost:8080&quot;)
 }
 
-val actorSystem = ActorSystem(&quot;my-app&quot;)
-val materializer = ActorMaterializer()(actorSystem)
+val actorSystem   = ActorSystem(&quot;my-app&quot;)
+val materializer  = ActorMaterializer()(actorSystem)
 val clientFactory = new MyLagomClientFactory(actorSystem, materializer)</code></pre>
 <p>When you have finished with the application, for example, when the system shuts down, you need to stop the factory, by invoking the <code>stop()</code> method:</p>
 <pre class="prettyprint"><code class="language-scala">clientFactory.stop()</code></pre>
@@ -54,15 +54,10 @@ import com.lightbend.lagom.scaladsl.client._
 import play.api.libs.ws.ahc.AhcWSComponents
 import com.lightbend.lagom.scaladsl.devmode.LagomDevModeServiceLocatorComponents
 
-
 val clientApplication = if (devMode) {
-  new StandaloneLagomClientFactory(&quot;my-client&quot;)
-    with AhcWSComponents
-    with LagomDevModeServiceLocatorComponents
+  new StandaloneLagomClientFactory(&quot;my-client&quot;) with AhcWSComponents with LagomDevModeServiceLocatorComponents
 } else {
-  new StandaloneLagomClientFactory(&quot;my-client&quot;)
-    with StaticServiceLocatorComponents
-    with AhcWSComponents {
+  new StandaloneLagomClientFactory(&quot;my-client&quot;) with StaticServiceLocatorComponents with AhcWSComponents {
 
     override def staticServiceUri = URI.create(&quot;http://localhost:8080&quot;)
   }
@@ -71,9 +66,7 @@ val clientApplication = if (devMode) {
 <pre class="prettyprint"><code>-Dlagom.service-locator-url=http://localhost:9008
 </code></pre>
 <p>Alternatively, you can configure it programmatically by overriding the <code>devModeServiceLocatorUrl</code> value on the <code>LagomDevModeServiceLocatorComponents</code> trait:</p>
-<pre class="prettyprint"><code class="language-scala">new StandaloneLagomClientFactory(&quot;my-client&quot;)
-  with AhcWSComponents
-  with LagomDevModeServiceLocatorComponents {
+<pre class="prettyprint"><code class="language-scala">new StandaloneLagomClientFactory(&quot;my-client&quot;) with AhcWSComponents with LagomDevModeServiceLocatorComponents {
 
   override lazy val devModeServiceLocatorUrl = URI.create(&quot;http://localhost:8001&quot;)
 }

@@ -107,8 +107,8 @@ var activeTableTab = "activeTableTab";
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></pre>
 <div class="block">A service principal.
 
- A service principal may either represent a service identity, or it may be a principal that a service made a request
- on behalf of.</div>
+ <p>A service principal may either represent a service identity, or it may be a principal that a
+ service made a request on behalf of.</div>
 </li>
 </ul>
 </div>
@@ -176,8 +176,9 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Princip
 <pre>default&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName()</pre>
 <div class="block">The service name.
 
- This may or may not be the same as <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Principal.html?is-external=true#getName--" title="class or interface in java.security"><code>Principal.getName()</code></a>, depending on whether the principal represents the service
- itself, or simply a request made by the service on behalf of another principal.</div>
+ <p>This may or may not be the same as <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Principal.html?is-external=true#getName--" title="class or interface in java.security"><code>Principal.getName()</code></a>, depending on whether the principal
+ represents the service itself, or simply a request made by the service on behalf of another
+ principal.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The server name.</dd>
@@ -193,9 +194,10 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Princip
 <pre>default&nbsp;boolean&nbsp;authenticated()</pre>
 <div class="block">Whether the service was authenticated.
 
- Some service identity strategies simply pull the service name from a header, which can be trivially spoofed.
- This can be used to distinguish whether the service identity has been established by an insecure means such as
- that, or a secure means such as client certificates, signed tokens or shared secrets.</div>
+ <p>Some service identity strategies simply pull the service name from a header, which can be
+ trivially spoofed. This can be used to distinguish whether the service identity has been
+ established by an insecure means such as that, or a secure means such as client certificates,
+ signed tokens or shared secrets.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>True if the service identity was established by some secure means.</dd>

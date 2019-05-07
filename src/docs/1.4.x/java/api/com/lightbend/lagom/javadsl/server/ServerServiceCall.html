@@ -116,22 +116,21 @@ public interface <span class="typeNameLabel">ServerServiceCall&lt;Request,Respon
 extends <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;Request,Response&gt;</pre>
 <div class="block">A server implementation of a service call.
 
- While the server implementation of the service doesn't have to make use of this type, what this type does is it
- allows the supply and composition of request and response headers.  When working with and or composing server
- service calls, it is almost never a good idea to call <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html#invoke-Request-"><code>ServiceCall.invoke(Object)</code></a>, rather,
- <a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html#invokeWithHeaders-com.lightbend.lagom.javadsl.api.transport.RequestHeader-Request-"><code>invokeWithHeaders(RequestHeader, Object)</code></a> should be called. Invocation of the former may result in
- an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang"><code>UnsupportedOperationException</code></a> being thrown.
+ <p>While the server implementation of the service doesn't have to make use of this type, what
+ this type does is it allows the supply and composition of request and response headers. When
+ working with and or composing server service calls, it is almost never a good idea to call <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html#invoke-Request-"><code>ServiceCall.invoke(Object)</code></a>, rather, <a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html#invokeWithHeaders-com.lightbend.lagom.javadsl.api.transport.RequestHeader-Request-"><code>invokeWithHeaders(RequestHeader, Object)</code></a> should be called.
+ Invocation of the former may result in an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang"><code>UnsupportedOperationException</code></a> being thrown.
 
- In some cases, where the underlying transport doesn't allow sending a header after the request message has been
- received (eg WebSockets), the response header may be ignored. In these cases, Lagom will make a best effort attempt
- at determining whether there was custom information in the response header, and if so, log a warning that it wasn't
- set.
+ <p>In some cases, where the underlying transport doesn't allow sending a header after the request
+ message has been received (eg WebSockets), the response header may be ignored. In these cases,
+ Lagom will make a best effort attempt at determining whether there was custom information in the
+ response header, and if so, log a warning that it wasn't set.
 
- As this is a functional interface, it is generally advised that you implement it using a lambda.
+ <p>As this is a functional interface, it is generally advised that you implement it using a
+ lambda.
 
- If you want to actually handle the headers in a service call, it is recommended that rather than implementing this
- interface, you use <a href="../../../../../com/lightbend/lagom/javadsl/server/HeaderServiceCall.html" title="interface in com.lightbend.lagom.javadsl.server"><code>HeaderServiceCall</code></a>, which makes the
- <a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html#invokeWithHeaders-com.lightbend.lagom.javadsl.api.transport.RequestHeader-Request-"><code>invokeWithHeaders(RequestHeader, Object)</code></a> method abstract so that it can be implemented with a
+ <p>If you want to actually handle the headers in a service call, it is recommended that rather
+ than implementing this interface, you use <a href="../../../../../com/lightbend/lagom/javadsl/server/HeaderServiceCall.html" title="interface in com.lightbend.lagom.javadsl.server"><code>HeaderServiceCall</code></a>, which makes the <a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html#invokeWithHeaders-com.lightbend.lagom.javadsl.api.transport.RequestHeader-Request-"><code>invokeWithHeaders(RequestHeader, Object)</code></a> method abstract so that it can be implemented with a
  lambda.</div>
 </li>
 </ul>
@@ -160,7 +159,8 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>default &lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html" title="interface in com.lightbend.lagom.javadsl.server">ServerServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html" title="type parameter in ServerServiceCall">Request</a>,T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html#handleResponseHeader-java.util.function.BiFunction-">handleResponseHeader</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html?is-external=true" title="class or interface in java.util.function">BiFunction</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/transport/ResponseHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">ResponseHeader</a>,<a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html" title="type parameter in ServerServiceCall">Response</a>,T&gt;&nbsp;handler)</code>
-<div class="block">Transform the response using the given function that takes the response header and the response.</div>
+<div class="block">Transform the response using the given function that takes the response header and the
+ response.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -220,17 +220,18 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html
 <h4>handleResponseHeader</h4>
 <pre>default&nbsp;&lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html" title="interface in com.lightbend.lagom.javadsl.server">ServerServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html" title="type parameter in ServerServiceCall">Request</a>,T&gt;&nbsp;handleResponseHeader(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html?is-external=true" title="class or interface in java.util.function">BiFunction</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/transport/ResponseHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">ResponseHeader</a>,<a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html" title="type parameter in ServerServiceCall">Response</a>,T&gt;&nbsp;handler)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html#handleResponseHeader-java.util.function.BiFunction-">ServiceCall</a></code></span></div>
-<div class="block">Transform the response using the given function that takes the response header and the response.
+<div class="block">Transform the response using the given function that takes the response header and the
+ response.
 
- For client service calls, this gives clients an opportunity to inspect the response headers and status code.
- The passed in handler is applied after the header transformers configured for the descriptor/endpoint are
- applied.
+ <p>For client service calls, this gives clients an opportunity to inspect the response headers
+ and status code. The passed in handler is applied after the header transformers configured for
+ the descriptor/endpoint are applied.
 
- For server implementations of service calls, this will be invoked by the server in order to give the service
- call an opportunity to supply the response header when it supplies the response, but only if the underlying
- transport supports sending a response header.  Generally, server implementations should not implement this
- method directly, rather, they should use <tt>ServerServiceCall</tt>, which provides an appropriate
- implementation.</div>
+ <p>For server implementations of service calls, this will be invoked by the server in order to
+ give the service call an opportunity to supply the response header when it supplies the
+ response, but only if the underlying transport supports sending a response header. Generally,
+ server implementations should not implement this method directly, rather, they should use
+ <tt>ServerServiceCall</tt>, which provides an appropriate implementation.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html#handleResponseHeader-java.util.function.BiFunction-">handleResponseHeader</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html" title="type parameter in ServerServiceCall">Request</a>,<a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html" title="type parameter in ServerServiceCall">Response</a>&gt;</code></dd>
@@ -251,20 +252,22 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html#handleRequestHeader-java.util.function.Function-">ServiceCall</a></code></span></div>
 <div class="block">Make any modifications necessary to the request header.
 
- For client service calls, this gives clients an opportunity to add custom headers and/or modify the request in
- some way before it is made.  The passed in handler is applied before the header transformers
- configured for the descriptor/endpoint are applied.
+ <p>For client service calls, this gives clients an opportunity to add custom headers and/or
+ modify the request in some way before it is made. The passed in handler is applied before the
+ header transformers configured for the descriptor/endpoint are applied.
 
- For server implementations of service calls, this will be invoked by the server in order to supply the request
- header.  A new service call can then be returned that uses the header.  The header passed in to the handler by
- the service call can be anything, it will be ignored - <a href="../../../../../com/lightbend/lagom/javadsl/api/transport/RequestHeader.html#DEFAULT"><code>RequestHeader.DEFAULT</code></a> exists for this
- purpose.  Generally, server implementations should not implement this method directly, rather, they should use
- <tt>ServerServiceCall</tt>, which provides an appropriate implementation.</div>
+ <p>For server implementations of service calls, this will be invoked by the server in order to
+ supply the request header. A new service call can then be returned that uses the header. The
+ header passed in to the handler by the service call can be anything, it will be ignored -
+ <a href="../../../../../com/lightbend/lagom/javadsl/api/transport/RequestHeader.html#DEFAULT"><code>RequestHeader.DEFAULT</code></a> exists for this purpose. Generally, server implementations should
+ not implement this method directly, rather, they should use <tt>ServerServiceCall</tt>, which
+ provides an appropriate implementation.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html#handleRequestHeader-java.util.function.Function-">handleRequestHeader</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html" title="type parameter in ServerServiceCall">Request</a>,<a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html" title="type parameter in ServerServiceCall">Response</a>&gt;</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>handler</code> - A function that takes in the request header representing the request, and transforms it.</dd>
+<dd><code>handler</code> - A function that takes in the request header representing the request, and
+     transforms it.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A service call that will use the given handler.</dd>
 </dl>

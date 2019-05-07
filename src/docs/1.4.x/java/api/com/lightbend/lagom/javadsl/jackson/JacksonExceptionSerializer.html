@@ -230,10 +230,11 @@ public&nbsp;JacksonExceptionSerializer(<a href="https://www.playframework.com/do
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/deser/ExceptionSerializer.html#serialize-java.lang.Throwable-java.util.Collection-">ExceptionSerializer</a></code></span></div>
 <div class="block">Serialize the given exception to an exception message.
 
- The raw exception message consists of an error code, a message protocol, and a message entity to send across the
- wire.
+ <p>The raw exception message consists of an error code, a message protocol, and a message
+ entity to send across the wire.
 
- The exception serializer may attempt to match one of the protocols passed into the accept parameter.</div>
+ <p>The exception serializer may attempt to match one of the protocols passed into the accept
+ parameter.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../com/lightbend/lagom/javadsl/api/deser/ExceptionSerializer.html#serialize-java.lang.Throwable-java.util.Collection-">serialize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/deser/ExceptionSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">ExceptionSerializer</a></code></dd>
@@ -255,9 +256,9 @@ public&nbsp;JacksonExceptionSerializer(<a href="https://www.playframework.com/do
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/deser/ExceptionSerializer.html#deserialize-com.lightbend.lagom.javadsl.api.deser.RawExceptionMessage-">ExceptionSerializer</a></code></span></div>
 <div class="block">Deserialize an exception message into an exception.
 
- The exception serializer should make a best effort attempt at deserializing the message, but should not expect
- the message to be in any particular format.  If it cannot deserialize the message, it should return a generic
- exception, it should not itself throw an exception.</div>
+ <p>The exception serializer should make a best effort attempt at deserializing the message, but
+ should not expect the message to be in any particular format. If it cannot deserialize the
+ message, it should return a generic exception, it should not itself throw an exception.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../com/lightbend/lagom/javadsl/api/deser/ExceptionSerializer.html#deserialize-com.lightbend.lagom.javadsl.api.deser.RawExceptionMessage-">deserialize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/deser/ExceptionSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">ExceptionSerializer</a></code></dd>

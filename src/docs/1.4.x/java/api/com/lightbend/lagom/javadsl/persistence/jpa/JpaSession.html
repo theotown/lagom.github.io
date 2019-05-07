@@ -100,8 +100,8 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">JpaSession</span></pre>
-<div class="block">Provides asynchronous access to a JPA EntityManager. Inject this into classes that require access to JPA, including
- JPA read-side implementations.</div>
+<div class="block">Provides asynchronous access to a JPA EntityManager. Inject this into classes that require access
+ to JPA, including JPA read-side implementations.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.3</dd>
@@ -153,9 +153,9 @@ var activeTableTab = "activeTableTab";
 <h4>withTransaction</h4>
 <pre>&lt;T&gt;&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;T&gt;&nbsp;withTransaction(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;javax.persistence.EntityManager,T&gt;&nbsp;block)</pre>
 <div class="block">Execute the given function in a JPA transaction.
- <p>
- The JPA EntityManager is provided to the function. This will execute the callback in a thread pool that is
- specifically designed for use with JDBC calls.</div>
+
+ <p>The JPA EntityManager is provided to the function. This will execute the callback in a
+ thread pool that is specifically designed for use with JDBC calls.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>block</code> - the function to execute</dd>

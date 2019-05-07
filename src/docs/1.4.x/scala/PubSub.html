@@ -40,8 +40,7 @@ class SensorServiceImpl(pubSub: PubSubRegistry) extends SensorService {
 <p>It is also possible to publish a stream of messages to a topic as is illustrated by this variant of the <code>SensorService</code>:</p>
 <pre class="prettyprint"><code class="language-scala">import akka.stream.Materializer
 
-class SensorServiceImpl(pubSub: PubSubRegistry)
-  (implicit materializer: Materializer) extends SensorService {
+class SensorServiceImpl(pubSub: PubSubRegistry)(implicit materializer: Materializer) extends SensorService {
 
   def registerTemperature(id: String) = ServiceCall { temperatures =&gt;
     val topic = pubSub.refFor(TopicId[Temperature](id))
@@ -57,7 +56,8 @@ class SensorServiceImpl(pubSub: PubSubRegistry)
 <p>Note how the incoming <code>Source</code> in <code>registerTemperature</code> is connected to the <code>publisher</code> <code>Sink</code> of the topic with the <code>runWith</code> method. Also note that we now have an implicit <code>Materializer</code> injected into the constructor, this is needed when running a stream. You can of course apply ordinary stream transformations of the incoming stream before connecting it to the <code>publisher</code>.</p><h2 id="Usage-from-Persistent-Entity"><a class="section-marker" href="#Usage-from-Persistent-Entity">§</a>Usage from Persistent Entity</h2>
 <p>You can publish messages from a <a href="PersistentEntity.html">Persistent Entity</a>. First you must inject the <a href="api/com/lightbend/lagom/scaladsl/pubsub/PubSubRegistry.html">PubSubRegistry</a> to get hold of a <code>PubSubRef</code> for a given topic.</p>
 <pre class="prettyprint"><code class="language-scala">import com.lightbend.lagom.scaladsl.persistence.PersistentEntity
-import com.lightbend.lagom.scaladsl.pubsub.{PubSubRegistry, TopicId}
+import com.lightbend.lagom.scaladsl.pubsub.PubSubRegistry
+import com.lightbend.lagom.scaladsl.pubsub.TopicId
 
 final class Post(pubSubRegistry: PubSubRegistry) extends PersistentEntity {
   private val publishedTopic = pubSubRegistry.refFor(TopicId[PostPublished])</code></pre>

@@ -6,7 +6,8 @@
   <li><a href="#Service-implementation">Service implementation</a></li>
 </ul><h1 id="Service-interface"><a class="section-marker" href="#Service-interface">§</a>Service interface</h1>
 <p>The service interface belongs in the <code>api</code> project. For instance, the service interface for the <code>hello</code> service resides in the <code>hello-api</code> project (look for the <code>HelloService.scala</code> source file).</p>
-<pre class="prettyprint"><code class="language-scala">import akka.{Done, NotUsed}
+<pre class="prettyprint"><code class="language-scala">import akka.Done
+import akka.NotUsed
 import com.lightbend.lagom.scaladsl.api._
 import play.api.libs.json._
 
@@ -16,12 +17,14 @@ trait HelloService extends Service {
 
   def useGreeting(id: String): ServiceCall[GreetingMessage, Done]
 
-  override final def descriptor = {
+  final override def descriptor = {
     import Service._
-    named(&quot;hello&quot;).withCalls(
-      pathCall(&quot;/api/hello/:id&quot;, hello _),
-      pathCall(&quot;/api/hello/:id&quot;, useGreeting _)
-    ).withAutoAcl(true)
+    named(&quot;hello&quot;)
+      .withCalls(
+        pathCall(&quot;/api/hello/:id&quot;, hello _),
+        pathCall(&quot;/api/hello/:id&quot;, useGreeting _)
+      )
+      .withAutoAcl(true)
   }
 }
 

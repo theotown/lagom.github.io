@@ -154,7 +154,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html#autoAcl--">autoAcl</a></span>()</code>
-<div class="block">Whether this service call should automatically define an ACL for the router to route external calls to it.</div>
+<div class="block">Whether this service call should automatically define an ACL for the router to route external
+ calls to it.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -220,15 +221,13 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Call</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="type parameter in Descriptor.Call">Request</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="type parameter in Descriptor.Call">Response</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html#withRequestSerializer-com.lightbend.lagom.javadsl.api.deser.MessageSerializer-">withRequestSerializer</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="type parameter in Descriptor.Call">Request</a>,?&gt;&nbsp;requestSerializer)</code>
-<div class="block">Return a copy of this call descriptor with the given request message
- serializer configured.</div>
+<div class="block">Return a copy of this call descriptor with the given request message serializer configured.</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Call</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="type parameter in Descriptor.Call">Request</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="type parameter in Descriptor.Call">Response</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html#withResponseSerializer-com.lightbend.lagom.javadsl.api.deser.MessageSerializer-">withResponseSerializer</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="type parameter in Descriptor.Call">Response</a>,?&gt;&nbsp;responseSerializer)</code>
-<div class="block">Return a copy of this call descriptor with the given response message
- serializer configured.</div>
+<div class="block">Return a copy of this call descriptor with the given response message serializer configured.</div>
 </td>
 </tr>
 <tr id="i14" class="altColor">
@@ -299,7 +298,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.ServiceCallHolder.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.ServiceCallHolder</a>&nbsp;serviceCallHolder()</pre>
 <div class="block">A holder for the service call.
 
- This holds a reference to the service call, in an implementation specific way.</div>
+ <p>This holds a reference to the service call, in an implementation specific way.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The service call holder.</dd>
@@ -355,11 +354,12 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>autoAcl</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;autoAcl()</pre>
-<div class="block">Whether this service call should automatically define an ACL for the router to route external calls to it.</div>
+<div class="block">Whether this service call should automatically define an ACL for the router to route external
+ calls to it.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>Some value if this service call explicitly decides that it should have an auto ACL defined for it,
-         otherwise empty.</dd>
+<dd>Some value if this service call explicitly decides that it should have an auto ACL
+     defined for it, otherwise empty.</dd>
 </dl>
 </li>
 </ul>
@@ -402,8 +402,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>withRequestSerializer</h4>
 <pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Call</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="type parameter in Descriptor.Call">Request</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="type parameter in Descriptor.Call">Response</a>&gt;&nbsp;withRequestSerializer(<a href="../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="type parameter in Descriptor.Call">Request</a>,?&gt;&nbsp;requestSerializer)</pre>
-<div class="block">Return a copy of this call descriptor with the given request message
- serializer configured.</div>
+<div class="block">Return a copy of this call descriptor with the given request message serializer configured.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>requestSerializer</code> - The request serializer.</dd>
@@ -419,8 +418,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>withResponseSerializer</h4>
 <pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Call</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="type parameter in Descriptor.Call">Request</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="type parameter in Descriptor.Call">Response</a>&gt;&nbsp;withResponseSerializer(<a href="../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="type parameter in Descriptor.Call">Response</a>,?&gt;&nbsp;responseSerializer)</pre>
-<div class="block">Return a copy of this call descriptor with the given response message
- serializer configured.</div>
+<div class="block">Return a copy of this call descriptor with the given response message serializer configured.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>responseSerializer</code> - The response serializer.</dd>
@@ -455,7 +453,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="block">Return a copy of this call descriptor with autoAcl configured.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>autoAcl</code> - Whether an ACL will automatically be generated for the gateway to route calls to this service.</dd>
+<dd><code>autoAcl</code> - Whether an ACL will automatically be generated for the gateway to route calls
+     to this service.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A copy of this call descriptor.</dd>
 </dl>

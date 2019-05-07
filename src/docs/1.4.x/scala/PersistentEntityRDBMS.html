@@ -139,7 +139,7 @@ lagom.persistence.jdbc {
 }</code></pre><h2 id="Application-Loader"><a class="section-marker" href="#Application-Loader">§</a>Application Loader</h2>
 <p>The Lagom Application Loader needs to load the correct persistence components based on whether you&rsquo;re working with Cassandra or JDBC. For an RDBMS not only the JDBC persistence components must be loaded but also a connection pool must be configured. By default the Hikari connection pool is available in Play and can be configured as follows:</p>
 <pre class="prettyprint"><code class="language-scala">abstract class BlogApplication(context: LagomApplicationContext)
-  extends LagomApplication(context)
+    extends LagomApplication(context)
     with JdbcPersistenceComponents
     with HikariCPComponents
     with AhcWSComponents {</code></pre>

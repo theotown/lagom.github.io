@@ -20,13 +20,13 @@
   }
 
   override def transformServerResponse(
-    response: ResponseHeader,
-    request:  RequestHeader
+      response: ResponseHeader,
+      request: RequestHeader
   ): ResponseHeader = response
 
   override def transformClientResponse(
-    response: ResponseHeader,
-    request:  RequestHeader
+      response: ResponseHeader,
+      request: RequestHeader
   ): ResponseHeader = response
 }</code></pre>
 <p>This <a href="api/com/lightbend/lagom/scaladsl/api/transport/UserAgentHeaderFilter$.html"><code>UserAgentHeaderFilter</code></a> is the default <code>HeaderFilter</code> any Lagom service will use if none is specified. It uses a <code>ServicePrincipal</code> which identifies the client with the service name.</p>
@@ -46,15 +46,13 @@
     request
   }
 
-  def transformServerResponse(response: ResponseHeader,
-    request: RequestHeader) = {
+  def transformServerResponse(response: ResponseHeader, request: RequestHeader) = {
 
     log.debug(name + &quot; - transforming Server Response&quot;)
     response
   }
 
-  def transformClientResponse(response: ResponseHeader,
-    request: RequestHeader) = {
+  def transformClientResponse(response: ResponseHeader, request: RequestHeader) = {
 
     log.debug(name + &quot; - transforming Client Response&quot;)
     response
@@ -63,12 +61,16 @@
 <p>And we registered two of them with the names <code>Foo</code> and <code>Bar</code>:</p>
 <pre class="prettyprint"><code class="language-scala">def descriptor = {
   import Service._
-  named(&quot;hello&quot;).withCalls(
-    call(sayHello)
-  ).withHeaderFilter(HeaderFilter.composite(
-    new VerboseFilter(&quot;Foo&quot;),
-    new VerboseFilter(&quot;Bar&quot;)
-  ))
+  named(&quot;hello&quot;)
+    .withCalls(
+      call(sayHello)
+    )
+    .withHeaderFilter(
+      HeaderFilter.composite(
+        new VerboseFilter(&quot;Foo&quot;),
+        new VerboseFilter(&quot;Bar&quot;)
+      )
+    )
 }</code></pre>
 <p>and then called the service, then we would get the following on the server output logs:</p>
 <pre class="prettyprint"><code>[debug] Bar - transforming Server Request

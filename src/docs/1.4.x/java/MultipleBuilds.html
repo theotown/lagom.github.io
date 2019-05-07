@@ -52,10 +52,10 @@ import com.lightbend.lagom.javadsl.api.ServiceInfo;
 
 public class Module extends AbstractModule implements ServiceClientGuiceSupport {
 
-    protected void configure() {
-        bindServiceInfo(ServiceInfo.of(&quot;hello-service&quot;));
-        bindClient(HelloService.class);
-    }
+  protected void configure() {
+    bindServiceInfo(ServiceInfo.of(&quot;hello-service&quot;));
+    bindClient(HelloService.class);
+  }
 }</code></pre>
 <p>After providing the binding, just type <code>reload</code> in the sbt console. Then, when executing <code>runAll</code>, you should see that the <code>hello</code> service is started, together with all other services defined in the build:</p>
 <pre class="prettyprint"><code class="language-console">&gt; runAll

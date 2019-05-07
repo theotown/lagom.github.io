@@ -39,8 +39,8 @@ $ sbt
 val startElasticSearch = taskKey[Closeable](&quot;Starts elastic search&quot;)
 
 startElasticSearch in ThisBuild := {
-  val esVersion = &quot;5.4.0&quot;
-  val log = streams.value.log
+  val esVersion     = &quot;5.4.0&quot;
+  val log           = streams.value.log
   val elasticsearch = target.value / s&quot;elasticsearch-$esVersion&quot;
 
   if (!elasticsearch.exists()) {

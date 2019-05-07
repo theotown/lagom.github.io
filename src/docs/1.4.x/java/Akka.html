@@ -40,20 +40,23 @@ public class WorkerServiceImpl implements WorkerService {
     // the jobs by their task, i.e. jobs with same task will be
     // delegated to same worker node
     List&lt;String&gt; paths = Arrays.asList(&quot;/user/worker&quot;);
-    ConsistentHashingGroup groupConf = new ConsistentHashingGroup(paths)
-      .withHashMapper(msg -&gt; {
-        if (msg instanceof Job) {
-          return ((Job) msg).getTask();
-        } else {
-          return null;
-        }
-      });
-      Set&lt;String&gt; useRoles = new TreeSet&lt;&gt;();
-      useRoles.add(&quot;worker-node&quot;);
+    ConsistentHashingGroup groupConf =
+        new ConsistentHashingGroup(paths)
+            .withHashMapper(
+                msg -&gt; {
+                  if (msg instanceof Job) {
+                    return ((Job) msg).getTask();
+                  } else {
+                    return null;
+                  }
+                });
+    Set&lt;String&gt; useRoles = new TreeSet&lt;&gt;();
+    useRoles.add(&quot;worker-node&quot;);
 
-      Props routerProps = new ClusterRouterGroup(groupConf,
-        new ClusterRouterGroupSettings(1000, paths,
-          true, useRoles)).props();
+    Props routerProps =
+        new ClusterRouterGroup(
+                groupConf, new ClusterRouterGroupSettings(1000, paths, true, useRoles))
+            .props();
     this.workerRouter = system.actorOf(routerProps, &quot;workerRouter&quot;);
   }
 
@@ -61,11 +64,12 @@ public class WorkerServiceImpl implements WorkerService {
   public ServiceCall&lt;Job, JobAccepted&gt; doWork() {
     return job -&gt; {
       // send the job to a worker, via the consistent hashing router
-      CompletionStage&lt;JobAccepted&gt; reply = ask(workerRouter, job, Timeout.apply(
-          5, TimeUnit.SECONDS))
-        .thenApply(ack -&gt; {
-          return (JobAccepted) ack;
-        });
+      CompletionStage&lt;JobAccepted&gt; reply =
+          ask(workerRouter, job, Timeout.apply(5, TimeUnit.SECONDS))
+              .thenApply(
+                  ack -&gt; {
+                    return (JobAccepted) ack;
+                  });
       return reply;
     };
   }
@@ -87,9 +91,7 @@ public class Worker extends AbstractActor {
 
   @Override
   public Receive createReceive() {
-    return receiveBuilder()
-        .match(Job.class, this::perform)
-        .build();
+    return receiveBuilder().match(Job.class, this::perform).build();
   }
 
   private void perform(Job job) {
@@ -98,7 +100,6 @@ public class Worker extends AbstractActor {
     // perform the work...
     context().stop(self());
   }
-
 }</code></pre>
 <p>The messages are ordinary <a href="Immutable.html">Immutable Objects</a>. Note that they extend <code>Jsonable</code> since they need proper <a href="Serialization.html">Serialization</a> when they are sent across nodes in the cluster of the service:</p>
 <pre class="prettyprint"><code class="language-java">@Value.Immutable
@@ -142,8 +143,7 @@ public interface AbstractJobStatus extends Jsonable {
 import com.google.inject.AbstractModule;
 import com.lightbend.lagom.javadsl.server.ServiceGuiceSupport;
 
-public class Worker2Module extends AbstractModule
-    implements ServiceGuiceSupport, AkkaGuiceSupport {
+public class Worker2Module extends AbstractModule implements ServiceGuiceSupport, AkkaGuiceSupport {
 
   @Override
   protected void configure() {
@@ -166,11 +166,8 @@ public class Worker2Module extends AbstractModule
 
   @Override
   public Receive createReceive() {
-    return receiveBuilder()
-            .match(Job.class, this::perform)
-            .build();
+    return receiveBuilder().match(Job.class, this::perform).build();
   }
-
 
   private void perform(Job job) {
     sender().tell(JobAccepted.of(job.getJobId()), self());
@@ -179,7 +176,6 @@ public class Worker2Module extends AbstractModule
     topic.publish(JobStatus.of(job.getJobId(), &quot;done&quot;));
     context().stop(self());
   }
-
 }</code></pre>
 <p>With the <code>PubSubRegistry</code> we can publish updates of the progress of the jobs to all nodes in the cluster, as described in <a href="PubSub.html">Publish-Subscribe</a>.</p>
 <p>To make the example complete, an adjusted service implementation follows. Worker actors are created not by the service implementation, but by the <code>WorkerModule</code>. We have also added a <code>status</code> method that provides a stream of <code>JobStatus</code> values that clients can listen to.</p>
@@ -195,19 +191,22 @@ public class Worker2Module extends AbstractModule
     // the jobs by their task, i.e. jobs with same task will be
     // delegated to same worker node
     List&lt;String&gt; paths = Arrays.asList(&quot;/user/worker&quot;);
-    ConsistentHashingGroup groupConf = new ConsistentHashingGroup(paths)
-      .withHashMapper(msg -&gt; {
-        if (msg instanceof Job) {
-          return ((Job) msg).getTask();
-        } else {
-          return null;
-        }
-      });
-      Set&lt;String&gt; useRoles = new TreeSet&lt;String&gt;();
-      useRoles.add(&quot;worker-node&quot;);
-      Props routerProps = new ClusterRouterGroup(groupConf,
-        new ClusterRouterGroupSettings(1000, paths,
-          true, useRoles)).props();
+    ConsistentHashingGroup groupConf =
+        new ConsistentHashingGroup(paths)
+            .withHashMapper(
+                msg -&gt; {
+                  if (msg instanceof Job) {
+                    return ((Job) msg).getTask();
+                  } else {
+                    return null;
+                  }
+                });
+    Set&lt;String&gt; useRoles = new TreeSet&lt;String&gt;();
+    useRoles.add(&quot;worker-node&quot;);
+    Props routerProps =
+        new ClusterRouterGroup(
+                groupConf, new ClusterRouterGroupSettings(1000, paths, true, useRoles))
+            .props();
     this.workerRouter = system.actorOf(routerProps, &quot;workerRouter&quot;);
 
     this.topic = pubSub.refFor(TopicId.of(JobStatus.class, &quot;jobs-status&quot;));
@@ -224,11 +223,12 @@ public class Worker2Module extends AbstractModule
   public ServiceCall&lt;Job, JobAccepted&gt; doWork() {
     return job -&gt; {
       // send the job to a worker, via the consistent hashing router
-      CompletionStage&lt;JobAccepted&gt; reply = ask(workerRouter, job, Timeout.apply(
-          5, TimeUnit.SECONDS))
-        .thenApply(ack -&gt; {
-          return (JobAccepted) ack;
-        });
+      CompletionStage&lt;JobAccepted&gt; reply =
+          ask(workerRouter, job, Timeout.apply(5, TimeUnit.SECONDS))
+              .thenApply(
+                  ack -&gt; {
+                    return (JobAccepted) ack;
+                  });
       return reply;
     };
   }

@@ -65,8 +65,8 @@ def descriptor = {
   import Service._
   import com.lightbend.lagom.scaladsl.api.transport.Method
   named(&quot;orders&quot;).withCalls(
-    restCall(Method.POST,   &quot;/order/:orderId/item&quot;,         addItem _),
-    restCall(Method.GET,    &quot;/order/:orderId/item/:itemId&quot;, getItem _),
+    restCall(Method.POST, &quot;/order/:orderId/item&quot;, addItem _),
+    restCall(Method.GET, &quot;/order/:orderId/item/:itemId&quot;, getItem _),
     restCall(Method.DELETE, &quot;/order/:orderId/item/:itemId&quot;, deleteItem _)
   )
 }</code></pre><h2 id="Messages"><a class="section-marker" href="#Messages">§</a>Messages</h2>
@@ -104,9 +104,9 @@ def descriptor = {
 <p>Play JSON provides a functional type class based library for composing JSON formatters. For detailed documentation on how to use this library, see the <a href="https://www.playframework.com/documentation/2.6.x/ScalaJsonCombinators">Play documentation</a>. For now, we will just look at how to define JSON formats for case classes using Play&rsquo;s JSON format macro.</p>
 <p>Let&rsquo;s say you have a <code>User</code> case class that looks like this:</p>
 <pre class="prettyprint"><code class="language-scala">case class User(
-  id: Long,
-  name: String,
-  email: Option[String]
+    id: Long,
+    name: String,
+    email: Option[String]
 )</code></pre>
 <p>A Play JSON format can be defined on the <code>User</code> companion object like so:</p>
 <pre class="prettyprint"><code class="language-scala">object User {

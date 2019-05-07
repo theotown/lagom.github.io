@@ -111,9 +111,9 @@ var activeTableTab = "activeTableTab";
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">Describes a service.
 
- A descriptor is a set of calls descriptors that the service provides, coupled with metadata about how the
- service and its calls are to be served.  Metadata may include versioning and migrations, SLA's, sharding
- hints, circuit breaker strategies etc.</div>
+ <p>A descriptor is a set of calls descriptors that the service provides, coupled with metadata
+ about how the service and its calls are to be served. Metadata may include versioning and
+ migrations, SLA's, sharding hints, circuit breaker strategies etc.</div>
 </li>
 </ul>
 </div>
@@ -274,13 +274,15 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html#replaceAllMessageSerializers-org.pcollections.PMap-">replaceAllMessageSerializers</a></span>(org.pcollections.PMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer</a>&lt;?,?&gt;&gt;&nbsp;messageSerializers)</code>
-<div class="block">Replace all the message serializers registered with this descriptor with the the given message serializers.</div>
+<div class="block">Replace all the message serializers registered with this descriptor with the the given message
+ serializers.</div>
 </td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html#replaceAllPathParamSerializers-org.pcollections.PMap-">replaceAllPathParamSerializers</a></span>(org.pcollections.PMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/deser/PathParamSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">PathParamSerializer</a>&lt;?&gt;&gt;&nbsp;pathParamSerializers)</code>
-<div class="block">Replace all the path param serializers registered with this descriptor with the the given path param serializers.</div>
+<div class="block">Replace all the path param serializers registered with this descriptor with the the given path
+ param serializers.</div>
 </td>
 </tr>
 <tr id="i15" class="rowColor">
@@ -300,8 +302,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html#withAutoAcl-boolean-">withAutoAcl</a></span>(boolean&nbsp;autoAcl)</code>
-<div class="block">Set whether the service calls in this descriptor should default to having an ACL automatically generated for
- them.</div>
+<div class="block">Set whether the service calls in this descriptor should default to having an ACL automatically
+ generated for them.</div>
 </td>
 </tr>
 <tr id="i19" class="rowColor">
@@ -319,7 +321,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <tr id="i21" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html#withExceptionSerializer-com.lightbend.lagom.javadsl.api.deser.ExceptionSerializer-">withExceptionSerializer</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/api/deser/ExceptionSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">ExceptionSerializer</a>&nbsp;exceptionSerializer)</code>
-<div class="block">Use the given exception serializer to serialize and deserialized exceptions handled by this service.</div>
+<div class="block">Use the given exception serializer to serialize and deserialized exceptions handled by this
+ service.</div>
 </td>
 </tr>
 <tr id="i22" class="altColor">
@@ -495,9 +498,9 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public&nbsp;boolean&nbsp;locatableService()</pre>
 <div class="block">Whether this is a locatable service.
 
- Locatable services are registered with the service locator and/or gateway, so that they can be consumed by other
- services.  Services that are not locatable are typically services for infrastructure purposes, such as providing
- metrics.</div>
+ <p>Locatable services are registered with the service locator and/or gateway, so that they can
+ be consumed by other services. Services that are not locatable are typically services for
+ infrastructure purposes, such as providing metrics.</div>
 </li>
 </ul>
 <a name="circuitBreaker--">
@@ -509,7 +512,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/CircuitBreaker.html" title="class in com.lightbend.lagom.javadsl.api">CircuitBreaker</a>&nbsp;circuitBreaker()</pre>
 <div class="block">Get the default circuit breaker mode used by this service.
 
- This is what will be used if no service breaker is explicitly set on the service call.</div>
+ <p>This is what will be used if no service breaker is explicitly set on the service call.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The circuit breaker to use.</dd>
@@ -636,7 +639,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>replaceAllPathParamSerializers</h4>
 <pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a>&nbsp;replaceAllPathParamSerializers(org.pcollections.PMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/deser/PathParamSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">PathParamSerializer</a>&lt;?&gt;&gt;&nbsp;pathParamSerializers)</pre>
-<div class="block">Replace all the path param serializers registered with this descriptor with the the given path param serializers.</div>
+<div class="block">Replace all the path param serializers registered with this descriptor with the the given path
+ param serializers.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>pathParamSerializers</code> - The path param serializers to replace the existing ones with.</dd>
@@ -652,7 +656,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>replaceAllMessageSerializers</h4>
 <pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a>&nbsp;replaceAllMessageSerializers(org.pcollections.PMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>,<a href="../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer</a>&lt;?,?&gt;&gt;&nbsp;messageSerializers)</pre>
-<div class="block">Replace all the message serializers registered with this descriptor with the the given message serializers.</div>
+<div class="block">Replace all the message serializers registered with this descriptor with the the given message
+ serializers.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>messageSerializers</code> - The message serializers to replace the existing ones with.</dd>
@@ -684,7 +689,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>withExceptionSerializer</h4>
 <pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a>&nbsp;withExceptionSerializer(<a href="../../../../../com/lightbend/lagom/javadsl/api/deser/ExceptionSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">ExceptionSerializer</a>&nbsp;exceptionSerializer)</pre>
-<div class="block">Use the given exception serializer to serialize and deserialized exceptions handled by this service.</div>
+<div class="block">Use the given exception serializer to serialize and deserialized exceptions handled by this
+ service.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>exceptionSerializer</code> - The exception handler to use.</dd>
@@ -716,12 +722,12 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>withAutoAcl</h4>
 <pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a>&nbsp;withAutoAcl(boolean&nbsp;autoAcl)</pre>
-<div class="block">Set whether the service calls in this descriptor should default to having an ACL automatically generated for
- them.
+<div class="block">Set whether the service calls in this descriptor should default to having an ACL automatically
+ generated for them.
 
- By default, this will not happen.
+ <p>By default, this will not happen.
 
- Note that each service call can override this by calling withAutoAcl on them.</div>
+ <p>Note that each service call can override this by calling withAutoAcl on them.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>autoAcl</code> - Whether autoAcl should be true.</dd>
@@ -739,7 +745,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a>&nbsp;withServiceAcls(<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceAcl.html" title="class in com.lightbend.lagom.javadsl.api">ServiceAcl</a>...&nbsp;acls)</pre>
 <div class="block">Add the given manual ACLs.
 
- If auto ACLs are configured, these will be added in addition to the auto ACLs.</div>
+ <p>If auto ACLs are configured, these will be added in addition to the auto ACLs.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>acls</code> - The ACLs to add.</dd>
@@ -757,7 +763,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a>&nbsp;replaceAllAcls(org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceAcl.html" title="class in com.lightbend.lagom.javadsl.api">ServiceAcl</a>&gt;&nbsp;acls)</pre>
 <div class="block">Replace all the ACLs with the given ACL sequence.
 
- This will not replace ACLs generated by autoAcl, to disable autoAcl, turn it off.</div>
+ <p>This will not replace ACLs generated by autoAcl, to disable autoAcl, turn it off.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>acls</code> - The ACLs to use.</dd>
@@ -791,9 +797,9 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a>&nbsp;withLocatableService(boolean&nbsp;locatableService)</pre>
 <div class="block">Set whether this service is locatable.
 
- Locatable services are registered with the service locator and/or gateway, so that they can be consumed by other
- services.  Services that are not locatable are typically services for infrastructure purposes, such as providing
- metrics.</div>
+ <p>Locatable services are registered with the service locator and/or gateway, so that they can
+ be consumed by other services. Services that are not locatable are typically services for
+ infrastructure purposes, such as providing metrics.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>locatableService</code> - Whether this service should be locatable or not.</dd>
@@ -811,8 +817,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a>&nbsp;withCircuitBreaker(<a href="../../../../../com/lightbend/lagom/javadsl/api/CircuitBreaker.html" title="class in com.lightbend.lagom.javadsl.api">CircuitBreaker</a>&nbsp;circuitBreaker)</pre>
 <div class="block">Set the default circuit breaker to use for this service.
 
- This circuit breaker mode will be used for any service calls that don't explicitly configure their own circuit
- breaker configuration.</div>
+ <p>This circuit breaker mode will be used for any service calls that don't explicitly configure
+ their own circuit breaker configuration.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>circuitBreaker</code> - The circuit breaker mode.</dd>

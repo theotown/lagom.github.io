@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -183,8 +183,7 @@
 
   int NUM_SHARDS = 20;
 
-  AggregateEventShards&lt;BlogEvent&gt; TAG =
-          AggregateEventTag.sharded(BlogEvent.class, NUM_SHARDS);
+  AggregateEventShards&lt;BlogEvent&gt; TAG = AggregateEventTag.sharded(BlogEvent.class, NUM_SHARDS);
 
   @Override
   default AggregateEventShards&lt;BlogEvent&gt; aggregateTag() {
@@ -213,19 +212,13 @@ public PSequence&lt;AggregateEventTag&lt;BlogEvent&gt;&gt; aggregateTags() {
 }</code></pre>
 <p>Now we need to implement the <code>buildHandler</code> method. Let&rsquo;s assume that you have created a component to interact with your preferred database, it provides the following methods:</p>
 <pre class="prettyprint"><code class="language-java">public interface MyDatabase {
-  /**
-   * Create the tables needed for this read side if not already created.
-   */
+  /** Create the tables needed for this read side if not already created. */
   CompletionStage&lt;Done&gt; createTables();
 
-  /**
-   * Load the offset of the last event processed.
-   */
+  /** Load the offset of the last event processed. */
   CompletionStage&lt;Offset&gt; loadOffset(AggregateEventTag&lt;BlogEvent&gt; tag);
 
-  /**
-   * Handle the post added event.
-   */
+  /** Handle the post added event. */
   CompletionStage&lt;Done&gt; handleEvent(BlogEvent event, Offset offset);
 }</code></pre>
 <p>The <code>createTables</code> method will create the tables used by the read side processor if they don&rsquo;t already exist - this is completely optional, but may be useful in development and test environments as it alleviates the need for developers to manually set up their environments.</p>
@@ -250,10 +243,10 @@ public ReadSideHandler&lt;BlogEvent&gt; buildHandler() {
     @Override
     public Flow&lt;Pair&lt;BlogEvent, Offset&gt;, Done, ?&gt; handle() {
       return Flow.&lt;Pair&lt;BlogEvent, Offset&gt;&gt;create()
-              .mapAsync(1, eventAndOffset -&gt;
-                      myDatabase.handleEvent(eventAndOffset.first(),
-                              eventAndOffset.second())
-              );
+          .mapAsync(
+              1,
+              eventAndOffset -&gt;
+                  myDatabase.handleEvent(eventAndOffset.first(), eventAndOffset.second()));
     }
   };
 }</code></pre>
@@ -262,9 +255,7 @@ public ReadSideHandler&lt;BlogEvent&gt; buildHandler() {
 <p>The <code>handle</code> method must return an Akka streams <code>Flow</code> to handle the event stream. Typically it will use <code>mapAsync</code>, with a parallelism of 1, to handle the events.</p><h3 id="Registering-your-read-side-processor"><a class="section-marker" href="#Registering-your-read-side-processor">§</a>Registering your read-side processor</h3>
 <p>Once you&rsquo;ve created your read-side processor, you need to register it with Lagom. This is done using the <a href="api/index.html?com/lightbend/lagom/javadsl/persistence/ReadSide.html"><code>ReadSide</code></a> component:</p>
 <pre class="prettyprint"><code class="language-java">@Inject
-public BlogServiceImpl(
-        PersistentEntityRegistry persistentEntityRegistry,
-        ReadSide readSide) {
+public BlogServiceImpl(PersistentEntityRegistry persistentEntityRegistry, ReadSide readSide) {
   this.persistentEntityRegistry = persistentEntityRegistry;
 
   readSide.register(BlogEventProcessor.class);
@@ -272,15 +263,18 @@ public BlogServiceImpl(
 <p>There is another tool that can be used if you want more flexible event processing. You can get a stream of the persistent events directly from Lagom with the <code>eventStream</code> method of the <a href="api/index.html?com/lightbend/lagom/javadsl/persistence/PersistentEntityRegistry.html">PersistentEntityRegistry</a>.</p>
 <pre class="prettyprint"><code class="language-java">public ServiceCall&lt;NotUsed, Source&lt;PostSummary, ?&gt;&gt; newPosts() {
   final PartialFunction&lt;BlogEvent, PostSummary&gt; collectFunction =
-          new PFBuilder&lt;BlogEvent, PostSummary&gt;()
-                  .match(BlogEvent.PostAdded.class, evt -&gt;
-                          new PostSummary(evt.getPostId(), evt.getContent().getTitle()))
-                  .build();
+      new PFBuilder&lt;BlogEvent, PostSummary&gt;()
+          .match(
+              BlogEvent.PostAdded.class,
+              evt -&gt; new PostSummary(evt.getPostId(), evt.getContent().getTitle()))
+          .build();
 
   return request -&gt; {
-    Source&lt;PostSummary, ?&gt; stream = persistentEntityRegistry
+    Source&lt;PostSummary, ?&gt; stream =
+        persistentEntityRegistry
             .eventStream(BlogEvent.TAG.forEntityId(&quot;&quot;), Offset.NONE)
-            .map(pair -&gt; pair.first()).collect(collectFunction);
+            .map(pair -&gt; pair.first())
+            .collect(collectFunction);
     return CompletableFuture.completedFuture(stream);
   };
 }</code></pre>
@@ -593,7 +587,7 @@ public BlogServiceImpl(
             </div>
         </div>
     </body>
-    <script src="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-scripts-concat.js"></script>
+    <script src="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

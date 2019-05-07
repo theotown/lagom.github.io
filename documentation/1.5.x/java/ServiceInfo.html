@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -160,22 +160,18 @@
 import static com.lightbend.lagom.javadsl.api.Service.*;
 
 public interface HelloService extends Service {
-    ServiceCall&lt;String, String&gt; sayHello();
+  ServiceCall&lt;String, String&gt; sayHello();
 
-    default Descriptor descriptor() {
-        return named(&quot;hello&quot;).withCalls(
-                call(this::sayHello)
-        );
-    }
+  default Descriptor descriptor() {
+    return named(&quot;hello&quot;).withCalls(call(this::sayHello));
+  }
 }</code></pre>
 <p>If Greetings Service packaged <code>HelloService</code> and Greetings Service was invoking I18n Service (not in the snippet) those calls would include the identity <code>hello</code> since that is the <code>HelloService</code> name (see <code>named(&quot;hello&quot;)</code>).</p>
 <p>Services may publish ACLs in a Service Gateway to list what endpoints are provided by the service. These ACLs will allow you to develop <a href="ServiceDiscovery.html#Server-side-service-discovery">Server-Side Service Discovery</a> via a Service Gateway.</p>
 <pre class="prettyprint"><code class="language-java">default Descriptor descriptor() {
-    return named(&quot;users&quot;)
-            .withCalls(
-                    restCall(Method.POST, &quot;/api/users/login&quot;, this::login)
-            )
-            .withAutoAcl(true);</code></pre>
+  return named(&quot;users&quot;)
+      .withCalls(restCall(Method.POST, &quot;/api/users/login&quot;, this::login))
+      .withAutoAcl(true);</code></pre>
 <p>In this example, the developer of <code>UsersService</code> set <code>withAutoAcl</code> to <code>true</code>. That is instructing Lagom to generate Service ACLs from each call&rsquo;s <code>pathPattern</code>. In this example, an ACL for <code>/api/users/login</code> will be created. When deploying, your tools should honour these specifications and make sure your API Gateway is properly setup.</p>
                 </article>
 
@@ -444,7 +440,7 @@ public interface HelloService extends Service {
             </div>
         </div>
     </body>
-    <script src="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-scripts-concat.js"></script>
+    <script src="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

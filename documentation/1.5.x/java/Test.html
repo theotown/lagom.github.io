@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -171,7 +171,6 @@ public class SimpleTest {
     String str = &quot;Hello world&quot;;
     assertFalse(str.isEmpty());
   }
-
 }</code></pre><h2 id="Dependency"><a class="section-marker" href="#Dependency">§</a>Dependency</h2>
 <p>To use this feature add the following in your project&rsquo;s build.</p>
 <pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
@@ -195,14 +194,15 @@ public class HelloServiceTest {
 
   @Test
   public void shouldSayHello() throws Exception {
-    withServer(defaultSetup(), server -&gt; {
-      HelloService service = server.client(HelloService.class);
+    withServer(
+        defaultSetup(),
+        server -&gt; {
+          HelloService service = server.client(HelloService.class);
 
-      String msg = service.sayHello().invoke(&quot;Alice&quot;).toCompletableFuture().get(5, SECONDS);
-      assertEquals(&quot;Hello Alice&quot;, msg);
-    });
+          String msg = service.sayHello().invoke(&quot;Alice&quot;).toCompletableFuture().get(5, SECONDS);
+          assertEquals(&quot;Hello Alice&quot;, msg);
+        });
   }
-
 }</code></pre>
 <p>Dependencies to other services must be replaced by stub or mock implementations by overriding the bindings of the <code>GuiceApplicationBuilder</code> in the <code>Setup</code>. If we are writing a test for the <code>HelloService</code> and that has a dependency to a <code>GreetingService</code> we must create an implementation of the <code>GreetingService</code> that can be used for the test without running the real <code>GreetingService</code>. Something like this:</p>
 <pre class="prettyprint"><code class="language-java">static class GreetingStub implements GreetingService {
@@ -212,10 +212,9 @@ public class HelloServiceTest {
   }
 }
 
-private final Setup setup = defaultSetup()
-    .configureBuilder(b -&gt; b.overrides(
-        bind(GreetingService.class).to(GreetingStub.class)));
-
+private final Setup setup =
+    defaultSetup()
+        .configureBuilder(b -&gt; b.overrides(bind(GreetingService.class).to(GreetingStub.class)));
 </code></pre>
 <p>Note how the dependency is overridden when constructing the test <code>Setup</code> object, which then can be used as parameter to the <code>withServer</code> method instead of the <code>defaultSetup()</code> in the above <code>HelloServiceTest</code>.</p>
 <p>The server is by default running with <a href="PubSub.html">pubsub</a>, <a href="Cluster.html">cluster</a> and <a href="PersistentEntity.html">persistence</a> features disabled. You may want to enable cluster in the <code>Setup</code>:</p>
@@ -267,7 +266,6 @@ public class AdvancedHelloServiceTest {
     String msg = service.sayHello().invoke(&quot;Bob&quot;).toCompletableFuture().get(5, SECONDS);
     assertEquals(&quot;Hello Bob&quot;, msg);
   }
-
 }</code></pre><h2 id="How-to-use-TLS-on-tests"><a class="section-marker" href="#How-to-use-TLS-on-tests">§</a>How to use TLS on tests</h2>
 <p>To open an SSL port on the <code>TestServer</code> used in your tests, you may enable SSL support using <code>withSsl</code>:</p>
 <pre class="prettyprint"><code class="language-java">Setup.defaultSetup.withSsl()
@@ -275,28 +273,28 @@ public class AdvancedHelloServiceTest {
 <p>Enabling SSL will automatically open a new random port and provide an <code>javax.net.ssl.SSLContext</code> on the TestServer. Lagom doesn&rsquo;t provide any client factory that allows sending requests to the HTTPS port at the moment. You should create an HTTP client using Play-WS, Akka-HTTP or Akka-gRPC. Then, use the <code>httpsPort</code> and the <code>sslContext</code> provided by the <code>testServer</code> instance to send the request. Note that the <code>SSLContext</code> provided is built by Lagom&rsquo;s testkit to trust the <code>testServer</code> certificates. Finally, because the server certificate is issued for <code>CN=localhost</code> you will have to make sure that&rsquo;s the <code>authority</code> on the requests you generate, otherwise the server may decline and fail the request. At the moment it is not possible to setup the test server with different SSL Certificates. </p>
 <pre class="prettyprint"><code class="language-java">@Test
 public void testOverTlsWithCustomClient() {
-    ServiceTest.withServer(
-        ServiceTest.defaultSetup()
-            .withCluster(false)
-            .withSsl()
-            .configureBuilder(builder -&gt;
-                builder.bindings(new TestTlsServiceModule())), server -&gt; {
-
-            SSLContext sslContext = server.clientSslContext().get();
-            // Builds an instance of a WSClient with the provided SSLContext so
-            // the fake SSLContext prepared by Lagom&#39;s testkit is used.
-            WSClient wsClient = buildCustomWS(sslContext);
-            // use `localhost` as authority
-            String url = &quot;https://localhost:&quot; + server.portSsl().get() + &quot;/api/sample&quot;;
-            String response = wsClient
+  ServiceTest.withServer(
+      ServiceTest.defaultSetup()
+          .withCluster(false)
+          .withSsl()
+          .configureBuilder(builder -&gt; builder.bindings(new TestTlsServiceModule())),
+      server -&gt; {
+        SSLContext sslContext = server.clientSslContext().get();
+        // Builds an instance of a WSClient with the provided SSLContext so
+        // the fake SSLContext prepared by Lagom&#39;s testkit is used.
+        WSClient wsClient = buildCustomWS(sslContext);
+        // use `localhost` as authority
+        String url = &quot;https://localhost:&quot; + server.portSsl().get() + &quot;/api/sample&quot;;
+        String response =
+            wsClient
                 .url(url)
                 .get()
                 .thenApply(WSResponse::getBody)
                 .toCompletableFuture()
                 .get(5, TimeUnit.SECONDS);
 
-            assertEquals(&quot;sample response&quot;, response);
-        });
+        assertEquals(&quot;sample response&quot;, response);
+      });
 }</code></pre><h2 id="How-to-test-several-services"><a class="section-marker" href="#How-to-test-several-services">§</a>How to test several services</h2>
 <p>Lagom will provide support for writing integration tests that involve several interacting services. This feature is <a href="https://github.com/lagom/lagom/issues/38">not yet implemented</a>.</p><h2 id="How-to-test-streamed-request/response"><a class="section-marker" href="#How-to-test-streamed-request/response">§</a>How to test streamed request/response</h2>
 <p>Let&rsquo;s say we have a service that have streaming request and/or response parameters. For example an <code>EchoService</code> like this:</p>
@@ -305,9 +303,7 @@ public void testOverTlsWithCustomClient() {
   ServiceCall&lt;Source&lt;String, NotUsed&gt;, Source&lt;String, NotUsed&gt;&gt; echo();
 
   default Descriptor descriptor() {
-    return named(&quot;echo&quot;).withCalls(
-      namedCall(&quot;echo&quot;, this::echo)
-    );
+    return named(&quot;echo&quot;).withCalls(namedCall(&quot;echo&quot;, this::echo));
   }
 }</code></pre>
 <p>When writing tests for that the <a href="https://doc.akka.io/docs/akka/2.5/stream/stream-testkit.html?language=java#streams-testkit">Akka Streams TestKit</a> is very useful. We use the Streams TestKit together with the Lagom <code>ServiceTest</code> utilities:</p>
@@ -324,26 +320,26 @@ public class EchoServiceTest {
 
   @Test
   public void shouldEchoStream() throws Exception {
-    withServer(defaultSetup().withCluster(false), server -&gt; {
-      EchoService service = server.client(EchoService.class);
+    withServer(
+        defaultSetup().withCluster(false),
+        server -&gt; {
+          EchoService service = server.client(EchoService.class);
 
-      // Use a source that never terminates (concat Source.maybe) so we
-      // don&#39;t close the upstream, which would close the downstream
-      Source&lt;String, NotUsed&gt; input =
-          Source.from(Arrays.asList(&quot;msg1&quot;, &quot;msg2&quot;, &quot;msg3&quot;))
-          .concat(Source.maybe());
-      Source&lt;String, NotUsed&gt; output = service.echo().invoke(input)
-          .toCompletableFuture().get(5, SECONDS);
-      Probe&lt;String&gt; probe = output.runWith(TestSink.probe(server.system()),
-          server.materializer());
-      probe.request(10);
-      probe.expectNext(&quot;msg1&quot;);
-      probe.expectNext(&quot;msg2&quot;);
-      probe.expectNext(&quot;msg3&quot;);
-      probe.cancel();
-    });
+          // Use a source that never terminates (concat Source.maybe) so we
+          // don&#39;t close the upstream, which would close the downstream
+          Source&lt;String, NotUsed&gt; input =
+              Source.from(Arrays.asList(&quot;msg1&quot;, &quot;msg2&quot;, &quot;msg3&quot;)).concat(Source.maybe());
+          Source&lt;String, NotUsed&gt; output =
+              service.echo().invoke(input).toCompletableFuture().get(5, SECONDS);
+          Probe&lt;String&gt; probe =
+              output.runWith(TestSink.probe(server.system()), server.materializer());
+          probe.request(10);
+          probe.expectNext(&quot;msg1&quot;);
+          probe.expectNext(&quot;msg2&quot;);
+          probe.expectNext(&quot;msg3&quot;);
+          probe.cancel();
+        });
   }
-
 }</code></pre>
 <p>Read more about it in the documentation of the <a href="https://doc.akka.io/docs/akka/2.5/stream/stream-testkit.html?language=java#streams-testkit">Akka Streams TestKit</a>.</p><h2 id="How-to-test-broker-publishing-and-consuming"><a class="section-marker" href="#How-to-test-broker-publishing-and-consuming">§</a>How to test broker publishing and consuming</h2>
 <p>The section on <a href="MessageBrokerTesting.html">Message Broker Testing</a> is related to Testing Services but is specific to testing the production and consumption via Brokers.</p><h2 id="How-to-test-PersistentEntity"><a class="section-marker" href="#How-to-test-PersistentEntity">§</a>How to test PersistentEntity</h2>
@@ -616,7 +612,7 @@ public class EchoServiceTest {
             </div>
         </div>
     </body>
-    <script src="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-scripts-concat.js"></script>
+    <script src="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

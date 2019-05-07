@@ -106,8 +106,8 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">HeaderFilter</span></pre>
 <div class="block">Filter for headers.
 
- This is used to transform transport and protocol headers according to various strategies for protocol and version
- negotiation, as well as authentication.</div>
+ <p>This is used to transform transport and protocol headers according to various strategies for
+ protocol and version negotiation, as well as authentication.</div>
 </li>
 </ul>
 </div>
@@ -242,7 +242,7 @@ var activeTableTab = "activeTableTab";
 <pre><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/RequestHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">RequestHeader</a>&nbsp;transformClientRequest(<a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/RequestHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">RequestHeader</a>&nbsp;request)</pre>
 <div class="block">Transform the given client request.
 
- This will be invoked on all requests outgoing from the client.</div>
+ <p>This will be invoked on all requests outgoing from the client.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>request</code> - The client request header.</dd>
@@ -260,7 +260,7 @@ var activeTableTab = "activeTableTab";
 <pre><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/RequestHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">RequestHeader</a>&nbsp;transformServerRequest(<a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/RequestHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">RequestHeader</a>&nbsp;request)</pre>
 <div class="block">Transform the given server request.
 
- This will be invoked on all requests incoming to the server.</div>
+ <p>This will be invoked on all requests incoming to the server.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>request</code> - The server request header.</dd>
@@ -279,12 +279,12 @@ var activeTableTab = "activeTableTab";
                                        <a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/RequestHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">RequestHeader</a>&nbsp;request)</pre>
 <div class="block">Transform the given server response.
 
- This will be invoked on all responses outgoing from the server.</div>
+ <p>This will be invoked on all responses outgoing from the server.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>response</code> - The server response.</dd>
-<dd><code>request</code> - The transformed server request. Useful for when the response transformation requires information
-                from the client.</dd>
+<dd><code>request</code> - The transformed server request. Useful for when the response transformation
+     requires information from the client.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The transformed server response header.</dd>
 </dl>
@@ -300,12 +300,12 @@ var activeTableTab = "activeTableTab";
                                        <a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/RequestHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">RequestHeader</a>&nbsp;request)</pre>
 <div class="block">Transform the given client response.
 
- This will be invoked on all responses incoming to the client.</div>
+ <p>This will be invoked on all responses incoming to the client.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>response</code> - The client response.</dd>
-<dd><code>request</code> - The client request. Useful for when the response transformation requires information from the
-                client request.</dd>
+<dd><code>request</code> - The client request. Useful for when the response transformation requires
+     information from the client request.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The transformed client response header.</dd>
 </dl>
@@ -320,8 +320,8 @@ var activeTableTab = "activeTableTab";
 <pre>static&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html" title="interface in com.lightbend.lagom.javadsl.api.transport">HeaderFilter</a>&nbsp;composite(<a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html" title="interface in com.lightbend.lagom.javadsl.api.transport">HeaderFilter</a>...&nbsp;filters)</pre>
 <div class="block">Create a composite header filter from multiple header filters.
 
- The order that the filters are applied are forward for headers being sent over the wire, and in reverse for
- headers that are received from the wire.</div>
+ <p>The order that the filters are applied are forward for headers being sent over the wire, and
+ in reverse for headers that are received from the wire.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>filters</code> - The filters to create the composite filter from.</dd>

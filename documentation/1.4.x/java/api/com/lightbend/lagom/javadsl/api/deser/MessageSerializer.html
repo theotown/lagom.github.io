@@ -110,16 +110,18 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">MessageSerializer&lt;MessageEntity,WireFormat&gt;</span></pre>
 <div class="block">Serializer for messages.
 
- A message serializer is effectively a factory for negotiating serializers/deserializers.  They are created by passing
- the relevant protocol information to then decide on a serializer/deserializer to use.
+ <p>A message serializer is effectively a factory for negotiating serializers/deserializers. They
+ are created by passing the relevant protocol information to then decide on a
+ serializer/deserializer to use.
 
- The returned serializers/deserializers may be invoked once for strict messages, or many times for streamed messages.
+ <p>The returned serializers/deserializers may be invoked once for strict messages, or many times
+ for streamed messages.
 
- This interface doesn't actually specify the wireformat that the serializer must serialize to, there are two sub
- interfaces that do, they being <a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/StrictMessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser"><code>StrictMessageSerializer</code></a>, which serializes messages that are primarily in
- memory, to and from <code>ByteString</code>, and <a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/StreamedMessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser"><code>StreamedMessageSerializer</code></a>, which serializes streams of messages.
- Note that all message serializers used by the framework must implement one of these two sub interfaces, the
- framework does not know how to handle other serializer types.</div>
+ <p>This interface doesn't actually specify the wireformat that the serializer must serialize to,
+ there are two sub interfaces that do, they being <a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/StrictMessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser"><code>StrictMessageSerializer</code></a>, which
+ serializes messages that are primarily in memory, to and from <code>ByteString</code>, and <a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/StreamedMessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser"><code>StreamedMessageSerializer</code></a>, which serializes streams of messages. Note that all message
+ serializers used by the framework must implement one of these two sub interfaces, the framework
+ does not know how to handle other serializer types.</div>
 </li>
 </ul>
 </div>
@@ -235,8 +237,7 @@ var activeTableTab = "activeTableTab";
 <pre>default&nbsp;boolean&nbsp;isUsed()</pre>
 <div class="block">Whether this serializer serializes values that are used or not.
 
- If false, it means this serializer is for an empty request/response, eg, they use the
- <code>NotUsed</code> type.</div>
+ <p>If false, it means this serializer is for an empty request/response, eg, they use the <code>NotUsed</code> type.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>Whether the values this serializer serializes are used.</dd>
@@ -266,7 +267,8 @@ var activeTableTab = "activeTableTab";
 <pre><a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.NegotiatedSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer.NegotiatedSerializer</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="type parameter in MessageSerializer">MessageEntity</a>,<a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="type parameter in MessageSerializer">WireFormat</a>&gt;&nbsp;serializerForRequest()</pre>
 <div class="block">Get a serializer for a client request.
 
- Since a client is the initiator of the request, it simply returns the default serializer for the entity.</div>
+ <p>Since a client is the initiator of the request, it simply returns the default serializer for
+ the entity.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A serializer for request messages.</dd>
@@ -303,11 +305,12 @@ var activeTableTab = "activeTableTab";
 <div class="block">Negotiate a serializer for the response, given the accepted message headers.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>acceptedMessageProtocols</code> - The accepted message headers is a list of message headers that will be accepted by
-                               the client. Any empty values in a message protocol, including the list itself,
-                               indicate that any format is acceptable.</dd>
+<dd><code>acceptedMessageProtocols</code> - The accepted message headers is a list of message headers that
+     will be accepted by the client. Any empty values in a message protocol, including the list
+     itself, indicate that any format is acceptable.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/NotAcceptable.html" title="class in com.lightbend.lagom.javadsl.api.transport">NotAcceptable</a></code> - If the serializer can't meet the requirements of any of the accept headers.</dd>
+<dd><code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/NotAcceptable.html" title="class in com.lightbend.lagom.javadsl.api.transport">NotAcceptable</a></code> - If the serializer can't meet the requirements of any of the accept
+     headers.</dd>
 </dl>
 </li>
 </ul>

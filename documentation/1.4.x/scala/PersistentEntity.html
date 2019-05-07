@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -172,8 +172,8 @@
 final class Post1 extends PersistentEntity {
 
   override type Command = BlogCommand
-  override type Event = BlogEvent
-  override type State = BlogState
+  override type Event   = BlogEvent
+  override type State   = BlogState
 
   override def initialState: BlogState = BlogState.empty
 
@@ -295,9 +295,8 @@ import com.lightbend.lagom.scaladsl.api.ServiceCall
 import com.lightbend.lagom.scaladsl.persistence.PersistentEntityRef
 import com.lightbend.lagom.scaladsl.persistence.PersistentEntityRegistry
 </code></pre>
-<pre class="prettyprint"><code class="language-scala">class BlogServiceImpl(
-  persistentEntities: PersistentEntityRegistry)(implicit ec: ExecutionContext)
-  extends BlogService {
+<pre class="prettyprint"><code class="language-scala">class BlogServiceImpl(persistentEntities: PersistentEntityRegistry)(implicit ec: ExecutionContext)
+    extends BlogService {
 
   persistentEntities.register(new Post)
 
@@ -332,8 +331,7 @@ import org.scalatest.BeforeAndAfterAll
 import org.scalatest.Matchers
 import org.scalatest.WordSpecLike
 
-class PostSpec extends WordSpecLike with Matchers with BeforeAndAfterAll
-  with TypeCheckedTripleEquals {
+class PostSpec extends WordSpecLike with Matchers with BeforeAndAfterAll with TypeCheckedTripleEquals {
 
   val system = ActorSystem(&quot;PostSpec&quot;, JsonSerializerRegistry.actorSystemSetupFor(BlogPostSerializerRegistry))
 
@@ -343,7 +341,7 @@ class PostSpec extends WordSpecLike with Matchers with BeforeAndAfterAll
 
   &quot;Blog Post entity&quot; must {
     &quot;handle AddPost&quot; in {
-      val driver = new PersistentEntityTestDriver(system, new Post, &quot;post-1&quot;)
+      val driver  = new PersistentEntityTestDriver(system, new Post, &quot;post-1&quot;)
       val content = PostContent(&quot;Title&quot;, &quot;Body&quot;)
       val outcome = driver.run(AddPost(content))
       outcome.events should ===(List(PostAdded(&quot;post-1&quot;, content)))
@@ -354,7 +352,7 @@ class PostSpec extends WordSpecLike with Matchers with BeforeAndAfterAll
     }
 
     &quot;validate title&quot; in {
-      val driver = new PersistentEntityTestDriver(system, new Post, &quot;post-1&quot;)
+      val driver  = new PersistentEntityTestDriver(system, new Post, &quot;post-1&quot;)
       val outcome = driver.run(AddPost(PostContent(&quot;&quot;, &quot;Body&quot;)))
       outcome.replies.head.getClass should be(classOf[InvalidCommandException])
       outcome.events.size should ===(0)
@@ -366,9 +364,7 @@ class PostSpec extends WordSpecLike with Matchers with BeforeAndAfterAll
       driver.run(AddPost(PostContent(&quot;Title&quot;, &quot;Body&quot;)))
 
       val outcome = driver.run(ChangeBody(&quot;New body 1&quot;), ChangeBody(&quot;New body 2&quot;))
-      outcome.events should ===(List(
-        BodyChanged(&quot;post-1&quot;, &quot;New body 1&quot;),
-        BodyChanged(&quot;post-1&quot;, &quot;New body 2&quot;)))
+      outcome.events should ===(List(BodyChanged(&quot;post-1&quot;, &quot;New body 1&quot;), BodyChanged(&quot;post-1&quot;, &quot;New body 2&quot;)))
       outcome.state.published should ===(false)
       outcome.state.content.get.body should ===(&quot;New body 2&quot;)
       outcome.replies should ===(List(Done, Done))
@@ -387,8 +383,8 @@ import com.lightbend.lagom.scaladsl.persistence.PersistentEntity
 final class Post extends PersistentEntity {
 
   override type Command = BlogCommand
-  override type Event = BlogEvent
-  override type State = BlogState
+  override type Event   = BlogEvent
+  override type State   = BlogState
 
   override def initialState: BlogState = BlogState.empty
 
@@ -399,8 +395,8 @@ final class Post extends PersistentEntity {
 
   private val initial: Actions = {
     Actions()
-      // Command handlers are invoked for incoming messages (commands).
-      // A command handler must &quot;return&quot; the events to be persisted (if any).
+    // Command handlers are invoked for incoming messages (commands).
+    // A command handler must &quot;return&quot; the events to be persisted (if any).
       .onCommand[AddPost, AddPostDone] {
         case (AddPost(content), ctx, state) =&gt;
           if (content.title == null || content.title.equals(&quot;&quot;)) {
@@ -455,7 +451,8 @@ object BlogCommand {
     JsonSerializer(Json.format[AddPostDone]),
     JsonSerializer(emptySingletonFormat(GetPost)),
     JsonSerializer(Json.format[ChangeBody]),
-    JsonSerializer(emptySingletonFormat(Publish)))
+    JsonSerializer(emptySingletonFormat(Publish))
+  )
 }
 
 //#AddPost
@@ -485,7 +482,8 @@ object BlogEvent {
   val serializers = Vector(
     JsonSerializer(Json.format[PostAdded]),
     JsonSerializer(Json.format[BodyChanged]),
-    JsonSerializer(Json.format[PostPublished]))
+    JsonSerializer(Json.format[PostPublished])
+  )
 }
 
 sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
@@ -856,7 +854,7 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
             </div>
         </div>
     </body>
-    <script src="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-scripts-concat.js"></script>
+    <script src="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

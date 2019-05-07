@@ -113,11 +113,10 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public abstract class <span class="typeNameLabel">CircuitBreaker</span>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
-<div class="block">Circuit breaker descriptor. Describes how circuit breaking should be applied
- to a particular <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api"><code>ServiceCall</code></a>.
- A circuit breaker is used to provide stability and prevent cascading
- failures in distributed systems. An example would be to begin to fail-fast
- after some number of failures due to a dependency on a hanging call.</div>
+<div class="block">Circuit breaker descriptor. Describes how circuit breaking should be applied to a particular
+ <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api"><code>ServiceCall</code></a>. A circuit breaker is used to provide stability and prevent cascading
+ failures in distributed systems. An example would be to begin to fail-fast after some number of
+ failures due to a dependency on a hanging call.</div>
 </li>
 </ul>
 </div>
@@ -226,10 +225,11 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public static&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/CircuitBreaker.html" title="class in com.lightbend.lagom.javadsl.api">CircuitBreaker</a>&nbsp;perNode()</pre>
 <div class="block">Use a circuit breaker per node, if supported.
 
- Service locators that support per node circuit breaking will typically also remove the node from their routing
- pool while the circuit breaker is open, and bring it in for one call when it's half open.
+ <p>Service locators that support per node circuit breaking will typically also remove the node
+ from their routing pool while the circuit breaker is open, and bring it in for one call when
+ it's half open.
 
- If not supported by the service locator, a circuit breaker per service may be used.</div>
+ <p>If not supported by the service locator, a circuit breaker per service may be used.</div>
 </li>
 </ul>
 <a name="perService--">

@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -189,20 +189,23 @@ public class WorkerServiceImpl implements WorkerService {
     // the jobs by their task, i.e. jobs with same task will be
     // delegated to same worker node
     List&lt;String&gt; paths = Arrays.asList(&quot;/user/worker&quot;);
-    ConsistentHashingGroup groupConf = new ConsistentHashingGroup(paths)
-      .withHashMapper(msg -&gt; {
-        if (msg instanceof Job) {
-          return ((Job) msg).getTask();
-        } else {
-          return null;
-        }
-      });
-      Set&lt;String&gt; useRoles = new TreeSet&lt;&gt;();
-      useRoles.add(&quot;worker-node&quot;);
+    ConsistentHashingGroup groupConf =
+        new ConsistentHashingGroup(paths)
+            .withHashMapper(
+                msg -&gt; {
+                  if (msg instanceof Job) {
+                    return ((Job) msg).getTask();
+                  } else {
+                    return null;
+                  }
+                });
+    Set&lt;String&gt; useRoles = new TreeSet&lt;&gt;();
+    useRoles.add(&quot;worker-node&quot;);
 
-      Props routerProps = new ClusterRouterGroup(groupConf,
-        new ClusterRouterGroupSettings(1000, paths,
-          true, useRoles)).props();
+    Props routerProps =
+        new ClusterRouterGroup(
+                groupConf, new ClusterRouterGroupSettings(1000, paths, true, useRoles))
+            .props();
     this.workerRouter = system.actorOf(routerProps, &quot;workerRouter&quot;);
   }
 
@@ -211,14 +214,11 @@ public class WorkerServiceImpl implements WorkerService {
     return job -&gt; {
       // send the job to a worker, via the consistent hashing router
       CompletionStage&lt;JobAccepted&gt; reply =
-          ask(
-              workerRouter,
-              job,
-              Duration.ofSeconds(5)
-          )
-        .thenApply(ack -&gt; {
-          return (JobAccepted) ack;
-        });
+          ask(workerRouter, job, Duration.ofSeconds(5))
+              .thenApply(
+                  ack -&gt; {
+                    return (JobAccepted) ack;
+                  });
       return reply;
     };
   }
@@ -240,9 +240,7 @@ public class Worker extends AbstractActor {
 
   @Override
   public Receive createReceive() {
-    return receiveBuilder()
-        .match(Job.class, this::perform)
-        .build();
+    return receiveBuilder().match(Job.class, this::perform).build();
   }
 
   private void perform(Job job) {
@@ -251,7 +249,6 @@ public class Worker extends AbstractActor {
     // perform the work...
     context().stop(self());
   }
-
 }</code></pre>
 <p>The messages are ordinary <a href="Immutable.html">Immutable Objects</a>. Note that they extend <code>Jsonable</code> since they need proper <a href="Serialization.html">Serialization</a> when they are sent across nodes in the cluster of the service:</p>
 <pre class="prettyprint"><code class="language-java">@Value.Immutable
@@ -295,8 +292,7 @@ public interface AbstractJobStatus extends Jsonable {
 import com.google.inject.AbstractModule;
 import com.lightbend.lagom.javadsl.server.ServiceGuiceSupport;
 
-public class Worker2Module extends AbstractModule
-    implements ServiceGuiceSupport, AkkaGuiceSupport {
+public class Worker2Module extends AbstractModule implements ServiceGuiceSupport, AkkaGuiceSupport {
 
   @Override
   protected void configure() {
@@ -319,11 +315,8 @@ public class Worker2Module extends AbstractModule
 
   @Override
   public Receive createReceive() {
-    return receiveBuilder()
-            .match(Job.class, this::perform)
-            .build();
+    return receiveBuilder().match(Job.class, this::perform).build();
   }
-
 
   private void perform(Job job) {
     sender().tell(JobAccepted.of(job.getJobId()), self());
@@ -332,7 +325,6 @@ public class Worker2Module extends AbstractModule
     topic.publish(JobStatus.of(job.getJobId(), &quot;done&quot;));
     context().stop(self());
   }
-
 }</code></pre>
 <p>With the <code>PubSubRegistry</code> we can publish updates of the progress of the jobs to all nodes in the cluster, as described in <a href="PubSub.html">Publish-Subscribe</a>.</p>
 <p>To make the example complete, an adjusted service implementation follows. Worker actors are created not by the service implementation, but by the <code>WorkerModule</code>. We have also added a <code>status</code> method that provides a stream of <code>JobStatus</code> values that clients can listen to.</p>
@@ -348,19 +340,22 @@ public class Worker2Module extends AbstractModule
     // the jobs by their task, i.e. jobs with same task will be
     // delegated to same worker node
     List&lt;String&gt; paths = Arrays.asList(&quot;/user/worker&quot;);
-    ConsistentHashingGroup groupConf = new ConsistentHashingGroup(paths)
-      .withHashMapper(msg -&gt; {
-        if (msg instanceof Job) {
-          return ((Job) msg).getTask();
-        } else {
-          return null;
-        }
-      });
-      Set&lt;String&gt; useRoles = new TreeSet&lt;String&gt;();
-      useRoles.add(&quot;worker-node&quot;);
-      Props routerProps = new ClusterRouterGroup(groupConf,
-        new ClusterRouterGroupSettings(1000, paths,
-          true, useRoles)).props();
+    ConsistentHashingGroup groupConf =
+        new ConsistentHashingGroup(paths)
+            .withHashMapper(
+                msg -&gt; {
+                  if (msg instanceof Job) {
+                    return ((Job) msg).getTask();
+                  } else {
+                    return null;
+                  }
+                });
+    Set&lt;String&gt; useRoles = new TreeSet&lt;String&gt;();
+    useRoles.add(&quot;worker-node&quot;);
+    Props routerProps =
+        new ClusterRouterGroup(
+                groupConf, new ClusterRouterGroupSettings(1000, paths, true, useRoles))
+            .props();
     this.workerRouter = system.actorOf(routerProps, &quot;workerRouter&quot;);
 
     this.topic = pubSub.refFor(TopicId.of(JobStatus.class, &quot;jobs-status&quot;));
@@ -378,14 +373,11 @@ public class Worker2Module extends AbstractModule
     return job -&gt; {
       // send the job to a worker, via the consistent hashing router
       CompletionStage&lt;JobAccepted&gt; reply =
-          ask(
-              workerRouter,
-              job,
-              Duration.ofSeconds(5)
-          )
-        .thenApply(ack -&gt; {
-          return (JobAccepted) ack;
-        });
+          ask(workerRouter, job, Duration.ofSeconds(5))
+              .thenApply(
+                  ack -&gt; {
+                    return (JobAccepted) ack;
+                  });
       return reply;
     };
   }
@@ -629,7 +621,7 @@ public class Worker2Module extends AbstractModule
             </div>
         </div>
     </body>
-    <script src="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-scripts-concat.js"></script>
+    <script src="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

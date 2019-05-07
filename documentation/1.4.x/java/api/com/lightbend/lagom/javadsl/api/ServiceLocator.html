@@ -106,13 +106,14 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">ServiceLocator</span></pre>
 <div class="block">Locates services.
 
- The service locator is responsible for two things, one is locating services according to the passed in name and
- service call information, the other is to implement circuit breaking functionality when
- <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html#doWithService-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-java.util.function.Function-"><code>doWithService(String, Descriptor.Call, Function)</code></a> is invoked.
+ <p>The service locator is responsible for two things, one is locating services according to the
+ passed in name and service call information, the other is to implement circuit breaking
+ functionality when <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html#doWithService-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-java.util.function.Function-"><code>doWithService(String, Descriptor.Call, Function)</code></a> is invoked.
 
- The reason circuit breaking is a service locator concern is that generally, the service locator will want to be aware
- of when a circuit breaker is open, and respond accordingly.  For example, it may decide to pull that node from its
- routing pool, or it may decide to notify some up stream service registry that that node is no longer responding.</div>
+ <p>The reason circuit breaking is a service locator concern is that generally, the service
+ locator will want to be aware of when a circuit breaker is open, and respond accordingly. For
+ example, it may decide to pull that node from its routing pool, or it may decide to notify some
+ up stream service registry that that node is no longer responding.</div>
 </li>
 </ul>
 </div>
@@ -263,17 +264,17 @@ var activeTableTab = "activeTableTab";
                                                <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net">URI</a>,<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;T&gt;&gt;&nbsp;block)</pre>
 <div class="block">Do the given action with the given service.
 
- This should be used in preference to <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html#locate-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-"><code>locate(String, Descriptor.Call)</code></a> when possible as it will allow the
- service locator to add in things like circuit breakers.
+ <p>This should be used in preference to <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html#locate-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-"><code>locate(String, Descriptor.Call)</code></a> when possible
+ as it will allow the service locator to add in things like circuit breakers.
 
- It is required that the service locator will, based on the service call circuit breaker configuration, wrap the
- invocation of the passed in block with a circuit breaker.</div>
+ <p>It is required that the service locator will, based on the service call circuit breaker
+ configuration, wrap the invocation of the passed in block with a circuit breaker.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The name of the service.</dd>
 <dd><code>serviceCall</code> - The service call descriptor that this lookup is for.</dd>
-<dd><code>block</code> - A block of code that takes the URI for the service, and returns a future of some work done on the
-              service. This will only be executed if the service was found.</dd>
+<dd><code>block</code> - A block of code that takes the URI for the service, and returns a future of some
+     work done on the service. This will only be executed if the service was found.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The result of the executed block, if the service was found.</dd>
 </dl>

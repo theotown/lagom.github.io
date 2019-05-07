@@ -193,14 +193,15 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html
 <pre><a href="https://www.playframework.com/documentation/latest/api/java/play/mvc/EssentialAction.html?is-external=true" title="class or interface in play.mvc">EssentialAction</a>&nbsp;invoke(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Request</a>,<a href="../../../../../com/lightbend/lagom/javadsl/server/PlayServiceCall.html" title="type parameter in PlayServiceCall">Response</a>&gt;,<a href="https://www.playframework.com/documentation/latest/api/java/play/mvc/EssentialAction.html?is-external=true" title="class or interface in play.mvc">EssentialAction</a>&gt;&nbsp;wrapCall)</pre>
 <div class="block">Low level hook for implementing service calls directly in Play.
 
- This can only be used to hook into plain HTTP calls, it can't be used to hook into WebSocket calls.</div>
+ <p>This can only be used to hook into plain HTTP calls, it can't be used to hook into WebSocket
+ calls.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>wrapCall</code> - A function that takes a service call, and converts it to an EssentialAction.  This action can
-                 then be composed to modify any part of the request and or response, including request and
-                 response headers and the request and response body.  This does not have to be invoked at all if
-                 it's not desired, but may be useful to get the benefit of all the Lagom features such as
-                 serialization and deserialization.</dd>
+<dd><code>wrapCall</code> - A function that takes a service call, and converts it to an EssentialAction.
+     This action can then be composed to modify any part of the request and or response,
+     including request and response headers and the request and response body. This does not
+     have to be invoked at all if it's not desired, but may be useful to get the benefit of all
+     the Lagom features such as serialization and deserialization.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>An EssentialAction to handle the call with.</dd>
 </dl>

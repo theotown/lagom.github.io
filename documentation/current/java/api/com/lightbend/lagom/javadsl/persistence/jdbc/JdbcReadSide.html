@@ -102,12 +102,12 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">JdbcReadSide</span></pre>
 <div class="block">JDBC read side support.
 
- This should be used to build and register a read side processor.
+ <p>This should be used to build and register a read side processor.
 
- All callbacks are executed in a transaction and are automatically committed
- or rolled back based on whether they fail or succeed.
+ <p>All callbacks are executed in a transaction and are automatically committed or rolled back
+ based on whether they fail or succeed.
 
- Offsets are automatically handled.</div>
+ <p>Offsets are automatically handled.</div>
 </li>
 </ul>
 </div>
@@ -196,7 +196,8 @@ var activeTableTab = "activeTableTab";
 <div class="block">Create a builder for a JDBC read side event handler.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>readSideId</code> - An identifier for this read side. This will be used to store offsets in the offset store.</dd>
+<dd><code>readSideId</code> - An identifier for this read side. This will be used to store offsets in the
+     offset store.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The builder.</dd>
 </dl>

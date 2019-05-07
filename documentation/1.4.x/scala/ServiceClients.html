@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -149,14 +149,13 @@
 <p>We&rsquo;ve seen how to define service descriptors and how to implement them, now we need to consume them. The service descriptor contains everything Lagom needs to know about how to invoke a service, consequently, Lagom is able to implement service descriptor interfaces for you.</p><h2 id="Binding-a-service-client"><a class="section-marker" href="#Binding-a-service-client">§</a>Binding a service client</h2>
 <p>The first thing necessary to consume a service is to create an implementation of it. Lagom provides a macro to do this on the <a href="api/com/lightbend/lagom/scaladsl/client/ServiceClient.html"><code>ServiceClient</code></a> class, called <code>implement</code>. The <code>ServiceClient</code> is provided by the <a href="api/com/lightbend/lagom/scaladsl/client/LagomServiceClientComponents.html"><code>LagomServiceClientComponents</code></a>, which is already implemented by <code>LagomApplication</code>, so to create a service client from a Lagom application, you just have to do the following:</p>
 <pre class="prettyprint"><code class="language-scala">abstract class MyApplication(context: LagomApplicationContext)
-  extends LagomApplication(context)
+    extends LagomApplication(context)
     with AhcWSComponents {
 
   lazy val helloService = serviceClient.implement[HelloService]
 }</code></pre><h2 id="Using-a-service-client"><a class="section-marker" href="#Using-a-service-client">§</a>Using a service client</h2>
 <p>Having bound the client, you can now use it anywhere in your Lagom application. Typically this will be done by passing it to another component, such as a service implementation, via that components constructor, which will be done automatically for you if you&rsquo;re using Macwire. Here&rsquo;s an example of consuming one service from another service:</p>
-<pre class="prettyprint"><code class="language-scala">class MyServiceImpl(helloService: HelloService)
-  (implicit ec: ExecutionContext) extends MyService {
+<pre class="prettyprint"><code class="language-scala">class MyServiceImpl(helloService: HelloService)(implicit ec: ExecutionContext) extends MyService {
 
   override def sayHelloLagom = ServiceCall { _ =&gt;
     val result: Future[String] =
@@ -532,7 +531,7 @@ lagom.circuit-breaker {
             </div>
         </div>
     </body>
-    <script src="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-scripts-concat.js"></script>
+    <script src="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

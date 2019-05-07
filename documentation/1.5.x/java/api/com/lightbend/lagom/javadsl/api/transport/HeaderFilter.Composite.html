@@ -120,8 +120,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 implements <a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html" title="interface in com.lightbend.lagom.javadsl.api.transport">HeaderFilter</a></pre>
 <div class="block">A composite header filter.
 
- The order that the filters are applied are forward for headers being sent over the wire, and in reverse for
- headers that are received from the wire.</div>
+ <p>The order that the filters are applied are forward for headers being sent over the wire, and
+ in reverse for headers that are received from the wire.</div>
 </li>
 </ul>
 </div>
@@ -269,7 +269,7 @@ implements <a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html#transformClientRequest-com.lightbend.lagom.javadsl.api.transport.RequestHeader-">HeaderFilter</a></code></span></div>
 <div class="block">Transform the given client request.
 
- This will be invoked on all requests outgoing from the client.</div>
+ <p>This will be invoked on all requests outgoing from the client.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html#transformClientRequest-com.lightbend.lagom.javadsl.api.transport.RequestHeader-">transformClientRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html" title="interface in com.lightbend.lagom.javadsl.api.transport">HeaderFilter</a></code></dd>
@@ -290,7 +290,7 @@ implements <a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html#transformServerRequest-com.lightbend.lagom.javadsl.api.transport.RequestHeader-">HeaderFilter</a></code></span></div>
 <div class="block">Transform the given server request.
 
- This will be invoked on all requests incoming to the server.</div>
+ <p>This will be invoked on all requests incoming to the server.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html#transformServerRequest-com.lightbend.lagom.javadsl.api.transport.RequestHeader-">transformServerRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html" title="interface in com.lightbend.lagom.javadsl.api.transport">HeaderFilter</a></code></dd>
@@ -312,14 +312,14 @@ implements <a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html#transformServerResponse-com.lightbend.lagom.javadsl.api.transport.ResponseHeader-com.lightbend.lagom.javadsl.api.transport.RequestHeader-">HeaderFilter</a></code></span></div>
 <div class="block">Transform the given server response.
 
- This will be invoked on all responses outgoing from the server.</div>
+ <p>This will be invoked on all responses outgoing from the server.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html#transformServerResponse-com.lightbend.lagom.javadsl.api.transport.ResponseHeader-com.lightbend.lagom.javadsl.api.transport.RequestHeader-">transformServerResponse</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html" title="interface in com.lightbend.lagom.javadsl.api.transport">HeaderFilter</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>response</code> - The server response.</dd>
-<dd><code>request</code> - The transformed server request. Useful for when the response transformation requires information
-                from the client.</dd>
+<dd><code>request</code> - The transformed server request. Useful for when the response transformation
+     requires information from the client.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The transformed server response header.</dd>
 </dl>
@@ -336,14 +336,14 @@ implements <a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html#transformClientResponse-com.lightbend.lagom.javadsl.api.transport.ResponseHeader-com.lightbend.lagom.javadsl.api.transport.RequestHeader-">HeaderFilter</a></code></span></div>
 <div class="block">Transform the given client response.
 
- This will be invoked on all responses incoming to the client.</div>
+ <p>This will be invoked on all responses incoming to the client.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html#transformClientResponse-com.lightbend.lagom.javadsl.api.transport.ResponseHeader-com.lightbend.lagom.javadsl.api.transport.RequestHeader-">transformClientResponse</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html" title="interface in com.lightbend.lagom.javadsl.api.transport">HeaderFilter</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>response</code> - The client response.</dd>
-<dd><code>request</code> - The client request. Useful for when the response transformation requires information from the
-                client request.</dd>
+<dd><code>request</code> - The client request. Useful for when the response transformation requires
+     information from the client request.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The transformed client response header.</dd>
 </dl>

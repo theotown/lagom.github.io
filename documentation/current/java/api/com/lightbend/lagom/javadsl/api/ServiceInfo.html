@@ -109,31 +109,27 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public final class <span class="typeNameLabel">ServiceInfo</span>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
-<div class="block"><p>
- Public information for this service. A 3rd party registration could use this to register the service on a
- service registry.
- </p>
- <p>
- This info requires a name and a group of locatable services. A locatable service is
- a named group of <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceAcl.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceAcl</code></a>s.
- </p>
- <pre>
- <code>
-         PSequence&lt;ServiceAcl&gt; helloAcls = TreePVector.from(Arrays.asList(
-              ServiceAcl.methodAndPath(Method.GET, "?/hello/.*"),
-              ServiceAcl.methodAndPath(Method.POST, "/login"))
-         );
-         PSequence&lt;ServiceAcl&gt; goodbyeAcls = TreePVector.singleton(
-              ServiceAcl.methodAndPath(Method.POST, "/logout/.*")
-         );
+<div class="block">Public information for this service. A 3rd party registration could use this to register the
+ service on a service registry.
 
-         PMap&lt;String, PSequence&lt;ServiceAcl&gt;&gt; locatableServices =
-              HashTreePMap.&lt;String, PSequence&lt;ServiceAcl&gt;&gt;empty()
-                  .plus("hello-service", helloAcls)
-                  .plus("goodbye-service", goodbyeAcls);
-         new ServiceInfo("GreetingService", locatableServices);
- </code>
- </pre></div>
+ <p>This info requires a name and a group of locatable services. A locatable service is a named
+ group of <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceAcl.html" title="class in com.lightbend.lagom.javadsl.api"><code>ServiceAcl</code></a>s.
+
+ <pre><code>
+ PSequence&lt;ServiceAcl&gt; helloAcls = TreePVector.from(Arrays.asList(
+      ServiceAcl.methodAndPath(Method.GET, "?/hello/.*"),
+      ServiceAcl.methodAndPath(Method.POST, "/login"))
+ );
+ PSequence&lt;ServiceAcl&gt; goodbyeAcls = TreePVector.singleton(
+      ServiceAcl.methodAndPath(Method.POST, "/logout/.*")
+ );
+
+ PMap&lt;String, PSequence&lt;ServiceAcl&gt;&gt; locatableServices =
+      HashTreePMap.&lt;String, PSequence&lt;ServiceAcl&gt;&gt;empty()
+          .plus("hello-service", helloAcls)
+          .plus("goodbye-service", goodbyeAcls);
+ new ServiceInfo("GreetingService", locatableServices);
+ </code></pre></div>
 </li>
 </ul>
 </div>
@@ -189,7 +185,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colFirst"><code>org.pcollections.PMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceAcl.html" title="class in com.lightbend.lagom.javadsl.api">ServiceAcl</a>&gt;&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html#getLocatableServices--">getLocatableServices</a></span>()</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">this method will be removed when dropping support for multiple locatable service descriptors per service.</span></div>
+<div class="block"><span class="deprecationComment">this method will be removed when dropping support for multiple locatable service
+     descriptors per service.</span></div>
 </div>
 </td>
 </tr>
@@ -249,9 +246,10 @@ public&nbsp;ServiceInfo(<a href="https://docs.oracle.com/javase/8/docs/api/java/
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">use <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceInfo.html#of-java.lang.String-com.lightbend.lagom.javadsl.api.ServiceAcl...-"><code>of(String, ServiceAcl...)</code></a> instead.</span></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>serviceName</code> - identifies this service. This is the default id when this service acts as a client.</dd>
-<dd><code>locatableServices</code> - a group of locatable services. This information should be publicized on a Service
-                          Registry for either client-side or server-side service discovery.</dd>
+<dd><code>serviceName</code> - identifies this service. This is the default id when this service acts as a
+     client.</dd>
+<dd><code>locatableServices</code> - a group of locatable services. This information should be publicized
+     on a Service Registry for either client-side or server-side service discovery.</dd>
 </dl>
 </li>
 </ul>
@@ -297,7 +295,8 @@ public&nbsp;ServiceInfo(<a href="https://docs.oracle.com/javase/8/docs/api/java/
 <h4>getLocatableServices</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
 public&nbsp;org.pcollections.PMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceAcl.html" title="class in com.lightbend.lagom.javadsl.api">ServiceAcl</a>&gt;&gt;&nbsp;getLocatableServices()</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">this method will be removed when dropping support for multiple locatable service descriptors per service.</span></div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">this method will be removed when dropping support for multiple locatable service
+     descriptors per service.</span></div>
 </li>
 </ul>
 <a name="getAcls--">

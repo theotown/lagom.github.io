@@ -111,8 +111,9 @@ var activeTableTab = "activeTableTab";
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">Creates topic producers.
 
- This can be used to help implement <a href="../../../../../com/lightbend/lagom/javadsl/api/broker/Topic.html" title="interface in com.lightbend.lagom.javadsl.api.broker"><code>Topic</code></a> calls on services, a service that returns these topics will
- automatically have these streams published while the service is running, sharded across the services nodes.</div>
+ <p>This can be used to help implement <a href="../../../../../com/lightbend/lagom/javadsl/api/broker/Topic.html" title="interface in com.lightbend.lagom.javadsl.api.broker"><code>Topic</code></a> calls on services, a service that returns
+ these topics will automatically have these streams published while the service is running,
+ sharded across the services nodes.</div>
 </li>
 </ul>
 </div>
@@ -216,11 +217,13 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public static&nbsp;&lt;Message&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/broker/Topic.html" title="interface in com.lightbend.lagom.javadsl.api.broker">Topic</a>&lt;Message&gt;&nbsp;singleStreamWithOffset(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/Offset.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset</a>,akka.stream.javadsl.Source&lt;akka.japi.Pair&lt;Message,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/Offset.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset</a>&gt;,?&gt;&gt;&nbsp;eventStream)</pre>
 <div class="block">Publish a single stream.
 
- This producer will ensure every element from the stream will be published at least once (usually only once),
- using the message offsets to track where in the stream the producer is up to publishing.</div>
+ <p>This producer will ensure every element from the stream will be published at least once
+ (usually only once), using the message offsets to track where in the stream the producer is up
+ to publishing.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>eventStream</code> - A function to create the event stream given the last offset that was published.</dd>
+<dd><code>eventStream</code> - A function to create the event stream given the last offset that was
+     published.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The topic producer.</dd>
 </dl>
@@ -236,15 +239,17 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
                                                                                                   <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html?is-external=true" title="class or interface in java.util.function">BiFunction</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a>&lt;Event&gt;,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/Offset.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset</a>,akka.stream.javadsl.Source&lt;akka.japi.Pair&lt;Message,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/Offset.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset</a>&gt;,?&gt;&gt;&nbsp;eventStream)</pre>
 <div class="block">Publish a stream that is sharded across many tags.
 
- The tags will be distributed around the cluster, ensuring that at most one event stream for each tag is
- being published at a particular time.
+ <p>The tags will be distributed around the cluster, ensuring that at most one event stream for
+ each tag is being published at a particular time.
 
- This producer will ensure every element from each tags stream will be published at least once (usually only
- once), using the message offsets to track where in the stream the producer is up to publishing.</div>
+ <p>This producer will ensure every element from each tags stream will be published at least
+ once (usually only once), using the message offsets to track where in the stream the producer
+ is up to publishing.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>tags</code> - The tags to publish.</dd>
-<dd><code>eventStream</code> - A function event stream for a given shard given the last offset that was published.</dd>
+<dd><code>eventStream</code> - A function event stream for a given shard given the last offset that was
+     published.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The topic producer.</dd>
 </dl>
@@ -260,15 +265,17 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
                                                                                                   <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html?is-external=true" title="class or interface in java.util.function">BiFunction</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a>&lt;Event&gt;,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/Offset.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset</a>,akka.stream.javadsl.Source&lt;akka.japi.Pair&lt;Message,<a href="../../../../../com/lightbend/lagom/javadsl/persistence/Offset.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset</a>&gt;,?&gt;&gt;&nbsp;eventStream)</pre>
 <div class="block">Publish all tags of a stream that is sharded across many tags.
 
- The tags will be distributed around the cluster, ensuring that at most one event stream for each tag is
- being published at a particular time.
+ <p>The tags will be distributed around the cluster, ensuring that at most one event stream for
+ each tag is being published at a particular time.
 
- This producer will ensure every element from each tags stream will be published at least once (usually only
- once), using the message offsets to track where in the stream the producer is up to publishing.</div>
+ <p>This producer will ensure every element from each tags stream will be published at least
+ once (usually only once), using the message offsets to track where in the stream the producer
+ is up to publishing.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>shards</code> - The tags to publish.</dd>
-<dd><code>eventStream</code> - A function event stream for a given shard given the last offset that was published.</dd>
+<dd><code>eventStream</code> - A function event stream for a given shard given the last offset that was
+     published.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The topic producer.</dd>
 </dl>

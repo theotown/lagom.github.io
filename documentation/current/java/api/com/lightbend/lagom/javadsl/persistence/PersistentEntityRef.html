@@ -114,9 +114,8 @@ var activeTableTab = "activeTableTab";
 <pre>public final class <span class="typeNameLabel">PersistentEntityRef&lt;Command&gt;</span>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements akka.actor.NoSerializationVerificationNeeded</pre>
-<div class="block">Commands are sent to a <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> using a
- <code>PersistentEntityRef</code>. It is retrieved with
- <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRegistry.html#refFor-java.lang.Class-java.lang.String-"><code>PersistentEntityRegistry.refFor(Class, String)</code></a>.</div>
+<div class="block">Commands are sent to a <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> using a <code>PersistentEntityRef</code>. It is
+ retrieved with <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRegistry.html#refFor-java.lang.Class-java.lang.String-"><code>PersistentEntityRegistry.refFor(Class, String)</code></a>.</div>
 </li>
 </ul>
 </div>
@@ -154,7 +153,8 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
                    akka.actor.ActorRef&nbsp;region,
                    scala.concurrent.duration.FiniteDuration&nbsp;askTimeout)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">As of Lagom 1.5. Use <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#PersistentEntityRef-java.lang.String-akka.actor.ActorRef-java.time.Duration-"><code>PersistentEntityRef(String, ActorRef, Duration)</code></a> instead.</span></div>
+<div class="block"><span class="deprecationComment">As of Lagom 1.5. Use <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#PersistentEntityRef-java.lang.String-akka.actor.ActorRef-java.time.Duration-"><code>PersistentEntityRef(String, ActorRef, Duration)</code></a>
+     instead.</span></div>
 </div>
 </td>
 </tr>
@@ -233,7 +233,8 @@ implements akka.actor.NoSerializationVerificationNeeded</pre>
 public&nbsp;PersistentEntityRef(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;entityId,
                                        akka.actor.ActorRef&nbsp;region,
                                        scala.concurrent.duration.FiniteDuration&nbsp;askTimeout)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">As of Lagom 1.5. Use <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#PersistentEntityRef-java.lang.String-akka.actor.ActorRef-java.time.Duration-"><code>PersistentEntityRef(String, ActorRef, Duration)</code></a> instead.</span></div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">As of Lagom 1.5. Use <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#PersistentEntityRef-java.lang.String-akka.actor.ActorRef-java.time.Duration-"><code>PersistentEntityRef(String, ActorRef, Duration)</code></a>
+     instead.</span></div>
 </li>
 </ul>
 <a name="PersistentEntityRef-java.lang.String-akka.actor.ActorRef-java.time.Duration-">
@@ -287,13 +288,13 @@ public&nbsp;PersistentEntityRef(<a href="https://docs.oracle.com/javase/8/docs/a
 <li class="blockList">
 <h4>ask</h4>
 <pre>public&nbsp;&lt;Reply,Cmd extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a> &amp; <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.ReplyType.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.ReplyType</a>&lt;Reply&gt;&gt;&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;Reply&gt;&nbsp;ask(Cmd&nbsp;command)</pre>
-<div class="block">Send the <code>command</code> to the <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a>. The returned
- <code>CompletionStage</code> will be completed with the reply from the <code>PersistentEntity</code>.
+<div class="block">Send the <code>command</code> to the <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a>. The returned <code>
+ CompletionStage</code> will be completed with the reply from the <code>PersistentEntity</code>.
  The type of the reply is defined by the command (see <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.ReplyType.html" title="interface in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity.ReplyType</code></a>).
- <p>
- The <code>CompletionStage</code> may also be completed with failure, sent by the <code>PersistentEntity</code>
- or a <code>akka.pattern.AskTimeoutException</code> if there is no reply within a timeout.
- The timeout can defined in configuration or overridden using <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#withAskTimeout-java.time.Duration-"><code>withAskTimeout(Duration)</code></a>.</div>
+
+ <p>The <code>CompletionStage</code> may also be completed with failure, sent by the <code>
+ PersistentEntity</code> or a <code>akka.pattern.AskTimeoutException</code> if there is no reply
+ within a timeout. The timeout can defined in configuration or overridden using <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#withAskTimeout-java.time.Duration-"><code>withAskTimeout(Duration)</code></a>.</div>
 </li>
 </ul>
 <a name="withAskTimeout-scala.concurrent.duration.FiniteDuration-">
@@ -305,10 +306,10 @@ public&nbsp;PersistentEntityRef(<a href="https://docs.oracle.com/javase/8/docs/a
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
 public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntityRef</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="type parameter in PersistentEntityRef">Command</a>&gt;&nbsp;withAskTimeout(scala.concurrent.duration.FiniteDuration&nbsp;timeout)</pre>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">As of Lagom 1.5. Use <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#withAskTimeout-java.time.Duration-"><code>withAskTimeout(Duration)</code></a> instead.</span></div>
-<div class="block">The timeout for <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#ask-Cmd-"><code>ask(Object)</code></a>. The timeout is by default defined in configuration
- but it can be adjusted for a specific <code>PersistentEntityRef</code> using this method.
- Note that this returns a new <code>PersistentEntityRef</code> instance with the given timeout
- (<code>PersistentEntityRef</code> is immutable).</div>
+<div class="block">The timeout for <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#ask-Cmd-"><code>ask(Object)</code></a>. The timeout is by default defined in configuration but it
+ can be adjusted for a specific <code>PersistentEntityRef</code> using this method. Note that
+ this returns a new <code>PersistentEntityRef</code> instance with the given timeout (<code>
+ PersistentEntityRef</code> is immutable).</div>
 </li>
 </ul>
 <a name="withAskTimeout-java.time.Duration-">
@@ -318,10 +319,10 @@ public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/Pers
 <li class="blockList">
 <h4>withAskTimeout</h4>
 <pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntityRef</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="type parameter in PersistentEntityRef">Command</a>&gt;&nbsp;withAskTimeout(<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true" title="class or interface in java.time">Duration</a>&nbsp;timeout)</pre>
-<div class="block">The timeout for <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#ask-Cmd-"><code>ask(Object)</code></a>. The timeout is by default defined in configuration
- but it can be adjusted for a specific <code>PersistentEntityRef</code> using this method.
- Note that this returns a new <code>PersistentEntityRef</code> instance with the given timeout
- (<code>PersistentEntityRef</code> is immutable).</div>
+<div class="block">The timeout for <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#ask-Cmd-"><code>ask(Object)</code></a>. The timeout is by default defined in configuration but it
+ can be adjusted for a specific <code>PersistentEntityRef</code> using this method. Note that
+ this returns a new <code>PersistentEntityRef</code> instance with the given timeout (<code>
+ PersistentEntityRef</code> is immutable).</div>
 </li>
 </ul>
 <a name="toString--">

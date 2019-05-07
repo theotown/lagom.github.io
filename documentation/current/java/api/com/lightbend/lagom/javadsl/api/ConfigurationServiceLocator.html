@@ -257,19 +257,19 @@ public&nbsp;ConfigurationServiceLocator(com.typesafe.config.Config&nbsp;configur
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html#doWithService-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-java.util.function.Function-">ServiceLocator</a></code></span></div>
 <div class="block">Do the given action with the given service.
 
- This should be used in preference to <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html#locate-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-"><code>ServiceLocator.locate(String, Descriptor.Call)</code></a> when possible as it will allow the
- service locator to add in things like circuit breakers.
+ <p>This should be used in preference to <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html#locate-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-"><code>ServiceLocator.locate(String, Descriptor.Call)</code></a> when possible
+ as it will allow the service locator to add in things like circuit breakers.
 
- It is required that the service locator will, based on the service call circuit breaker configuration, wrap the
- invocation of the passed in block with a circuit breaker.</div>
+ <p>It is required that the service locator will, based on the service call circuit breaker
+ configuration, wrap the invocation of the passed in block with a circuit breaker.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html#doWithService-java.lang.String-com.lightbend.lagom.javadsl.api.Descriptor.Call-java.util.function.Function-">doWithService</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceLocator.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceLocator</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The name of the service.</dd>
 <dd><code>serviceCall</code> - The service call descriptor that this lookup is for.</dd>
-<dd><code>block</code> - A block of code that takes the URI for the service, and returns a future of some work done on the
-              service. This will only be executed if the service was found.</dd>
+<dd><code>block</code> - A block of code that takes the URI for the service, and returns a future of some
+     work done on the service. This will only be executed if the service was found.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The result of the executed block, if the service was found.</dd>
 </dl>

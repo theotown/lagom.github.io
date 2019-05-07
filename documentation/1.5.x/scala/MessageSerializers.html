@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -158,9 +158,7 @@ trait HelloService extends Service {
     import Service._
 
     named(&quot;hello&quot;).withCalls(
-      call(sayHello)(MessageSerializer.StringMessageSerializer,
-        MessageSerializer.StringMessageSerializer
-      )
+      call(sayHello)(MessageSerializer.StringMessageSerializer, MessageSerializer.StringMessageSerializer)
     )
   }
 }</code></pre>
@@ -175,7 +173,8 @@ object MyMessage {
 
   implicit val format: Format[MyMessage] = Json.format
   val alternateFormat: Format[MyMessage] = {
-    (__ \ &quot;identifier&quot;).format[String]
+    (__ \ &quot;identifier&quot;)
+      .format[String]
       .inmap(MyMessage.apply, _.id)
   }
 }</code></pre>
@@ -212,7 +211,10 @@ object MyMessage {
 <p>Firstly, we&rsquo;ll implement the <code>NegotiatedSerializer</code> for plain text Strings:</p>
 <pre class="prettyprint"><code class="language-scala">import akka.util.ByteString
 import com.lightbend.lagom.scaladsl.api.deser.MessageSerializer.NegotiatedSerializer
-import com.lightbend.lagom.scaladsl.api.transport.{DeserializationException, MessageProtocol, NotAcceptable, UnsupportedMediaType}
+import com.lightbend.lagom.scaladsl.api.transport.DeserializationException
+import com.lightbend.lagom.scaladsl.api.transport.MessageProtocol
+import com.lightbend.lagom.scaladsl.api.transport.NotAcceptable
+import com.lightbend.lagom.scaladsl.api.transport.UnsupportedMediaType
 
 class PlainTextSerializer(val charset: String) extends NegotiatedSerializer[String, ByteString] {
   override val protocol = MessageProtocol(Some(&quot;text/plain&quot;), Some(charset))
@@ -221,10 +223,10 @@ class PlainTextSerializer(val charset: String) extends NegotiatedSerializer[Stri
 }</code></pre>
 <p>The <code>protocol</code> method returns the protocol that this serializer serializes to, and you can see that we are passing the <code>charset</code> that this serializer will use in the constructor. The <code>serialize</code> method is a straight forward conversion from <code>String</code> to <code>ByteString</code>.</p>
 <p>Next we&rsquo;ll implement the same thing but to serialize to JSON:</p>
-<pre class="prettyprint"><code class="language-scala">import play.api.libs.json.{Json, JsString}
+<pre class="prettyprint"><code class="language-scala">import play.api.libs.json.Json
+import play.api.libs.json.JsString
 
-class JsonTextSerializer extends
-  NegotiatedSerializer[String, ByteString] {
+class JsonTextSerializer extends NegotiatedSerializer[String, ByteString] {
 
   override val protocol = MessageProtocol(Some(&quot;application/json&quot;))
 
@@ -235,8 +237,7 @@ class JsonTextSerializer extends
 <p>Now let&rsquo;s implement the plain text deserializer:</p>
 <pre class="prettyprint"><code class="language-scala">import com.lightbend.lagom.scaladsl.api.deser.MessageSerializer.NegotiatedDeserializer
 
-class PlainTextDeserializer(val charset: String) extends
-  NegotiatedDeserializer[String, ByteString] {
+class PlainTextDeserializer(val charset: String) extends NegotiatedDeserializer[String, ByteString] {
 
   def deserialize(bytes: ByteString) =
     bytes.decodeString(charset)
@@ -245,8 +246,7 @@ class PlainTextDeserializer(val charset: String) extends
 <p>Likewise, we have a JSON text deserializer:</p>
 <pre class="prettyprint"><code class="language-scala">import scala.util.control.NonFatal
 
-class JsonTextDeserializer extends
-  NegotiatedDeserializer[String, ByteString] {
+class JsonTextDeserializer extends NegotiatedDeserializer[String, ByteString] {
 
   def deserialize(bytes: ByteString) = {
     try {
@@ -259,8 +259,7 @@ class JsonTextDeserializer extends
 <p>Now that we&rsquo;ve implemented our negotiated serializers and deserializers, it&rsquo;s time to implement the <code>MessageSerializer</code> to do the actual protocol negotiation. Our class will extend <code>StrictMessageSerializer</code>:</p>
 <pre class="prettyprint"><code class="language-scala">import com.lightbend.lagom.scaladsl.api.deser.StrictMessageSerializer
 
-class TextMessageSerializer extends
-  StrictMessageSerializer[String] {</code></pre>
+class TextMessageSerializer extends StrictMessageSerializer[String] {</code></pre>
 <p>The next thing we need to do is define the protocols that we accept. This will be used by the client to set the <code>Accept</code> header:</p>
 <pre class="prettyprint"><code class="language-scala">override def acceptResponseProtocols = List(
   MessageProtocol(Some(&quot;text/plain&quot;)),
@@ -288,19 +287,22 @@ def serializerForResponse(accepted: immutable.Seq[MessageProtocol]) = {
   accepted match {
     case Nil =&gt; new PlainTextSerializer(&quot;utf-8&quot;)
     case protocols =&gt;
-      protocols.collectFirst {
-        case MessageProtocol(Some(&quot;text/plain&quot; | &quot;text/*&quot; | &quot;*/*&quot; | &quot;*&quot;), charset, _) =&gt;
-          new PlainTextSerializer(charset.getOrElse(&quot;utf-8&quot;))
-        case MessageProtocol(Some(&quot;application/json&quot;), _, _) =&gt;
-          new JsonTextSerializer
-      }.getOrElse {
-        throw NotAcceptable(accepted, MessageProtocol(Some(&quot;text/plain&quot;)))
-      }
+      protocols
+        .collectFirst {
+          case MessageProtocol(Some(&quot;text/plain&quot; | &quot;text/*&quot; | &quot;*/*&quot; | &quot;*&quot;), charset, _) =&gt;
+            new PlainTextSerializer(charset.getOrElse(&quot;utf-8&quot;))
+          case MessageProtocol(Some(&quot;application/json&quot;), _, _) =&gt;
+            new JsonTextSerializer
+        }
+        .getOrElse {
+          throw NotAcceptable(accepted, MessageProtocol(Some(&quot;text/plain&quot;)))
+        }
   }
 }</code></pre><h2 id="Examples"><a class="section-marker" href="#Examples">§</a>Examples</h2><h3 id="Protocol-buffer-serializers"><a class="section-marker" href="#Protocol-buffer-serializers">§</a>Protocol buffer serializers</h3>
 <p><a href="https://developers.google.com/protocol-buffers/">Protocol buffers</a> are a high performance language neutral alternative to JSON that are particularly a good choice for internal communication between services. Here&rsquo;s an example of how you might write a <code>MessageSerializer</code> for an <code>Order</code> class generated by <code>protoc</code>:</p>
 <pre class="prettyprint"><code class="language-scala">import akka.util.ByteString
-import com.lightbend.lagom.scaladsl.api.deser.MessageSerializer.{NegotiatedDeserializer, NegotiatedSerializer}
+import com.lightbend.lagom.scaladsl.api.deser.MessageSerializer.NegotiatedDeserializer
+import com.lightbend.lagom.scaladsl.api.deser.MessageSerializer.NegotiatedSerializer
 import com.lightbend.lagom.scaladsl.api.deser.StrictMessageSerializer
 import com.lightbend.lagom.scaladsl.api.transport.MessageProtocol
 
@@ -308,7 +310,7 @@ import scala.collection.immutable
 
 class ProtobufSerializer extends StrictMessageSerializer[Order] {
 
-  final private val serializer = {
+  private final val serializer = {
     new NegotiatedSerializer[Order, ByteString]() {
       override def protocol: MessageProtocol =
         MessageProtocol(Some(&quot;application/octet-stream&quot;))
@@ -321,7 +323,7 @@ class ProtobufSerializer extends StrictMessageSerializer[Order] {
     }
   }
 
-  final private val deserializer = {
+  private final val deserializer = {
     new NegotiatedDeserializer[Order, ByteString] {
       override def deserialize(bytes: ByteString) =
         Order.parseFrom(bytes.iterator.asInputStream)
@@ -333,7 +335,7 @@ class ProtobufSerializer extends StrictMessageSerializer[Order] {
   override def deserializer(protocol: MessageProtocol) =
     deserializer
   override def serializerForResponse(
-    acceptedMessageProtocols: immutable.Seq[MessageProtocol]
+      acceptedMessageProtocols: immutable.Seq[MessageProtocol]
   ) = serializer
 }</code></pre>
 <p>Note that this <code>MessageSerializer</code> doesn&rsquo;t attempt to do any content negotiation. In many cases, content negotiation is overkill, if you don&rsquo;t need it, you don&rsquo;t have to implement it.</p>
@@ -606,7 +608,7 @@ class ProtobufSerializer extends StrictMessageSerializer[Order] {
             </div>
         </div>
     </body>
-    <script src="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-scripts-concat.js"></script>
+    <script src="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

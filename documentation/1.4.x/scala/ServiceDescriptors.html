@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -212,8 +212,8 @@ def descriptor = {
   import Service._
   import com.lightbend.lagom.scaladsl.api.transport.Method
   named(&quot;orders&quot;).withCalls(
-    restCall(Method.POST,   &quot;/order/:orderId/item&quot;,         addItem _),
-    restCall(Method.GET,    &quot;/order/:orderId/item/:itemId&quot;, getItem _),
+    restCall(Method.POST, &quot;/order/:orderId/item&quot;, addItem _),
+    restCall(Method.GET, &quot;/order/:orderId/item/:itemId&quot;, getItem _),
     restCall(Method.DELETE, &quot;/order/:orderId/item/:itemId&quot;, deleteItem _)
   )
 }</code></pre><h2 id="Messages"><a class="section-marker" href="#Messages">§</a>Messages</h2>
@@ -251,9 +251,9 @@ def descriptor = {
 <p>Play JSON provides a functional type class based library for composing JSON formatters. For detailed documentation on how to use this library, see the <a href="https://www.playframework.com/documentation/2.6.x/ScalaJsonCombinators">Play documentation</a>. For now, we will just look at how to define JSON formats for case classes using Play&rsquo;s JSON format macro.</p>
 <p>Let&rsquo;s say you have a <code>User</code> case class that looks like this:</p>
 <pre class="prettyprint"><code class="language-scala">case class User(
-  id: Long,
-  name: String,
-  email: Option[String]
+    id: Long,
+    name: String,
+    email: Option[String]
 )</code></pre>
 <p>A Play JSON format can be defined on the <code>User</code> companion object like so:</p>
 <pre class="prettyprint"><code class="language-scala">object User {
@@ -536,7 +536,7 @@ def descriptor = {
             </div>
         </div>
     </body>
-    <script src="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-scripts-concat.js"></script>
+    <script src="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

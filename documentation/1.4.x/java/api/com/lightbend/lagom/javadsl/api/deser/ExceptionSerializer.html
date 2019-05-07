@@ -187,7 +187,7 @@ var activeTableTab = "activeTableTab";
 <pre>static final&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/ExceptionSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">ExceptionSerializer</a> JACKSON</pre>
 <div class="block">The default Jackson exception serializer.
 
- This is only a placeholder, the framework will provide the actual implementation at runtime.</div>
+ <p>This is only a placeholder, the framework will provide the actual implementation at runtime.</div>
 </li>
 </ul>
 <a name="DEFAULT">
@@ -218,10 +218,11 @@ var activeTableTab = "activeTableTab";
                               <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/MessageProtocol.html" title="class in com.lightbend.lagom.javadsl.api.transport">MessageProtocol</a>&gt;&nbsp;accept)</pre>
 <div class="block">Serialize the given exception to an exception message.
 
- The raw exception message consists of an error code, a message protocol, and a message entity to send across the
- wire.
+ <p>The raw exception message consists of an error code, a message protocol, and a message
+ entity to send across the wire.
 
- The exception serializer may attempt to match one of the protocols passed into the accept parameter.</div>
+ <p>The exception serializer may attempt to match one of the protocols passed into the accept
+ parameter.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>exception</code> - The exception to serialize.</dd>
@@ -240,9 +241,9 @@ var activeTableTab = "activeTableTab";
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;deserialize(<a href="../../../../../../com/lightbend/lagom/javadsl/api/deser/RawExceptionMessage.html" title="class in com.lightbend.lagom.javadsl.api.deser">RawExceptionMessage</a>&nbsp;message)</pre>
 <div class="block">Deserialize an exception message into an exception.
 
- The exception serializer should make a best effort attempt at deserializing the message, but should not expect
- the message to be in any particular format.  If it cannot deserialize the message, it should return a generic
- exception, it should not itself throw an exception.</div>
+ <p>The exception serializer should make a best effort attempt at deserializing the message, but
+ should not expect the message to be in any particular format. If it cannot deserialize the
+ message, it should return a generic exception, it should not itself throw an exception.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>message</code> - The message to deserialize.</dd>

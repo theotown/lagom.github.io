@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -169,9 +169,15 @@ class HelloServiceImpl extends HelloService {
 import akka.stream.scaladsl.Source
 
 override def tick(intervalMs: Int) = ServiceCall { tickMessage =&gt;
-  Future.successful(Source.tick(
-    intervalMs.milliseconds, intervalMs.milliseconds, tickMessage
-  ).mapMaterializedValue(_ =&gt; NotUsed))
+  Future.successful(
+    Source
+      .tick(
+        intervalMs.milliseconds,
+        intervalMs.milliseconds,
+        tickMessage
+      )
+      .mapMaterializedValue(_ =&gt; NotUsed)
+  )
 }</code></pre>
 <p>The first two arguments are the delay before messages should be sent, and the interval at which they should be sent. The third argument is the message that should be sent on each tick. Calling this service call with an interval of <code>1000</code> and a request message of <code>tick</code> will result in a stream being returned that sent a <code>tick</code> message every second.</p>
 <p>A streamed <code>sayHello</code> service call can be implemented by mapping the incoming <code>Source</code> of the names to say hello:</p>
@@ -189,7 +195,8 @@ import com.lightbend.lagom.scaladsl.api.transport.ResponseHeader
 
 override def sayHello = ServerServiceCall { (requestHeader, name) =&gt;
   val user = requestHeader.principal
-    .map(_.getName).getOrElse(&quot;No one&quot;)
+    .map(_.getName)
+    .getOrElse(&quot;No one&quot;)
   val response = s&quot;$user wants to say hello to $name&quot;
 
   val responseHeader = ResponseHeader.Ok
@@ -205,9 +212,10 @@ override def sayHello = ServerServiceCall { (requestHeader, name) =&gt;
   }</code></pre>
 <p>This uses the <code>compose</code> method from <code>ServerServiceCall</code>, which takes a callback that takes the request header, and returns a service call.</p>
 <p>If we were to implement the <code>HelloService</code> to be logged, we would use it like this:</p>
-<pre class="prettyprint"><code class="language-scala">override def sayHello = logged(ServerServiceCall { name =&gt;
-  Future.successful(s&quot;Hello $name!&quot;)
-})</code></pre>
+<pre class="prettyprint"><code class="language-scala">override def sayHello =
+  logged(ServerServiceCall { name =&gt;
+    Future.successful(s&quot;Hello $name!&quot;)
+  })</code></pre>
 <p>Another common cross cutting concern is authentication. Imagine you have a user storage interface:</p>
 <pre class="prettyprint"><code class="language-scala">trait UserStorage {
   def lookupUser(username: String): Future[Option[User]]
@@ -216,9 +224,8 @@ override def sayHello = ServerServiceCall { (requestHeader, name) =&gt;
 <pre class="prettyprint"><code class="language-scala">import com.lightbend.lagom.scaladsl.api.transport.Forbidden
 
 def authenticated[Request, Response](
-  serviceCall: User =&gt; ServerServiceCall[Request, Response]
+    serviceCall: User =&gt; ServerServiceCall[Request, Response]
 ) = ServerServiceCall.composeAsync { requestHeader =&gt;
-
   // First lookup user
   val userLookup = requestHeader.principal
     .map(principal =&gt; userStorage.lookupUser(principal.getName))
@@ -227,7 +234,7 @@ def authenticated[Request, Response](
   // Then, if it exists, apply it to the service call
   userLookup.map {
     case Some(user) =&gt; serviceCall(user)
-    case None =&gt; throw Forbidden(&quot;User must be authenticated to access this service call&quot;)
+    case None       =&gt; throw Forbidden(&quot;User must be authenticated to access this service call&quot;)
   }
 }</code></pre>
 <p>This time, since the lookup of the user is asynchronous, we&rsquo;re using <code>composeAsync</code>, which allows us to asynchronously return the service call to handle the service. Also, instead of simply accepting a service call, we accept a function of a user to a service call. This means the service call can access the user:</p>
@@ -239,7 +246,7 @@ def authenticated[Request, Response](
 <p>Notice here, in contrast to other frameworks where a user object may be passed using thread locals or in an untyped map by filters, the user object is explicitly passed. If your code requires access to the user object, it&rsquo;s impossible to have a configuration error where you forgot to put the filter in place, the code simply will not compile.</p>
 <p>Often you will want to compose multiple service calls together. This is where the power of function based composition really shines, in contrast to annotations. Since service calls are just regular methods, you can simply define a new method that combines them, like so:</p>
 <pre class="prettyprint"><code class="language-scala">def filter[Request, Response](
-  serviceCall: User =&gt; ServerServiceCall[Request, Response]
+    serviceCall: User =&gt; ServerServiceCall[Request, Response]
 ) = logged(authenticated(serviceCall))</code></pre>
 <p>Using this in the hello service:</p>
 <pre class="prettyprint"><code class="language-scala">override def sayHello = filter { user =&gt;
@@ -516,7 +523,7 @@ def authenticated[Request, Response](
             </div>
         </div>
     </body>
-    <script src="/5ad17d87d35d93694e42df94cd07617ad3b26de9-all-scripts-concat.js"></script>
+    <script src="/6adb20501aceed03481f57d58aa8a8cbfda8f4ee-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

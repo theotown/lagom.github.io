@@ -111,19 +111,20 @@ var activeTableTab = "activeTableTab";
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">A read side processor.
 
- Read side processors consume events produced by <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a>
- instances, and update some read side data store that is optimized for queries.
+ <p>Read side processors consume events produced by <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> instances, and update some read side
+ data store that is optimized for queries.
 
- The events they consume must be tagged, and a read side is able to consume events of one or more tags. Events are
- usually tagged according to some supertype of event, for example, events may be tagged as <code>Order</code> events.
- They may also be tagged according to a hash of the ID of the entity associated with the event - this allows read
- side event handling to be sharded across many nodes.  Tagging is done using
- <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>AggregateEventTag</code></a>.
+ <p>The events they consume must be tagged, and a read side is able to consume events of one or
+ more tags. Events are usually tagged according to some supertype of event, for example, events
+ may be tagged as <code>Order</code> events. They may also be tagged according to a hash of the ID
+ of the entity associated with the event - this allows read side event handling to be sharded
+ across many nodes. Tagging is done using <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>AggregateEventTag</code></a>.
 
- Read side processors are responsible for tracking what events they have already seen. This is done using offsets,
- which are sequential values associated with each event. Note that end users typically will not need to handle
- offsets themselves, this will be provided by Lagom support specific to the read side datastore, and end users can
- just focus on handling the events themselves.</div>
+ <p>Read side processors are responsible for tracking what events they have already seen. This is
+ done using offsets, which are sequential values associated with each event. Note that end users
+ typically will not need to handle offsets themselves, this will be provided by Lagom support
+ specific to the read side datastore, and end users can just focus on handling the events
+ themselves.</div>
 </li>
 </ul>
 </div>
@@ -260,9 +261,9 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public abstract&nbsp;org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.html" title="type parameter in ReadSideProcessor">Event</a>&gt;&gt;&nbsp;aggregateTags()</pre>
 <div class="block">The tags to aggregate.
 
- This must return at least one tag to aggregate. Read side processors will be sharded over the cluster by these
- tags, so if events are tagged by a shard key, the read side processing load can be distributed across the
- cluster.</div>
+ <p>This must return at least one tag to aggregate. Read side processors will be sharded over
+ the cluster by these tags, so if events are tagged by a shard key, the read side processing
+ load can be distributed across the cluster.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The tags to aggregate.</dd>
@@ -278,10 +279,11 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;readSideName()</pre>
 <div class="block">The name of this read side.
 
- This name should be unique among the read sides and entity types of the service. By default it is using the
- short class name of the concrete `ReadSideProcessor` class. Subclasses may override to define other type names.
- It is wise to override and retain the original name when the class name is changed because this name is used to
- identify read sides throughout the cluster.</div>
+ <p>This name should be unique among the read sides and entity types of the service. By default
+ it is using the short class name of the concrete `ReadSideProcessor` class. Subclasses may
+ override to define other type names. It is wise to override and retain the original name when
+ the class name is changed because this name is used to identify read sides throughout the
+ cluster.</div>
 </li>
 </ul>
 </li>

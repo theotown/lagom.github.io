@@ -214,7 +214,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public&nbsp;org.pcollections.PMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,org.pcollections.PSequence&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;&nbsp;headers()</pre>
 <div class="block">Get the headers for the message.
 
- The returned map is case sensitive, it is recommended that you use <tt>getHeader</tt> instead.</div>
+ <p>The returned map is case sensitive, it is recommended that you use <tt>getHeader</tt>
+ instead.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The headers for this message.</dd>
@@ -230,7 +231,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" title="class or interface in java.util">Optional</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;getHeader(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Get the header with the given name.
 
- The lookup is case insensitive.</div>
+ <p>The lookup is case insensitive.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The name of the header.</dd>
@@ -281,7 +282,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
                                          <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</pre>
 <div class="block">Return a copy of this message header with the given header added to the map of headers.
 
- If the header already has a value, this value will replace it.</div>
+ <p>If the header already has a value, this value will replace it.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The name of the header to add.</dd>

@@ -5,13 +5,11 @@
 import static com.lightbend.lagom.javadsl.api.Service.*;
 
 public interface HelloService extends Service {
-    ServiceCall&lt;String, String&gt; sayHello();
+  ServiceCall&lt;String, String&gt; sayHello();
 
-    default Descriptor descriptor() {
-        return named(&quot;hello&quot;).withCalls(
-                call(this::sayHello)
-        );
-    }
+  default Descriptor descriptor() {
+    return named(&quot;hello&quot;).withCalls(call(this::sayHello));
+  }
 }</code></pre>
 <p>This descriptor defines a service with one call, the <code>sayHello</code> call. <code>sayHello()</code> is a method that returns something of type <code>ServiceCall</code>, this is a representation of the call that can be invoked when consuming the service, and implemented by the service itself. This is what the interface looks like:</p>
 <pre class="prettyprint"><code class="language-java">interface ServiceCall&lt;Request, Response&gt; {
@@ -25,9 +23,7 @@ public interface HelloService extends Service {
 <p>Each service call needs to have an identifier. An identifier is used to provide routing information to the implementation of the client and the service, so that calls over the wire can be mapped to the appropriate call. Identifiers can be a static name or path, or they can have dynamic components, where dynamic path parameters are extracted from the path and passed to the service call methods.</p>
 <p>The simplest type of identifier is a name, and by default, that name is set to be the same name as the name of the method on the interface that implements it. A custom name can also be supplied, by passing it to the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Service.html#namedCall-java.lang.String-java.util.function.Supplier-"><code>namedCall</code></a> method:</p>
 <pre class="prettyprint"><code class="language-java">default Descriptor descriptor() {
-    return named(&quot;hello&quot;).withCalls(
-            namedCall(&quot;hello&quot;, this::sayHello)
-    );
+  return named(&quot;hello&quot;).withCalls(namedCall(&quot;hello&quot;, this::sayHello));
 }</code></pre>
 <p>In this case, we&rsquo;ve named it <code>hello</code>, instead of the default of <code>sayHello</code>. When implemented using REST, this will mean this call will have a path of <code>/hello</code>.</p><h3 id="Path-based-identifiers"><a class="section-marker" href="#Path-based-identifiers">§</a>Path based identifiers</h3>
 <p>The second type of identifier is a path based identifier. This uses a URI path and query string to route calls, and from it dynamic path parameters can optionally be extracted out. They can be configured using the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Service.html#pathCall-java.lang.String-java.util.function.Supplier-"><code>pathCall</code></a> method.</p>
@@ -35,38 +31,35 @@ public interface HelloService extends Service {
 <pre class="prettyprint"><code class="language-java">ServiceCall&lt;NotUsed, Order&gt; getOrder(long id);
 
 default Descriptor descriptor() {
-    return named(&quot;orders&quot;).withCalls(
-            pathCall(&quot;/order/:id&quot;, this::getOrder)
-    );
+  return named(&quot;orders&quot;).withCalls(pathCall(&quot;/order/:id&quot;, this::getOrder));
 }</code></pre>
 <p>Multiple parameters can of course be extracted out, these will be passed to your service call method in the order they are extracted from the URL:</p>
 <pre class="prettyprint"><code class="language-java">ServiceCall&lt;NotUsed, Item&gt; getItem(long orderId, String itemId);
 
 default Descriptor descriptor() {
-    return named(&quot;orders&quot;).withCalls(
-            pathCall(&quot;/order/:orderId/item/:itemId&quot;, this::getItem)
-    );
+  return named(&quot;orders&quot;).withCalls(pathCall(&quot;/order/:orderId/item/:itemId&quot;, this::getItem));
 }</code></pre>
 <p>Query string parameters can also be extracted from the path, using a <code>&amp;</code> separated list after a <code>?</code> at the end of the path. For example, the following service call uses query string parameters to implement paging:</p>
 <pre class="prettyprint"><code class="language-java">ServiceCall&lt;NotUsed, PSequence&lt;Item&gt;&gt; getItems(long orderId, int pageNo, int pageSize);
 
 default Descriptor descriptor() {
-    return named(&quot;orders&quot;).withCalls(
-            pathCall(&quot;/order/:orderId/items?pageNo&amp;pageSize&quot;, this::getItems)
-    );
+  return named(&quot;orders&quot;)
+      .withCalls(pathCall(&quot;/order/:orderId/items?pageNo&amp;pageSize&quot;, this::getItems));
 }</code></pre>
 <p>When you use <code>call</code>, <code>namedCall</code> or <code>pathCall</code>, if Lagom maps that down to REST, Lagom will make a best effort attempt to map it down to REST in a semantic fashion, so that means if there is a request message, it will use <code>POST</code>, if there&rsquo;s none, it will use <code>GET</code>.</p><h3 id="REST-identifiers"><a class="section-marker" href="#REST-identifiers">§</a>REST identifiers</h3>
 <p>The final type of identifier is a REST identifier. REST identifiers are designed to be used when creating semantic REST APIs. They use both a path, as with the path based identifier, and a request method, to identify them. They can be configured using the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Service.html#restCall-com.lightbend.lagom.javadsl.api.transport.Method-java.lang.String-java.util.function.Supplier-"><code>restCall</code></a> method:</p>
 <pre class="prettyprint"><code class="language-java">ServiceCall&lt;Item, NotUsed&gt; addItem(long orderId);
+
 ServiceCall&lt;NotUsed, Item&gt; getItem(long orderId, String itemId);
+
 ServiceCall&lt;NotUsed, NotUsed&gt; deleteItem(long orderId, String itemId);
 
 default Descriptor descriptor() {
-    return named(&quot;orders&quot;).withCalls(
-            restCall(Method.POST,   &quot;/order/:orderId/item&quot;,         this::addItem),
-            restCall(Method.GET,    &quot;/order/:orderId/item/:itemId&quot;, this::getItem),
-            restCall(Method.DELETE, &quot;/order/:orderId/item/:itemId&quot;, this::deleteItem)
-    );
+  return named(&quot;orders&quot;)
+      .withCalls(
+          restCall(Method.POST, &quot;/order/:orderId/item&quot;, this::addItem),
+          restCall(Method.GET, &quot;/order/:orderId/item/:itemId&quot;, this::getItem),
+          restCall(Method.DELETE, &quot;/order/:orderId/item/:itemId&quot;, this::deleteItem));
 }</code></pre><h2 id="Messages"><a class="section-marker" href="#Messages">§</a>Messages</h2>
 <p>Every service call in Lagom has a request message type and a response message type. When the request or response message isn&rsquo;t used, the <code>akka.NotUsed</code> can be used in their place. Request and response message types fall into two categories, strict and streamed.</p><h3 id="Strict-messages"><a class="section-marker" href="#Strict-messages">§</a>Strict messages</h3>
 <p>A strict message is a single message that can be represented by a simple Java object. The message will be buffered into memory, and then parsed, for example, as JSON. When both message types are strict, the call is said to be a synchronous call, that is, a request is sent and received, then a response is sent and received. The caller and callee have synchronized in their communication.</p>
@@ -75,18 +68,14 @@ default Descriptor descriptor() {
 <pre class="prettyprint"><code class="language-java">ServiceCall&lt;String, Source&lt;String, ?&gt;&gt; tick(int interval);
 
 default Descriptor descriptor() {
-    return named(&quot;clock&quot;).withCalls(
-        pathCall(&quot;/tick/:interval&quot;, this::tick)
-    );
+  return named(&quot;clock&quot;).withCalls(pathCall(&quot;/tick/:interval&quot;, this::tick));
 }</code></pre>
 <p>This service call has a strict request type and a streamed response type. An implementation of this might return a <code>Source</code> that sends the input tick message <code>String</code> at the specified interval.</p>
 <p>A bidirectional streamed call might look like this:</p>
 <pre class="prettyprint"><code class="language-java">ServiceCall&lt;Source&lt;String, ?&gt;, Source&lt;String, ?&gt;&gt; sayHello();
 
 default Descriptor descriptor() {
-    return named(&quot;hello&quot;).withCalls(
-        call(this::sayHello)
-    );
+  return named(&quot;hello&quot;).withCalls(call(this::sayHello));
 }</code></pre>
 <p>In this case, the server might return a <code>Source</code> that converts every message received in the request stream to messages prefixed with <code>Hello</code>.</p>
 <p>Lagom will choose an appropriate transport for the stream, typically, this will be WebSockets. The WebSocket protocol supports bidirectional streaming, so is a good general purpose option for streaming. When only one of the request or response message is streamed, Lagom will implement the sending and receiving of the strict message by sending or receiving a single message, and then leaving the WebSocket open until the other direction closes. Otherwise, Lagom will close the WebSocket when either direction closes.</p><h3 id="Message-serialization"><a class="section-marker" href="#Message-serialization">§</a>Message serialization</h3>

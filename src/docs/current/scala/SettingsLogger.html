@@ -197,9 +197,9 @@
   .settings(
     libraryDependencies ++= Seq(
       &quot;org.apache.logging.log4j&quot; % &quot;log4j-slf4j-impl&quot; % &quot;2.8.2&quot;,
-      &quot;org.apache.logging.log4j&quot; % &quot;log4j-api&quot; % &quot;2.8.2&quot;,
-      &quot;org.apache.logging.log4j&quot; % &quot;log4j-core&quot; % &quot;2.8.2&quot;,
-      &quot;com.lmax&quot; % &quot;disruptor&quot; % &quot;3.3.6&quot;
+      &quot;org.apache.logging.log4j&quot; % &quot;log4j-api&quot;        % &quot;2.8.2&quot;,
+      &quot;org.apache.logging.log4j&quot; % &quot;log4j-core&quot;       % &quot;2.8.2&quot;,
+      &quot;com.lmax&quot;                 % &quot;disruptor&quot;        % &quot;3.3.6&quot;
     )
   )</code></pre>
 <p>Once the libraries and the SLF4J adapter are loaded, the <code>log4j.configurationFile</code> system property can be set on the command line as usual.</p>

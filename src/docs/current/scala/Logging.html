@@ -2,7 +2,8 @@
 <p>Lagom uses SLF4J for logging, backed by <a href="https://logback.qos.ch/">Logback</a> as its default logging engine. Here is a short example showcasing how you can access the logger:</p>
 <pre class="prettyprint"><code class="language-scala">package docs.scaladsl.logging
 
-import org.slf4j.{ Logger, LoggerFactory }
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 class LoggingExample {
   private final val log: Logger =
@@ -22,7 +23,7 @@ class LoggingExample {
 </code></pre>
 <p>If you&rsquo;re using sbt, you&rsquo;ll automatically get the Lagom logback support when you enable the Lagom plugin on a project:</p>
 <pre class="prettyprint"><code class="language-sbt">lazy val usersImpl = (project in file(&quot;usersImpl&quot;))
-  // Lagom logging module is automatically added to the classpath
+// Lagom logging module is automatically added to the classpath
   .enablePlugins(LagomScala)</code></pre>
 <p>If you&rsquo;d like to use the Lagom logger module on a project that doesn&rsquo;t have the Lagom sbt plugin enabled (e.g., a Lagom API project), simply add the Lagom logger module as an explicit library dependency:</p>
 <pre class="prettyprint"><code class="language-sbt">// `LagomImport` provides a few handy alias to several Lagom modules
@@ -34,7 +35,8 @@ lazy val usersApi = (project in file(&quot;usersApi&quot;))
 <p>Lagom can be configured to use <a href="https://logging.apache.org/log4j/2.x/">Log4j 2</a> as its default logging engine. Using Log4j 2 can use either the SLF4J API for logging as shown above or the Log4j 2 API. For example, using the Log4j 2 API:</p>
 <pre class="prettyprint"><code class="language-scala">package docs.scaladsl.logging
 
-import org.apache.logging.log4j.{ LogManager, Logger }
+import org.apache.logging.log4j.LogManager
+import org.apache.logging.log4j.Logger
 
 object Log4j2Example {
   private final val Logger: Logger = LogManager.getLogger

@@ -5,59 +5,56 @@
 <p>There are two variants for <code>additionalRouters</code>, one that receives a <code>Class&lt;play.api.routing.Router&gt;</code> and one that receives an instance of <code>play.api.routing.Router</code>.</p>
 <p>The first one should be used when your Router has some dependencies and needs to get them injected by Lagom&rsquo;s runtime DI infrastructure (Guice). In this case, you pass the class and Guice will initialize it with the right dependencies.</p>
 <pre class="prettyprint"><code class="language-java">public class HelloWorldModule extends AbstractModule implements ServiceGuiceSupport {
-    @Override
-    protected void configure() {
-        bindService(
-                HelloService.class, HelloServiceImpl.class,
-                additionalRouter(SomePlayRouter.class)
-        );
-    }
+  @Override
+  protected void configure() {
+    bindService(
+        HelloService.class, HelloServiceImpl.class, additionalRouter(SomePlayRouter.class));
+  }
 }</code></pre>
 <p>The second variant should be used when the Router does not have any other dependencies and therefore can be immediately passed as an instance.</p>
 <pre class="prettyprint"><code class="language-java">public class HelloWorldModule extends AbstractModule implements ServiceGuiceSupport {
-    @Override
-    protected void configure() {
-        bindService(
-                HelloService.class, HelloServiceImpl.class,
-                additionalRouter(new SomePlayRouter())
-        );
-    }
+  @Override
+  protected void configure() {
+    bindService(
+        HelloService.class, HelloServiceImpl.class, additionalRouter(new SomePlayRouter()));
+  }
 }</code></pre><h2 id="File-Upload-Example"><a class="section-marker" href="#File-Upload-Example">§</a>File Upload Example</h2>
 <p>The following example shows how you can add a file upload endpoint to an existing Lagom Service.</p>
 <p>The example is based on <a href="https://www.playframework.com/documentation/2.7.x/JavaRoutingDsl">JavaRoutingDsl</a> that allows you to build a Play Router programmatically. It adds an extra path (<code>/api/files</code>) that receives POST calls for multipart-form data.</p>
 <pre class="prettyprint"><code class="language-java">class FileUploadRouter implements SimpleRouter {
 
-    private final Router delegate;
+  private final Router delegate;
 
-    @Inject
-    public FileUploadRouter(RoutingDsl routingDsl) {
-        this.delegate = routingDsl
-                .POST(&quot;/api/files&quot;)
-                .routingTo(request -&gt; {
-                    Http.MultipartFormData&lt;File&gt; body = request.body().asMultipartFormData();
-                    String response =
-                            body.getFiles().stream()
-                                .map(f -&gt; f.getRef().getAbsolutePath())
-                                .collect(joining(&quot;,&quot;, &quot;Uploaded[&quot;, &quot;]&quot;));
-                    return ok(response);
+  @Inject
+  public FileUploadRouter(RoutingDsl routingDsl) {
+    this.delegate =
+        routingDsl
+            .POST(&quot;/api/files&quot;)
+            .routingTo(
+                request -&gt; {
+                  Http.MultipartFormData&lt;File&gt; body = request.body().asMultipartFormData();
+                  String response =
+                      body.getFiles().stream()
+                          .map(f -&gt; f.getRef().getAbsolutePath())
+                          .collect(joining(&quot;,&quot;, &quot;Uploaded[&quot;, &quot;]&quot;));
+                  return ok(response);
                 })
-                .build().asScala();
-    }
+            .build()
+            .asScala();
+  }
 
-    @Override
-    public PartialFunction&lt;RequestHeader, Handler&gt; routes() {
-        return delegate.routes();
-    }
+  @Override
+  public PartialFunction&lt;RequestHeader, Handler&gt; routes() {
+    return delegate.routes();
+  }
 }</code></pre>
 <p>In your Guice module, you append the additional router when binding your Lagom service.</p>
 <pre class="prettyprint"><code class="language-java">public class HelloWorldModule extends AbstractModule implements ServiceGuiceSupport {
-    @Override
-    protected void configure() {
-        bindService(
-                HelloService.class, HelloServiceImpl.class,
-                additionalRouter(FileUploadRouter.class)
-        );
-    }
+  @Override
+  protected void configure() {
+    bindService(
+        HelloService.class, HelloServiceImpl.class, additionalRouter(FileUploadRouter.class));
+  }
 }</code></pre>
 <p>The path <code>/api/files</code> will now be available on your Lagom service:</p>
 <pre class="prettyprint"><code class="language-bash">curl -X POST -F &quot;data=@somefile.txt&quot; -v  http://localhost:65499/api/files
@@ -69,17 +66,15 @@
 <p>If you want to access your additional routers through the gateway, you will need to explicitly add the ACL (Access Control List) for it in your <code>ServiceDescriptor</code> definition.</p>
 <pre class="prettyprint"><code class="language-java">interface HelloWordService extends Service {
 
-    ServiceCall&lt;NotUsed, String&gt; hello(String name);
+  ServiceCall&lt;NotUsed, String&gt; hello(String name);
 
-    @Override
-    default Descriptor descriptor() {
-        return named(&quot;fileupload&quot;)
-                .withCalls(
-                        pathCall(&quot;/api/hello/:name&quot;, this::hello)
-                )
-                .withAutoAcl(true)
-                .withServiceAcls(path(&quot;/api/files&quot;));
-    }
+  @Override
+  default Descriptor descriptor() {
+    return named(&quot;fileupload&quot;)
+        .withCalls(pathCall(&quot;/api/hello/:name&quot;, this::hello))
+        .withAutoAcl(true)
+        .withServiceAcls(path(&quot;/api/files&quot;));
+  }
 }</code></pre>
 <p>Once the path is published on the Service Gateway, you can call:</p>
 <pre class="prettyprint"><code class="language-bash">curl -X POST -F &quot;data=@somefile.txt&quot; -v  http://localhost:9000/api/files

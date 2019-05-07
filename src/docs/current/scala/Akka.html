@@ -5,7 +5,8 @@
 <p>Let&rsquo;s look at an example of a <code>WorkerService</code> that accepts job requests and delegates the work to actors running on other nodes in the service&rsquo;s cluster.</p>
 <pre class="prettyprint"><code class="language-scala">import akka.actor.ActorSystem
 import akka.cluster.Cluster
-import akka.cluster.routing.{ClusterRouterGroup, ClusterRouterGroupSettings}
+import akka.cluster.routing.ClusterRouterGroup
+import akka.cluster.routing.ClusterRouterGroupSettings
 import akka.routing.ConsistentHashingGroup
 import akka.pattern.ask
 import akka.util.Timeout
@@ -27,7 +28,8 @@ class WorkerServiceImpl(system: ActorSystem) extends WorkerService {
     val groupConf = ConsistentHashingGroup(paths, hashMapping = {
       case Job(_, task, _) =&gt; task
     })
-    val routerProps = ClusterRouterGroup(groupConf,
+    val routerProps = ClusterRouterGroup(
+      groupConf,
       ClusterRouterGroupSettings(
         totalInstances = 1000,
         routeesPaths = paths,
@@ -45,7 +47,8 @@ class WorkerServiceImpl(system: ActorSystem) extends WorkerService {
 }</code></pre>
 <p>Notice how the <code>ActorSystem</code> is injected through the constructor. We create worker actors on each node that has the &ldquo;worker-node&rdquo; role. We create a consistent hashing group router that delegates jobs to the workers. Details on these features are in the <a href="https://doc.akka.io/docs/akka/2.5/?language=scala">Akka documentation</a>.</p>
 <p>The worker actor looks like this:</p>
-<pre class="prettyprint"><code class="language-scala">import akka.actor.{Actor, Props}
+<pre class="prettyprint"><code class="language-scala">import akka.actor.Actor
+import akka.actor.Props
 import akka.event.Logging
 
 object Worker {
@@ -64,7 +67,8 @@ class Worker extends Actor {
   }
 }</code></pre>
 <p>The messages are ordinary case classes. Note that they extend <code>Jsonable</code> since they need proper <a href="Serialization.html">Serialization</a> when they are sent across nodes in the cluster of the service, and the have formats created for them:</p>
-<pre class="prettyprint"><code class="language-scala">import play.api.libs.json.{Format, Json}
+<pre class="prettyprint"><code class="language-scala">import play.api.libs.json.Format
+import play.api.libs.json.Json
 
 case class Job(jobId: String, task: String, payload: String)
 object Job {

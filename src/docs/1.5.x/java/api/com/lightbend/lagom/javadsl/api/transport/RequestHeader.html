@@ -116,12 +116,14 @@ var activeTableTab = "activeTableTab";
 extends <a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/MessageHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">MessageHeader</a></pre>
 <div class="block">A request header.
 
- This header may or may not be mapped down onto HTTP.  In order to remain agnostic to the underlying protocol,
- information required by Lagom, such as protocol information, is extracted.  It is encouraged that the protocol
- information always be used in preference to reading the information directly out of headers, since the headers may
- not contain the necessary protocol information.
+ <p>This header may or may not be mapped down onto HTTP. In order to remain agnostic to the
+ underlying protocol, information required by Lagom, such as protocol information, is extracted.
+ It is encouraged that the protocol information always be used in preference to reading the
+ information directly out of headers, since the headers may not contain the necessary protocol
+ information.
 
- The headers are however still provided, in case information needs to be extracted out of non standard headers.</div>
+ <p>The headers are however still provided, in case information needs to be extracted out of non
+ standard headers.</div>
 </li>
 </ul>
 </div>
@@ -306,10 +308,10 @@ extends <a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/Mes
 <pre>public static final&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/RequestHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">RequestHeader</a> DEFAULT</pre>
 <div class="block">A default request header object.
 
- This is a convenience supplied so that server implementations of service calls can pass this request to the
- request header handler, in order to get the actual incoming request header.
+ <p>This is a convenience supplied so that server implementations of service calls can pass this
+ request to the request header handler, in order to get the actual incoming request header.
 
- See <a href="../../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html#handleRequestHeader-java.util.function.Function-"><code>ServiceCall.handleRequestHeader(Function)</code></a></div>
+ <p>See <a href="../../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html#handleRequestHeader-java.util.function.Function-"><code>ServiceCall.handleRequestHeader(Function)</code></a></div>
 </li>
 </ul>
 </li>
@@ -525,7 +527,7 @@ extends <a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/Mes
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/MessageHeader.html#withHeader-java.lang.String-java.lang.String-">MessageHeader</a></code></span></div>
 <div class="block">Return a copy of this message header with the given header added to the map of headers.
 
- If the header already has a value, this value will replace it.</div>
+ <p>If the header already has a value, this value will replace it.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/MessageHeader.html#withHeader-java.lang.String-java.lang.String-">withHeader</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/MessageHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">MessageHeader</a></code></dd>

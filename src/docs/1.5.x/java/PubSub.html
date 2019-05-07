@@ -20,10 +20,10 @@
 
   @Override
   default Descriptor descriptor() {
-    return named(&quot;/sensorservice&quot;).withCalls(
-      pathCall(&quot;/device/:id/temperature&quot;, this::registerTemperature),
-      pathCall(&quot;/device/:id/temperature/stream&quot;, this::temperatureStream)
-    );
+    return named(&quot;/sensorservice&quot;)
+        .withCalls(
+            pathCall(&quot;/device/:id/temperature&quot;, this::registerTemperature),
+            pathCall(&quot;/device/:id/temperature/stream&quot;, this::temperatureStream));
   }
 }</code></pre>
 <p>The implementation of this interface looks like:</p>
@@ -48,8 +48,7 @@ public class SensorServiceImpl implements SensorService {
   @Override
   public ServiceCall&lt;Temperature, NotUsed&gt; registerTemperature(String id) {
     return temperature -&gt; {
-      final PubSubRef&lt;Temperature&gt; topic =
-          pubSub.refFor(TopicId.of(Temperature.class, id));
+      final PubSubRef&lt;Temperature&gt; topic = pubSub.refFor(TopicId.of(Temperature.class, id));
       topic.publish(temperature);
       return CompletableFuture.completedFuture(NotUsed.getInstance());
     };
@@ -58,8 +57,7 @@ public class SensorServiceImpl implements SensorService {
   @Override
   public ServiceCall&lt;NotUsed, Source&lt;Temperature, ?&gt;&gt; temperatureStream(String id) {
     return request -&gt; {
-      final PubSubRef&lt;Temperature&gt; topic =
-          pubSub.refFor(TopicId.of(Temperature.class, id));
+      final PubSubRef&lt;Temperature&gt; topic = pubSub.refFor(TopicId.of(Temperature.class, id));
       return CompletableFuture.completedFuture(topic.subscriber());
     };
   }
@@ -92,8 +90,7 @@ public class SensorServiceImpl2 implements SensorService2 {
   @Override
   public ServiceCall&lt;Source&lt;Temperature, ?&gt;, NotUsed&gt; registerTemperatures(String id) {
     return request -&gt; {
-      final PubSubRef&lt;Temperature&gt; topic =
-          pubSub.refFor(TopicId.of(Temperature.class, id));
+      final PubSubRef&lt;Temperature&gt; topic = pubSub.refFor(TopicId.of(Temperature.class, id));
       request.runWith(topic.publisher(), materializer);
       return CompletableFuture.completedFuture(NotUsed.getInstance());
     };
@@ -102,8 +99,7 @@ public class SensorServiceImpl2 implements SensorService2 {
   @Override
   public ServiceCall&lt;NotUsed, Source&lt;Temperature, ?&gt;&gt; temperatureStream(String id) {
     return request -&gt; {
-      final PubSubRef&lt;Temperature&gt; topic =
-          pubSub.refFor(TopicId.of(Temperature.class, id));
+      final PubSubRef&lt;Temperature&gt; topic = pubSub.refFor(TopicId.of(Temperature.class, id));
       return CompletableFuture.completedFuture(topic.subscriber());
     };
   }
@@ -117,11 +113,15 @@ public Post4(PubSubRegistry pubSub) {
   publishedTopic = pubSub.refFor(TopicId.of(PostPublished.class, &quot;&quot;));
 }</code></pre>
 <p>A command handler that publishes messages, in this case the <code>PostPublished</code> event, may look like this:</p>
-<pre class="prettyprint"><code class="language-java">b.setCommandHandler(Publish.class,
-    (cmd, ctx) -&gt; ctx.thenPersist(new PostPublished(entityId()), evt -&gt; {
-        ctx.reply(Done.getInstance());
-        publishedTopic.publish(evt);
-      }));</code></pre>
+<pre class="prettyprint"><code class="language-java">b.setCommandHandler(
+    Publish.class,
+    (cmd, ctx) -&gt;
+        ctx.thenPersist(
+            new PostPublished(entityId()),
+            evt -&gt; {
+              ctx.reply(Done.getInstance());
+              publishedTopic.publish(evt);
+            }));</code></pre>
 <p>To complete the picture, a service method that delivers these <code>PostPublished</code> events as a stream:</p>
 <pre class="prettyprint"><code class="language-java">import akka.NotUsed;
 import com.lightbend.lagom.javadsl.api.ServiceCall;
@@ -144,8 +144,7 @@ public class BlogServiceImpl4 implements BlogService4 {
 
   @Override
   public ServiceCall&lt;NotUsed, Source&lt;BlogEvent.PostPublished, ?&gt;&gt; getNewPosts() {
-    return request -&gt;
-      CompletableFuture.completedFuture(publishedTopic.subscriber());
+    return request -&gt; CompletableFuture.completedFuture(publishedTopic.subscriber());
   }
 }</code></pre><h2 id="Limitations"><a class="section-marker" href="#Limitations">§</a>Limitations</h2>
 <p>This feature is specifically for providing publish and subscribe functionality within a single services cluster. To publish and subscribe between services, you should instead use Lagom&rsquo;s <a href="MessageBrokerApi.html">message broker support</a>.</p>

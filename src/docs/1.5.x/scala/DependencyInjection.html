@@ -12,7 +12,7 @@ import play.api.libs.ws.ahc.AhcWSComponents
 import com.softwaremill.macwire._
 
 abstract class HelloApplication(context: LagomApplicationContext)
-  extends LagomApplication(context)
+    extends LagomApplication(context)
     with AhcWSComponents {
 
   override lazy val lagomServer = serverFor[HelloService](wire[HelloServiceImpl])

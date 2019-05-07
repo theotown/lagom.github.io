@@ -11,7 +11,7 @@
 <p>In sbt:</p>
 <pre class="prettyprint"><code class="language-sbt">import com.lightbend.lagom.core.LagomVersion
 
-libraryDependencies +=  &quot;com.lightbend.lagom&quot; %% &quot;lagom-javadsl-akka-discovery-service-locator&quot; % LagomVersion.current</code></pre>
+libraryDependencies += &quot;com.lightbend.lagom&quot; %% &quot;lagom-javadsl-akka-discovery-service-locator&quot; % LagomVersion.current</code></pre>
 <p>The example above uses <code>LagomVersion.current</code> in order to guarantee that dependency stays aligned with your current Lagom plugin version.</p><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
 <p>The Guice module <a href="api/index.html?com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocatorModule.html">AkkaDiscoveryServiceLocatorModule</a> will be added by default to your project, but will only wire in the <a href="api/index.html?com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocator.html">AkkaDiscoveryServiceLocator</a> when running in production mode.</p>
 <p>In development, your Lagom application will keep using the Lagom&rsquo;s dev-mode <a href="api/index.html?com/lightbend/lagom/javadsl/api/ServiceLocator.html">ServiceLocator</a>.</p>

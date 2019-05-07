@@ -38,7 +38,6 @@
   public void setEmail(String email) {
     this.email = email;
   }
-
 }</code></pre>
 <p>In contrast, in the following example of an immutable object, all fields are final and assigned at construction time (it contains no setter methods).</p>
 <pre class="prettyprint"><code class="language-java">public class ImmutableUser {
@@ -57,7 +56,6 @@
   public String getEmail() {
     return email;
   }
-
 }</code></pre><h2 id="Easier-immutability"><a class="section-marker" href="#Easier-immutability">§</a>Easier immutability</h2><h2 id="Lombok-example"><a class="section-marker" href="#Lombok-example">§</a>Lombok example</h2>
 <p>The following example shows the definition of a <code>User</code> implemented with Lombok. Lombok handles the following details for you. It:</p>
 <ul>
@@ -126,7 +124,6 @@ public interface AbstractUser {
   public List&lt;String&gt; getPhoneNumbers() {
     return phoneNumbers;
   }
-
 }</code></pre>
 <p>The object might look like immutable since it only has final fields and no setters, but the <code>List</code> of <code>phoneNumbers</code> is mutable, because it can be changed by code like <code>user.getPhoneNumbers().add(&quot;+468123456&quot;)</code>.</p>
 <p>One possible fix would be to make a defensive copy of the <code>List</code> in the constructor and use <code>Collections.unmodifiableList</code> in the getter, like this:</p>
@@ -146,7 +143,6 @@ public interface AbstractUser {
   public List&lt;String&gt; getPhoneNumbers() {
     return Collections.unmodifiableList(phoneNumbers);
   }
-
 }</code></pre>
 <p>But it is easy to make mistakes when coding this way, so we again recommend letting Immutable handle it for you, as follows.</p>
 <p>Here is a new definition of a <code>User2</code>, like the above <code>ImmutableUser2</code>:</p>

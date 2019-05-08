@@ -34,8 +34,7 @@
                 request -&gt; {
                   Http.MultipartFormData&lt;File&gt; body = request.body().asMultipartFormData();
                   String response =
-                      body.getFiles()
-                          .stream()
+                      body.getFiles().stream()
                           .map(f -&gt; f.getRef().getAbsolutePath())
                           .collect(joining(&quot;,&quot;, &quot;Uploaded[&quot;, &quot;]&quot;));
                   return ok(response);

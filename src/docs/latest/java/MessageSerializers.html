@@ -10,7 +10,7 @@
               .withResponseSerializer(new MyOrderSerializer()));
 }</code></pre><h3 id="Per-type-message-serializers"><a class="section-marker" href="#Per-type-message-serializers">§</a>Per type message serializers</h3>
 <p>If no message serializer has been provided at the service call level, Lagom then checks whether a serializer has been registered at the service level for that type. Each service maintains a map of types to serializers for that type, and these are used as appropriate for service calls that match the types in the map.</p>
-<p>Lagom provides a number of serializers out of the box at this level, including serializers for <code>String</code> and <code>NotUsed</code>. Custom type level serializers can also be supplied in the descriptor using the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Descriptor.html#with-java.lang.reflect.Type-com.lightbend.lagom.javadsl.api.deser.MessageSerializer-"><code>Descriptor.with</code></a> method:</p>
+<p>Lagom provides a number of serializers out of the box at this level, including serializers for <code>String</code>, <code>Done</code>, <code>NotUsed</code> and <code>ByteString</code>. Note that serializer for <code>ByteString</code> doesn&rsquo;t modify data and sends <code>ByteString</code> as is. Custom type level serializers can also be supplied in the descriptor using the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Descriptor.html#with-java.lang.reflect.Type-com.lightbend.lagom.javadsl.api.deser.MessageSerializer-"><code>Descriptor.with</code></a> method:</p>
 <pre class="prettyprint"><code class="language-java">default Descriptor descriptor() {
   return named(&quot;orderservice&quot;)
       .withCalls(pathCall(&quot;/orders/:id&quot;, this::getOrder))

@@ -16,6 +16,7 @@ trait HelloService extends Service {
   }
 }</code></pre>
 <p>We saw in the <a href="ServiceDescriptors.html#Using-Play-JSON">service descriptors</a> documentation how by declaring an implicit Play JSON <code>Format</code> on a case classes companion object, Lagom will use that for messages of that type. The reason this works is that Lagom provides an implicit <code>MessageSerializer</code> that wraps a Play JSON <code>Format</code>. This is the <code>jsValueFormatMessageSerializer</code> method on the <code>MessageSerializer</code> companion object.</p>
+<p>The <code>MessageSerializer</code> companion object also provides implicit for other common, non-JSON payloads you may want to use. For example, anytime your request or response types are <code>NotUsed</code>, <code>Done</code> or <code>String</code> these default serializers will be used. Lagom also ships with support for a <code>ByteString</code> serializer (aka <code>noop</code>) so the there&rsquo;s direct access to the wire-level payload.</p>
 <p>The JSON message serializer format can also be explicitly used. Let&rsquo;s say you had a message with an <code>id</code> property, and for one service call you wanted the format used to be the default format that the Play JSON macro gives you, but in another you wanted a different format, one where the <code>id</code> field was called <code>identifier</code> in the JSON. You might provide two different formats:</p>
 <pre class="prettyprint"><code class="language-scala">import play.api.libs.json._
 import play.api.libs.functional.syntax._

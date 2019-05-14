@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/aa74f6a1cbf6efb7ffb8d0abca31186c4e886052-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/8fc8a933ce8a85d4169b9fafe52a299dea4f7ae9-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -163,6 +163,7 @@ trait HelloService extends Service {
   }
 }</code></pre>
 <p>We saw in the <a href="ServiceDescriptors.html#Using-Play-JSON">service descriptors</a> documentation how by declaring an implicit Play JSON <code>Format</code> on a case classes companion object, Lagom will use that for messages of that type. The reason this works is that Lagom provides an implicit <code>MessageSerializer</code> that wraps a Play JSON <code>Format</code>. This is the <code>jsValueFormatMessageSerializer</code> method on the <code>MessageSerializer</code> companion object.</p>
+<p>The <code>MessageSerializer</code> companion object also provides implicit for other common, non-JSON payloads you may want to use. For example, anytime your request or response types are <code>NotUsed</code>, <code>Done</code> or <code>String</code> these default serializers will be used. Lagom also ships with support for a <code>ByteString</code> serializer (aka <code>noop</code>) so the there&rsquo;s direct access to the wire-level payload.</p>
 <p>The JSON message serializer format can also be explicitly used. Let&rsquo;s say you had a message with an <code>id</code> property, and for one service call you wanted the format used to be the default format that the Play JSON macro gives you, but in another you wanted a different format, one where the <code>id</code> field was called <code>identifier</code> in the JSON. You might provide two different formats:</p>
 <pre class="prettyprint"><code class="language-scala">import play.api.libs.json._
 import play.api.libs.functional.syntax._
@@ -608,7 +609,7 @@ class ProtobufSerializer extends StrictMessageSerializer[Order] {
             </div>
         </div>
     </body>
-    <script src="/aa74f6a1cbf6efb7ffb8d0abca31186c4e886052-all-scripts-concat.js"></script>
+    <script src="/8fc8a933ce8a85d4169b9fafe52a299dea4f7ae9-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

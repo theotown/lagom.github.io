@@ -349,6 +349,10 @@
       "url" : "Highlights15.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/releases/Highlights15.md"
     }, {
+      "title" : "Lagom 1.6 Migration Guide",
+      "url" : "Migration16.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/releases/Migration16.md"
+    }, {
       "title" : "Lagom 1.5 Migration Guide",
       "url" : "Migration15.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/releases/Migration15.md"

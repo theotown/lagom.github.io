@@ -1585,13 +1585,6 @@
 <dd>
 <div class="block">Latency distribution for Exponentially Decaying Reservoir.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html#getLocatableServices--">getLocatableServices()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api">ServiceInfo</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>
-<div class="block"><span class="deprecationComment">this method will be removed when dropping support for multiple locatable service
-     descriptors per service.</span></div>
-</div>
-</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/status/AbstractLatency.html#getMax--">getMax()</a></span> - Method in interface com.lightbend.lagom.javadsl.server.status.<a href="com/lightbend/lagom/javadsl/server/status/AbstractLatency.html" title="interface in com.lightbend.lagom.javadsl.server.status">AbstractLatency</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/status/Latency.html#getMax--">getMax()</a></span> - Method in class com.lightbend.lagom.javadsl.server.status.<a href="com/lightbend/lagom/javadsl/server/status/Latency.html" title="class in com.lightbend.lagom.javadsl.server.status">Latency</a></dt>
@@ -2557,6 +2550,10 @@
 <dd>
 <div class="block">Factory method to create ServiceInfo instances that contain a single locatable service.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html#of-java.lang.String-org.pcollections.PSequence-">of(String, PSequence&lt;ServiceAcl&gt;)</a></span> - Static method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api">ServiceInfo</a></dt>
+<dd>
+<div class="block">Factory method to create ServiceInfo instances that contain a single locatable service.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#of-java.lang.Class-">of(Class&lt;Event&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag$</a></dt>
 <dd>
 <div class="block">Convenience factory method of <a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>AggregateEventTag</code></a> that uses the
@@ -3472,18 +3469,6 @@
 <dt><a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">ServiceInfo</span></a> - Class in <a href="com/lightbend/lagom/javadsl/api/package-summary.html">com.lightbend.lagom.javadsl.api</a></dt>
 <dd>
 <div class="block">Public information for this service.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html#ServiceInfo-java.lang.String-">ServiceInfo(String)</a></span> - Constructor for class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api">ServiceInfo</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>
-<div class="block"><span class="deprecationComment">use <a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html#ServiceInfo-java.lang.String-org.pcollections.PMap-"><code>ServiceInfo.ServiceInfo(String, PMap)</code></a> instead.</span></div>
-</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html#ServiceInfo-java.lang.String-org.pcollections.PMap-">ServiceInfo(String, PMap&lt;String, PSequence&lt;ServiceAcl&gt;&gt;)</a></span> - Constructor for class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api">ServiceInfo</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>
-<div class="block"><span class="deprecationComment">use <a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html#of-java.lang.String-com.lightbend.lagom.javadsl.api.ServiceAcl...-"><code>ServiceInfo.of(String, ServiceAcl...)</code></a> instead.</span></div>
-</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ClassServiceBinding.html#serviceInterface--">serviceInterface()</a></span> - Method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.ClassServiceBinding.html" title="class in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport.ClassServiceBinding</a></dt>
 <dd>&nbsp;</dd>

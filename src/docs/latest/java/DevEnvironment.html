@@ -59,7 +59,7 @@ startElasticSearch in ThisBuild := {
     elasticsearch / &quot;bin&quot; / &quot;elasticsearch&quot;
   }
 
-  import scala.sys.process._
+  import scala.sys.process._ // if on sbt 0.13, don&#39;t import this
   val process = Process(binFile.getAbsolutePath, elasticsearch).run(log)
   log.info(&quot;Elastic search started on port 9200&quot;)
 

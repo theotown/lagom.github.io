@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/e729006569c584fdd5248d418f69112ff424ee85-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/b44fb9e46cba6254067cf087be0633db2dea807a-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -209,13 +209,13 @@
 <p>If you prefer to not use <strong>Akka Cluster Bootstrap</strong> and handle the cluster formation yourself, you can configure the Akka Cluster seed nodes statically.</p>
 <p>You can define some initial contact points of the cluster, so-called seed nodes in your <code>application.conf</code>:</p>
 <pre class="prettyprint"><code>akka.cluster.seed-nodes = [
-  &quot;akka.tcp://MyService@host1:2552&quot;,
-  &quot;akka.tcp://MyService@host2:2552&quot;]
+  &quot;akka://MyService@host1:25520&quot;,
+  &quot;akka://MyService@host2:25520&quot;]
 </code></pre>
 <p>Alternatively, this can be defined as Java system properties when starting the JVM:</p>
 <pre class="prettyprint"><code>-Dlagom.cluster.bootstrap.enabled=false
--Dakka.cluster.seed-nodes.0=akka.tcp://MyService@host1:2552
--Dakka.cluster.seed-nodes.1=akka.tcp://MyService@host2:2552
+-Dakka.cluster.seed-nodes.0=akka://MyService@host1:25520
+-Dakka.cluster.seed-nodes.1=akka://MyService@host2:25520
 </code></pre>
 <p>The node that is configured first in the list of <code>seed-nodes</code> is special. Only that node that will join itself. It is used for bootstrapping the cluster.</p>
 <p>The reason for the special first seed node is to avoid forming separated islands when starting from an empty cluster. If the first seed node is restarted and there is an existing cluster it will try to join the other seed nodes, i.e. it will join the existing cluster.</p>
@@ -495,7 +495,7 @@
             </div>
         </div>
     </body>
-    <script src="/e729006569c584fdd5248d418f69112ff424ee85-all-scripts-concat.js"></script>
+    <script src="/b44fb9e46cba6254067cf087be0633db2dea807a-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

@@ -93,11 +93,6 @@
 <div class="block"><span class="deprecationComment">Internal interface, not intended for direct use. Since 1.5.0.</span></div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colOne"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraConfig.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra">com.lightbend.lagom.javadsl.persistence.cassandra.CassandraConfig</a>
-<div class="block"><span class="deprecationComment">This class became obsolete and will be removed on next release. Since 1.4.0.</span></div>
-</td>
-</tr>
 </tbody>
 </table>
 </li>
@@ -119,36 +114,31 @@
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraContactPoint.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">com.lightbend.lagom.javadsl.persistence.cassandra.CassandraContactPoint</a>
-<div class="block"><span class="deprecationComment">since 1.4.0 - This class became obsolete and will be removed on next release.</span></div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colOne"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">com.lightbend.lagom.javadsl.persistence.cassandra.CassandraReadSideProcessor</a>
 <div class="block"><span class="deprecationComment">Use ReadSideProcessor instead with CassandraReadSide builder. Since 1.2.0.</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="com/lightbend/lagom/javadsl/api/ConfigurationServiceLocator.html" title="class in com.lightbend.lagom.javadsl.api">com.lightbend.lagom.javadsl.api.ConfigurationServiceLocator</a>
 <div class="block"><span class="deprecationComment">use <a href="com/lightbend/lagom/javadsl/client/ConfigurationServiceLocator.html" title="class in com.lightbend.lagom.javadsl.client"><code>ConfigurationServiceLocator</code></a> instead.</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="com/lightbend/lagom/javadsl/persistence/jdbc/testkit/TestUtil.html" title="class in com.lightbend.lagom.javadsl.persistence.jdbc.testkit">com.lightbend.lagom.javadsl.persistence.jdbc.testkit.TestUtil</a>
 <div class="block"><span class="deprecationComment">Internal class, not intended for direct use. Since 1.5.0.</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/testkit/TestUtil.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra.testkit">com.lightbend.lagom.javadsl.persistence.cassandra.testkit.TestUtil</a>
 <div class="block"><span class="deprecationComment">Internal class, not intended for direct use. Since 1.5.0.</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="com/lightbend/lagom/javadsl/persistence/jdbc/testkit/TestUtil$.html" title="class in com.lightbend.lagom.javadsl.persistence.jdbc.testkit">com.lightbend.lagom.javadsl.persistence.jdbc.testkit.TestUtil$</a>
 <div class="block"><span class="deprecationComment">Internal class, not intended for direct use. Since 1.5.0.</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/testkit/TestUtil$.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra.testkit">com.lightbend.lagom.javadsl.persistence.cassandra.testkit.TestUtil$</a>
 <div class="block"><span class="deprecationComment">Internal class, not intended for direct use. Since 1.5.0.</span></div>
 </td>
@@ -230,22 +220,17 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colOne"><a href="com/lightbend/lagom/javadsl/client/CircuitBreakingServiceLocator.html#CircuitBreakingServiceLocator-com.lightbend.lagom.internal.client.CircuitBreakers-">com.lightbend.lagom.javadsl.client.CircuitBreakingServiceLocator(CircuitBreakers)</a>
-<div class="block"><span class="deprecationComment">Use constructor accepting <a href="com/lightbend/lagom/javadsl/client/CircuitBreakersPanel.html" title="interface in com.lightbend.lagom.javadsl.client"><code>CircuitBreakersPanel</code></a> instead</span></div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colOne"><a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaTopicFactory.html#KafkaTopicFactory-com.lightbend.lagom.javadsl.api.ServiceInfo-akka.actor.ActorSystem-akka.stream.Materializer-scala.concurrent.ExecutionContext-com.lightbend.lagom.javadsl.api.ServiceLocator-">com.lightbend.lagom.javadsl.broker.kafka.KafkaTopicFactory(ServiceInfo, ActorSystem, Materializer, ExecutionContext, ServiceLocator)</a>
 <div class="block"><span class="deprecationComment">As of release 1.6.0. Use <a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaTopicFactory.html#KafkaTopicFactory-com.lightbend.lagom.javadsl.api.ServiceInfo-akka.actor.ActorSystem-akka.stream.Materializer-scala.concurrent.ExecutionContext-com.lightbend.lagom.javadsl.api.ServiceLocator-com.typesafe.config.Config-"><code>KafkaTopicFactory.KafkaTopicFactory(ServiceInfo, ActorSystem,
      Materializer, ExecutionContext, ServiceLocator, Config)</code></a> instead.</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#PersistentEntityRef-java.lang.String-akka.actor.ActorRef-akka.actor.ActorSystem-scala.concurrent.duration.FiniteDuration-">com.lightbend.lagom.javadsl.persistence.PersistentEntityRef(String, ActorRef, ActorSystem, FiniteDuration)</a>
 <div class="block"><span class="deprecationComment">Use <a href="com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#PersistentEntityRef-java.lang.String-akka.actor.ActorRef-scala.concurrent.duration.FiniteDuration-"><code>PersistentEntityRef.PersistentEntityRef(String, ActorRef, FiniteDuration)</code></a> instead.</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#PersistentEntityRef-java.lang.String-akka.actor.ActorRef-scala.concurrent.duration.FiniteDuration-">com.lightbend.lagom.javadsl.persistence.PersistentEntityRef(String, ActorRef, FiniteDuration)</a>
 <div class="block"><span class="deprecationComment">As of Lagom 1.5. Use <a href="com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#PersistentEntityRef-java.lang.String-akka.actor.ActorRef-java.time.Duration-"><code>PersistentEntityRef.PersistentEntityRef(String, ActorRef, Duration)</code></a>
      instead.</span></div>

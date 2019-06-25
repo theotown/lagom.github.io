@@ -52,14 +52,14 @@ object RegistryWithCompression extends JsonSerializerRegistry {
     JsonSerializer.compressed[AddPost]
   )
 }</code></pre>
-<p>The serializer will by default only compress messages that are larger than 1024 bytes. This threshold can be changed with configuration property:</p>
+<p>The serializer will by default only compress messages that are larger than 32Kb. This threshold can be changed with configuration property:</p>
 <pre class="prettyprint"><code class="language-conf">lagom.serialization.json {
 
   # The serializer will compress the payload if the message class
   # was registered using JsonSerializer.compressed and the payload
   # is larger than this value. Only used for remote messages within
   # the cluster of the service.
-  compress-larger-than = 1024b
+  compress-larger-than = 32 KiB
 
 }</code></pre><h2 id="Automated-mapping"><a class="section-marker" href="#Automated-mapping">§</a>Automated mapping</h2>
 <p>The <a href="https://www.playframework.com/documentation/2.6.x/api/scala/index.html#play.api.libs.json.Json$@format[A]:play.api.libs.json.OFormat[A]">Json.format[MyClass]</a> macro will inspect a <code>case class</code> for what fields it contains and produce a <code>Format</code> that uses the field names and types of the class in the resulting JSON.</p>

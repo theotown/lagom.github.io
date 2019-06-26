@@ -611,6 +611,8 @@
 <div class="block">Binds a client for <code>clientInterface</code> which Guice's Injector makes available so
  client classes may declare the dependency on their <code>@Inject</code> annotated constructor.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/jackson/JacksonSerializerFactory.html#BINDING_NAME">BINDING_NAME</a></span> - Static variable in class com.lightbend.lagom.javadsl.jackson.<a href="com/lightbend/lagom/javadsl/jackson/JacksonSerializerFactory.html" title="class in com.lightbend.lagom.javadsl.jackson">JacksonSerializerFactory</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocatorModule.html#bindings-play.Environment-com.typesafe.config.Config-">bindings(Environment, Config)</a></span> - Method in class com.lightbend.lagom.javadsl.akka.discovery.<a href="com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocatorModule.html" title="class in com.lightbend.lagom.javadsl.akka.discovery">AkkaDiscoveryServiceLocatorModule</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaClientModule.html#bindings-play.Environment-com.typesafe.config.Config-">bindings(Environment, Config)</a></span> - Method in class com.lightbend.lagom.javadsl.broker.kafka.<a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaClientModule.html" title="class in com.lightbend.lagom.javadsl.broker.kafka">KafkaClientModule</a></dt>
@@ -1124,6 +1126,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/serialization/JacksonJsonMigration.html#currentVersion--">currentVersion()</a></span> - Method in class com.lightbend.lagom.serialization.<a href="com/lightbend/lagom/serialization/JacksonJsonMigration.html" title="class in com.lightbend.lagom.serialization">JacksonJsonMigration</a></dt>
 <dd>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block">Define current version.</div>
 </dd>
 </dl>
@@ -1933,11 +1936,17 @@
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/serialization/JacksonJsonMigration.html" title="class in com.lightbend.lagom.serialization"><span class="typeNameLink">JacksonJsonMigration</span></a> - Class in <a href="com/lightbend/lagom/serialization/package-summary.html">com.lightbend.lagom.serialization</a></dt>
 <dd>
-<div class="block">Data migration of old formats to current format can
- be implemented in a concrete subclass and configured to
- be used by the <code>JacksonJsonSerializer</code> for a changed class.</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="block"><span class="deprecationComment">Use akka.serialization.jackson.JacksonMigration instead. Since 1.6.0.</span></div>
+</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/serialization/JacksonJsonMigration.html#JacksonJsonMigration--">JacksonJsonMigration()</a></span> - Constructor for class com.lightbend.lagom.serialization.<a href="com/lightbend/lagom/serialization/JacksonJsonMigration.html" title="class in com.lightbend.lagom.serialization">JacksonJsonMigration</a></dt>
+<dd>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/javadsl/jackson/JacksonMigrationCheck.html" title="class in com.lightbend.lagom.javadsl.jackson"><span class="typeNameLink">JacksonMigrationCheck</span></a> - Class in <a href="com/lightbend/lagom/javadsl/jackson/package-summary.html">com.lightbend.lagom.javadsl.jackson</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/jackson/JacksonMigrationCheck.html#JacksonMigrationCheck-akka.actor.ActorSystem-">JacksonMigrationCheck(ActorSystem)</a></span> - Constructor for class com.lightbend.lagom.javadsl.jackson.<a href="com/lightbend/lagom/javadsl/jackson/JacksonMigrationCheck.html" title="class in com.lightbend.lagom.javadsl.jackson">JacksonMigrationCheck</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/jackson/JacksonModule.html" title="class in com.lightbend.lagom.javadsl.jackson"><span class="typeNameLink">JacksonModule</span></a> - Class in <a href="com/lightbend/lagom/javadsl/jackson/package-summary.html">com.lightbend.lagom.javadsl.jackson</a></dt>
 <dd>
@@ -3927,11 +3936,13 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/serialization/JacksonJsonMigration.html#transform-int-com.fasterxml.jackson.databind.JsonNode-">transform(int, JsonNode)</a></span> - Method in class com.lightbend.lagom.serialization.<a href="com/lightbend/lagom/serialization/JacksonJsonMigration.html" title="class in com.lightbend.lagom.serialization">JacksonJsonMigration</a></dt>
 <dd>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block">Implement the transformation of the old JSON structure to the new
  JSON structure.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/serialization/JacksonJsonMigration.html#transformClassName-int-java.lang.String-">transformClassName(int, String)</a></span> - Method in class com.lightbend.lagom.serialization.<a href="com/lightbend/lagom/serialization/JacksonJsonMigration.html" title="class in com.lightbend.lagom.serialization">JacksonJsonMigration</a></dt>
 <dd>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block">Override this method if you have changed the class name.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/security/UserAgentHeaderFilter.html#transformClientRequest-com.lightbend.lagom.javadsl.api.transport.RequestHeader-">transformClientRequest(RequestHeader)</a></span> - Method in class com.lightbend.lagom.javadsl.api.security.<a href="com/lightbend/lagom/javadsl/api/security/UserAgentHeaderFilter.html" title="class in com.lightbend.lagom.javadsl.api.security">UserAgentHeaderFilter</a></dt>

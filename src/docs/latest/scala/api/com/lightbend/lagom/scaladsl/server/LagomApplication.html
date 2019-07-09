@@ -256,11 +256,11 @@ an abstract subclass of this class, and will bind all the services that this Lag
 the <code>serviceLocator</code> component will be provided by mixing in a service locator components trait in
 <a href="LagomApplicationLoader.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomApplicationLoader">LagomApplicationLoader</a>, which trait is mixed in will vary depending on whether the application is being loaded
 for production or for development.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-M3+21-9546e236//service/scaladsl/server/src/main/scala/com/lightbend/lagom/scaladsl/server/LagomApplicationLoader.scala" target="_blank">LagomApplicationLoader.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-M3+30-a9b142aa//service/scaladsl/server/src/main/scala/com/lightbend/lagom/scaladsl/server/LagomApplicationLoader.scala" target="_blank">LagomApplicationLoader.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="AkkaManagementComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.AkkaManagementComponents">AkkaManagementComponents</a>, <a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a>, <a href="../client/LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a>, <span class="extype" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider">TopicFactoryProvider</span>, <a href="LagomServerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">LagomServerComponents</a>, <a href="status/MetricsServiceComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents">MetricsServiceComponents</a>, <a href="../playjson/ProvidesJsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.ProvidesJsonSerializerRegistry">ProvidesJsonSerializerRegistry</a>, <a href="../api/ProvidesAdditionalConfiguration.html" class="extype" name="com.lightbend.lagom.scaladsl.api.ProvidesAdditionalConfiguration">ProvidesAdditionalConfiguration</a>, <a href="https://www.playframework.com/documentation/2.8.0-M2/api/scala/play/api/BuiltInComponentsFromContext.html#play.api.BuiltInComponentsFromContext" class="extype" name="play.api.BuiltInComponentsFromContext">BuiltInComponentsFromContext</a>, <a href="https://www.playframework.com/documentation/2.8.0-M2/api/scala/play/api/BuiltInComponents.html#play.api.BuiltInComponents" class="extype" name="play.api.BuiltInComponents">BuiltInComponents</a>, <a href="https://www.playframework.com/documentation/2.8.0-M2/api/scala/play/api/i18n/I18nComponents.html#play.api.i18n.I18nComponents" class="extype" name="play.api.i18n.I18nComponents">I18nComponents</a>, <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="AkkaManagementComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.AkkaManagementComponents">AkkaManagementComponents</a>, <a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a>, <a href="../client/LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a>, <span class="extype" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider">TopicFactoryProvider</span>, <a href="LagomServerComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomServerComponents">LagomServerComponents</a>, <a href="status/MetricsServiceComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents">MetricsServiceComponents</a>, <a href="../playjson/ProvidesJsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.ProvidesJsonSerializerRegistry">ProvidesJsonSerializerRegistry</a>, <a href="../api/ProvidesAdditionalConfiguration.html" class="extype" name="com.lightbend.lagom.scaladsl.api.ProvidesAdditionalConfiguration">ProvidesAdditionalConfiguration</a>, <a href="https://www.playframework.com/documentation/2.8.0-M2/api/scala/play/api/BuiltInComponentsFromContext.html#play.api.BuiltInComponentsFromContext" class="extype" name="play.api.BuiltInComponentsFromContext">BuiltInComponentsFromContext</a>, <a href="https://www.playframework.com/documentation/2.8.0-M2/api/scala/play/api/BuiltInComponents.html#play.api.BuiltInComponents" class="extype" name="play.api.BuiltInComponents">BuiltInComponents</a>, <a href="https://www.playframework.com/documentation/2.8.0-M2/api/scala/play/api/i18n/I18nComponents.html#play.api.i18n.I18nComponents" class="extype" name="play.api.i18n.I18nComponents">I18nComponents</a>, <a href="../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
         </div></div>
         
 
@@ -507,7 +507,7 @@ for production or for development.
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">actorSystem</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.0-M3/akka/actor/ActorSystem.html#akka.actor.ActorSystem" class="extype" name="akka.actor.ActorSystem">ActorSystem</a></span>
+        <span class="name">actorSystem</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.0-M4/akka/actor/ActorSystem.html#akka.actor.ActorSystem" class="extype" name="akka.actor.ActorSystem">ActorSystem</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomApplication">LagomApplication</a> → <a href="AkkaManagementComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.AkkaManagementComponents">AkkaManagementComponents</a> → <a href="../client/LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a> → <a href="status/MetricsServiceComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.status.MetricsServiceComponents">MetricsServiceComponents</a> → BuiltInComponents</dd></dl></div>
@@ -606,7 +606,7 @@ Lagom will only invoke this method once from a lazy val, so it will effectively 
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java/lang/index.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -678,7 +678,7 @@ Lagom will only invoke this method once from a lazy val, so it will effectively 
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">coordinatedShutdown</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.0-M3/akka/actor/CoordinatedShutdown.html#akka.actor.CoordinatedShutdown" class="extype" name="akka.actor.CoordinatedShutdown">CoordinatedShutdown</a></span>
+        <span class="name">coordinatedShutdown</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.0-M4/akka/actor/CoordinatedShutdown.html#akka.actor.CoordinatedShutdown" class="extype" name="akka.actor.CoordinatedShutdown">CoordinatedShutdown</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>BuiltInComponents</dd></dl></div>
@@ -870,7 +870,7 @@ Lagom will only invoke this method once from a lazy val, so it will effectively 
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -1049,7 +1049,7 @@ Lagom will only invoke this method once from a lazy val, so it will effectively 
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">httpFilters</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="https://www.playframework.com/documentation/2.8.0-M2/api/scala/play/api/mvc/EssentialFilter.html#play.api.mvc.EssentialFilter" class="extype" name="play.api.mvc.EssentialFilter">EssentialFilter</a>]</span>
+        <span class="name">httpFilters</span><span class="result">: <a href="../../../../../scala/index.html#Seq[+A]=Seq[A]" class="extmbr" name="scala.Seq">Seq</a>[<a href="https://www.playframework.com/documentation/2.8.0-M2/api/scala/play/api/mvc/EssentialFilter.html#play.api.mvc.EssentialFilter" class="extype" name="play.api.mvc.EssentialFilter">EssentialFilter</a>]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.server.LagomApplication">LagomApplication</a> → BuiltInComponents</dd></dl></div>
@@ -1145,7 +1145,7 @@ Lagom will only invoke this method once from a lazy val, so it will effectively 
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">materializer</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.0-M3/akka/stream/Materializer.html#akka.stream.Materializer" class="extype" name="akka.stream.Materializer">Materializer</a></span>
+        <span class="name">materializer</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.0-M4/akka/stream/Materializer.html#akka.stream.Materializer" class="extype" name="akka.stream.Materializer">Materializer</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>BuiltInComponents</dd></dl></div>
@@ -1193,7 +1193,7 @@ Lagom will only invoke this method once from a lazy val, so it will effectively 
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Boolean.html#scala.Boolean" class="extype" name="scala.Boolean">Boolean</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -1716,7 +1716,7 @@ topics, so that the LagomServerComponents can detect a misconfiguration where on
             </div><div class="parent" name="play.api.i18n.I18nComponents">
               <h3>Inherited from <a href="https://www.playframework.com/documentation/2.8.0-M2/api/scala/play/api/i18n/I18nComponents.html#play.api.i18n.I18nComponents" class="extype" name="play.api.i18n.I18nComponents">I18nComponents</a></h3>
             </div><div class="parent" name="scala.AnyRef">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.8/scala/AnyRef.html#scala.AnyRef" class="extype" name="scala.AnyRef">AnyRef</a></h3>
+              <h3>Inherited from <a href="../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></h3>
             </div>

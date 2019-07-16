@@ -9,6 +9,7 @@ com.lightbend.lagom.javadsl.broker
 com.lightbend.lagom.javadsl.broker.kafka
 com.lightbend.lagom.javadsl.client
 com.lightbend.lagom.javadsl.client.integration
+com.lightbend.lagom.javadsl.cluster.projections
 com.lightbend.lagom.javadsl.cluster.testkit
 com.lightbend.lagom.javadsl.immutable
 com.lightbend.lagom.javadsl.jackson

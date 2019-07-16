@@ -200,17 +200,17 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">LagomKafkaComponents</span><span class="result"> extends <a href="LagomKafkaClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents">LagomKafkaClientComponents</a></span>
+        <span class="name">LagomKafkaComponents</span><span class="result"> extends <a href="LagomKafkaClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents">LagomKafkaClientComponents</a> with <a href="../../cluster/projections/ProjectionComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.cluster.projections.ProjectionComponents">ProjectionComponents</a></span>
       </span>
       </h4>
 
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Components for including Kafka into a Lagom application.</p><p>Extending this trait will automatically start all topic producers.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-M4+5-bfe1879c//service/scaladsl/kafka/server/src/main/scala/com/lightbend/lagom/scaladsl/broker/kafka/LagomKafkaComponents.scala" target="_blank">LagomKafkaComponents.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-M4+27-b7946d41//service/scaladsl/kafka/server/src/main/scala/com/lightbend/lagom/scaladsl/broker/kafka/LagomKafkaComponents.scala" target="_blank">LagomKafkaComponents.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="LagomKafkaClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents">LagomKafkaClientComponents</a>, <span class="extype" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider">TopicFactoryProvider</span>, <a href="../../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="../../cluster/projections/ProjectionComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.cluster.projections.ProjectionComponents">ProjectionComponents</a>, <a href="../../cluster/ClusterComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.cluster.ClusterComponents">ClusterComponents</a>, <a href="../../server/AkkaManagementComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.AkkaManagementComponents">AkkaManagementComponents</a>, <a href="../../playjson/RequiresJsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.RequiresJsonSerializerRegistry">RequiresJsonSerializerRegistry</a>, <a href="../../playjson/ProvidesJsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.ProvidesJsonSerializerRegistry">ProvidesJsonSerializerRegistry</a>, <a href="LagomKafkaClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents">LagomKafkaClientComponents</a>, <span class="extype" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider">TopicFactoryProvider</span>, <a href="../../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.8/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
         </div></div>
         
 
@@ -236,7 +236,7 @@
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaComponents"><span>LagomKafkaComponents</span></li><li class="in" name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents"><span>LagomKafkaClientComponents</span></li><li class="in" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider"><span>TopicFactoryProvider</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaComponents"><span>LagomKafkaComponents</span></li><li class="in" name="com.lightbend.lagom.scaladsl.cluster.projections.ProjectionComponents"><span>ProjectionComponents</span></li><li class="in" name="com.lightbend.lagom.scaladsl.cluster.ClusterComponents"><span>ClusterComponents</span></li><li class="in" name="com.lightbend.lagom.scaladsl.server.AkkaManagementComponents"><span>AkkaManagementComponents</span></li><li class="in" name="com.lightbend.lagom.scaladsl.playjson.RequiresJsonSerializerRegistry"><span>RequiresJsonSerializerRegistry</span></li><li class="in" name="com.lightbend.lagom.scaladsl.playjson.ProvidesJsonSerializerRegistry"><span>ProvidesJsonSerializerRegistry</span></li><li class="in" name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents"><span>LagomKafkaClientComponents</span></li><li class="in" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider"><span>TopicFactoryProvider</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
                   <span class="filtertype">Implicitly<br />
@@ -265,7 +265,7 @@
 
         <div class="values members">
               <h3>Abstract Value Members</h3>
-              <ol><li name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents#actorSystem" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+              <ol><li name="com.lightbend.lagom.scaladsl.cluster.projections.ProjectionComponents#actorSystem" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="actorSystem:akka.actor.ActorSystem"></a><a id="actorSystem:ActorSystem"></a>
       <span class="permalink">
       <a href="../../../../../../com/lightbend/lagom/scaladsl/broker/kafka/LagomKafkaComponents.html#actorSystem:akka.actor.ActorSystem" title="Permalink">
@@ -280,7 +280,7 @@
         <span class="name">actorSystem</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.0-M4/akka/actor/ActorSystem.html#akka.actor.ActorSystem" class="extype" name="akka.actor.ActorSystem">ActorSystem</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomKafkaClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents">LagomKafkaClientComponents</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../cluster/projections/ProjectionComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.cluster.projections.ProjectionComponents">ProjectionComponents</a> → <a href="../../cluster/ClusterComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.cluster.ClusterComponents">ClusterComponents</a> → <a href="../../server/AkkaManagementComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.AkkaManagementComponents">AkkaManagementComponents</a></dd></dl></div>
     </li><li name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents#config" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="config:com.typesafe.config.Config"></a><a id="config:Config"></a>
       <span class="permalink">
@@ -297,7 +297,55 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomKafkaClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents">LagomKafkaClientComponents</a></dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents#executionContext" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+    </li><li name="com.lightbend.lagom.scaladsl.server.AkkaManagementComponents#configuration" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="configuration:play.api.Configuration"></a><a id="configuration:Configuration"></a>
+      <span class="permalink">
+      <a href="../../../../../../com/lightbend/lagom/scaladsl/broker/kafka/LagomKafkaComponents.html#configuration:play.api.Configuration" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">configuration</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.0-M3/api/scala/play/api/Configuration.html#play.api.Configuration" class="extype" name="play.api.Configuration">Configuration</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../server/AkkaManagementComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.AkkaManagementComponents">AkkaManagementComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.server.AkkaManagementComponents#coordinatedShutdown" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="coordinatedShutdown:akka.actor.CoordinatedShutdown"></a><a id="coordinatedShutdown:CoordinatedShutdown"></a>
+      <span class="permalink">
+      <a href="../../../../../../com/lightbend/lagom/scaladsl/broker/kafka/LagomKafkaComponents.html#coordinatedShutdown:akka.actor.CoordinatedShutdown" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">coordinatedShutdown</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.0-M4/akka/actor/CoordinatedShutdown.html#akka.actor.CoordinatedShutdown" class="extype" name="akka.actor.CoordinatedShutdown">CoordinatedShutdown</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../server/AkkaManagementComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.AkkaManagementComponents">AkkaManagementComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.cluster.ClusterComponents#environment" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="environment:play.api.Environment"></a><a id="environment:Environment"></a>
+      <span class="permalink">
+      <a href="../../../../../../com/lightbend/lagom/scaladsl/broker/kafka/LagomKafkaComponents.html#environment:play.api.Environment" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">environment</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.0-M3/api/scala/play/api/Environment.html#play.api.Environment" class="extype" name="play.api.Environment">Environment</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../cluster/ClusterComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.cluster.ClusterComponents">ClusterComponents</a> → <a href="../../server/AkkaManagementComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.AkkaManagementComponents">AkkaManagementComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.server.AkkaManagementComponents#executionContext" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="executionContext:scala.concurrent.ExecutionContext"></a><a id="executionContext:ExecutionContext"></a>
       <span class="permalink">
       <a href="../../../../../../com/lightbend/lagom/scaladsl/broker/kafka/LagomKafkaComponents.html#executionContext:scala.concurrent.ExecutionContext" title="Permalink">
@@ -312,7 +360,24 @@
         <span class="name">executionContext</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomKafkaClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents">LagomKafkaClientComponents</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../server/AkkaManagementComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.AkkaManagementComponents">AkkaManagementComponents</a></dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.playjson.RequiresJsonSerializerRegistry#jsonSerializerRegistry" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="jsonSerializerRegistry:com.lightbend.lagom.scaladsl.playjson.JsonSerializerRegistry"></a><a id="jsonSerializerRegistry:JsonSerializerRegistry"></a>
+      <span class="permalink">
+      <a href="../../../../../../com/lightbend/lagom/scaladsl/broker/kafka/LagomKafkaComponents.html#jsonSerializerRegistry:com.lightbend.lagom.scaladsl.playjson.JsonSerializerRegistry" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">jsonSerializerRegistry</span><span class="result">: <a href="../../playjson/JsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.JsonSerializerRegistry">JsonSerializerRegistry</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">The serializer registry.</p><div class="fullcomment"><div class="comment cmt"><p>The serializer registry.</p><p>If no JSON serializers need to be provided, this can simply return <a href="../../playjson/EmptyJsonSerializerRegistry$.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.EmptyJsonSerializerRegistry">EmptyJsonSerializerRegistry</a>.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../playjson/RequiresJsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.RequiresJsonSerializerRegistry">RequiresJsonSerializerRegistry</a></dd></dl></div>
     </li><li name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaComponents#lagomServer" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="lagomServer:com.lightbend.lagom.scaladsl.server.LagomServer"></a><a id="lagomServer:LagomServer"></a>
       <span class="permalink">
@@ -530,6 +595,22 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.cluster.ClusterComponents#cluster" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="cluster:akka.cluster.Cluster"></a><a id="cluster:Cluster"></a>
+      <span class="permalink">
+      <a href="../../../../../../com/lightbend/lagom/scaladsl/broker/kafka/LagomKafkaComponents.html#cluster:akka.cluster.Cluster" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">cluster</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.0-M4/akka/cluster/Cluster.html#akka.cluster.Cluster" class="extype" name="akka.cluster.Cluster">Cluster</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../cluster/ClusterComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.cluster.ClusterComponents">ClusterComponents</a></dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((LagomKafkaComponents)⇒Boolean,⇒Any):LagomKafkaComponents"></a>
       <span class="permalink">
@@ -795,6 +876,26 @@
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.playjson.RequiresJsonSerializerRegistry#optionalJsonSerializerRegistry" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="optionalJsonSerializerRegistry:Option[com.lightbend.lagom.scaladsl.playjson.JsonSerializerRegistry]"></a><a id="optionalJsonSerializerRegistry:Option[JsonSerializerRegistry]"></a>
+      <span class="permalink">
+      <a href="../../../../../../com/lightbend/lagom/scaladsl/broker/kafka/LagomKafkaComponents.html#optionalJsonSerializerRegistry:Option[com.lightbend.lagom.scaladsl.playjson.JsonSerializerRegistry]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">optionalJsonSerializerRegistry</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Option.html#scala.Option" class="extype" name="scala.Option">Option</a>[<a href="../../playjson/JsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.JsonSerializerRegistry">JsonSerializerRegistry</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">The optionally provided serializer registry.</p><div class="fullcomment"><div class="comment cmt"><p>The optionally provided serializer registry.</p><p>Note that this can also be exploited to allow multiple traits to contribute to the serializer registry rather
+than provide one, by checking whether the super implementation also provides one, and concatenating with that if
+it does. To do that, the override must be a def, so that it can be subsequently overridden by other mixed in
+traits.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../playjson/RequiresJsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.RequiresJsonSerializerRegistry">RequiresJsonSerializerRegistry</a> → <a href="../../playjson/ProvidesJsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.ProvidesJsonSerializerRegistry">ProvidesJsonSerializerRegistry</a></dd></dl></div>
     </li><li name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents#optionalTopicFactory" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="optionalTopicFactory:Option[com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactory]"></a><a id="optionalTopicFactory:Option[TopicFactory]"></a>
       <span class="permalink">
@@ -811,6 +912,22 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomKafkaClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents">LagomKafkaClientComponents</a> → TopicFactoryProvider</dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.cluster.projections.ProjectionComponents#projections" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="projections:com.lightbend.lagom.scaladsl.cluster.projections.Projections"></a><a id="projections:Projections"></a>
+      <span class="permalink">
+      <a href="../../../../../../com/lightbend/lagom/scaladsl/broker/kafka/LagomKafkaComponents.html#projections:com.lightbend.lagom.scaladsl.cluster.projections.Projections" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">projections</span><span class="result">: <a href="../../cluster/projections/Projections.html" class="extype" name="com.lightbend.lagom.scaladsl.cluster.projections.Projections">Projections</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../cluster/projections/ProjectionComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.cluster.projections.ProjectionComponents">ProjectionComponents</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
@@ -976,7 +1093,17 @@ topics, so that the LagomServerComponents can detect a misconfiguration where on
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents">
+        <div class="parent" name="com.lightbend.lagom.scaladsl.cluster.projections.ProjectionComponents">
+              <h3>Inherited from <a href="../../cluster/projections/ProjectionComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.cluster.projections.ProjectionComponents">ProjectionComponents</a></h3>
+            </div><div class="parent" name="com.lightbend.lagom.scaladsl.cluster.ClusterComponents">
+              <h3>Inherited from <a href="../../cluster/ClusterComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.cluster.ClusterComponents">ClusterComponents</a></h3>
+            </div><div class="parent" name="com.lightbend.lagom.scaladsl.server.AkkaManagementComponents">
+              <h3>Inherited from <a href="../../server/AkkaManagementComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.server.AkkaManagementComponents">AkkaManagementComponents</a></h3>
+            </div><div class="parent" name="com.lightbend.lagom.scaladsl.playjson.RequiresJsonSerializerRegistry">
+              <h3>Inherited from <a href="../../playjson/RequiresJsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.RequiresJsonSerializerRegistry">RequiresJsonSerializerRegistry</a></h3>
+            </div><div class="parent" name="com.lightbend.lagom.scaladsl.playjson.ProvidesJsonSerializerRegistry">
+              <h3>Inherited from <a href="../../playjson/ProvidesJsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.ProvidesJsonSerializerRegistry">ProvidesJsonSerializerRegistry</a></h3>
+            </div><div class="parent" name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents">
               <h3>Inherited from <a href="LagomKafkaClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaClientComponents">LagomKafkaClientComponents</a></h3>
             </div><div class="parent" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider">
               <h3>Inherited from <span class="extype" name="com.lightbend.lagom.internal.scaladsl.api.broker.TopicFactoryProvider">TopicFactoryProvider</span></h3>

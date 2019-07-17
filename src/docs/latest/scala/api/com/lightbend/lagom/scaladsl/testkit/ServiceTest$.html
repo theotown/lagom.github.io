@@ -207,7 +207,7 @@ default. If your service require either of these features you can enable them in
 automatically starts and stops the server before and after the given block. When your test have several test
 methods, and especially when using persistence, it is faster to only <span class="extype" name="ServiceTest.startServer()">ServiceTest.startServer()</span> the server once in a
 before all tests hook, and then stop it in an after all test hook.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-M4+27-b7946d41//testkit/scaladsl/src/main/scala/com/lightbend/lagom/scaladsl/testkit/ServiceTest.scala" target="_blank">ServiceTest.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-M4+34-a6c9991d//testkit/scaladsl/src/main/scala/com/lightbend/lagom/scaladsl/testkit/ServiceTest.scala" target="_blank">ServiceTest.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -703,7 +703,7 @@ more convenient.</p><p>You can get the service client from the returned <code>Te
       </span>
       
       <p class="shortcomment cmt">Start the test server with the given <code>setup</code> and run the <code>block</code> (lambda).</p><div class="fullcomment"><div class="comment cmt"><p>Start the test server with the given <code>setup</code> and run the <code>block</code> (lambda). When
-the <code>block returns or throws the test server will automatically be stopped.</code></p><p>This method should be used when the server can be started and stopped for each test
+the <code>block</code> returns or throws the test server will automatically be stopped.</p><p>This method should be used when the server can be started and stopped for each test
 method. When your test have several test methods, and especially when using persistence, it is
 faster to only start the server once with <a href="#startServer[T&lt;:com.lightbend.lagom.scaladsl.server.LagomApplication](setup:com.lightbend.lagom.scaladsl.testkit.ServiceTest.Setup)(applicationConstructor:com.lightbend.lagom.scaladsl.server.LagomApplicationContext=&gt;T):com.lightbend.lagom.scaladsl.testkit.ServiceTest.TestServer[T]" class="extmbr" name="com.lightbend.lagom.scaladsl.testkit.ServiceTest#startServer">#startServer</a>.</p><p>You can get the service client from the <code>TestServer</code> that is passed as parameter
 to the <code>block</code>.

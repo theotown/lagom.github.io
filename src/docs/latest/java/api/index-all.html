@@ -519,7 +519,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased.html#apply:DmcZJJ:Dsp-long-long-">apply$mcZJJ$sp(long, long)</a></span> - Static method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/DesiredState.html#asJava-com.lightbend.lagom.internal.cluster.projections.ProjectionRegistryActor.DesiredState-">asJava(ProjectionRegistryActor.DesiredState)</a></span> - Static method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/DesiredState.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">DesiredState</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/DesiredState.html#asJava-com.lightbend.lagom.internal.projection.ProjectionRegistryActor.DesiredState-">asJava(ProjectionRegistryActor.DesiredState)</a></span> - Static method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/DesiredState.html" title="class in com.lightbend.lagom.javadsl.projection">DesiredState</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#ask-Cmd-">ask(Cmd)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntityRef</a></dt>
 <dd>
@@ -619,8 +619,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaClientModule.html#bindings-play.Environment-com.typesafe.config.Config-">bindings(Environment, Config)</a></span> - Method in class com.lightbend.lagom.javadsl.broker.kafka.<a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaClientModule.html" title="class in com.lightbend.lagom.javadsl.broker.kafka">KafkaClientModule</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionRegistryModule.html#bindings-play.api.Environment-play.api.Configuration-">bindings(Environment, Configuration)</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionRegistryModule.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">ProjectionRegistryModule</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/testkit/ActorSystemModule.html#bindings-play.api.Environment-play.api.Configuration-">bindings(Environment, Configuration)</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.testkit.<a href="com/lightbend/lagom/javadsl/cluster/testkit/ActorSystemModule.html" title="class in com.lightbend.lagom.javadsl.cluster.testkit">ActorSystemModule</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/jackson/JacksonModule.html#bindings-play.api.Environment-play.api.Configuration-">bindings(Environment, Configuration)</a></span> - Method in class com.lightbend.lagom.javadsl.jackson.<a href="com/lightbend/lagom/javadsl/jackson/JacksonModule.html" title="class in com.lightbend.lagom.javadsl.jackson">JacksonModule</a></dt>
@@ -632,6 +630,8 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/jpa/JpaPersistenceModule.html#bindings-play.Environment-com.typesafe.config.Config-">bindings(Environment, Config)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.jpa.<a href="com/lightbend/lagom/javadsl/persistence/jpa/JpaPersistenceModule.html" title="class in com.lightbend.lagom.javadsl.persistence.jpa">JpaPersistenceModule</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistenceModule.html#bindings-play.api.Environment-play.api.Configuration-">bindings(Environment, Configuration)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistenceModule.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistenceModule</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryModule.html#bindings-play.api.Environment-play.api.Configuration-">bindings(Environment, Configuration)</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryModule.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionRegistryModule</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/pubsub/PubSubModule.html#bindings-play.api.Environment-play.api.Configuration-">bindings(Environment, Configuration)</a></span> - Method in class com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/PubSubModule.html" title="class in com.lightbend.lagom.javadsl.pubsub">PubSubModule</a></dt>
 <dd>&nbsp;</dd>
@@ -939,8 +939,6 @@
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/client/integration/package-summary.html">com.lightbend.lagom.javadsl.client.integration</a> - package com.lightbend.lagom.javadsl.client.integration</dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/lightbend/lagom/javadsl/cluster/projections/package-summary.html">com.lightbend.lagom.javadsl.cluster.projections</a> - package com.lightbend.lagom.javadsl.cluster.projections</dt>
-<dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/cluster/testkit/package-summary.html">com.lightbend.lagom.javadsl.cluster.testkit</a> - package com.lightbend.lagom.javadsl.cluster.testkit</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/immutable/package-summary.html">com.lightbend.lagom.javadsl.immutable</a> - package com.lightbend.lagom.javadsl.immutable</dt>
@@ -960,6 +958,8 @@
 <dt><a href="com/lightbend/lagom/javadsl/persistence/jpa/package-summary.html">com.lightbend.lagom.javadsl.persistence.jpa</a> - package com.lightbend.lagom.javadsl.persistence.jpa</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/persistence/testkit/package-summary.html">com.lightbend.lagom.javadsl.persistence.testkit</a> - package com.lightbend.lagom.javadsl.persistence.testkit</dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/javadsl/projection/package-summary.html">com.lightbend.lagom.javadsl.projection</a> - package com.lightbend.lagom.javadsl.projection</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/pubsub/package-summary.html">com.lightbend.lagom.javadsl.pubsub</a> - package com.lightbend.lagom.javadsl.pubsub</dt>
 <dd>&nbsp;</dd>
@@ -1250,7 +1250,7 @@
 <dd>
 <div class="block">Get a deserializer for an entity described by the given request or response protocol.</div>
 </dd>
-<dt><a href="com/lightbend/lagom/javadsl/cluster/projections/DesiredState.html" title="class in com.lightbend.lagom.javadsl.cluster.projections"><span class="typeNameLink">DesiredState</span></a> - Class in <a href="com/lightbend/lagom/javadsl/cluster/projections/package-summary.html">com.lightbend.lagom.javadsl.cluster.projections</a></dt>
+<dt><a href="com/lightbend/lagom/javadsl/projection/DesiredState.html" title="class in com.lightbend.lagom.javadsl.projection"><span class="typeNameLink">DesiredState</span></a> - Class in <a href="com/lightbend/lagom/javadsl/projection/package-summary.html">com.lightbend.lagom.javadsl.projection</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/deser/ExceptionMessage.html#detail--">detail()</a></span> - Method in class com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/ExceptionMessage.html" title="class in com.lightbend.lagom.javadsl.api.deser">ExceptionMessage</a></dt>
 <dd>&nbsp;</dd>
@@ -1327,12 +1327,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/DesiredState.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/DesiredState.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">DesiredState</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/Projection.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/Projection.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">Projection</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionWorker.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionWorker.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">ProjectionWorker</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventShards</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
@@ -1342,6 +1336,12 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/Offset.Sequence.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/Offset.Sequence.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset.Sequence</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/Offset.TimeBasedUUID.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/Offset.TimeBasedUUID.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset.TimeBasedUUID</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/DesiredState.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/DesiredState.html" title="class in com.lightbend.lagom.javadsl.projection">DesiredState</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/Projection.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/Projection.html" title="class in com.lightbend.lagom.javadsl.projection">Projection</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionWorker.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionWorker.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionWorker</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/status/CircuitBreakerStatus.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.server.status.<a href="com/lightbend/lagom/javadsl/server/status/CircuitBreakerStatus.html" title="class in com.lightbend.lagom.javadsl.server.status">CircuitBreakerStatus</a></dt>
 <dd>
@@ -1542,9 +1542,9 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/Method.html#GET">GET</a></span> - Static variable in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/Method.html" title="class in com.lightbend.lagom.javadsl.api.transport">Method</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionRegistryProvider.html#get--">get()</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionRegistryProvider.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">ProjectionRegistryProvider</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/jdbc/GuiceSlickProvider.html#get--">get()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.jdbc.<a href="com/lightbend/lagom/javadsl/persistence/jdbc/GuiceSlickProvider.html" title="class in com.lightbend.lagom.javadsl.persistence.jdbc">GuiceSlickProvider</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryProvider.html#get--">get()</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryProvider.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionRegistryProvider</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html#getAcls--">getAcls()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/ServiceInfo.html" title="class in com.lightbend.lagom.javadsl.api">ServiceInfo</a></dt>
 <dd>&nbsp;</dd>
@@ -1604,9 +1604,9 @@
 <dd>
 <div class="block">The name of the metadata key.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/Projection.html#getName--">getName()</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/Projection.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">Projection</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/Projection.html#getName--">getName()</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/Projection.html" title="class in com.lightbend.lagom.javadsl.projection">Projection</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionWorker.html#getName--">getName()</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionWorker.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">ProjectionWorker</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionWorker.html#getName--">getName()</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionWorker.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionWorker</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/broker/Message.html#getPayload--">getPayload()</a></span> - Method in class com.lightbend.lagom.javadsl.api.broker.<a href="com/lightbend/lagom/javadsl/api/broker/Message.html" title="class in com.lightbend.lagom.javadsl.api.broker">Message</a></dt>
 <dd>
@@ -1624,7 +1624,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/status/Latency.html#getPercentile99th--">getPercentile99th()</a></span> - Method in class com.lightbend.lagom.javadsl.server.status.<a href="com/lightbend/lagom/javadsl/server/status/Latency.html" title="class in com.lightbend.lagom.javadsl.server.status">Latency</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/DesiredState.html#getProjections--">getProjections()</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/DesiredState.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">DesiredState</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/DesiredState.html#getProjections--">getProjections()</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/DesiredState.html" title="class in com.lightbend.lagom.javadsl.projection">DesiredState</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Outcome.html#getReplies--">getReplies()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Outcome.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.Outcome</a></dt>
 <dd>
@@ -1645,11 +1645,11 @@
 <dd>
 <div class="block">Circuit breaker state; closed, open, half-open.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/Projections.html#getStatus--">getStatus()</a></span> - Method in interface com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/Projections.html" title="interface in com.lightbend.lagom.javadsl.cluster.projections">Projections</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/Projections.html#getStatus--">getStatus()</a></span> - Method in interface com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionsImpl.html#getStatus--">getStatus()</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionsImpl.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">ProjectionsImpl</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#getStatus--">getStatus()</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionsImpl</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionWorker.html#getStatus--">getStatus()</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionWorker.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">ProjectionWorker</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionWorker.html#getStatus--">getStatus()</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionWorker.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionWorker</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/status/AbstractCircuitBreakerStatus.html#getThroughputOneMinute--">getThroughputOneMinute()</a></span> - Method in interface com.lightbend.lagom.javadsl.server.status.<a href="com/lightbend/lagom/javadsl/server/status/AbstractCircuitBreakerStatus.html" title="interface in com.lightbend.lagom.javadsl.server.status">AbstractCircuitBreakerStatus</a></dt>
 <dd>
@@ -1684,7 +1684,7 @@
 <div class="block">Returns the value associated with the passed property, or null if the no matching property is
  found.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/Projection.html#getWorkers--">getWorkers()</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/Projection.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">Projection</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/Projection.html#getWorkers--">getWorkers()</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/Projection.html" title="class in com.lightbend.lagom.javadsl.projection">Projection</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.ReadSideHandler.html#globalPrepare--">globalPrepare()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.ReadSideHandler.html" title="class in com.lightbend.lagom.javadsl.persistence">ReadSideProcessor.ReadSideHandler</a></dt>
 <dd>
@@ -1765,12 +1765,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/DesiredState.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/DesiredState.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">DesiredState</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/Projection.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/Projection.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">Projection</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionWorker.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionWorker.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">ProjectionWorker</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventShards</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
@@ -1780,6 +1774,12 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/Offset.Sequence.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/Offset.Sequence.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset.Sequence</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/Offset.TimeBasedUUID.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/Offset.TimeBasedUUID.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset.TimeBasedUUID</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/DesiredState.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/DesiredState.html" title="class in com.lightbend.lagom.javadsl.projection">DesiredState</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/Projection.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/Projection.html" title="class in com.lightbend.lagom.javadsl.projection">Projection</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionWorker.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionWorker.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionWorker</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/status/CircuitBreakerStatus.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.server.status.<a href="com/lightbend/lagom/javadsl/server/status/CircuitBreakerStatus.html" title="class in com.lightbend.lagom.javadsl.server.status">CircuitBreakerStatus</a></dt>
 <dd>
@@ -3019,25 +3019,25 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ProducerStubFactory.html#ProducerStubFactory-akka.actor.ActorSystem-akka.stream.Materializer-">ProducerStubFactory(ActorSystem, Materializer)</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ProducerStubFactory.html" title="class in com.lightbend.lagom.javadsl.testkit">ProducerStubFactory</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/lightbend/lagom/javadsl/cluster/projections/Projection.html" title="class in com.lightbend.lagom.javadsl.cluster.projections"><span class="typeNameLink">Projection</span></a> - Class in <a href="com/lightbend/lagom/javadsl/cluster/projections/package-summary.html">com.lightbend.lagom.javadsl.cluster.projections</a></dt>
+<dt><a href="com/lightbend/lagom/javadsl/projection/Projection.html" title="class in com.lightbend.lagom.javadsl.projection"><span class="typeNameLink">Projection</span></a> - Class in <a href="com/lightbend/lagom/javadsl/projection/package-summary.html">com.lightbend.lagom.javadsl.projection</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionRegistryModule.html" title="class in com.lightbend.lagom.javadsl.cluster.projections"><span class="typeNameLink">ProjectionRegistryModule</span></a> - Class in <a href="com/lightbend/lagom/javadsl/cluster/projections/package-summary.html">com.lightbend.lagom.javadsl.cluster.projections</a></dt>
+<dt><a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryModule.html" title="class in com.lightbend.lagom.javadsl.projection"><span class="typeNameLink">ProjectionRegistryModule</span></a> - Class in <a href="com/lightbend/lagom/javadsl/projection/package-summary.html">com.lightbend.lagom.javadsl.projection</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionRegistryModule.html#ProjectionRegistryModule--">ProjectionRegistryModule()</a></span> - Constructor for class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionRegistryModule.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">ProjectionRegistryModule</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryModule.html#ProjectionRegistryModule--">ProjectionRegistryModule()</a></span> - Constructor for class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryModule.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionRegistryModule</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionRegistryProvider.html" title="class in com.lightbend.lagom.javadsl.cluster.projections"><span class="typeNameLink">ProjectionRegistryProvider</span></a> - Class in <a href="com/lightbend/lagom/javadsl/cluster/projections/package-summary.html">com.lightbend.lagom.javadsl.cluster.projections</a></dt>
+<dt><a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryProvider.html" title="class in com.lightbend.lagom.javadsl.projection"><span class="typeNameLink">ProjectionRegistryProvider</span></a> - Class in <a href="com/lightbend/lagom/javadsl/projection/package-summary.html">com.lightbend.lagom.javadsl.projection</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionRegistryProvider.html#ProjectionRegistryProvider-akka.actor.ActorSystem-">ProjectionRegistryProvider(ActorSystem)</a></span> - Constructor for class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionRegistryProvider.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">ProjectionRegistryProvider</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryProvider.html#ProjectionRegistryProvider-akka.actor.ActorSystem-">ProjectionRegistryProvider(ActorSystem)</a></span> - Constructor for class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryProvider.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionRegistryProvider</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/lightbend/lagom/javadsl/cluster/projections/Projections.html" title="interface in com.lightbend.lagom.javadsl.cluster.projections"><span class="typeNameLink">Projections</span></a> - Interface in <a href="com/lightbend/lagom/javadsl/cluster/projections/package-summary.html">com.lightbend.lagom.javadsl.cluster.projections</a></dt>
+<dt><a href="com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection"><span class="typeNameLink">Projections</span></a> - Interface in <a href="com/lightbend/lagom/javadsl/projection/package-summary.html">com.lightbend.lagom.javadsl.projection</a></dt>
 <dd>
 <div class="block">TODO: docs</div>
 </dd>
-<dt><a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionsImpl.html" title="class in com.lightbend.lagom.javadsl.cluster.projections"><span class="typeNameLink">ProjectionsImpl</span></a> - Class in <a href="com/lightbend/lagom/javadsl/cluster/projections/package-summary.html">com.lightbend.lagom.javadsl.cluster.projections</a></dt>
+<dt><a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html" title="class in com.lightbend.lagom.javadsl.projection"><span class="typeNameLink">ProjectionsImpl</span></a> - Class in <a href="com/lightbend/lagom/javadsl/projection/package-summary.html">com.lightbend.lagom.javadsl.projection</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionsImpl.html#ProjectionsImpl-com.lightbend.lagom.internal.cluster.projections.ProjectionRegistry-scala.concurrent.ExecutionContext-">ProjectionsImpl(ProjectionRegistry, ExecutionContext)</a></span> - Constructor for class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionsImpl.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">ProjectionsImpl</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#ProjectionsImpl-com.lightbend.lagom.internal.projection.ProjectionRegistry-scala.concurrent.ExecutionContext-">ProjectionsImpl(ProjectionRegistry, ExecutionContext)</a></span> - Constructor for class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionsImpl</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionWorker.html" title="class in com.lightbend.lagom.javadsl.cluster.projections"><span class="typeNameLink">ProjectionWorker</span></a> - Class in <a href="com/lightbend/lagom/javadsl/cluster/projections/package-summary.html">com.lightbend.lagom.javadsl.cluster.projections</a></dt>
+<dt><a href="com/lightbend/lagom/javadsl/projection/ProjectionWorker.html" title="class in com.lightbend.lagom.javadsl.projection"><span class="typeNameLink">ProjectionWorker</span></a> - Class in <a href="com/lightbend/lagom/javadsl/projection/package-summary.html">com.lightbend.lagom.javadsl.projection</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#properties--">properties()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a></dt>
 <dd>
@@ -3934,12 +3934,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TransportException.html#toString--">toString()</a></span> - Method in exception com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TransportException.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportException</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/DesiredState.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/DesiredState.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">DesiredState</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/Projection.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/Projection.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">Projection</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionWorker.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.cluster.projections.<a href="com/lightbend/lagom/javadsl/cluster/projections/ProjectionWorker.html" title="class in com.lightbend.lagom.javadsl.cluster.projections">ProjectionWorker</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventShards</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
@@ -3959,6 +3953,12 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistNone.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistNone.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.PersistNone</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntityRef</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/DesiredState.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/DesiredState.html" title="class in com.lightbend.lagom.javadsl.projection">DesiredState</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/Projection.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/Projection.html" title="class in com.lightbend.lagom.javadsl.projection">Projection</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionWorker.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionWorker.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionWorker</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/pubsub/PubSubRef.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="class in com.lightbend.lagom.javadsl.pubsub">PubSubRef</a></dt>
 <dd>&nbsp;</dd>

@@ -19,12 +19,16 @@
 <p>Switching from <code>persistence</code> to <code>ddata</code>, such as if your cluster relies of Lagom&rsquo;s default configuration, will require a full cluster shutdown. Therefore, if you want to avoid the full service shutdown when migrating to Lagom 1.6 you need to explicitly opt-back to <code>persistence</code>, as such:</p>
 <pre class="prettyprint"><code class="language-HOCON"># Opt-back to Lagom 1.5&#39;s &#39;persistence&#39; instead of Lagom 1.6&#39;s default of &#39;ddata&#39;.
 akka.cluster.sharding.state-store-mode = persistence
-</code></pre><h2 id="Upgrading-a-production-system"><a class="section-marker" href="#Upgrading-a-production-system">§</a>Upgrading a production system</h2>
+</code></pre><h3 id="Akka-Persistence-Cassandra-Update"><a class="section-marker" href="#Akka-Persistence-Cassandra-Update">§</a>Akka Persistence Cassandra Update</h3>
+<p>The Akka Persistence Cassandra plugin is updated to version 0.99. This version requires a schema migration before you upgrade to Lagom 1.6.0.</p>
+<p>For more information on how to migrate, consult <a href="https://doc.akka.io/docs/akka-persistence-cassandra/current/migrations.html#migrations-to-0-80-and-later">Akka Persistence Cassandra migration document</a>.</p>
+<p>Note that although it&rsquo;s technically possible to run the migration while running your application we advise against it.</p><h2 id="Upgrading-a-production-system"><a class="section-marker" href="#Upgrading-a-production-system">§</a>Upgrading a production system</h2>
 <p>As usual, before upgrading to Lagom 1.6.0, makes sure you are using the latest version on the 1.5.x series.</p>
 <p>Lagom 1.6.0 has a few new default settings that will prevent you to run a rolling upgrade. In case you prefer to run a rolling upgrade, you will need to opt-out from each of these new defaults as explained below.</p>
 <p>This is a summary of changes in Lagom 1.6 that would require a full cluster shutdown rather than a rolling upgrade:</p>
 <ul>
   <li>The change in [[Akka Remote|Migration16#Remoting-Artery] default implementation.</li>
   <li>The change in default [[Shard Coordination|Migration16#Shard-Coordination] strategy.</li>
+  <li>The change in [[Cassandra plugin version|Migration16#Akka-Persistence-Cassandra-Update]. Only impacts Lagom applications using Cassandra.</li>
 </ul><h2 id="Minor-changes"><a class="section-marker" href="#Minor-changes">§</a>Minor changes</h2><h3 id="JSON-Compression-threshold"><a class="section-marker" href="#JSON-Compression-threshold">§</a>JSON Compression threshold</h3>
 <p>When creating a serializer with <code>JsonSerializer.compressed[T]</code> compression will only kick in when the serialized representation is biger than a threshold. The default value for <code>lagom.serialization.json.compress-larger-than</code> has been increased from 1024 bytes to 32 Kilobytes. (See <a href="https://github.com/lagom/lagom/pull/1983">#1983</a>)</p>

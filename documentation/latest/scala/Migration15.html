@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/22361dbb2aefe3e955658f12d702a095bc28e4e2-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/6b9a3d600a48caea4f4e98568778835e8aecb4c8-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -176,7 +176,7 @@
 </ol><h4 id="Application-extensions"><a class="section-marker" href="#Application-extensions">§</a>Application extensions</h4>
 <p>Starting with Lagom 1.5 your application will include <a href="Cluster.html#Akka-Management">Akka management HTTP</a> out of the box with <a href="Cluster.html#Health-Checks">health checks</a> enabled by default. Akka management HTTP is a supporting tool for health checks, cluster bootstrap and a few other new features in Lagom 1.5.</p>
 <p>Cluster formation now also supports <a href="Cluster.html#Joining-during-production-(Akka-Cluster-Bootstrap)">Cluster Bootstrapping</a> as a new way to form a cluster.</p>
-<p>These new defaults may require at least two changes on your codebase. First, if you want to opt-in to cluster bootstrapping you must make sure you don&rsquo;t set <code>seed-nodes</code>. <code>seed-nodes</code> always takes precedence over any other cluster formation mechanism. Second, if you use Cluster Bootstrapping, you will have to setup a <a href="https://doc.akka.io/docs/akka/2.5/discovery/index.html">discovery</a> mechanism (see the <a href="Cluster.html#Akka-Discovery">Lagom Cluster reference guide</a> for more details).</p><h4 id="Service-Location"><a class="section-marker" href="#Service-Location">§</a>Service Location</h4>
+<p>These new defaults may require at least two changes on your codebase. First, if you want to opt-in to cluster bootstrapping you must make sure you don&rsquo;t set <code>seed-nodes</code>. <code>seed-nodes</code> always takes precedence over any other cluster formation mechanism. Second, if you use Cluster Bootstrapping, you will have to setup a <a href="https://doc.akka.io/docs/akka/2.6/discovery/index.html">discovery</a> mechanism (see the <a href="Cluster.html#Akka-Discovery">Lagom Cluster reference guide</a> for more details).</p><h4 id="Service-Location"><a class="section-marker" href="#Service-Location">§</a>Service Location</h4>
 <p>You no longer have a <code>ServiceLocator</code> provided by the tooling libraries so you will have to provide one of your choice. We recommend using the new <a href="AkkaDiscoveryIntegration.html">Akka Discovery Service Locator</a> which is implemented using <a href="https://doc.akka.io/docs/akka/current/discovery/index.html">Akka Service Discovery</a> implementations.</p>
 <p>Read <a href="AkkaDiscoveryIntegration.html">Akka Discovery Service Locator</a> for details on how to setup the Akka Service Discovery <a href="https://doc.akka.io/docs/akka/current/discovery/index.html">method</a>.</p><h4 id="Docker-images-and-deployment-specs"><a class="section-marker" href="#Docker-images-and-deployment-specs">§</a>Docker images and deployment specs</h4>
 <p>With the removal of ConductR or Lightbend Orchestration, the docker images and deployment specs will have to be maintained manually. Therefore the recommended migration is to take ownership of the <code>Dockerfile</code>, deployment scripts and orchestration specs.</p>
@@ -398,7 +398,7 @@
             </div>
         </div>
     </body>
-    <script src="/22361dbb2aefe3e955658f12d702a095bc28e4e2-all-scripts-concat.js"></script>
+    <script src="/6b9a3d600a48caea4f4e98568778835e8aecb4c8-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

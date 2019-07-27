@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -132,7 +132,7 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/projection/Projec
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#ProjectionsImpl-com.lightbend.lagom.internal.projection.ProjectionRegistry-scala.concurrent.ExecutionContext-">ProjectionsImpl</a></span>(com.lightbend.lagom.internal.projection.ProjectionRegistry&nbsp;impl,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#ProjectionsImpl-com.lightbend.lagom.internal.projection.ProjectionRegistry-scala.concurrent.ExecutionContext-">ProjectionsImpl</a></span>(com.lightbend.lagom.internal.projection.ProjectionRegistry&nbsp;registry,
                scala.concurrent.ExecutionContext&nbsp;executionContext)</code>&nbsp;</td>
 </tr>
 </table>
@@ -151,8 +151,26 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/projection/Projec
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/projection/DesiredState.html" title="class in com.lightbend.lagom.javadsl.projection">DesiredState</a>&gt;</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/projection/State.html" title="class in com.lightbend.lagom.javadsl.projection">State</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#getStatus--">getStatus</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#startAllWorkers-java.lang.String-">startAllWorkers</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#startWorker-java.lang.String-java.lang.String-">startWorker</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName,
+           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tagName)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#stopAllWorkers-java.lang.String-">stopAllWorkers</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#stopWorker-java.lang.String-java.lang.String-">stopWorker</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName,
+          <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tagName)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -182,7 +200,7 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/projection/Projec
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ProjectionsImpl</h4>
-<pre>public&nbsp;ProjectionsImpl(com.lightbend.lagom.internal.projection.ProjectionRegistry&nbsp;impl,
+<pre>public&nbsp;ProjectionsImpl(com.lightbend.lagom.internal.projection.ProjectionRegistry&nbsp;registry,
                        scala.concurrent.ExecutionContext&nbsp;executionContext)</pre>
 </li>
 </ul>
@@ -197,13 +215,67 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/projection/Projec
 <a name="getStatus--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getStatus</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/projection/DesiredState.html" title="class in com.lightbend.lagom.javadsl.projection">DesiredState</a>&gt;&nbsp;getStatus()</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/projection/State.html" title="class in com.lightbend.lagom.javadsl.projection">State</a>&gt;&nbsp;getStatus()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html#getStatus--">getStatus</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="startAllWorkers-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>startAllWorkers</h4>
+<pre>public&nbsp;void&nbsp;startAllWorkers(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html#startAllWorkers-java.lang.String-">startAllWorkers</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="startWorker-java.lang.String-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>startWorker</h4>
+<pre>public&nbsp;void&nbsp;startWorker(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName,
+                        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tagName)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html#startWorker-java.lang.String-java.lang.String-">startWorker</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="stopAllWorkers-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>stopAllWorkers</h4>
+<pre>public&nbsp;void&nbsp;stopAllWorkers(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html#stopAllWorkers-java.lang.String-">stopAllWorkers</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="stopWorker-java.lang.String-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>stopWorker</h4>
+<pre>public&nbsp;void&nbsp;stopWorker(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName,
+                       <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tagName)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html#stopWorker-java.lang.String-java.lang.String-">stopWorker</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></code></dd>
 </dl>
 </li>
 </ul>

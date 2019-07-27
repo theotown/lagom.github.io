@@ -1,58 +1,16 @@
 <h1 id="Learning-more-from-Lagom-examples"><a class="section-marker" href="#Learning-more-from-Lagom-examples">§</a>Learning more from Lagom examples</h1>
-<p>After getting started with Lagom&rsquo;s Hello World example, you can learn more about Lagom by downloading and<br/>running Lagom&rsquo;s &ldquo;Shopping Cart&rdquo; example (either <a href="https://github.com/lagom/lagom-samples/tree/1.5.x/shopping-cart/shopping-cart-scala">shopping-cart-scala</a> or <a href="https://github.com/lagom/lagom-samples/tree/1.5.x/shopping-cart/shopping-cart-java">shopping-cart-java</a>).</p>
+<p>After getting started with Lagom&rsquo;s Hello World example, you can learn more about Lagom by downloading and<br/>running Lagom&rsquo;s &ldquo;Shopping Cart&rdquo; example (either <a href="https://github.com/lagom/lagom-samples/tree/1.6.x/shopping-cart/shopping-cart-scala">shopping-cart-scala</a> or <a href="https://github.com/lagom/lagom-samples/tree/1.6.x/shopping-cart/shopping-cart-java">shopping-cart-java</a>).</p>
 <p>Some of the Lagom features you can observe include:</p>
-<table>
-  <thead>
-    <tr>
-      <th>Feature </th>
-      <th align="center">Chirper</th>
-      <th align="center">Online Auction </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>How to use persistence</td>
-      <td align="center">Y </td>
-      <td align="center">Y</td>
-    </tr>
-    <tr>
-      <td>How to use the message broker API</td>
-      <td align="center">N </td>
-      <td align="center">Y</td>
-    </tr>
-    <tr>
-      <td>How to communicate between services</td>
-      <td align="center">Y </td>
-      <td align="center">Y</td>
-    </tr>
-    <tr>
-      <td>How streaming service calls work </td>
-      <td align="center">Y </td>
-      <td align="center">N</td>
-    </tr>
-    <tr>
-      <td>How to develop a Play app with Lagom </td>
-      <td align="center">Y </td>
-      <td align="center">Y</td>
-    </tr>
-    <tr>
-      <td>How to consume Lagom services from a front-end Play app </td>
-      <td align="center">N </td>
-      <td align="center">Y</td>
-    </tr>
-  </tbody>
-</table>
+<ul>
+  <li>How to use persistence</li>
+  <li>How to use the message broker API</li>
+  <li>How to communicate between services</li>
+</ul>
 <p>For focused examples, check the <a href="https://github.com/lagom/lagom-samples">lagom-samples</a> repository on GitHub. Each sample describes how to achieve a particular goal, such as:</p>
 <ul>
-  <li>How do I enable CORS? (using Lagom&rsquo;s javadsl or scaladsl)</li>
-  <li>How do I create a Subscriber only service? (also referred to as consumer service)</li>
-  <li>How do I use RDBMS read-sides with Cassandra write-sides? (mixed persistence in java or mixed persistence in scala)</li>
-  <li>How to create a stateless service in Lagom for Java that uses Play&rsquo;s Internationalization Support.</li>
-  <li>How do I manipulate Headers and Status Codes and test those cases?(HTTP header handling)</li>
-  <li>How do I handle multipart/form-data file uploads? (Scala example, Java example)</li>
-  <li>How do I use a custom message serializer and response header to implement file downloads? (Scala example)</li>
-  <li>How do I integrate Lightbend Telemetry (Cinnamon)? (Java/Maven example)</li>
-  <li>How do I configure the Circuit Breaker Panel for a Lagom Java application? (Java/Maven example)</li>
-  <li>How do I deploy a Lagom Maven application in Kubernetes? (Java/Maven example)</li>
-  <li>How do I use Lagom with Couchbase both write-side and read-side? Java Maven and Scala Sbt) (Couchbase Persistence is NOT production ready yet)</li>
+  <li>How to use Lagom with <a href="https://developer.lightbend.com/docs/telemetry/current/home.html">Lightbend Telemetry</a></li>
+  <li>How to use Lagom with Cassandra for write-side persistence and JDBC for a read-side view</li>
+  <li>How to use gRPC as the communication mechanism between two Lagom services</li>
+  <li>How to deploy a Lagom Maven application in <a href="https://developer.lightbend.com/guides/openshift-deployment/lagom/index.html">OpenShift</a>?</li>
+  <li>How to use Lagom with <a href="https://doc.akka.io/docs/akka-persistence-couchbase/current/">Akka Couchbase Persistence</a></li>
 </ul>

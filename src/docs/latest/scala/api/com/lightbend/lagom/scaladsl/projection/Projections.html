@@ -188,7 +188,7 @@
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>TODO: docs</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@ApiMayChange</span><span class="args">()</span>
               
-        </dd><dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-M4+102-7a50fef1//projection/scaladsl/src/main/scala/com/lightbend/lagom/scaladsl/projection/Projections.scala" target="_blank">Projections.scala</a></dd></dl><div class="toggleContainer block">
+        </dd><dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-M4+140-c90db717//projection/scaladsl/src/main/scala/com/lightbend/lagom/scaladsl/projection/Projections.scala" target="_blank">Projections.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -577,9 +577,9 @@
               
         </dd></dl></div>
     </li><li name="com.lightbend.lagom.scaladsl.projection.Projections#getStatus" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="getStatus:scala.concurrent.Future[com.lightbend.lagom.internal.projection.ProjectionRegistryActor.DesiredState]"></a><a id="getStatus:Future[DesiredState]"></a>
+      <a id="getStatus:scala.concurrent.Future[com.lightbend.lagom.projection.State]"></a><a id="getStatus:Future[State]"></a>
       <span class="permalink">
-      <a href="../../../../../com/lightbend/lagom/scaladsl/projection/Projections.html#getStatus:scala.concurrent.Future[com.lightbend.lagom.internal.projection.ProjectionRegistryActor.DesiredState]" title="Permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/projection/Projections.html#getStatus:scala.concurrent.Future[com.lightbend.lagom.projection.State]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -588,7 +588,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getStatus</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="com.lightbend.lagom.internal.projection.ProjectionRegistryActor.DesiredState">DesiredState</span>]</span>
+        <span class="name">getStatus</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="com.lightbend.lagom.projection.State">State</span>]</span>
       </span>
       
       
@@ -681,6 +681,70 @@
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
+    </li><li name="com.lightbend.lagom.scaladsl.projection.Projections#startAllWorkers" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="startAllWorkers(projectionName:String):Unit"></a><a id="startAllWorkers(String):Unit"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/projection/Projections.html#startAllWorkers(projectionName:String):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">startAllWorkers</span><span class="params">(<span name="projectionName">projectionName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      
+    </li><li name="com.lightbend.lagom.scaladsl.projection.Projections#startWorker" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="startWorker(projectionName:String,tagName:String):Unit"></a><a id="startWorker(String,String):Unit"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/projection/Projections.html#startWorker(projectionName:String,tagName:String):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">startWorker</span><span class="params">(<span name="projectionName">projectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="tagName">tagName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      
+    </li><li name="com.lightbend.lagom.scaladsl.projection.Projections#stopAllWorkers" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="stopAllWorkers(projectionName:String):Unit"></a><a id="stopAllWorkers(String):Unit"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/projection/Projections.html#stopAllWorkers(projectionName:String):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stopAllWorkers</span><span class="params">(<span name="projectionName">projectionName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      
+    </li><li name="com.lightbend.lagom.scaladsl.projection.Projections#stopWorker" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="stopWorker(projectionName:String,tagName:String):Unit"></a><a id="stopWorker(String,String):Unit"></a>
+      <span class="permalink">
+      <a href="../../../../../com/lightbend/lagom/scaladsl/projection/Projections.html#stopWorker(projectionName:String,tagName:String):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stopWorker</span><span class="params">(<span name="projectionName">projectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="tagName">tagName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
+      </span>
+      
+      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">

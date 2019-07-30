@@ -63,5 +63,5 @@ PR.registerLangHandler(PR.createSimpleLexer([["pln",/^[\t\n\r \xa0]+/,null,"\t\n
 ["lit",/^(?:true|false|null|this)\b/],["lit",/^(?:0(?:[0-7]+|x[\da-f]+)l?|(?:0|[1-9]\d*)(?:(?:\.\d+)?(?:e[+-]?\d+)?f?|l?)|\\.\d+(?:e[+-]?\d+)?f?)/i],["typ",/^[$_]*[A-Z][\d$A-Z_]*[a-z][\w$]*/],["pln",/^[$A-Z_a-z][\w$]*/],["com",/^\/(?:\/.*|\*(?:\/|\**[^*/])*(?:\*+\/?)?)/],["pun",/^(?:\.+|\/)/]]),["scala"]);
 
 /** main.min.js **/
-jQuery.noConflict(),function(n){n(function(){n(document).foundation(),navigator.userAgent.match(/iPhone|iPad|iPod/i)&&n("html").addClass("ios").removeClass("noios"),new Waypoint.Sticky({element:n(".social-bar")[0]});var o=n("#docs-version");o&&o.change(function(){var o=n("option:selected",this);window.location.href=o.val()}),window.prettyPrint&&prettyPrint()})}(jQuery);
+jQuery.noConflict(),function(n){n(function(){n(document).foundation(),navigator.userAgent.match(/iPhone|iPad|iPod/i)&&n("html").addClass("ios").removeClass("noios"),new Waypoint.Sticky({element:n(".sticky-bar")[0]});var o=n("#docs-version");o&&o.change(function(){var o=n("option:selected",this);window.location.href=o.val()}),window.prettyPrint&&prettyPrint()})}(jQuery);
 //# sourceMappingURL=main.min.js.map

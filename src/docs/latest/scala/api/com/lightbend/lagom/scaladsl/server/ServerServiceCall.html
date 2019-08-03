@@ -259,7 +259,7 @@ an <span class="extype" name="UnsupportedOperationException">UnsupportedOperatio
 received (eg WebSockets), the response header may be ignored. In these cases, Lagom will make a best effort attempt
 at determining whether there was custom information in the response header, and if so, log a warning that it wasn't
 set.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-M4+148-364fd358//service/scaladsl/server/src/main/scala/com/lightbend/lagom/scaladsl/server/ServerServiceCall.scala" target="_blank">ServerServiceCall.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-M4+163-6b4a46d2//service/scaladsl/server/src/main/scala/com/lightbend/lagom/scaladsl/server/ServerServiceCall.scala" target="_blank">ServerServiceCall.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -725,7 +725,7 @@ implementation.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">invoke</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="evidence">evidence: <span class="extype" name="scala.Predef.=:=">=:=</span>[<a href="https://doc.akka.io/api/akka/2.6.0-M4/akka/NotUsed.html#akka.NotUsed" class="extype" name="akka.NotUsed">NotUsed</a>, <span class="extype" name="com.lightbend.lagom.scaladsl.server.ServerServiceCall.Request">Request</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.server.ServerServiceCall.Response">Response</span>]</span>
+        <span class="name">invoke</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="evidence">evidence: <span class="extype" name="scala.Predef.=:=">=:=</span>[<a href="https://doc.akka.io/api/akka/2.6.0-M5/akka/NotUsed.html#akka.NotUsed" class="extype" name="akka.NotUsed">NotUsed</a>, <span class="extype" name="com.lightbend.lagom.scaladsl.server.ServerServiceCall.Request">Request</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.server.ServerServiceCall.Response">Response</span>]</span>
       </span>
       
       <p class="shortcomment cmt">Invoke the service call with unit id argument and a unit request message.</p><div class="fullcomment"><div class="comment cmt"><p>Invoke the service call with unit id argument and a unit request message.</p><p>This should only be used when the request message is NotUsed.

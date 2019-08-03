@@ -198,7 +198,7 @@
 
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>An read side offset processor.</p><p>This is responsible for the actual read side handling, including handling offsets and the events themselves.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-M4+148-364fd358//persistence/scaladsl/src/main/scala/com/lightbend/lagom/scaladsl/persistence/ReadSideProcessor.scala" target="_blank">ReadSideProcessor.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-M4+163-6b4a46d2//persistence/scaladsl/src/main/scala/com/lightbend/lagom/scaladsl/persistence/ReadSideProcessor.scala" target="_blank">ReadSideProcessor.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -288,7 +288,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">handle</span><span class="params">()</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.0-M4/akka/stream/scaladsl/Flow.html#akka.stream.scaladsl.Flow" class="extype" name="akka.stream.scaladsl.Flow">Flow</a>[<a href="EventStreamElement.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.EventStreamElement">EventStreamElement</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.persistence.ReadSideProcessor.ReadSideHandler.Event">Event</span>], <a href="https://doc.akka.io/api/akka/2.6.0-M4/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>, <a href="https://doc.akka.io/api/akka/2.6.0-M4/akka/NotUsed.html#akka.NotUsed" class="extype" name="akka.NotUsed">NotUsed</a>]</span>
+        <span class="name">handle</span><span class="params">()</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.0-M5/akka/stream/scaladsl/Flow.html#akka.stream.scaladsl.Flow" class="extype" name="akka.stream.scaladsl.Flow">Flow</a>[<a href="EventStreamElement.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.EventStreamElement">EventStreamElement</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.persistence.ReadSideProcessor.ReadSideHandler.Event">Event</span>], <a href="https://doc.akka.io/api/akka/2.6.0-M5/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>, <a href="https://doc.akka.io/api/akka/2.6.0-M5/akka/NotUsed.html#akka.NotUsed" class="extype" name="akka.NotUsed">NotUsed</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Flow to handle the events.</p><div class="fullcomment"><div class="comment cmt"><p>Flow to handle the events.</p><p>If the handler does any blocking, this flow should be configured to use a dispatcher that is configured to
@@ -619,7 +619,7 @@ allow for that blocking.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">globalPrepare</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.6.0-M4/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
+        <span class="name">globalPrepare</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.6.0-M5/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Prepare the database for all processors.</p><div class="fullcomment"><div class="comment cmt"><p>Prepare the database for all processors.</p><p>This will be invoked at system startup. It is guaranteed to only be invoked once at a time across the entire
@@ -730,7 +730,7 @@ restarted and a new cluster built from scratch.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">prepare</span><span class="params">(<span name="tag">tag: <a href="AggregateEventTag.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.AggregateEventTag">AggregateEventTag</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.persistence.ReadSideProcessor.ReadSideHandler.Event">Event</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.6.0-M4/akka/persistence/query/Offset.html#akka.persistence.query.Offset" class="extype" name="akka.persistence.query.Offset">Offset</a>]</span>
+        <span class="name">prepare</span><span class="params">(<span name="tag">tag: <a href="AggregateEventTag.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.AggregateEventTag">AggregateEventTag</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.persistence.ReadSideProcessor.ReadSideHandler.Event">Event</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.8/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.6.0-M5/akka/persistence/query/Offset.html#akka.persistence.query.Offset" class="extype" name="akka.persistence.query.Offset">Offset</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Prepare this processor.</p><div class="fullcomment"><div class="comment cmt"><p>Prepare this processor.</p><p>The primary purpose of this method is to load the last offset that was processed, so that read side

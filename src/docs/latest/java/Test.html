@@ -135,7 +135,7 @@ public void testOverTlsWithCustomClient() {
         SSLContext sslContext = server.clientSslContext().get();
         // Builds an instance of a WSClient with the provided SSLContext so
         // the fake SSLContext prepared by Lagom&#39;s testkit is used.
-        WSClient wsClient = buildCustomWS(sslContext);
+        WSClient wsClient = buildCustomWS(sslContext, server.system());
         // use `localhost` as authority
         String url = &quot;https://localhost:&quot; + server.portSsl().get() + &quot;/api/sample&quot;;
         String response =

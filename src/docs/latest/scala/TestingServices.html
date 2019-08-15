@@ -120,7 +120,8 @@ class HelloServiceSpec extends AsyncWordSpec with Matchers with BeforeAndAfterAl
 <pre class="prettyprint"><code class="language-scala">&quot;complete a WS call over HTTPS&quot; in {
   val setup = defaultSetup.withSsl()
   ServiceTest.withServer(setup)(new TestTlsApplication(_)) { server =&gt;
-    implicit val ctx = server.application.executionContext
+    implicit val actorSystem = server.application.actorSystem
+    implicit val ctx         = server.application.executionContext
     // To explicitly use HTTPS on a test you must create a client of your
     // own and make sure it uses the provided SSLContext
     val wsClient = buildCustomWS(server.clientSslContext.get)

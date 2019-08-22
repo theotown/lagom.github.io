@@ -9,7 +9,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/699ae8aa8504b85489c3d4316ddda52ffb063035-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/ac4dbce8687c86f4ba84b084d6a61aa7a84ca30e-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -300,7 +300,7 @@
 <p>The version of Lagom can be updated by editing the <code>project/plugins.sbt</code> file, and updating the version of the Lagom sbt plugin. For example:</p>
 <pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.lagom&quot; % &quot;lagom-sbt-plugin&quot; % &quot;1.6.0&quot;)
 </code></pre>
-<p>We also recommend upgrading to sbt 1.2.8 or later, by updating the <code>sbt.version</code> in <code>project/build.properties</code>.</p><h2 id="Main-changes"><a class="section-marker" href="#Main-changes">§</a>Main changes</h2><h3 id="Jackson-serialization"><a class="section-marker" href="#Jackson-serialization">§</a>Jackson serialization</h3>
+<p>Lagom 1.6 requires sbt 1.2.8 or later, upgrade your version by updating the <code>sbt.version</code> in <code>project/build.properties</code>.</p><h2 id="Main-changes"><a class="section-marker" href="#Main-changes">§</a>Main changes</h2><h3 id="Jackson-serialization"><a class="section-marker" href="#Jackson-serialization">§</a>Jackson serialization</h3>
 <p>Lagom is now using the Jackson serializer from Akka, which is an improved version of the serializer in Lagom 1.5. You can find more information about the Akka Jackson serializer in the <a href="https://doc.akka.io/docs/akka/2.6/serialization-jackson.html">Akka documentation</a>. It is compatible with Lagom 1.5 in both directions.</p><h4 id="JacksonJsonMigration"><a class="section-marker" href="#JacksonJsonMigration">§</a>JacksonJsonMigration</h4>
 <p>If you have used <code>JacksonJsonMigration</code> classes they must be changed to extend <code>akka.serialization.jackson.JacksonMigration</code> instead. It has the same method signatures as the deprecated <code>JacksonJsonMigration</code>.</p>
 <p>The configuration in <code>lagom.serialization.json.migrations</code> must be moved to <code>akka.serialization.jackson.migrations</code>.<br/>It has the same structure.</p><h4 id="Service-API"><a class="section-marker" href="#Service-API">§</a>Service API</h4>
@@ -557,7 +557,7 @@ akka.cluster.sharding.state-store-mode = persistence
             </div>
         </div>
     </body>
-    <script src="/699ae8aa8504b85489c3d4316ddda52ffb063035-all-scripts-concat.js"></script>
+    <script src="/ac4dbce8687c86f4ba84b084d6a61aa7a84ca30e-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

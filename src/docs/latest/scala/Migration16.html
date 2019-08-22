@@ -6,7 +6,7 @@
 <p>The version of Lagom can be updated by editing the <code>project/plugins.sbt</code> file, and updating the version of the Lagom sbt plugin. For example:</p>
 <pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.lagom&quot; % &quot;lagom-sbt-plugin&quot; % &quot;1.6.0&quot;)
 </code></pre>
-<p>We also recommend upgrading to sbt 1.2.8 or later, by updating the <code>sbt.version</code> in <code>project/build.properties</code>.</p><h2 id="Main-changes"><a class="section-marker" href="#Main-changes">§</a>Main changes</h2><h3 id="Remoting-Artery"><a class="section-marker" href="#Remoting-Artery">§</a>Remoting Artery</h3>
+<p>Lagom 1.6 requires sbt 1.2.8 or later, upgrade your version by updating the <code>sbt.version</code> in <code>project/build.properties</code>.</p><h2 id="Main-changes"><a class="section-marker" href="#Main-changes">§</a>Main changes</h2><h3 id="Remoting-Artery"><a class="section-marker" href="#Remoting-Artery">§</a>Remoting Artery</h3>
 <p>Lagom 1.6.0 builds on Akka 2.6.0 that uses a new Akka Remote implementation called Artery. Artery is enabled by default in Lagom and replaces the previous Akka Remote protocol (aka. Akka Remote Classic). If you are using Lagom in a clustered setup, you will need to shutdown all nodes before updating, unless you choose to disable Artery.</p>
 <p>To use classic remoting instead of Artery, you need to:</p>
 <ol>

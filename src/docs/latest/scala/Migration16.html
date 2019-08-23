@@ -27,8 +27,8 @@ akka.cluster.sharding.state-store-mode = persistence
 <p>Lagom 1.6.0 has a few new default settings that will prevent you to run a rolling upgrade. In case you prefer to run a rolling upgrade, you will need to opt-out from each of these new defaults as explained below.</p>
 <p>This is a summary of changes in Lagom 1.6 that would require a full cluster shutdown rather than a rolling upgrade:</p>
 <ul>
-  <li>The change in [[Akka Remote|Migration16#Remoting-Artery] default implementation.</li>
-  <li>The change in default [[Shard Coordination|Migration16#Shard-Coordination] strategy.</li>
-  <li>The change in [[Cassandra plugin version|Migration16#Akka-Persistence-Cassandra-Update]. Only impacts Lagom applications using Cassandra.</li>
+  <li>The change in <a href="Migration16.html#Remoting-Artery">Akka Remote</a> default implementation.</li>
+  <li>The change in default <a href="Migration16.html#Shard-Coordination">Shard Coordination</a> strategy.</li>
+  <li>The change in <a href="Migration16.html#Akka-Persistence-Cassandra-Update">Cassandra plugin version</a>. Only impacts Lagom applications using Cassandra.</li>
 </ul><h2 id="Minor-changes"><a class="section-marker" href="#Minor-changes">§</a>Minor changes</h2><h3 id="JSON-Compression-threshold"><a class="section-marker" href="#JSON-Compression-threshold">§</a>JSON Compression threshold</h3>
 <p>When creating a serializer with <code>JsonSerializer.compressed[T]</code> compression will only kick in when the serialized representation is biger than a threshold. The default value for <code>lagom.serialization.json.compress-larger-than</code> has been increased from 1024 bytes to 32 Kilobytes. (See <a href="https://github.com/lagom/lagom/pull/1983">#1983</a>)</p>

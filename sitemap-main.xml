@@ -52,10 +52,6 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.lagomframework.com/conduct.html</loc>
-    <priority>1.0</priority>
-  </url>
-  <url>
     <loc>https://www.lagomframework.com/faq.html</loc>
     <priority>1.0</priority>
   </url>

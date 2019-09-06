@@ -8,25 +8,25 @@ Have a question about Lagom? We've sorted out a sample of frequently asked quest
 
 ## Is Lagom open source or commercial?
 
-Lagom is completely open source, free to use, and has a vibrant and growing community. However, you do have the option to purchase a [Lightbend subscription](https://www.lightbend.com/platform/subscription) that provides technical support as well as license to use Lightbend Enterprise Suite, which includes a range of powerful application management, intelligent monitoring, and enterprise integration tooling.
+Lagom is completely open source, free to use, and has a vibrant and growing community. However, you do have the option to purchase a [Lightbend subscription](https://www.lightbend.com/platform/subscription) that provides technical support. You can also purchase a license to use [Lightbend Platform](https://www.lightbend.com/lightbend-platform), which includes a range of powerful application management, intelligent monitoring, and enterprise integration tooling.
 
 ## Does Lagom require me to use Cassandra for persistence?
 
-No, Lagom supports using either Cassandra or relational databases, including MySQL, PostegreSQL, Oracle and H2. The Lagom development environment provides and uses Cassandra by default because it offers great scalability and replication features.  See more in the [Java documentation](/documentation/current/java/PersistentEntity.html) or the [Scala documentation](/documentation/current/scala/PersistentEntity.html).
+No, Lagom supports using either Cassandra or relational databases, including MySQL, PostgreSQL, Oracle and H2. The Lagom development environment provides and uses Cassandra by default because it offers great scalability and replication features.  See more in the [Java documentation](/documentation/current/java/PersistentEntity.html) or the [Scala documentation](/documentation/current/scala/PersistentEntity.html).
 
-## Does Lagom require use of a message broker such as Kafka?
+## Does Lagom require the use of a message broker such as Kafka?
 
-No, but it is very useful for common communication scenarios. Lagom's Message Broker API integrates Persistent Entities with message brokers such as [Apache Kafka](https://kafka.apache.org/) to provide publish and subscribe messaging between services with at-least-once delivery guarantees. This enables you to design decoupled and highly-resilient systems of microservices.
+No, but it is very useful for common communication scenarios. Lagom's Message Broker API integrates Persistent Entities with message brokers such as [Apache Kafka](https://kafka.apache.org/) to provide publish-subscribe messaging between services with at-least-once delivery guarantees. This enables you to design decoupled and highly-resilient systems of microservices.
 
-If you prefer not to run a message broker, however, the Message Broker API is completely optional. You can write Lagom services that communicate with each other directly by using HTTP requests or by streaming data over a WebSocket.
+If you prefer not to run a message broker, however, the Message Broker API is entirely optional. You can write Lagom services that communicate with each other directly by using HTTP requests or by streaming data over a WebSocket.
 
-See more in the [Java documentation](/documentation/current/java/MessageBroker.html) or the [Scala documentation](/documentation/current/scala/MessageBroker.html).
+See more in the [Java documentation](/documentation/current/java/MessageBroker.html) or the [Scala documentation](/documentation/current/scala/MessageBroker.html), including how to disable it in your [Java](/documentation/current/java/KafkaServer.html#Disable-it) or [Scala](/documentation/current/scala/KafkaServer.html#Disable-it) projects.
 
 ## Does Lagom support message brokers other than Kafka?
 
 The Message Broker API was designed to make it possible to integrate with alternative message broker services. Currently, Lagom only includes support for Kafka, but advanced users can write their own implementations of the Message Broker API. Future versions of Lagom might include new, officially-supported implementations.
 
-If you are interested in official support for new message brokers, please review the [open Message Broker API feature requests](https://github.com/lagom/lagom/issues?q=is%3Aopen+is%3Aissue+label%3Atopic%3Amessage-broker-api+label%3Atype%3Afeature) in GitHub. You can vote or comment on existing issues, or create new ones.
+If you are interested in official support for new message brokers, please review the [open feature requests for Message Broker API](https://github.com/lagom/lagom/issues?q=is%3Aopen+is%3Aissue+label%3Atopic%3Amessage-broker-api+label%3Atype%3Afeature) on GitHub. You can vote or comment on existing issues, or create new ones.
 
 ## Does Lagom require using event sourcing and CQRS?
 

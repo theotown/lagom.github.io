@@ -277,13 +277,17 @@
         "url" : "PubSub.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/PubSub.md"
       }, {
+        "title" : "Cluster",
+        "url" : "Cluster.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/Cluster.md"
+      }, {
         "title" : "Serialization",
         "url" : "Serialization.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/Serialization.md"
       }, {
-        "title" : "Cluster",
-        "url" : "Cluster.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/Cluster.md"
+        "title" : "Projections",
+        "url" : "Projections.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/Projections.md"
       } ]
     }, {
       "title" : "Decouple services with a message broker",

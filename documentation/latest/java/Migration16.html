@@ -9,7 +9,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/e8f19e23e23e076ee3873b35f20caf56ef805f56-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/817e524825646e12a657815092879eae93be6ddc-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -336,6 +336,7 @@ akka.cluster.sharding.state-store-mode = persistence
 <p>For more information on how to migrate, consult <a href="https://doc.akka.io/docs/akka-persistence-cassandra/current/migrations.html#migrations-to-0-80-and-later">Akka Persistence Cassandra migration document</a>.</p>
 <p>Note that although it&rsquo;s technically possible to run the migration while running your application we advis/e against it.</p><h2 id="Upgrading-a-production-system"><a class="section-marker" href="#Upgrading-a-production-system">§</a>Upgrading a production system</h2>
 <p>As usual, before upgrading to Lagom 1.6.0, makes sure you are using the latest version on the 1.5.x series.</p>
+<p>During a rolling upgrade your <a href="Projections.html">Projections</a> may experience a degraded behavior. The service will self-heal when the rolling upgrade completes. Some internal messages taking care of the distribution of the worker instances of your projection have changed. As a consequence, your old nodes won&rsquo;t be able to gossip with the new ones but as soon as the rolling upgrade completes, all nodes will be on the same version of your service the projection will operate normally.</p>
 <p>Lagom 1.6.0 has a few new default settings that will prevent you to run a rolling upgrade. In case you prefer to run a rolling upgrade, you will need to opt-out from each of these new defaults as explained below.</p>
 <p>This is a summary of changes in Lagom 1.6 that would require a full cluster shutdown rather than a rolling upgrade:</p>
 <ul>
@@ -557,7 +558,7 @@ akka.cluster.sharding.state-store-mode = persistence
             </div>
         </div>
     </body>
-    <script src="/e8f19e23e23e076ee3873b35f20caf56ef805f56-all-scripts-concat.js"></script>
+    <script src="/817e524825646e12a657815092879eae93be6ddc-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

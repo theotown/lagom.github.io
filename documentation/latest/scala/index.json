@@ -259,6 +259,10 @@
         "title" : "Serialization",
         "url" : "Serialization.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/Serialization.md"
+      }, {
+        "title" : "Projections",
+        "url" : "Projections.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/Projections.md"
       } ]
     }, {
       "title" : "Decouple services with a message broker",

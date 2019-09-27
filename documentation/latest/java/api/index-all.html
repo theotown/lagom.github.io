@@ -203,6 +203,14 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased.html#apply-T1-T2-">apply(T1, T2)</a></span> - Static method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Projection$.html#apply-java.lang.String-scala.collection.Seq-">apply(String, Seq&lt;Worker&gt;)</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Projection$.html" title="class in com.lightbend.lagom.projection">Projection$</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Projection.html#apply-java.lang.String-scala.collection.Seq-">apply(String, Seq&lt;Worker&gt;)</a></span> - Static method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Projection.html" title="class in com.lightbend.lagom.projection">Projection</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker$.html#apply-java.lang.String-java.lang.String-com.lightbend.lagom.projection.Status-com.lightbend.lagom.projection.Status-">apply(String, String, Status, Status)</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker$.html" title="class in com.lightbend.lagom.projection">Worker$</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker.html#apply-java.lang.String-java.lang.String-com.lightbend.lagom.projection.Status-com.lightbend.lagom.projection.Status-">apply(String, String, Status, Status)</a></span> - Static method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker.html" title="class in com.lightbend.lagom.projection">Worker</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html#apply:DmcDD:Dsp-double-">apply$mcDD$sp(double)</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlers</a></dt>
 <dd>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
@@ -957,6 +965,8 @@
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/testkit/package-summary.html">com.lightbend.lagom.javadsl.testkit</a> - package com.lightbend.lagom.javadsl.testkit</dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/projection/package-summary.html">com.lightbend.lagom.projection</a> - package com.lightbend.lagom.projection</dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/serialization/package-summary.html">com.lightbend.lagom.serialization</a> - package com.lightbend.lagom.serialization</dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.UnhandledCommand.html#command--">command()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.UnhandledCommand.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.UnhandledCommand</a></dt>
@@ -1332,6 +1342,10 @@
 <dd>
 <div class="block">This instance is equal to all instances of <code>Latency</code> that have equal attribute values.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/State.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/State.html" title="class in com.lightbend.lagom.projection">State</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker.html" title="class in com.lightbend.lagom.projection">Worker</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/deser/DeserializationException.html#ERROR_CODE">ERROR_CODE</a></span> - Static variable in exception com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/DeserializationException.html" title="class in com.lightbend.lagom.javadsl.api.deser">DeserializationException</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/deser/SerializationException.html#ERROR_CODE">ERROR_CODE</a></span> - Static variable in exception com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/SerializationException.html" title="class in com.lightbend.lagom.javadsl.api.deser">SerializationException</a></dt>
@@ -1506,6 +1520,10 @@
 <dd>
 <div class="block">Get a transport error code from the given HTTP error code.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/State$.html#fromReplicatedData-scala.collection.immutable.Map-scala.collection.immutable.Map-scala.collection.immutable.Map-com.lightbend.lagom.projection.Status-com.lightbend.lagom.projection.Status-">fromReplicatedData(Map&lt;String, Set&lt;ProjectionRegistryActor.WorkerCoordinates&gt;&gt;, Map&lt;ProjectionRegistryActor.WorkerCoordinates, Status&gt;, Map&lt;ProjectionRegistryActor.WorkerCoordinates, Status&gt;, Status, Status)</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/State$.html" title="class in com.lightbend.lagom.projection">State$</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/State.html#fromReplicatedData-scala.collection.immutable.Map-scala.collection.immutable.Map-scala.collection.immutable.Map-com.lightbend.lagom.projection.Status-com.lightbend.lagom.projection.Status-">fromReplicatedData(Map&lt;String, Set&lt;ProjectionRegistryActor.WorkerCoordinates&gt;&gt;, Map&lt;ProjectionRegistryActor.WorkerCoordinates, Status&gt;, Map&lt;ProjectionRegistryActor.WorkerCoordinates, Status&gt;, Status, Status)</a></span> - Static method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/State.html" title="class in com.lightbend.lagom.projection">State</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html#fromWebSocket-int-">fromWebSocket(int)</a></span> - Static method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a></dt>
 <dd>
 <div class="block">Get a transport error code from the given WebSocket close code.</div>
@@ -1552,6 +1570,12 @@
 <dd>
 <div class="block">Circuit breaker identifier.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Started$.html#getInstance--">getInstance()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Started$.html" title="class in com.lightbend.lagom.projection">Started$</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Stopped$.html#getInstance--">getInstance()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Stopped$.html" title="class in com.lightbend.lagom.projection">Stopped$</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker.html#getKey--">getKey()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker.html" title="class in com.lightbend.lagom.projection">Worker</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/status/AbstractCircuitBreakerStatus.html#getLatencyMicros--">getLatencyMicros()</a></span> - Method in interface com.lightbend.lagom.javadsl.server.status.<a href="com/lightbend/lagom/javadsl/server/status/AbstractCircuitBreakerStatus.html" title="interface in com.lightbend.lagom.javadsl.server.status">AbstractCircuitBreakerStatus</a></dt>
 <dd>
 <div class="block">Latency distribution for Exponentially Decaying Reservoir.</div>
@@ -1584,6 +1608,8 @@
 <dd>
 <div class="block">The name of the metadata key.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker.html#getObservedStatus--">getObservedStatus()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker.html" title="class in com.lightbend.lagom.projection">Worker</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/broker/Message.html#getPayload--">getPayload()</a></span> - Method in class com.lightbend.lagom.javadsl.api.broker.<a href="com/lightbend/lagom/javadsl/api/broker/Message.html" title="class in com.lightbend.lagom.javadsl.api.broker">Message</a></dt>
 <dd>
 <div class="block">The payload of the message.</div>
@@ -1600,11 +1626,17 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/status/Latency.html#getPercentile99th--">getPercentile99th()</a></span> - Method in class com.lightbend.lagom.javadsl.server.status.<a href="com/lightbend/lagom/javadsl/server/status/Latency.html" title="class in com.lightbend.lagom.javadsl.server.status">Latency</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/State.html#getProjections--">getProjections()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/State.html" title="class in com.lightbend.lagom.projection">State</a></dt>
+<dd>
+<div class="block">Java API</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Outcome.html#getReplies--">getReplies()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Outcome.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.Outcome</a></dt>
 <dd>
 <div class="block">The messages that were sent as replies using the context that is
  passed as parameter to the command handler functions.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker.html#getRequestedStatus--">getRequestedStatus()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker.html" title="class in com.lightbend.lagom.projection">Worker</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html#getState--">getState()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.BehaviorBuilder.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.BehaviorBuilder</a></dt>
 <dd>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>
@@ -1620,8 +1652,12 @@
 <div class="block">Circuit breaker state; closed, open, half-open.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/Projections.html#getStatus--">getStatus()</a></span> - Method in interface com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Read an eventually consistent copy of the projections and workers running on the service.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#getStatus--">getStatus()</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionsImpl</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker.html#getTagName--">getTagName()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker.html" title="class in com.lightbend.lagom.projection">Worker</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/status/AbstractCircuitBreakerStatus.html#getThroughputOneMinute--">getThroughputOneMinute()</a></span> - Method in interface com.lightbend.lagom.javadsl.server.status.<a href="com/lightbend/lagom/javadsl/server/status/AbstractCircuitBreakerStatus.html" title="interface in com.lightbend.lagom.javadsl.server.status">AbstractCircuitBreakerStatus</a></dt>
 <dd>
@@ -1753,6 +1789,10 @@
 <dd>
 <div class="block">Computes a hash code from attributes: <code>median</code>, <code>percentile98th</code>, <code>percentile99th</code>, <code>percentile999th</code>, <code>mean</code>, <code>min</code>, <code>max</code>.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/State.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/State.html" title="class in com.lightbend.lagom.projection">State</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker.html" title="class in com.lightbend.lagom.projection">Worker</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/Method.html#HEAD">HEAD</a></span> - Static variable in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/Method.html" title="class in com.lightbend.lagom.javadsl.api.transport">Method</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.html#headerFilter--">headerFilter()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a></dt>
@@ -2048,6 +2088,8 @@
 </div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaTopicFactory.html#KafkaTopicFactory-com.lightbend.lagom.javadsl.api.ServiceInfo-akka.actor.ActorSystem-akka.stream.Materializer-scala.concurrent.ExecutionContext-com.lightbend.lagom.javadsl.api.ServiceLocator-com.typesafe.config.Config-">KafkaTopicFactory(ServiceInfo, ActorSystem, Materializer, ExecutionContext, ServiceLocator, Config)</a></span> - Constructor for class com.lightbend.lagom.javadsl.broker.kafka.<a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaTopicFactory.html" title="class in com.lightbend.lagom.javadsl.broker.kafka">KafkaTopicFactory</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker.html#key--">key()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker.html" title="class in com.lightbend.lagom.projection">Worker</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a name="I:L">
@@ -2372,6 +2414,26 @@
 <dd>
 <div class="block">Static reference to the singleton instance of this Scala object.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Projection$.html#MODULE:D">MODULE$</a></span> - Static variable in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Projection$.html" title="class in com.lightbend.lagom.projection">Projection$</a></dt>
+<dd>
+<div class="block">Static reference to the singleton instance of this Scala object.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Started$.html#MODULE:D">MODULE$</a></span> - Static variable in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Started$.html" title="class in com.lightbend.lagom.projection">Started$</a></dt>
+<dd>
+<div class="block">Static reference to the singleton instance of this Scala object.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/State$.html#MODULE:D">MODULE$</a></span> - Static variable in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/State$.html" title="class in com.lightbend.lagom.projection">State$</a></dt>
+<dd>
+<div class="block">Static reference to the singleton instance of this Scala object.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Stopped$.html#MODULE:D">MODULE$</a></span> - Static variable in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Stopped$.html" title="class in com.lightbend.lagom.projection">Stopped$</a></dt>
+<dd>
+<div class="block">Static reference to the singleton instance of this Scala object.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker$.html#MODULE:D">MODULE$</a></span> - Static variable in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker$.html" title="class in com.lightbend.lagom.projection">Worker$</a></dt>
+<dd>
+<div class="block">Static reference to the singleton instance of this Scala object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Reply.html#msg--">msg()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Reply.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.Reply</a></dt>
 <dd>&nbsp;</dd>
 </dl>
@@ -2395,6 +2457,8 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/Method.html#name--">name()</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/Method.html" title="class in com.lightbend.lagom.javadsl.api.transport">Method</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/pubsub/TopicId.html#name--">name()</a></span> - Method in class com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/TopicId.html" title="class in com.lightbend.lagom.javadsl.pubsub">TopicId</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Projection.html#name--">name()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Projection.html" title="class in com.lightbend.lagom.projection">Projection</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/broker/MetadataKey.html#named-java.lang.String-">named(String)</a></span> - Static method in class com.lightbend.lagom.javadsl.api.broker.<a href="com/lightbend/lagom/javadsl/api/broker/MetadataKey.html" title="class in com.lightbend.lagom.javadsl.api.broker">MetadataKey</a></dt>
 <dd>
@@ -2517,6 +2581,8 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.NotEqualAfterSerialization.html#objAfter--">objAfter()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.NotEqualAfterSerialization.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.NotEqualAfterSerialization</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.NotEqualAfterSerialization.html#objBefore--">objBefore()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.NotEqualAfterSerialization.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.NotEqualAfterSerialization</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker.html#observedStatus--">observedStatus()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker.html" title="class in com.lightbend.lagom.projection">Worker</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/broker/Topic.TopicId.html#of-java.lang.String-">of(String)</a></span> - Static method in class com.lightbend.lagom.javadsl.api.broker.<a href="com/lightbend/lagom/javadsl/api/broker/Topic.TopicId.html" title="class in com.lightbend.lagom.javadsl.api.broker">Topic.TopicId</a></dt>
 <dd>
@@ -2983,20 +3049,43 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ProducerStubFactory.html#ProducerStubFactory-akka.actor.ActorSystem-akka.stream.Materializer-">ProducerStubFactory(ActorSystem, Materializer)</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ProducerStubFactory.html" title="class in com.lightbend.lagom.javadsl.testkit">ProducerStubFactory</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryModule.html" title="class in com.lightbend.lagom.javadsl.projection"><span class="typeNameLink">ProjectionRegistryModule</span></a> - Class in <a href="com/lightbend/lagom/javadsl/projection/package-summary.html">com.lightbend.lagom.javadsl.projection</a></dt>
+<dt><a href="com/lightbend/lagom/projection/Projection.html" title="class in com.lightbend.lagom.projection"><span class="typeNameLink">Projection</span></a> - Class in <a href="com/lightbend/lagom/projection/package-summary.html">com.lightbend.lagom.projection</a></dt>
+<dd>
+<div class="block">Current status of a projection.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Projection.html#Projection--">Projection()</a></span> - Constructor for class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Projection.html" title="class in com.lightbend.lagom.projection">Projection</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/projection/Projection$.html" title="class in com.lightbend.lagom.projection"><span class="typeNameLink">Projection$</span></a> - Class in <a href="com/lightbend/lagom/projection/package-summary.html">com.lightbend.lagom.projection</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Projection$.html#Projection:D--">Projection$()</a></span> - Constructor for class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Projection$.html" title="class in com.lightbend.lagom.projection">Projection$</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryModule.html" title="class in com.lightbend.lagom.javadsl.projection"><span class="typeNameLink">ProjectionRegistryModule</span></a> - Class in <a href="com/lightbend/lagom/javadsl/projection/package-summary.html">com.lightbend.lagom.javadsl.projection</a></dt>
+<dd>
+<div class="block">Provides an instance of <code>Projections</code> to interact with the (internal) <code>ProjectionRegistry</code>.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryModule.html#ProjectionRegistryModule--">ProjectionRegistryModule()</a></span> - Constructor for class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryModule.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionRegistryModule</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryProvider.html" title="class in com.lightbend.lagom.javadsl.projection"><span class="typeNameLink">ProjectionRegistryProvider</span></a> - Class in <a href="com/lightbend/lagom/javadsl/projection/package-summary.html">com.lightbend.lagom.javadsl.projection</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">INTERNAL API</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryProvider.html#ProjectionRegistryProvider-akka.actor.ActorSystem-">ProjectionRegistryProvider(ActorSystem)</a></span> - Constructor for class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionRegistryProvider.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionRegistryProvider</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection"><span class="typeNameLink">Projections</span></a> - Interface in <a href="com/lightbend/lagom/javadsl/projection/package-summary.html">com.lightbend.lagom.javadsl.projection</a></dt>
 <dd>
-<div class="block">TODO: docs</div>
+<div class="block">Public interface to query the internal projection registry that keeps track of the <a href="com/lightbend/lagom/projection/State.html" title="class in com.lightbend.lagom.projection"><code>State</code></a>
+ of each projection.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/State.html#projections--">projections()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/State.html" title="class in com.lightbend.lagom.projection">State</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/projection/ProjectionSerializable.html" title="interface in com.lightbend.lagom.projection"><span class="typeNameLink">ProjectionSerializable</span></a> - Interface in <a href="com/lightbend/lagom/projection/package-summary.html">com.lightbend.lagom.projection</a></dt>
+<dd>
+<div class="block">INTERNAL API.</div>
 </dd>
 <dt><a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html" title="class in com.lightbend.lagom.javadsl.projection"><span class="typeNameLink">ProjectionsImpl</span></a> - Class in <a href="com/lightbend/lagom/javadsl/projection/package-summary.html">com.lightbend.lagom.javadsl.projection</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">INTERNAL API</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#ProjectionsImpl-com.lightbend.lagom.internal.projection.ProjectionRegistry-scala.concurrent.ExecutionContext-">ProjectionsImpl(ProjectionRegistry, ExecutionContext)</a></span> - Constructor for class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionsImpl</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#properties--">properties()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a></dt>
@@ -3174,6 +3263,8 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Reply.html#Reply-java.lang.Object-">Reply(Object)</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Reply.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.Reply</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Reply$.html#Reply:D--">Reply$()</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Reply$.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.Reply$</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker.html#requestedStatus--">requestedStatus()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker.html" title="class in com.lightbend.lagom.projection">Worker</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/api/transport/RequestHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport"><span class="typeNameLink">RequestHeader</span></a> - Class in <a href="com/lightbend/lagom/javadsl/api/transport/package-summary.html">com.lightbend.lagom.javadsl.api.transport</a></dt>
 <dd>
@@ -3616,8 +3707,18 @@
 <div class="block">Whether HTTPS is enabled.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/Projections.html#startAllWorkers-java.lang.String-">startAllWorkers(String)</a></span> - Method in interface com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Given a `projectionName`, request all its workers to start.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#startAllWorkers-java.lang.String-">startAllWorkers(String)</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionsImpl</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/projection/Started.html" title="interface in com.lightbend.lagom.projection"><span class="typeNameLink">Started</span></a> - Interface in <a href="com/lightbend/lagom/projection/package-summary.html">com.lightbend.lagom.projection</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/projection/Started$.html" title="class in com.lightbend.lagom.projection"><span class="typeNameLink">Started$</span></a> - Class in <a href="com/lightbend/lagom/projection/package-summary.html">com.lightbend.lagom.projection</a></dt>
+<dd>
+<div class="block">See</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Started$.html#Started:D--">Started$()</a></span> - Constructor for class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Started$.html" title="class in com.lightbend.lagom.projection">Started$</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest$.html#startServer-com.lightbend.lagom.javadsl.testkit.ServiceTest.Setup-">startServer(ServiceTest.Setup)</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest$.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest$</a></dt>
 <dd>
@@ -3628,7 +3729,9 @@
 <div class="block">Start the test server with the given <code>setup</code>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/Projections.html#startWorker-java.lang.String-java.lang.String-">startWorker(String, String)</a></span> - Method in interface com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Given a `projectionName` and a `tagName` request a single worker to start.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#startWorker-java.lang.String-java.lang.String-">startWorker(String, String)</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionsImpl</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html#state--">state()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a></dt>
@@ -3640,9 +3743,24 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Outcome.html#state--">state()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Outcome.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.Outcome</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/projection/State.html" title="class in com.lightbend.lagom.projection"><span class="typeNameLink">State</span></a> - Class in <a href="com/lightbend/lagom/projection/package-summary.html">com.lightbend.lagom.projection</a></dt>
+<dd>
+<div class="block">The state of a projections registry is a collection of projections with extra data indicating the
+ name of the projection, and details about its workers.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/State.html#State-scala.collection.Seq-">State(Seq&lt;Projection&gt;)</a></span> - Constructor for class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/State.html" title="class in com.lightbend.lagom.projection">State</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/projection/State$.html" title="class in com.lightbend.lagom.projection"><span class="typeNameLink">State$</span></a> - Class in <a href="com/lightbend/lagom/projection/package-summary.html">com.lightbend.lagom.projection</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/State$.html#State:D--">State$()</a></span> - Constructor for class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/State$.html" title="class in com.lightbend.lagom.projection">State$</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/ResponseHeader.html#status--">status()</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/ResponseHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">ResponseHeader</a></dt>
 <dd>
 <div class="block">Get the status of this response.</div>
+</dd>
+<dt><a href="com/lightbend/lagom/projection/Status.html" title="interface in com.lightbend.lagom.projection"><span class="typeNameLink">Status</span></a> - Interface in <a href="com/lightbend/lagom/projection/package-summary.html">com.lightbend.lagom.projection</a></dt>
+<dd>
+<div class="block">Super type for a worker status ADT.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#stop--">stop()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.TestServer</a></dt>
 <dd>
@@ -3650,11 +3768,23 @@
  this method when the test is finished.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/Projections.html#stopAllWorkers-java.lang.String-">stopAllWorkers(String)</a></span> - Method in interface com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Given a `projectionName`, request all its workers to stop.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#stopAllWorkers-java.lang.String-">stopAllWorkers(String)</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionsImpl</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/Projections.html#stopWorker-java.lang.String-java.lang.String-">stopWorker(String, String)</a></span> - Method in interface com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></dt>
+<dt><a href="com/lightbend/lagom/projection/Stopped.html" title="interface in com.lightbend.lagom.projection"><span class="typeNameLink">Stopped</span></a> - Interface in <a href="com/lightbend/lagom/projection/package-summary.html">com.lightbend.lagom.projection</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/projection/Stopped$.html" title="class in com.lightbend.lagom.projection"><span class="typeNameLink">Stopped$</span></a> - Class in <a href="com/lightbend/lagom/projection/package-summary.html">com.lightbend.lagom.projection</a></dt>
+<dd>
+<div class="block">See</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Stopped$.html#Stopped:D--">Stopped$()</a></span> - Constructor for class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Stopped$.html" title="class in com.lightbend.lagom.projection">Stopped$</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/Projections.html#stopWorker-java.lang.String-java.lang.String-">stopWorker(String, String)</a></span> - Method in interface com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></dt>
+<dd>
+<div class="block">Given a `projectionName` and a `tagName` request a single worker to stop.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#stopWorker-java.lang.String-java.lang.String-">stopWorker(String, String)</a></span> - Method in class com.lightbend.lagom.javadsl.projection.<a href="com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html" title="class in com.lightbend.lagom.javadsl.projection">ProjectionsImpl</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/api/deser/StreamedMessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser"><span class="typeNameLink">StreamedMessageSerializer</span></a>&lt;<a href="com/lightbend/lagom/javadsl/api/deser/StreamedMessageSerializer.html" title="type parameter in StreamedMessageSerializer">MessageEntity</a>&gt; - Interface in <a href="com/lightbend/lagom/javadsl/api/deser/package-summary.html">com.lightbend.lagom.javadsl.api.deser</a></dt>
@@ -3711,6 +3841,8 @@
 <dd>
 <div class="block">Publish all tags of a stream that is sharded across many tags.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker.html#tagName--">tagName()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker.html" title="class in com.lightbend.lagom.projection">Worker</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#TestServer-int-play.Application-play.core.server.Server-java.util.Optional-">TestServer(int, Application, Server, Optional&lt;SSLContext&gt;)</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.TestServer</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer$.html#TestServer:D--">TestServer$()</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer$.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.TestServer$</a></dt>
@@ -3957,6 +4089,12 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.UnhandledEvent.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.UnhandledEvent.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.UnhandledEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.UsingJavaSerializer.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.UsingJavaSerializer.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.UsingJavaSerializer</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Projection.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Projection.html" title="class in com.lightbend.lagom.projection">Projection</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/State.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/State.html" title="class in com.lightbend.lagom.projection">State</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker.html" title="class in com.lightbend.lagom.projection">Worker</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/status/CircuitBreakerStatus.Builder.html#totalFailureCount-long-">totalFailureCount(long)</a></span> - Method in class com.lightbend.lagom.javadsl.server.status.<a href="com/lightbend/lagom/javadsl/server/status/CircuitBreakerStatus.Builder.html" title="class in com.lightbend.lagom.javadsl.server.status">CircuitBreakerStatus.Builder</a></dt>
 <dd>
@@ -4420,6 +4558,18 @@
 <dd>
 <div class="block">Return a copy of this message protocol with the version set to the given version.</div>
 </dd>
+<dt><a href="com/lightbend/lagom/projection/Worker.html" title="class in com.lightbend.lagom.projection"><span class="typeNameLink">Worker</span></a> - Class in <a href="com/lightbend/lagom/projection/package-summary.html">com.lightbend.lagom.projection</a></dt>
+<dd>
+<div class="block">Metadata of a Worker.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker.html#Worker--">Worker()</a></span> - Constructor for class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker.html" title="class in com.lightbend.lagom.projection">Worker</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/projection/Worker$.html" title="class in com.lightbend.lagom.projection"><span class="typeNameLink">Worker$</span></a> - Class in <a href="com/lightbend/lagom/projection/package-summary.html">com.lightbend.lagom.projection</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Worker$.html#Worker:D--">Worker$()</a></span> - Constructor for class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Worker$.html" title="class in com.lightbend.lagom.projection">Worker$</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/projection/Projection.html#workers--">workers()</a></span> - Method in class com.lightbend.lagom.projection.<a href="com/lightbend/lagom/projection/Projection.html" title="class in com.lightbend.lagom.projection">Projection</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:J">J</a>&nbsp;<a href="#I:K">K</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:Q">Q</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;</div>
 <!-- ======= START OF BOTTOM NAVBAR ====== -->

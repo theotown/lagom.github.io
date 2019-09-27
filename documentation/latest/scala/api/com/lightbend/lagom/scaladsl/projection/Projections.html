@@ -151,12 +151,12 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="com.lightbend.lagom.scaladsl">scaladsl</a></dd></dl></div>
     </li><li class="current-entities indented5">
                         <span class="separator"></span>
-                        <a class="trait" href="ProjectionComponents.html" title=""></a>
-                        <a href="ProjectionComponents.html" title="">ProjectionComponents</a>
+                        <a class="trait" href="ProjectionComponents.html" title="Provides an instance of"></a>
+                        <a href="ProjectionComponents.html" title="Provides an instance of">ProjectionComponents</a>
                       </li><li class="current-entities indented5">
                         <span class="separator"></span>
-                        <a class="class" href="" title="TODO: docs"></a>
-                        <a href="" title="TODO: docs">Projections</a>
+                        <a class="class" href="" title="Public interface to query the internal projection registry that keeps track of the"></a>
+                        <a href="" title="Public interface to query the internal projection registry that keeps track of the">Projections</a>
                       </li>
               </ul>
             </div>
@@ -176,7 +176,7 @@
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
-        <span class="modifier"></span>
+        <span class="modifier">final </span>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
@@ -185,10 +185,18 @@
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>TODO: docs</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Public interface to query the internal projection registry that keeps track of the </p><pre>State</pre><p> of each projection.
+A projections is a process consuming an Akka Persistence Journal handling each event into a read table of
+a broker topic. In Lagom the erm projection only refers to <code>ReadSideProcessor</code>'s  and <code>TopicProducers</code>'s
+(not Broker subscribers). This is different than the meaning of projection in akka/akka-projection.</p><p>See also https://www.lagomframework.com/documentation/latest/scala/Projections.html</p><p>State
+}}}
+A projections is a process consuming an Akka Persistence Journal handling each event into a read table of
+a broker topic. In Lagom the erm projection only refers to <code>ReadSideProcessor</code>'s  and <code>TopicProducers</code>'s
+(not Broker subscribers). This is different than the meaning of projection in akka/akka-projection.</p><p>See also https://www.lagomframework.com/documentation/latest/scala/Projections.html
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@ApiMayChange</span><span class="args">()</span>
               
-        </dd><dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-M5+146-7336951a//projection/scaladsl/src/main/scala/com/lightbend/lagom/scaladsl/projection/Projections.scala" target="_blank">Projections.scala</a></dd></dl><div class="toggleContainer block">
+        </dd><dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-M5+174-29cf4165//projection/scaladsl/src/main/scala/com/lightbend/lagom/scaladsl/projection/Projections.scala" target="_blank">Projections.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -576,7 +584,7 @@
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.projection.Projections#getStatus" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="com.lightbend.lagom.scaladsl.projection.Projections#getStatus" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getStatus:scala.concurrent.Future[com.lightbend.lagom.projection.State]"></a><a id="getStatus:Future[State]"></a>
       <span class="permalink">
       <a href="../../../../../com/lightbend/lagom/scaladsl/projection/Projections.html#getStatus:scala.concurrent.Future[com.lightbend.lagom.projection.State]" title="Permalink">
@@ -588,10 +596,23 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getStatus</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.9/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="com.lightbend.lagom.projection.State">State</span>]</span>
+        <span class="name">getStatus</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.9/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="../../projection/State.html" class="extype" name="com.lightbend.lagom.projection.State">State</a>]</span>
       </span>
       
-      
+      <p class="shortcomment cmt">Read an eventually consistent copy of the projections and workers running on the service.</p><div class="fullcomment"><div class="comment cmt"><p>Read an eventually consistent copy of the projections and workers running on the service.
+Invocations to this method return a local copy of the </p><pre>State</pre><p> so multiple invocations in
+different nodes of the cluster may return different versions of </p><pre>State</pre><p> when it is evolving
+(e.g. during a rolling upgrade, while attending a user request to stop/start,...)
+State
+}}}
+(e.g. during a rolling upgrade, while attending a user request to stop/start,...)
+State
+}}}
+different nodes of the cluster may return different versions of </p><pre>State</pre><p> when it is evolving
+(e.g. during a rolling upgrade, while attending a user request to stop/start,...)
+State
+}}}
+(e.g. during a rolling upgrade, while attending a user request to stop/start,...)</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>an eventually consistent list of projections' metadata</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <span class="permalink">
@@ -681,7 +702,7 @@
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.projection.Projections#startAllWorkers" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="com.lightbend.lagom.scaladsl.projection.Projections#startAllWorkers" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="startAllWorkers(projectionName:String):Unit"></a><a id="startAllWorkers(String):Unit"></a>
       <span class="permalink">
       <a href="../../../../../com/lightbend/lagom/scaladsl/projection/Projections.html#startAllWorkers(projectionName:String):Unit" title="Permalink">
@@ -696,8 +717,12 @@
         <span class="name">startAllWorkers</span><span class="params">(<span name="projectionName">projectionName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.9/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
-      
-    </li><li name="com.lightbend.lagom.scaladsl.projection.Projections#startWorker" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Given a <code>projectionName</code>, request all its workers to start.</p><div class="fullcomment"><div class="comment cmt"><p>Given a <code>projectionName</code>, request all its workers to start. This method returns immediately.
+Eventually, the request will propagate across the cluster and, after that, workers participating
+on that projection will start. To track the actual state of the workers, poll the projection
+registry using the method <code>getStatus</code>.
+</p></div></div>
+    </li><li name="com.lightbend.lagom.scaladsl.projection.Projections#startWorker" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="startWorker(projectionName:String,tagName:String):Unit"></a><a id="startWorker(String,String):Unit"></a>
       <span class="permalink">
       <a href="../../../../../com/lightbend/lagom/scaladsl/projection/Projections.html#startWorker(projectionName:String,tagName:String):Unit" title="Permalink">
@@ -712,8 +737,13 @@
         <span class="name">startWorker</span><span class="params">(<span name="projectionName">projectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="tagName">tagName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.9/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
-      
-    </li><li name="com.lightbend.lagom.scaladsl.projection.Projections#stopAllWorkers" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Given a <code>projectionName</code> and a <code>tagName</code> request a single worker to start.</p><div class="fullcomment"><div class="comment cmt"><p>Given a <code>projectionName</code> and a <code>tagName</code> request a single worker to start. This method returns immediately.
+Eventually, the request will propagate across the cluster and reach the node where that particular
+worker must be allocated allocated. Then, the worker will be started, it's status change will be observed
+and propagated back across the cluster. To track the actual state of the workers, poll the projection
+registry using the method <code>getStatus</code>.
+</p></div></div>
+    </li><li name="com.lightbend.lagom.scaladsl.projection.Projections#stopAllWorkers" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="stopAllWorkers(projectionName:String):Unit"></a><a id="stopAllWorkers(String):Unit"></a>
       <span class="permalink">
       <a href="../../../../../com/lightbend/lagom/scaladsl/projection/Projections.html#stopAllWorkers(projectionName:String):Unit" title="Permalink">
@@ -728,8 +758,13 @@
         <span class="name">stopAllWorkers</span><span class="params">(<span name="projectionName">projectionName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.9/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
-      
-    </li><li name="com.lightbend.lagom.scaladsl.projection.Projections#stopWorker" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Given a <code>projectionName</code>, request all its workers to stop.</p><div class="fullcomment"><div class="comment cmt"><p>Given a <code>projectionName</code>, request all its workers to stop. This method returns immediately.
+Eventually, the request will propagate across the cluster and, after that, workers participating
+on that projection will stop. To track the actual state of the workers, poll the projection
+registry using the method </p><pre>Projections#getStatus</pre><p>.</p><p>Projections#getStatus
+}}}
+</p></div></div>
+    </li><li name="com.lightbend.lagom.scaladsl.projection.Projections#stopWorker" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="stopWorker(projectionName:String,tagName:String):Unit"></a><a id="stopWorker(String,String):Unit"></a>
       <span class="permalink">
       <a href="../../../../../com/lightbend/lagom/scaladsl/projection/Projections.html#stopWorker(projectionName:String,tagName:String):Unit" title="Permalink">
@@ -744,7 +779,12 @@
         <span class="name">stopWorker</span><span class="params">(<span name="projectionName">projectionName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="tagName">tagName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.9/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Given a <code>projectionName</code> and a <code>tagName</code> request a single worker to stop.</p><div class="fullcomment"><div class="comment cmt"><p>Given a <code>projectionName</code> and a <code>tagName</code> request a single worker to stop. This method returns immediately.
+Eventually, the request will propagate across the cluster and reach the node where that particular
+worker is currently allocated. Then, the worker will be stopped, it's status change will be observed
+and propagated back across the cluster. To track the actual state of the workers, poll the projection
+registry using the method <code>getStatus</code>.
+</p></div></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">

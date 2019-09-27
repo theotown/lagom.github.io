@@ -279,12 +279,12 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="com.lightbend.lagom.scaladsl">scaladsl</a></dd></dl></div>
     </li><li class="current-entities indented5">
                         <span class="separator"></span>
-                        <a class="trait" href="ProjectionComponents.html" title=""></a>
-                        <a href="ProjectionComponents.html" title="">ProjectionComponents</a>
+                        <a class="trait" href="ProjectionComponents.html" title="Provides an instance of"></a>
+                        <a href="ProjectionComponents.html" title="Provides an instance of">ProjectionComponents</a>
                       </li><li class="current-entities indented5">
                         <span class="separator"></span>
-                        <a class="class" href="Projections.html" title="TODO: docs"></a>
-                        <a href="Projections.html" title="TODO: docs">Projections</a>
+                        <a class="class" href="Projections.html" title="Public interface to query the internal projection registry that keeps track of the"></a>
+                        <a href="Projections.html" title="Public interface to query the internal projection registry that keeps track of the">Projections</a>
                       </li><li name="com.lightbend.lagom.scaladsl.pubsub" visbl="pub" class="indented5 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="pubsub"></a><a id="pubsub:pubsub"></a>
       <span class="permalink">
@@ -384,10 +384,13 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="" href="ProjectionComponents.html"><span class="name">ProjectionComponents</span></a><span class="result"> extends <a href="../cluster/ClusterComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.cluster.ClusterComponents">ClusterComponents</a></span>
+        <a title="Provides an instance of" href="ProjectionComponents.html"><span class="name">ProjectionComponents</span></a><span class="result"> extends <a href="../cluster/ClusterComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.cluster.ClusterComponents">ClusterComponents</a></span>
       </span>
       
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+      <p class="shortcomment cmt">Provides an instance of </p><div class="fullcomment"><div class="comment cmt"><p>Provides an instance of </p><pre>Projections</pre><p> to interact with the (internal) </p><pre>ProjectionRegistry</pre><p>.</p><p>ProjectionRegistry
+}}}</p><p>Projections
+}}}
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@ApiMayChange</span><span class="args">()</span>
               
         </dd></dl></div>
@@ -399,14 +402,22 @@
       </a>
     </span>
       <span class="modifier_kind">
-        <span class="modifier"></span>
+        <span class="modifier">final </span>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="TODO: docs" href="Projections.html"><span class="name">Projections</span></a><span class="result"> extends <a href="../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+        <a title="Public interface to query the internal projection registry that keeps track of the" href="Projections.html"><span class="name">Projections</span></a><span class="result"> extends <a href="../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
       </span>
       
-      <p class="shortcomment cmt">TODO: docs</p><div class="fullcomment"><div class="comment cmt"><p>TODO: docs</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+      <p class="shortcomment cmt">Public interface to query the internal projection registry that keeps track of the </p><div class="fullcomment"><div class="comment cmt"><p>Public interface to query the internal projection registry that keeps track of the </p><pre>State</pre><p> of each projection.
+A projections is a process consuming an Akka Persistence Journal handling each event into a read table of
+a broker topic. In Lagom the erm projection only refers to <code>ReadSideProcessor</code>'s  and <code>TopicProducers</code>'s
+(not Broker subscribers). This is different than the meaning of projection in akka/akka-projection.</p><p>See also https://www.lagomframework.com/documentation/latest/scala/Projections.html</p><p>State
+}}}
+A projections is a process consuming an Akka Persistence Journal handling each event into a read table of
+a broker topic. In Lagom the erm projection only refers to <code>ReadSideProcessor</code>'s  and <code>TopicProducers</code>'s
+(not Broker subscribers). This is different than the meaning of projection in akka/akka-projection.</p><p>See also https://www.lagomframework.com/documentation/latest/scala/Projections.html
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@ApiMayChange</span><span class="args">()</span>
               
         </dd></dl></div>

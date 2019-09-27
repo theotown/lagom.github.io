@@ -114,6 +114,7 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">ProjectionsImpl</span>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></pre>
+<div class="block">INTERNAL API</div>
 </li>
 </ul>
 </div>
@@ -151,26 +152,36 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/projection/Projec
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;com.lightbend.lagom.projection.State&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#getStatus--">getStatus</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="../../../../../com/lightbend/lagom/projection/State.html" title="class in com.lightbend.lagom.projection">State</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#getStatus--">getStatus</a></span>()</code>
+<div class="block">Read an eventually consistent copy of the projections and workers running on the service.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#startAllWorkers-java.lang.String-">startAllWorkers</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#startAllWorkers-java.lang.String-">startAllWorkers</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName)</code>
+<div class="block">Given a `projectionName`, request all its workers to start.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#startWorker-java.lang.String-java.lang.String-">startWorker</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName,
-           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tagName)</code>&nbsp;</td>
+           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tagName)</code>
+<div class="block">Given a `projectionName` and a `tagName` request a single worker to start.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#stopAllWorkers-java.lang.String-">stopAllWorkers</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#stopAllWorkers-java.lang.String-">stopAllWorkers</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName)</code>
+<div class="block">Given a `projectionName`, request all its workers to stop.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/projection/ProjectionsImpl.html#stopWorker-java.lang.String-java.lang.String-">stopWorker</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName,
-          <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tagName)</code>&nbsp;</td>
+          <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tagName)</code>
+<div class="block">Given a `projectionName` and a `tagName` request a single worker to stop.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -218,10 +229,17 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/projection/Projec
 <ul class="blockList">
 <li class="blockList">
 <h4>getStatus</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;com.lightbend.lagom.projection.State&gt;&nbsp;getStatus()</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;<a href="../../../../../com/lightbend/lagom/projection/State.html" title="class in com.lightbend.lagom.projection">State</a>&gt;&nbsp;getStatus()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html#getStatus--">Projections</a></code></span></div>
+<div class="block">Read an eventually consistent copy of the projections and workers running on the service.
+ Invocations to this method return a local copy of the `State` so multiple invocations in
+ different nodes of the cluster may return different versions of `State` when it is evolving
+ (e.g. during a rolling upgrade, while attending a user request to stop/start,...)</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html#getStatus--">getStatus</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>an eventually consistent list of projections' metadata</dd>
 </dl>
 </li>
 </ul>
@@ -232,6 +250,11 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/projection/Projec
 <li class="blockList">
 <h4>startAllWorkers</h4>
 <pre>public&nbsp;void&nbsp;startAllWorkers(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html#startAllWorkers-java.lang.String-">Projections</a></code></span></div>
+<div class="block">Given a `projectionName`, request all its workers to start. This method returns immediately.
+ Eventually, the request will propagate across the cluster and, after that, workers
+ participating on that projection will start. To track the actual state of the workers, poll the
+ projection registry using the method `getStatus`.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html#startAllWorkers-java.lang.String-">startAllWorkers</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></code></dd>
@@ -246,6 +269,12 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/projection/Projec
 <h4>startWorker</h4>
 <pre>public&nbsp;void&nbsp;startWorker(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName,
                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tagName)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html#startWorker-java.lang.String-java.lang.String-">Projections</a></code></span></div>
+<div class="block">Given a `projectionName` and a `tagName` request a single worker to start. This method returns
+ immediately. Eventually, the request will propagate across the cluster and reach the node where
+ that particular worker must be allocated allocated. Then, the worker will be started, it's
+ status change will be observed and propagated back across the cluster. To track the actual
+ state of the workers, poll the projection registry using the method `getStatus`.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html#startWorker-java.lang.String-java.lang.String-">startWorker</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></code></dd>
@@ -259,6 +288,11 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/projection/Projec
 <li class="blockList">
 <h4>stopAllWorkers</h4>
 <pre>public&nbsp;void&nbsp;stopAllWorkers(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html#stopAllWorkers-java.lang.String-">Projections</a></code></span></div>
+<div class="block">Given a `projectionName`, request all its workers to stop. This method returns immediately.
+ Eventually, the request will propagate across the cluster and, after that, workers
+ participating on that projection will stop. To track the actual state of the workers, poll the
+ projection registry using the method `getStatus`.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html#stopAllWorkers-java.lang.String-">stopAllWorkers</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></code></dd>
@@ -273,6 +307,12 @@ implements <a href="../../../../../com/lightbend/lagom/javadsl/projection/Projec
 <h4>stopWorker</h4>
 <pre>public&nbsp;void&nbsp;stopWorker(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;projectionName,
                        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tagName)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html#stopWorker-java.lang.String-java.lang.String-">Projections</a></code></span></div>
+<div class="block">Given a `projectionName` and a `tagName` request a single worker to stop. This method returns
+ immediately. Eventually, the request will propagate across the cluster and reach the node where
+ that particular worker is currently allocated. Then, the worker will be stopped, it's status
+ change will be observed and propagated back across the cluster. To track the actual state of
+ the workers, poll the projection registry using the method `getStatus`.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html#stopWorker-java.lang.String-java.lang.String-">stopWorker</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/projection/Projections.html" title="interface in com.lightbend.lagom.javadsl.projection">Projections</a></code></dd>

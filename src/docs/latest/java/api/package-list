@@ -23,4 +23,5 @@ com.lightbend.lagom.javadsl.pubsub
 com.lightbend.lagom.javadsl.server
 com.lightbend.lagom.javadsl.server.status
 com.lightbend.lagom.javadsl.testkit
+com.lightbend.lagom.projection
 com.lightbend.lagom.serialization

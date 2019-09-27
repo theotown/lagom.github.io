@@ -37,7 +37,7 @@ class MyLagomClientFactory(val actorSystem: ActorSystem, val materializer: Mater
 }
 
 val actorSystem   = ActorSystem(&quot;my-app&quot;)
-val materializer  = ActorMaterializer()(actorSystem)
+val materializer  = Materializer.matFromSystem(actorSystem)
 val clientFactory = new MyLagomClientFactory(actorSystem, materializer)</code></pre>
 <p>When you have finished with the application, for example, when the system shuts down, you need to stop the factory, by invoking the <code>stop()</code> method:</p>
 <pre class="prettyprint"><code class="language-scala">clientFactory.stop()</code></pre>
@@ -68,6 +68,7 @@ val clientApplication = if (devMode) {
 <p>Alternatively, you can configure it programmatically by overriding the <code>devModeServiceLocatorUrl</code> value on the <code>LagomDevModeServiceLocatorComponents</code> trait:</p>
 <pre class="prettyprint"><code class="language-scala">new StandaloneLagomClientFactory(&quot;my-client&quot;) with AhcWSComponents with LagomDevModeServiceLocatorComponents {
 
-  override lazy val devModeServiceLocatorUrl = URI.create(&quot;http://localhost:8001&quot;)
+  override lazy val devModeServiceLocatorUrl =
+    URI.create(&quot;http://localhost:8001&quot;)
 }
 </code></pre>

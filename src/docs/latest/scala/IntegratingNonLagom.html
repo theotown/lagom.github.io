@@ -17,7 +17,8 @@ import play.api.libs.ws.ahc.AhcWSComponents
 
 val clientFactory =
   new StandaloneLagomClientFactory(&quot;my-client&quot;, classOf[StandaloneLagomClientFactory].getClassLoader)
-  with StaticServiceLocatorComponents with AhcWSComponents {
+    with StaticServiceLocatorComponents
+    with AhcWSComponents {
 
     override def staticServiceUri = URI.create(&quot;http://localhost:8080&quot;)
   }</code></pre>

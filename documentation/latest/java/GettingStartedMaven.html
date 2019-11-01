@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/bfddb594370c465d0daadcf2ebdc6b4ce01aa3de-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/f4704052543ced7273a6ff20c434b1f89099b82a-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -291,7 +291,10 @@
 
                 <article>
                 <h1 id="Creating-and-running-Hello-World-with-Maven"><a class="section-marker" href="#Creating-and-running-Hello-World-with-Maven">§</a>Creating and running Hello World with Maven</h1>
-<p>The easiest way to get started with Lagom and Maven is to use the Maven archetype plugin and a Lagom archetype to create a new project. A Maven project includes sub-projects organized in sub-directories. The top-level and sub-project directories each include a <a href="https://maven.apache.org/pom.html">Project Object Model (POM)</a> that contains build configuration. When you run the <code>generate</code> command, Maven prompts you for POM element values. The Lagom archetype creates a project that includes two Lagom services, <code>hello</code> and <code>stream</code>. </p>
+<blockquote>
+  <p><strong>Note</strong>: Lagom requires Maven 3.6.0 or later.</p>
+</blockquote>
+<p>The easiest way to get started with Lagom and Maven is to use the Maven archetype plugin and a Lagom archetype to create a new project. A Maven project includes sub-projects organized in sub-directories. The top-level and sub-project directories each include a <a href="https://maven.apache.org/pom.html">Project Object Model (POM)</a> that contains build configuration. When you run the <code>generate</code> command, Maven prompts you for POM element values. The Lagom archetype creates a project that includes two Lagom services, <code>hello</code> and <code>stream</code>.</p>
 <p>Follow these instructions to create and run your first project:</p>
 <ol>
   <li><a href="#Generate-a-project-with-the-Lagom-archetype">Generate a project with the Lagom archetype</a></li>
@@ -324,23 +327,22 @@ Choose a number or apply filter (format: [groupId:]artifactId, case sensitive co
   </li>
   <li>Enter <code>Y</code> to accept the values.<br/> When finished, Maven creates the project, and completes with a message similar to the following:</li>
 </ol>
-<pre class="prettyprint"><code>   [INFO] ------------------------------------------------------------------------
-   [INFO] BUILD SUCCESS
-   [INFO] ------------------------------------------------------------------------
-   [INFO] Total time: 10:42 min
-   [INFO] Finished at: 2017-02-24T11:58:08-06:00
-   [INFO] Final Memory: 17M/252M
-   [INFO] ------------------------------------------------------------------------
-
+<pre class="prettyprint"><code>[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 10:42 min
+[INFO] Finished at: 2017-02-24T11:58:08-06:00
+[INFO] Final Memory: 17M/252M
+[INFO] ------------------------------------------------------------------------
 </code></pre><h2 id="Browse-the-project-structure"><a class="section-marker" href="#Browse-the-project-structure">§</a>Browse the project structure</h2>
 <p>The structure for a project created with the Maven archetype generate command will look similar to the following (assuming <code>my-first-system</code> as an <code>artifactId</code>):</p>
 <pre class="prettyprint"><code>my-first-system
- └ hello-api/             → hello world api project dir
- └ hello-impl/            → hello world implementation dir
- └ integration-tests/
- └ stream-api/            → stream api project dir
- └ stream-impl/           → stream implementation project dir
- └ pom.xml                → Project group build file
+├── hello-api             → hello world api project dir
+├── hello-impl            → hello world implementation dir
+├── integration-tests     → project integration tests
+├── stream-api            → stream api project dir
+├── stream-impl           → stream implementation project dir
+└── pom.xml               → Project group build file
 </code></pre>
 <p>Note that the <code>hello</code> and <code>stream</code> services each have:</p>
 <ul>
@@ -366,9 +368,12 @@ mvn lagom:runAll
 [INFO] Service stream-impl listening for HTTPS on 127.0.0.1:58440
 [INFO] (Services started, press enter to stop and go back to the console...)
 </code></pre>
-<p>Verify that the services are indeed up and running by invoking the <code>hello</code> service endpoint from any HTTP client, such as a browser:</p>
-<pre class="prettyprint"><code>http://localhost:9000/api/hello/World
+<p>Verify that the services are indeed up and running by invoking the <code>hello</code> service endpoint from any HTTP client, such as a browser: <a href="http://localhost:9000/api/hello/World">http://localhost:9000/api/hello/World</a>. Or using <code>curl</code>:</p>
+<pre class="prettyprint"><code class="language-bash">curl -i http://localhost:9000/api/hello/World
 </code></pre>
+<blockquote>
+  <p>NOTE: if you use a name for <code>service1</code> different from <code>hello</code> the URL will differ. Use <code>curl -i http://localhost:9000/api/&lt;service1Name&gt;/World</code></p>
+</blockquote>
 <p>The request returns the message <code>Hello, World!</code>.</p>
 <p>Congratulations! You&rsquo;ve created and run your first Lagom system.</p>
                 </article>
@@ -538,7 +543,6 @@ mvn lagom:runAll
                                     <ul>
                                         <li><a href="https://www.eventbrite.com/directory/?q=lagom&amp;loc=Worldwide">Events <em>via Eventbrite</em></a></li>
                                         <li><a href="http://www.indeed.com/jobs?q=%22lagom%22&amp;l=">Jobs <em>via Indeed</em></a></li>
-                                        <li><a href="http://www.scoop.it/lagom">Blogs <em>via Scoop.it</em></a></li>
                                     </ul>
                                 </div>
                                 <div class="small-12 medium-6 large-3 columns">
@@ -589,7 +593,7 @@ mvn lagom:runAll
             </div>
         </div>
     </body>
-    <script src="/bfddb594370c465d0daadcf2ebdc6b4ce01aa3de-all-scripts-concat.js"></script>
+    <script src="/f4704052543ced7273a6ff20c434b1f89099b82a-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

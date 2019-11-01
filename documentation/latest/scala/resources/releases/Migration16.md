@@ -18,7 +18,7 @@ The version of Lagom can be updated by editing the `project/plugins.sbt` file, a
 addSbtPlugin("com.lightbend.lagom" % "lagom-sbt-plugin" % "1.6.0")
 ```
 
-Lagom 1.6 requires sbt 1.2.8 or later, upgrade your version by updating the `sbt.version` in `project/build.properties`.
+Lagom 1.6 requires sbt 1.3.2 or later, upgrade your version by updating the `sbt.version` in `project/build.properties`.
 
 ## Main changes
 
@@ -47,15 +47,20 @@ akka.cluster.sharding.state-store-mode = persistence
 ```
 ### Akka Persistence Cassandra Update
 
-The Akka Persistence Cassandra plugin is updated to version 0.99. This version requires a schema migration before you upgrade to Lagom 1.6.0.
+The Akka Persistence Cassandra plugin is updated to version 0.100. This version requires a schema migration before you upgrade to Lagom 1.6.0.
 
 For more information on how to migrate, consult [Akka Persistence Cassandra migration document](https://doc.akka.io/docs/akka-persistence-cassandra/current/migrations.html#migrations-to-0-80-and-later).
 
 Note that although it's technically possible to run the migration while running your application we advise against it.
 
+### Akka Persistence Typed
+
+With the new support for Akka Persistence Typed you may [[migrate your Persistent Entities to Akka Persistence Typed|MigratingToAkkaPersistenceTyped]] `Behavior`'s.
+
+
 ## Upgrading a production system
 
-As usual, before upgrading to Lagom 1.6.0, makes sure you are using the latest version on the 1.5.x series.
+As usual, before upgrading to Lagom 1.6.0, make sure you are using the latest version on the 1.5.x series.
 
 During a rolling upgrade your [[Projections]] may experience a degraded behavior. The service will self-heal when the rolling upgrade completes. Some internal messages taking care of the distribution of the worker instances of your projection have changed. As a consequence,  your old nodes won't be able to gossip with the new ones but as soon as the rolling upgrade completes, all nodes will be on the same version of your service the projection will operate normally.
 
@@ -66,6 +71,8 @@ This is a summary of changes in Lagom 1.6 that would require a full cluster shut
 * The change in [[Akka Remote|Migration16#Remoting-Artery]] default implementation.
 * The change in default [[Shard Coordination|Migration16#Shard-Coordination]] strategy.
 * The change in [[Cassandra plugin version|Migration16#Akka-Persistence-Cassandra-Update]]. Only impacts Lagom applications using Cassandra.
+
+Finally, if you [[migrate your Persistent Entities as Akka Persistence Typed|MigratingToAkkaPersistenceTyped]] `Behavior`'s you will also need a cluster shutdown for the upgrade.
 
 ## Minor changes
 

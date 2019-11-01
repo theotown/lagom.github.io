@@ -4,14 +4,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Relational Database Persistent Entities</title>
+        <title>Lagom - Relational Database Setup</title>
         <meta name="description" content="Lagom">
         
             <link rel="canonical" href="https://www.lagomframework.com/documentation/1.5.x/java/PersistentEntityRDBMS.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/bfddb594370c465d0daadcf2ebdc6b4ce01aa3de-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/f4704052543ced7273a6ff20c434b1f89099b82a-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -271,7 +271,7 @@
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Relational Database Persistent Entities</h1>
+                <h1>Relational Database Setup</h1>
             </div>
         </div>
     </header>
@@ -293,8 +293,8 @@
                 
 
                 <article>
-                <h1 id="Storing-Persistent-Entities-in-a-Relational-Database"><a class="section-marker" href="#Storing-Persistent-Entities-in-a-Relational-Database">§</a>Storing Persistent Entities in a Relational Database</h1>
-<p>This page describes how to configure a relational database for use with Lagom&rsquo;s <a href="PersistentEntity.html">Persistent Entity</a> API.</p><h2 id="Project-dependencies"><a class="section-marker" href="#Project-dependencies">§</a>Project dependencies</h2>
+                <h1 id="Storing-Persistent-Events-in-a-Relational-Database"><a class="section-marker" href="#Storing-Persistent-Events-in-a-Relational-Database">§</a>Storing Persistent Events in a Relational Database</h1>
+<p>This page describes how to configure a relational database for use with <a href="PersistentEntity.html">Persistent Entity</a> API or Akka Typed Persistence in a Lagom service .</p><h2 id="Project-dependencies"><a class="section-marker" href="#Project-dependencies">§</a>Project dependencies</h2>
 <p>To use a relational database add the following in your project&rsquo;s build:</p>
 <p>In Maven:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
@@ -306,12 +306,13 @@
 <p>In sbt:</p>
 <pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomJavadslPersistenceJdbc</code></pre>
 <p>You will also need to add the jar for your JDBC database driver.</p><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
-<p>Lagom uses the <a href="https://github.com/dnvriend/akka-persistence-jdbc"><code>akka-persistence-jdbc</code></a> plugin to persist entities to the database. This supports four different relational databases:</p>
+<p>Lagom uses the <a href="https://github.com/dnvriend/akka-persistence-jdbc"><code>akka-persistence-jdbc</code></a> plugin. This supports the following relational databases:</p>
 <ul>
   <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
   <li><a href="https://www.mysql.com/">MySQL</a></li>
   <li><a href="https://www.oracle.com/database/index.html">Oracle</a></li>
-  <li><a href="https://www.h2database.com/">H2</a></li>
+  <li><a href="https://www.h2database.com/">H2</a>](<a href="https://www.h2database.com/">https://www.h2database.com/</a>)</li>
+  <li><a href="https://www.microsoft.com/en-us/sql-server">SQL Server</a></li>
 </ul>
 <p>We advise against using H2 in production, however, it is suitable for use in development and testing.</p>
 <p>In Lagom&rsquo;s default configuration, Lagom will use Play&rsquo;s JDBC support to configure and create a connection pool. Details on how to configure it can be found <a href="https://www.playframework.com/documentation/2.6.x/JavaDatabase">here</a>. Play should be configured to provide a JNDI binding for the datasource, by default Lagom binds it to <code>DefaultDS</code>.</p>
@@ -488,11 +489,15 @@ lagom.persistence.jdbc {
                             
                         
                             
-                                <li><a href="PersistentEntityCassandra.html">Cassandra Persistent Entities</a></li>
+                                <li><a href="ChoosingADatabase.html">Choosing A Database</a></li>
                             
                         
                             
-                                <li class="current-page"><a href="PersistentEntityRDBMS.html">Relational Database Persistent Entities</a></li>
+                                <li><a href="PersistentEntityCassandra.html">Cassandra Setup</a></li>
+                            
+                        
+                            
+                                <li class="current-page"><a href="PersistentEntityRDBMS.html">Relational Database Setup</a></li>
                             
                         
                             
@@ -659,7 +664,6 @@ lagom.persistence.jdbc {
                                     <ul>
                                         <li><a href="https://www.eventbrite.com/directory/?q=lagom&amp;loc=Worldwide">Events <em>via Eventbrite</em></a></li>
                                         <li><a href="http://www.indeed.com/jobs?q=%22lagom%22&amp;l=">Jobs <em>via Indeed</em></a></li>
-                                        <li><a href="http://www.scoop.it/lagom">Blogs <em>via Scoop.it</em></a></li>
                                     </ul>
                                 </div>
                                 <div class="small-12 medium-6 large-3 columns">
@@ -710,7 +714,7 @@ lagom.persistence.jdbc {
             </div>
         </div>
     </body>
-    <script src="/bfddb594370c465d0daadcf2ebdc6b4ce01aa3de-all-scripts-concat.js"></script>
+    <script src="/f4704052543ced7273a6ff20c434b1f89099b82a-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

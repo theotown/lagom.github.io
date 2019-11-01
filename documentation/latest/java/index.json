@@ -242,19 +242,25 @@
       "children" : [ {
         "title" : "Persistent Entity",
         "url" : "PersistentEntity.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/PersistentEntity.md"
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/PersistentEntity.md",
+        "nextUrls" : [ "ChoosingADatabase.html", "PersistentEntityCassandra.html", "PersistentEntityRDBMS.html" ]
       }, {
-        "title" : "Cassandra Persistent Entities",
+        "title" : "Choosing A Database",
+        "url" : "ChoosingADatabase.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/common/guide/cluster/ChoosingADatabase.md"
+      }, {
+        "title" : "Cassandra Setup",
         "url" : "PersistentEntityCassandra.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/PersistentEntityCassandra.md"
       }, {
-        "title" : "Relational Database Persistent Entities",
+        "title" : "Relational Database Setup",
         "url" : "PersistentEntityRDBMS.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/PersistentEntityRDBMS.md"
       }, {
         "title" : "Persistent Read-Side",
         "url" : "ReadSide.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/ReadSide.md"
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/ReadSide.md",
+        "nextUrls" : [ "ReadSideCassandra.html", "ReadSideRDBMS.html" ]
       }, {
         "title" : "Cassandra Read-Side Support",
         "url" : "ReadSideCassandra.html",

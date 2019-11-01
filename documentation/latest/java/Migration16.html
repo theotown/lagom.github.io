@@ -9,7 +9,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/bfddb594370c465d0daadcf2ebdc6b4ce01aa3de-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/f4704052543ced7273a6ff20c434b1f89099b82a-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -300,9 +300,9 @@
 <p>The version of Lagom can be updated by editing the <code>project/plugins.sbt</code> file, and updating the version of the Lagom sbt plugin. For example:</p>
 <pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.lagom&quot; % &quot;lagom-sbt-plugin&quot; % &quot;1.6.0&quot;)
 </code></pre>
-<p>Lagom 1.6 requires sbt 1.2.8 or later, upgrade your version by updating the <code>sbt.version</code> in <code>project/build.properties</code>.</p><h2 id="Main-changes"><a class="section-marker" href="#Main-changes">§</a>Main changes</h2><h3 id="Jackson-serialization"><a class="section-marker" href="#Jackson-serialization">§</a>Jackson serialization</h3>
+<p>Lagom 1.6 requires sbt 1.3.2 or later, upgrade your version by updating the <code>sbt.version</code> in <code>project/build.properties</code>.</p><h2 id="Main-changes"><a class="section-marker" href="#Main-changes">§</a>Main changes</h2><h3 id="Jackson-serialization"><a class="section-marker" href="#Jackson-serialization">§</a>Jackson serialization</h3>
 <p>Lagom is now using the Jackson serializer from Akka, which is an improved version of the serializer in Lagom 1.5. You can find more information about the Akka Jackson serializer in the <a href="https://doc.akka.io/docs/akka/2.6/serialization-jackson.html">Akka documentation</a>. It is compatible with Lagom 1.5 in both directions.</p>
-<p>The serializer provided by Akka creates new <a href="https://doc.akka.io/docs/akka/current/serialization.html">Akka serialization bindings</a> so if you want to do a rolling upgrade from Lagom 1.5.x to Lagom 1.6.x you need to do a <a href="Migration16.html">multi-step upgrade</a>. </p><h4 id="JacksonJsonMigration"><a class="section-marker" href="#JacksonJsonMigration">§</a>JacksonJsonMigration</h4>
+<p>The serializer provided by Akka creates new <a href="https://doc.akka.io/docs/akka/current/serialization.html">Akka serialization bindings</a> so if you want to do a rolling upgrade from Lagom 1.5.x to Lagom 1.6.x you need to do a <a href="Migration16.html">multi-step upgrade</a>.</p><h4 id="JacksonJsonMigration"><a class="section-marker" href="#JacksonJsonMigration">§</a>JacksonJsonMigration</h4>
 <p>If you have used <code>JacksonJsonMigration</code> classes they must be changed to extend <code>akka.serialization.jackson.JacksonMigration</code> instead. It has the same method signatures as the deprecated <code>JacksonJsonMigration</code>.</p>
 <p>The configuration in <code>lagom.serialization.json.migrations</code> must be moved to <code>akka.serialization.jackson.migrations</code>.<br/>It has the same structure.</p><h4 id="Service-API"><a class="section-marker" href="#Service-API">§</a>Service API</h4>
 <p>The default settings for the <code>ObjectMapper</code> that is used for JSON serialization in the Service API now uses <code>ISO-8601</code> date formats. The default in previous versions of Lagom was to use Jackson private format which can be more time and/or space efficient. The reason for this change is that the ISO format is a better default for interoperability.</p>
@@ -316,10 +316,10 @@
 }
 </code></pre><h4 id="Configuration-changes"><a class="section-marker" href="#Configuration-changes">§</a>Configuration changes</h4>
 <ul>
-  <li><code>lagom.serialization.json.compress-larger-than</code> is now configured with <code>akka.serialization.jackson.jackson-json-gzip.compress-larger-than</code></li>
+  <li><code>lagom.serialization.json.compress-larger-than</code> is now configured with <code>akka.serialization.jackson.jackson-json-compressed.compression.compress-larger-than</code></li>
   <li><code>lagom.serialization.json.jackson-modules</code> is now configured in <code>akka.serialization.jackson.jackson-modules</code></li>
 </ul><h4 id="JSON-Compression-threshold"><a class="section-marker" href="#JSON-Compression-threshold">§</a>JSON Compression threshold</h4>
-<p>When marking a serializable class with <code>CompressedJsonable</code> compression will only kick in when the serialized representation goes past a threshold. The default value for <code>akka.serialization.jackson.jackson-json-gzip.compress-larger-than</code> is 32 Kilobytes. As mentioned above, this setting was previously configure by <code>lagom.serialization.json.compress-larger-than</code> and defaulted to 1024 bytes. (See <a href="https://github.com/lagom/lagom/pull/1983">#1983</a>)</p><h3 id="Remoting-Artery"><a class="section-marker" href="#Remoting-Artery">§</a>Remoting Artery</h3>
+<p>When marking a serializable class with <code>CompressedJsonable</code> compression will only kick in when the serialized representation goes past a threshold. The default value for <code>akka.serialization.jackson.jackson-json-compressed.compression.compress-larger-than</code> is 32 Kilobytes. As mentioned above, this setting was previously configure by <code>lagom.serialization.json.compress-larger-than</code> and defaulted to 1024 bytes. (See <a href="https://github.com/lagom/lagom/pull/1983">#1983</a>)</p><h3 id="Remoting-Artery"><a class="section-marker" href="#Remoting-Artery">§</a>Remoting Artery</h3>
 <p>Lagom 1.6.0 builds on Akka 2.6.0 that uses a new Akka Remote implementation called Artery. Artery is enabled by default in Lagom and replaces the previous Akka Remote protocol (aka. Akka Remote Classic). If you are using Lagom in a clustered setup, you will need to shutdown all nodes before updating, unless you choose to disable Artery.</p>
 <p>To use classic remoting instead of Artery, you need to:</p>
 <ol>
@@ -333,10 +333,10 @@
 <pre class="prettyprint"><code class="language-HOCON"># Opt-back to Lagom 1.5&#39;s &#39;persistence&#39; instead of Lagom 1.6&#39;s default of &#39;ddata&#39;.
 akka.cluster.sharding.state-store-mode = persistence
 </code></pre><h3 id="Akka-Persistence-Cassandra-Update"><a class="section-marker" href="#Akka-Persistence-Cassandra-Update">§</a>Akka Persistence Cassandra Update</h3>
-<p>The Akka Persistence Cassandra plugin is updated to version 0.99. This version requires a schema migration before you upgrade to Lagom 1.6.0.</p>
+<p>The Akka Persistence Cassandra plugin is updated to version 0.100. This version requires a schema migration before you upgrade to Lagom 1.6.0.</p>
 <p>For more information on how to migrate, consult <a href="https://doc.akka.io/docs/akka-persistence-cassandra/current/migrations.html#migrations-to-0-80-and-later">Akka Persistence Cassandra migration document</a>.</p>
 <p>Note that although it&rsquo;s technically possible to run the migration while running your application we advise against it.</p><h2 id="Upgrading-a-production-system"><a class="section-marker" href="#Upgrading-a-production-system">§</a>Upgrading a production system</h2>
-<p>As usual, before upgrading to Lagom 1.6.0, makes sure you are using the latest version on the 1.5.x series.</p>
+<p>As usual, before upgrading to Lagom 1.6.0, make sure you are using the latest version on the 1.5.x series.</p>
 <p>During a rolling upgrade your <a href="Projections.html">Projections</a> may experience a degraded behavior. The service will self-heal when the rolling upgrade completes. Some internal messages taking care of the distribution of the worker instances of your projection have changed. As a consequence, your old nodes won&rsquo;t be able to gossip with the new ones but as soon as the rolling upgrade completes, all nodes will be on the same version of your service the projection will operate normally.</p>
 <p>Lagom 1.6.0 has a few new default settings that will prevent you to run a rolling upgrade. In case you prefer to run a rolling upgrade, you will need to opt-out from each of these new defaults as explained below.</p>
 <p>This is a summary of changes in Lagom 1.6 that would require a full cluster shutdown rather than a rolling upgrade:</p>
@@ -347,7 +347,7 @@ akka.cluster.sharding.state-store-mode = persistence
 </ul><h3 id="Multi-step-upgrade:-serialization"><a class="section-marker" href="#Multi-step-upgrade:-serialization">§</a>Multi-step upgrade: serialization</h3>
 <p>Changes in default serializers require rolling upgrades to happen in two steps.</p><h4 id="Step-1:-new-binary,-old-serializers"><a class="section-marker" href="#Step-1:-new-binary,-old-serializers">§</a>Step 1: new binary, old serializers</h4>
 <p>First, you will have to deploy a version of your binary that&rsquo;s already a Lagom 1.6.x application but you must set it up to use the serializers that are compatible with Lagom 1.5.x so your old nodes can continue to operate. On your <code>application.conf</code> use:</p>
-<pre class="prettyprint"><code>## Lagom 1.6 no longer enables Java serialization by default but some 
+<pre class="prettyprint"><code>## Lagom 1.6 no longer enables Java serialization by default but some
 ## code in Lagom 1.5 (or your own code) still used it so we enable it back.
 akka.actor.allow-java-serialization = on
 
@@ -524,7 +524,6 @@ akka.actor {
                                     <ul>
                                         <li><a href="https://www.eventbrite.com/directory/?q=lagom&amp;loc=Worldwide">Events <em>via Eventbrite</em></a></li>
                                         <li><a href="http://www.indeed.com/jobs?q=%22lagom%22&amp;l=">Jobs <em>via Indeed</em></a></li>
-                                        <li><a href="http://www.scoop.it/lagom">Blogs <em>via Scoop.it</em></a></li>
                                     </ul>
                                 </div>
                                 <div class="small-12 medium-6 large-3 columns">
@@ -575,7 +574,7 @@ akka.actor {
             </div>
         </div>
     </body>
-    <script src="/bfddb594370c465d0daadcf2ebdc6b4ce01aa3de-all-scripts-concat.js"></script>
+    <script src="/f4704052543ced7273a6ff20c434b1f89099b82a-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

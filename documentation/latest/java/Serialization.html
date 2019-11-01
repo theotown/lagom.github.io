@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/bfddb594370c465d0daadcf2ebdc6b4ce01aa3de-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/f4704052543ced7273a6ff20c434b1f89099b82a-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -336,7 +336,7 @@ public interface AbstractAuthor extends CompressedJsonable {
 
   String biography();
 }</code></pre>
-<p>The serializer will by default only compress messages that are larger than 32 Kb. This threshold can be changed with configuration property <code>akka.serialization.jackson.jackson-json-gzip.compress-larger-than</code>.</p><h2 id="Schema-Evolution"><a class="section-marker" href="#Schema-Evolution">§</a>Schema Evolution</h2>
+<p>The serializer will by default only compress messages that are larger than 32 KiB. This threshold can be changed with configuration property <code>akka.serialization.jackson.jackson-json-compressed.compression.compress-larger-than</code>.</p><h2 id="Schema-Evolution"><a class="section-marker" href="#Schema-Evolution">§</a>Schema Evolution</h2>
 <p>When working on long running projects using <a href="PersistentEntity.html">Persistence</a>, or any kind of Event Sourcing, schema evolution becomes an important aspects of developing your application. The requirements as well as our own understanding of the business domain may (and will) change over time.</p>
 <p>Lagom provides a way to perform transformations of the JSON tree model during deserialization.</p>
 <p>We will look at a few scenarios of how the classes may be evolved.</p><h3 id="Remove-Field"><a class="section-marker" href="#Remove-Field">§</a>Remove Field</h3>
@@ -612,11 +612,15 @@ public interface AbstractOrderPlaced extends Jsonable {
                             
                         
                             
-                                <li><a href="PersistentEntityCassandra.html">Cassandra Persistent Entities</a></li>
+                                <li><a href="ChoosingADatabase.html">Choosing A Database</a></li>
                             
                         
                             
-                                <li><a href="PersistentEntityRDBMS.html">Relational Database Persistent Entities</a></li>
+                                <li><a href="PersistentEntityCassandra.html">Cassandra Setup</a></li>
+                            
+                        
+                            
+                                <li><a href="PersistentEntityRDBMS.html">Relational Database Setup</a></li>
                             
                         
                             
@@ -783,7 +787,6 @@ public interface AbstractOrderPlaced extends Jsonable {
                                     <ul>
                                         <li><a href="https://www.eventbrite.com/directory/?q=lagom&amp;loc=Worldwide">Events <em>via Eventbrite</em></a></li>
                                         <li><a href="http://www.indeed.com/jobs?q=%22lagom%22&amp;l=">Jobs <em>via Indeed</em></a></li>
-                                        <li><a href="http://www.scoop.it/lagom">Blogs <em>via Scoop.it</em></a></li>
                                     </ul>
                                 </div>
                                 <div class="small-12 medium-6 large-3 columns">
@@ -834,7 +837,7 @@ public interface AbstractOrderPlaced extends Jsonable {
             </div>
         </div>
     </body>
-    <script src="/bfddb594370c465d0daadcf2ebdc6b4ce01aa3de-all-scripts-concat.js"></script>
+    <script src="/f4704052543ced7273a6ff20c434b1f89099b82a-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

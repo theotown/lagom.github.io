@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/bfddb594370c465d0daadcf2ebdc6b4ce01aa3de-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/f4704052543ced7273a6ff20c434b1f89099b82a-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -287,7 +287,7 @@
                             <a href="ReferenceGuide.html">Lagom reference guide</a>
                         
                                     &raquo;
-                            <a href="PersistentEntity.html">Writing persistent and clustered services</a>
+                            <a href="DomainModelling.html">Writing persistent and clustered services</a>
                         
                     </nav>
                 
@@ -337,7 +337,6 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
 <p>Now Lagom here will generate a tag name that appends the hash code of the entity ID modulo the number of shards to the class name.</p><h3 id="Defining-a-read-side-processor"><a class="section-marker" href="#Defining-a-read-side-processor">§</a>Defining a read side processor</h3>
 <p>This is how a <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/ReadSideProcessor"><code>ReadSideProcessor</code></a> class looks like before filling in the implementation details:</p>
 <pre class="prettyprint"><code class="language-scala">class BlogEventProcessor extends ReadSideProcessor[BlogEvent] {
-
   override def buildHandler(): ReadSideProcessor.ReadSideHandler[BlogEvent] = {
     // TODO build read side handler
     ???
@@ -353,7 +352,6 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
   BlogEvent.Tag.allTags</code></pre>
 <p>Now we need to implement the <code>buildHandler</code> method. Let&rsquo;s assume that you have created a component to interact with your preferred database, it provides the following methods:</p>
 <pre class="prettyprint"><code class="language-scala">trait MyDatabase {
-
   /**
    * Create the tables needed for this read side if not already created.
    */
@@ -375,7 +373,6 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
 <p>Given this interface, we can now implement the <code>buildHandler</code> method:</p>
 <pre class="prettyprint"><code class="language-scala">override def buildHandler(): ReadSideProcessor.ReadSideHandler[BlogEvent] = {
   new ReadSideHandler[BlogEvent] {
-
     override def globalPrepare(): Future[Done] =
       myDatabase.createTables()
 
@@ -396,7 +393,6 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
 <p>Once you&rsquo;ve created your read-side processor, you need to register it with Lagom. This is done using the <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/ReadSide"><code>ReadSide</code></a> component:</p>
 <pre class="prettyprint"><code class="language-scala">class BlogServiceImpl(persistentEntityRegistry: PersistentEntityRegistry, readSide: ReadSide, myDatabase: MyDatabase)
     extends BlogService {
-
   readSide.register[BlogEvent](new BlogEventProcessor(myDatabase))</code></pre><h2 id="Raw-Stream-of-Events"><a class="section-marker" href="#Raw-Stream-of-Events">§</a>Raw Stream of Events</h2>
 <p>There is another tool that can be used if you want more flexible event processing. You can get a stream of the persistent events directly from Lagom with the <code>eventStream</code> method of the <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/PersistentEntityRegistry">PersistentEntityRegistry</a>.</p>
 <pre class="prettyprint"><code class="language-scala">override def newPosts(): ServiceCall[NotUsed, Source[PostSummary, _]] =
@@ -448,12 +444,18 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
 
                 
                     
-                        
-                            <nav class="next-link">
-                                <a href="ReadSideCassandra.html"><strong>Next: </strong>
-                                    Cassandra Read-Side Support</a>
-                            </nav>
-                        
+                        <nav class="next-links">
+                            <strong>Next:</strong>
+                            <ul>
+                            
+                                <li><a href="ReadSideCassandra.html">Cassandra Read-Side Support</a>
+                                </li>
+                            
+                                <li><a href="ReadSideRDBMS.html">Relational Database Read-Side Support</a>
+                                </li>
+                            
+                            </ul>
+                        </nav>
                     
                 
 
@@ -491,15 +493,27 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
                         <ul>
                         
                             
-                                <li><a href="PersistentEntity.html">Persistent Entity</a></li>
+                                <li><a href="DomainModelling.html">Domain Modelling with Akka Persistence Typed</a></li>
                             
                         
                             
-                                <li><a href="PersistentEntityCassandra.html">Cassandra Persistent Entities</a></li>
+                                <li><a href="MigratingToAkkaPersistenceTyped.html"> Migrating to Akka Persistence Typed</a></li>
                             
                         
                             
-                                <li><a href="PersistentEntityRDBMS.html">Relational Database Persistent Entities</a></li>
+                                <li><a href="PersistentEntity.html">Persistent Entity (classic)</a></li>
+                            
+                        
+                            
+                                <li><a href="ChoosingADatabase.html">Choosing A Database</a></li>
+                            
+                        
+                            
+                                <li><a href="PersistentEntityCassandra.html">Cassandra Setup</a></li>
+                            
+                        
+                            
+                                <li><a href="PersistentEntityRDBMS.html">Relational Database Setup</a></li>
                             
                         
                             
@@ -560,7 +574,7 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
                             
                         
                             
-                                <li class="current-page"><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
+                                <li class="current-page"><a href="DomainModelling.html">Writing persistent and clustered services</a></li>
                             
                         
                             
@@ -666,7 +680,6 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
                                     <ul>
                                         <li><a href="https://www.eventbrite.com/directory/?q=lagom&amp;loc=Worldwide">Events <em>via Eventbrite</em></a></li>
                                         <li><a href="http://www.indeed.com/jobs?q=%22lagom%22&amp;l=">Jobs <em>via Indeed</em></a></li>
-                                        <li><a href="http://www.scoop.it/lagom">Blogs <em>via Scoop.it</em></a></li>
                                     </ul>
                                 </div>
                                 <div class="small-12 medium-6 large-3 columns">
@@ -717,7 +730,7 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
             </div>
         </div>
     </body>
-    <script src="/bfddb594370c465d0daadcf2ebdc6b4ce01aa3de-all-scripts-concat.js"></script>
+    <script src="/f4704052543ced7273a6ff20c434b1f89099b82a-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

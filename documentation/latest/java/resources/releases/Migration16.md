@@ -26,7 +26,7 @@ The version of Lagom can be updated by editing the `project/plugins.sbt` file, a
 addSbtPlugin("com.lightbend.lagom" % "lagom-sbt-plugin" % "1.6.0")
 ```
 
-Lagom 1.6 requires sbt 1.2.8 or later, upgrade your version by updating the `sbt.version` in `project/build.properties`.
+Lagom 1.6 requires sbt 1.3.2 or later, upgrade your version by updating the `sbt.version` in `project/build.properties`.
 
 ## Main changes
 
@@ -34,7 +34,7 @@ Lagom 1.6 requires sbt 1.2.8 or later, upgrade your version by updating the `sbt
 
 Lagom is now using the Jackson serializer from Akka, which is an improved version of the serializer in Lagom 1.5. You can find more information about the Akka Jackson serializer in the [Akka documentation](https://doc.akka.io/docs/akka/2.6/serialization-jackson.html). It is compatible with Lagom 1.5 in both directions.
 
-The serializer provided by Akka creates new [Akka serialization bindings](https://doc.akka.io/docs/akka/current/serialization.html) so if you want to do a rolling upgrade from Lagom 1.5.x to Lagom 1.6.x you need to do a [[multi-step upgrade|Migration16]]. 
+The serializer provided by Akka creates new [Akka serialization bindings](https://doc.akka.io/docs/akka/current/serialization.html) so if you want to do a rolling upgrade from Lagom 1.5.x to Lagom 1.6.x you need to do a [[multi-step upgrade|Migration16]].
 
 #### JacksonJsonMigration
 
@@ -61,12 +61,12 @@ akka.serialization.jackson {
 
 #### Configuration changes
 
-* `lagom.serialization.json.compress-larger-than` is now configured with `akka.serialization.jackson.jackson-json-gzip.compress-larger-than`
+* `lagom.serialization.json.compress-larger-than` is now configured with `akka.serialization.jackson.jackson-json-compressed.compression.compress-larger-than`
 * `lagom.serialization.json.jackson-modules` is now configured in `akka.serialization.jackson.jackson-modules`
 
 #### JSON Compression threshold
 
-When marking a serializable class with `CompressedJsonable` compression will only kick in when the serialized representation goes past a threshold. The default value for `akka.serialization.jackson.jackson-json-gzip.compress-larger-than` is 32 Kilobytes. As mentioned above, this setting was previously configure by `lagom.serialization.json.compress-larger-than` and defaulted to 1024 bytes. (See [#1983](https://github.com/lagom/lagom/pull/1983))
+When marking a serializable class with `CompressedJsonable` compression will only kick in when the serialized representation goes past a threshold. The default value for `akka.serialization.jackson.jackson-json-compressed.compression.compress-larger-than` is 32 Kilobytes. As mentioned above, this setting was previously configure by `lagom.serialization.json.compress-larger-than` and defaulted to 1024 bytes. (See [#1983](https://github.com/lagom/lagom/pull/1983))
 
 ### Remoting Artery
 
@@ -94,7 +94,7 @@ akka.cluster.sharding.state-store-mode = persistence
 
 ### Akka Persistence Cassandra Update
 
-The Akka Persistence Cassandra plugin is updated to version 0.99. This version requires a schema migration before you upgrade to Lagom 1.6.0.
+The Akka Persistence Cassandra plugin is updated to version 0.100. This version requires a schema migration before you upgrade to Lagom 1.6.0.
 
 For more information on how to migrate, consult [Akka Persistence Cassandra migration document](https://doc.akka.io/docs/akka-persistence-cassandra/current/migrations.html#migrations-to-0-80-and-later).
 
@@ -102,7 +102,7 @@ Note that although it's technically possible to run the migration while running 
 
 ## Upgrading a production system
 
-As usual, before upgrading to Lagom 1.6.0, makes sure you are using the latest version on the 1.5.x series.
+As usual, before upgrading to Lagom 1.6.0, make sure you are using the latest version on the 1.5.x series.
 
 During a rolling upgrade your [[Projections]] may experience a degraded behavior. The service will self-heal when the rolling upgrade completes. Some internal messages taking care of the distribution of the worker instances of your projection have changed. As a consequence,  your old nodes won't be able to gossip with the new ones but as soon as the rolling upgrade completes, all nodes will be on the same version of your service the projection will operate normally.
 
@@ -123,7 +123,7 @@ Changes in default serializers require rolling upgrades to happen in two steps.
 First, you will have to deploy a version of your binary that's already a Lagom 1.6.x application but you must set it up to use the serializers that are compatible with Lagom 1.5.x so your old nodes can continue to operate. On your `application.conf` use:
 
 ```
-## Lagom 1.6 no longer enables Java serialization by default but some 
+## Lagom 1.6 no longer enables Java serialization by default but some
 ## code in Lagom 1.5 (or your own code) still used it so we enable it back.
 akka.actor.allow-java-serialization = on
 

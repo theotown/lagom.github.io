@@ -12,7 +12,7 @@ As a complete microservices platform, Lagom assembles a collection of technologi
 
 * [Lightbend Platform](https://www.lightbend.com/lightbend-platform) subscribers can use additional components to operationalize and production-harden their systems.
 
-    * Akka [Split Brain Resolver](https://developer.lightbend.com/docs/akka-commercial-addons/current/split-brain-resolver.html) handles network failures and system crashes.
+    * Akka [Split Brain Resolver](https://doc.akka.io/docs/akka-enhancements/current/split-brain-resolver.html) handles network failures and system crashes.
 
     * [Lightbend Telemetry](https://developer.lightbend.com/docs/telemetry/current/home.html) and [Lightbend Console](https://developer.lightbend.com/docs/console/current/) give you visibility into system health, availability and performance.
 
@@ -22,7 +22,7 @@ As a complete microservices platform, Lagom assembles a collection of technologi
 
 * Guice --- Like Play, Lagom uses [Guice](https://github.com/google/guice) for dependency injection.
 
-* SLF4J & Logback --- Lagom uses [SLF4J](https://www.slf4j.org/) for logging, backed by [Logback](https://logback.qos.ch/) as its default logging engine. See [[Logging]] for more information.
+* SLF4J & Logback --- Lagom uses [SLF4J](http://www.slf4j.org/) for logging, backed by [Logback](http://logback.qos.ch/) as its default logging engine. See [[Logging]] for more information.
 
 * Typesafe Config Library --- Lagom and many of its component technologies are configured using the [Typesafe Config](https://github.com/typesafehub/config) library.  The configuration file format is [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md), a powerful and expressive superset of JSON.
 

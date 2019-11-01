@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/bfddb594370c465d0daadcf2ebdc6b4ce01aa3de-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/f4704052543ced7273a6ff20c434b1f89099b82a-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -330,7 +330,6 @@ import org.scalatest.AsyncWordSpec
 import org.scalatest.Matchers
 
 class HelloServiceSpec extends AsyncWordSpec with Matchers {
-
   &quot;The HelloService&quot; should {
     &quot;say hello&quot; in ServiceTest.withServer(ServiceTest.defaultSetup) { ctx =&gt;
       new HelloApplication(ctx) with LocalServiceLocator
@@ -358,7 +357,6 @@ import org.scalatest.Matchers
 import org.scalatest.BeforeAndAfterAll
 
 class HelloServiceSpec extends AsyncWordSpec with Matchers with BeforeAndAfterAll {
-
   lazy val server = ServiceTest.startServer(ServiceTest.defaultSetup) { ctx =&gt;
     new HelloApplication(ctx) with LocalServiceLocator
   }
@@ -379,7 +377,6 @@ class HelloServiceSpec extends AsyncWordSpec with Matchers with BeforeAndAfterAl
 <p>Dependencies to other services must be replaced by stub or mock implementations by overriding them in your <code>LagomApplication</code> constructor callback. If we were writing a test for the <code>HelloService</code> and it had a dependency on a <code>GreetingService</code> we must create a stub implementation of the <code>GreetingService</code> that can be used for the test without running the real greeting service. It might look like this:</p>
 <pre class="prettyprint"><code class="language-scala">lazy val server = ServiceTest.startServer(ServiceTest.defaultSetup) { ctx =&gt;
   new HelloApplication(ctx) with LocalServiceLocator {
-
     override lazy val greetingService = new GreetingService {
       override def greeting = ServiceCall { _ =&gt;
         Future.successful(&quot;Hello&quot;)
@@ -578,7 +575,7 @@ class HelloServiceSpec extends AsyncWordSpec with Matchers with BeforeAndAfterAl
                             
                         
                             
-                                <li><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
+                                <li><a href="DomainModelling.html">Writing persistent and clustered services</a></li>
                             
                         
                             
@@ -684,7 +681,6 @@ class HelloServiceSpec extends AsyncWordSpec with Matchers with BeforeAndAfterAl
                                     <ul>
                                         <li><a href="https://www.eventbrite.com/directory/?q=lagom&amp;loc=Worldwide">Events <em>via Eventbrite</em></a></li>
                                         <li><a href="http://www.indeed.com/jobs?q=%22lagom%22&amp;l=">Jobs <em>via Indeed</em></a></li>
-                                        <li><a href="http://www.scoop.it/lagom">Blogs <em>via Scoop.it</em></a></li>
                                     </ul>
                                 </div>
                                 <div class="small-12 medium-6 large-3 columns">
@@ -735,7 +731,7 @@ class HelloServiceSpec extends AsyncWordSpec with Matchers with BeforeAndAfterAl
             </div>
         </div>
     </body>
-    <script src="/bfddb594370c465d0daadcf2ebdc6b4ce01aa3de-all-scripts-concat.js"></script>
+    <script src="/f4704052543ced7273a6ff20c434b1f89099b82a-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

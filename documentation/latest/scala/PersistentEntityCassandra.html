@@ -4,14 +4,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Cassandra Persistent Entities</title>
+        <title>Lagom - Cassandra Setup</title>
         <meta name="description" content="Lagom">
         
             <link rel="canonical" href="https://www.lagomframework.com/documentation/1.5.x/scala/PersistentEntityCassandra.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/bfddb594370c465d0daadcf2ebdc6b4ce01aa3de-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/f4704052543ced7273a6ff20c434b1f89099b82a-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -271,7 +271,7 @@
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Cassandra Persistent Entities</h1>
+                <h1>Cassandra Setup</h1>
             </div>
         </div>
     </header>
@@ -287,14 +287,14 @@
                             <a href="ReferenceGuide.html">Lagom reference guide</a>
                         
                                     &raquo;
-                            <a href="PersistentEntity.html">Writing persistent and clustered services</a>
+                            <a href="DomainModelling.html">Writing persistent and clustered services</a>
                         
                     </nav>
                 
 
                 <article>
-                <h1 id="Storing-Persistent-Entities-in-Cassandra"><a class="section-marker" href="#Storing-Persistent-Entities-in-Cassandra">§</a>Storing Persistent Entities in Cassandra</h1>
-<p>This page describes how to configure Cassandra for use with Lagom&rsquo;s <a href="PersistentEntity.html">Persistent Entity</a> API.</p><h2 id="Project-dependencies"><a class="section-marker" href="#Project-dependencies">§</a>Project dependencies</h2>
+                <h1 id="Storing-Persistent-Events-in-Cassandra"><a class="section-marker" href="#Storing-Persistent-Events-in-Cassandra">§</a>Storing Persistent Events in Cassandra</h1>
+<p>This page describes how to configure Cassandra for use with <a href="PersistentEntity.html">Persistent Entity</a> API or Akka Typed Persistence in a Lagom service .</p><h2 id="Project-dependencies"><a class="section-marker" href="#Project-dependencies">§</a>Project dependencies</h2>
 <p>To use Cassandra add the following in your project&rsquo;s build:</p>
 <p>In Maven:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
@@ -339,7 +339,7 @@ lagom.persistence.read-side.cassandra {
 }
 </code></pre>
 <p>With these properties set to <code>false</code>, if the keyspaces or tables are missing at startup your service will log an error and fail to start.</p>
-<p>Lagom&rsquo;s Cassandra support is provided by the <a href="https://doc.akka.io/docs/akka-persistence-cassandra/0.99/"><code>akka-persistence-cassandra</code></a> plugin. A full configuration reference is available in the plugin&rsquo;s <a href="https://github.com/akka/akka-persistence-cassandra/blob/v0.99/core/src/main/resources/reference.conf"><code>reference.conf</code></a>.</p><h2 id="Cassandra-Location"><a class="section-marker" href="#Cassandra-Location">§</a>Cassandra Location</h2>
+<p>Lagom&rsquo;s Cassandra support is provided by the <a href="https://doc.akka.io/docs/akka-persistence-cassandra/0.100/"><code>akka-persistence-cassandra</code></a> plugin. A full configuration reference is available in the plugin&rsquo;s <a href="https://github.com/akka/akka-persistence-cassandra/blob/v0.100/core/src/main/resources/reference.conf"><code>reference.conf</code></a>.</p><h2 id="Cassandra-Location"><a class="section-marker" href="#Cassandra-Location">§</a>Cassandra Location</h2>
 <p>Lagom will start an embedded Cassandra server when running in developer mode. You can review the configuration options or how to disable the embedded server in the section on Cassandra Server in <a href="CassandraServer.html">Running Lagom in development</a>.</p>
 <p>In production you usually will prefer a dynamically locatable Cassandra server for resiliency. If you need to use a static list of contact-points to locate your Cassandra server review the section on deploying using static service location for Cassandra Service in <a href="ProductionOverview.html#Using-static-Cassandra-contact-points">Running Lagom in Production</a>.</p>
                 </article>
@@ -348,8 +348,8 @@ lagom.persistence.read-side.cassandra {
                     
                         
                             <nav class="next-link">
-                                <a href="PersistentEntityRDBMS.html"><strong>Next: </strong>
-                                    Relational Database Persistent Entities</a>
+                                <a href="ReadSide.html"><strong>Next: </strong>
+                                    Persistent Read-Side</a>
                             </nav>
                         
                     
@@ -389,15 +389,27 @@ lagom.persistence.read-side.cassandra {
                         <ul>
                         
                             
-                                <li><a href="PersistentEntity.html">Persistent Entity</a></li>
+                                <li><a href="DomainModelling.html">Domain Modelling with Akka Persistence Typed</a></li>
                             
                         
                             
-                                <li class="current-page"><a href="PersistentEntityCassandra.html">Cassandra Persistent Entities</a></li>
+                                <li><a href="MigratingToAkkaPersistenceTyped.html"> Migrating to Akka Persistence Typed</a></li>
                             
                         
                             
-                                <li><a href="PersistentEntityRDBMS.html">Relational Database Persistent Entities</a></li>
+                                <li><a href="PersistentEntity.html">Persistent Entity (classic)</a></li>
+                            
+                        
+                            
+                                <li><a href="ChoosingADatabase.html">Choosing A Database</a></li>
+                            
+                        
+                            
+                                <li class="current-page"><a href="PersistentEntityCassandra.html">Cassandra Setup</a></li>
+                            
+                        
+                            
+                                <li><a href="PersistentEntityRDBMS.html">Relational Database Setup</a></li>
                             
                         
                             
@@ -458,7 +470,7 @@ lagom.persistence.read-side.cassandra {
                             
                         
                             
-                                <li class="current-page"><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
+                                <li class="current-page"><a href="DomainModelling.html">Writing persistent and clustered services</a></li>
                             
                         
                             
@@ -564,7 +576,6 @@ lagom.persistence.read-side.cassandra {
                                     <ul>
                                         <li><a href="https://www.eventbrite.com/directory/?q=lagom&amp;loc=Worldwide">Events <em>via Eventbrite</em></a></li>
                                         <li><a href="http://www.indeed.com/jobs?q=%22lagom%22&amp;l=">Jobs <em>via Indeed</em></a></li>
-                                        <li><a href="http://www.scoop.it/lagom">Blogs <em>via Scoop.it</em></a></li>
                                     </ul>
                                 </div>
                                 <div class="small-12 medium-6 large-3 columns">
@@ -615,7 +626,7 @@ lagom.persistence.read-side.cassandra {
             </div>
         </div>
     </body>
-    <script src="/bfddb594370c465d0daadcf2ebdc6b4ce01aa3de-all-scripts-concat.js"></script>
+    <script src="/f4704052543ced7273a6ff20c434b1f89099b82a-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

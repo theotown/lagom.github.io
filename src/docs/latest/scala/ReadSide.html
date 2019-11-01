@@ -42,7 +42,6 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
 <p>Now Lagom here will generate a tag name that appends the hash code of the entity ID modulo the number of shards to the class name.</p><h3 id="Defining-a-read-side-processor"><a class="section-marker" href="#Defining-a-read-side-processor">§</a>Defining a read side processor</h3>
 <p>This is how a <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/ReadSideProcessor"><code>ReadSideProcessor</code></a> class looks like before filling in the implementation details:</p>
 <pre class="prettyprint"><code class="language-scala">class BlogEventProcessor extends ReadSideProcessor[BlogEvent] {
-
   override def buildHandler(): ReadSideProcessor.ReadSideHandler[BlogEvent] = {
     // TODO build read side handler
     ???
@@ -58,7 +57,6 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
   BlogEvent.Tag.allTags</code></pre>
 <p>Now we need to implement the <code>buildHandler</code> method. Let&rsquo;s assume that you have created a component to interact with your preferred database, it provides the following methods:</p>
 <pre class="prettyprint"><code class="language-scala">trait MyDatabase {
-
   /**
    * Create the tables needed for this read side if not already created.
    */
@@ -80,7 +78,6 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
 <p>Given this interface, we can now implement the <code>buildHandler</code> method:</p>
 <pre class="prettyprint"><code class="language-scala">override def buildHandler(): ReadSideProcessor.ReadSideHandler[BlogEvent] = {
   new ReadSideHandler[BlogEvent] {
-
     override def globalPrepare(): Future[Done] =
       myDatabase.createTables()
 
@@ -101,7 +98,6 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
 <p>Once you&rsquo;ve created your read-side processor, you need to register it with Lagom. This is done using the <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/ReadSide"><code>ReadSide</code></a> component:</p>
 <pre class="prettyprint"><code class="language-scala">class BlogServiceImpl(persistentEntityRegistry: PersistentEntityRegistry, readSide: ReadSide, myDatabase: MyDatabase)
     extends BlogService {
-
   readSide.register[BlogEvent](new BlogEventProcessor(myDatabase))</code></pre><h2 id="Raw-Stream-of-Events"><a class="section-marker" href="#Raw-Stream-of-Events">§</a>Raw Stream of Events</h2>
 <p>There is another tool that can be used if you want more flexible event processing. You can get a stream of the persistent events directly from Lagom with the <code>eventStream</code> method of the <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/PersistentEntityRegistry">PersistentEntityRegistry</a>.</p>
 <pre class="prettyprint"><code class="language-scala">override def newPosts(): ServiceCall[NotUsed, Source[PostSummary, _]] =

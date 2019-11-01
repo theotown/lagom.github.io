@@ -41,7 +41,6 @@ class SensorServiceImpl(pubSub: PubSubRegistry) extends SensorService {
 <pre class="prettyprint"><code class="language-scala">import akka.stream.Materializer
 
 class SensorServiceImpl(pubSub: PubSubRegistry)(implicit materializer: Materializer) extends SensorService {
-
   def registerTemperature(id: String) = ServiceCall { temperatures =&gt;
     val topic = pubSub.refFor(TopicId[Temperature](id))
     temperatures.runWith(topic.publisher)

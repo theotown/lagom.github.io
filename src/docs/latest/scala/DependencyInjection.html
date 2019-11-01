@@ -14,7 +14,6 @@ import com.softwaremill.macwire._
 abstract class HelloApplication(context: LagomApplicationContext)
     extends LagomApplication(context)
     with AhcWSComponents {
-
   override lazy val lagomServer = serverFor[HelloService](wire[HelloServiceImpl])
 }</code></pre>
 <p>In this sample, the <code>HelloApplication</code> gets <a href="ScalaComponents.html#Third-party-Components">AhcWSComponents</a> mixed in using the cake pattern and implements the <code>lazy val lagomService</code> using Macwire. The important method here is the <code>lagomServer</code> method. Lagom will use this to discover your service bindings and create a Play router for handling your service calls. You can see that we&rsquo;ve bound one service descriptor, the <code>HelloService</code>, to our <code>HelloServiceImpl</code> implementation. The name of the Service Descriptor you bind will be used as the Service name, that is used in cross-service communication to identify the client making a request.</p>
@@ -26,7 +25,6 @@ import com.lightbend.lagom.scaladsl.api.ServiceLocator
 import com.lightbend.lagom.scaladsl.devmode.LagomDevModeComponents
 
 class HelloApplicationLoader extends LagomApplicationLoader {
-
   override def loadDevMode(context: LagomApplicationContext) =
     new HelloApplication(context) with LagomDevModeComponents
 

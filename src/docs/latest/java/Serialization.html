@@ -41,7 +41,7 @@ public interface AbstractAuthor extends CompressedJsonable {
 
   String biography();
 }</code></pre>
-<p>The serializer will by default only compress messages that are larger than 32 Kb. This threshold can be changed with configuration property <code>akka.serialization.jackson.jackson-json-gzip.compress-larger-than</code>.</p><h2 id="Schema-Evolution"><a class="section-marker" href="#Schema-Evolution">§</a>Schema Evolution</h2>
+<p>The serializer will by default only compress messages that are larger than 32 KiB. This threshold can be changed with configuration property <code>akka.serialization.jackson.jackson-json-compressed.compression.compress-larger-than</code>.</p><h2 id="Schema-Evolution"><a class="section-marker" href="#Schema-Evolution">§</a>Schema Evolution</h2>
 <p>When working on long running projects using <a href="PersistentEntity.html">Persistence</a>, or any kind of Event Sourcing, schema evolution becomes an important aspects of developing your application. The requirements as well as our own understanding of the business domain may (and will) change over time.</p>
 <p>Lagom provides a way to perform transformations of the JSON tree model during deserialization.</p>
 <p>We will look at a few scenarios of how the classes may be evolved.</p><h3 id="Remove-Field"><a class="section-marker" href="#Remove-Field">§</a>Remove Field</h3>

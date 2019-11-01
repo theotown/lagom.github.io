@@ -215,21 +215,39 @@
     }, {
       "title" : "Writing persistent and clustered services",
       "children" : [ {
-        "title" : "Persistent Entity",
+        "title" : "Domain Modelling with Akka Persistence Typed",
+        "url" : "DomainModelling.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/DomainModelling.md",
+        "nextUrls" : [ "MigratingToAkkaPersistenceTyped.html", "ChoosingADatabase.html", "ReadSide.html" ]
+      }, {
+        "title" : " Migrating to Akka Persistence Typed",
+        "url" : "MigratingToAkkaPersistenceTyped.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/MigratingToAkkaPersistenceTyped.md"
+      }, {
+        "title" : "Persistent Entity (classic)",
         "url" : "PersistentEntity.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/PersistentEntity.md"
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/PersistentEntity.md",
+        "nextUrls" : [ "ChoosingADatabase.html" ]
       }, {
-        "title" : "Cassandra Persistent Entities",
+        "title" : "Choosing A Database",
+        "url" : "ChoosingADatabase.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/common/guide/cluster/ChoosingADatabase.md",
+        "nextUrls" : [ "PersistentEntityCassandra.html", "PersistentEntityRDBMS.html" ]
+      }, {
+        "title" : "Cassandra Setup",
         "url" : "PersistentEntityCassandra.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/PersistentEntityCassandra.md"
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/PersistentEntityCassandra.md",
+        "nextUrls" : [ "ReadSide.html" ]
       }, {
-        "title" : "Relational Database Persistent Entities",
+        "title" : "Relational Database Setup",
         "url" : "PersistentEntityRDBMS.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/PersistentEntityRDBMS.md"
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/PersistentEntityRDBMS.md",
+        "nextUrls" : [ "ReadSide.html" ]
       }, {
         "title" : "Persistent Read-Side",
         "url" : "ReadSide.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/ReadSide.md"
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/ReadSide.md",
+        "nextUrls" : [ "ReadSideCassandra.html", "ReadSideRDBMS.html" ]
       }, {
         "title" : "Cassandra Read-Side Support",
         "url" : "ReadSideCassandra.html",

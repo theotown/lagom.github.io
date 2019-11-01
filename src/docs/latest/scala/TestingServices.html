@@ -35,7 +35,6 @@ import org.scalatest.AsyncWordSpec
 import org.scalatest.Matchers
 
 class HelloServiceSpec extends AsyncWordSpec with Matchers {
-
   &quot;The HelloService&quot; should {
     &quot;say hello&quot; in ServiceTest.withServer(ServiceTest.defaultSetup) { ctx =&gt;
       new HelloApplication(ctx) with LocalServiceLocator
@@ -63,7 +62,6 @@ import org.scalatest.Matchers
 import org.scalatest.BeforeAndAfterAll
 
 class HelloServiceSpec extends AsyncWordSpec with Matchers with BeforeAndAfterAll {
-
   lazy val server = ServiceTest.startServer(ServiceTest.defaultSetup) { ctx =&gt;
     new HelloApplication(ctx) with LocalServiceLocator
   }
@@ -84,7 +82,6 @@ class HelloServiceSpec extends AsyncWordSpec with Matchers with BeforeAndAfterAl
 <p>Dependencies to other services must be replaced by stub or mock implementations by overriding them in your <code>LagomApplication</code> constructor callback. If we were writing a test for the <code>HelloService</code> and it had a dependency on a <code>GreetingService</code> we must create a stub implementation of the <code>GreetingService</code> that can be used for the test without running the real greeting service. It might look like this:</p>
 <pre class="prettyprint"><code class="language-scala">lazy val server = ServiceTest.startServer(ServiceTest.defaultSetup) { ctx =&gt;
   new HelloApplication(ctx) with LocalServiceLocator {
-
     override lazy val greetingService = new GreetingService {
       override def greeting = ServiceCall { _ =&gt;
         Future.successful(&quot;Hello&quot;)

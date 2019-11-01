@@ -24,7 +24,6 @@ import com.lightbend.lagom.scaladsl.cluster.ClusterComponents
 abstract class MyApplication(context: LagomApplicationContext)
     extends LagomApplication(context)
     with ClusterComponents {
-
   override lazy val jsonSerializerRegistry = MyRegistry
 }</code></pre>
 <p>If you need to use the registry outside of a Lagom application, for example, in tests, this can be done by customising the creation of the actor system, for example:</p>
@@ -144,7 +143,6 @@ object Fruit {
 <p>To add a new mandatory field we have to use a JSON migration adding a default value to the JSON</p>
 <p>This is how a migration logic would look like for adding a <code>discount</code> field using imperative code:</p>
 <pre class="prettyprint"><code class="language-scala">class ShopSerializerRegistry extends JsonSerializerRegistry {
-
   import play.api.libs.json._
 
   override val serializers = ShopCommands.serializers ++ ShopEvents.serializers
@@ -167,7 +165,6 @@ object Fruit {
 <p>Then provide your <code>JsonMigration</code> together with the classname of the class that it migrates in the <code>migrations</code> map from your <code>JsonSerializerRegistry</code>.</p>
 <p>Alternatively you can use the <a href="https://www.playframework.com/documentation/2.6.x/ScalaJsonTransformers">Play JSON transformers</a> API which is more concise but arguably has a much higher threshold to learn.</p>
 <pre class="prettyprint"><code class="language-scala">class ShopSerializerRegistry extends JsonSerializerRegistry {
-
   import play.api.libs.json._
 
   override val serializers = ShopCommands.serializers ++ ShopEvents.serializers

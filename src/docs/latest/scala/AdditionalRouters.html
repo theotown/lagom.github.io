@@ -35,7 +35,6 @@ class FileUploadRouter(action: DefaultActionBuilder, parser: PlayBodyParsers) {
 <p>An additional router is not part of your application <code>ServiceDescriptor</code> and therefore can&rsquo;t be automatically published as endpoints to the <a href="ServiceLocator.html#Service-Gateway">Service Gateway</a> in development mode.</p>
 <p>If you want to access your additional routers through the gateway, you will need to explicitly add the ACL (Access Control List) for it in your <code>ServiceDescriptor</code> definition.</p>
 <pre class="prettyprint"><code class="language-scala">trait HelloService extends Service {
-
   def hello(id: String): ServiceCall[NotUsed, String]
 
   final override def descriptor = {

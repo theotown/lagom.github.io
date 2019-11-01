@@ -24,7 +24,6 @@ import play.api.libs.functional.syntax._
 case class MyMessage(id: String)
 
 object MyMessage {
-
   implicit val format: Format[MyMessage] = Json.format
   val alternateFormat: Format[MyMessage] = {
     (__ \ &quot;identifier&quot;)
@@ -81,7 +80,6 @@ class PlainTextSerializer(val charset: String) extends NegotiatedSerializer[Stri
 import play.api.libs.json.JsString
 
 class JsonTextSerializer extends NegotiatedSerializer[String, ByteString] {
-
   override val protocol = MessageProtocol(Some(&quot;application/json&quot;))
 
   def serialize(s: String) =
@@ -92,7 +90,6 @@ class JsonTextSerializer extends NegotiatedSerializer[String, ByteString] {
 <pre class="prettyprint"><code class="language-scala">import com.lightbend.lagom.scaladsl.api.deser.MessageSerializer.NegotiatedDeserializer
 
 class PlainTextDeserializer(val charset: String) extends NegotiatedDeserializer[String, ByteString] {
-
   def deserialize(bytes: ByteString) =
     bytes.decodeString(charset)
 }</code></pre>
@@ -101,7 +98,6 @@ class PlainTextDeserializer(val charset: String) extends NegotiatedDeserializer[
 <pre class="prettyprint"><code class="language-scala">import scala.util.control.NonFatal
 
 class JsonTextDeserializer extends NegotiatedDeserializer[String, ByteString] {
-
   def deserialize(bytes: ByteString) = {
     try {
       Json.parse(bytes.iterator.asInputStream).as[String]
@@ -163,7 +159,6 @@ import com.lightbend.lagom.scaladsl.api.transport.MessageProtocol
 import scala.collection.immutable
 
 class ProtobufSerializer extends StrictMessageSerializer[Order] {
-
   private final val serializer = {
     new NegotiatedSerializer[Order, ByteString]() {
       override def protocol: MessageProtocol =

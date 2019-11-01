@@ -1,5 +1,5 @@
 <h1 id="Configuring-Logging"><a class="section-marker" href="#Configuring-Logging">§</a>Configuring Logging</h1>
-<p>Lagom uses SLF4J for logging, backed by <a href="https://logback.qos.ch/">Logback</a> as its default logging engine. See the <a href="https://logback.qos.ch/manual/configuration.html">Logback documentation</a> for details on configuration.</p><h2 id="Default-configuration"><a class="section-marker" href="#Default-configuration">§</a>Default configuration</h2>
+<p>Lagom uses SLF4J for logging, backed by <a href="http://logback.qos.ch/">Logback</a> as its default logging engine. See the <a href="http://logback.qos.ch/manual/configuration.html">Logback documentation</a> for details on configuration.</p><h2 id="Default-configuration"><a class="section-marker" href="#Default-configuration">§</a>Default configuration</h2>
 <p>If you don&rsquo;t provide your own Logback configuration, Lagom uses the following default configuration in development:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;!--
   ~ Copyright (C) 2016-2019 Lightbend Inc. &lt;https://www.lightbend.com&gt;
@@ -76,7 +76,7 @@
 <ul>
   <li>The logger logs full exception stack traces and full-qualified logger names.</li>
   <li>Lagom uses ANSI color codes by default in level messages.</li>
-  <li>In production, Lagom puts the logger behind the logback <a href="https://logback.qos.ch/manual/appenders.html#AsyncAppender">AsyncAppender</a>. For details on the performance implications on this, see this <a href="https://blog.takipi.com/how-to-instantly-improve-your-java-logging-with-7-logback-tweaks/">blog post</a>.</li>
+  <li>In production, Lagom puts the logger behind the logback <a href="http://logback.qos.ch/manual/appenders.html#AsyncAppender">AsyncAppender</a>. For details on the performance implications on this, see this <a href="https://blog.takipi.com/how-to-instantly-improve-your-java-logging-with-7-logback-tweaks/">blog post</a>.</li>
 </ul><h2 id="Custom-configuration"><a class="section-marker" href="#Custom-configuration">§</a>Custom configuration</h2>
 <p>For any custom configuration, you need to provide your own Logback configuration file.</p><h3 id="Using-a-configuration-file-from-project-source"><a class="section-marker" href="#Using-a-configuration-file-from-project-source">§</a>Using a configuration file from project source</h3>
 <p>You can provide a default logging configuration by creating a <code>logback.xml</code> file in the project&rsquo;s resource folder. Furthermore, for testing purposes, you can also create a <code>logback-test.xml</code> and place it in the <code>src/test/resources</code> directory of your project. When both <code>logback.xml</code> and <code>logback-test.xml</code> are in the classpath, the latter has higher precedence.</p><h3 id="Using-an-external-configuration-file"><a class="section-marker" href="#Using-an-external-configuration-file">§</a>Using an external configuration file</h3>

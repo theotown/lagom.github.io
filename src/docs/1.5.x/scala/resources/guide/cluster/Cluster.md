@@ -8,7 +8,7 @@ If instances of a service need to know about each other, they must join the same
 
 ## Dependency
 
-The clustering feature is already included if you are using the either of the [[persistence|PersistentEntity]] or [[pubsub|PubSub#Dependency]] modules.
+The clustering feature is already included if you are using either of the [[persistence|PersistentEntity]] or [[pubsub|PubSub#Dependency]] modules.
 
 If you want to enable it without those modules, add the following dependency your project's build.
 
@@ -38,7 +38,7 @@ A service instance joins a cluster when the service starts up.
 
 1. **Joining during development**:  In development you are typically only running the service on one cluster node. No explicit joining is necessary; the [[Lagom Development Environment|DevEnvironment]] handles it automatically and creates a single-node cluster.
 
-1. **Joining during production**: There are several mechanisms available to create a cluster in production. This documentation covers the two recommended approaches:
+1. **Joining during production**: There are several mechanisms available to create a cluster in production. This documentation covers two approaches supported out-of-the-box:
     1. Akka Cluster Bootstrap (recommended)
     2. Manual Cluster Formation (a.k.a. a static list of `seed-nodes`)
 
@@ -46,7 +46,7 @@ The sections below cover the two options for Cluster Joining during Production i
 
 ### Joining during production (Akka Cluster Bootstrap)
 
-Starting from version 1.5.0, Lagom offers support for [Akka Cluster Bootstrap](https://developer.lightbend.com/docs/akka-management/1.0.0-RC3/bootstrap/). Akka Cluster Bootstrap is enabled by default in production mode and disabled in development and test mode.
+Starting from version 1.5.0, Lagom offers support for [Akka Cluster Bootstrap](https://doc.akka.io/docs/akka-management/1.0/bootstrap/). Akka Cluster Bootstrap is enabled by default in production mode and disabled in development and test mode.
 
 Akka Cluster Bootstrap helps forming (or joining to) a cluster by using [Akka Discovery](https://doc.akka.io/docs/akka/2.5/discovery/index.html) to discover peer nodes. It is an alternative to configuring static seed-nodes in dynamic deployment environments such as on Kubernetes or AWS.
 
@@ -56,31 +56,41 @@ Akka Cluster Bootstrap, in Lagom, can be disabled through the property `lagom.cl
 
 #### Akka Discovery
 
-In order to find the peer nodes and form a cluster, Akka Cluster Bootstrap need to be configured to use one of the existing Akka Discovery implementations.
+In order to find the peer nodes and form a cluster, Akka Cluster Bootstrap needs to be configured to use one of the existing Akka Discovery methods:
 
-The snippet below exemplifies how to configure the Akka Cluster Boostrap to use the Akka Discovery Kubernetes API.
+ 1. Start by choosing one of the methods from [Akka Discovery](https://doc.akka.io/docs/akka/2.5/discovery/) or [Akka Management](https://doc.akka.io/docs/akka-management/1.0/discovery/) as appropriate for your deployment environment. For example, if you are deploying to Kubernetes, the `kubernetes-api` method is recommended. Note that the Akka Discovery method used for Akka Cluster Bootstrap is different than the method used for [[service discovery between services|AkkaDiscoveryIntegration]].
 
-```
-akka.management.cluster.bootstrap {
-  # example using kubernetes-api
-  contact-point-discovery {
-    discovery-method = kubernetes-api
-    service-name = "hello-lagom"
-  }
-}
-```
-[Other existing implementations](https://developer.lightbend.com/docs/akka-management/current/discovery/index.html) are: DNS, AWS, Consul, Marathon API and static Configuration. It's also possible to implement your own Akka Discovery implementation if needed.
-For more detailed and advanced configurations options, please consult the [Akka Cluster Bootstrap](https://developer.lightbend.com/docs/akka-management/1.0.0-RC3/bootstrap/) documentation and its [reference.conf](https://github.com/akka/akka-management/blob/v1.0.0-RC2/cluster-bootstrap/src/main/resources/reference.conf) file.
+ 2. If you are using one of the Akka Discovery methods provided by Akka Management, you will need to add the library dependency to your project build. Using `kubernetes-api` as an example, in sbt:
+    ```scala
+    libraryDependencies += "com.lightbend.akka.discovery" %% "akka-discovery-kubernetes-api" % "1.0.3"
+    ```
+
+ 3. Configure your service to select the chosen Akka Discovery method by setting the `akka.management.cluster.bootstrap.contact-point-discovery.discovery-method` property in `application.conf`. Note that these settings are only used in production, and ignored in development. If you use a different configuration file for production configuration, you should add these settings to that file.
+
+    ```
+    akka.management.cluster.bootstrap {
+      # example using kubernetes-api
+      contact-point-discovery {
+        discovery-method = kubernetes-api
+        service-name = "hello-lagom"
+      }
+    }
+    ```
+
+[Other existing implementations](https://doc.akka.io/docs/akka-management/1.0/discovery/index.html) are DNS, AWS, Consul, Marathon API, and Static Configuration. It's also possible to provide your own Akka Discovery implementation if needed.
+
+For more detailed and advanced configurations options, please consult the [Akka Cluster Bootstrap](https://doc.akka.io/docs/akka-management/1.0/bootstrap/) documentation and its [reference.conf](https://github.com/akka/akka-management/blob/v1.0.0-RC2/cluster-bootstrap/src/main/resources/reference.conf) file.
+
 
 #### Akka Management
 
-[Akka Cluster Bootstrap](https://developer.lightbend.com/docs/akka-management/1.0.0-RC3/bootstrap/) relies on [Akka Management](https://developer.lightbend.com/docs/akka-management/1.0.0-RC3/akka-management.html) to form a cluster.
+[Akka Cluster Bootstrap](https://doc.akka.io/docs/akka-management/1.0/bootstrap/) relies on [Akka Management](https://doc.akka.io/docs/akka-management/1.0/akka-management.html) to form a cluster.
 
-[Akka Management](https://developer.lightbend.com/docs/akka-management/1.0.0-RC3/akka-management.html) is an extension that opens a dedicated HTTP interface. This management extension allows dedicated plugins to include their routes. Akka Cluster Bootstrap uses this mechanism to expose a route. Akka Management will be enabled when the cluster joining mechanism is Cluster Http Management and it will run on http port `8558`. You can configure it to another port by setting property `akka.management.http.port` in your `application.conf` file.
+[Akka Management](https://doc.akka.io/docs/akka-management/1.0/akka-management.html) is an extension that opens a dedicated HTTP interface. This management extension allows dedicated plugins to include their routes. Akka Cluster Bootstrap uses this mechanism to expose a route. Akka Management will be enabled when the cluster joining mechanism is Cluster Http Management and it will run on http port `8558`. You can configure it to another port by setting property `akka.management.http.port` in your `application.conf` file.
 
 #### Health Checks
 
-Akka Management supports two kinds of [health checks](https://developer.lightbend.com/docs/akka-management/1.0.0-RC3/healthchecks.html):
+Akka Management supports two kinds of [health checks](https://doc.akka.io/docs/akka-management/1.0/healthchecks.html):
 
   * Readiness checks: should the application receive external traffic, for example waiting for the cluster to form.
   * Liveness checks: should the application be left running
@@ -97,10 +107,11 @@ akka.management.health-checks {
   liveness-path = "health/alive"
 }
 ```
-For further information on Akka Cluster Bootstrap and Health Checks, consult Akka Managment documentation:
- * [Akka Cluster Bootstrap](https://developer.lightbend.com/docs/akka-management/1.0.0-RC3/bootstrap/)
- * [Http Cluster Management](https://developer.lightbend.com/docs/akka-management/1.0.0-RC3/cluster-http-management.html)
- * [Health Checks](https://developer.lightbend.com/docs/akka-management/1.0.0-RC3/healthchecks.html)
+For further information on Akka Cluster Bootstrap and Health Checks, consult Akka Management documentation:
+
+ * [Akka Cluster Bootstrap](https://doc.akka.io/docs/akka-management/1.0/bootstrap/)
+ * [Http Cluster Management](https://doc.akka.io/docs/akka-management/1.0/cluster-http-management.html)
+ * [Health Checks](https://doc.akka.io/docs/akka-management/1.0/healthchecks.html)
 
 ### Joining during production (Manual Cluster Formation)
 
@@ -136,8 +147,8 @@ The naïve approach is to remove an unreachable node from the cluster membership
 
 **We strongly recommend against using the auto-down feature of Akka Cluster.**
 
-A pre-packaged solution for the downing problem is provided by [Split Brain Resolver](https://developer.lightbend.com/docs/akka-commercial-addons/current/split-brain-resolver.html), which is part of the [Lightbend Platform](https://www.lightbend.com/lightbend-platform). The `keep-majority` strategy is configured to be enabled by default if you use Lagom with the Split Brain Resolver.
+A pre-packaged solution for the downing problem is provided by [Split Brain Resolver](https://doc.akka.io/docs/akka-enhancements/1.1/split-brain-resolver.html), which is part of the [Lightbend Platform](https://www.lightbend.com/lightbend-platform). The `keep-majority` strategy is configured to be enabled by default if you use Lagom with the Split Brain Resolver.
 
-See [[Using Lightbend Platform with Lagom|LightbendPlatform]] and the [Split Brain Resolver documentation](https://developer.lightbend.com/docs/akka-commercial-addons/current/split-brain-resolver.html) for instructions on how to enable it in the build of your project.
+See [[Using Lightbend Platform with Lagom|LightbendPlatform]] and the [Split Brain Resolver documentation](https://doc.akka.io/docs/akka-enhancements/1.1/split-brain-resolver.html) for instructions on how to enable it in the build of your project.
 
-Even if you don't use the commercial Lightbend Platform, you should still read & understand the concepts behind [Split Brain Resolver](https://developer.lightbend.com/docs/akka-commercial-addons/current/split-brain-resolver.html) to ensure that your solution handles the concerns described there.
+Even if you don't use the commercial Lightbend Platform, you should still read & understand the concepts behind [Split Brain Resolver](https://doc.akka.io/docs/akka-enhancements/1.1/split-brain-resolver.html) to ensure that your solution handles the concerns described there.

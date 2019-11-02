@@ -276,7 +276,16 @@
       }, {
         "title" : "Serialization",
         "url" : "Serialization.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/Serialization.md"
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/Serialization.md",
+        "nextUrls" : [ "SerializationPlayJson.html", "SerializationAkkaJackson.html" ]
+      }, {
+        "title" : "Serialization using Play JSON",
+        "url" : "SerializationPlayJson.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/SerializationPlayJson.md"
+      }, {
+        "title" : "Serialization using Akka Jackson",
+        "url" : "SerializationAkkaJackson.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/SerializationAkkaJackson.md"
       }, {
         "title" : "Projections",
         "url" : "Projections.html",

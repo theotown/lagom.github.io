@@ -249,7 +249,7 @@ case class CheckedOutShoppingCart(items: Map[String, Int]) extends ShoppingCart 
   )
 }
 </code></pre><h3 id="Getting-instances-of-the-Aggregate-Entity"><a class="section-marker" href="#Getting-instances-of-the-Aggregate-Entity">§</a>Getting instances of the Aggregate Entity</h3>
-<p>To access instances of the Aggregate (which may be running locally or remotely on the cluster), you should inject the <code>ClusterSharding</code> on your service can instantiate an <code>EntityRef</code> using the method <code>entityRefFor</code>. </p>
+<p>To access instances of the Aggregate (which may be running locally or remotely on the cluster), you should inject the <code>ClusterSharding</code> on your service can instantiate an <code>EntityRef</code> using the method <code>entityRefFor</code>.</p>
 <pre class="prettyprint"><code class="language-scala">val shoppingCartRef: EntityRef[ShoppingCartCommand] =
     clusterSharding.entityRefFor(ShoppingCart.typeKey, &quot;abc-123&quot;)
 </code></pre>
@@ -273,4 +273,7 @@ futureSummary.map(cartSummary =&gt; convertToApi(id, cartSummary))
 <p>See the Akka docs for details on how to configure the number of shards.</p><h3 id="Configuring-Entity-passivation"><a class="section-marker" href="#Configuring-Entity-passivation">§</a>Configuring Entity passivation</h3>
 <p>Keeping all the Aggregates in memory all the time is inefficient. Instead, use the Entity passivation feature so sharded entities (the Aggregates) are removed from the cluster when they&rsquo;ve been unused for some time.</p>
 <p>Akka supports both programmatic passivation and <a href="https://doc.akka.io/docs/akka/2.6/typed/cluster-sharding.html#automatic-passivation">automatic passivation</a>. The default values for automatic passivation are generally good enough.</p><h2 id="Data-Serialization"><a class="section-marker" href="#Data-Serialization">§</a>Data Serialization</h2>
-<p>// TODO: this is mainly about play-json and Lagom&rsquo;s PlayJsonSerializer<br/>// then also about why commands can&rsquo;t use play-json and need to use Akka Jackson</p>
+<p>The messages (commands, replies) and the durable classes (events, state snapshots) need to be serializable to be sent over the wire across the cluster or be stored on the database. Akka recommends <a href="https://doc.akka.io/docs/akka/2.6/serialization-jackson.html">Jackson-based serializers</a> &ndash;preferably JSON, but CBOR is also supported&ndash; as a good default in most cases. On top of Akka serializers, Lagom makes it easy to add <a href="SerializationPlayJson.html">Play-JSON serialization</a> support, which may be more familiar to some scala developers.</p>
+<p>In <a href="https://doc.akka.io/docs/akka/2.6/typed/persistence.html">Akka Persistence Typed</a>, in particular, and when you adopt CQRS/ES practices, commands will include a <code>replyTo: ActorRef[Reply]</code> field. This <code>replyTo</code> field will be used on your code to send a <code>Reply</code> back, as shown in the examples above. Serializing an <code>ActorRef[T]</code> requires using the Akka Jackson serializer, meaning you cannot use Play-JSON to serialize commands.</p>
+<p>The limitation to use Akka Jackson for Command messages doesn&rsquo;t apply to other messages like events, snapshots, or even replies. Each type Akka needs to serialize may use a different serializer.</p>
+<p>Read more about the serialization setup and configuration in the <a href="Serialization.html">serialization</a> section.</p>

@@ -9,7 +9,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/7fbe6e61a934fe859c2a6540c1aa7b5d7f914486-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/73e2c3f2fa8b1b2ea3cc2edd0d2b10bd6295431e-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -504,7 +504,7 @@ case class CheckedOutShoppingCart(items: Map[String, Int]) extends ShoppingCart 
 <p>Lagom uses <a href="https://doc.akka.io/docs/akka/2.6/typed/cluster-sharding.html">Akka Cluster Sharding</a> to distribute the Aggregates across all the nodes and guarantee that, at any single time, there is only one instance of a given Aggregate loaded in memory over the whole cluster.</p><h3 id="Creating-the-Aggregate-instance"><a class="section-marker" href="#Creating-the-Aggregate-instance">§</a>Creating the Aggregate instance</h3>
 <p>In order to use the Aggregate, first it needs to be initialized on the <code>ClusterSharding</code>. That process won&rsquo;t create any specific Aggregate instance, it will only create the Shard Regions and prepare it to be used (read more about Shard Regions in the <a href="https://doc.akka.io/docs/akka/2.6/typed/cluster-sharding.html">Akka Cluster Sharding</a> docs).</p>
 <blockquote>
-  <p>Note: In Akka Cluster, the term to refer to a sharded actor is <em>entity</em> so an Aggregate that&rsquo;s sharded is can also be referred to as an Aggregate Entity.</p>
+  <p>Note: In Akka Cluster, the term to refer to a sharded actor is <em>entity</em> so an Aggregate that&rsquo;s sharded can also be referred to as an Aggregate Entity.</p>
 </blockquote>
 <p>In the companion object of <code>ShoppingCart</code>, define an <code>EntityTypeKey</code> and factory method to initialize the <code>EventSourcedBehavior</code> for the Shopping Cart Aggregate. The <code>EntityTypeKey</code> has as name to uniquely identify this model in the cluster. It&rsquo;s also typed on <code>ShoppingCartCommand</code> which is the type of the messages that the Aggregate can receive.</p>
 <p>Then, you must also define a function of <code>EntityContext[Command] =&gt; Behavior[Command]</code>. This can also be defined as a method in the companion object.</p>
@@ -871,7 +871,7 @@ futureSummary.map(cartSummary =&gt; convertToApi(id, cartSummary))
             </div>
         </div>
     </body>
-    <script src="/7fbe6e61a934fe859c2a6540c1aa7b5d7f914486-all-scripts-concat.js"></script>
+    <script src="/73e2c3f2fa8b1b2ea3cc2edd0d2b10bd6295431e-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

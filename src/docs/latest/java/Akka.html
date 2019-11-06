@@ -155,7 +155,7 @@ public class Worker2Module extends AbstractModule implements ServiceGuiceSupport
   }
 }</code></pre>
 <p>That allows the actor itself to receive injected objects. It also allows the actor ref for the actor to be injected into other components. This actor is named <code>worker</code> and is also qualified with the <code>worker</code> name for injection.</p>
-<p>You can read more about this and how to use dependency injection for child actors in the <a href="https://playframework.com/documentation/2.6.x/JavaAkka#Dependency-injecting-actors">Play documentation</a>.</p>
+<p>You can read more about this and how to use dependency injection for child actors in the <a href="https://playframework.com/documentation/2.7.x/JavaAkka#Dependency-injecting-actors">Play documentation</a>.</p>
 <p>Adjusting the <code>Worker</code> actor from the previous section to allow injection of the <code>PubSubRegistry</code>:</p>
 <pre class="prettyprint"><code class="language-java">public class Worker2 extends AbstractActor {
 

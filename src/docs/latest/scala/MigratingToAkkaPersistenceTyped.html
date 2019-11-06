@@ -155,7 +155,7 @@ override def get(id: String): ServiceCall[NotUsed, String] = ServiceCall { _ =&g
     commandHandler = (cart, cmd) =&gt; cart.applyCommand(cmd),
     eventHandler = (cart, evt) =&gt; cart.applyEvent(evt)
   )</code></pre>
-<p>The code above uses <code>PersistenceId(entityContext.entityTypeKey.name, entityContext.entityId)</code>. There are three imoprtant pieces on that statement that we must review: </p>
+<p>The code above uses <code>PersistenceId(entityContext.entityTypeKey.name, entityContext.entityId)</code>. There are three important pieces on that statement that we must review:</p>
 <ol>
   <li>the first argument of <code>PersistenceId.apply()</code> must be the same value you used in Lagom Persistence (classic). This first argument is known as the <code>typeHint</code> and is used by the journal as a mechanism to avoid ID collision between different types. In Lagom Persistence (classic) the type hint defaults to the classname of your <code>PersistentEntity</code> but it can be <a href="PersistentEntity.html#Refactoring-Consideration">overwriten</a> (review your code or the persisted data on your database). In our case, we are using <code>entityContext.entityTypeKey.name</code> because we defined <code>EntityTypeKey[ShoppingCartCommand](&quot;ShoppingCartEntity&quot;)</code> were <code>&quot;ShoppingCartEntity&quot;</code> is the classname of the code we had in the implementation based on Lagom Persistence Classic.</li>
   <li>the second argument must be the business id of your Aggregate. In this case, we can use <code>entityContext.entityId</code> because we&rsquo;re using that same business id for the sharded actor.</li>

@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/73e2c3f2fa8b1b2ea3cc2edd0d2b10bd6295431e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/71a9103be9f5df6a733173a21a51242f4566aeb4-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -352,7 +352,7 @@ lagom.client.websocket {
   frame.maxLength = 65536
 }</code></pre>
 <p>This configuration will affect all streaming services that the service client consumes. It is not possible to provide different configurations when multiple streaming services are consumed.</p>
-<p>Note that the same parameter has to be configured on the server-side using <a href="https://www.playframework.com/documentation/2.6.x/JavaWebSockets#Configuring-WebSocket-Frame-Length">Play server configuration</a></p><h2 id="Circuit-Breakers"><a class="section-marker" href="#Circuit-Breakers">§</a>Circuit Breakers</h2>
+<p>Note that the same parameter has to be configured on the server-side using <a href="https://www.playframework.com/documentation/2.7.x/JavaWebSockets#Configuring-WebSocket-Frame-Length">Play server configuration</a></p><h2 id="Circuit-Breakers"><a class="section-marker" href="#Circuit-Breakers">§</a>Circuit Breakers</h2>
 <p>A <a href="https://martinfowler.com/bliki/CircuitBreaker.html">circuit breaker</a> is used to provide stability and prevent cascading failures in distributed systems. These should be used in conjunction with judicious timeouts at the interfaces between services to prevent the failure of a single service from bringing down other services.</p>
 <p>As an example, we have a web application interacting with a third-party web service. Let&rsquo;s say the third-party has oversold their capacity and their database melts down under load. Assume that the database fails in such a way that it takes a very long time to hand back an error to the third-party web service. This in turn makes calls fail after a long period of time. Back to our web application, the users have noticed that their form submissions take much longer seeming to hang. The users do what they know to do which is use the refresh button, adding more requests to their already running requests. This eventually causes the failure of the web application due to resource exhaustion.</p>
 <p>Introducing circuit breakers on the web service call would cause the requests to begin to fail-fast, letting the user know that something is wrong and that they need not refresh their request. This also confines the failure behavior to only those users that are using functionality dependent on the third-party, other users are no longer affected as there is no resource exhaustion. Circuit breakers can also allow savvy developers to mark portions of the site that use the functionality unavailable, or perhaps show some cached content as appropriate while the breaker is open.</p>
@@ -702,7 +702,7 @@ lagom.circuit-breaker {
             </div>
         </div>
     </body>
-    <script src="/73e2c3f2fa8b1b2ea3cc2edd0d2b10bd6295431e-all-scripts-concat.js"></script>
+    <script src="/71a9103be9f5df6a733173a21a51242f4566aeb4-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

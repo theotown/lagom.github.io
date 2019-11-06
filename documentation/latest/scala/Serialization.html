@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/73e2c3f2fa8b1b2ea3cc2edd0d2b10bd6295431e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/71a9103be9f5df6a733173a21a51242f4566aeb4-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -294,10 +294,10 @@
 
                 <article>
                 <h1 id="Serialization"><a class="section-marker" href="#Serialization">§</a>Serialization</h1>
-<p>Persisteng events and exchanging messages between the nodes of the cluster requires serialization. Lagom uses Akka serialization mechanisms to bind serializers for each of the message sent over the wire. Akka recommends <a href="https://doc.akka.io/docs/akka/2.6/serialization-jackson.html">Jackson-based serializers</a> &ndash;preferably JSON but CBOR is also supported&ndash; as a good default in most cases. On top of Akka serializers, Lagom makes it easy to add <a href="SerializationPlayJson.html">Play-JSON serialization</a> support which may be more familiar to some scala developers.</p>
+<p>Persisteng events and exchanging messages between the nodes of the cluster requires serialization. Lagom uses Akka serialization mechanisms to bind serializers for each of the message sent over the wire. Akka recommends <a href="https://doc.akka.io/docs/akka/2.6/serialization-jackson.html">Jackson-based serializers</a> &ndash;preferably JSON but CBOR is also supported&ndash; as a good default in most cases. On top of Akka serializers, Lagom makes it easy to add <a href="SerializationPlayJson.html">Play-JSON serialization</a> support which may be more familiar to some Scala developers.</p>
 <p>Runtime overhead is avoided by not basing the serialization on reflection. Transformations to and from JSON are defined either manually or by using a built in macro - essentially doing what reflection would do, but at compile time instead of during runtime. This comes with one caveat, each top level class that can be serialized needs an explicit serializer defined.</p>
 <p>The Akka documentation for <a href="https://doc.akka.io/docs/akka/2.6/serialization-jackson.html">Serialization with Jackson</a> already covers basic concepts like <a href="https://doc.akka.io/docs/akka/2.6/serialization-jackson.html#usage">Usage</a> (setting up the bindings and creating a marking trait), <a href="https://doc.akka.io/docs/akka/2.6/serialization-jackson.html#schema-evolution">Schema Evolution</a>, and even additional configuration and features.</p>
-<p>The Play JSON abstraction for serializing and deserializing a class into JSON is the <a href="https://www.playframework.com/documentation/2.6.x/api/scala/index.html#play.api.libs.json.Format">Format</a> which in turn is a combination of <a href="https://www.playframework.com/documentation/2.6.x/api/scala/index.html#play.api.libs.json.Reads">Reads</a> and <a href="https://www.playframework.com/documentation/2.6.x/api/scala/index.html#play.api.libs.json.Writes">Writes</a>. The library parses JSON into a JSON tree model, which is what the <code>Format</code>s work with.</p>
+<p>The Play JSON abstraction for serializing and deserializing a class into JSON is the <a href="https://www.playframework.com/documentation/2.7.x/api/scala/index.html#play.api.libs.json.Format">Format</a> which in turn is a combination of <a href="https://www.playframework.com/documentation/2.7.x/api/scala/index.html#play.api.libs.json.Reads">Reads</a> and <a href="https://www.playframework.com/documentation/2.7.x/api/scala/index.html#play.api.libs.json.Writes">Writes</a>. The library parses JSON into a JSON tree model, which is what the <code>Format</code>s work with.</p>
 <blockquote>
   <p>You can opt out of Lagom JSON and Akka Jackson serializers and bind your classes to other serializers (e.g. protobuf). This documentation doesn&rsquo;t cover the necessary steps to opt-out. See <a href="https://doc.akka.io/docs/akka/2.6/serialization.html">Serialization on the Akka docs</a> for details.</p>
 </blockquote><h2 id="Serialization-limitations-in-Akka-Typed"><a class="section-marker" href="#Serialization-limitations-in-Akka-Typed">§</a>Serialization limitations in Akka Typed</h2>
@@ -601,7 +601,7 @@
             </div>
         </div>
     </body>
-    <script src="/73e2c3f2fa8b1b2ea3cc2edd0d2b10bd6295431e-all-scripts-concat.js"></script>
+    <script src="/71a9103be9f5df6a733173a21a51242f4566aeb4-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

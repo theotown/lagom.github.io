@@ -9,7 +9,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/73e2c3f2fa8b1b2ea3cc2edd0d2b10bd6295431e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/71a9103be9f5df6a733173a21a51242f4566aeb4-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -548,7 +548,7 @@ case class CheckedOutShoppingCart(items: Map[String, Int]) extends ShoppingCart 
 </code></pre>
 <p>To locate the correct actor across the cluster you need to specify the <code>entityTypeKey</code> we used to initialize the entity and the <code>id</code> for the instance we need. Akka Cluster will create the required actor in one node on the cluster or reuse the existing instance if the actor has already been created and is still alive.</p>
 <p>The <code>entityRef</code> is similar to an <code>actorRef</code> but denotes the actor is sharded. Interacting with an <code>entityRef</code> implies the messages exchanged with the actor may need to travel over the wire to a separate node. In our case, the <code>EntityRef</code> is typed to only accept <code>ShoppingCartCommand</code>s.</p><h4 id="Considerations-on-using-ask-pattern"><a class="section-marker" href="#Considerations-on-using-ask-pattern">§</a>Considerations on using ask pattern</h4>
-<p>Since we want to send commands to the Aggregate and these commands declare a replay we will need to use the <code>ask</code> pattern.</p>
+<p>Since we want to send commands to the Aggregate and these commands declare a reply we will need to use the <code>ask</code> pattern.</p>
 <p>The code we introduced above creates an <code>EntityRef</code> from the <code>ShoppingCartServiceImpl</code>. This means it is code outside an actor (the <code>ServiceImpl</code>) trying to interact with an actor (the <code>EntityRef</code>). <code>EntityRef</code> provides an <code>ask()</code> overload out of the box meant to be used from outside actors which is the situation we&rsquo;re in.</p>
 <pre class="prettyprint"><code class="language-scala">implicit val askTimeout = Timeout(5.seconds)
 
@@ -566,7 +566,7 @@ futureSummary.map(cartSummary =&gt; convertToApi(id, cartSummary))
 <p>See the Akka docs for details on how to configure the number of shards.</p><h3 id="Configuring-Entity-passivation"><a class="section-marker" href="#Configuring-Entity-passivation">§</a>Configuring Entity passivation</h3>
 <p>Keeping all the Aggregates in memory all the time is inefficient. Instead, use the Entity passivation feature so sharded entities (the Aggregates) are removed from the cluster when they&rsquo;ve been unused for some time.</p>
 <p>Akka supports both programmatic passivation and <a href="https://doc.akka.io/docs/akka/2.6/typed/cluster-sharding.html#automatic-passivation">automatic passivation</a>. The default values for automatic passivation are generally good enough.</p><h2 id="Data-Serialization"><a class="section-marker" href="#Data-Serialization">§</a>Data Serialization</h2>
-<p>The messages (commands, replies) and the durable classes (events, state snapshots) need to be serializable to be sent over the wire across the cluster or be stored on the database. Akka recommends <a href="https://doc.akka.io/docs/akka/2.6/serialization-jackson.html">Jackson-based serializers</a> &ndash;preferably JSON, but CBOR is also supported&ndash; as a good default in most cases. On top of Akka serializers, Lagom makes it easy to add <a href="SerializationPlayJson.html">Play-JSON serialization</a> support, which may be more familiar to some scala developers.</p>
+<p>The messages (commands, replies) and the durable classes (events, state snapshots) need to be serializable to be sent over the wire across the cluster or be stored on the database. Akka recommends <a href="https://doc.akka.io/docs/akka/2.6/serialization-jackson.html">Jackson-based serializers</a> &ndash;preferably JSON, but CBOR is also supported&ndash; as a good default in most cases. On top of Akka serializers, Lagom makes it easy to add <a href="SerializationPlayJson.html">Play-JSON serialization</a> support, which may be more familiar to some Scala developers.</p>
 <p>In <a href="https://doc.akka.io/docs/akka/2.6/typed/persistence.html">Akka Persistence Typed</a>, in particular, and when you adopt CQRS/ES practices, commands will include a <code>replyTo: ActorRef[Reply]</code> field. This <code>replyTo</code> field will be used on your code to send a <code>Reply</code> back, as shown in the examples above. Serializing an <code>ActorRef[T]</code> requires using the Akka Jackson serializer, meaning you cannot use Play-JSON to serialize commands.</p>
 <p>The limitation to use Akka Jackson for Command messages doesn&rsquo;t apply to other messages like events, snapshots, or even replies. Each type Akka needs to serialize may use a different serializer.</p>
 <p>Read more about the serialization setup and configuration in the <a href="Serialization.html">serialization</a> section.</p>
@@ -871,7 +871,7 @@ futureSummary.map(cartSummary =&gt; convertToApi(id, cartSummary))
             </div>
         </div>
     </body>
-    <script src="/73e2c3f2fa8b1b2ea3cc2edd0d2b10bd6295431e-all-scripts-concat.js"></script>
+    <script src="/71a9103be9f5df6a733173a21a51242f4566aeb4-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

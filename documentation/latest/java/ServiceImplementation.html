@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/73e2c3f2fa8b1b2ea3cc2edd0d2b10bd6295431e-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/71a9103be9f5df6a733173a21a51242f4566aeb4-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -315,7 +315,7 @@ public class HelloServiceImpl implements HelloService {
 </code></pre>
 <p>It will take the request, and return the response as a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html"><code>CompletionStage</code></a>. If you&rsquo;ve never seen <code>CompletionStage</code> before, it is a promise. When an API returns a promise, that value might not yet be computed, but the API promises that at some point in future, it will be. Since the value isn&rsquo;t computed yet, you can&rsquo;t interact with it immediately. What you can do though is attach callbacks that transform the promise to a promise of a new value, using the <code>thenApply</code> and <code>thenCompose</code> methods. <code>CompletionStage</code> with its <code>thenApply</code> and <code>thenCompose</code> methods are fundamental building blocks for building reactive applications in Java, they allow your code to be asynchronous, not waiting for things to happen, but attaching callback that react to computations being completed.</p>
 <p>Of course, a simple hello world computation is not asynchronous, all it needs is to do is concatenate two Strings, and that returns immediately. In this case, we need to wrap the result of that in a <code>CompletionStage</code>. This can be done by calling <code>CompletableFuture.completedFuture()</code>, which returns a subclass of <code>CompletionStage</code> wrapping an immediately available value.</p>
-<p>Having provided an implementation of the service, we can now register that with the Lagom framework. Lagom is built on top of Play Framework, and so uses Play&rsquo;s Guice based <a href="https://playframework.com/documentation/2.6.x/JavaDependencyInjection">dependency injection support</a> to register components. To register a service, you&rsquo;ll need to implement a Guice module. This can be done by creating a class called <code>Module</code> in the root package:</p>
+<p>Having provided an implementation of the service, we can now register that with the Lagom framework. Lagom is built on top of Play Framework, and so uses Play&rsquo;s Guice based <a href="https://playframework.com/documentation/2.7.x/JavaDependencyInjection">dependency injection support</a> to register components. To register a service, you&rsquo;ll need to implement a Guice module. This can be done by creating a class called <code>Module</code> in the root package:</p>
 <pre class="prettyprint"><code class="language-java">import com.google.inject.AbstractModule;
 import com.lightbend.lagom.javadsl.server.ServiceGuiceSupport;
 
@@ -693,7 +693,7 @@ public class Module extends AbstractModule implements ServiceGuiceSupport {
             </div>
         </div>
     </body>
-    <script src="/73e2c3f2fa8b1b2ea3cc2edd0d2b10bd6295431e-all-scripts-concat.js"></script>
+    <script src="/71a9103be9f5df6a733173a21a51242f4566aeb4-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

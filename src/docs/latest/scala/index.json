@@ -216,8 +216,8 @@
       "title" : "Writing persistent and clustered services",
       "children" : [ {
         "title" : "Domain Modelling with Akka Persistence Typed",
-        "url" : "DomainModelling.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/DomainModelling.md",
+        "url" : "UsingAkkaPersistenceTyped.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/UsingAkkaPersistenceTyped.md",
         "nextUrls" : [ "MigratingToAkkaPersistenceTyped.html", "ChoosingADatabase.html", "ReadSide.html" ]
       }, {
         "title" : " Migrating to Akka Persistence Typed",
@@ -229,7 +229,7 @@
         "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/cluster/PersistentEntity.md",
         "nextUrls" : [ "ChoosingADatabase.html" ]
       }, {
-        "title" : "Choosing A Database",
+        "title" : "Choosing a Database",
         "url" : "ChoosingADatabase.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/common/guide/cluster/ChoosingADatabase.md",
         "nextUrls" : [ "PersistentEntityCassandra.html", "PersistentEntityRDBMS.html" ]

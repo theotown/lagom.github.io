@@ -245,7 +245,7 @@
         "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/PersistentEntity.md",
         "nextUrls" : [ "ChoosingADatabase.html", "PersistentEntityCassandra.html", "PersistentEntityRDBMS.html" ]
       }, {
-        "title" : "Choosing A Database",
+        "title" : "Choosing a Database",
         "url" : "ChoosingADatabase.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/common/guide/cluster/ChoosingADatabase.md"
       }, {

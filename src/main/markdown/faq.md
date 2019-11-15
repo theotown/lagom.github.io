@@ -12,7 +12,7 @@ Lagom is completely open source, free to use, and has a vibrant and growing comm
 
 ## Does Lagom require me to use Cassandra for persistence?
 
-No, Lagom supports using either Cassandra or relational databases, including MySQL, PostgreSQL, Oracle and H2. The Lagom development environment provides and uses Cassandra by default because it offers great scalability and replication features.  See more in the [Java documentation](/documentation/current/java/PersistentEntity.html) or the [Scala documentation](/documentation/current/scala/PersistentEntity.html).
+No, Lagom supports using either Cassandra, Couchbase or relational databases, including MySQL, PostgreSQL, Oracle, SQL Server and H2. The Lagom development environment provides and uses Cassandra by default because it offers great scalability and replication features.  See more in the [Java documentation](/documentation/current/java/PersistentEntity.html) or the [Scala documentation](/documentation/current/scala/PersistentEntity.html).
 
 ## Does Lagom require the use of a message broker such as Kafka?
 

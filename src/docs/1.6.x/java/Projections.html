@@ -1,5 +1,5 @@
 <h1 id="Projections"><a class="section-marker" href="#Projections">§</a>Projections</h1>
-<p>In Lagom, projections are processes consuming from a Persistent Entity Journal and handling each event via a <a href="ReadSide.html">read side table</a> or emitting it into a broker topic via a <a href="MessageBrokerApi.html#Implementing-a-topic">`TopicProducer`</a>. Here, Projections only refer to <code>ReadSideProcessors</code> and <code>TopicProducer</code>&lsquo;s&rsquo; (not Broker subscribers).</p>
+<p>In Lagom, projections are processes consuming from a Persistent Entity Journal and handling each event via a <a href="ReadSide.html">read side table</a> or emitting it into a broker topic via a <a href="MessageBrokerApi.html#Implementing-a-topic">TopicProducer</a>. Here, a projection only refers to a <code>ReadSideProcessor</code> or a <code>TopicProducer</code>, not a broker subscriber.</p>
 <p>Lagom takes care to handle as many instances of your projection as <a href="ReadSide.html#Event-tags">shards</a> on your journal and then distribute those instances around the cluster so the load is balanced. By default, the multiple instances of your projection will be started but you can opt-out from that behavior using the setting:</p>
 <pre class="prettyprint"><code>lagom.projection {
   auto-start.enabled = true

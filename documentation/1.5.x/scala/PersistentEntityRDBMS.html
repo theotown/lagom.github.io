@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/adae1933ae2dd97da85945eb4301676dbf5a5dc5-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/60bb998d30d0dbc2cd8cba0e025db2c876b6f661-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -316,7 +316,7 @@
 </ul>
 <p>We advise against using H2 in production, however, it is suitable for use in development and testing.</p>
 <p>In Lagom&rsquo;s default configuration, Lagom will use Play&rsquo;s JDBC support to configure and create a connection pool. Details on how to configure it can be found <a href="https://www.playframework.com/documentation/2.6.x/ScalaDatabase">here</a>. Play should be configured to provide a JNDI binding for the datasource, by default Lagom binds it to <code>DefaultDS</code>.</p>
-<p>Lagom then configures a <a href="http://slick.lightbend.com/">Slick</a> Database to use that datasource in combination with a <a href="http://slick.lightbend.com/doc/3.2.1/api/index.html#slick.util.AsyncExecutor">AsyncExecutor</a> that manages the thread pool for asynchronous execution of Database I/O Actions. Lagom will also take care that the connection pool is configured correctly according to the AsyncExecutor settings. The Slick Database is then bound to the JNDI name <code>DefaultDB</code> and it&rsquo;s used to configure the <code>akka-persistence-jdbc</code> plugin.</p>
+<p>Lagom then configures a <a href="https://scala-slick.org/">Slick</a> Database to use that datasource in combination with a <a href="https://scala-slick.org/doc/3.2.1/api/index.html#slick.util.AsyncExecutor">AsyncExecutor</a> that manages the thread pool for asynchronous execution of Database I/O Actions. Lagom will also take care that the connection pool is configured correctly according to the AsyncExecutor settings. The Slick Database is then bound to the JNDI name <code>DefaultDB</code> and it&rsquo;s used to configure the <code>akka-persistence-jdbc</code> plugin.</p>
 <p>The <code>akka-persistence-jdbc</code> plugin uses Slick to map tables and manage asynchronous execution of JDBC calls. This means Lagom internally configures it to use the right Slick profile for your database.</p>
 <p>So for example, to configure a PostgreSQL database, you can add the following to your <code>application.conf</code>:</p>
 <pre class="prettyprint"><code>db.default {
@@ -708,7 +708,7 @@ lagom.persistence.jdbc {
             </div>
         </div>
     </body>
-    <script src="/adae1933ae2dd97da85945eb4301676dbf5a5dc5-all-scripts-concat.js"></script>
+    <script src="/60bb998d30d0dbc2cd8cba0e025db2c876b6f661-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

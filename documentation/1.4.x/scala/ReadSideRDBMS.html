@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/60bb998d30d0dbc2cd8cba0e025db2c876b6f661-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/2c0b77add64864c746eeb7d7ed443cc83923873e-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -295,7 +295,7 @@
                 <article>
                 <h1 id="Relational-Database-Read-Side-support"><a class="section-marker" href="#Relational-Database-Read-Side-support">§</a>Relational Database Read-Side support</h1>
 <p>This page is specifically about Lagom&rsquo;s support for relational database read-sides. Before reading this, you should familiarize yourself with Lagom&rsquo;s general <a href="ReadSide.html">read-side support</a>.</p>
-<p>Lagom supports two options for accessing relational databases in read-sides: using the JDBC API directly, or using the <a href="http://slick.lightbend.com/">Slick</a>.</p><h2 id="Choosing-between-JDBC-and-Slick"><a class="section-marker" href="#Choosing-between-JDBC-and-Slick">§</a>Choosing between JDBC and Slick</h2>
+<p>Lagom supports two options for accessing relational databases in read-sides: using the JDBC API directly, or using the <a href="https://scala-slick.org/">Slick</a>.</p><h2 id="Choosing-between-JDBC-and-Slick"><a class="section-marker" href="#Choosing-between-JDBC-and-Slick">§</a>Choosing between JDBC and Slick</h2>
 <p>JDBC offers a very low-level API, directly mapping to the capabilities of most database drivers. The queries you supply are passed directly to the back-end database, so they may require using implementation-specific dialects of SQL. Query results are returned as a <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html">ResultSet</a>, which allows you to iterate through the rows of the result and retrieve column data.</p>
 <p>Slick is a modern database query and access library for Scala. It allows you to work with stored data almost as if you were using Scala collections while at the same time giving you full control over when a database access happens and which data is transferred. You can write your database queries in Scala instead of SQL, thus profiting from the static checking, compile-time safety and compositionality of Scala. Slick features an extensible query compiler which can generate code for different backends.</p>
 <p>Using Slick with a Lagom service does not require any additional dependency.</p>
@@ -577,7 +577,7 @@
             </div>
         </div>
     </body>
-    <script src="/60bb998d30d0dbc2cd8cba0e025db2c876b6f661-all-scripts-concat.js"></script>
+    <script src="/2c0b77add64864c746eeb7d7ed443cc83923873e-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

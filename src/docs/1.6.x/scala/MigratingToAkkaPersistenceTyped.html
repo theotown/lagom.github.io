@@ -40,7 +40,7 @@ private def onUpdateItem(cmd: UpdateItem): ReplyEffect[ShoppingCartEvent, Shoppi
           Accepted
         }
   }</code></pre>
-<p>This migration guide will not go into more details related to writing command and event handlers. Refer to the <a href="https://doc.akka.io/docs/akka/2.6/typed/index-persistence.html">Akka Persistence Typed docs</a> or the section on <a href="UsingAkkaPersistenceTyped.html">domain modeling with Akka Persistence Typed</a> for more information.</p><h3 id="Commands"><a class="section-marker" href="#Commands">§</a>Commands</h3>
+<p>This migration guide will not go into more details related to writing command and event handlers. Refer to the <a href="https://doc.akka.io/docs/akka/2.6/typed/index-persistence.html?language=Scala">Akka Persistence Typed docs</a> or the section on <a href="UsingAkkaPersistenceTyped.html">domain modeling with Akka Persistence Typed</a> for more information.</p><h3 id="Commands"><a class="section-marker" href="#Commands">§</a>Commands</h3>
 <p><code>Command</code> classes are the other set of classes most impacted by the migration. First, a <code>Command</code> will no longer need to extend the <code>ReplyType[R]</code> of the Lagom API. That type was used to specify a type <code>R</code> for the reply produced by the <code>Command</code>. To specify the type <code>R</code> of the reply add a <code>replyTo: ActorRef[R]</code> field in the command.</p>
 <p><em>Before</em>:</p>
 <pre class="prettyprint"><code class="language-scala">sealed trait ShoppingCartCommand[R] extends ReplyType[R]

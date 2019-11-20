@@ -9,7 +9,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/b6a43eec0411d4573635d6812f58888990c8ecb7-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/ffd35c2c01231b683966f182dbf8c94624634eaf-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -333,7 +333,7 @@ private def onUpdateItem(cmd: UpdateItem): ReplyEffect[ShoppingCartEvent, Shoppi
           Accepted
         }
   }</code></pre>
-<p>This migration guide will not go into more details related to writing command and event handlers. Refer to the <a href="https://doc.akka.io/docs/akka/2.6/typed/index-persistence.html">Akka Persistence Typed docs</a> or the section on <a href="UsingAkkaPersistenceTyped.html">domain modeling with Akka Persistence Typed</a> for more information.</p><h3 id="Commands"><a class="section-marker" href="#Commands">§</a>Commands</h3>
+<p>This migration guide will not go into more details related to writing command and event handlers. Refer to the <a href="https://doc.akka.io/docs/akka/2.6/typed/index-persistence.html?language=Scala">Akka Persistence Typed docs</a> or the section on <a href="UsingAkkaPersistenceTyped.html">domain modeling with Akka Persistence Typed</a> for more information.</p><h3 id="Commands"><a class="section-marker" href="#Commands">§</a>Commands</h3>
 <p><code>Command</code> classes are the other set of classes most impacted by the migration. First, a <code>Command</code> will no longer need to extend the <code>ReplyType[R]</code> of the Lagom API. That type was used to specify a type <code>R</code> for the reply produced by the <code>Command</code>. To specify the type <code>R</code> of the reply add a <code>replyTo: ActorRef[R]</code> field in the command.</p>
 <p><em>Before</em>:</p>
 <pre class="prettyprint"><code class="language-scala">sealed trait ShoppingCartCommand[R] extends ReplyType[R]
@@ -816,7 +816,7 @@ case class UpdateItem(productId: String, quantity: Int, replyTo: ActorRef[Confir
             </div>
         </div>
     </body>
-    <script src="/b6a43eec0411d4573635d6812f58888990c8ecb7-all-scripts-concat.js"></script>
+    <script src="/ffd35c2c01231b683966f182dbf8c94624634eaf-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

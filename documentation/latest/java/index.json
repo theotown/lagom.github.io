@@ -240,14 +240,20 @@
     }, {
       "title" : "Writing persistent and clustered services",
       "children" : [ {
-        "title" : "Persistent Entity",
+        "title" : "Domain Modelling with Akka Persistence Typed",
+        "url" : "UsingAkkaPersistenceTyped.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/UsingAkkaPersistenceTyped.md",
+        "nextUrls" : [ "ChoosingADatabase.html", "ReadSide.html" ]
+      }, {
+        "title" : "Persistent Entity (classic)",
         "url" : "PersistentEntity.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/PersistentEntity.md",
-        "nextUrls" : [ "ChoosingADatabase.html", "PersistentEntityCassandra.html", "PersistentEntityRDBMS.html" ]
+        "nextUrls" : [ "ChoosingADatabase.html" ]
       }, {
         "title" : "Choosing a Database",
         "url" : "ChoosingADatabase.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/common/guide/cluster/ChoosingADatabase.md"
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/common/guide/cluster/ChoosingADatabase.md",
+        "nextUrls" : [ "PersistentEntityCassandra.html", "PersistentEntityRDBMS.html" ]
       }, {
         "title" : "Cassandra Setup",
         "url" : "PersistentEntityCassandra.html",

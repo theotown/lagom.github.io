@@ -9,7 +9,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/946f749bb7dda1d082b59fab33d1a060bd9c56fc-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/b9731775894614120a627c2fddb9013ced62c1f6-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -294,8 +294,9 @@
                 <h1 id="Migrating-to-Akka-Persistence-Typed"><a class="section-marker" href="#Migrating-to-Akka-Persistence-Typed">§</a>Migrating to Akka Persistence Typed</h1>
 <p>With the support for Akka Persistence Typed in Lagom it is possible to migrate existing code from Lagom Persistence (classic) to Akka Persistence Typed. There&rsquo;s a few steps to consider in order to be able to read an existing journal.</p>
 <blockquote>
-  <p>NOTE: the only limitation when migrating from from Lagom Persistence (classic) to Akka Persistence Typed is that a full cluster shutdown is required. Even though all durable data is compatible, Lagom Persistence (classic) and Akka Persistence Typed can&rsquo;t coexist.</p>
-</blockquote><h2 id="Migrating-the-model"><a class="section-marker" href="#Migrating-the-model">§</a>Migrating the model</h2>
+  <p><strong>Note</strong>: the only limitation when migrating from from Lagom Persistence (classic) to Akka Persistence Typed is that a full cluster shutdown is required. Even though all durable data is compatible, Lagom Persistence (classic) and Akka Persistence Typed can&rsquo;t coexist.</p>
+</blockquote>
+<p>Before you start, make sure you have read the page <a href="UsingAkkaPersistenceTyped.html">Domain Modelling with Akka Persistence Typed</a> and you understand how to model a domain using Akka Persistence Typed.</p><h2 id="Migrating-the-model"><a class="section-marker" href="#Migrating-the-model">§</a>Migrating the model</h2>
 <p>Similarly to Lagom&rsquo;s Persistent Entity, to create an Akka Persistence Typed <code>EventSourcedBehavior</code> you need:</p>
 <ul>
   <li>a <code>persistenceId: PersistenceId</code></li>
@@ -343,16 +344,17 @@ case class UpdateItem(productId: String, quantity: Int, replyTo: ActorRef[Confir
 <pre class="prettyprint"><code class="language-scala">sealed trait Confirmation
 case class Accepted(summary: Summary) extends Confirmation
 case class Rejected(reason: String) extends Confirmation</code></pre>
-<p>Then, all the command handlers must produce a <code>ReplyEffect</code>. For operations that don&rsquo;t mutate the model, use <code>Effect.reply</code> directly and for operations that persist events use <code>Effect.persist</code> to create a <code>ReplyEffect</code> instance:</p>
+<p>Then, all the command handlers must produce a <code>ReplyEffect</code>. For operations that don&rsquo;t mutate the model, use <code>Effect.reply</code> directly and for operations that persist events use <code>Effect.persist(...).thenReply</code> to create a <code>ReplyEffect</code> instance:</p>
 <pre class="prettyprint"><code class="language-scala">private def onCheckout(cmd: Checkout): ReplyEffect[ShoppingCartEvent, ShoppingCart] =
   if (items.isEmpty)
     Effect.reply(cmd.replyTo)(Rejected(&quot;Cannot checkout empty cart&quot;))
   else
     Effect
       .persist(CheckedOut)
-      .thenReply(cmd.replyTo)(updatedCart =&gt; Accepted(toSummary(updatedCart)))</code></pre><h2 id="Registration"><a class="section-marker" href="#Registration">§</a>Registration</h2>
+      .thenReply(cmd.replyTo)(updatedCart =&gt; Accepted(toSummary(updatedCart)))</code></pre>
+<p>See <a href="UsingAkkaPersistenceTyped.html#Modelling-Commands-and-Replies">Modelling Commands and Replies</a> for more details.</p><h2 id="Registration"><a class="section-marker" href="#Registration">§</a>Registration</h2>
 <p>In order to shard and distribute the <code>EventSourcedBehavior</code> instances across the cluster you will no longer use Lagom&rsquo;s <code>persistentEntityRegistry</code>. Instead, Lagom now provides direct access to <code>clusterSharding</code>, an instance of Akka&rsquo;s <code>ClusterSharding</code> extension you can use to initialize the sharding of <code>EventSourcedBehavior</code>.</p>
-<p><strong>Before</strong>, in the <code>ShoppingCartLoader.scala</code> class we&rsquo;d use the Lagom provided <code>persistentEntityRegistry</code> instance to register a <code>macwire</code> provided instance:</p>
+<p><strong>Before</strong>, in the <code>ShoppingCartLoader</code> class we&rsquo;d use the Lagom provided <code>persistentEntityRegistry</code> instance to register a <code>macwire</code> provided instance:</p>
 <pre class="prettyprint"><code class="language-scala">// Register the ShoppingCart persistent entity
 persistentEntityRegistry.register(wire[ShoppingCartEntity])</code></pre>
 <p>That registration can be removed.</p>
@@ -428,7 +430,7 @@ override def get(id: String): ServiceCall[NotUsed, String] = ServiceCall { _ =&g
   )</code></pre>
 <p>The code above uses <code>PersistenceId(entityContext.entityTypeKey.name, entityContext.entityId)</code>. There are three important pieces on that statement that we must review:</p>
 <ol>
-  <li>The first argument of <code>PersistenceId.apply()</code> must be the same value you used in Lagom Persistence (classic). This first argument is known as the <code>typeHint</code> and is used by the journal as a mechanism to avoid ID collision between different types. In Lagom Persistence (classic) the type hint defaults to the classname of your <code>PersistentEntity</code> but it can be <a href="PersistentEntity.html#Refactoring-Consideration">overwritten</a> (review your code or the persisted data on your database). In our case, we are using <code>entityContext.entityTypeKey.name</code> because we defined <code>EntityTypeKey[ShoppingCartCommand](&quot;ShoppingCartEntity&quot;)</code> where <code>&quot;ShoppingCartEntity&quot;</code> is the classname of the code we had in the implementation based on Lagom Persistence Classic.</li>
+  <li>The first argument of <code>PersistenceId.apply()</code> must be the same value you used in Lagom Persistence (classic). This first argument is known as the <code>typeHint</code> and is used by the journal as a mechanism to avoid ID collision between different types. In Lagom Persistence (classic) the type hint defaults to the classname of your <code>PersistentEntity</code> but it can be <a href="PersistentEntity.html#Refactoring-Consideration">overwritten</a> (review your code or the persisted data on your database). In our case, we are using <code>entityContext.entityTypeKey.name</code> because we defined the type key as <code>EntityTypeKey[ShoppingCartCommand](&quot;ShoppingCartEntity&quot;)</code> where <code>&quot;ShoppingCartEntity&quot;</code> is the classname of the code we had in the implementation based on Lagom Persistence (classic).</li>
   <li>The second argument must be the business id of your Aggregate. In this case, we can use <code>entityContext.entityId</code> because we&rsquo;re using that same business id for the sharded actor.</li>
   <li>An (optional) third argument specifying a <code>separator</code>. Lagom uses the <code>&quot;|&quot;</code> as a separator and, since <code>PersistenceId</code> also uses <code>&quot;|&quot;</code> as a default we&rsquo;re not specifying a separator.</li>
 </ol>
@@ -793,7 +795,7 @@ case class UpdateItem(productId: String, quantity: Int, replyTo: ActorRef[Confir
             </div>
         </div>
     </body>
-    <script src="/946f749bb7dda1d082b59fab33d1a060bd9c56fc-all-scripts-concat.js"></script>
+    <script src="/b9731775894614120a627c2fddb9013ced62c1f6-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

@@ -9,7 +9,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/18749ded123edfdb94d75178b5447137e3d9bdbe-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/541cc67729fbf6f50374c0043043c46441a37857-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -294,7 +294,7 @@
                 <h2 id="Play-JSON-Serialization"><a class="section-marker" href="#Play-JSON-Serialization">§</a>Play-JSON Serialization</h2>
 <p>To enable JSON Serialization there are three steps you need to follow.</p>
 <p>The first step is to define your <a href="https://www.playframework.com/documentation/2.7.x/api/scala/play/api/libs/json/Format.html">Format</a> for each class that is to be serialized, this can be done using <a href="#Automated-mapping">automated mapping</a> or <a href="#Manual-mapping">manual mapping</a>.</p>
-<pre class="prettyprint"><code class="language-scala">implicit val format: Format[AddPost] = Json.format</code></pre>
+<pre class="prettyprint"><code class="language-scala">implicit val format: Format[ItemAdded] = Json.format</code></pre>
 <p>Best practice is to define the <code>Format</code> as an implicit in the classes companion object, so that it can be found by implicit resolution.</p>
 <p>The second step is to implement <a href="api/com/lightbend/lagom/scaladsl/playjson/JsonSerializerRegistry.html">JsonSerializerRegistry</a> and have all the service formats returned from its <code>serializers</code> method.</p>
 <pre class="prettyprint"><code class="language-scala">import com.lightbend.lagom.scaladsl.playjson.JsonSerializer
@@ -302,8 +302,8 @@ import com.lightbend.lagom.scaladsl.playjson.JsonSerializerRegistry
 
 object MyRegistry extends JsonSerializerRegistry {
   override val serializers = Vector(
-    JsonSerializer[AddComment],
-    JsonSerializer[AddPost]
+    JsonSerializer[ItemAdded],
+    JsonSerializer[OrderAdded]
   )
 }</code></pre>
 <p>Having done that, you can provide the serializer registry by overriding the <code>jsonSerializerRegistry</code> component method in your application cake, for example:</p>
@@ -333,11 +333,11 @@ import com.lightbend.lagom.scaladsl.playjson.JsonSerializerRegistry
 
 object RegistryWithCompression extends JsonSerializerRegistry {
   override val serializers = Vector(
-    // &#39;AddComment&#39; uses `apply[T]()` .
-    JsonSerializer[AddComment],
-    // The AddPost message is usually rather big, so we want it compressed
+    // &#39;ItemAdded&#39; uses `apply[T]()` .
+    JsonSerializer[ItemAdded],
+    // The OrderAdded message is usually rather big, so we want it compressed
     // when it&#39;s too large.
-    JsonSerializer.compressed[AddPost]
+    JsonSerializer.compressed[OrderAdded]
   )
 }</code></pre>
 <p>The serializer will by default only compress messages that are larger than 32Kb. This threshold can be changed with configuration property:</p>
@@ -362,17 +362,17 @@ object AddComment {
   implicit val format: Format[AddComment] = Json.format
 }</code></pre><h2 id="Manual-mapping"><a class="section-marker" href="#Manual-mapping">§</a>Manual mapping</h2>
 <p>Defining a <code>Format</code> can be done in several ways using the Play JSON APIs, either using <a href="https://playframework.com/documentation/2.7.x/ScalaJsonCombinators#Format">JSON Combinators</a> or by manually implementing functions that turn a <code>JsValue</code> into a <code>JsSuccess(T)</code> or a <code>JsFailure()</code>.</p>
-<pre class="prettyprint"><code class="language-scala">case class AddOrder(productId: String, quantity: Int)
+<pre class="prettyprint"><code class="language-scala">case class OrderAdded(productId: String, quantity: Int)
 
 import play.api.libs.functional.syntax._
 import play.api.libs.json._
 
-object AddOrder {
-  implicit val format: Format[AddOrder] =
+object OrderAdded {
+  implicit val format: Format[OrderAdded] =
     (JsPath \ &quot;product_id&quot;)
       .format[String]
       .and((JsPath \ &quot;quantity&quot;).format[Int])
-      .apply(AddOrder.apply, unlift(AddOrder.unapply))
+      .apply(OrderAdded.apply, unlift(OrderAdded.unapply))
 }</code></pre><h2 id="Special-mapping-considerations"><a class="section-marker" href="#Special-mapping-considerations">§</a>Special mapping considerations</h2><h3 id="Mapping-options"><a class="section-marker" href="#Mapping-options">§</a>Mapping options</h3>
 <p>The automatic mapping will handle <code>Option</code> fields, for manual mapping of optional fields you can use <code>(JsPath \ &quot;optionalField&quot;).formatNullable[A]</code>. This will treat missing fields as <code>None</code> allowing for adding of new fields without providing an explicit schema migration step.</p><h3 id="Mapping-singletons"><a class="section-marker" href="#Mapping-singletons">§</a>Mapping singletons</h3>
 <p>For toplevel singletons (Scala <code>object</code>s) you can use <a href="api/index.html#com/lightbend/lagom/scaladsl/playjson/Serializers@emptySingletonFormat">com.lightbend.lagom.scaladsl.playjson.Serializers.emptySingletonFormat</a> to get a <code>Format</code> that outputs empty JSON (as the type is also encoded along side the data).</p>
@@ -418,7 +418,7 @@ object Fruit {
     }
   )
 }</code></pre><h2 id="Schema-Evolution"><a class="section-marker" href="#Schema-Evolution">§</a>Schema Evolution</h2>
-<p>When working on long running projects using <a href="PersistentEntity.html">Persistence</a>, or any kind of Event Sourcing, schema evolution becomes an important aspect of developing your application. The requirements as well as our own understanding of the business domain may (and will) change over time.</p>
+<p>When working on long running projects using <a href="UsingAkkaPersistenceTyped.html">Akka Persistence Typed</a>, Lagom <a href="PersistentEntity.html">Persistence</a> (classic), or any kind of Event Sourcing, schema evolution becomes an important aspect of developing your application. The requirements as well as our own understanding of the business domain may (and will) change over time.</p>
 <p>Lagom provides a way to perform transformations of the JSON tree model during deserialization. To do those transformations you can either modify the json imperatively or use the <a href="https://www.playframework.com/documentation/2.7.x/ScalaJsonTransformers">Play JSON transformers</a></p>
 <p>We will look at a few scenarios of how the classes may be evolved.</p><h3 id="Remove-Field"><a class="section-marker" href="#Remove-Field">§</a>Remove Field</h3>
 <p>Removing a field can be done without any migration code. Both manual and automatic mappings will ignore properties that does not exist in the class.</p><h3 id="Add-Field"><a class="section-marker" href="#Add-Field">§</a>Add Field</h3>
@@ -848,7 +848,7 @@ override def migrations: Map[String, JsonMigration] = Map(
             </div>
         </div>
     </body>
-    <script src="/18749ded123edfdb94d75178b5447137e3d9bdbe-all-scripts-concat.js"></script>
+    <script src="/541cc67729fbf6f50374c0043043c46441a37857-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

@@ -243,7 +243,11 @@
         "title" : "Domain Modelling with Akka Persistence Typed",
         "url" : "UsingAkkaPersistenceTyped.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/UsingAkkaPersistenceTyped.md",
-        "nextUrls" : [ "ChoosingADatabase.html", "ReadSide.html" ]
+        "nextUrls" : [ "MigratingToAkkaPersistenceTyped.html", "ChoosingADatabase.html", "ReadSide.html" ]
+      }, {
+        "title" : " Migrating to Akka Persistence Typed",
+        "url" : "MigratingToAkkaPersistenceTyped.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/guide/cluster/MigratingToAkkaPersistenceTyped.md"
       }, {
         "title" : "Persistent Entity (classic)",
         "url" : "PersistentEntity.html",

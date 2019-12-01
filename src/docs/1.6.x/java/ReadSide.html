@@ -34,7 +34,8 @@
 <p>Lagom provides some utilities for helping create sharded tags. To create the sharded tags, define the number of shards in a static variable, as the shards tag, and implement the <code>aggregateTag</code> method to return the shards tag:</p>
 <pre class="prettyprint"><code class="language-java">interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
 
-  int NUM_SHARDS = 20;
+  // will produce tags with shard numbers from 0 to 9
+  int NUM_SHARDS = 10;
 
   AggregateEventShards&lt;BlogEvent&gt; TAG = AggregateEventTag.sharded(BlogEvent.class, NUM_SHARDS);
 
@@ -42,7 +43,10 @@
   default AggregateEventShards&lt;BlogEvent&gt; aggregateTag() {
     return TAG;
   }</code></pre>
-<p>Now Lagom here will generate a tag name that appends the hash code of the entity ID modulo the number of shards to the class name.</p><h3 id="Defining-a-read-side-processor"><a class="section-marker" href="#Defining-a-read-side-processor">§</a>Defining a read side processor</h3>
+<p>Now Lagom here will generate a tag name that appends the hash code of the entity ID modulo the number of shards to the class name.</p>
+<blockquote>
+  <p><strong>Note</strong>: if you&rsquo;re using a JDBC database to store your journal, the number of sharded tags (<code>NumShards</code>) should not be greater then 10. This is due to an existing <a href="https://github.com/dnvriend/akka-persistence-jdbc/issues/168">bug</a> in the plugin. Failing to follow this directive will result in some events being delivered more than once on the read-side or topic producers.</p>
+</blockquote><h3 id="Defining-a-read-side-processor"><a class="section-marker" href="#Defining-a-read-side-processor">§</a>Defining a read side processor</h3>
 <p>This is how a <a href="api/index.html?com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.html"><code>ReadSideProcessor</code></a> class looks like before filling in the implementation details:</p>
 <pre class="prettyprint"><code class="language-java">public class BlogEventProcessor extends ReadSideProcessor&lt;BlogEvent&gt; {
 

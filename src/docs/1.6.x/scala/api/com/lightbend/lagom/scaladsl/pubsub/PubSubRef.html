@@ -188,7 +188,7 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">PubSubRef</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="https://doc.akka.io/api/akka/2.6.0-RC2/akka/actor/NoSerializationVerificationNeeded.html#akka.actor.NoSerializationVerificationNeeded" class="extype" name="akka.actor.NoSerializationVerificationNeeded">NoSerializationVerificationNeeded</a></span>
+        <span class="name">PubSubRef</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="https://doc.akka.io/api/akka/2.6.0/akka/actor/NoSerializationVerificationNeeded.html#akka.actor.NoSerializationVerificationNeeded" class="extype" name="akka.actor.NoSerializationVerificationNeeded">NoSerializationVerificationNeeded</a></span>
       </span>
       </h4>
 
@@ -205,11 +205,11 @@ if that buffer is full and demand for more elements have not been requested
 from downstream. This can happen if a subscriber is slower than the publishers
 of the messages. When the buffer is full the oldest messages are dropped to make
 room for new messages.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-RC2+52-9dec50ab//pubsub/scaladsl/src/main/scala/com/lightbend/lagom/scaladsl/pubsub/PubSubRef.scala" target="_blank">PubSubRef.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0-RC2+60-82a133ea//pubsub/scaladsl/src/main/scala/com/lightbend/lagom/scaladsl/pubsub/PubSubRef.scala" target="_blank">PubSubRef.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="https://doc.akka.io/api/akka/2.6.0-RC2/akka/actor/NoSerializationVerificationNeeded.html#akka.actor.NoSerializationVerificationNeeded" class="extype" name="akka.actor.NoSerializationVerificationNeeded">NoSerializationVerificationNeeded</a>, <a href="../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <a href="https://www.scala-lang.org/api/2.12.10/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="https://doc.akka.io/api/akka/2.6.0/akka/actor/NoSerializationVerificationNeeded.html#akka.actor.NoSerializationVerificationNeeded" class="extype" name="akka.actor.NoSerializationVerificationNeeded">NoSerializationVerificationNeeded</a>, <a href="../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <a href="https://www.scala-lang.org/api/2.12.10/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
         </div></div>
         
 
@@ -713,7 +713,7 @@ is known before sending messages to a topic.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">publisher</span><span class="result">: <span class="extype" name="akka.stream.scaladsl.Sink">Sink</span>[<span class="extype" name="com.lightbend.lagom.scaladsl.pubsub.PubSubRef.T">T</span>, <a href="https://doc.akka.io/api/akka/2.6.0-RC2/akka/NotUsed.html#akka.NotUsed" class="extype" name="akka.NotUsed">NotUsed</a>]</span>
+        <span class="name">publisher</span><span class="result">: <span class="extype" name="akka.stream.scaladsl.Sink">Sink</span>[<span class="extype" name="com.lightbend.lagom.scaladsl.pubsub.PubSubRef.T">T</span>, <a href="https://doc.akka.io/api/akka/2.6.0/akka/NotUsed.html#akka.NotUsed" class="extype" name="akka.NotUsed">NotUsed</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Publish messages from a stream to the topic.</p><div class="fullcomment"><div class="comment cmt"><p>Publish messages from a stream to the topic.
@@ -732,7 +732,7 @@ this <code>Sink</code> and then <code>run</code> the stream.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">subscriber</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.0-RC2/akka/stream/scaladsl/Source.html#akka.stream.scaladsl.Source" class="extype" name="akka.stream.scaladsl.Source">Source</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.pubsub.PubSubRef.T">T</span>, <a href="https://doc.akka.io/api/akka/2.6.0-RC2/akka/NotUsed.html#akka.NotUsed" class="extype" name="akka.NotUsed">NotUsed</a>]</span>
+        <span class="name">subscriber</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.0/akka/stream/scaladsl/Source.html#akka.stream.scaladsl.Source" class="extype" name="akka.stream.scaladsl.Source">Source</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.pubsub.PubSubRef.T">T</span>, <a href="https://doc.akka.io/api/akka/2.6.0/akka/NotUsed.html#akka.NotUsed" class="extype" name="akka.NotUsed">NotUsed</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Consume messages from the topic via a stream.</p><div class="fullcomment"><div class="comment cmt"><p>Consume messages from the topic via a stream.
@@ -910,7 +910,7 @@ this <code>Source</code> and then <code>run</code> the stream.
 
         <div id="inheritedMembers">
         <div class="parent" name="akka.actor.NoSerializationVerificationNeeded">
-              <h3>Inherited from <a href="https://doc.akka.io/api/akka/2.6.0-RC2/akka/actor/NoSerializationVerificationNeeded.html#akka.actor.NoSerializationVerificationNeeded" class="extype" name="akka.actor.NoSerializationVerificationNeeded">NoSerializationVerificationNeeded</a></h3>
+              <h3>Inherited from <a href="https://doc.akka.io/api/akka/2.6.0/akka/actor/NoSerializationVerificationNeeded.html#akka.actor.NoSerializationVerificationNeeded" class="extype" name="akka.actor.NoSerializationVerificationNeeded">NoSerializationVerificationNeeded</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">

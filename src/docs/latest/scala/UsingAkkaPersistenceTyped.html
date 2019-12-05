@@ -135,8 +135,13 @@ private def onCartCheckedOut(checkedOutTime: Instant): ShoppingCart = {
 <p>To be able to consume the events on the read-side, the events must be tagged. This is done using the <code>AggregateEventTag</code> utility. It&rsquo;s recommended to shard the tags so they can be consumed in a distributed fashion by Lagom&rsquo;s <a href="ReadSide.html">Read-Side Processor</a> and <a href="MessageBrokerApi.html#Implementing-a-topic">Topic Producers</a>. Although not recommended, it&rsquo;s also possible to not shard the events as explained <a href="ReadSide.html#Event-tags">here</a>.</p>
 <p>This example splits the tags into 10 shards and defines the event tagger in the companion object of <code>ShoppingCart.Event</code>. Note that the tag name must be stable, as well as the number of shards. These two values can&rsquo;t be changed later without migrating the journal.</p>
 <pre class="prettyprint"><code class="language-scala">object ShoppingCartEvent {
-  val Tag: AggregateEventShards[ShoppingCartEvent] = AggregateEventTag.sharded[ShoppingCartEvent](numShards = 10)
+  // will produce tags with shard numbers from 0 to 9
+  val Tag: AggregateEventShards[ShoppingCartEvent] =
+    AggregateEventTag.sharded[ShoppingCartEvent](numShards = 10)
 }</code></pre>
+<blockquote>
+  <p><strong>Note</strong>: if you&rsquo;re using a JDBC database to store your journal, the number of sharded tags (<code>NumShards</code>) should not be greater then 10. This is due to an existing <a href="https://github.com/dnvriend/akka-persistence-jdbc/issues/168">bug</a> in the plugin. Failing to follow this directive will result in some events being delivered more than once on the read-side or topic producers.</p>
+</blockquote>
 <p>The <code>AggregateEventTag</code> is a Lagom class used by Lagom&rsquo;s <a href="ReadSide.html">Read-Side Processor</a> and <a href="MessageBrokerApi.html#Implementing-a-topic">Topic Producers</a>, however Akka Persistence Typed expects a function <code>Event =&gt; Set[String]</code>. Therefore, we need to use an adapter to transform Lagom&rsquo;s <code>AggregateEventTag</code> to the required Akka tagger function.</p>
 <pre class="prettyprint"><code class="language-scala">EventSourcedBehavior
   .withEnforcedReplies[ShoppingCartCommand, ShoppingCartEvent, ShoppingCart](

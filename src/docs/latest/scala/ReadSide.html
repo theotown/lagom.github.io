@@ -32,14 +32,18 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
 <p>When you shard events, you need to decide up front how many shards you want to use. The more shards, the more you can scale your service horizontally across many nodes, however, shards come at a cost, each additional shard increases the number of read side processors that query your database for new events. It is very difficult to change the number of shards without compromising the ordering of events within an entity, so it&rsquo;s best to work out up front what the peak rate of events you expect to need to handle over the lifetime of the system will be, then work out how many nodes you&rsquo;ll need to handle that load, and then use that as the number of shards.</p>
 <p>Lagom provides some utilities for helping create sharded tags. To create the sharded tags, define the number of shards in a static variable, as the shards tag, and implement the <code>aggregateTag</code> method to return the shards tag:</p>
 <pre class="prettyprint"><code class="language-scala">object BlogEvent {
-  val NumShards = 20
+  // will produce tags with shard numbers from 0 to 9
+  val NumShards = 10
   val Tag       = AggregateEventTag.sharded[BlogEvent](NumShards)
 }
 
 sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
   override def aggregateTag: AggregateEventShards[BlogEvent] = BlogEvent.Tag
 }</code></pre>
-<p>Now Lagom here will generate a tag name that appends the hash code of the entity ID modulo the number of shards to the class name.</p><h3 id="Defining-a-read-side-processor"><a class="section-marker" href="#Defining-a-read-side-processor">§</a>Defining a read side processor</h3>
+<p>Now Lagom here will generate a tag name that appends the hash code of the entity ID modulo the number of shards to the class name.</p>
+<blockquote>
+  <p><strong>Note</strong>: if you&rsquo;re using a JDBC database to store your journal, the number of sharded tags (<code>NumShards</code>) should not be greater then 10. This is due to an existing <a href="https://github.com/dnvriend/akka-persistence-jdbc/issues/168">bug</a> in the plugin. Failing to follow this directive will result in some events being delivered more than once on the read-side or topic producers.</p>
+</blockquote><h3 id="Defining-a-read-side-processor"><a class="section-marker" href="#Defining-a-read-side-processor">§</a>Defining a read side processor</h3>
 <p>This is how a <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/ReadSideProcessor"><code>ReadSideProcessor</code></a> class looks like before filling in the implementation details:</p>
 <pre class="prettyprint"><code class="language-scala">class BlogEventProcessor extends ReadSideProcessor[BlogEvent] {
   override def buildHandler(): ReadSideProcessor.ReadSideHandler[BlogEvent] = {

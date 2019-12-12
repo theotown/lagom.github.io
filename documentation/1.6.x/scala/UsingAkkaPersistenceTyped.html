@@ -9,7 +9,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/5096553f9cf19d4d11136a619377140ed9568b4a-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/14be7bd8921ed0f077e9fb3b3e98c14277373101-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -567,7 +567,8 @@ object ShoppingCartView {
 <p>The messages (commands, replies) and the durable classes (events, state snapshots) need to be serializable to be sent over the wire across the cluster or be stored on the database. Akka recommends <a href="https://doc.akka.io/docs/akka/2.6/serialization-jackson.html?language=Scala">Jackson-based serializers</a> &ndash;preferably JSON, but CBOR is also supported&ndash; as a good default in most cases. On top of Akka serializers, Lagom makes it easy to add <a href="SerializationPlayJson.html">Play-JSON serialization</a> support, which may be more familiar to some Scala developers.</p>
 <p>In <a href="https://doc.akka.io/docs/akka/2.6/typed/persistence.html?language=Scala">Akka Persistence Typed</a>, in particular, and when you adopt CQRS/ES practices, commands will include a <code>replyTo: ActorRef[Reply]</code> field. This <code>replyTo</code> field will be used on your code to send a <code>Reply</code> back, as shown in the examples above. Serializing an <code>ActorRef[T]</code> requires using the Akka Jackson serializer, meaning you cannot use Play-JSON to serialize commands.</p>
 <p>The limitation to use Akka Jackson for Command messages doesn&rsquo;t apply to other messages like events, snapshots, or even replies. Each type Akka needs to serialize may use a different serializer.</p>
-<p>Read more about the serialization setup and configuration in the <a href="Serialization.html">serialization</a> section.</p>
+<p>Read more about the serialization setup and configuration in the <a href="Serialization.html">serialization</a> section.</p><h2 id="Testing"><a class="section-marker" href="#Testing">§</a>Testing</h2>
+<p>The section in <a href="https://doc.akka.io/docs/akka/2.6/typed/persistence-testing.html?language=Scala">Testing</a> covers all the steps and features you need to write unit tests for your Aggregates. </p>
                 </article>
 
                 
@@ -871,7 +872,7 @@ object ShoppingCartView {
             </div>
         </div>
     </body>
-    <script src="/5096553f9cf19d4d11136a619377140ed9568b4a-all-scripts-concat.js"></script>
+    <script src="/14be7bd8921ed0f077e9fb3b3e98c14277373101-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

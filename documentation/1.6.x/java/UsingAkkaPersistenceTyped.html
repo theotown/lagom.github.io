@@ -9,7 +9,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/5096553f9cf19d4d11136a619377140ed9568b4a-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/14be7bd8921ed0f077e9fb3b3e98c14277373101-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -687,7 +687,8 @@ public final class ShoppingCartView {
 <p>Keeping all the Aggregates in memory all the time is inefficient. Instead, use the Entity passivation feature, then sharded entities (the Aggregates) are removed from the cluster when they&rsquo;ve been unused for some time.</p>
 <p>Akka supports both <a href="https://doc.akka.io/docs/akka/2.6/typed/cluster-sharding.html?language=Java#passivation">programmatic passivation</a> and <a href="https://doc.akka.io/docs/akka/2.6/typed/cluster-sharding.html?language=Java#automatic-passivation">automatic passivation</a>. The default values for automatic passivation are generally good enough.</p><h2 id="Data-Serialization"><a class="section-marker" href="#Data-Serialization">§</a>Data Serialization</h2>
 <p>The messages (commands, replies) and the durable classes (events, state snapshots) need to be serializable to be sent over the wire across the cluster or be stored on the database. Akka recommends <a href="https://doc.akka.io/docs/akka/2.6/serialization-jackson.html?language=Java">Jackson-based serializers</a> &ndash;preferably JSON, but CBOR is also supported&ndash; as a good default in most cases.</p>
-<p>Read more about the serialization setup and configuration in the <a href="Serialization.html">serialization</a> section.</p>
+<p>Read more about the serialization setup and configuration in the <a href="Serialization.html">serialization</a> section.</p><h2 id="Testing"><a class="section-marker" href="#Testing">§</a>Testing</h2>
+<p>The section in <a href="https://doc.akka.io/docs/akka/2.6/typed/persistence-testing.html?language=Java">Testing</a> covers all the steps and features you need to write unit tests for your Aggregates. </p>
                 </article>
 
                 
@@ -989,7 +990,7 @@ public final class ShoppingCartView {
             </div>
         </div>
     </body>
-    <script src="/5096553f9cf19d4d11136a619377140ed9568b4a-all-scripts-concat.js"></script>
+    <script src="/14be7bd8921ed0f077e9fb3b3e98c14277373101-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

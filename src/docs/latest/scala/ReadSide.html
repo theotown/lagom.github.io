@@ -61,6 +61,7 @@ sealed trait BlogEvent extends AggregateEvent[BlogEvent] {
   BlogEvent.Tag.allTags</code></pre>
 <p>Now we need to implement the <code>buildHandler</code> method. Let&rsquo;s assume that you have created a component to interact with your preferred database, it provides the following methods:</p>
 <pre class="prettyprint"><code class="language-scala">trait MyDatabase {
+
   /**
    * Create the tables needed for this read side if not already created.
    */

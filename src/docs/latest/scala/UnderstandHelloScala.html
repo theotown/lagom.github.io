@@ -62,9 +62,7 @@ class HelloServiceImpl(clusterSharding: ClusterSharding)(implicit ec: ExecutionC
 
   override def useGreeting(id: String) = ServiceCall { request =&gt;
     entityRef(id)
-      .ask[Confirmation](
-        replyTo =&gt; UseGreetingMessage(request.message, replyTo)
-      )
+      .ask[Confirmation](replyTo =&gt; UseGreetingMessage(request.message, replyTo))
       .map {
         case Accepted =&gt; Done
         case _        =&gt; throw BadRequest(&quot;Can&#39;t upgrade the greeting message.&quot;)

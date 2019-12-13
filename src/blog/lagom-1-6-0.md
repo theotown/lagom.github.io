@@ -41,16 +41,16 @@ Lagom 1.6 supports the latest Scala version (2.13), LTS Java version (11), and s
 
 Scala 2.13 brings in a few performance improvements for its collection and async (Future) APIs. Although Java users are not exposed directly to Scala APIs, the Lagom itself is built in Scala and uses many Scala dependencies. That said, updating to Scala v2.13 is also beneficial for Java API users.
 
-## Migrating from previous versions
-
-This release introduces minimal changes over the `1.6.0-RC3`. Therefore if you already moved to that version, the upgrade should be trivial. If you are still using Lagom `1.5.x`, we recommend you first migrate to the latest version available of Lagom 1.5 series and then migrate to Lagom 1.6. If you are using a version older than `1.5.x`, you should migrate one version at a time. For example: from `1.4.9` to `1.4.15` (because `1.4.15` is `1.4.latest`), then from `1.4.15` to `1.5.latest` and finally to `1.6.x`. Read the appropriate [release notes](https://github.com/lagom/lagom/releases) and migration guides ([Java](https://www.lagomframework.com/documentation/1.6.x/java/Migration16.html) / [Scala](https://www.lagomframework.com/documentation/1.6.x/scala/Migration16.html)) on each step.
-
 ## Multiple changes in default behaviors
 
 * Kafka client defaults to only 1 max inflight request per connection. This can mean a drop in throughput but also increases guarantees against duplication or reordering of messages.
 * persistence sharding uses `ddata` strategy instead of persistence
 * JSON compression only triggers for payloads bigger than 32kb
 * java.time.* serializes using ISO-8601instead of custom Jackson formats (only affects Java Lagom users)
+
+## Migrating from previous versions
+
+This release introduces minimal changes over the `1.6.0-RC3`. Therefore if you already moved to that version, the upgrade should be trivial. If you are still using Lagom `1.5.x`, we recommend you first migrate to the latest version available of Lagom 1.5 series and then migrate to Lagom 1.6. If you are using a version older than `1.5.x`, you should migrate one version at a time. For example: from `1.4.9` to `1.4.15` (because `1.4.15` is `1.4.latest`), then from `1.4.15` to `1.5.latest` and finally to `1.6.x`. Read the appropriate [release notes](https://github.com/lagom/lagom/releases) and migration guides ([Java](https://www.lagomframework.com/documentation/1.6.x/java/Migration16.html) / [Scala](https://www.lagomframework.com/documentation/1.6.x/scala/Migration16.html)) on each step.
 
 ## Credits
 

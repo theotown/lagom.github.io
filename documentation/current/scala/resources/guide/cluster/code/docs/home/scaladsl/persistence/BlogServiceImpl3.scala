@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.home.scaladsl.persistence
 
 import com.lightbend.lagom.scaladsl.persistence.ReadSide
@@ -21,7 +25,6 @@ trait BlogServiceImpl3 {
   //#register-event-processor
   class BlogServiceImpl(persistentEntityRegistry: PersistentEntityRegistry, readSide: ReadSide, myDatabase: MyDatabase)
       extends BlogService {
-
     readSide.register[BlogEvent](new BlogEventProcessor(myDatabase))
     //#register-event-processor
 

@@ -7,11 +7,11 @@
         <title>Lagom - Testing Services</title>
         <meta name="description" content="Lagom">
         
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.5.x/java/Test.html"/>
+            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.6.x/java/Test.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/b18c856a483577fba5ee9ea92f3064963d8577af-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/49c089acd48953421f02760b97f4c5429d574738-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -418,7 +418,7 @@ public class AdvancedHelloServiceTest {
 <p>To open an SSL port on the <code>TestServer</code> used in your tests, you may enable SSL support using <code>withSsl</code>:</p>
 <pre class="prettyprint"><code class="language-java">Setup.defaultSetup.withSsl()
 </code></pre>
-<p>Enabling SSL will automatically open a new random port and provide an <code>javax.net.ssl.SSLContext</code> on the TestServer. Lagom doesn&rsquo;t provide any client factory that allows sending requests to the HTTPS port at the moment. You should create an HTTP client using Play-WS, Akka-HTTP or Akka-gRPC. Then, use the <code>httpsPort</code> and the <code>sslContext</code> provided by the <code>testServer</code> instance to send the request. Note that the <code>SSLContext</code> provided is built by Lagom&rsquo;s testkit to trust the <code>testServer</code> certificates. Finally, because the server certificate is issued for <code>CN=localhost</code> you will have to make sure that&rsquo;s the <code>authority</code> on the requests you generate, otherwise the server may decline and fail the request. At the moment it is not possible to setup the test server with different SSL Certificates. </p>
+<p>Enabling SSL will automatically open a new random port and provide an <code>javax.net.ssl.SSLContext</code> on the TestServer. Lagom doesn&rsquo;t provide any client factory that allows sending requests to the HTTPS port at the moment. You should create an HTTP client using Play-WS, Akka-HTTP or Akka-gRPC. Then, use the <code>httpsPort</code> and the <code>sslContext</code> provided by the <code>testServer</code> instance to send the request. Note that the <code>SSLContext</code> provided is built by Lagom&rsquo;s testkit to trust the <code>testServer</code> certificates. Finally, because the server certificate is issued for <code>CN=localhost</code> you will have to make sure that&rsquo;s the <code>authority</code> on the requests you generate, otherwise the server may decline and fail the request. At the moment it is not possible to setup the test server with different SSL Certificates.</p>
 <pre class="prettyprint"><code class="language-java">@Test
 public void testOverTlsWithCustomClient() {
   ServiceTest.withServer(
@@ -430,7 +430,7 @@ public void testOverTlsWithCustomClient() {
         SSLContext sslContext = server.clientSslContext().get();
         // Builds an instance of a WSClient with the provided SSLContext so
         // the fake SSLContext prepared by Lagom&#39;s testkit is used.
-        WSClient wsClient = buildCustomWS(sslContext);
+        WSClient wsClient = buildCustomWS(sslContext, server.system());
         // use `localhost` as authority
         String url = &quot;https://localhost:&quot; + server.portSsl().get() + &quot;/api/sample&quot;;
         String response =
@@ -454,7 +454,7 @@ public void testOverTlsWithCustomClient() {
     return named(&quot;echo&quot;).withCalls(namedCall(&quot;echo&quot;, this::echo));
   }
 }</code></pre>
-<p>When writing tests for that the <a href="https://doc.akka.io/docs/akka/2.5/stream/stream-testkit.html?language=java#streams-testkit">Akka Streams TestKit</a> is very useful. We use the Streams TestKit together with the Lagom <code>ServiceTest</code> utilities:</p>
+<p>When writing tests for that the <a href="https://doc.akka.io/docs/akka/2.6/stream/stream-testkit.html?language=java#streams-testkit">Akka Streams TestKit</a> is very useful. We use the Streams TestKit together with the Lagom <code>ServiceTest</code> utilities:</p>
 <pre class="prettyprint"><code class="language-java">import static com.lightbend.lagom.javadsl.testkit.ServiceTest.*;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import java.util.Arrays;
@@ -489,7 +489,7 @@ public class EchoServiceTest {
         });
   }
 }</code></pre>
-<p>Read more about it in the documentation of the <a href="https://doc.akka.io/docs/akka/2.5/stream/stream-testkit.html?language=java#streams-testkit">Akka Streams TestKit</a>.</p><h2 id="How-to-test-broker-publishing-and-consuming"><a class="section-marker" href="#How-to-test-broker-publishing-and-consuming">§</a>How to test broker publishing and consuming</h2>
+<p>Read more about it in the documentation of the <a href="https://doc.akka.io/docs/akka/2.6/stream/stream-testkit.html?language=java#streams-testkit">Akka Streams TestKit</a>.</p><h2 id="How-to-test-broker-publishing-and-consuming"><a class="section-marker" href="#How-to-test-broker-publishing-and-consuming">§</a>How to test broker publishing and consuming</h2>
 <p>The section on <a href="MessageBrokerTesting.html">Message Broker Testing</a> is related to Testing Services but is specific to testing the production and consumption via Brokers.</p><h2 id="How-to-test-PersistentEntity"><a class="section-marker" href="#How-to-test-PersistentEntity">§</a>How to test PersistentEntity</h2>
 <p><a href="PersistentEntity.html#Unit-Testing">Persistent Entities</a> can be used in the service tests described above. In addition to that you should write unit tests using the <a href="api/index.html?com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.html">PersistentEntityTestDriver</a>, which will run the <code>PersistentEntity</code> without using a database.</p>
 <p>This is described in the documentation of <a href="PersistentEntity.html#Unit-Testing">Persistent Entity</a></p>
@@ -508,7 +508,7 @@ public class EchoServiceTest {
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/java/guide/services/Test.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.6.x/docs/manual/java/guide/services/Test.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -605,7 +605,7 @@ public class EchoServiceTest {
                             
                         
                             
-                                <li><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
+                                <li><a href="UsingAkkaPersistenceTyped.html">Writing persistent and clustered services</a></li>
                             
                         
                             
@@ -650,7 +650,7 @@ public class EchoServiceTest {
                             
                         
                             
-                                <li><a href="Highlights15.html">Lagom releases</a></li>
+                                <li><a href="Highlights16.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -761,7 +761,7 @@ public class EchoServiceTest {
             </div>
         </div>
     </body>
-    <script src="/b18c856a483577fba5ee9ea92f3064963d8577af-all-scripts-concat.js"></script>
+    <script src="/49c089acd48953421f02760b97f4c5429d574738-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

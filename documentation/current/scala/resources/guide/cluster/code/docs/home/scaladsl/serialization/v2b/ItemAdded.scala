@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
  */
+
 package docs.home.scaladsl.serialization.v2b
 
 import com.lightbend.lagom.scaladsl.playjson._
@@ -12,7 +13,6 @@ case class ItemAdded(shoppingCartId: String, productId: String, quantity: Int, d
 //#add-mandatory
 
 object ItemAddedMigration {
-
   object ShopCommands {
     val serializers = Vector.empty[JsonSerializer[_]]
   }
@@ -23,7 +23,6 @@ object ItemAddedMigration {
 
   //#imperative-migration
   class ShopSerializerRegistry extends JsonSerializerRegistry {
-
     import play.api.libs.json._
 
     override val serializers = ShopCommands.serializers ++ ShopEvents.serializers
@@ -43,11 +42,9 @@ object ItemAddedMigration {
     )
   }
   //#imperative-migration
-
 }
 
 object ItemAddedMigrationTransformer {
-
   object ShopCommands {
     val serializers = immutable.Seq.empty[JsonSerializer[_]]
   }
@@ -58,7 +55,6 @@ object ItemAddedMigrationTransformer {
 
   //#transformer-migration
   class ShopSerializerRegistry extends JsonSerializerRegistry {
-
     import play.api.libs.json._
 
     override val serializers = ShopCommands.serializers ++ ShopEvents.serializers
@@ -74,5 +70,4 @@ object ItemAddedMigrationTransformer {
     )
   }
   //#transformer-migration
-
 }

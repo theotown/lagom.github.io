@@ -7,11 +7,11 @@
         <title>Lagom - Message serializers</title>
         <meta name="description" content="Lagom">
         
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.5.x/java/MessageSerializers.html"/>
+            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.6.x/java/MessageSerializers.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/b18c856a483577fba5ee9ea92f3064963d8577af-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/49c089acd48953421f02760b97f4c5429d574738-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -305,7 +305,7 @@
               .withResponseSerializer(new MyOrderSerializer()));
 }</code></pre><h3 id="Per-type-message-serializers"><a class="section-marker" href="#Per-type-message-serializers">§</a>Per type message serializers</h3>
 <p>If no message serializer has been provided at the service call level, Lagom then checks whether a serializer has been registered at the service level for that type. Each service maintains a map of types to serializers for that type, and these are used as appropriate for service calls that match the types in the map.</p>
-<p>Lagom provides a number of serializers out of the box at this level, including serializers for <code>String</code> and <code>NotUsed</code>. Custom type level serializers can also be supplied in the descriptor using the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Descriptor.html#with-java.lang.reflect.Type-com.lightbend.lagom.javadsl.api.deser.MessageSerializer-"><code>Descriptor.with</code></a> method:</p>
+<p>Lagom provides a number of serializers out of the box at this level, including serializers for <code>String</code>, <code>Done</code>, <code>NotUsed</code> and <code>ByteString</code>. Note that serializer for <code>ByteString</code> doesn&rsquo;t modify data and sends <code>ByteString</code> as is. Custom type level serializers can also be supplied in the descriptor using the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Descriptor.html#with-java.lang.reflect.Type-com.lightbend.lagom.javadsl.api.deser.MessageSerializer-"><code>Descriptor.with</code></a> method:</p>
 <pre class="prettyprint"><code class="language-java">default Descriptor descriptor() {
   return named(&quot;orderservice&quot;)
       .withCalls(pathCall(&quot;/orders/:id&quot;, this::getOrder))
@@ -588,7 +588,7 @@ public NegotiatedSerializer&lt;String, ByteString&gt; serializerForResponse(
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/java/guide/services/MessageSerializers.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.6.x/docs/manual/java/guide/services/MessageSerializers.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -685,7 +685,7 @@ public NegotiatedSerializer&lt;String, ByteString&gt; serializerForResponse(
                             
                         
                             
-                                <li><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
+                                <li><a href="UsingAkkaPersistenceTyped.html">Writing persistent and clustered services</a></li>
                             
                         
                             
@@ -730,7 +730,7 @@ public NegotiatedSerializer&lt;String, ByteString&gt; serializerForResponse(
                             
                         
                             
-                                <li><a href="Highlights15.html">Lagom releases</a></li>
+                                <li><a href="Highlights16.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -841,7 +841,7 @@ public NegotiatedSerializer&lt;String, ByteString&gt; serializerForResponse(
             </div>
         </div>
     </body>
-    <script src="/b18c856a483577fba5ee9ea92f3064963d8577af-all-scripts-concat.js"></script>
+    <script src="/49c089acd48953421f02760b97f4c5429d574738-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

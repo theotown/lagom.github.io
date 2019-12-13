@@ -7,11 +7,11 @@
         <title>Lagom - Akka Discovery Integration</title>
         <meta name="description" content="Lagom">
         
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.5.x/java/AkkaDiscoveryIntegration.html"/>
+            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.6.x/java/AkkaDiscoveryIntegration.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/b18c856a483577fba5ee9ea92f3064963d8577af-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/49c089acd48953421f02760b97f4c5429d574738-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -294,7 +294,7 @@
 
                 <article>
                 <h1 id="Using-Akka-Discovery"><a class="section-marker" href="#Using-Akka-Discovery">§</a>Using Akka Discovery</h1>
-<p>As of version 1.5.1, Lagom has built-in integration with <a href="https://doc.akka.io/docs/akka/2.5/discovery/index.html">Akka Discovery</a> throught a <a href="api/index.html?com/lightbend/lagom/javadsl/api/ServiceLocator.html">ServiceLocator</a> that wraps Akka Discovery. This is the recommended implementation for production specially for users targeting Kubernetes and DC/OS (Marathon).</p><h2 id="Dependency"><a class="section-marker" href="#Dependency">§</a>Dependency</h2>
+<p>As of version 1.5.1, Lagom has built-in integration with <a href="https://doc.akka.io/docs/akka/2.6/discovery/index.html">Akka Discovery</a> throught a <a href="api/index.html?com/lightbend/lagom/javadsl/api/ServiceLocator.html">ServiceLocator</a> that wraps Akka Discovery. This is the recommended implementation for production specially for users targeting Kubernetes and DC/OS (Marathon).</p><h2 id="Dependency"><a class="section-marker" href="#Dependency">§</a>Dependency</h2>
 <p>To use this feature add the following in your project&rsquo;s build:</p>
 <p>In Maven:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
@@ -304,14 +304,11 @@
 &lt;/dependency&gt;
 </code></pre>
 <p>In sbt:</p>
-<pre class="prettyprint"><code class="language-sbt">import com.lightbend.lagom.core.LagomVersion
-
-libraryDependencies += &quot;com.lightbend.lagom&quot; %% &quot;lagom-javadsl-akka-discovery-service-locator&quot; % LagomVersion.current</code></pre>
-<p>The example above uses <code>LagomVersion.current</code> in order to guarantee that dependency stays aligned with your current Lagom plugin version.</p><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
+<pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomJavadslAkkaDiscovery</code></pre><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
 <p>The Guice module <a href="api/index.html?com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocatorModule.html">AkkaDiscoveryServiceLocatorModule</a> will be added by default to your project, but will only wire in the <a href="api/index.html?com/lightbend/lagom/javadsl/akka/discovery/AkkaDiscoveryServiceLocator.html">AkkaDiscoveryServiceLocator</a> when running in production mode.</p>
 <p>In development, your Lagom application will keep using the Lagom&rsquo;s dev-mode <a href="api/index.html?com/lightbend/lagom/javadsl/api/ServiceLocator.html">ServiceLocator</a>.</p>
-<p>By default, Lagom uses <a href="https://doc.akka.io/docs/akka/2.5/discovery/index.html#discovery-method-aggregate-multiple-discovery-methods">Aggregate multiple discovery methods</a>. The first discovery method is set to Configuration and the second is set to DNS.<br/>So the static definition of service endpoins has a priority over DNS discovery.</p>
-<p>To statically configure service endpoints in your <code>application.conf</code> file consult the <a href="https://doc.akka.io/docs/akka/2.5/discovery/index.html#discovery-method-aggregate-multiple-discovery-methods">Aggregate multiple discovery methods</a> documentation.</p>
+<p>By default, Lagom uses <a href="https://doc.akka.io/docs/akka/2.6/discovery/index.html#discovery-method-aggregate-multiple-discovery-methods">Aggregate multiple discovery methods</a>. The first discovery method is set to Configuration and the second is set to DNS.<br/>So the static definition of service endpoins has a priority over DNS discovery.</p>
+<p>To statically configure service endpoints in your <code>application.conf</code> file consult the <a href="https://doc.akka.io/docs/akka/2.6/discovery/index.html#discovery-method-aggregate-multiple-discovery-methods">Aggregate multiple discovery methods</a> documentation.</p>
 <p>To configure service discovery with DNS Lagom provides some configuration settings. The default settings are in</p>
 <pre class="prettyprint"><code class="language-conf">lagom.akka.discovery {
 
@@ -330,7 +327,7 @@ libraryDependencies += &quot;com.lightbend.lagom&quot; %% &quot;lagom-javadsl-ak
 
   # A mapping of service names to lookup information. Each mapping should define the following:
   #
-  # - lookup - An alternative name for the service. This can be configured with a simple name or a SRV lookup, for exampe:
+  # - lookup - An alternative name for the service. This can be configured with a simple name or a SRV lookup, for example:
   #   * my-service (simple name)
   #   * my-service.default.svc.cluster.local (simple fully-qualified name)
   #   * _http._tcp.my-service (SRV)
@@ -367,7 +364,7 @@ libraryDependencies += &quot;com.lightbend.lagom&quot; %% &quot;lagom-javadsl-ak
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/java/guide/production/AkkaDiscoveryIntegration.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.6.x/docs/manual/java/guide/production/AkkaDiscoveryIntegration.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -440,7 +437,7 @@ libraryDependencies += &quot;com.lightbend.lagom&quot; %% &quot;lagom-javadsl-ak
                             
                         
                             
-                                <li><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
+                                <li><a href="UsingAkkaPersistenceTyped.html">Writing persistent and clustered services</a></li>
                             
                         
                             
@@ -485,7 +482,7 @@ libraryDependencies += &quot;com.lightbend.lagom&quot; %% &quot;lagom-javadsl-ak
                             
                         
                             
-                                <li><a href="Highlights15.html">Lagom releases</a></li>
+                                <li><a href="Highlights16.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -596,7 +593,7 @@ libraryDependencies += &quot;com.lightbend.lagom&quot; %% &quot;lagom-javadsl-ak
             </div>
         </div>
     </body>
-    <script src="/b18c856a483577fba5ee9ea92f3064963d8577af-all-scripts-concat.js"></script>
+    <script src="/49c089acd48953421f02760b97f4c5429d574738-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

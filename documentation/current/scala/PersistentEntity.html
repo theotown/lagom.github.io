@@ -4,14 +4,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Persistent Entity</title>
+        <title>Lagom - Persistent Entity (classic)</title>
         <meta name="description" content="Lagom">
         
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.5.x/scala/PersistentEntity.html"/>
+            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.6.x/scala/PersistentEntity.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/b18c856a483577fba5ee9ea92f3064963d8577af-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/49c089acd48953421f02760b97f4c5429d574738-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -271,7 +271,7 @@
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Persistent Entity</h1>
+                <h1>Persistent Entity (classic)</h1>
             </div>
         </div>
     </header>
@@ -287,14 +287,17 @@
                             <a href="ReferenceGuide.html">Lagom reference guide</a>
                         
                                     &raquo;
-                            <a href="PersistentEntity.html">Writing persistent and clustered services</a>
+                            <a href="UsingAkkaPersistenceTyped.html">Writing persistent and clustered services</a>
                         
                     </nav>
                 
 
                 <article>
                 <h1 id="Persistent-Entity"><a class="section-marker" href="#Persistent-Entity">§</a>Persistent Entity</h1>
-<p><a href="ES_CQRS.html">Event Sourcing and CQRS</a> is a recommended introduction to this section.</p>
+<blockquote>
+  <p>If you are developing a new Lagom application, we recommend you to follow the guide <a href="UsingAkkaPersistenceTyped.html">Domain Modelling with Akka Persistence Typed</a>. If you already have an application using Lagom&rsquo;s <code>PersistenceEntity</code>, we recommend the guide <a href="MigratingToAkkaPersistenceTyped.html">Migrating to Akka Persistence Typed</a> instead.</p>
+</blockquote>
+<p>We recommend reading <a href="ES_CQRS.html">Event Sourcing and CQRS</a> as a prerequisite to this section.</p>
 <p>A <code>PersistentEntity</code> has a stable entity identifier, with which it can be accessed from the service implementation or other places. The state of an entity is persistent (durable) using <a href="https://msdn.microsoft.com/en-us/library/jj591559.aspx">Event Sourcing</a>. We represent all state changes as events and those immutable facts are appended to an event log. To recreate the current state of an entity when it is started we replay these events.</p>
 <p>A persistent entity corresponds to an <a href="https://martinfowler.com/bliki/DDD_Aggregate.html">Aggregate Root</a> in Domain-Driven Design terms. Each instance has a stable identifier and for a given id there will only be one instance of the entity. Lagom takes care of distributing those instances across the cluster of the service. If you know the identifier you can send messages, so called commands, to the entity.</p>
 <p>The persistent entity is also a transaction boundary. Invariants can be maintained within one entity but not across several entities.</p>
@@ -302,25 +305,11 @@
 <p>You interact with a <code>PersistentEntity</code> by sending command messages to it. Commands are processed sequentially, one at a time, for a specific entity instance. A command may result in state changes that are persisted as events, representing the effect of the command. The current state is not stored for every change, since it can be derived from the events. These events are only ever appended to storage, nothing is ever mutated, which allows for very high transaction rates and efficient replication.</p>
 <p>The entities are automatically distributed across the nodes in the cluster of the service. Each entity runs only at one place, and messages can be sent to the entity without requiring the sender to know the location of the entity. If a node is stopped the entities running on that node will be started on another node when a message is sent to it next time. When new nodes are added to the cluster some existing entities are rebalanced to the new nodes to spread the load.</p>
 <p>An entity is kept alive, holding its current state in memory, as long as it is used. When it has not been used for a while it will automatically be passivated to free up resources.</p>
-<p>When an entity is started it replays the stored events to restore the current state. This can be either the full history of changes or starting from a snapshot which will reduce recovery times.</p><h2 id="Choosing-a-database"><a class="section-marker" href="#Choosing-a-database">§</a>Choosing a database</h2>
-<p>Lagom is compatible with the following databases:</p>
-<ul>
-  <li><a href="https://cassandra.apache.org/">Cassandra</a></li>
-  <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  <li><a href="https://www.mysql.com/">MySQL</a></li>
-  <li><a href="https://www.oracle.com/database/index.html">Oracle</a></li>
-  <li><a href="https://www.h2database.com/">H2</a></li>
-  <li><a href="https://www.microsoft.com/en-us/sql-server/">Microsoft SQL Server</a></li>
-  <li><a href="https://www.couchbase.com/">Couchbase</a></li>
-</ul>
-<p>For instructions on configuring your project to use Cassandra, see <a href="PersistentEntityCassandra.html">Using Cassandra for Persistent Entities</a>. If instead you want to use one of the relational databases listed above, see <a href="PersistentEntityRDBMS.html">Using a Relational Database for Persistent Entities</a> on how to configure your project. If you wish to use Couchbase, proceed to the <a href="https://doc.akka.io/docs/akka-persistence-couchbase/current/lagom-persistent-entity.html">Lagom section of the plugin site</a> for all the details.</p>
-<p>To see how to combine Cassandra for write-side persistence and JDBC for a read-side view, see the <a href="https://github.com/lagom/lagom-samples/blob/1.5.x/mixed-persistence/mixed-persistence-scala-sbt/README.md">Mixed Persistence Service</a> example.</p>
-<p>Lagom provides out of the box support for running Cassandra in a development environment - developers do not need to install, configure or manage Cassandra at all themselves when using Lagom, which makes for great developer velocity, and it means gone are the days where developers spend days setting up their development environment before they can start to be productive on a project.</p><h2 id="PersistentEntity-Stub"><a class="section-marker" href="#PersistentEntity-Stub">§</a>PersistentEntity Stub</h2>
-<p>This is how a <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/PersistentEntity">PersistentEntity</a> class looks like before filling in the implementation details:</p>
+<p>When an entity is started it replays the stored events to restore the current state. This can be either the full history of changes or starting from a snapshot which will reduce recovery times.</p><h2 id="PersistentEntity-Stub"><a class="section-marker" href="#PersistentEntity-Stub">§</a>PersistentEntity Stub</h2>
+<p>This is what a <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/PersistentEntity">PersistentEntity</a> class looks like before filling in the implementation details:</p>
 <pre class="prettyprint"><code class="language-scala">import com.lightbend.lagom.scaladsl.persistence.PersistentEntity
 
 final class Post1 extends PersistentEntity {
-
   override type Command = BlogCommand
   override type Event   = BlogEvent
   override type State   = BlogState
@@ -328,7 +317,6 @@ final class Post1 extends PersistentEntity {
   override def initialState: BlogState = BlogState.empty
 
   override def behavior: Behavior = Actions()
-
 }</code></pre>
 <p>The three abstract type members that the concrete <code>PersistentEntity</code> subclass must define:</p>
 <ul>
@@ -447,7 +435,6 @@ import com.lightbend.lagom.scaladsl.persistence.PersistentEntityRegistry
 </code></pre>
 <pre class="prettyprint"><code class="language-scala">class BlogServiceImpl(persistentEntities: PersistentEntityRegistry)(implicit ec: ExecutionContext)
     extends BlogService {
-
   persistentEntities.register(new Post)
 
   override def addPost(id: String): ServiceCall[AddPost, String] =
@@ -482,7 +469,6 @@ import org.scalatest.Matchers
 import org.scalatest.WordSpecLike
 
 class PostSpec extends WordSpecLike with Matchers with BeforeAndAfterAll with TypeCheckedTripleEquals {
-
   val system = ActorSystem(&quot;PostSpec&quot;, JsonSerializerRegistry.actorSystemSetupFor(BlogPostSerializerRegistry))
 
   override def afterAll(): Unit = {
@@ -520,7 +506,6 @@ class PostSpec extends WordSpecLike with Matchers with BeforeAndAfterAll with Ty
       outcome.replies should ===(List(Done, Done))
       outcome.issues should be(Nil)
     }
-
   }
 }</code></pre>
 <p><code>run</code> may be invoked multiple times to divide the sequence of commands into manageable steps. The <a href="api/index.html#com/lightbend/lagom/scaladsl/testkit/PersistentEntityTestDriver@Outcome">Outcome</a> contains the events and side-effects of the last <code>run</code>, but the state is not reset between different runs.</p>
@@ -531,7 +516,6 @@ class PostSpec extends WordSpecLike with Matchers with BeforeAndAfterAll with Ty
 import com.lightbend.lagom.scaladsl.persistence.PersistentEntity
 
 final class Post extends PersistentEntity {
-
   override type Command = BlogCommand
   override type Event   = BlogEvent
   override type State   = BlogState
@@ -582,7 +566,6 @@ final class Post extends PersistentEntity {
           ctx.reply(state.content.get)
       }
   }
-
 }</code></pre>
 <pre class="prettyprint"><code class="language-scala">import com.lightbend.lagom.scaladsl.persistence.PersistentEntity.ReplyType
 import akka.Done
@@ -715,7 +698,7 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
     throughput = 1
   }
 }</code></pre><h2 id="Underlying-Implementation"><a class="section-marker" href="#Underlying-Implementation">§</a>Underlying Implementation</h2>
-<p>Each <code>PersistentEntity</code> instance is executed by a <a href="https://doc.akka.io/docs/akka/2.5/persistence.html?language=scala">PersistentActor</a> that is managed by <a href="https://doc.akka.io/docs/akka/2.5/cluster-sharding.html?language=scala">Akka Cluster Sharding</a>.</p><h2 id="Execution-details-(advanced)"><a class="section-marker" href="#Execution-details-(advanced)">§</a>Execution details (advanced)</h2>
+<p>Each <code>PersistentEntity</code> instance is executed by a <a href="https://doc.akka.io/docs/akka/2.6/persistence.html?language=scala">PersistentActor</a> that is managed by <a href="https://doc.akka.io/docs/akka/2.6/cluster-sharding.html?language=scala">Akka Cluster Sharding</a>.</p><h2 id="Execution-details-(advanced)"><a class="section-marker" href="#Execution-details-(advanced)">§</a>Execution details (advanced)</h2>
 <p>If you&rsquo;ve read all the sections above you are familiar with all the pieces conforming a Persistent Entity but there are few details worth explaining more extensively. As stated above:</p>
 <blockquote>
   <p>Commands are processed sequentially, one at a time, for a specific entity instance.</p>
@@ -730,7 +713,7 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
   <li>if the snapshotting threshold is exceeded, a snapshot is generated and stored</li>
   <li>finally, the command processing completes and a new command may be processed.</li>
 </ol>
-<p>If you are familiar with <a href="https://doc.akka.io/docs/akka/2.5/persistence.html">Akka Persistence</a> this process is slightly different in few places:</p>
+<p>If you are familiar with <a href="https://doc.akka.io/docs/akka/2.6/persistence.html">Akka Persistence</a> this process is slightly different in few places:</p>
 <ul>
   <li>new commands are not processed until events are stored, the <code>Effect</code> completed and the snapshot updated (if necessary). Akka provides the same behavior and also <code>async</code> alternatives that cause new commands to be processed even before all event handlers have completed.</li>
   <li>saving snapshots is an operation run under the covers <em>at least</em> every <code>lagom.persistence.snapshot-after</code> events (see <a href="#Configuration">Configuration</a> above) but &ldquo;storing events atomically&rdquo; takes precedence. Imagine we want a snapshot every 100 events and we already have 99 events, if the next command emits 3 events the snapshot will only be stored after event number 102 because events <code>[100, 101, 102]</code> will be stored atomically and only after it&rsquo;ll be possible to create a snapshot.</li>
@@ -741,8 +724,8 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
                     
                         
                             <nav class="next-link">
-                                <a href="PersistentEntityCassandra.html"><strong>Next: </strong>
-                                    Cassandra Persistent Entities</a>
+                                <a href="ChoosingADatabase.html"><strong>Next: </strong>
+                                    Choosing a Database</a>
                             </nav>
                         
                     
@@ -750,7 +733,7 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/scala/guide/cluster/PersistentEntity.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.6.x/docs/manual/scala/guide/cluster/PersistentEntity.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -784,15 +767,27 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
                         <ul>
                         
                             
-                                <li class="current-page"><a href="PersistentEntity.html">Persistent Entity</a></li>
+                                <li><a href="UsingAkkaPersistenceTyped.html">Domain Modelling with Akka Persistence Typed</a></li>
                             
                         
                             
-                                <li><a href="PersistentEntityCassandra.html">Cassandra Persistent Entities</a></li>
+                                <li><a href="MigratingToAkkaPersistenceTyped.html"> Migrating to Akka Persistence Typed</a></li>
                             
                         
                             
-                                <li><a href="PersistentEntityRDBMS.html">Relational Database Persistent Entities</a></li>
+                                <li class="current-page"><a href="PersistentEntity.html">Persistent Entity (classic)</a></li>
+                            
+                        
+                            
+                                <li><a href="ChoosingADatabase.html">Choosing a Database</a></li>
+                            
+                        
+                            
+                                <li><a href="PersistentEntityCassandra.html">Cassandra Setup</a></li>
+                            
+                        
+                            
+                                <li><a href="PersistentEntityRDBMS.html">Relational Database Setup</a></li>
                             
                         
                             
@@ -827,6 +822,18 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
                                 <li><a href="Serialization.html">Serialization</a></li>
                             
                         
+                            
+                                <li><a href="SerializationPlayJson.html">Serialization using Play JSON</a></li>
+                            
+                        
+                            
+                                <li><a href="SerializationAkkaJackson.html">Serialization using Akka Jackson</a></li>
+                            
+                        
+                            
+                                <li><a href="Projections.html">Projections</a></li>
+                            
+                        
                         </ul>
                     
                         <h3>Lagom reference guide</h3>
@@ -849,7 +856,7 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
                             
                         
                             
-                                <li class="current-page"><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
+                                <li class="current-page"><a href="UsingAkkaPersistenceTyped.html">Writing persistent and clustered services</a></li>
                             
                         
                             
@@ -894,7 +901,7 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
                             
                         
                             
-                                <li><a href="Highlights15.html">Lagom releases</a></li>
+                                <li><a href="Highlights16.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -1005,7 +1012,7 @@ final case class PostContent(title: String, body: String)</code></pre><h2 id="Re
             </div>
         </div>
     </body>
-    <script src="/b18c856a483577fba5ee9ea92f3064963d8577af-all-scripts-concat.js"></script>
+    <script src="/49c089acd48953421f02760b97f4c5429d574738-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

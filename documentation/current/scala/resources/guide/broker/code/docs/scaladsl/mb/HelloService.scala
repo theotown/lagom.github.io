@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.scaladsl.mb
 
 import akka.Done
@@ -14,7 +18,6 @@ object HelloService {
   val TOPIC_NAME = "greetings"
 }
 trait HelloService extends Service {
-
   final override def descriptor = {
     import Service._
     named("brokerdocs")

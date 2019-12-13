@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.home.scaladsl.persistence
 
 //#imports
@@ -11,7 +15,6 @@ import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
 //#imports
 
 trait JdbcReadSideQuery {
-
   trait BlogService extends Service {
     def getPostSummaries(): ServiceCall[NotUsed, immutable.IndexedSeq[PostSummary]]
 
@@ -36,6 +39,5 @@ trait JdbcReadSideQuery {
       }
     }
     //#service-impl
-
   }
 }

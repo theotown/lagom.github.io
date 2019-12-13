@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.home.scaladsl.persistence
 
 import com.lightbend.lagom.scaladsl.api.ServiceLocator
@@ -10,7 +14,6 @@ import play.api.db.HikariCPComponents
 import play.api.libs.ws.ahc.AhcWSComponents
 
 class JdbcBlogApplicationLoader extends LagomApplicationLoader {
-
   override def load(context: LagomApplicationContext): LagomApplication =
     new BlogApplication(context) {
       override def serviceLocator: ServiceLocator = NoServiceLocator

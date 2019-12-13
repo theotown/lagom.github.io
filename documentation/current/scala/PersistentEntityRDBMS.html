@@ -4,14 +4,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Relational Database Persistent Entities</title>
+        <title>Lagom - Relational Database Setup</title>
         <meta name="description" content="Lagom">
         
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.5.x/scala/PersistentEntityRDBMS.html"/>
+            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.6.x/scala/PersistentEntityRDBMS.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/b18c856a483577fba5ee9ea92f3064963d8577af-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/49c089acd48953421f02760b97f4c5429d574738-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -271,7 +271,7 @@
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Relational Database Persistent Entities</h1>
+                <h1>Relational Database Setup</h1>
             </div>
         </div>
     </header>
@@ -287,14 +287,14 @@
                             <a href="ReferenceGuide.html">Lagom reference guide</a>
                         
                                     &raquo;
-                            <a href="PersistentEntity.html">Writing persistent and clustered services</a>
+                            <a href="UsingAkkaPersistenceTyped.html">Writing persistent and clustered services</a>
                         
                     </nav>
                 
 
                 <article>
-                <h1 id="Storing-Persistent-Entities-in-a-Relational-Database"><a class="section-marker" href="#Storing-Persistent-Entities-in-a-Relational-Database">§</a>Storing Persistent Entities in a Relational Database</h1>
-<p>This page describes how to configure a relational database for use with Lagom&rsquo;s <a href="PersistentEntity.html">Persistent Entity</a> API.</p><h2 id="Project-dependencies"><a class="section-marker" href="#Project-dependencies">§</a>Project dependencies</h2>
+                <h1 id="Storing-Persistent-Events-in-a-Relational-Database"><a class="section-marker" href="#Storing-Persistent-Events-in-a-Relational-Database">§</a>Storing Persistent Events in a Relational Database</h1>
+<p>This page describes how to configure a relational database for use with <a href="PersistentEntity.html">Persistent Entity</a> API or Akka Typed Persistence in a Lagom service .</p><h2 id="Project-dependencies"><a class="section-marker" href="#Project-dependencies">§</a>Project dependencies</h2>
 <p>To use a relational database add the following in your project&rsquo;s build:</p>
 <p>In Maven:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
@@ -306,16 +306,17 @@
 <p>In sbt:</p>
 <pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomScaladslPersistenceJdbc</code></pre>
 <p>You will also need to add the jar for your JDBC database driver.</p>
-<p>To enable the RDBMS Persistence on your Application you will have to mix in | <a href="api/com/lightbend/lagom/scaladsl/persistence/jdbc/JdbcPersistenceComponents.html">JdbcPersistenceComponents</a> and <a href="https://www.playframework.com/documentation/2.6.x/api/scala/play/api/db/HikariCPComponents.html">HikariCPComponents</a> as described in <a href="DependencyInjection.html#Wiring-together-a-Lagom-application">Dependency Injection</a>.</p><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
-<p>Lagom uses the <a href="https://github.com/dnvriend/akka-persistence-jdbc"><code>akka-persistence-jdbc</code></a> plugin to persist entities to the database. This supports four different relational databases:</p>
+<p>To enable the RDBMS Persistence on your Application you will have to mix in | <a href="api/com/lightbend/lagom/scaladsl/persistence/jdbc/JdbcPersistenceComponents.html">JdbcPersistenceComponents</a> and <a href="https://www.playframework.com/documentation/2.8.x/api/scala/play/api/db/HikariCPComponents.html">HikariCPComponents</a> as described in <a href="DependencyInjection.html#Wiring-together-a-Lagom-application">Dependency Injection</a>.</p><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
+<p>Lagom uses the <a href="https://github.com/dnvriend/akka-persistence-jdbc"><code>akka-persistence-jdbc</code></a> plugin. This supports the following relational databases:</p>
 <ul>
   <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
   <li><a href="https://www.mysql.com/">MySQL</a></li>
   <li><a href="https://www.oracle.com/database/">Oracle</a></li>
   <li><a href="https://www.h2database.com/">H2</a></li>
+  <li><a href="https://www.microsoft.com/en-us/sql-server">SQL Server</a></li>
 </ul>
 <p>We advise against using H2 in production, however, it is suitable for use in development and testing.</p>
-<p>In Lagom&rsquo;s default configuration, Lagom will use Play&rsquo;s JDBC support to configure and create a connection pool. Details on how to configure it can be found <a href="https://www.playframework.com/documentation/2.6.x/ScalaDatabase">here</a>. Play should be configured to provide a JNDI binding for the datasource, by default Lagom binds it to <code>DefaultDS</code>.</p>
+<p>In Lagom&rsquo;s default configuration, Lagom will use Play&rsquo;s JDBC support to configure and create a connection pool. Details on how to configure it can be found <a href="https://www.playframework.com/documentation/2.8.x/ScalaDatabase">here</a>. Play should be configured to provide a JNDI binding for the datasource, by default Lagom binds it to <code>DefaultDS</code>.</p>
 <p>Lagom then configures a <a href="https://scala-slick.org/">Slick</a> Database to use that datasource in combination with a <a href="https://scala-slick.org/doc/3.2.1/api/index.html#slick.util.AsyncExecutor">AsyncExecutor</a> that manages the thread pool for asynchronous execution of Database I/O Actions. Lagom will also take care that the connection pool is configured correctly according to the AsyncExecutor settings. The Slick Database is then bound to the JNDI name <code>DefaultDB</code> and it&rsquo;s used to configure the <code>akka-persistence-jdbc</code> plugin.</p>
 <p>The <code>akka-persistence-jdbc</code> plugin uses Slick to map tables and manage asynchronous execution of JDBC calls. This means Lagom internally configures it to use the right Slick profile for your database.</p>
 <p>So for example, to configure a PostgreSQL database, you can add the following to your <code>application.conf</code>:</p>
@@ -453,7 +454,7 @@ lagom.persistence.jdbc {
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/scala/guide/cluster/PersistentEntityRDBMS.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.6.x/docs/manual/scala/guide/cluster/PersistentEntityRDBMS.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -487,15 +488,27 @@ lagom.persistence.jdbc {
                         <ul>
                         
                             
-                                <li><a href="PersistentEntity.html">Persistent Entity</a></li>
+                                <li><a href="UsingAkkaPersistenceTyped.html">Domain Modelling with Akka Persistence Typed</a></li>
                             
                         
                             
-                                <li><a href="PersistentEntityCassandra.html">Cassandra Persistent Entities</a></li>
+                                <li><a href="MigratingToAkkaPersistenceTyped.html"> Migrating to Akka Persistence Typed</a></li>
                             
                         
                             
-                                <li class="current-page"><a href="PersistentEntityRDBMS.html">Relational Database Persistent Entities</a></li>
+                                <li><a href="PersistentEntity.html">Persistent Entity (classic)</a></li>
+                            
+                        
+                            
+                                <li><a href="ChoosingADatabase.html">Choosing a Database</a></li>
+                            
+                        
+                            
+                                <li><a href="PersistentEntityCassandra.html">Cassandra Setup</a></li>
+                            
+                        
+                            
+                                <li class="current-page"><a href="PersistentEntityRDBMS.html">Relational Database Setup</a></li>
                             
                         
                             
@@ -530,6 +543,18 @@ lagom.persistence.jdbc {
                                 <li><a href="Serialization.html">Serialization</a></li>
                             
                         
+                            
+                                <li><a href="SerializationPlayJson.html">Serialization using Play JSON</a></li>
+                            
+                        
+                            
+                                <li><a href="SerializationAkkaJackson.html">Serialization using Akka Jackson</a></li>
+                            
+                        
+                            
+                                <li><a href="Projections.html">Projections</a></li>
+                            
+                        
                         </ul>
                     
                         <h3>Lagom reference guide</h3>
@@ -552,7 +577,7 @@ lagom.persistence.jdbc {
                             
                         
                             
-                                <li class="current-page"><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
+                                <li class="current-page"><a href="UsingAkkaPersistenceTyped.html">Writing persistent and clustered services</a></li>
                             
                         
                             
@@ -597,7 +622,7 @@ lagom.persistence.jdbc {
                             
                         
                             
-                                <li><a href="Highlights15.html">Lagom releases</a></li>
+                                <li><a href="Highlights16.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -708,7 +733,7 @@ lagom.persistence.jdbc {
             </div>
         </div>
     </body>
-    <script src="/b18c856a483577fba5ee9ea92f3064963d8577af-all-scripts-concat.js"></script>
+    <script src="/49c089acd48953421f02760b97f4c5429d574738-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

@@ -1,11 +1,13 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.scaladsl.advanced
 
 import _root_.akka.actor.ActorSystem
-import _root_.akka.stream.ActorMaterializer
 import _root_.akka.stream.Materializer
 
 package staticservicelocator {
-
   import docs.scaladsl.services.helloservice.HelloService
 
   class MyAppStandalone {
@@ -16,8 +18,8 @@ package staticservicelocator {
 
     val clientFactory =
       new StandaloneLagomClientFactory("my-client", classOf[StandaloneLagomClientFactory].getClassLoader)
-      with StaticServiceLocatorComponents with AhcWSComponents {
-
+        with StaticServiceLocatorComponents
+        with AhcWSComponents {
         override def staticServiceUri = URI.create("http://localhost:8080")
       }
     //#static-service-locator-standalone
@@ -45,7 +47,7 @@ package staticservicelocator {
     }
 
     val actorSystem   = ActorSystem("my-app")
-    val materializer  = ActorMaterializer()(actorSystem)
+    val materializer  = Materializer.matFromSystem(actorSystem)
     val clientFactory = new MyLagomClientFactory(actorSystem, materializer)
     //#static-service-locator
 
@@ -56,7 +58,6 @@ package staticservicelocator {
 }
 
 package devmode {
-
   class MyApp {
     val devMode = true
 
@@ -70,7 +71,6 @@ package devmode {
       new StandaloneLagomClientFactory("my-client") with AhcWSComponents with LagomDevModeServiceLocatorComponents
     } else {
       new StandaloneLagomClientFactory("my-client") with StaticServiceLocatorComponents with AhcWSComponents {
-
         override def staticServiceUri = URI.create("http://localhost:8080")
       }
     }
@@ -78,11 +78,10 @@ package devmode {
 
     //#dev-mode-url
     new StandaloneLagomClientFactory("my-client") with AhcWSComponents with LagomDevModeServiceLocatorComponents {
-
-      override lazy val devModeServiceLocatorUrl = URI.create("http://localhost:8001")
+      override lazy val devModeServiceLocatorUrl =
+        URI.create("http://localhost:8001")
     }
 
     //#dev-mode-url
   }
-
 }

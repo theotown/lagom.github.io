@@ -7,11 +7,11 @@
         <title>Lagom - Slick Read-Side Support</title>
         <meta name="description" content="Lagom">
         
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.5.x/scala/ReadSideSlick.html"/>
+            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.6.x/scala/ReadSideSlick.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/b18c856a483577fba5ee9ea92f3064963d8577af-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/49c089acd48953421f02760b97f4c5429d574738-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -287,7 +287,7 @@
                             <a href="ReferenceGuide.html">Lagom reference guide</a>
                         
                                     &raquo;
-                            <a href="PersistentEntity.html">Writing persistent and clustered services</a>
+                            <a href="UsingAkkaPersistenceTyped.html">Writing persistent and clustered services</a>
                         
                     </nav>
                 
@@ -300,9 +300,7 @@
 <pre class="prettyprint"><code class="language-scala">import slick.jdbc.H2Profile.api._
 
 class PostSummaryRepository {
-
   class PostSummaryTable(tag: Tag) extends Table[PostSummary](tag, &quot;post_summary&quot;) {
-
     def *      = (postId, title) &lt;&gt; (PostSummary.tupled, PostSummary.unapply)
     def postId = column[String](&quot;post_id&quot;, O.PrimaryKey)
     def title  = column[String](&quot;title&quot;)
@@ -318,7 +316,6 @@ class PostSummaryRepository {
 import com.lightbend.lagom.scaladsl.api.ServiceCall
 import slick.jdbc.JdbcBackend.Database</code></pre>
 <pre class="prettyprint"><code class="language-scala">class BlogServiceImpl(db: Database, val postSummaryRepo: PostSummaryRepository) extends BlogService {
-
   override def getPostSummaries() = ServiceCall { request =&gt;
     db.run(postSummaryRepo.selectPostSummaries())
   }</code></pre>
@@ -338,7 +335,6 @@ import scala.concurrent.ExecutionContext</code></pre>
     readSide: SlickReadSide,
     postSummaryRepo: PostSummaryRepository
 ) extends ReadSideProcessor[BlogEvent] {
-
   override def buildHandler(): ReadSideProcessor.ReadSideHandler[BlogEvent] = {
     // TODO build read side handler
     ???
@@ -385,7 +381,6 @@ class PostSummaryRepository {
 <p>Once you&rsquo;ve created your read-side processor, you need to register it with Lagom. This is done using the <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/ReadSide"><code>ReadSide</code></a> component:</p>
 <pre class="prettyprint"><code class="language-scala">class BlogServiceImpl(persistentEntityRegistry: PersistentEntityRegistry, readSide: ReadSide, myDatabase: MyDatabase)
     extends BlogService {
-
   readSide.register[BlogEvent](new BlogEventProcessor(myDatabase))</code></pre>
 <p>Note that if you are utilizing <a href="DependencyInjection.html#Wiring-together-a-Lagom-application">Macwire for dependency injection</a>, you can simply add the following to your Application Loader:</p>
 <pre class="prettyprint"><code class="language-scala">readSide.register(wire[BlogEventProcessor])</code></pre><h3 id="Event-handlers"><a class="section-marker" href="#Event-handlers">§</a>Event handlers</h3>
@@ -429,7 +424,7 @@ def save(postSummary: PostSummary) = {
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/scala/guide/cluster/ReadSideSlick.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.6.x/docs/manual/scala/guide/cluster/ReadSideSlick.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -463,15 +458,27 @@ def save(postSummary: PostSummary) = {
                         <ul>
                         
                             
-                                <li><a href="PersistentEntity.html">Persistent Entity</a></li>
+                                <li><a href="UsingAkkaPersistenceTyped.html">Domain Modelling with Akka Persistence Typed</a></li>
                             
                         
                             
-                                <li><a href="PersistentEntityCassandra.html">Cassandra Persistent Entities</a></li>
+                                <li><a href="MigratingToAkkaPersistenceTyped.html"> Migrating to Akka Persistence Typed</a></li>
                             
                         
                             
-                                <li><a href="PersistentEntityRDBMS.html">Relational Database Persistent Entities</a></li>
+                                <li><a href="PersistentEntity.html">Persistent Entity (classic)</a></li>
+                            
+                        
+                            
+                                <li><a href="ChoosingADatabase.html">Choosing a Database</a></li>
+                            
+                        
+                            
+                                <li><a href="PersistentEntityCassandra.html">Cassandra Setup</a></li>
+                            
+                        
+                            
+                                <li><a href="PersistentEntityRDBMS.html">Relational Database Setup</a></li>
                             
                         
                             
@@ -506,6 +513,18 @@ def save(postSummary: PostSummary) = {
                                 <li><a href="Serialization.html">Serialization</a></li>
                             
                         
+                            
+                                <li><a href="SerializationPlayJson.html">Serialization using Play JSON</a></li>
+                            
+                        
+                            
+                                <li><a href="SerializationAkkaJackson.html">Serialization using Akka Jackson</a></li>
+                            
+                        
+                            
+                                <li><a href="Projections.html">Projections</a></li>
+                            
+                        
                         </ul>
                     
                         <h3>Lagom reference guide</h3>
@@ -528,7 +547,7 @@ def save(postSummary: PostSummary) = {
                             
                         
                             
-                                <li class="current-page"><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
+                                <li class="current-page"><a href="UsingAkkaPersistenceTyped.html">Writing persistent and clustered services</a></li>
                             
                         
                             
@@ -573,7 +592,7 @@ def save(postSummary: PostSummary) = {
                             
                         
                             
-                                <li><a href="Highlights15.html">Lagom releases</a></li>
+                                <li><a href="Highlights16.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -684,7 +703,7 @@ def save(postSummary: PostSummary) = {
             </div>
         </div>
     </body>
-    <script src="/b18c856a483577fba5ee9ea92f3064963d8577af-all-scripts-concat.js"></script>
+    <script src="/49c089acd48953421f02760b97f4c5429d574738-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

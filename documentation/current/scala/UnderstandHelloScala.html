@@ -7,11 +7,11 @@
         <title>Lagom - Understanding Hello World</title>
         <meta name="description" content="Lagom">
         
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.5.x/scala/UnderstandHelloScala.html"/>
+            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.6.x/scala/UnderstandHelloScala.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/b18c856a483577fba5ee9ea92f3064963d8577af-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/49c089acd48953421f02760b97f4c5429d574738-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -304,7 +304,6 @@ import com.lightbend.lagom.scaladsl.api._
 import play.api.libs.json._
 
 trait HelloService extends Service {
-
   def hello(id: String): ServiceCall[NotUsed, String]
 
   def useGreeting(id: String): ServiceCall[GreetingMessage, Done]
@@ -332,21 +331,40 @@ object GreetingMessage {
   <li>
   <p>The implementation of <code>Service.descriptor</code> returns a <a href="api/com/lightbend/lagom/scaladsl/api/Descriptor.html"><code>Descriptor</code></a>. The <code>HelloService</code> descriptor defines the service name and the REST endpoints it offers. For each endpoint, declare an abstract method in the service interface as illustrated in the <code>HelloService.hello</code> method. For more information, see <a href="ServiceDescriptors.html">Service Descriptors</a>.</p></li>
 </ul><h1 id="Service-implementation"><a class="section-marker" href="#Service-implementation">§</a>Service implementation</h1>
-<p>The related <code>impl</code> project, <code>hello-impl</code> provides implementation for the service abstract methods. For instance, the <code>HelloServiceImpl.scala</code> source file contains the service implementation of the <code>HelloService.hello</code> method for the <code>hello</code> service. The <a href="api/com/lightbend/lagom/scaladsl/persistence/PersistentEntityRegistry.html"><code>PersistentEntityRegistry</code></a> supports data persistence using <a href="ES_CQRS.html">Event Sourcing and CQRS</a>.</p>
-<pre class="prettyprint"><code class="language-scala">import com.lightbend.lagom.scaladsl.api.ServiceCall
-import com.lightbend.lagom.scaladsl.persistence.PersistentEntityRegistry
+<p>The related <code>impl</code> project, <code>hello-impl</code> provides implementation for the service abstract methods. For instance, the <code>HelloServiceImpl.scala</code> source file contains the service implementation of the <code>HelloService.hello</code> method for the <code>hello</code> service. The service implementation uses a (sharded)[https://doc.akka.io/docs/akka/2.6/typed/cluster-sharding.html#introduction], (persistent)[https://doc.akka.io/docs/akka/2.6/typed/persistence.html#introduction], typed actor providing data persistence using <a href="ES_CQRS.html">Event Sourcing and CQRS</a>.</p>
+<pre class="prettyprint"><code class="language-scala">import akka.actor.typed.ActorRef
+import akka.actor.typed.Behavior
+import com.lightbend.lagom.scaladsl.api.ServiceCall
+import akka.cluster.sharding.typed.scaladsl.ClusterSharding
+import akka.cluster.sharding.typed.scaladsl.EntityRef
 
-class HelloServiceImpl(persistentEntityRegistry: PersistentEntityRegistry) extends HelloService {
+import scala.concurrent.ExecutionContext
+import scala.concurrent.duration._
+import akka.util.Timeout
+import com.lightbend.lagom.scaladsl.api.transport.BadRequest
 
-  override def hello(id: String) = ServiceCall { _ =&gt;
-    val ref = persistentEntityRegistry.refFor[HelloEntity](id)
-    ref.ask(Hello(id, None))
+class HelloServiceImpl(clusterSharding: ClusterSharding)(implicit ec: ExecutionContext) extends HelloService {
+  implicit val timeout = Timeout(5.seconds)
+
+  override def hello(id: String): ServiceCall[NotUsed, String] = ServiceCall { _ =&gt;
+    entityRef(id)
+      .ask[Greeting](replyTo =&gt; Hello(id, replyTo))
+      .map(greeting =&gt; greeting.message)
   }
 
   override def useGreeting(id: String) = ServiceCall { request =&gt;
-    val ref = persistentEntityRegistry.refFor[HelloEntity](id)
-    ref.ask(UseGreetingMessage(request.message))
+    entityRef(id)
+      .ask[Confirmation](
+        replyTo =&gt; UseGreetingMessage(request.message, replyTo)
+      )
+      .map {
+        case Accepted =&gt; Done
+        case _        =&gt; throw BadRequest(&quot;Can&#39;t upgrade the greeting message.&quot;)
+      }
   }
+
+  private def entityRef(id: String): EntityRef[HelloWorldCommand] =
+    clusterSharding.entityRefFor(HelloWorldState.typeKey, id)
 }</code></pre>
                 </article>
 
@@ -363,7 +381,7 @@ class HelloServiceImpl(persistentEntityRegistry: PersistentEntityRegistry) exten
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/scala/gettingstarted/UnderstandHelloScala.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.6.x/docs/manual/scala/gettingstarted/UnderstandHelloScala.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -438,7 +456,7 @@ class HelloServiceImpl(persistentEntityRegistry: PersistentEntityRegistry) exten
                             
                         
                             
-                                <li><a href="Highlights15.html">Lagom releases</a></li>
+                                <li><a href="Highlights16.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -549,7 +567,7 @@ class HelloServiceImpl(persistentEntityRegistry: PersistentEntityRegistry) exten
             </div>
         </div>
     </body>
-    <script src="/b18c856a483577fba5ee9ea92f3064963d8577af-all-scripts-concat.js"></script>
+    <script src="/49c089acd48953421f02760b97f4c5429d574738-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

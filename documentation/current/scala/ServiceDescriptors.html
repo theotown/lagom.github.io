@@ -7,11 +7,11 @@
         <title>Lagom - Service descriptors</title>
         <meta name="description" content="Lagom">
         
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.5.x/scala/ServiceDescriptors.html"/>
+            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.6.x/scala/ServiceDescriptors.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/b18c856a483577fba5ee9ea92f3064963d8577af-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/49c089acd48953421f02760b97f4c5429d574738-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -368,7 +368,7 @@ def descriptor = {
 <p>Every service call in Lagom has a request message type and a response message type. When the request or response message isn&rsquo;t used, the <code>akka.NotUsed</code> can be used in their place. Request and response message types fall into two categories, strict and streamed.</p><h3 id="Strict-messages"><a class="section-marker" href="#Strict-messages">§</a>Strict messages</h3>
 <p>A strict message is a single message that can be represented by a simple Scala object, typically a case class. The message will be buffered into memory, and then parsed, for example, as JSON. When both message types are strict, the call is said to be a synchronous call, that is, a request is sent and received, then a response is sent and received. The caller and callee have synchronized in their communication.</p>
 <p>So far, all of the service call examples we&rsquo;ve seen have used strict messages, for example, the order service descriptors above accept and return items and orders. The input value is passed directly to the service call, and returned directly from the service call, and these values are serialized to a JSON buffer in memory before being sent, and read entirely into memory before being deserialized back from JSON.</p><h3 id="Streamed-messages"><a class="section-marker" href="#Streamed-messages">§</a>Streamed messages</h3>
-<p>A streamed message is a message of type <a href="https://doc.akka.io/api/akka/2.5/akka/stream/scaladsl/Source.html"><code>Source</code></a>. <code>Source</code> is an <a href="https://doc.akka.io/docs/akka/2.5/stream/?language=scala">Akka streams</a> API that allows asynchronous streaming and handling of messages. Here&rsquo;s an example streamed service call:</p>
+<p>A streamed message is a message of type <a href="https://doc.akka.io/api/akka/2.6/akka/stream/scaladsl/Source.html"><code>Source</code></a>. <code>Source</code> is an <a href="https://doc.akka.io/docs/akka/2.6/stream/?language=scala">Akka streams</a> API that allows asynchronous streaming and handling of messages. Here&rsquo;s an example streamed service call:</p>
 <pre class="prettyprint"><code class="language-scala">import akka.NotUsed
 import akka.stream.scaladsl.Source
 
@@ -395,8 +395,8 @@ def descriptor = {
 }</code></pre>
 <p>In this case, the server might return a <code>Source</code> that converts every message received in the request stream to messages prefixed with <code>Hello</code>.</p>
 <p>Lagom will choose an appropriate transport for the stream, typically, this will be WebSockets. The WebSocket protocol supports bidirectional streaming, so is a good general purpose option for streaming. When only one of the request or response message is streamed, Lagom will implement the sending and receiving of the strict message by sending or receiving a single message, and then leaving the WebSocket open until the other direction closes. Otherwise, Lagom will close the WebSocket when either direction closes.</p><h3 id="Message-serialization"><a class="section-marker" href="#Message-serialization">§</a>Message serialization</h3>
-<p>Message serializers for requests and responses are provided using type classes. Each of the <code>call</code>, <code>namedCall</code>, <code>pathCall</code> and <code>restCall</code> methods take an implicit <a href="api/com/lightbend/lagom/scaladsl/api/deser/MessageSerializer.html"><code>MessageSerializer</code></a> for each of the request and response messages. Out of the box Lagom provides a serializer for <code>String</code> messages, as well as serializers that implicitly convert a Play JSON <a href="https://www.playframework.com/documentation/2.6.x/api/scala/play/api/libs/json/Format.html"><code>Format</code></a> type class to a message serializer.</p><h4 id="Using-Play-JSON"><a class="section-marker" href="#Using-Play-JSON">§</a>Using Play JSON</h4>
-<p>Play JSON provides a functional type class based library for composing JSON formatters. For detailed documentation on how to use this library, see the <a href="https://www.playframework.com/documentation/2.6.x/ScalaJsonCombinators">Play documentation</a>. For now, we will just look at how to define JSON formats for case classes using Play&rsquo;s JSON format macro.</p>
+<p>Message serializers for requests and responses are provided using type classes. Each of the <code>call</code>, <code>namedCall</code>, <code>pathCall</code> and <code>restCall</code> methods take an implicit <a href="api/com/lightbend/lagom/scaladsl/api/deser/MessageSerializer.html"><code>MessageSerializer</code></a> for each of the request and response messages. Out of the box Lagom provides a serializer for <code>String</code> messages, as well as serializers that implicitly convert a Play JSON <a href="https://www.playframework.com/documentation/2.8.x/api/scala/play/api/libs/json/Format.html"><code>Format</code></a> type class to a message serializer.</p><h4 id="Using-Play-JSON"><a class="section-marker" href="#Using-Play-JSON">§</a>Using Play JSON</h4>
+<p>Play JSON provides a functional type class based library for composing JSON formatters. For detailed documentation on how to use this library, see the <a href="https://www.playframework.com/documentation/2.8.x/ScalaJsonCombinators">Play documentation</a>. For now, we will just look at how to define JSON formats for case classes using Play&rsquo;s JSON format macro.</p>
 <p>Let&rsquo;s say you have a <code>User</code> case class that looks like this:</p>
 <pre class="prettyprint"><code class="language-scala">case class User(
     id: Long,
@@ -434,7 +434,7 @@ def descriptor = {
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/scala/guide/services/ServiceDescriptors.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.6.x/docs/manual/scala/guide/services/ServiceDescriptors.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -533,7 +533,7 @@ def descriptor = {
                             
                         
                             
-                                <li><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
+                                <li><a href="UsingAkkaPersistenceTyped.html">Writing persistent and clustered services</a></li>
                             
                         
                             
@@ -578,7 +578,7 @@ def descriptor = {
                             
                         
                             
-                                <li><a href="Highlights15.html">Lagom releases</a></li>
+                                <li><a href="Highlights16.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -689,7 +689,7 @@ def descriptor = {
             </div>
         </div>
     </body>
-    <script src="/b18c856a483577fba5ee9ea92f3064963d8577af-all-scripts-concat.js"></script>
+    <script src="/49c089acd48953421f02760b97f4c5429d574738-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

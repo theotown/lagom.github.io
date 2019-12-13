@@ -7,11 +7,11 @@
         <title>Lagom - Defining a Lagom build</title>
         <meta name="description" content="Lagom">
         
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.5.x/java/LagomBuild.html"/>
+            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.6.x/java/LagomBuild.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/b18c856a483577fba5ee9ea92f3064963d8577af-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/49c089acd48953421f02760b97f4c5429d574738-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -451,7 +451,7 @@
 <p>An sbt build is defined in one or more <code>*.sbt</code> files in the build&rsquo;s root directory. It&rsquo;s conventional to have a single file named <code>build.sbt</code>; you can split it into multiple files later if it becomes unwieldy.</p>
 <p>sbt build files are defined using a Scala-based DSL. Simple builds use only a small subset of the DSL, so there&rsquo;s no need to spend any time learning Scala. If you use an sbt Giter8 to get started, you&rsquo;ll have a working build from the start. From there, you&rsquo;ll probably only need to make small edits, or copy-and-paste existing code.</p><h3 id="Setting-the-Scala-version"><a class="section-marker" href="#Setting-the-Scala-version">§</a>Setting the Scala version</h3>
 <p>Even though you&rsquo;ll write your services in Java, Lagom itself uses Scala, so every Lagom build must specify a Scala version, like this:</p>
-<pre class="prettyprint"><code class="language-sbt">scalaVersion in ThisBuild := &quot;2.12.9&quot;</code></pre><h3 id="Defining-a-service1"><a class="section-marker" href="#Defining-a-service1">§</a>Defining a service</h3>
+<pre class="prettyprint"><code class="language-sbt">scalaVersion in ThisBuild := &quot;2.12.10&quot;</code></pre><h3 id="Defining-a-service1"><a class="section-marker" href="#Defining-a-service1">§</a>Defining a service</h3>
 <p>Next we need to define the projects. Recall that each service has at least two projects, API and implementation. First we&rsquo;ll define the <code>hello-api</code> project.</p>
 <p>A Lagom API project is an ordinary sbt project. Our first project looks like this:</p>
 <pre class="prettyprint"><code class="language-sbt">lazy val `hello-api` = (project in file(&quot;hello-api&quot;))
@@ -512,7 +512,7 @@ lazy val `hello-stream-impl` = (project in file(&quot;hello-stream-impl&quot;))
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/java/guide/build/LagomBuild.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.6.x/docs/manual/java/guide/build/LagomBuild.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -609,7 +609,7 @@ lazy val `hello-stream-impl` = (project in file(&quot;hello-stream-impl&quot;))
                             
                         
                             
-                                <li><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
+                                <li><a href="UsingAkkaPersistenceTyped.html">Writing persistent and clustered services</a></li>
                             
                         
                             
@@ -654,7 +654,7 @@ lazy val `hello-stream-impl` = (project in file(&quot;hello-stream-impl&quot;))
                             
                         
                             
-                                <li><a href="Highlights15.html">Lagom releases</a></li>
+                                <li><a href="Highlights16.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -765,7 +765,7 @@ lazy val `hello-stream-impl` = (project in file(&quot;hello-stream-impl&quot;))
             </div>
         </div>
     </body>
-    <script src="/b18c856a483577fba5ee9ea92f3064963d8577af-all-scripts-concat.js"></script>
+    <script src="/49c089acd48953421f02760b97f4c5429d574738-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

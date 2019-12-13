@@ -1,7 +1,10 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.scaladsl.services.headerfilters
 
 package compose {
-
   import com.lightbend.lagom.scaladsl.api.transport.HeaderFilter
   import com.lightbend.lagom.scaladsl.api.transport.RequestHeader
   import com.lightbend.lagom.scaladsl.api.transport.ResponseHeader
@@ -24,13 +27,11 @@ package compose {
     }
 
     def transformServerResponse(response: ResponseHeader, request: RequestHeader) = {
-
       log.debug(name + " - transforming Server Response")
       response
     }
 
     def transformClientResponse(response: ResponseHeader, request: RequestHeader) = {
-
       log.debug(name + " - transforming Client Response")
       response
     }

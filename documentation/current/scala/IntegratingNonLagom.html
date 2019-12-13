@@ -7,11 +7,11 @@
         <title>Lagom - Integrating with non Lagom services</title>
         <meta name="description" content="Lagom">
         
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.5.x/scala/IntegratingNonLagom.html"/>
+            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.6.x/scala/IntegratingNonLagom.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/b18c856a483577fba5ee9ea92f3064963d8577af-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/49c089acd48953421f02760b97f4c5429d574738-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -312,8 +312,8 @@ import play.api.libs.ws.ahc.AhcWSComponents
 
 val clientFactory =
   new StandaloneLagomClientFactory(&quot;my-client&quot;, classOf[StandaloneLagomClientFactory].getClassLoader)
-  with StaticServiceLocatorComponents with AhcWSComponents {
-
+    with StaticServiceLocatorComponents
+    with AhcWSComponents {
     override def staticServiceUri = URI.create(&quot;http://localhost:8080&quot;)
   }</code></pre>
 <p>We highly recommend you to not use <code>StandaloneLagomClientFactory</code> if your application has already an <code>ActorSystem</code>. The reason for that is that the factory will start its own <code>ActorSystem</code> and will read the same configuration as your default <code>ActorSystem</code>. This can cause a few unexpected errors, for instances, you may get port binding conflicts when both Actor Systems try to bind the akka-remote port.</p>
@@ -332,7 +332,7 @@ class MyLagomClientFactory(val actorSystem: ActorSystem, val materializer: Mater
 }
 
 val actorSystem   = ActorSystem(&quot;my-app&quot;)
-val materializer  = ActorMaterializer()(actorSystem)
+val materializer  = Materializer.matFromSystem(actorSystem)
 val clientFactory = new MyLagomClientFactory(actorSystem, materializer)</code></pre>
 <p>When you have finished with the application, for example, when the system shuts down, you need to stop the factory, by invoking the <code>stop()</code> method:</p>
 <pre class="prettyprint"><code class="language-scala">clientFactory.stop()</code></pre>
@@ -353,7 +353,6 @@ val clientApplication = if (devMode) {
   new StandaloneLagomClientFactory(&quot;my-client&quot;) with AhcWSComponents with LagomDevModeServiceLocatorComponents
 } else {
   new StandaloneLagomClientFactory(&quot;my-client&quot;) with StaticServiceLocatorComponents with AhcWSComponents {
-
     override def staticServiceUri = URI.create(&quot;http://localhost:8080&quot;)
   }
 }</code></pre>
@@ -362,8 +361,8 @@ val clientApplication = if (devMode) {
 </code></pre>
 <p>Alternatively, you can configure it programmatically by overriding the <code>devModeServiceLocatorUrl</code> value on the <code>LagomDevModeServiceLocatorComponents</code> trait:</p>
 <pre class="prettyprint"><code class="language-scala">new StandaloneLagomClientFactory(&quot;my-client&quot;) with AhcWSComponents with LagomDevModeServiceLocatorComponents {
-
-  override lazy val devModeServiceLocatorUrl = URI.create(&quot;http://localhost:8001&quot;)
+  override lazy val devModeServiceLocatorUrl =
+    URI.create(&quot;http://localhost:8001&quot;)
 }
 </code></pre>
                 </article>
@@ -372,7 +371,7 @@ val clientApplication = if (devMode) {
                     
                         
                             <nav class="next-link">
-                                <a href="Highlights15.html"><strong>Next: </strong>
+                                <a href="Highlights16.html"><strong>Next: </strong>
                                     Lagom releases</a>
                             </nav>
                         
@@ -381,7 +380,7 @@ val clientApplication = if (devMode) {
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/scala/guide/advanced/IntegratingNonLagom.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.6.x/docs/manual/scala/guide/advanced/IntegratingNonLagom.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -444,7 +443,7 @@ val clientApplication = if (devMode) {
                             
                         
                             
-                                <li><a href="PersistentEntity.html">Writing persistent and clustered services</a></li>
+                                <li><a href="UsingAkkaPersistenceTyped.html">Writing persistent and clustered services</a></li>
                             
                         
                             
@@ -489,7 +488,7 @@ val clientApplication = if (devMode) {
                             
                         
                             
-                                <li><a href="Highlights15.html">Lagom releases</a></li>
+                                <li><a href="Highlights16.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -600,7 +599,7 @@ val clientApplication = if (devMode) {
             </div>
         </div>
     </body>
-    <script src="/b18c856a483577fba5ee9ea92f3064963d8577af-all-scripts-concat.js"></script>
+    <script src="/49c089acd48953421f02760b97f4c5429d574738-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

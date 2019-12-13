@@ -1,6 +1,6 @@
-# Storing Persistent Entities in a Relational Database
+# Storing Persistent Events in a Relational Database
 
-This page describes how to configure a relational database for use with Lagom's [[Persistent Entity|PersistentEntity]] API.
+This page describes how to configure a relational database for use with [[Persistent Entity|PersistentEntity]] API or Akka Typed Persistence in a Lagom service .
 
 ## Project dependencies
 
@@ -24,17 +24,18 @@ You will also need to add the jar for your JDBC database driver.
 
 ## Configuration
 
-Lagom uses the [`akka-persistence-jdbc`](https://github.com/dnvriend/akka-persistence-jdbc) plugin to persist entities to the database.  This supports four different relational databases:
+Lagom uses the [`akka-persistence-jdbc`](https://github.com/dnvriend/akka-persistence-jdbc) plugin.  This supports the following relational databases:
 
 * [PostgreSQL](https://www.postgresql.org/)
 * [MySQL](https://www.mysql.com/)
 * [Oracle](https://www.oracle.com/database/)
 * [H2](https://www.h2database.com/)
+* [SQL Server](https://www.microsoft.com/en-us/sql-server)
 
 We advise against using H2 in production, however, it is suitable for use in development and testing.
 
 
-In Lagom's default configuration, Lagom will use Play's JDBC support to configure and create a connection pool. Details on how to configure it can be found [here](https://www.playframework.com/documentation/2.6.x/JavaDatabase). Play should be configured to provide a JNDI binding for the datasource, by default Lagom binds it to `DefaultDS`.
+In Lagom's default configuration, Lagom will use Play's JDBC support to configure and create a connection pool. Details on how to configure it can be found [here](https://www.playframework.com/documentation/2.8.x/AccessingAnSQLDatabase). Play should be configured to provide a JNDI binding for the datasource, by default Lagom binds it to `DefaultDS`.
 
 Lagom then configures a [Slick](https://scala-slick.org/) Database to use that datasource in combination with a [AsyncExecutor](https://scala-slick.org/doc/3.2.1/api/index.html#slick.util.AsyncExecutor) that manages the thread pool for asynchronous execution of Database I/O Actions. Lagom will also take care that the connection pool is configured correctly according to the AsyncExecutor settings. The Slick Database is then bound to the JNDI name `DefaultDB` and it's used to configure the `akka-persistence-jdbc` plugin.
 

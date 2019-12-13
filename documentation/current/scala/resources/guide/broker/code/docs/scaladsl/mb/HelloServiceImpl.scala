@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.scaladsl.mb
 
 import com.lightbend.lagom.scaladsl.api.ServiceCall
@@ -10,7 +14,6 @@ import com.lightbend.lagom.scaladsl.broker.TopicProducer
  * Implementation of the HelloService.
  */
 class HelloServiceImpl(persistentEntityRegistry: PersistentEntityRegistry) extends HelloService {
-
   override def hello(id: String) = ServiceCall { _ =>
     // Look up the Hello entity for the given ID.
     val ref = persistentEntityRegistry.refFor[HelloEntity](id)
@@ -41,5 +44,4 @@ class HelloServiceImpl(persistentEntityRegistry: PersistentEntityRegistry) exten
     }
   }
   //#implement-topic
-
 }

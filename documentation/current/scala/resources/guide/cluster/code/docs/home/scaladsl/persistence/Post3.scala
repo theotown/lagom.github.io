@@ -1,9 +1,12 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.home.scaladsl.persistence
 
 import com.lightbend.lagom.scaladsl.persistence.PersistentEntity
 
 final class Post3 extends PersistentEntity {
-
   override type Command = BlogCommand
   override type Event   = BlogEvent
   override type State   = BlogState

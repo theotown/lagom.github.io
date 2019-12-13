@@ -22,7 +22,7 @@ It will take the request, and return the response as a [`CompletionStage`](https
 
 Of course, a simple hello world computation is not asynchronous, all it needs is to do is concatenate two Strings, and that returns immediately.  In this case, we need to wrap the result of that in a `CompletionStage`.  This can be done by calling `CompletableFuture.completedFuture()`, which returns a subclass of `CompletionStage` wrapping an immediately available value.
 
-Having provided an implementation of the service, we can now register that with the Lagom framework.  Lagom is built on top of Play Framework, and so uses Play's Guice based [dependency injection support](https://playframework.com/documentation/2.6.x/JavaDependencyInjection) to register components.  To register a service, you'll need to implement a Guice module.  This can be done by creating a class called `Module` in the root package:
+Having provided an implementation of the service, we can now register that with the Lagom framework.  Lagom is built on top of Play Framework, and so uses Play's Guice based [dependency injection support](https://playframework.com/documentation/2.7.x/JavaDependencyInjection) to register components.  To register a service, you'll need to implement a Guice module.  This can be done by creating a class called `Module` in the root package:
 
 @[hello-service-binding](code/docs/services/server/Module.java)
 
@@ -65,6 +65,8 @@ If you're implementing the service call directly, you can simply change the retu
 If you're required to pass or return a `ServerServiceCall`, you can use the `HeaderServiceCall.of` method, like so:
 
 @[header-service-call-of-lambda](code/docs/services/ServiceImplementation.java)
+
+See [Header Manipulation and HTTP testing](https://github.com/lagom/lagom-recipes/blob/master/http-header-handling/http-header-handling-java-sbt/README.md) for an example of status code manipulation and how to test it.
 
 ## Service call composition
 

@@ -7,11 +7,11 @@
         <title>Lagom - Creating and running Hello World with Maven</title>
         <meta name="description" content="Lagom">
         
-            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.5.x/java/GettingStartedMaven.html"/>
+            <link rel="canonical" href="https://www.lagomframework.com/documentation/1.6.x/java/GettingStartedMaven.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/b18c856a483577fba5ee9ea92f3064963d8577af-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/49c089acd48953421f02760b97f4c5429d574738-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -327,23 +327,22 @@ Choose a number or apply filter (format: [groupId:]artifactId, case sensitive co
   </li>
   <li>Enter <code>Y</code> to accept the values.<br/> When finished, Maven creates the project, and completes with a message similar to the following:</li>
 </ol>
-<pre class="prettyprint"><code>   [INFO] ------------------------------------------------------------------------
-   [INFO] BUILD SUCCESS
-   [INFO] ------------------------------------------------------------------------
-   [INFO] Total time: 10:42 min
-   [INFO] Finished at: 2017-02-24T11:58:08-06:00
-   [INFO] Final Memory: 17M/252M
-   [INFO] ------------------------------------------------------------------------
-
+<pre class="prettyprint"><code>[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 10:42 min
+[INFO] Finished at: 2017-02-24T11:58:08-06:00
+[INFO] Final Memory: 17M/252M
+[INFO] ------------------------------------------------------------------------
 </code></pre><h2 id="Browse-the-project-structure"><a class="section-marker" href="#Browse-the-project-structure">§</a>Browse the project structure</h2>
 <p>The structure for a project created with the Maven archetype generate command will look similar to the following (assuming <code>my-first-system</code> as an <code>artifactId</code>):</p>
 <pre class="prettyprint"><code>my-first-system
- └ hello-api/             → hello world api project dir
- └ hello-impl/            → hello world implementation dir
- └ integration-tests/
- └ stream-api/            → stream api project dir
- └ stream-impl/           → stream implementation project dir
- └ pom.xml                → Project group build file
+├── hello-api             → hello world api project dir
+├── hello-impl            → hello world implementation dir
+├── integration-tests     → project integration tests
+├── stream-api            → stream api project dir
+├── stream-impl           → stream implementation project dir
+└── pom.xml               → Project group build file
 </code></pre>
 <p>Note that the <code>hello</code> and <code>stream</code> services each have:</p>
 <ul>
@@ -369,9 +368,12 @@ mvn lagom:runAll
 [INFO] Service stream-impl listening for HTTPS on 127.0.0.1:58440
 [INFO] (Services started, press enter to stop and go back to the console...)
 </code></pre>
-<p>Verify that the services are indeed up and running by invoking the <code>hello</code> service endpoint from any HTTP client, such as a browser:</p>
-<pre class="prettyprint"><code>http://localhost:9000/api/hello/World
+<p>Verify that the services are indeed up and running by invoking the <code>hello</code> service endpoint from any HTTP client, such as a browser: <a href="http://localhost:9000/api/hello/World">http://localhost:9000/api/hello/World</a>. Or using <code>curl</code>:</p>
+<pre class="prettyprint"><code class="language-bash">curl -i http://localhost:9000/api/hello/World
 </code></pre>
+<blockquote>
+  <p>NOTE: if you use a name for <code>service1</code> different from <code>hello</code> the URL will differ. Use <code>curl -i http://localhost:9000/api/&lt;service1Name&gt;/World</code></p>
+</blockquote>
 <p>The request returns the message <code>Hello, World!</code>.</p>
 <p>Congratulations! You&rsquo;ve created and run your first Lagom system.</p>
                 </article>
@@ -389,7 +391,7 @@ mvn lagom:runAll
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.5.x/docs/manual/java/gettingstarted/GettingStartedMaven.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.6.x/docs/manual/java/gettingstarted/GettingStartedMaven.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -482,7 +484,7 @@ mvn lagom:runAll
                             
                         
                             
-                                <li><a href="Highlights15.html">Lagom releases</a></li>
+                                <li><a href="Highlights16.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -593,7 +595,7 @@ mvn lagom:runAll
             </div>
         </div>
     </body>
-    <script src="/b18c856a483577fba5ee9ea92f3064963d8577af-all-scripts-concat.js"></script>
+    <script src="/49c089acd48953421f02760b97f4c5429d574738-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

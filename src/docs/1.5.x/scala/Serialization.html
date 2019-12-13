@@ -3,8 +3,8 @@
 <p>Do not depend on Java serialization for production deployments. It is inefficient both in serialization size and speed. It is very difficult to evolve the classes when using Java serialization, which is especially important for the persistent state and events, since you must be able to deserialize old objects that were stored.</p>
 <p>Runtime overhead is avoided by not basing the serialization on reflection. Transformations to and from JSON are defined either manually or by using a built in macro - essentially doing what reflection would do, but at compile time instead of during runtime. This comes with one caveat, each top level class that can be serialized needs an explicit serializer defined. To use the Play JSON support in Lagom you need to provide such serializers for each type.</p>
 <p>The Play JSON abstraction for serializing and deserializing a class into JSON is the <a href="https://www.playframework.com/documentation/2.6.x/api/scala/index.html#play.api.libs.json.Format">Format</a> which in turn is a combination of <a href="https://www.playframework.com/documentation/2.6.x/api/scala/index.html#play.api.libs.json.Reads">Reads</a> and <a href="https://www.playframework.com/documentation/2.6.x/api/scala/index.html#play.api.libs.json.Writes">Writes</a>. The library parses JSON into a JSON tree model, which is what the <code>Format</code>s work with.</p><h2 id="Enabling-JSON-Serialization"><a class="section-marker" href="#Enabling-JSON-Serialization">§</a>Enabling JSON Serialization</h2>
-<p>To enable JSON Serialization there are three steps you need to follow.</p>
-<p>The first step is to define your <a href="https://www.playframework.com/documentation/2.6.x/api/scala/play/api/libs/json/Format.html">Format</a> for each class that is to be serialized, this can be done using <a href="#Automated-mapping">automated mapping</a> or <a href="#Manual-mapping">manual mapping</a>.</p>
+<p>To enable JSON Serialization, there are three steps you need to follow.</p>
+<p>The first step is to define your <a href="https://www.playframework.com/documentation/2.6.x/api/scala/play/api/libs/json/Format.html">Format</a> for each class that is to be serialized. This can be done using <a href="#Automated-mapping">automated mapping</a> or <a href="#Manual-mapping">manual mapping</a>.</p>
 <pre class="prettyprint"><code class="language-scala">implicit val format: Format[AddPost] = Json.format</code></pre>
 <p>Best practice is to define the <code>Format</code> as an implicit in the classes companion object, so that it can be found by implicit resolution.</p>
 <p>The second step is to implement <a href="api/com/lightbend/lagom/scaladsl/playjson/JsonSerializerRegistry.html">JsonSerializerRegistry</a> and have all the service formats returned from its <code>serializers</code> method.</p>
@@ -17,7 +17,7 @@ object MyRegistry extends JsonSerializerRegistry {
     JsonSerializer[AddPost]
   )
 }</code></pre>
-<p>Having done that, you can provide the serializer registry by overriding the <code>jsonSerializerRegistry</code> component method in your application cake, for example:</p>
+<p>Having done that, you can provide the serializer registry by overriding the <code>jsonSerializerRegistry</code> component method in your application cake. For example:</p>
 <pre class="prettyprint"><code class="language-scala">import com.lightbend.lagom.scaladsl.server._
 import com.lightbend.lagom.scaladsl.cluster.ClusterComponents
 
@@ -27,7 +27,7 @@ abstract class MyApplication(context: LagomApplicationContext)
 
   override lazy val jsonSerializerRegistry = MyRegistry
 }</code></pre>
-<p>If you need to use the registry outside of a Lagom application, for example, in tests, this can be done by customising the creation of the actor system, for example:</p>
+<p>If you need to use the registry outside of a Lagom application (for example, in tests), this can be done by customising the creation of the actor system. For example:</p>
 <pre class="prettyprint"><code class="language-scala">import akka.actor.ActorSystem
 import akka.actor.setup.ActorSystemSetup
 import com.lightbend.lagom.scaladsl.playjson.JsonSerializerRegistry
@@ -63,7 +63,7 @@ object RegistryWithCompression extends JsonSerializerRegistry {
 
 }</code></pre><h2 id="Automated-mapping"><a class="section-marker" href="#Automated-mapping">§</a>Automated mapping</h2>
 <p>The <a href="https://www.playframework.com/documentation/2.6.x/api/scala/index.html#play.api.libs.json.Json$@format[A]:play.api.libs.json.OFormat[A]">Json.format[MyClass]</a> macro will inspect a <code>case class</code> for what fields it contains and produce a <code>Format</code> that uses the field names and types of the class in the resulting JSON.</p>
-<p>The macro allows for defining formats based on the exact structure of the class which is handy and avoids spending development time on explicitly defining the format, on the other hand it tightly couples the structure of the JSON with the structure of the class so that a refactoring of the class unexpectedly leads to the format being unable to read JSON that was serialized before the change. There are tools in place to deal with this (see <a href="#Schema-Evolution">schema evolution</a>) but care must be taken.</p>
+<p>The macro allows for defining formats based on the exact structure of the class, which is handy, and avoids spending development time on explicitly defining the format. On the other hand, it tightly couples the structure of the JSON with the structure of the class. This means that refactoring unexpectedly leads to the format being unable to read JSON that was serialized before the change. There are tools in place to deal with this (see <a href="#Schema-Evolution">schema evolution</a>), but care must be taken.</p>
 <p>If the class contains fields of complex types, it pulls those in from <code>implicit</code> marked <code>Format</code>s in the scope. This means that you must provide such implicit formats for all the complex types used inside a class before calling the macro.</p>
 <pre class="prettyprint"><code class="language-scala">case class UserMetadata(twitterHandle: String)
 object UserMetadata {
@@ -73,7 +73,7 @@ case class AddComment(userId: String, comment: String, userMetadata: UserMetadat
 object AddComment {
   implicit val format: Format[AddComment] = Json.format
 }</code></pre><h2 id="Manual-mapping"><a class="section-marker" href="#Manual-mapping">§</a>Manual mapping</h2>
-<p>Defining a <code>Format</code> can be done in several ways using the Play JSON APIs, either using <a href="https://playframework.com/documentation/2.6.x/ScalaJsonCombinators#Format">JSON Combinators</a> or by manually implementing functions that turn a <code>JsValue</code> into a <code>JsSuccess(T)</code> or a <code>JsFailure()</code>.</p>
+<p>Defining a <code>Format</code> can be done in several ways using the Play JSON APIs, either using <a href="https://playframework.com/documentation/2.6.x/ScalaJsonCombinators#Format">JSON Combinators</a>, or by manually implementing functions that turn a <code>JsValue</code> into a <code>JsSuccess(T)</code> or a <code>JsFailure()</code>.</p>
 <pre class="prettyprint"><code class="language-scala">case class AddOrder(productId: String, quantity: Int)
 
 import play.api.libs.functional.syntax._
@@ -131,17 +131,17 @@ object Fruit {
   )
 }</code></pre><h2 id="Schema-Evolution"><a class="section-marker" href="#Schema-Evolution">§</a>Schema Evolution</h2>
 <p>When working on long running projects using <a href="PersistentEntity.html">Persistence</a>, or any kind of Event Sourcing, schema evolution becomes an important aspect of developing your application. The requirements as well as our own understanding of the business domain may (and will) change over time.</p>
-<p>Lagom provides a way to perform transformations of the JSON tree model during deserialization. To do those transformations you can either modify the json imperatively or use the <a href="https://www.playframework.com/documentation/2.6.x/ScalaJsonTransformers">Play JSON transformers</a></p>
-<p>We will look at a few scenarios of how the classes may be evolved.</p><h3 id="Remove-Field"><a class="section-marker" href="#Remove-Field">§</a>Remove Field</h3>
-<p>Removing a field can be done without any migration code. Both manual and automatic mappings will ignore properties that does not exist in the class.</p><h3 id="Add-Field"><a class="section-marker" href="#Add-Field">§</a>Add Field</h3>
-<p>Adding an optional field can be done without any migration code if automated mapping is used or manual mapping is used and you have made sure a missing field is read as a <code>None</code> by your format (see <a href="#Mapping-options">mapping options</a>).</p>
+<p>Lagom provides a way to perform transformations of the JSON tree model during deserialization. To do those transformations you can either modify the json imperatively or use the <a href="https://www.playframework.com/documentation/2.6.x/ScalaJsonTransformers">Play JSON transformers</a>.</p>
+<p>We will look at a few scenarios, detailing how the classes may be evolved.</p><h3 id="Remove-Field"><a class="section-marker" href="#Remove-Field">§</a>Remove Field</h3>
+<p>Removing a field can be done without any migration code. Both manual and automatic mappings will ignore properties that do not exist in the class.</p><h3 id="Add-Field"><a class="section-marker" href="#Add-Field">§</a>Add Field</h3>
+<p>Adding an optional field can be done without any migration code if automated mapping is used. You can also add an optional field if manual mapping is used, and you have made sure a missing field is read as a <code>None</code> by your format (see <a href="#Mapping-options">mapping options</a>).</p>
 <p>Old class:</p>
 <pre class="prettyprint"><code class="language-scala">case class ItemAdded(shoppingCartId: String, productId: String, quantity: Int)</code></pre>
 <p>New class with a new optional <code>discount</code> property:</p>
 <pre class="prettyprint"><code class="language-scala">case class ItemAdded(shoppingCartId: String, productId: String, quantity: Int, discount: Option[BigDecimal])</code></pre>
 <p>Let&rsquo;s say we want to have a mandatory <code>discount</code> property without default value instead:</p>
 <pre class="prettyprint"><code class="language-scala">case class ItemAdded(shoppingCartId: String, productId: String, quantity: Int, discount: Double)</code></pre>
-<p>To add a new mandatory field we have to use a JSON migration adding a default value to the JSON</p>
+<p>To add a new mandatory field we have to use a JSON migration adding a default value to the JSON.</p>
 <p>This is how a migration logic would look like for adding a <code>discount</code> field using imperative code:</p>
 <pre class="prettyprint"><code class="language-scala">class ShopSerializerRegistry extends JsonSerializerRegistry {
 
@@ -163,9 +163,9 @@ object Fruit {
     classOf[ItemAdded].getName -&gt; itemAddedMigration
   )
 }</code></pre>
-<p>Create a concrete subclass of <a href="api/com/lightbend/lagom/scaladsl/playjson/JsonMigration.html">JsonMigration</a> handing it the current version of the schema as a parameter, then implement the transformation logic on the <code>JsObject</code> in the <code>transform</code> method when an older <code>fromVersion</code> is passed in.</p>
+<p>Create a concrete subclass of <a href="api/com/lightbend/lagom/scaladsl/playjson/JsonMigration.html">JsonMigration</a>, handing it the current version of the schema as a parameter. Next, implement the transformation logic on the <code>JsObject</code> in the <code>transform</code> method when an older <code>fromVersion</code> is passed in.</p>
 <p>Then provide your <code>JsonMigration</code> together with the classname of the class that it migrates in the <code>migrations</code> map from your <code>JsonSerializerRegistry</code>.</p>
-<p>Alternatively you can use the <a href="https://www.playframework.com/documentation/2.6.x/ScalaJsonTransformers">Play JSON transformers</a> API which is more concise but arguably has a much higher threshold to learn.</p>
+<p>Alternatively you can use the <a href="https://www.playframework.com/documentation/2.6.x/ScalaJsonTransformers">Play JSON transformers</a> API. This API is more concise, but arguably has a much higher learning curve.</p>
 <pre class="prettyprint"><code class="language-scala">class ShopSerializerRegistry extends JsonSerializerRegistry {
 
   import play.api.libs.json._
@@ -267,4 +267,4 @@ override def migrations: Map[String, JsonMigration] = Map(
   JsonMigrations
     .renamed(fromClassName = &quot;com.lightbend.lagom.shop.OrderAdded&quot;, inVersion = 2, toClass = classOf[OrderPlaced])
 )</code></pre>
-<p>When a class has both been renamed and had other changes over time the name change is added separately as in the example and the transformations are defined for the new class name in the migrations map. The Lagom serialization logic will first look for name changes, and then use the changed name to resolve any schema migrations that will be done using the changed name.</p>
+<p>When a class has both been renamed and had other changes over time, the name change is added separately (as in the example) and the class name transformations are defined in the migrations map. The Lagom serialization logic will first look for name changes, and then use the changed name to resolve any schema migrations that will be done using the changed name.</p>

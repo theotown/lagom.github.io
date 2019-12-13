@@ -9,7 +9,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/14be7bd8921ed0f077e9fb3b3e98c14277373101-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/b18c856a483577fba5ee9ea92f3064963d8577af-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -282,7 +282,7 @@
                         <a href="Home.html">Scala Home</a>
                         
                                     &raquo;
-                            <a href="Highlights15.html">Lagom releases</a>
+                            <a href="Highlights16.html">Lagom releases</a>
                         
                     </nav>
                 
@@ -290,7 +290,7 @@
                 <article>
                 <h1 id="Lagom-1.6-Migration-Guide"><a class="section-marker" href="#Lagom-1.6-Migration-Guide">§</a>Lagom 1.6 Migration Guide</h1>
 <p>This guide explains how to migrate from Lagom 1.5 to Lagom 1.6. If you are upgrading from an earlier version, be sure to review previous migration guides.</p>
-<p>Lagom 1.6 updates to the latest major versions of Play (2.8), Akka (2.6) and Akka HTTP (10.1). We have highlighted the changes that are relevant to most Lagom users, but you may need to change code in your services that uses Play APIs directly. You&rsquo;ll also need to update any Play services in your Lagom project repositories to be compatible with Play 2.8. Please refer to the <a href="https://www.playframework.com/documentation/2.8.0-M1/Migration28">Play 2.8 migration guide</a>, <a href="https://doc.akka.io/docs/akka/2.6/project/migration-guide-2.5.x-2.6.x.html">Akka Migration Guide 2.5.x to 2.6.x</a> and the <a href="https://akka.io/blog/news-archive.html">Akka HTTP 10.1.x release announcements</a> for more details.</p>
+<p>Lagom 1.6 updates to the latest major versions of Play (2.8), Akka (2.6) and Akka HTTP (10.1). We have highlighted the changes that are relevant to most Lagom users, but you may need to change code in your services that uses Play APIs directly. You&rsquo;ll also need to update any Play services in your Lagom project repositories to be compatible with Play 2.8. Please refer to the <a href="https://www.playframework.com/documentation/2.8.x/Migration28">Play 2.8 migration guide</a>, <a href="https://doc.akka.io/docs/akka/2.6/project/migration-guide-2.5.x-2.6.x.html">Akka Migration Guide 2.5.x to 2.6.x</a> and the <a href="https://akka.io/blog/news-archive.html">Akka HTTP 10.1.x release announcements</a> for more details.</p>
 <p>For a detailed list of version upgrades of other libraries Lagom builds on such as for Slick, Kafka and others, refer to the <a href="https://github.com/lagom/lagom/releases">release notes</a>.</p><h2 id="Migrating-from-Lagom-1.5"><a class="section-marker" href="#Migrating-from-Lagom-1.5">§</a>Migrating from Lagom 1.5</h2>
 <p>To migrate from Lagom 1.5 we recommend first migrating to latest version of Lagom 1.5 before upgrading to Lagom 1.6. Refer to the <a href="https://github.com/lagom/lagom/releases">release notes</a> for details upgrading to latest version of Lagom 1.5.</p><h2 id="Build-changes"><a class="section-marker" href="#Build-changes">§</a>Build changes</h2>
 <p>The version of Lagom can be updated by editing the <code>project/plugins.sbt</code> file, and updating the version of the Lagom sbt plugin. For example:</p>
@@ -310,9 +310,12 @@
 <pre class="prettyprint"><code class="language-HOCON"># Opt-back to Lagom 1.5&#39;s &#39;persistence&#39; instead of Lagom 1.6&#39;s default of &#39;ddata&#39;.
 akka.cluster.sharding.state-store-mode = persistence
 </code></pre><h3 id="Akka-Persistence-Cassandra-Update"><a class="section-marker" href="#Akka-Persistence-Cassandra-Update">§</a>Akka Persistence Cassandra Update</h3>
-<p>The Akka Persistence Cassandra plugin is updated to version 0.100. This version requires a schema migration before you upgrade to Lagom 1.6.0.</p>
-<p>For more information on how to migrate, consult <a href="https://doc.akka.io/docs/akka-persistence-cassandra/current/migrations.html#migrations-to-0-80-and-later">Akka Persistence Cassandra migration document</a>.</p>
-<p>Note that although it&rsquo;s technically possible to run the migration while running your application we advise against it.</p><h3 id="Akka-Persistence-Typed"><a class="section-marker" href="#Akka-Persistence-Typed">§</a>Akka Persistence Typed</h3>
+<p>The Akka Persistence Cassandra plugin is updated to version 0.101. This version requires two schema migrations before you upgrade to Lagom 1.6.0. For more information on how to migrate, consult the following documentations:</p>
+<ul>
+  <li><a href="https://doc.akka.io/docs/akka-persistence-cassandra/0.101/migrations.html#migrations-to-0-101">Akka Persistence Cassandra Migrations to 0.101</a></li>
+  <li><a href="https://doc.akka.io/docs/akka-persistence-cassandra/0.101/migrations.html#migrations-to-0-80-and-later">Akka Persistence Cassandra Migrations to 0.80</a></li>
+</ul>
+<p>Note that although it&rsquo;s technically possible to run the migrations while running your application we advise against it.</p><h3 id="Akka-Persistence-Typed"><a class="section-marker" href="#Akka-Persistence-Typed">§</a>Akka Persistence Typed</h3>
 <p>With the new support for Akka Persistence Typed you may <a href="MigratingToAkkaPersistenceTyped.html">migrate your Persistent Entities to Akka Persistence Typed</a> <code>Behavior</code>&rsquo;s.</p><h2 id="Upgrading-a-production-system"><a class="section-marker" href="#Upgrading-a-production-system">§</a>Upgrading a production system</h2>
 <p>As usual, before upgrading to Lagom 1.6.0, make sure you are using the latest version on the 1.5.x series.</p>
 <p>During a rolling upgrade your <a href="Projections.html">Projections</a> may experience a degraded behavior. The service will self-heal when the rolling upgrade completes. Some internal messages taking care of the distribution of the worker instances of your projection have changed. As a consequence, your old nodes won&rsquo;t be able to gossip with the new ones but as soon as the rolling upgrade completes, all nodes will be on the same version of your service the projection will operate normally.</p>
@@ -374,6 +377,10 @@ akka.cluster.sharding.state-store-mode = persistence
                         <ul>
                         
                             
+                                <li><a href="Highlights16.html">What&#x27;s new in Lagom 1.6</a></li>
+                            
+                        
+                            
                                 <li><a href="Highlights15.html">What&#x27;s new in Lagom 1.5</a></li>
                             
                         
@@ -419,7 +426,7 @@ akka.cluster.sharding.state-store-mode = persistence
                             
                         
                             
-                                <li class="current-page"><a href="Highlights15.html">Lagom releases</a></li>
+                                <li class="current-page"><a href="Highlights16.html">Lagom releases</a></li>
                             
                         
                         </ul>
@@ -530,7 +537,7 @@ akka.cluster.sharding.state-store-mode = persistence
             </div>
         </div>
     </body>
-    <script src="/14be7bd8921ed0f077e9fb3b3e98c14277373101-all-scripts-concat.js"></script>
+    <script src="/b18c856a483577fba5ee9ea92f3064963d8577af-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

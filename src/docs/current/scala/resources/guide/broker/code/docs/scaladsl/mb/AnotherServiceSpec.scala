@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.scaladsl.mb
 
 import akka.Done
@@ -21,11 +25,9 @@ import play.api.libs.ws.ahc.AhcWSComponents
 abstract class AnotherApplication(context: LagomApplicationContext)
     extends LagomApplication(context)
     with AhcWSComponents {
-
   lazy val helloService = serviceClient.implement[HelloService]
 
   override lazy val lagomServer = serverFor[AnotherService](new AnotherServiceImpl(helloService))
-
 }
 
 //#topic-test-consuming-from-a-topic
@@ -36,7 +38,6 @@ class AnotherServiceSpec extends WordSpec with Matchers with Eventually with Sca
     "publish updates on greetings message" in
       ServiceTest.withServer(ServiceTest.defaultSetup) { ctx =>
         new AnotherApplication(ctx) with LocalServiceLocator {
-
           // (1) creates an in-memory topic and binds it to a producer stub
           val stubFactory = new ProducerStubFactory(actorSystem, materializer)
           producerStub = stubFactory.producer[GreetingMessage](HelloService.TOPIC_NAME)

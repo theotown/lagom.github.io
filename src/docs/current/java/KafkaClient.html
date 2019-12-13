@@ -1,5 +1,5 @@
 <h1 id="Lagom-Kafka-Client"><a class="section-marker" href="#Lagom-Kafka-Client">§</a>Lagom Kafka Client</h1>
-<p>Lagom provides an implementation of the Message Broker API that uses Kafka. In the remainder you will learn how to add the dependency in your build, and how to configure and tune topic&rsquo;s publishers and subscribers.</p><h2 id="Dependency"><a class="section-marker" href="#Dependency">§</a>Dependency</h2>
+<p>Lagom provides an implementation of the Message Broker API that uses Kafka. The following sections show how to add the dependency in your build, and how to configure and tune topic publishers and subscribers.<br/>For information on running Kafka in development, see the <a href="KafkaServer.html">Kafka Server</a> page.</p><h2 id="Dependency"><a class="section-marker" href="#Dependency">§</a>Dependency</h2>
 <p>To use this feature add the following in your project&rsquo;s build.</p>
 <p>In Maven:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
@@ -25,6 +25,9 @@
 
   client {
     default {
+      # how long should we wait when retrieving the last known offset
+      offset-timeout = 5s
+
       # Exponential backoff for failures
       failure-exponential-backoff {
         # minimum (initial) duration until processor is started again
@@ -45,6 +48,7 @@
 
     # configuration used by the Lagom Kafka consumer
     consumer {
+      offset-timeout = ${lagom.broker.kafka.client.default.offset-timeout}
       failure-exponential-backoff = ${lagom.broker.kafka.client.default.failure-exponential-backoff}
 
       # The number of offsets that will be buffered to allow the consumer flow to

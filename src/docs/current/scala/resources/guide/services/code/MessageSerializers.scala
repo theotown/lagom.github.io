@@ -1,7 +1,10 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.scaladsl.services.serializers
 
 package explicitserializers {
-
   import com.lightbend.lagom.scaladsl.api.Service
   import com.lightbend.lagom.scaladsl.api.ServiceCall
 
@@ -23,7 +26,6 @@ package explicitserializers {
 }
 
 package differentserializers {
-
   import akka.NotUsed
   import akka.util.ByteString
   import com.lightbend.lagom.scaladsl.api.deser.MessageSerializer
@@ -37,7 +39,6 @@ package differentserializers {
   case class MyMessage(id: String)
 
   object MyMessage {
-
     implicit val format: Format[MyMessage] = Json.format
     val alternateFormat: Format[MyMessage] = {
       (__ \ "identifier")
@@ -71,7 +72,6 @@ package differentserializers {
 }
 
 package customserializers {
-
   //#plain-text-serializer
   import akka.util.ByteString
   import com.lightbend.lagom.scaladsl.api.deser.MessageSerializer.NegotiatedSerializer
@@ -92,7 +92,6 @@ package customserializers {
   import play.api.libs.json.JsString
 
   class JsonTextSerializer extends NegotiatedSerializer[String, ByteString] {
-
     override val protocol = MessageProtocol(Some("application/json"))
 
     def serialize(s: String) =
@@ -104,7 +103,6 @@ package customserializers {
   import com.lightbend.lagom.scaladsl.api.deser.MessageSerializer.NegotiatedDeserializer
 
   class PlainTextDeserializer(val charset: String) extends NegotiatedDeserializer[String, ByteString] {
-
     def deserialize(bytes: ByteString) =
       bytes.decodeString(charset)
   }
@@ -114,7 +112,6 @@ package customserializers {
   import scala.util.control.NonFatal
 
   class JsonTextDeserializer extends NegotiatedDeserializer[String, ByteString] {
-
     def deserialize(bytes: ByteString) = {
       try {
         Json.parse(bytes.iterator.asInputStream).as[String]
@@ -176,11 +173,9 @@ package customserializers {
     }
     //#text-serializer-response
   }
-
 }
 
 package protobuf {
-
   import java.io.InputStream
   import java.io.OutputStream
 
@@ -203,7 +198,6 @@ package protobuf {
   import scala.collection.immutable
 
   class ProtobufSerializer extends StrictMessageSerializer[Order] {
-
     private final val serializer = {
       new NegotiatedSerializer[Order, ByteString]() {
         override def protocol: MessageProtocol =

@@ -14,6 +14,7 @@ This is a list of available Components you may use to build your application cak
 | [PubSubComponents](api/com/lightbend/lagom/scaladsl/pubsub/PubSubComponents.html) | provides [[Publish-Subscribe|PubSub#Publish-Subscribe]]. This requires `ClusterComponents`. See [[Publish-Subscribe|PubSub#Publish-Subscribe]]|
 | [CassandraPersistenceComponents](api/com/lightbend/lagom/scaladsl/persistence/cassandra/CassandraPersistenceComponents.html) |  provides both Read-Side and Write-Side components for Cassandra-backed CQRS. It provides `ReadSideCassandraPersistenceComponents` and `WriteSideCassandraPersistenceComponents` which you might want to use in isolation. See [[PersistentEntityCassandra]] for more info. |
 | [JdbcPersistenceComponents](api/com/lightbend/lagom/scaladsl/persistence/jdbc/JdbcPersistenceComponents.html) | provides both Read-Side and Write-Side components for Cassandra-backed CQRS. It provides `ReadSideJdbcPersistenceComponents`and `WriteSideJdbcPersistenceComponents` which you might want to use in isolation. See [[PersistentEntityRDBMS]]. |
+| [ProjectionComponents](api/com/lightbend/lagom/scaladsl/projection/ProjectionComponents.html) | provides `projections` to query the status and stop and start your projection workers. See [[Projections]]. |
 
 ##### Broker API Components
 | -------------------- | ----------- |
@@ -35,8 +36,8 @@ This is a list of available Components you may use to build your application cak
 
 You can mix in `Components` from other frameworks or libraries, for example:
 
- * [AhcWSComponents](https://www.playframework.com/documentation/2.6.x/api/scala/index.html#play.api.libs.ws.ahc.AhcWSComponents): provides a `WSClient` based on an Async HTTP Client.
- * [DBComponents](https://www.playframework.com/documentation/2.6.x/api/scala/play/api/db/DBComponents.html)
- * [HikariCPComponents](https://www.playframework.com/documentation/2.6.x/api/scala/play/api/db/HikariCPComponents.html)
+ * [AhcWSComponents](https://www.playframework.com/documentation/2.8.x/api/scala/index.html#play.api.libs.ws.ahc.AhcWSComponents): provides a `WSClient` based on an Async HTTP Client.
+ * [DBComponents](https://www.playframework.com/documentation/2.8.x/api/scala/play/api/db/DBComponents.html)
+ * [HikariCPComponents](https://www.playframework.com/documentation/2.8.x/api/scala/play/api/db/HikariCPComponents.html)
 
-Lagom inherits all Components provided by Play. You can find the complete list of inherited `Components` by searching for _components_ in [Play docs](https://www.playframework.com/documentation/2.6.x/api/scala/index.html).
+Lagom inherits all Components provided by Play. You can find the complete list of inherited `Components` by searching for _components_ in [Play docs](https://www.playframework.com/documentation/2.8.x/api/scala/index.html).

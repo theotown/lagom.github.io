@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.scaladsl.services
 
 import akka.NotUsed
@@ -8,12 +12,9 @@ import play.api.routing.SimpleRouter
 import scala.concurrent.Future
 
 package additionalrouters {
-
   package helloservice {
-
     //#hello-service
     trait HelloService extends Service {
-
       def hello(id: String): ServiceCall[NotUsed, String]
 
       final override def descriptor = {
@@ -40,7 +41,6 @@ package additionalrouters {
   }
 
   package lagomapplication {
-
     import helloservice._
 
     import com.lightbend.lagom.scaladsl.server._
@@ -48,7 +48,6 @@ package additionalrouters {
     import com.softwaremill.macwire._
 
     package sompeplayrouter {
-
       import play.api.routing.Router.Routes
 
       class SomePlayRouter extends SimpleRouter {
@@ -58,7 +57,6 @@ package additionalrouters {
       abstract class HelloApplication(context: LagomApplicationContext)
           extends LagomApplication(context)
           with AhcWSComponents {
-
         //#lagom-application-some-play-router
         override lazy val lagomServer =
           serverFor[HelloService](wire[HelloServiceImpl])
@@ -89,7 +87,6 @@ package additionalrouters {
       abstract class HelloApplication(context: LagomApplicationContext)
           extends LagomApplication(context)
           with AhcWSComponents {
-
         //#lagom-application-file-upload
         override lazy val lagomServer =
           serverFor[HelloService](wire[HelloServiceImpl])
@@ -97,6 +94,5 @@ package additionalrouters {
         //#lagom-application-file-upload
       }
     }
-
   }
 }

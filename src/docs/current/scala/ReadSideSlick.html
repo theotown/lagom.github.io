@@ -5,9 +5,7 @@
 <pre class="prettyprint"><code class="language-scala">import slick.jdbc.H2Profile.api._
 
 class PostSummaryRepository {
-
   class PostSummaryTable(tag: Tag) extends Table[PostSummary](tag, &quot;post_summary&quot;) {
-
     def *      = (postId, title) &lt;&gt; (PostSummary.tupled, PostSummary.unapply)
     def postId = column[String](&quot;post_id&quot;, O.PrimaryKey)
     def title  = column[String](&quot;title&quot;)
@@ -23,7 +21,6 @@ class PostSummaryRepository {
 import com.lightbend.lagom.scaladsl.api.ServiceCall
 import slick.jdbc.JdbcBackend.Database</code></pre>
 <pre class="prettyprint"><code class="language-scala">class BlogServiceImpl(db: Database, val postSummaryRepo: PostSummaryRepository) extends BlogService {
-
   override def getPostSummaries() = ServiceCall { request =&gt;
     db.run(postSummaryRepo.selectPostSummaries())
   }</code></pre>
@@ -43,7 +40,6 @@ import scala.concurrent.ExecutionContext</code></pre>
     readSide: SlickReadSide,
     postSummaryRepo: PostSummaryRepository
 ) extends ReadSideProcessor[BlogEvent] {
-
   override def buildHandler(): ReadSideProcessor.ReadSideHandler[BlogEvent] = {
     // TODO build read side handler
     ???
@@ -90,7 +86,6 @@ class PostSummaryRepository {
 <p>Once you&rsquo;ve created your read-side processor, you need to register it with Lagom. This is done using the <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/ReadSide"><code>ReadSide</code></a> component:</p>
 <pre class="prettyprint"><code class="language-scala">class BlogServiceImpl(persistentEntityRegistry: PersistentEntityRegistry, readSide: ReadSide, myDatabase: MyDatabase)
     extends BlogService {
-
   readSide.register[BlogEvent](new BlogEventProcessor(myDatabase))</code></pre>
 <p>Note that if you are utilizing <a href="DependencyInjection.html#Wiring-together-a-Lagom-application">Macwire for dependency injection</a>, you can simply add the following to your Application Loader:</p>
 <pre class="prettyprint"><code class="language-scala">readSide.register(wire[BlogEventProcessor])</code></pre><h3 id="Event-handlers"><a class="section-marker" href="#Event-handlers">§</a>Event handlers</h3>

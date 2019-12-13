@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
  */
+
 package docs.home.scaladsl.serialization.v2a
 
 import com.lightbend.lagom.scaladsl.playjson.JsonMigration
@@ -24,7 +25,6 @@ object Customer {
 }
 
 class CustomerMigration extends JsonSerializerRegistry {
-
   override def serializers = Seq.empty
 
   // format: off

@@ -80,7 +80,7 @@ public class LombokUser {
 &lt;/dependency&gt;
 </code></pre><h3 id="Adding-Lombok-to-an-sbt-projects"><a class="section-marker" href="#Adding-Lombok-to-an-sbt-projects">§</a>Adding Lombok to an sbt projects</h3>
 <p>For sbt, add the following line to ????</p>
-<pre class="prettyprint"><code class="language-sbt">val lombok = &quot;org.projectlombok&quot; % &quot;lombok&quot; % &quot;1.16.12&quot;
+<pre class="prettyprint"><code class="language-sbt">val lombok = &quot;org.projectlombok&quot; % &quot;lombok&quot; % &quot;1.18.8&quot;
 libraryDependencies += lombok</code></pre><h3 id="Integrating-Lombok-with-an-IDE"><a class="section-marker" href="#Integrating-Lombok-with-an-IDE">§</a>Integrating Lombok with an IDE</h3>
 <p>Lombok integrates with popular IDEs:<br/>* To use Lombok in IntelliJ IDEA you&rsquo;ll need the <a href="https://plugins.jetbrains.com/idea/plugin/6317-lombok-plugin">Lombok Plugin for IntelliJ IDEA</a> and you&rsquo;ll also need to enable Annotation Processing (<code>Settings / Build,Execution,Deployment / Compiler / Annotation Processors</code> and tick <code>Enable annotation processing</code>)<br/>* To Use Lombok in Eclipse, run <code>java -jar lombok.jar</code> (see the video at <a href="https://projectlombok.org/">Project Lombok</a>).</p><h2 id="Immutables-tool-example"><a class="section-marker" href="#Immutables-tool-example">§</a>Immutables tool example</h2>
 <p>Here is the corresponding definition of a <code>User</code> (like the above <code>ImmutableUser</code>) using Immutables:</p>

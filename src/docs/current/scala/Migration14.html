@@ -10,7 +10,7 @@
 <p>We also recommend you <a href="https://www.scala-sbt.org/download.html">upgrade</a> your <code>sbt</code> launcher.</p><h2 id="Scala-2.12-support"><a class="section-marker" href="#Scala-2.12-support">§</a>Scala 2.12 support</h2>
 <p>Lagom is now cross compiled to Scala 2.11 and 2.12. It&rsquo;s recommended to upgrade to Scala 2.12 whenever possible. The Scala 2.12 version of Lagom benefits from the improved optimizer and use of Java 8 features in the new version of the Scala compiler, resulting in a leaner, faster Lagom for everyone.</p>
 <p>The Scala version can be updated by editing the <code>build.sbt</code> file, and updating the <code>scalaVersion</code> settings, for example:</p>
-<pre class="prettyprint"><code class="language-scala">scalaVersion in ThisBuild := &quot;2.12.9&quot;
+<pre class="prettyprint"><code class="language-scala">scalaVersion in ThisBuild := &quot;2.12.10&quot;
 </code></pre><h2 id="Akka-HTTP-as-the-default-server-engine"><a class="section-marker" href="#Akka-HTTP-as-the-default-server-engine">§</a>Akka HTTP as the default server engine</h2>
 <p>Play 2.6 introduces a new default server engine implemented using <a href="https://doc.akka.io/docs/akka-http/current/?language=scala">Akka HTTP</a> instead of Netty.</p>
 <p>You can read more in the Play documentation at <a href="https://www.playframework.com/documentation/2.6.x/AkkaHttpServer">Akka HTTP Server Backend</a>.</p>

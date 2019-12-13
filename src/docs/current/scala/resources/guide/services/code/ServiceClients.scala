@@ -1,7 +1,10 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.scaladsl.services
 
 package implementhelloclient {
-
   import helloservice.HelloService
 
   import com.lightbend.lagom.scaladsl.server.LagomApplication
@@ -12,15 +15,12 @@ package implementhelloclient {
   abstract class MyApplication(context: LagomApplicationContext)
       extends LagomApplication(context)
       with AhcWSComponents {
-
     lazy val helloService = serviceClient.implement[HelloService]
   }
   //#implement-hello-client
-
 }
 
 package helloconsumer {
-
   import akka.NotUsed
   import com.lightbend.lagom.scaladsl.api.Service
   import com.lightbend.lagom.scaladsl.api.ServiceCall
@@ -41,7 +41,6 @@ package helloconsumer {
 
   //#hello-consumer
   class MyServiceImpl(helloService: HelloService)(implicit ec: ExecutionContext) extends MyService {
-
     override def sayHelloLagom = ServiceCall { _ =>
       val result: Future[String] =
         helloService.sayHello.invoke("Lagom")
@@ -55,7 +54,6 @@ package helloconsumer {
 }
 
 package circuitbreakers {
-
   import com.lightbend.lagom.scaladsl.api.Descriptor
   import com.lightbend.lagom.scaladsl.api.Service
   import com.lightbend.lagom.scaladsl.api.ServiceCall
@@ -81,5 +79,4 @@ package circuitbreakers {
     //#circuit-breaker
     // @formatter:on
   }
-
 }

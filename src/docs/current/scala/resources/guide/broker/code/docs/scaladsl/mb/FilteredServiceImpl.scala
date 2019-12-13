@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.scaladsl.mb
 
 import com.lightbend.lagom.scaladsl.api.ServiceCall
@@ -12,7 +16,6 @@ import scala.collection.immutable
  */
 class FilteredServiceImpl(persistentEntityRegistry: PersistentEntityRegistry)
     extends HelloServiceImpl(persistentEntityRegistry) {
-
   //#filter-events
   override def greetingsTopic(): Topic[GreetingMessage] =
     TopicProducer.singleStreamWithOffset { fromOffset =>

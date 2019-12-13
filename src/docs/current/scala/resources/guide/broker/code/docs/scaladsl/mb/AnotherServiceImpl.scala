@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.scaladsl.mb
 
 import akka.Done
@@ -56,7 +60,6 @@ class AnotherServiceImpl(helloService: HelloService) extends AnotherService {
         }
       )
     //#subscribe-to-topic-with-metadata
-
   }
 
   def skipMessages = {

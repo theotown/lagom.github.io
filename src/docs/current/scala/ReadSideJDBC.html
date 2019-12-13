@@ -39,7 +39,6 @@ import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession.tryWith
 </code></pre>
 <pre class="prettyprint"><code class="language-scala">class BlogEventProcessor(readSide: JdbcReadSide)(implicit ec: ExecutionContext)
     extends ReadSideProcessor[BlogEvent] {
-
   override def buildHandler(): ReadSideProcessor.ReadSideHandler[BlogEvent] = {
     // TODO build read side handler
     ???
@@ -86,7 +85,6 @@ import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession.tryWith
 <p>Once you&rsquo;ve created your read-side processor, you need to register it with Lagom. This is done using the <a href="api/index.html#com/lightbend/lagom/scaladsl/persistence/ReadSide"><code>ReadSide</code></a> component:</p>
 <pre class="prettyprint"><code class="language-scala">class BlogServiceImpl(persistentEntityRegistry: PersistentEntityRegistry, readSide: ReadSide, myDatabase: MyDatabase)
     extends BlogService {
-
   readSide.register[BlogEvent](new BlogEventProcessor(myDatabase))</code></pre><h3 id="Event-handlers"><a class="section-marker" href="#Event-handlers">§</a>Event handlers</h3>
 <p>The event handlers take an event and a connection, and update the read-side accordingly.</p>
 <p>Here&rsquo;s an example callback for handling the <code>PostAdded</code> event:</p>

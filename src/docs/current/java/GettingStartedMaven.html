@@ -35,23 +35,22 @@ Choose a number or apply filter (format: [groupId:]artifactId, case sensitive co
   </li>
   <li>Enter <code>Y</code> to accept the values.<br/> When finished, Maven creates the project, and completes with a message similar to the following:</li>
 </ol>
-<pre class="prettyprint"><code>   [INFO] ------------------------------------------------------------------------
-   [INFO] BUILD SUCCESS
-   [INFO] ------------------------------------------------------------------------
-   [INFO] Total time: 10:42 min
-   [INFO] Finished at: 2017-02-24T11:58:08-06:00
-   [INFO] Final Memory: 17M/252M
-   [INFO] ------------------------------------------------------------------------
-
+<pre class="prettyprint"><code>[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 10:42 min
+[INFO] Finished at: 2017-02-24T11:58:08-06:00
+[INFO] Final Memory: 17M/252M
+[INFO] ------------------------------------------------------------------------
 </code></pre><h2 id="Browse-the-project-structure"><a class="section-marker" href="#Browse-the-project-structure">§</a>Browse the project structure</h2>
 <p>The structure for a project created with the Maven archetype generate command will look similar to the following (assuming <code>my-first-system</code> as an <code>artifactId</code>):</p>
 <pre class="prettyprint"><code>my-first-system
- └ hello-api/             → hello world api project dir
- └ hello-impl/            → hello world implementation dir
- └ integration-tests/
- └ stream-api/            → stream api project dir
- └ stream-impl/           → stream implementation project dir
- └ pom.xml                → Project group build file
+├── hello-api             → hello world api project dir
+├── hello-impl            → hello world implementation dir
+├── integration-tests     → project integration tests
+├── stream-api            → stream api project dir
+├── stream-impl           → stream implementation project dir
+└── pom.xml               → Project group build file
 </code></pre>
 <p>Note that the <code>hello</code> and <code>stream</code> services each have:</p>
 <ul>
@@ -77,8 +76,11 @@ mvn lagom:runAll
 [INFO] Service stream-impl listening for HTTPS on 127.0.0.1:58440
 [INFO] (Services started, press enter to stop and go back to the console...)
 </code></pre>
-<p>Verify that the services are indeed up and running by invoking the <code>hello</code> service endpoint from any HTTP client, such as a browser:</p>
-<pre class="prettyprint"><code>http://localhost:9000/api/hello/World
+<p>Verify that the services are indeed up and running by invoking the <code>hello</code> service endpoint from any HTTP client, such as a browser: <a href="http://localhost:9000/api/hello/World">http://localhost:9000/api/hello/World</a>. Or using <code>curl</code>:</p>
+<pre class="prettyprint"><code class="language-bash">curl -i http://localhost:9000/api/hello/World
 </code></pre>
+<blockquote>
+  <p>NOTE: if you use a name for <code>service1</code> different from <code>hello</code> the URL will differ. Use <code>curl -i http://localhost:9000/api/&lt;service1Name&gt;/World</code></p>
+</blockquote>
 <p>The request returns the message <code>Hello, World!</code>.</p>
 <p>Congratulations! You&rsquo;ve created and run your first Lagom system.</p>

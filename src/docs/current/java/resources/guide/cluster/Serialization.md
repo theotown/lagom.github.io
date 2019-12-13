@@ -1,6 +1,6 @@
 # Serialization
 
-Out of the box, Lagom will use JSON for request and response message format for the external API of the service, using Jackson to serialize and deserialize messages. The messages that are sent within the cluster of the service must also be serializable and so must the events that are stored by [[Persistent Entities|PersistentEntity]]. We recommend JSON for these as well and Lagom makes it easy to add Jackson serialization support to such classes.
+Out of the box, Lagom will use JSON for request and response message format for the external API of the service, using Jackson to serialize and deserialize messages. The messages that are sent within the cluster of the service must also be serializable and so must the events that are stored by [[Akka Persistence Typed|UsingAkkaPersistenceTyped]] `Behaviors` and Lagom [[Persistent Entities|PersistentEntity]]. We recommend JSON for these as well and Lagom makes it easy to add Jackson serialization support to such classes.
 
 Do not depend on Java serialization for production deployments. It is inefficient both in serialization size and speed. It is very difficult to evolve the classes when using Java serialization, which is especially important for the persistent state and events, since you must be able to deserialize old objects that were stored.
 
@@ -14,17 +14,17 @@ Note that we're using the [[Immutables|Immutable]] library here, so this will ge
 
 ### Jackson Modules
 
-The following Jackson modules are enabled by default:
+The enabled Jackson modules are listed in the [Akka documentation](https://doc.akka.io/docs/akka/2.6/serialization-jackson.html#jackson-modules), and additionally following Jackson modules are enabled by default:
 
 @[jackson-modules](../../../../../jackson/src/main/resources/reference.conf)
 
-You can amend the configuration `lagom.serialization.json.jackson-modules` to enable other modules.
+You can amend the configuration `akka.serialization.jackson.jackson-modules` to enable other modules.
 
-The [ParameterNamesModule](https://github.com/FasterXML/jackson-module-parameter-names) requires that the `-parameters` Java compiler option is enabled.
+The [ParameterNamesModule](https://github.com/FasterXML/jackson-modules-java8/tree/master/parameter-names) requires that the `-parameters` Java compiler option is enabled.
 
 The section [[Immutable Objects|Immutable]] contains more examples of classes that are `Jsonable`.
 
-You can use the [PersistentEntityTestDriver](api/index.html?com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.html) that is described in the [[Persistent Entity Unit Testing|PersistentEntity#Unit-Testing]] section to verify that all commands, events, replies and state are serializable.
+If you use Lagom Persistence (classic) for your persistence, you can use the [PersistentEntityTestDriver](api/index.html?com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.html) that is described in the [[Persistent Entity Unit Testing|PersistentEntity#Unit-Testing]] section to verify that all commands, events, replies and state are serializable.
 
 ### Compression
 
@@ -34,11 +34,11 @@ JSON can be rather verbose and for large messages it can be beneficial to enable
 
 @[compressed-jsonable](code/docs/home/serialization/AbstractAuthor.java)
 
-The serializer will by default only compress messages that are larger than 1024 bytes. This threshold can be changed with configuration property `lagom.serialization.json.compress-larger-than`.
+The serializer will by default only compress messages that are larger than 32 KiB. This threshold can be changed with configuration property `akka.serialization.jackson.jackson-json-compressed.compression.compress-larger-than`.
 
 ## Schema Evolution
 
-When working on long running projects using [[Persistence|PersistentEntity]], or any kind of Event Sourcing, schema evolution becomes an important aspects of developing your application. The requirements as well as our own understanding of the business domain may (and will) change over time.
+When working on long running projects using [[Akka Persistence Typed|UsingAkkaPersistenceTyped]], Lagom [[Persistence|PersistentEntity]] (classic), or any kind of Event Sourcing, schema evolution becomes an important aspect of developing your application. The requirements as well as our own understanding of the business domain may (and will) change over time.
 
 Lagom provides a way to perform transformations of the JSON tree model during deserialization.
 
@@ -64,7 +64,7 @@ Let's say we want to have a mandatory `discount` property without default value 
 
 @[add-mandatory](code/docs/home/serialization/v2b/AbstractItemAdded.java)
 
-To add a new mandatory field we have to use a JSON migration class and set the default value in the migration code, which extends the `JacksonJsonMigration`.
+To add a new mandatory field we have to use a JSON migration class and set the default value in the migration code, which extends the `JacksonMigration`.
 
 This is how a migration class would look like for adding a `discount` field:
 
@@ -76,7 +76,7 @@ Implement the transformation of the old JSON structure to the new JSON structure
 
 The migration class must be defined in configuration file:
 
-    lagom.serialization.json.migrations {
+    akka.serialization.jackson.migrations {
       "com.myservice.event.ItemAdded" = "com.myservice.event.ItemAddedMigration"
     }
 
@@ -130,6 +130,6 @@ Note the override of the `transformClassName` method to define the new class nam
 
 That type of migration must be configured with the old class name as key. The actual class can be removed.
 
-    lagom.serialization.json.migrations {
+    akka.serialization.jackson.migrations {
       "com.myservice.event.OrderAdded" = "com.myservice.event.OrderPlacedMigration"
     }

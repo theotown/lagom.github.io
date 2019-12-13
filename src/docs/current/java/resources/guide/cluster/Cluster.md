@@ -2,7 +2,7 @@
 
 Instances of the same service may run on multiple nodes, for scalability and redundancy. Nodes may be physical or virtual machines, grouped in a cluster.
 
-The underlying clustering technology is [Akka Cluster](https://doc.akka.io/docs/akka/2.5/cluster-usage.html?language=java).
+The underlying clustering technology is [Akka Cluster](https://doc.akka.io/docs/akka/2.6/cluster-usage.html?language=java).
 
 If instances of a service need to know about each other, they must join the same cluster. Within a cluster, services may use the [[Persistence|PersistentEntity]] and [[Publish-Subscribe|PubSub]] modules of Lagom.
 
@@ -48,7 +48,7 @@ The sections below cover the two options for Cluster Joining during Production i
 
 Starting from version 1.5.0, Lagom offers support for [Akka Cluster Bootstrap](https://doc.akka.io/docs/akka-management/1.0/bootstrap/). Akka Cluster Bootstrap is enabled by default in production mode and disabled in development and test mode.
 
-Akka Cluster Bootstrap helps forming (or joining to) a cluster by using [Akka Discovery](https://doc.akka.io/docs/akka/2.5/discovery/index.html) to discover peer nodes. It is an alternative to configuring static seed-nodes in dynamic deployment environments such as on Kubernetes or AWS.
+Akka Cluster Bootstrap helps forming (or joining to) a cluster by using [Akka Discovery](https://doc.akka.io/docs/akka/2.6/discovery/index.html) to discover peer nodes. It is an alternative to configuring static seed-nodes in dynamic deployment environments such as on Kubernetes or AWS.
 
 It builds on the flexibility of Akka Discovery, leveraging a range of discovery mechanisms depending on the environment you want to run your cluster in.
 
@@ -58,7 +58,7 @@ Akka Cluster Bootstrap, in Lagom, can be disabled through the property `lagom.cl
 
 In order to find the peer nodes and form a cluster, Akka Cluster Bootstrap needs to be configured to use one of the existing Akka Discovery methods:
 
- 1. Start by choosing one of the methods from [Akka Discovery](https://doc.akka.io/docs/akka/2.5/discovery/) or [Akka Management](https://doc.akka.io/docs/akka-management/1.0/discovery/) as appropriate for your deployment environment. For example, if you are deploying to Kubernetes, the `kubernetes-api` method is recommended. Note that the Akka Discovery method used for Akka Cluster Bootstrap is different than the method used for [[service discovery between services|AkkaDiscoveryIntegration]].
+ 1. Start by choosing one of the methods from [Akka Discovery](https://doc.akka.io/docs/akka/2.6/discovery/) or [Akka Management](https://doc.akka.io/docs/akka-management/1.0/discovery/) as appropriate for your deployment environment. For example, if you are deploying to Kubernetes, the `kubernetes-api` method is recommended. Note that the Akka Discovery method used for Akka Cluster Bootstrap is different than the method used for [[service discovery between services|AkkaDiscoveryIntegration]].
 
  2. If you are using one of the Akka Discovery methods provided by Akka Management, you will need to add the library dependency to your project build. Using `kubernetes-api` as an example, in Maven:
     ```xml
@@ -129,23 +129,23 @@ You can define some initial contact points of the cluster, so-called seed nodes 
 
 ```
 akka.cluster.seed-nodes = [
-  "akka.tcp://MyService@host1:2552",
-  "akka.tcp://MyService@host2:2552"]
+  "akka://MyService@host1:25520",
+  "akka://MyService@host2:25520"]
 ```
 
 Alternatively, this can be defined as Java system properties when starting the JVM:
 
 ```
 -Dlagom.cluster.bootstrap.enabled=false
--Dakka.cluster.seed-nodes.0=akka.tcp://MyService@host1:2552
--Dakka.cluster.seed-nodes.1=akka.tcp://MyService@host2:2552
+-Dakka.cluster.seed-nodes.0=akka://MyService@host1:25520
+-Dakka.cluster.seed-nodes.1=akka://MyService@host2:25520
 ```
 
 The node that is configured first in the list of `seed-nodes` is special. Only that node that will join itself. It is used for bootstrapping the cluster.
 
 The reason for the special first seed node is to avoid forming separated islands when starting from an empty cluster. If the first seed node is restarted and there is an existing cluster it will try to join the other seed nodes, i.e. it will join the existing cluster.
 
-You can read more about cluster joining in the [Akka documentation](https://doc.akka.io/docs/akka/2.5/cluster-usage.html?language=java#joining-to-seed-nodes).
+You can read more about cluster joining in the [Akka documentation](https://doc.akka.io/docs/akka/2.6/cluster-usage.html?language=java#joining-to-seed-nodes).
 
 ## Downing
 

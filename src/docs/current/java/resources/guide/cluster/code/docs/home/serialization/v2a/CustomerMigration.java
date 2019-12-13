@@ -1,11 +1,15 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.home.serialization.v2a;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.lightbend.lagom.serialization.JacksonJsonMigration;
+import akka.serialization.jackson.JacksonMigration;
 
 // #structural
-public class CustomerMigration extends JacksonJsonMigration {
+public class CustomerMigration extends JacksonMigration {
 
   @Override
   public int currentVersion() {

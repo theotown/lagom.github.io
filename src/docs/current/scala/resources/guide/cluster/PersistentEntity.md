@@ -1,6 +1,8 @@
 # Persistent Entity
 
-[[Event Sourcing and CQRS|ES_CQRS]] is a recommended introduction to this section.
+> If you are developing a new Lagom application, we recommend you to follow the guide [[Domain Modelling with Akka Persistence Typed|UsingAkkaPersistenceTyped]]. If you already have an application using Lagom's `PersistenceEntity`, we recommend the guide [[Migrating to Akka Persistence Typed|MigratingToAkkaPersistenceTyped]] instead.
+
+We recommend reading [[Event Sourcing and CQRS|ES_CQRS]] as a prerequisite to this section.
 
 A `PersistentEntity` has a stable entity identifier, with which it can be accessed from the service implementation or other places. The state of an entity is persistent (durable) using [Event Sourcing](https://msdn.microsoft.com/en-us/library/jj591559.aspx). We represent all state changes as events and those immutable facts are appended to an event log. To recreate the current state of an entity when it is started we replay these events.
 
@@ -18,27 +20,9 @@ An entity is kept alive, holding its current state in memory, as long as it is u
 
 When an entity is started it replays the stored events to restore the current state. This can be either the full history of changes or starting from a snapshot which will reduce recovery times.
 
-## Choosing a database
-
-Lagom is compatible with the following databases:
-
-* [Cassandra](https://cassandra.apache.org/)
-* [PostgreSQL](https://www.postgresql.org/)
-* [MySQL](https://www.mysql.com/)
-* [Oracle](https://www.oracle.com/database/index.html)
-* [H2](https://www.h2database.com/)
-* [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/)
-* [Couchbase](https://www.couchbase.com/)
-
-For instructions on configuring your project to use Cassandra, see [[Using Cassandra for Persistent Entities|PersistentEntityCassandra]]. If instead you want to use one of the relational databases listed above, see [[Using a Relational Database for Persistent Entities|PersistentEntityRDBMS]] on how to configure your project. If you wish to use Couchbase, proceed to the [Lagom section of the plugin site](https://doc.akka.io/docs/akka-persistence-couchbase/current/lagom-persistent-entity.html) for all the details.
-
-To see how to combine Cassandra for write-side persistence and JDBC for a read-side view, see the [Mixed Persistence Service](https://github.com/lagom/lagom-samples/blob/1.5.x/mixed-persistence/mixed-persistence-scala-sbt/README.md) example.
-
-Lagom provides out of the box support for running Cassandra in a development environment - developers do not need to install, configure or manage Cassandra at all themselves when using Lagom, which makes for great developer velocity, and it means gone are the days where developers spend days setting up their development environment before they can start to be productive on a project.
-
 ## PersistentEntity Stub
 
-This is how a [PersistentEntity](api/index.html#com/lightbend/lagom/scaladsl/persistence/PersistentEntity) class looks like before filling in the implementation details:
+This is what a [PersistentEntity](api/index.html#com/lightbend/lagom/scaladsl/persistence/PersistentEntity) class looks like before filling in the implementation details:
 
 @[post1](code/docs/home/scaladsl/persistence/Post1.scala)
 
@@ -217,7 +201,7 @@ The default configuration should be good starting point, and the following setti
 
 ## Underlying Implementation
 
-Each `PersistentEntity` instance is executed by a [PersistentActor](https://doc.akka.io/docs/akka/2.5/persistence.html?language=scala) that is managed by [Akka Cluster Sharding](https://doc.akka.io/docs/akka/2.5/cluster-sharding.html?language=scala).
+Each `PersistentEntity` instance is executed by a [PersistentActor](https://doc.akka.io/docs/akka/2.6/persistence.html?language=scala) that is managed by [Akka Cluster Sharding](https://doc.akka.io/docs/akka/2.6/cluster-sharding.html?language=scala).
 
 
 ## Execution details (advanced)
@@ -236,8 +220,7 @@ This needs a deeper explanation to understand the guarantees provided by Lagom. 
 6. if the snapshotting threshold is exceeded, a snapshot is generated and stored
 7. finally, the command processing completes and a new command may be processed.
 
-If you are familiar with [Akka Persistence](https://doc.akka.io/docs/akka/2.5/persistence.html) this process is slightly different in few places:
+If you are familiar with [Akka Persistence](https://doc.akka.io/docs/akka/2.6/persistence.html) this process is slightly different in few places:
 
 * new commands are not processed until events are stored, the `Effect` completed and the snapshot updated (if necessary). Akka provides the same behavior and also `async` alternatives that cause new commands to be processed even before all event handlers have completed.
 * saving snapshots is an operation run under the covers _at least_ every `lagom.persistence.snapshot-after` events (see [Configuration](#Configuration) above) but "storing events atomically" takes precedence. Imagine we want a snapshot every 100 events and we already have 99 events, if the next command emits 3 events the snapshot will only be stored after event number 102 because events `[100, 101, 102]` will be stored atomically and only after it'll be possible to create a snapshot.
-

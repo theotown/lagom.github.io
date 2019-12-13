@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.scaladsl.mb
 
 import com.lightbend.lagom.scaladsl.api.broker.Topic
@@ -13,7 +17,6 @@ import scala.collection.immutable.Seq
  *
  */
 trait BlogPostService extends Service {
-
   final override def descriptor: Descriptor = {
     import Service._
 

@@ -1,7 +1,10 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.scaladsl.cluster.pubsub
 
 package example {
-
   import akka.NotUsed
   import akka.stream.scaladsl.Source
   import com.lightbend.lagom.scaladsl.api.Service
@@ -51,7 +54,6 @@ package example {
     }
   }
   //#service-impl
-
 }
 
 package serviceimplstream {
@@ -82,7 +84,6 @@ package serviceimplstream {
   import akka.stream.Materializer
 
   class SensorServiceImpl(pubSub: PubSubRegistry)(implicit materializer: Materializer) extends SensorService {
-
     def registerTemperature(id: String) = ServiceCall { temperatures =>
       val topic = pubSub.refFor(TopicId[Temperature](id))
       temperatures.runWith(topic.publisher)
@@ -95,11 +96,9 @@ package serviceimplstream {
     }
   }
   //#service-impl-stream
-
 }
 
 package persistententity {
-
   import akka.Done
   import akka.NotUsed
   import akka.stream.scaladsl.Source
@@ -181,7 +180,6 @@ package persistententity {
             ctx.reply(state.content.get)
         }
     }
-
   }
 
   trait BlogService extends Service {
@@ -205,5 +203,4 @@ package persistententity {
     }
   }
   //#entity-service-impl
-
 }

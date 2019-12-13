@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
+ */
+
 package docs.home.scaladsl.persistence
 
 //#imports
@@ -11,7 +15,6 @@ import com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession
 //#imports
 
 trait CassandraReadSideQuery {
-
   trait BlogService extends Service {
     def getPostSummaries(): ServiceCall[NotUsed, Source[PostSummary, _]]
 
@@ -20,7 +23,6 @@ trait CassandraReadSideQuery {
 
   //#service-impl
   class BlogServiceImpl(cassandraSession: CassandraSession) extends BlogService {
-
     override def getPostSummaries() = ServiceCall { request =>
       val response: Source[PostSummary, NotUsed] =
         cassandraSession
@@ -30,5 +32,4 @@ trait CassandraReadSideQuery {
     }
   }
   //#service-impl
-
 }

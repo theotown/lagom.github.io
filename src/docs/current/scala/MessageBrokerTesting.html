@@ -17,7 +17,6 @@
       .runWith(TestSink.probe[PubMessage])
       .request(1)
       .expectNext should ===(PubMessage(&quot;msg 1&quot;))
-
   }
 }</code></pre>
 <p>In order to start the application with a stubbed broker you will have to mixin a <code>TestTopicComponents</code> into your test application.</p>
@@ -36,7 +35,6 @@
     &quot;publish updates on greetings message&quot; in
       ServiceTest.withServer(ServiceTest.defaultSetup) { ctx =&gt;
         new AnotherApplication(ctx) with LocalServiceLocator {
-
           // (1) creates an in-memory topic and binds it to a producer stub
           val stubFactory = new ProducerStubFactory(actorSystem, materializer)
           producerStub = stubFactory.producer[GreetingMessage](HelloService.TOPIC_NAME)

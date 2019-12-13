@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
  */
+
 package docs.home.scaladsl.serialization.v2a
 
 import com.lightbend.lagom.scaladsl.playjson.JsonMigration
@@ -13,7 +14,6 @@ case class OrderPlaced(shoppingCartId: String)
 //#rename-class
 
 class ShopSerializerRegistry extends JsonSerializerRegistry {
-
   override def serializers = Vector.empty[JsonSerializer[_]]
 
   //#rename-class-migration

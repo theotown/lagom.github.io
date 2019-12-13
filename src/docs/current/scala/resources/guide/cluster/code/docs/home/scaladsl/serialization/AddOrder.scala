@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2016-2019 Lightbend Inc. <https://www.lightbend.com>
  */
+
 package docs.home.scaladsl.serialization
 
 import com.lightbend.lagom.scaladsl.playjson.JsonSerializer
@@ -10,8 +11,6 @@ import play.api.libs.json.Json
 import play.api.libs.json.Reads
 
 object AddOrder {
-
-  //#manualMapping
   case class AddOrder(productId: String, quantity: Int)
 
   import play.api.libs.functional.syntax._
@@ -24,23 +23,18 @@ object AddOrder {
         .and((JsPath \ "quantity").format[Int])
         .apply(AddOrder.apply, unlift(AddOrder.unapply))
   }
-  //#manualMapping
-
 }
 
 object OrderCommands {
-
   //#singleton
   case object GetOrders {
     implicit val format: Format[GetOrders.type] =
       JsonSerializer.emptySingletonFormat(GetOrders)
   }
   //#singleton
-
 }
 
 object Hierarchy {
-
   //#hierarchy
   import play.api.libs.json._
 
@@ -80,5 +74,4 @@ object Hierarchy {
     )
   }
   //#hierarchy
-
 }

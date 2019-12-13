@@ -1,6 +1,7 @@
 # Lagom Kafka Client
 
-Lagom provides an implementation of the Message Broker API that uses Kafka. In the remainder you will learn how to add the dependency in your build, and how to configure and tune topic's publishers and subscribers.
+Lagom provides an implementation of the Message Broker API that uses Kafka. The following sections show how to add the dependency in your build, and how to configure and tune topic publishers and subscribers.
+For information on running Kafka in development, see the [[Kafka Server|KafkaServer]] page.
 
 ## Dependency
 

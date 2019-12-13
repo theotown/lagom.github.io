@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":38,"i2":38,"i3":6,"i4":6};
+var methods = {"i0":6,"i1":38,"i2":6,"i3":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -140,15 +140,6 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRegistry.html#gracefulShutdown-scala.concurrent.duration.FiniteDuration-">gracefulShutdown</a></span>(scala.concurrent.duration.FiniteDuration&nbsp;timeout)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">As of Lagom 1.4, this method has no effect and no longer needs to be called
- <p></span></div>
-</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code>&lt;C&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntityRef</a>&lt;C&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRegistry.html#refFor-java.lang.Class-java.lang.String-">refFor</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity</a>&lt;C,?,?&gt;&gt;&nbsp;entityClass,
       <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;entityId)</code>
@@ -156,7 +147,7 @@ var activeTableTab = "activeTableTab";
  and identifier.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>&lt;C,E,S&gt;&nbsp;void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRegistry.html#register-java.lang.Class-">register</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity</a>&lt;C,E,S&gt;&gt;&nbsp;entityClass)</code>
 <div class="block">At system startup all <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> classes must be registered
@@ -220,25 +211,6 @@ var activeTableTab = "activeTableTab";
  <p>
  This method will only work with journals that support UUID offsets. Journals that
  produce sequence offsets will fail during stream handling.</div>
-</li>
-</ul>
-<a name="gracefulShutdown-scala.concurrent.duration.FiniteDuration-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>gracefulShutdown</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html?is-external=true" title="class or interface in java.util.concurrent">CompletionStage</a>&lt;akka.Done&gt;&nbsp;gracefulShutdown(scala.concurrent.duration.FiniteDuration&nbsp;timeout)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">As of Lagom 1.4, this method has no effect and no longer needs to be called
- <p></span></div>
-<div class="block">No-op method that exists only for backward-compatibility reasons.
- Lagom now uses Akka's CoordinatedShutdown to gracefully shut down all sharded entities,
- including Persistent Entities.
- <p></div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a completed <code>CompletionStage</code></dd>
-</dl>
 </li>
 </ul>
 <a name="refFor-java.lang.Class-java.lang.String-">

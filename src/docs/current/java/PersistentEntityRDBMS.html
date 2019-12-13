@@ -1,5 +1,5 @@
-<h1 id="Storing-Persistent-Entities-in-a-Relational-Database"><a class="section-marker" href="#Storing-Persistent-Entities-in-a-Relational-Database">§</a>Storing Persistent Entities in a Relational Database</h1>
-<p>This page describes how to configure a relational database for use with Lagom&rsquo;s <a href="PersistentEntity.html">Persistent Entity</a> API.</p><h2 id="Project-dependencies"><a class="section-marker" href="#Project-dependencies">§</a>Project dependencies</h2>
+<h1 id="Storing-Persistent-Events-in-a-Relational-Database"><a class="section-marker" href="#Storing-Persistent-Events-in-a-Relational-Database">§</a>Storing Persistent Events in a Relational Database</h1>
+<p>This page describes how to configure a relational database for use with <a href="PersistentEntity.html">Persistent Entity</a> API or Akka Typed Persistence in a Lagom service .</p><h2 id="Project-dependencies"><a class="section-marker" href="#Project-dependencies">§</a>Project dependencies</h2>
 <p>To use a relational database add the following in your project&rsquo;s build:</p>
 <p>In Maven:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
@@ -11,15 +11,16 @@
 <p>In sbt:</p>
 <pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomJavadslPersistenceJdbc</code></pre>
 <p>You will also need to add the jar for your JDBC database driver.</p><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
-<p>Lagom uses the <a href="https://github.com/dnvriend/akka-persistence-jdbc"><code>akka-persistence-jdbc</code></a> plugin to persist entities to the database. This supports four different relational databases:</p>
+<p>Lagom uses the <a href="https://github.com/dnvriend/akka-persistence-jdbc"><code>akka-persistence-jdbc</code></a> plugin. This supports the following relational databases:</p>
 <ul>
   <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
   <li><a href="https://www.mysql.com/">MySQL</a></li>
   <li><a href="https://www.oracle.com/database/">Oracle</a></li>
   <li><a href="https://www.h2database.com/">H2</a></li>
+  <li><a href="https://www.microsoft.com/en-us/sql-server">SQL Server</a></li>
 </ul>
 <p>We advise against using H2 in production, however, it is suitable for use in development and testing.</p>
-<p>In Lagom&rsquo;s default configuration, Lagom will use Play&rsquo;s JDBC support to configure and create a connection pool. Details on how to configure it can be found <a href="https://www.playframework.com/documentation/2.6.x/JavaDatabase">here</a>. Play should be configured to provide a JNDI binding for the datasource, by default Lagom binds it to <code>DefaultDS</code>.</p>
+<p>In Lagom&rsquo;s default configuration, Lagom will use Play&rsquo;s JDBC support to configure and create a connection pool. Details on how to configure it can be found <a href="https://www.playframework.com/documentation/2.8.x/AccessingAnSQLDatabase">here</a>. Play should be configured to provide a JNDI binding for the datasource, by default Lagom binds it to <code>DefaultDS</code>.</p>
 <p>Lagom then configures a <a href="https://scala-slick.org/">Slick</a> Database to use that datasource in combination with a <a href="https://scala-slick.org/doc/3.2.1/api/index.html#slick.util.AsyncExecutor">AsyncExecutor</a> that manages the thread pool for asynchronous execution of Database I/O Actions. Lagom will also take care that the connection pool is configured correctly according to the AsyncExecutor settings. The Slick Database is then bound to the JNDI name <code>DefaultDB</code> and it&rsquo;s used to configure the <code>akka-persistence-jdbc</code> plugin.</p>
 <p>The <code>akka-persistence-jdbc</code> plugin uses Slick to map tables and manage asynchronous execution of JDBC calls. This means Lagom internally configures it to use the right Slick profile for your database.</p>
 <p>So for example, to configure a PostgreSQL database, you can add the following to your <code>application.conf</code>:</p>

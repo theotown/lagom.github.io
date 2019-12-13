@@ -20,7 +20,7 @@
   }
 }</code></pre><h2 id="File-Upload-Example"><a class="section-marker" href="#File-Upload-Example">§</a>File Upload Example</h2>
 <p>The following example shows how you can add a file upload endpoint to an existing Lagom Service.</p>
-<p>The example is based on <a href="https://www.playframework.com/documentation/2.7.x/JavaRoutingDsl">JavaRoutingDsl</a> that allows you to build a Play Router programmatically. It adds an extra path (<code>/api/files</code>) that receives POST calls for multipart-form data.</p>
+<p>The example is based on <a href="https://www.playframework.com/documentation/2.8.x/JavaRoutingDsl">JavaRoutingDsl</a> that allows you to build a Play Router programmatically. It adds an extra path (<code>/api/files</code>) that receives POST calls for multipart-form data.</p>
 <pre class="prettyprint"><code class="language-java">class FileUploadRouter implements SimpleRouter {
 
   private final Router delegate;
@@ -83,4 +83,4 @@
   <p>Note usage of port 9000 (Lagom&rsquo;s Dev Mode ServiceGateway)</p>
 </blockquote><h2 id="Lagom-Client-Considerations"><a class="section-marker" href="#Lagom-Client-Considerations">§</a>Lagom Client Considerations</h2>
 <p>Additional routers are not part of the Service API and therefore are not accessible from generated Lagom clients. Lagom clients only have access to methods defined on the Service interface.</p>
-<p>Additional routers are only part of the exposed HTTP endpoints. To access then, you will need to use an HTTP client, eg: <a href="https://www.playframework.com/documentation/2.7.x/JavaWS">Play-WS</a></p>
+<p>Additional routers are only part of the exposed HTTP endpoints. To access then, you will need to use an HTTP client, eg: <a href="https://www.playframework.com/documentation/2.8.x/JavaWS">Play-WS</a></p>

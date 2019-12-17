@@ -365,6 +365,10 @@
   }, {
     "title" : "Lagom releases",
     "children" : [ {
+      "title" : "What's new in Lagom 1.6",
+      "url" : "Highlights16.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/releases/Highlights16.md"
+    }, {
       "title" : "What's new in Lagom 1.5",
       "url" : "Highlights15.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/java/releases/Highlights15.md"

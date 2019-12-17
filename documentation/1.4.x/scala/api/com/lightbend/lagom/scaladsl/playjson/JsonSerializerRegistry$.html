@@ -328,7 +328,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">actorSystemSetupFor</span><span class="params">(<span name="registry">registry: <a href="JsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.JsonSerializerRegistry">JsonSerializerRegistry</a></span>)</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.5.22/akka/actor/setup/ActorSystemSetup.html#akka.actor.setup.ActorSystemSetup" class="extype" name="akka.actor.setup.ActorSystemSetup">ActorSystemSetup</a></span>
+        <span class="name">actorSystemSetupFor</span><span class="params">(<span name="registry">registry: <a href="JsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.JsonSerializerRegistry">JsonSerializerRegistry</a></span>)</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.5.27/akka/actor/setup/ActorSystemSetup.html#akka.actor.setup.ActorSystemSetup" class="extype" name="akka.actor.setup.ActorSystemSetup">ActorSystemSetup</a></span>
       </span>
       
       <p class="shortcomment cmt">Create an actor system setup for the given serializer registry.</p><div class="fullcomment"><div class="comment cmt"><p>Create an actor system setup for the given serializer registry.</p><p>This is only useful if you don't want to modify the configuration of the actor system in any way, if you do,
@@ -549,7 +549,7 @@ that.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">serializationSetupFor</span><span class="params">(<span name="registry">registry: <a href="JsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.JsonSerializerRegistry">JsonSerializerRegistry</a></span>)</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.5.22/akka/serialization/SerializationSetup.html#akka.serialization.SerializationSetup" class="extype" name="akka.serialization.SerializationSetup">SerializationSetup</a></span>
+        <span class="name">serializationSetupFor</span><span class="params">(<span name="registry">registry: <a href="JsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.JsonSerializerRegistry">JsonSerializerRegistry</a></span>)</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.5.27/akka/serialization/SerializationSetup.html#akka.serialization.SerializationSetup" class="extype" name="akka.serialization.SerializationSetup">SerializationSetup</a></span>
       </span>
       
       <p class="shortcomment cmt">Create a serializer setup for the given serializer registry.</p><div class="fullcomment"><div class="comment cmt"><p>Create a serializer setup for the given serializer registry.</p><p>This is only useful if you only want to register the play-json serializer and its registry, if you want to
@@ -567,7 +567,7 @@ register other Akka serializers, then you should create your own serialization s
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">serializerDetailsFor</span><span class="params">(<span name="system">system: <a href="https://doc.akka.io/api/akka/2.5.22/akka/actor/ExtendedActorSystem.html#akka.actor.ExtendedActorSystem" class="extype" name="akka.actor.ExtendedActorSystem">ExtendedActorSystem</a></span>, <span name="registry">registry: <a href="JsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.JsonSerializerRegistry">JsonSerializerRegistry</a></span>)</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.5.22/akka/serialization/SerializerDetails.html#akka.serialization.SerializerDetails" class="extype" name="akka.serialization.SerializerDetails">SerializerDetails</a></span>
+        <span class="name">serializerDetailsFor</span><span class="params">(<span name="system">system: <a href="https://doc.akka.io/api/akka/2.5.27/akka/actor/ExtendedActorSystem.html#akka.actor.ExtendedActorSystem" class="extype" name="akka.actor.ExtendedActorSystem">ExtendedActorSystem</a></span>, <span name="registry">registry: <a href="JsonSerializerRegistry.html" class="extype" name="com.lightbend.lagom.scaladsl.playjson.JsonSerializerRegistry">JsonSerializerRegistry</a></span>)</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.5.27/akka/serialization/SerializerDetails.html#akka.serialization.SerializerDetails" class="extype" name="akka.serialization.SerializerDetails">SerializerDetails</a></span>
       </span>
       
       <p class="shortcomment cmt">Create the serializer details for the given serializer registry.</p>

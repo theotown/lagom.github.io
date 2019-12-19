@@ -259,7 +259,7 @@ an <span class="extype" name="UnsupportedOperationException">UnsupportedOperatio
 received (eg WebSockets), the response header may be ignored. In these cases, Lagom will make a best effort attempt
 at determining whether there was custom information in the response header, and if so, log a warning that it wasn't
 set.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0+87-8fdcea74//service/scaladsl/server/src/main/scala/com/lightbend/lagom/scaladsl/server/ServerServiceCall.scala" target="_blank">ServerServiceCall.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0+105-de03b28b//service/scaladsl/server/src/main/scala/com/lightbend/lagom/scaladsl/server/ServerServiceCall.scala" target="_blank">ServerServiceCall.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -691,7 +691,7 @@ The passed in handler is applied after the header transformers configured for th
 applied.</p><p>For server implementations of service calls, this will be invoked by the server in order to give the service
 call an opportunity to supply the response header when it supplies the response, but only if the underlying
 transport supports sending a response header.  Generally, server implementations should not implement this
-method directly, rather, they should use <tt>ServerServiceCall</tt>, which provides an appropriate
+method directly, rather, they should use <code>ServerServiceCall</code>, which provides an appropriate
 implementation.
 </p></div><dl class="paramcmts block"><dt class="param">handler</dt><dd class="cmt"><p>The handler.</p></dd><dt>returns</dt><dd class="cmt"><p>A service call that uses the given handler.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.server.ServerServiceCall">ServerServiceCall</a> → <a href="../api/ServiceCall.html" class="extype" name="com.lightbend.lagom.scaladsl.api.ServiceCall">ServiceCall</a></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">

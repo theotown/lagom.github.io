@@ -231,7 +231,7 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html
  give the service call an opportunity to supply the response header when it supplies the
  response, but only if the underlying transport supports sending a response header. Generally,
  server implementations should not implement this method directly, rather, they should use
- <tt>ServerServiceCall</tt>, which provides an appropriate implementation.</div>
+ <code>ServerServiceCall</code>, which provides an appropriate implementation.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html#handleResponseHeader-java.util.function.BiFunction-">handleResponseHeader</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html" title="type parameter in ServerServiceCall">Request</a>,<a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html" title="type parameter in ServerServiceCall">Response</a>&gt;</code></dd>
@@ -260,8 +260,8 @@ extends <a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html
  supply the request header. A new service call can then be returned that uses the header. The
  header passed in to the handler by the service call can be anything, it will be ignored -
  <a href="../../../../../com/lightbend/lagom/javadsl/api/transport/RequestHeader.html#DEFAULT"><code>RequestHeader.DEFAULT</code></a> exists for this purpose. Generally, server implementations should
- not implement this method directly, rather, they should use <tt>ServerServiceCall</tt>, which
- provides an appropriate implementation.</div>
+ not implement this method directly, rather, they should use <code>ServerServiceCall</code>,
+ which provides an appropriate implementation.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html#handleRequestHeader-java.util.function.Function-">handleRequestHeader</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/lightbend/lagom/javadsl/api/ServiceCall.html" title="interface in com.lightbend.lagom.javadsl.api">ServiceCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html" title="type parameter in ServerServiceCall">Request</a>,<a href="../../../../../com/lightbend/lagom/javadsl/server/ServerServiceCall.html" title="type parameter in ServerServiceCall">Response</a>&gt;</code></dd>

@@ -230,8 +230,8 @@ public interface <span class="typeNameLabel">ServiceCall&lt;Request,Response&gt;
  supply the request header. A new service call can then be returned that uses the header. The
  header passed in to the handler by the service call can be anything, it will be ignored -
  <a href="../../../../../com/lightbend/lagom/javadsl/api/transport/RequestHeader.html#DEFAULT"><code>RequestHeader.DEFAULT</code></a> exists for this purpose. Generally, server implementations should
- not implement this method directly, rather, they should use <tt>ServerServiceCall</tt>, which
- provides an appropriate implementation.</div>
+ not implement this method directly, rather, they should use <code>ServerServiceCall</code>,
+ which provides an appropriate implementation.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>handler</code> - A function that takes in the request header representing the request, and
@@ -259,7 +259,7 @@ public interface <span class="typeNameLabel">ServiceCall&lt;Request,Response&gt;
  give the service call an opportunity to supply the response header when it supplies the
  response, but only if the underlying transport supports sending a response header. Generally,
  server implementations should not implement this method directly, rather, they should use
- <tt>ServerServiceCall</tt>, which provides an appropriate implementation.</div>
+ <code>ServerServiceCall</code>, which provides an appropriate implementation.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>handler</code> - The handler.</dd>

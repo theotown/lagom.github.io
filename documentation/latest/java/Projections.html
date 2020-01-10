@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/21a0f71df22d5e566a8b7d60e84797a1ae842e9d-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/814acbed23fcf36a3b6700a07738a472e6d7123a-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -294,6 +294,9 @@
 
                 <article>
                 <h1 id="Projections"><a class="section-marker" href="#Projections">§</a>Projections</h1>
+<blockquote>
+  <p><strong>Note</strong>: The Projections API is marked with the <code>@ApiMayChange</code> annotation, meaning that we reserve the rights to change the API if necessary.</p>
+</blockquote>
 <p>In Lagom, projections are processes consuming from a Persistent Entity Journal and handling each event via a <a href="ReadSide.html">read side table</a> or emitting it into a broker topic via a <a href="MessageBrokerApi.html#Implementing-a-topic">TopicProducer</a>. Here, a projection only refers to a <code>ReadSideProcessor</code> or a <code>TopicProducer</code>, not a broker subscriber.</p>
 <p>Lagom takes care to handle as many instances of your projection as <a href="ReadSide.html#Event-tags">shards</a> on your journal and then distribute those instances around the cluster so the load is balanced. By default, the multiple instances of your projection will be started but you can opt-out from that behavior using the setting:</p>
 <pre class="prettyprint"><code class="language-hocon">lagom.projection.auto-start.enabled = true
@@ -600,7 +603,7 @@
             </div>
         </div>
     </body>
-    <script src="/21a0f71df22d5e566a8b7d60e84797a1ae842e9d-all-scripts-concat.js"></script>
+    <script src="/814acbed23fcf36a3b6700a07738a472e6d7123a-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

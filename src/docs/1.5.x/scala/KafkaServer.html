@@ -29,7 +29,7 @@ lagomKafkaZookeeperPort in ThisBuild := 9999</code></pre><h2 id="Kafka-propertie
 <p>In sbt:</p>
 <pre class="prettyprint"><code class="language-sbt">lagomKafkaPropertiesFile in ThisBuild :=
   Some((baseDirectory in ThisBuild).value / &quot;project&quot; / &quot;kafka-server.properties&quot;)</code></pre><h2 id="JVM-options"><a class="section-marker" href="#JVM-options">§</a>JVM options</h2>
-<p>The Kafka server is run on a separate process, and a JVM is started with sensible memory defaults. However, if the default JVM options don&rsquo;t suit you, you can override them by adding the following in your build.</p>
+<p>The Kafka server is running on a separate process, and a JVM is started with sensible memory defaults. However, if the default JVM options don&rsquo;t suit you, you can override them by adding the following in your build.</p>
 <p>In the Maven root project pom:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
     &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;

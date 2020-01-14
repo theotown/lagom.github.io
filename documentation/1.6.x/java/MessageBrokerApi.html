@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/f46dfa1b3dce8382430ab035ba774db17488921f-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/b12d7480d4a78ee7fee2b6e6c520da1613e5c9d3-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -340,7 +340,7 @@ public interface HelloService extends Service {
             .map(this::convertEvent);
       });
 }</code></pre>
-<p>Note that the read-side event stream you passed to the topic producer is &ldquo;activated&rdquo; as soon as the service is started. That means all events persisted by your services will eventually be published to the connected topic. Also, you will generally want to map your domain events into some other type, so that other service won&rsquo;t be tightly coupled to another service&rsquo;s domain model events. In other words, domain model events are an implementation detail of the service, and should not be leaked.</p><h3 id="Filtering-events"><a class="section-marker" href="#Filtering-events">§</a>Filtering events</h3>
+<p>Note that the read-side event stream you passed to the topic producer is, by default, &ldquo;activated&rdquo; as soon as the service is started. You can change that default behavior using the <a href="Projections.html">Projections API</a>. That means all events persisted by your services will eventually be published to the connected topic. Also, you will generally want to map your domain events into some other type, so that other service won&rsquo;t be tightly coupled to another service&rsquo;s domain model events. In other words, domain model events are an implementation detail of the service, and should not be leaked.</p><h3 id="Filtering-events"><a class="section-marker" href="#Filtering-events">§</a>Filtering events</h3>
 <p>You may not want all events persisted by your services to be published. If that is the case then you can filter the event stream:</p>
 <pre class="prettyprint"><code class="language-java">public Topic&lt;GreetingMessage&gt; greetingsTopic() {
   return TopicProducer.singleStreamWithOffset(
@@ -725,7 +725,7 @@ public interface BlogPostEvent {
             </div>
         </div>
     </body>
-    <script src="/f46dfa1b3dce8382430ab035ba774db17488921f-all-scripts-concat.js"></script>
+    <script src="/b12d7480d4a78ee7fee2b6e6c520da1613e5c9d3-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

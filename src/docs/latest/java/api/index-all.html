@@ -161,12 +161,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEvent.html#aggregateTag--">aggregateTag()</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#aggregateTag--">aggregateTag()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">The processed events belong to a <a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>AggregateEventTag</code></a>
- that is specified by this method, e.g.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.html#aggregateTags--">aggregateTags()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence">ReadSideProcessor</a></dt>
 <dd>
 <div class="block">The tags to aggregate.</div>
@@ -195,10 +189,6 @@
 <dd>
 <div class="block">Simulate Play's withPrefix behavior by prepending new prefix to an existing path.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html#apply-T1-">apply(T1)</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlers</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/CommandEnvelope.html#apply-T1-T2-">apply(T1, T2)</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/CommandEnvelope.html" title="class in com.lightbend.lagom.javadsl.persistence">CommandEnvelope</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/jdbc/JdbcSession.ConnectionFunction.html#apply-java.sql.Connection-">apply(Connection)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.jdbc.<a href="com/lightbend/lagom/javadsl/persistence/jdbc/JdbcSession.ConnectionFunction.html" title="interface in com.lightbend.lagom.javadsl.persistence.jdbc">JdbcSession.ConnectionFunction</a></dt>
@@ -364,12 +354,6 @@
 <dd>
 <div class="block">Build the read side handler.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlersBuilder.html#build--">build()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlersBuilder.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlersBuilder</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">When all event handlers have been defined the immutable
- <code>ReadSideHandler</code> is created with this method.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/jdbc/JdbcReadSide.ReadSideHandlerBuilder.html#build--">build()</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.jdbc.<a href="com/lightbend/lagom/javadsl/persistence/jdbc/JdbcReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.jdbc">JdbcReadSide.ReadSideHandlerBuilder</a></dt>
 <dd>
 <div class="block">Build the read side handler.</div>
@@ -475,29 +459,6 @@
 <dt><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">CassandraReadSide.ReadSideHandlerBuilder</span></a>&lt;<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="type parameter in CassandraReadSide.ReadSideHandlerBuilder">Event</a> extends <a href="com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="type parameter in CassandraReadSide.ReadSideHandlerBuilder">Event</a>&gt;&gt; - Interface in <a href="com/lightbend/lagom/javadsl/persistence/cassandra/package-summary.html">com.lightbend.lagom.javadsl.persistence.cassandra</a></dt>
 <dd>
 <div class="block">Builder for the handler.</div>
-</dd>
-<dt><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">CassandraReadSideProcessor</span></a>&lt;<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="type parameter in CassandraReadSideProcessor">Event</a> extends <a href="com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="type parameter in CassandraReadSideProcessor">Event</a>&gt;&gt; - Class in <a href="com/lightbend/lagom/javadsl/persistence/cassandra/package-summary.html">com.lightbend.lagom.javadsl.persistence.cassandra</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>
-<div class="block"><span class="deprecationComment">Use ReadSideProcessor instead with CassandraReadSide builder. Since 1.2.0.</span></div>
-</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#CassandraReadSideProcessor--">CassandraReadSideProcessor()</a></span> - Constructor for class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-&nbsp;</dd>
-<dt><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">CassandraReadSideProcessor.EventHandlers</span></a> - Class in <a href="com/lightbend/lagom/javadsl/persistence/cassandra/package-summary.html">com.lightbend.lagom.javadsl.persistence.cassandra</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-&nbsp;</dd>
-<dt><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers$.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">CassandraReadSideProcessor.EventHandlers$</span></a> - Class in <a href="com/lightbend/lagom/javadsl/persistence/cassandra/package-summary.html">com.lightbend.lagom.javadsl.persistence.cassandra</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-&nbsp;</dd>
-<dt><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlersBuilder.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">CassandraReadSideProcessor.EventHandlersBuilder</span></a> - Class in <a href="com/lightbend/lagom/javadsl/persistence/cassandra/package-summary.html">com.lightbend.lagom.javadsl.persistence.cassandra</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">Mutable builder for defining event handlers.</div>
 </dd>
 <dt><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">CassandraSession</span></a> - Class in <a href="com/lightbend/lagom/javadsl/persistence/cassandra/package-summary.html">com.lightbend.lagom.javadsl.persistence.cassandra</a></dt>
 <dd>
@@ -691,12 +652,6 @@
 <div class="block">Convenience method to create an already completed <code>CompletionStage</code> with one <code>
  BoundStatement</code>.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#completedStatement-com.datastax.driver.core.BoundStatement-">completedStatement(BoundStatement)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">Convenience method to create an already completed <code>CompletionStage</code>
- with one <code>BoundStatement</code>.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html#completedStatements-java.util.List-">completedStatements(List&lt;BoundStatement&gt;)</a></span> - Static method in interface com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSide</a></dt>
 <dd>
 <div class="block">Convenience method to create an already completed <code>CompletionStage</code> with several
@@ -711,12 +666,6 @@
 <dd>
 <div class="block">Convenience method to create an already completed <code>CompletionStage</code> with no <code>
  BoundStatement</code>.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#completedStatements-java.util.List-">completedStatements(List&lt;BoundStatement&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">Convenience method to create an already completed <code>CompletionStage</code>
- with several <code>BoundStatement</code>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/HeaderServiceCall.html#compose-java.util.function.Function-">compose(Function&lt;RequestHeader, ? extends ServerServiceCall&lt;Request, Response&gt;&gt;)</a></span> - Static method in interface com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/HeaderServiceCall.html" title="interface in com.lightbend.lagom.javadsl.server">HeaderServiceCall</a></dt>
 <dd>
@@ -851,11 +800,6 @@
 <dd>
 <div class="block">The default <code>Setup</code> configuration, which has persistence enabled.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#defineEventHandlers-com.lightbend.lagom.javadsl.persistence.cassandra.CassandraReadSideProcessor.EventHandlersBuilder-">defineEventHandlers(CassandraReadSideProcessor&lt;Event&gt;.EventHandlersBuilder)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">Define the event handlers that are to be used.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/Method.html#DELETE">DELETE</a></span> - Static variable in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/Method.html" title="class in com.lightbend.lagom.javadsl.api.transport">Method</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html#description--">description()</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a></dt>
@@ -967,12 +911,6 @@
 </a>
 <h2 class="title">E</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#emptyStatements--">emptyStatements()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">Convenience method to create an already completed <code>CompletionStage</code>
- with zero <code>BoundStatement</code>.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/CommandEnvelope.html#entityId--">entityId()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/CommandEnvelope.html" title="class in com.lightbend.lagom.javadsl.persistence">CommandEnvelope</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html#entityId--">entityId()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntityRef</a></dt>
@@ -1068,20 +1006,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.UnhandledEvent.html#event--">event()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.UnhandledEvent.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.UnhandledEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html#EventHandlers-scala.collection.immutable.Map-">EventHandlers(Map&lt;Class&lt;? extends Event&gt;, BiFunction&lt;? extends Event, UUID, CompletionStage&lt;List&lt;BoundStatement&gt;&gt;&gt;&gt;)</a></span> - Constructor for class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlers</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html#eventHandlers--">eventHandlers()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.Behavior.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Behavior</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers$.html#EventHandlers:D--">EventHandlers$()</a></span> - Constructor for class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers$.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlers$</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlersBuilder.html#EventHandlersBuilder--">EventHandlersBuilder()</a></span> - Constructor for class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlersBuilder.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlersBuilder</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistAll.html#events--">events()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistAll.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.PersistAll</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Outcome.html#events--">events()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Outcome.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.Outcome</a></dt>
@@ -1427,10 +1353,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/ServerServiceCall.html#handleResponseHeader-java.util.function.BiFunction-">handleResponseHeader(BiFunction&lt;ResponseHeader, Response, T&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ServerServiceCall.html" title="interface in com.lightbend.lagom.javadsl.server">ServerServiceCall</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html#handlers--">handlers()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlers</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/pubsub/PubSubRef.html#hasAnySubscribers--">hasAnySubscribers()</a></span> - Method in class com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="class in com.lightbend.lagom.javadsl.pubsub">PubSubRef</a></dt>
 <dd>
 <div class="block">Request if this topic has any known subscribers at this point.</div>
@@ -2013,11 +1935,6 @@
 <dd>
 <div class="block">Static reference to the singleton instance of this Scala object.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers$.html#MODULE:D">MODULE$</a></span> - Static variable in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers$.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlers$</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">Static reference to the singleton instance of this Scala object.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/testkit/TestUtil$.html#MODULE:D">MODULE$</a></span> - Static variable in class com.lightbend.lagom.javadsl.persistence.cassandra.testkit.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/testkit/TestUtil$.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra.testkit">TestUtil$</a></dt>
 <dd>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
@@ -2210,10 +2127,6 @@
 <dd>
 <div class="block">No offset.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#noOffset--">noOffset()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.NoSerializer.html#NoSerializer-java.lang.Object-java.lang.Throwable-">NoSerializer(Object, Throwable)</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.NoSerializer.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.NoSerializer</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.NoSerializer$.html#NoSerializer:D--">NoSerializer$()</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.NoSerializer$.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.NoSerializer$</a></dt>
@@ -2713,12 +2626,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/InstanceBased.html#prefix--">prefix()</a></span> - Method in class com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/InstanceBased.html" title="class in com.lightbend.lagom.javadsl.server">InstanceBased</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#prepare-com.lightbend.lagom.javadsl.persistence.cassandra.CassandraSession-">prepare(CassandraSession)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-<div class="block">First you must tell where in the event stream the processing should start,
- i.e.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#prepare-java.lang.String-">prepare(String)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraSession</a></dt>
 <dd>
 <div class="block">Create a <code>PreparedStatement</code> that can be bound and used in
@@ -2898,12 +2805,6 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/pubsub/PubSubRegistry.html#refFor-com.lightbend.lagom.javadsl.pubsub.TopicId-">refFor(TopicId&lt;T&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/PubSubRegistry.html" title="interface in com.lightbend.lagom.javadsl.pubsub">PubSubRegistry</a></dt>
 <dd>
 <div class="block">Get a <a href="com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="class in com.lightbend.lagom.javadsl.pubsub"><code>PubSubRef</code></a> for a given topic.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html#register-java.lang.Class-">register(Class&lt;? extends CassandraReadSideProcessor&lt;Event&gt;&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSide</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>
-<div class="block"><span class="deprecationComment">Use the builder method to create and register a Cassandra read side processor.</span></div>
-</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntityRegistry.html#register-java.lang.Class-">register(Class&lt;? extends PersistentEntity&lt;C, E, S&gt;&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntityRegistry.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntityRegistry</a></dt>
 <dd>
@@ -3309,11 +3210,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html#setEventHandler-java.lang.Class-java.util.function.BiFunction-">setEventHandler(Class&lt;E&gt;, BiFunction&lt;E, Offset, CompletionStage&lt;List&lt;BoundStatement&gt;&gt;&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSide.ReadSideHandlerBuilder</a></dt>
 <dd>
-<div class="block">Define the event handler that will be used for events of a given class.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlersBuilder.html#setEventHandler-java.lang.Class-java.util.function.BiFunction-">setEventHandler(Class&lt;E&gt;, BiFunction&lt;E, UUID, CompletionStage&lt;List&lt;BoundStatement&gt;&gt;&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlersBuilder.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlersBuilder</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block">Define the event handler that will be used for events of a given class.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/jdbc/JdbcReadSide.ReadSideHandlerBuilder.html#setEventHandler-java.lang.Class-com.lightbend.lagom.javadsl.persistence.jdbc.JdbcReadSide.ConnectionBiConsumer-">setEventHandler(Class&lt;E&gt;, JdbcReadSide.ConnectionBiConsumer&lt;E&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.jdbc.<a href="com/lightbend/lagom/javadsl/persistence/jdbc/JdbcReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.jdbc">JdbcReadSide.ReadSideHandlerBuilder</a></dt>
@@ -3744,10 +3640,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html#toString--">toString()</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.EventHandlers.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor.EventHandlers</a></dt>
-<dd>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/CommandEnvelope.html#toString--">toString()</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/CommandEnvelope.html" title="class in com.lightbend.lagom.javadsl.persistence">CommandEnvelope</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/Offset.NoOffset.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/Offset.NoOffset.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset.NoOffset</a></dt>

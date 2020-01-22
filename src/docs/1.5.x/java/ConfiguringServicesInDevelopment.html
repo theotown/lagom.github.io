@@ -60,7 +60,7 @@
 </code></pre>
 <p>If you add the setting on the parent <code>pom.xml</code> all services will have SSL enabled. If you add the setting on only one of the service implementation projects then only that service will open the HTTPS port.</p>
 <p>To enable SSL in sbt you should use:</p>
-<pre class="prettyprint"><code class="language-sbt">lagomServiceEnableSsl := true</code></pre>
+<pre class="prettyprint"><code class="language-sbt">lagomServiceEnableSsl in ThisBuild := true</code></pre>
 <p>You can also tune the port the server is bound to (similarly to the HTTP port):</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
     &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;

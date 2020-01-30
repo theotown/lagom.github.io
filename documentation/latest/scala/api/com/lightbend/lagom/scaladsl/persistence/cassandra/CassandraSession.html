@@ -233,7 +233,7 @@
 <a href="http://docs.datastax.com/en/cql/3.3/cql/cqlIntro.html">Cassandra Query Language</a>
 (CQL) syntax.</p><p>The configured keyspace is automatically created if it doesn't already exists. The keyspace
 is also set as the current keyspace, i.e. it doesn't have to be qualified in the statements.</p><p>All methods are non-blocking.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0+211-99a94ba2//persistence-cassandra/scaladsl/src/main/scala/com/lightbend/lagom/scaladsl/persistence/cassandra/CassandraSession.scala" target="_blank">CassandraSession.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0+221-b8c28130//persistence-cassandra/scaladsl/src/main/scala/com/lightbend/lagom/scaladsl/persistence/cassandra/CassandraSession.scala" target="_blank">CassandraSession.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -300,7 +300,7 @@ is also set as the current keyspace, i.e. it doesn't have to be qualified in the
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">CassandraSession</span><span class="params">(<span name="system">system: <a href="https://doc.akka.io/api/akka/2.6.2/akka/actor/ActorSystem.html#akka.actor.ActorSystem" class="extype" name="akka.actor.ActorSystem">ActorSystem</a></span>)</span>
+        <span class="name">CassandraSession</span><span class="params">(<span name="system">system: <a href="https://doc.akka.io/api/akka/2.6.3/akka/actor/ActorSystem.html#akka.actor.ActorSystem" class="extype" name="akka.actor.ActorSystem">ActorSystem</a></span>)</span>
       </span>
       
       
@@ -316,7 +316,7 @@ is also set as the current keyspace, i.e. it doesn't have to be qualified in the
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">CassandraSession</span><span class="params">(<span name="system">system: <a href="https://doc.akka.io/api/akka/2.6.2/akka/actor/ActorSystem.html#akka.actor.ActorSystem" class="extype" name="akka.actor.ActorSystem">ActorSystem</a></span>, <span name="settings">settings: <a href="https://doc.akka.io/api/akka-persistence-cassandra/0.1.0-SNAPSHOT/akka/persistence/cassandra/session/CassandraSessionSettings.html#akka.persistence.cassandra.session.CassandraSessionSettings" class="extype" name="akka.persistence.cassandra.session.CassandraSessionSettings">CassandraSessionSettings</a></span>, <span name="executionContext">executionContext: <a href="https://www.scala-lang.org/api/2.12.10/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span>
+        <span class="name">CassandraSession</span><span class="params">(<span name="system">system: <a href="https://doc.akka.io/api/akka/2.6.3/akka/actor/ActorSystem.html#akka.actor.ActorSystem" class="extype" name="akka.actor.ActorSystem">ActorSystem</a></span>, <span name="settings">settings: <a href="https://doc.akka.io/api/akka-persistence-cassandra/0.1.0-SNAPSHOT/akka/persistence/cassandra/session/CassandraSessionSettings.html#akka.persistence.cassandra.session.CassandraSessionSettings" class="extype" name="akka.persistence.cassandra.session.CassandraSessionSettings">CassandraSessionSettings</a></span>, <span name="executionContext">executionContext: <a href="https://www.scala-lang.org/api/2.12.10/scala/concurrent/ExecutionContext.html#scala.concurrent.ExecutionContext" class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</a></span>)</span>
       </span>
       
       
@@ -585,7 +585,7 @@ is also set as the current keyspace, i.e. it doesn't have to be qualified in the
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">executeCreateTable</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.10/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.6.2/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
+        <span class="name">executeCreateTable</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.10/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.6.3/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
       </span>
       
       <p class="shortcomment cmt">See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useCreateTableTOC.html">Creating a table</a>.</p><div class="fullcomment"><div class="comment cmt"><p>See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useCreateTableTOC.html">Creating a table</a>.</p><p>The returned <code>CompletionStage</code> is completed when the table has been created,
@@ -603,7 +603,7 @@ or if the statement fails.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">executeWrite</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bindValues">bindValues: <a href="../../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>*</span>)</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.10/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.6.2/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
+        <span class="name">executeWrite</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bindValues">bindValues: <a href="../../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>*</span>)</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.10/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.6.3/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Prepare, bind and execute one statement in one go.</p><div class="fullcomment"><div class="comment cmt"><p>Prepare, bind and execute one statement in one go.</p><p>See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useInsertDataTOC.html">Inserting and updating data</a>.</p><p>The configured write consistency level is used.</p><p>The returned <code>CompletionStage</code> is completed when the statement has been
@@ -624,7 +624,7 @@ successfully executed, or if it fails.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">executeWrite</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="com.datastax.driver.core.Statement">Statement</span></span>)</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.10/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.6.2/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
+        <span class="name">executeWrite</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="com.datastax.driver.core.Statement">Statement</span></span>)</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.10/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.6.3/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Execute one statement.</p><div class="fullcomment"><div class="comment cmt"><p>Execute one statement. First you must <a href="#prepare(stmt:String):scala.concurrent.Future[com.datastax.driver.core.PreparedStatement]" class="extmbr" name="com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession#prepare">#prepare</a> the
@@ -644,7 +644,7 @@ successfully executed, or if it fails.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">executeWriteBatch</span><span class="params">(<span name="batch">batch: <span class="extype" name="com.datastax.driver.core.BatchStatement">BatchStatement</span></span>)</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.10/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.6.2/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
+        <span class="name">executeWriteBatch</span><span class="params">(<span name="batch">batch: <span class="extype" name="com.datastax.driver.core.BatchStatement">BatchStatement</span></span>)</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.10/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.6.3/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Execute several statements in a batch.</p><div class="fullcomment"><div class="comment cmt"><p>Execute several statements in a batch. First you must <a href="#prepare(stmt:String):scala.concurrent.Future[com.datastax.driver.core.PreparedStatement]" class="extmbr" name="com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession#prepare">#prepare</a> the
@@ -834,7 +834,7 @@ successfully executed, or if it fails.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">select</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bindValues">bindValues: <a href="../../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>*</span>)</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.2/akka/stream/scaladsl/Source.html#akka.stream.scaladsl.Source" class="extype" name="akka.stream.scaladsl.Source">Source</a>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>, <a href="https://doc.akka.io/api/akka/2.6.2/akka/NotUsed.html#akka.NotUsed" class="extype" name="akka.NotUsed">NotUsed</a>]</span>
+        <span class="name">select</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bindValues">bindValues: <a href="../../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>*</span>)</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.3/akka/stream/scaladsl/Source.html#akka.stream.scaladsl.Source" class="extype" name="akka.stream.scaladsl.Source">Source</a>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>, <a href="https://doc.akka.io/api/akka/2.6.3/akka/NotUsed.html#akka.NotUsed" class="extype" name="akka.NotUsed">NotUsed</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Prepare, bind and execute a select statement in one go.</p><div class="fullcomment"><div class="comment cmt"><p>Prepare, bind and execute a select statement in one go.</p><p>See <a href="http://docs.datastax.com/en/cql/3.3/cql/cql_using/useQueryDataTOC.html">Querying tables</a>.</p><p>The configured read consistency level is used.</p><p>You can return this <code>Source</code> as a response in a <code>ServiceCall</code>
@@ -857,7 +857,7 @@ this <code>Source</code> and then <code>run</code> the stream.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">select</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="com.datastax.driver.core.Statement">Statement</span></span>)</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.2/akka/stream/scaladsl/Source.html#akka.stream.scaladsl.Source" class="extype" name="akka.stream.scaladsl.Source">Source</a>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>, <a href="https://doc.akka.io/api/akka/2.6.2/akka/NotUsed.html#akka.NotUsed" class="extype" name="akka.NotUsed">NotUsed</a>]</span>
+        <span class="name">select</span><span class="params">(<span name="stmt">stmt: <span class="extype" name="com.datastax.driver.core.Statement">Statement</span></span>)</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.3/akka/stream/scaladsl/Source.html#akka.stream.scaladsl.Source" class="extype" name="akka.stream.scaladsl.Source">Source</a>[<span class="extype" name="com.datastax.driver.core.Row">Row</span>, <a href="https://doc.akka.io/api/akka/2.6.3/akka/NotUsed.html#akka.NotUsed" class="extype" name="akka.NotUsed">NotUsed</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Execute a select statement.</p><div class="fullcomment"><div class="comment cmt"><p>Execute a select statement. First you must <a href="#prepare(stmt:String):scala.concurrent.Future[com.datastax.driver.core.PreparedStatement]" class="extmbr" name="com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraSession#prepare">#prepare</a> the

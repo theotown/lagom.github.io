@@ -19,14 +19,14 @@
 }</code></pre><h2 id="Streaming-service-client-configuration"><a class="section-marker" href="#Streaming-service-client-configuration">§</a>Streaming service client configuration</h2>
 <p>When using a streaming service client, Lagom will use internally a WebSocket client which has a max frame length parameter. This parameter limits the allowed maximum size for the messages flowing through the WebSocket. This can be configured in <code>application.conf</code> on the client-side and the default configuration is:</p>
 <pre class="prettyprint"><code class="language-conf">#This configures the websocket clients used by this service.
-#This is a global configuration and it is currently not possible 
-#to provide different configurations if multiple websocket services 
+#This is a global configuration and it is currently not possible
+#to provide different configurations if multiple websocket services
 #are consumed.
 lagom.client.websocket {
 
-  #This parameter limits the allowed maximum size for the messages 
-  #flowing through the WebSocket. A similar limit exists on 
-  #the server side, see: 
+  #This parameter limits the allowed maximum size for the messages
+  #flowing through the WebSocket. A similar limit exists on
+  #the server side, see:
   #https://www.playframework.com/documentation/2.6.x/ScalaWebSockets#Configuring-WebSocket-Frame-Length
   frame.maxLength = 65536
 }</code></pre>

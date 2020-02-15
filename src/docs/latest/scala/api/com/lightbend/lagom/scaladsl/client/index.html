@@ -573,7 +573,7 @@ and reusing an <a href="https://doc.akka.io/api/akka/2.6.3/akka/actor/ActorSyste
 <span class="kw">import</span> com.lightbend.lagom.scaladsl.client._
 <span class="kw">import</span> play.api.libs.ws.ahc.AhcWSComponents
 
-<span class="kw">class</span> MyLagomClientFactory(<span class="kw">val</span> actorSystem: ActorSystem, <span class="kw">val</span> materialzer: Materializer)
+<span class="kw">class</span> MyLagomClientFactory(<span class="kw">val</span> actorSystem: ActorSystem, <span class="kw">val</span> materializer: Materializer)
   <span class="kw">extends</span> LagomClientFactory(<span class="lit">"my-client"</span>)
   <span class="kw">with</span> StaticServiceLocatorComponents
   <span class="kw">with</span> AhcWSComponents {
@@ -583,7 +583,7 @@ and reusing an <a href="https://doc.akka.io/api/akka/2.6.3/akka/actor/ActorSyste
 
 
 <span class="kw">val</span> actorSystem = ActorSystem(<span class="lit">"my-app"</span>)
-<span class="kw">val</span> materializer = ActorMaterializer()(actorSystem)
+<span class="kw">val</span> materializer = SystemMaterializer(actorSystem).materializer
 <span class="kw">val</span> clientFactory = <span class="kw">new</span> MyLagomClientFactory(actorSystem, materializer)</pre></div></div>
     </li><li name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="LagomServiceClientComponentsextendsTopicFactoryProvider"></a><a id="LagomServiceClientComponents:LagomServiceClientComponents"></a>

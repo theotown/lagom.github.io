@@ -263,7 +263,7 @@ and reusing an <a href="https://doc.akka.io/api/akka/2.6.3/akka/actor/ActorSyste
 <span class="kw">import</span> com.lightbend.lagom.scaladsl.client._
 <span class="kw">import</span> play.api.libs.ws.ahc.AhcWSComponents
 
-<span class="kw">class</span> MyLagomClientFactory(<span class="kw">val</span> actorSystem: ActorSystem, <span class="kw">val</span> materialzer: Materializer)
+<span class="kw">class</span> MyLagomClientFactory(<span class="kw">val</span> actorSystem: ActorSystem, <span class="kw">val</span> materializer: Materializer)
   <span class="kw">extends</span> LagomClientFactory(<span class="lit">"my-client"</span>)
   <span class="kw">with</span> StaticServiceLocatorComponents
   <span class="kw">with</span> AhcWSComponents {
@@ -273,8 +273,8 @@ and reusing an <a href="https://doc.akka.io/api/akka/2.6.3/akka/actor/ActorSyste
 
 
 <span class="kw">val</span> actorSystem = ActorSystem(<span class="lit">"my-app"</span>)
-<span class="kw">val</span> materializer = ActorMaterializer()(actorSystem)
-<span class="kw">val</span> clientFactory = <span class="kw">new</span> MyLagomClientFactory(actorSystem, materializer)</pre></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0+265-8b94116f//service/scaladsl/client/src/main/scala/com/lightbend/lagom/scaladsl/client/ServiceClient.scala" target="_blank">ServiceClient.scala</a></dd></dl><div class="toggleContainer block">
+<span class="kw">val</span> materializer = SystemMaterializer(actorSystem).materializer
+<span class="kw">val</span> clientFactory = <span class="kw">new</span> MyLagomClientFactory(actorSystem, materializer)</pre></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.0+267-e8762ff4//service/scaladsl/client/src/main/scala/com/lightbend/lagom/scaladsl/client/ServiceClient.scala" target="_blank">ServiceClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>

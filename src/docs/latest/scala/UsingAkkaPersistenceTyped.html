@@ -187,7 +187,7 @@ private def onCartCheckedOut(checkedOutTime: Instant): ShoppingCart = {
 <blockquote>
   <p><strong>Note</strong>: <a href="https://doc.akka.io/docs/akka/2.6/typed/persistence-style.html?language=Scala">Akka style guide</a> recommends having an <code>apply</code> factory method in the companion object.</p>
 </blockquote>
-<p>Finally, initialize the Entity on the <code>ClusterSharding</code> using the <code>typedKey</code> and the <code>behavior</code>. Lagom provides an instance of the <code>clusterSharding</code> extension through dependency injection for your convenience. Initializing an entity should be done only once and, in the case of Lagom, it is typically done in the <code>LagomApplication</code>:</p>
+<p>Finally, initialize the Entity on the <code>ClusterSharding</code> using the <code>typeKey</code> and the <code>behavior</code>. Lagom provides an instance of the <code>clusterSharding</code> extension through dependency injection for your convenience. Initializing an entity should be done only once and, in the case of Lagom, it is typically done in the <code>LagomApplication</code>:</p>
 <pre class="prettyprint"><code class="language-scala">class ShoppingCartLoader extends LagomApplicationLoader {
   override def load(context: LagomApplicationContext): LagomApplication =
     new ShoppingCartApplication(context) with AkkaDiscoveryComponents
@@ -273,4 +273,4 @@ object ShoppingCartView {
 <p>In <a href="https://doc.akka.io/docs/akka/2.6/typed/persistence.html?language=Scala">Akka Persistence Typed</a>, in particular, and when you adopt CQRS/ES practices, commands will include a <code>replyTo: ActorRef[Reply]</code> field. This <code>replyTo</code> field will be used on your code to send a <code>Reply</code> back, as shown in the examples above. Serializing an <code>ActorRef[T]</code> requires using the Akka Jackson serializer, meaning you cannot use Play-JSON to serialize commands.</p>
 <p>The limitation to use Akka Jackson for Command messages doesn&rsquo;t apply to other messages like events, snapshots, or even replies. Each type Akka needs to serialize may use a different serializer.</p>
 <p>Read more about the serialization setup and configuration in the <a href="Serialization.html">serialization</a> section.</p><h2 id="Testing"><a class="section-marker" href="#Testing">§</a>Testing</h2>
-<p>The section in <a href="https://doc.akka.io/docs/akka/2.6/typed/persistence-testing.html?language=Scala">Testing</a> covers all the steps and features you need to write unit tests for your Aggregates. </p>
+<p>The section in <a href="https://doc.akka.io/docs/akka/2.6/typed/persistence-testing.html?language=Scala">Testing</a> covers all the steps and features you need to write unit tests for your Aggregates.</p>

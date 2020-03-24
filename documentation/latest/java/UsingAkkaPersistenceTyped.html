@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/89d323eb8fc486d698b3179149b76661bbe72e76-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/c33856e2a59d16a1f42a6d16030baf3dad180665-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -607,7 +607,7 @@ public RetentionCriteria retentionCriteria() {
 <p>The <code>EntityTypeKey</code> has as name to uniquely identify this model in the cluster. It should be typed on <code>ShoppingCartCommand</code> which is the type of the messages that the Shopping Cart can receive. The easiest is to define if as a static field in <code>ShoppingCartEntity</code>.</p>
 <pre class="prettyprint"><code class="language-java">static EntityTypeKey&lt;Command&gt; ENTITY_TYPE_KEY =
     EntityTypeKey.create(Command.class, &quot;ShoppingCart&quot;);</code></pre>
-<p>Finally, initialize the Entity on the <code>ClusterSharding</code> using the <code>typedKey</code> and the <code>create()</code> static method. Lagom provides an instance of the <code>clusterSharding</code> extension through dependency injection for your convenience. Initializing an Entity should be done only once and, in the case of Lagom, it is typically done in the constructor of the service implementation. You should inject the <code>ClusterSharding</code> on your service for that matter.</p>
+<p>Finally, initialize the Entity on the <code>ClusterSharding</code> using the <code>typeKey</code> and the <code>create()</code> static method. Lagom provides an instance of the <code>clusterSharding</code> extension through dependency injection for your convenience. Initializing an Entity should be done only once and, in the case of Lagom, it is typically done in the constructor of the service implementation. You should inject the <code>ClusterSharding</code> on your service for that matter.</p>
 <pre class="prettyprint"><code class="language-java">@Inject
 public ShoppingCartServiceImpl(ClusterSharding clusterSharing) {
   this.clusterSharing = clusterSharing;
@@ -688,7 +688,7 @@ public final class ShoppingCartView {
 <p>Akka supports both <a href="https://doc.akka.io/docs/akka/2.6/typed/cluster-sharding.html?language=Java#passivation">programmatic passivation</a> and <a href="https://doc.akka.io/docs/akka/2.6/typed/cluster-sharding.html?language=Java#automatic-passivation">automatic passivation</a>. The default values for automatic passivation are generally good enough.</p><h2 id="Data-Serialization"><a class="section-marker" href="#Data-Serialization">§</a>Data Serialization</h2>
 <p>The messages (commands, replies) and the durable classes (events, state snapshots) need to be serializable to be sent over the wire across the cluster or be stored on the database. Akka recommends <a href="https://doc.akka.io/docs/akka/2.6/serialization-jackson.html?language=Java">Jackson-based serializers</a> &ndash;preferably JSON, but CBOR is also supported&ndash; as a good default in most cases.</p>
 <p>Read more about the serialization setup and configuration in the <a href="Serialization.html">serialization</a> section.</p><h2 id="Testing"><a class="section-marker" href="#Testing">§</a>Testing</h2>
-<p>The section in <a href="https://doc.akka.io/docs/akka/2.6/typed/persistence-testing.html?language=Java">Testing</a> covers all the steps and features you need to write unit tests for your Aggregates. </p>
+<p>The section in <a href="https://doc.akka.io/docs/akka/2.6/typed/persistence-testing.html?language=Java">Testing</a> covers all the steps and features you need to write unit tests for your Aggregates.</p>
                 </article>
 
                 
@@ -990,7 +990,7 @@ public final class ShoppingCartView {
             </div>
         </div>
     </body>
-    <script src="/89d323eb8fc486d698b3179149b76661bbe72e76-all-scripts-concat.js"></script>
+    <script src="/c33856e2a59d16a1f42a6d16030baf3dad180665-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

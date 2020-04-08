@@ -28,7 +28,7 @@
   <li>With the <code>producerStub</code> instance a service stub can be build to replace the production ready upstream service. This will have to use the topic bound to the <code>ProducerStub</code> created in the previous step.</li>
   <li>Use the <code>ProducerStub</code> on the tests to send messages into the topic and interact normally with the service under test to verify the Service code.</li>
 </ol>
-<pre class="prettyprint"><code class="language-scala">class AnotherServiceSpec extends WordSpec with Matchers with Eventually with ScalaFutures {
+<pre class="prettyprint"><code class="language-scala">class AnotherServiceSpec extends AnyWordSpec with Matchers with Eventually with ScalaFutures {
   var producerStub: ProducerStub[GreetingMessage] = _
 
   &quot;The AnotherService&quot; should {

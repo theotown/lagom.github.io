@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/8c7121f77455b814464592abb3798ca6222b1d6f-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/738d62ea46d90cd64e73db5a626e490eda19e29d-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -807,7 +807,10 @@ interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
 }</code></pre><h2 id="Refactoring-Consideration"><a class="section-marker" href="#Refactoring-Consideration">§</a>Refactoring Consideration</h2>
 <p>If you change the class name of a <code>PersistentEntity</code> you have to override <code>entityTypeName</code> and retain the original name because this name is part of the key of the store data (it is part of the <code>persistenceId</code> of the underlying <code>PersistentActor</code>). By default the <code>entityTypeName</code> is using the short class name of the concrete <code>PersistentEntity</code> class.</p><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a>Configuration</h2>
 <p>The default configuration should be good starting point, and the following settings may later be amended to customize the behavior if needed. The following is a listing of the non database specific settings for Lagom persistence:</p>
-<pre class="prettyprint"><code class="language-conf">lagom.persistence {
+<pre class="prettyprint"><code class="language-conf">## The settings below only apply to Lagom Persistence. If you are using
+## Akka Persistence Typed&#39;s EventSourcedBehavior in Lagom refer to the
+## Akka documentation.
+lagom.persistence {
 
   # As a rule of thumb, the number of shards should be a factor ten greater
   # than the planned maximum number of cluster nodes. Less shards than number
@@ -1163,7 +1166,7 @@ interface BlogEvent extends Jsonable, AggregateEvent&lt;BlogEvent&gt; {
             </div>
         </div>
     </body>
-    <script src="/8c7121f77455b814464592abb3798ca6222b1d6f-all-scripts-concat.js"></script>
+    <script src="/738d62ea46d90cd64e73db5a626e490eda19e29d-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

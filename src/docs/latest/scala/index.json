@@ -359,6 +359,10 @@
       "url" : "Highlights15.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/releases/Highlights15.md"
     }, {
+      "title" : "Lagom 1.7 Migration Guide",
+      "url" : "Migration17.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/releases/Migration17.md"
+    }, {
       "title" : "Lagom 1.6 Migration Guide",
       "url" : "Migration16.html",
       "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/releases/Migration16.md"

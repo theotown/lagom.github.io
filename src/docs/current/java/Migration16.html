@@ -57,7 +57,34 @@ akka.cluster.sharding.state-store-mode = persistence
   <li>The change in <a href="Migration16.html#Remoting-Artery">Akka Remote</a> default implementation.</li>
   <li>The change in default <a href="Migration16.html#Shard-Coordination">Shard Coordination</a> strategy.</li>
   <li>The change in <a href="Migration16.html#Akka-Persistence-Cassandra-Update">Cassandra plugin version</a>. Only impact Lagom applications using Cassandra.</li>
-</ul><h3 id="Multi-step-upgrade:-serialization"><a class="section-marker" href="#Multi-step-upgrade:-serialization">§</a>Multi-step upgrade: serialization</h3>
+</ul><h3 id="A-note-on-Rolling-Updates-and-Versions"><a class="section-marker" href="#A-note-on-Rolling-Updates-and-Versions">§</a>A note on Rolling Updates and Versions</h3>
+<p>Sometimes patch versions of Akka Cluster introduce changes that make certain pairs of versions incompatible. As a consequence, sometimes it is necessary to upgrade in multiple steps if downtime is not possible. See, for example, the following note in the Akka Docs on <a href="https://doc.akka.io/docs/akka/current/project/rolling-update.html#2-6-0-several-changes-in-minor-release">Rolling Updates and Versions</a>:</p>
+<blockquote>
+  <p>This means that a rolling update will have to go through at least one of 2.6.2, 2.6.3 or 2.6.4 when upgrading to 2.6.5 or higher or else cluster nodes will not be able to communicate during the rolling update.</p>
+</blockquote>
+<p>What this means for Lagom is that directly upgrading from <code>1.6.0</code> to <code>1.6.3</code>, for example, is not possible in a rolling upgrade. Instead, you should first migrate to <code>1.6.2</code> deploy the upgraded version and then upgrade to <code>1.6.3</code>. Following is a table of safe migrations (versions that can coexist safely during a rolling upgrade):</p>
+<table>
+  <thead>
+    <tr>
+      <th align="center">from </th>
+      <th align="center">to </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">1.6.0 </td>
+      <td align="center">1.6.2 </td>
+    </tr>
+    <tr>
+      <td align="center">1.6.1 </td>
+      <td align="center">1.6.3 </td>
+    </tr>
+    <tr>
+      <td align="center">1.6.2 </td>
+      <td align="center">1.6.3 </td>
+    </tr>
+  </tbody>
+</table><h3 id="Multi-step-upgrade:-serialization"><a class="section-marker" href="#Multi-step-upgrade:-serialization">§</a>Multi-step upgrade: serialization</h3>
 <p>Changes in default serializers require rolling upgrades to happen in two steps.</p><h4 id="Step-1:-new-binary,-old-serializers"><a class="section-marker" href="#Step-1:-new-binary,-old-serializers">§</a>Step 1: new binary, old serializers</h4>
 <p>First, you will have to deploy a version of your binary that&rsquo;s already a Lagom 1.6.x application but you must set it up to use the serializers that are compatible with Lagom 1.5.x so your old nodes can continue to operate. On your <code>application.conf</code> use:</p>
 <pre class="prettyprint"><code>## Lagom 1.6 no longer enables Java serialization by default but some

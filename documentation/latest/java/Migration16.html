@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/e54fca3b6bdae8312d48b1140bb9e000a3b6f1be-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/0ebb24ffad7040bf7034284e2da20ab2a0df5172-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -276,7 +276,8 @@ akka.cluster.sharding.state-store-mode = persistence
       <td align="center">1.6.3 </td>
     </tr>
   </tbody>
-</table><h3 id="Multi-step-upgrade:-serialization"><a class="section-marker" href="#Multi-step-upgrade:-serialization">§</a>Multi-step upgrade: serialization</h3>
+</table>
+<p><strong>Note:</strong> Lagom doesn&rsquo;t use <code>jackson-cbor</code> serializer internally, but if you have <code>jackson-cbor</code> in your <code>serialization-bindings</code> you need to know about <a href="https://doc.akka.io/docs/akka/current/project/rolling-update.html#2-6-5-jacksoncborserializer">JacksonCborSerializer issue</a> in Akka, and a rolling upgrade will have to go through <code>1.6.3</code> when upgrading to <code>1.6.3</code> or higher.</p><h3 id="Multi-step-upgrade:-serialization"><a class="section-marker" href="#Multi-step-upgrade:-serialization">§</a>Multi-step upgrade: serialization</h3>
 <p>Changes in default serializers require rolling upgrades to happen in two steps.</p><h4 id="Step-1:-new-binary,-old-serializers"><a class="section-marker" href="#Step-1:-new-binary,-old-serializers">§</a>Step 1: new binary, old serializers</h4>
 <p>First, you will have to deploy a version of your binary that&rsquo;s already a Lagom 1.6.x application but you must set it up to use the serializers that are compatible with Lagom 1.5.x so your old nodes can continue to operate. On your <code>application.conf</code> use:</p>
 <pre class="prettyprint"><code>## Lagom 1.6 no longer enables Java serialization by default but some
@@ -516,7 +517,7 @@ akka.actor {
             </div>
         </div>
     </body>
-    <script src="/e54fca3b6bdae8312d48b1140bb9e000a3b6f1be-all-scripts-concat.js"></script>
+    <script src="/0ebb24ffad7040bf7034284e2da20ab2a0df5172-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

@@ -52,6 +52,7 @@ Actions()
   <li><code>done</code> no events are to be persisted</li>
 </ul>
 <p>External side effects can be performed after successful persist in the <code>afterPersist</code> function. In the above example a reply is sent with the <code>ctx.reply</code> method.</p>
+<p><code>thenPersist</code> or <code>thenPersistAllAndRun</code> is an alternative for side effects that need access to the updated state.</p>
 <p>The command can be validated before persisting state changes. Note that current state is passed as parameter to the command handler partial function. Use <code>ctx.invalidCommand</code> or <code>ctx.commandFailed</code> to reject an invalid command.</p>
 <pre class="prettyprint"><code class="language-scala">// Command handlers are invoked for incoming messages (commands).
 // A command handler must &quot;return&quot; the events to be persisted (if any).

@@ -28,7 +28,25 @@ akka.cluster.sharding.state-store-mode = persistence
 <p>Note that although it&rsquo;s technically possible to run the migrations while running your application we advise against it.</p><h3 id="Akka-Persistence-Typed"><a class="section-marker" href="#Akka-Persistence-Typed">§</a>Akka Persistence Typed</h3>
 <p>With the new support for Akka Persistence Typed you may <a href="MigratingToAkkaPersistenceTyped.html">migrate your Persistent Entities to Akka Persistence Typed</a> <code>Behavior</code>&rsquo;s.</p><h2 id="Upgrading-a-production-system"><a class="section-marker" href="#Upgrading-a-production-system">§</a>Upgrading a production system</h2>
 <p>As usual, before upgrading to Lagom 1.6.0, make sure you are using the latest version on the 1.5.x series.</p>
-<p>During a rolling upgrade your <a href="Projections.html">Projections</a> may experience a degraded behavior. The service will self-heal when the rolling upgrade completes. Some internal messages taking care of the distribution of the worker instances of your projection have changed. As a consequence, your old nodes won&rsquo;t be able to gossip with the new ones but as soon as the rolling upgrade completes, all nodes will be on the same version of your service the projection will operate normally.</p>
+<p>During a rolling upgrade your <a href="Projections.html">Projections</a> may experience a degraded behavior. The service will self-heal when the rolling upgrade completes. Some internal messages taking care of the distribution of the worker instances of your projection have changed. As a consequence, your old nodes won&rsquo;t be able to gossip with the new ones but as soon as the rolling upgrade completes, all nodes will be on the same version of your service the projection will operate normally.</p><h3 id="Split-Brain-Resolver"><a class="section-marker" href="#Split-Brain-Resolver">§</a>Split Brain Resolver</h3>
+<p>If you are subscriber of the <a href="https://www.lightbend.com/lightbend-platform">Lightbend Platform</a> and use the <a href="https://doc.akka.io/docs/akka-enhancements/1.1/split-brain-resolver.html">Akka Split Brain Resolver</a>, when you update to Lagom <code>1.6.4</code> you can opt out of the commercial implementation and use the <a href="https://doc.akka.io/docs/akka/current/split-brain-resolver.html#split-brain-resolver">Open Source Akka Split Brain Resolver</a>. The migration has two steps: </p>
+<ol>
+  <li>remove the dependency:</li>
+</ol>
+<pre class="prettyprint"><code>// before
+&quot;com.lightbend.akka&quot; %% &quot;akka-split-brain-resolver&quot; % &quot;1.1.14&quot;
+// after
+// The OSS SBR implementation is part of &quot;akka-cluster&quot; so you don&#39;t need to add a new dependency
+</code></pre>
+<ol>
+  <li>update your settings to use the new implementation:</li>
+</ol>
+<pre class="prettyprint"><code>## Before:
+akka.cluster.downing-provider-class = &quot;com.lightbend.akka.sbr.SplitBrainResolverProvider&quot;
+## After:
+akka.cluster.downing-provider-class = &quot;akka.cluster.sbr.SplitBrainResolverProvider&quot;
+</code></pre>
+<p>Note that a rolling upgrade where some nodes use the commercial SBR and other nodes use the OSS SBR is possible as long as all nodes use the same configuration values (<code>active-strategy</code>, <code>stable-after</code>,&hellip;)</p><h3 id="Cluster-shutdown-migrating-from-Lagom-1.5"><a class="section-marker" href="#Cluster-shutdown-migrating-from-Lagom-1.5">§</a>Cluster shutdown migrating from Lagom 1.5</h3>
 <p>Lagom 1.6.0 has a few new default settings that will prevent you to run a rolling upgrade. In case you prefer to run a rolling upgrade, you will need to opt-out from each of these new defaults as explained below.</p>
 <p>This is a summary of changes in Lagom 1.6 that would require a full cluster shutdown rather than a rolling upgrade:</p>
 <ul>
@@ -36,7 +54,7 @@ akka.cluster.sharding.state-store-mode = persistence
   <li>The change in default <a href="Migration16.html#Shard-Coordination">Shard Coordination</a> strategy.</li>
   <li>The change in <a href="Migration16.html#Akka-Persistence-Cassandra-Update">Cassandra plugin version</a>. Only impacts Lagom applications using Cassandra.</li>
 </ul>
-<p>Finally, if you <a href="MigratingToAkkaPersistenceTyped.html">migrate your Persistent Entities as Akka Persistence Typed</a> <code>Behavior</code>&rsquo;s you will also need a cluster shutdown for the upgrade.</p><h3 id="A-note-on-Rolling-Updates-and-Versions"><a class="section-marker" href="#A-note-on-Rolling-Updates-and-Versions">§</a>A note on Rolling Updates and Versions</h3>
+<p>Finally, if you <a href="MigratingToAkkaPersistenceTyped.html">migrate your Persistent Entities as Akka Persistence Typed</a> <code>Behavior</code>&rsquo;s you will also need a cluster shutdown for the upgrade.</p><h3 id="A-note-on-Rolling-Updates-and-PATCH-Versions"><a class="section-marker" href="#A-note-on-Rolling-Updates-and-PATCH-Versions">§</a>A note on Rolling Updates and PATCH Versions</h3>
 <p>Sometimes patch versions of Akka Cluster introduce changes that make certain pairs of versions incompatible. As a consequence, sometimes it is necessary to upgrade in multiple steps if downtime is not possible. See, for example, the following note in the Akka Docs on <a href="https://doc.akka.io/docs/akka/current/project/rolling-update.html#2-6-0-several-changes-in-minor-release">Rolling Updates and Versions</a>:</p>
 <blockquote>
   <p>This means that a rolling update will have to go through at least one of 2.6.2, 2.6.3 or 2.6.4 when upgrading to 2.6.5 or higher or else cluster nodes will not be able to communicate during the rolling update.</p>

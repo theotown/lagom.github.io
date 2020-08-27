@@ -167,5 +167,9 @@ public BlogServiceImpl(PersistentEntityRegistry persistentEntityRegistry, ReadSi
 
   # The Akka dispatcher to use for read-side actors and tasks.
   use-dispatcher = &quot;lagom.persistence.dispatcher&quot;
+
+  # Enables capture and reporting of metrics on the Read-Side. The metrics
+  # reporting enforces consuming events one at a time.
+  projection-metrics = on
 }</code></pre><h2 id="Underlying-Implementation"><a class="section-marker" href="#Underlying-Implementation">§</a>Underlying Implementation</h2>
 <p>The <code>eventStream</code> of the <code>PersistentEntityRegistry</code> is also implemented by the <code>eventsByTag</code> query.</p>

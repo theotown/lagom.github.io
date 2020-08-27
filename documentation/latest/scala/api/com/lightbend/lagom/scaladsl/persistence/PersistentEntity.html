@@ -334,7 +334,7 @@ finite state machine (FSM) like entities.</p><p>When the entity is started the s
 To reduce this recovery time the entity may start the recovery from a snapshot
 of the state and then only replaying the events that were stored after the snapshot.
 Such snapshots are automatically saved after a configured number of persisted events.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.1+557-05789c85//persistence/scaladsl/src/main/scala/com/lightbend/lagom/scaladsl/persistence/PersistentEntity.scala" target="_blank">PersistentEntity.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.1+578-be13b3f8//persistence/scaladsl/src/main/scala/com/lightbend/lagom/scaladsl/persistence/PersistentEntity.scala" target="_blank">PersistentEntity.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -1044,7 +1044,7 @@ of the underlying <code>PersistentActor</code>).
                 <span class="name">@native</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="com.lightbend.lagom.scaladsl.persistence.PersistentEntity#onUnhandledCommand" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="com.lightbend.lagom.scaladsl.persistence.PersistentEntity#onUnhandledCommand" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="onUnhandledCommand(command:PersistentEntity.this.Command,context:PersistentEntity.this.ReadOnlyCommandContext[Nothing],state:PersistentEntity.this.State):Unit"></a><a id="onUnhandledCommand(Command,ReadOnlyCommandContext[Nothing],State):Unit"></a>
       <span class="permalink">
       <a href="../../../../../com/lightbend/lagom/scaladsl/persistence/PersistentEntity.html#onUnhandledCommand(command:PersistentEntity.this.Command,context:PersistentEntity.this.ReadOnlyCommandContext[Nothing],state:PersistentEntity.this.State):Unit" title="Permalink">
@@ -1059,7 +1059,9 @@ of the underlying <code>PersistentActor</code>).
         <span class="name">onUnhandledCommand</span><span class="params">(<span name="command">command: <a href="#Command" class="extmbr" name="com.lightbend.lagom.scaladsl.persistence.PersistentEntity.Command">Command</a></span>, <span name="context">context: <a href="PersistentEntity$ReadOnlyCommandContext.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.PersistentEntity.ReadOnlyCommandContext">ReadOnlyCommandContext</a>[<a href="https://www.scala-lang.org/api/2.12.10/scala/Nothing.html#scala.Nothing" class="extype" name="scala.Nothing">Nothing</a>]</span>, <span name="state">state: <a href="#State" class="extmbr" name="com.lightbend.lagom.scaladsl.persistence.PersistentEntity.State">State</a></span>)</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.10/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
-      
+      <p class="shortcomment cmt">This method is called if a command is not handled.</p><div class="fullcomment"><div class="comment cmt"><p>This method is called if a command is not handled. It can be overridden for custom handling.
+By default it sends back an <a href="PersistentEntity$$UnhandledCommandException.html" class="extype" name="com.lightbend.lagom.scaladsl.persistence.PersistentEntity.UnhandledCommandException">PersistentEntity.UnhandledCommandException</a> via <code>context.commandFailed</code>.
+</p></div><dl class="paramcmts block"><dt class="param">command</dt><dd class="cmt"><p>the command that was not handled</p></dd><dt class="param">context</dt><dd class="cmt"><p>the context, for access to for example <code>commandFailed</code></p></dd><dt class="param">state</dt><dd class="cmt"><p>current state</p></dd></dl></div>
     </li><li name="com.lightbend.lagom.scaladsl.persistence.PersistentEntity#recoveryCompleted" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="recoveryCompleted(state:PersistentEntity.this.State):PersistentEntity.this.State"></a><a id="recoveryCompleted(State):State"></a>
       <span class="permalink">

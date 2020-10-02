@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/12a5c195ec631c9b27a03a14591e550bfe75d6a3-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/c355862874444a472d0cbba916b3115cd4881d97-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -522,7 +522,7 @@ class FileUploadRouter(action: DefaultActionBuilder, parser: PlayBodyParsers) {
             </div>
         </div>
     </body>
-    <script src="/12a5c195ec631c9b27a03a14591e550bfe75d6a3-all-scripts-concat.js"></script>
+    <script src="/c355862874444a472d0cbba916b3115cd4881d97-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
@@ -530,11 +530,7 @@ class FileUploadRouter(action: DefaultActionBuilder, parser: PlayBodyParsers) {
         <!-- Cross-site search. This is using Algolia's autocomplete.js  -->
     <script>
             var clientLagom = algoliasearch('BH4D9OD16A', '77ef1e29e6bddfca861f7a42cc51725e');
-            var clientAkka = algoliasearch('BH4D9OD16A', '543bad5ad786495d9ccd445ed34ed082');
-            var clientPlay = algoliasearch('BH4D9OD16A', 'a0b34e68c804cf96e76adcb02d47159b');
             var lagomIndex = clientLagom.initIndex('lagomframework');
-            var akkaIndex = clientAkka.initIndex('akka_io');
-            var playIndex = clientPlay.initIndex('playframework');
 
             var displayValue = function (suggestion, level) {
                 if (level === 0)
@@ -597,29 +593,19 @@ class FileUploadRouter(action: DefaultActionBuilder, parser: PlayBodyParsers) {
             };
 
             var lagomFacetFilters = ['version:current'];
-            var akkaFacetFilters = [];
-            var playFacetFilters = ['version:2.6.x', 'tags:en'];
 
             var useScalaFacetFilter = window.location.href.split('/').includes("scala");
             if (useScalaFacetFilter) {
                 lagomFacetFilters.push('language:scala');
-                // The Akka faceting for language is not active. Instead, the paradox grouping is used.
-                // akkaFacetFilters.push('language:scala');
             } else {
                 lagomFacetFilters.push('language:java');
-                // The Akka faceting for language is not active. Instead, the paradox grouping is used.
-                // akkaFacetFilters.push('language:java');
             }
 
 
             autocomplete('#cross-docs-search',
                     {hint: false},
                     [
-                        buildIndexSettings(lagomIndex, 5, lagomFacetFilters, "Lagom Documentation", false)
-                        ,
-                        buildIndexSettings(akkaIndex, 2, akkaFacetFilters, "Akka Documentation", false, "akka")
-                        ,
-                        buildIndexSettings(playIndex, 2, playFacetFilters, "Play Documentation", true, "play")
+                        buildIndexSettings(lagomIndex, 10, lagomFacetFilters, "Lagom Documentation", false)
                     ]
             ).on('autocomplete:selected', function (event, suggestion, dataset) {
                 location.href = suggestion.url;

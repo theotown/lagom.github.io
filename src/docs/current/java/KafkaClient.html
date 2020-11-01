@@ -23,6 +23,14 @@
   # This will be ignored if the service-name configuration is non empty.
   brokers = ${lagom.broker.defaults.kafka.brokers}
 
+  # A mapping of Lagom topic id to real Kafka topic name.
+  # For example:
+  # topic-name-mappings {
+  #   topic-id = kafka-topic-name
+  # }
+  topic-name-mappings {
+  }
+
   client {
     default {
       # how long should we wait when retrieving the last known offset
@@ -80,7 +88,8 @@
 }</code></pre>
 <p>First, notice that the <code>service-name</code> is set to &ldquo;kafka_native&rdquo; by default. This property defines how the kafka broker URI will be looked up in the service locator (since v1.3.1). If you choose you can disable the lookup by setting the service-name to an empty string and pass the location of your Kafka brokers via the key <code>lagom.broker.kafka.brokers</code>. This setting is mapped to Kafka&rsquo;s <a href="https://kafka.apache.org/documentation/#producerconfigs">boot-strap server</a> list so only a few of the brokers need to be specified since the rest will be discovered dynamically. In production, you will usually want to have at least two brokers for resiliency. Make sure to separate each broker URL with a comma.</p>
 <p>Second, we have configuration that is specific to the publisher and the subscriber. The <code>lagom.broker.kafka.client.default.failure-exponential-backoff</code> defines configuration for what to do when a publisher or subscriber stream fails. Specifically, it allows you to configure the backoff time that is awaited before restarting a publishing/consuming stream. Failure can happen for different reasons, for instance it may be due to an application error, or because of a network error. Independently of the cause, Lagom will keep retrying to restart the stream (whilst waiting longer and longer between each failed retry). As you can see, both the publisher and subscriber use the same defaults, but different values for either of them can be set.</p>
-<p>Third, the consumer has a few more configuration keys allowing you to decide how often the read-side offset is persisted in the datastore. When tuning these values, you are trading performances (storing the offset every time a message is consumed can be costly), with the risk of having to re-process some message if a failure occurs.</p><h3 id="Alpakka-Kafka-configuration"><a class="section-marker" href="#Alpakka-Kafka-configuration">§</a>Alpakka Kafka configuration</h3>
+<p>Third, the consumer has a few more configuration keys allowing you to decide how often the read-side offset is persisted in the datastore. When tuning these values, you are trading performances (storing the offset every time a message is consumed can be costly), with the risk of having to re-process some message if a failure occurs.</p>
+<p>Four, Lagom uses topic id as Kafka topic name by default. But sometime Kafka topics can be differently named by your naming conventions for different environments. For this case you can use a <code>topic-name-mappings</code> property for mapping of Lagom topic id to real Kafka topic name.</p><h3 id="Alpakka-Kafka-configuration"><a class="section-marker" href="#Alpakka-Kafka-configuration">§</a>Alpakka Kafka configuration</h3>
 <p>See the <a href="https://doc.akka.io/docs/alpakka-kafka/1.0/producer.html#settings">Alpakka Kafka producer settings</a> and <a href="https://doc.akka.io/docs/alpakka-kafka/1.0/consumer.html#settings">Alpakka Kafka consumer settings</a> to find out about the available configuration parameters.</p>
 <p>Please refer to <a href="https://doc.akka.io/docs/alpakka-kafka/1.0/production.html">production considerations</a> for other things to keep in mind when using Alpakka Kafka.</p><h3 id="Apache-Java-Kafka-Client"><a class="section-marker" href="#Apache-Java-Kafka-Client">§</a>Apache Java Kafka Client</h3>
 <p>See the <a href="https://kafka.apache.org/documentation.html#producerconfigs">Producer Configs</a> documentation to learn about the exposed configuration for the publisher. Meanwhile, for the subscriber, see the <a href="https://kafka.apache.org/documentation.html#newconsumerconfigs">New Consumer Configs</a>. The only caveat is that if you need to change the value of any of the configuration provided by the Java Kafka Client, you must prepend the desired configuration key you want to change with <code>akka.kafka.consumer.kafka-clients</code>, for the consumer, or <code>akka.kafka.producer.kafka-clients</code>. For instance, let&rsquo;s assume you&rsquo;d like to change the consumer&rsquo;s <code>request.timeout.ms</code>, you should add the following in the service&rsquo;s application.conf:</p>

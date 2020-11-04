@@ -992,6 +992,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/PolicyViolation.html#ERROR_CODE">ERROR_CODE</a></span> - Static variable in exception com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/PolicyViolation.html" title="class in com.lightbend.lagom.javadsl.api.transport">PolicyViolation</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TooManyRequests.html#ERROR_CODE">ERROR_CODE</a></span> - Static variable in exception com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TooManyRequests.html" title="class in com.lightbend.lagom.javadsl.api.transport">TooManyRequests</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/Unauthorized.html#ERROR_CODE">ERROR_CODE</a></span> - Static variable in exception com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/Unauthorized.html" title="class in com.lightbend.lagom.javadsl.api.transport">Unauthorized</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/UnsupportedMediaType.html#ERROR_CODE">ERROR_CODE</a></span> - Static variable in exception com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/UnsupportedMediaType.html" title="class in com.lightbend.lagom.javadsl.api.transport">UnsupportedMediaType</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/deser/RawExceptionMessage.html#errorCode--">errorCode()</a></span> - Method in class com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/RawExceptionMessage.html" title="class in com.lightbend.lagom.javadsl.api.deser">RawExceptionMessage</a></dt>
@@ -3538,6 +3542,20 @@
 <dd>
 <div class="block">Convert this message protocol to a content type header, if the content type is defined.</div>
 </dd>
+<dt><a href="com/lightbend/lagom/javadsl/api/transport/TooManyRequests.html" title="class in com.lightbend.lagom.javadsl.api.transport"><span class="typeNameLink">TooManyRequests</span></a> - Exception in <a href="com/lightbend/lagom/javadsl/api/transport/package-summary.html">com.lightbend.lagom.javadsl.api.transport</a></dt>
+<dd>
+<div class="block">Exception thrown when the user has sent too many requests in a given amount of time.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TooManyRequests.html#TooManyRequests-java.lang.String-">TooManyRequests(String)</a></span> - Constructor for exception com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TooManyRequests.html" title="class in com.lightbend.lagom.javadsl.api.transport">TooManyRequests</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TooManyRequests.html#TooManyRequests-java.lang.Throwable-">TooManyRequests(Throwable)</a></span> - Constructor for exception com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TooManyRequests.html" title="class in com.lightbend.lagom.javadsl.api.transport">TooManyRequests</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TooManyRequests.html#TooManyRequests-com.lightbend.lagom.javadsl.api.transport.TransportErrorCode-com.lightbend.lagom.javadsl.api.deser.ExceptionMessage-">TooManyRequests(TransportErrorCode, ExceptionMessage)</a></span> - Constructor for exception com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TooManyRequests.html" title="class in com.lightbend.lagom.javadsl.api.transport">TooManyRequests</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html#TooManyRequests">TooManyRequests</a></span> - Static variable in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a></dt>
+<dd>
+<div class="block">The user has sent too many requests in a given amount of time.</div>
+</dd>
 <dt><a href="com/lightbend/lagom/javadsl/api/broker/Topic.html" title="interface in com.lightbend.lagom.javadsl.api.broker"><span class="typeNameLink">Topic</span></a>&lt;<a href="com/lightbend/lagom/javadsl/api/broker/Topic.html" title="type parameter in Topic">TopicMessageType</a>&gt; - Interface in <a href="com/lightbend/lagom/javadsl/api/broker/package-summary.html">com.lightbend.lagom.javadsl.api.broker</a></dt>
 <dd>
 <div class="block">A topic can be used to publish/subscribe messages to/from a message broker.</div>
@@ -3755,6 +3773,20 @@
 </a>
 <h2 class="title">U</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html#Unauthorized">Unauthorized</a></span> - Static variable in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a></dt>
+<dd>
+<div class="block">Authentication is required and has failed or has not yet been provided.</div>
+</dd>
+<dt><a href="com/lightbend/lagom/javadsl/api/transport/Unauthorized.html" title="class in com.lightbend.lagom.javadsl.api.transport"><span class="typeNameLink">Unauthorized</span></a> - Exception in <a href="com/lightbend/lagom/javadsl/api/transport/package-summary.html">com.lightbend.lagom.javadsl.api.transport</a></dt>
+<dd>
+<div class="block">Exception thrown when a service call is unauthorized.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/Unauthorized.html#Unauthorized-java.lang.String-">Unauthorized(String)</a></span> - Constructor for exception com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/Unauthorized.html" title="class in com.lightbend.lagom.javadsl.api.transport">Unauthorized</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/Unauthorized.html#Unauthorized-java.lang.Throwable-">Unauthorized(Throwable)</a></span> - Constructor for exception com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/Unauthorized.html" title="class in com.lightbend.lagom.javadsl.api.transport">Unauthorized</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/Unauthorized.html#Unauthorized-com.lightbend.lagom.javadsl.api.transport.TransportErrorCode-com.lightbend.lagom.javadsl.api.deser.ExceptionMessage-">Unauthorized(TransportErrorCode, ExceptionMessage)</a></span> - Constructor for exception com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/Unauthorized.html" title="class in com.lightbend.lagom.javadsl.api.transport">Unauthorized</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html#underlying--">underlying()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraSession.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraSession</a></dt>
 <dd>
 <div class="block">The <code>Session</code> of the underlying

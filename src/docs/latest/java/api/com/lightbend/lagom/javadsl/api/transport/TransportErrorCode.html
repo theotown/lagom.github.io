@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/ResponseHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/TooManyRequests.html" title="class in com.lightbend.lagom.javadsl.api.transport"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/TransportException.html" title="class in com.lightbend.lagom.javadsl.api.transport"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -225,6 +225,18 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializab
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html#TooManyRequests">TooManyRequests</a></span></code>
+<div class="block">The user has sent too many requests in a given amount of time.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html#Unauthorized">Unauthorized</a></span></code>
+<div class="block">Authentication is required and has failed or has not yet been provided.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html#UnexpectedCondition">UnexpectedCondition</a></span></code>
 <div class="block">A generic error used to indicate that the end sending the error message because it encountered
  an unexpected condition.</div>
@@ -353,6 +365,16 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializab
 <div class="block">A bad request, most often this will be equivalent to unsupported data.</div>
 </li>
 </ul>
+<a name="Unauthorized">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>Unauthorized</h4>
+<pre>public static final&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a> Unauthorized</pre>
+<div class="block">Authentication is required and has failed or has not yet been provided.</div>
+</li>
+</ul>
 <a name="Forbidden">
 <!--   -->
 </a>
@@ -422,6 +444,16 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializab
 <h4>UnsupportedMediaType</h4>
 <pre>public static final&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a> UnsupportedMediaType</pre>
 <div class="block">The client or server doesn't know how to deserialize the request or response.</div>
+</li>
+</ul>
+<a name="TooManyRequests">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>TooManyRequests</h4>
+<pre>public static final&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a> TooManyRequests</pre>
+<div class="block">The user has sent too many requests in a given amount of time.</div>
 </li>
 </ul>
 <a name="UnexpectedCondition">
@@ -621,7 +653,7 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializab
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/ResponseHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/TooManyRequests.html" title="class in com.lightbend.lagom.javadsl.api.transport"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../../../com/lightbend/lagom/javadsl/api/transport/TransportException.html" title="class in com.lightbend.lagom.javadsl.api.transport"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

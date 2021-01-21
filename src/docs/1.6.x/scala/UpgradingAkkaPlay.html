@@ -1,0 +1,30 @@
+<h1 id="Using-newer-versions-of-Akka-and-Play-Framework"><a class="section-marker" href="#Using-newer-versions-of-Akka-and-Play-Framework">§</a>Using newer versions of Akka and Play Framework</h1>
+<p>Lagom relies on Akka and Play Framework for some of its<br/>implementation.</p>
+<p>The versions of Akka and Play that ship with Lagom should<br/>usually be sufficient to run a Lagom application. However,<br/>in some cases it can be useful to upgrade them while staying<br/>on the same version of Lagom.<br/>This is usually possible when Akka and Play maintains binary<br/>compatibility between releases.</p>
+<p>When you are using sbt, you can force new versions of Akka<br/>and Play by adding the following to your <code>build.sbt</code>:</p>
+<pre class="prettyprint"><code>val akkaVersion = &quot;2.5.31&quot;
+val akkaHttpVersion = &quot;10.1.12&quot;
+val playVersion = &quot;2.7.6&quot;
+
+libraryDependencies in ThisBuild ++= Seq(
+  &quot;com.typesafe.akka&quot; %% &quot;akka-discovery&quot; % akkaVersion,
+  &quot;com.typesafe.akka&quot; %% &quot;akka-cluster-sharding&quot; % akkaVersion,
+  &quot;com.typesafe.akka&quot; %% &quot;akka-cluster-tools&quot; % akkaVersion,
+  &quot;com.typesafe.akka&quot; %% &quot;akka-coordination&quot; % akkaVersion,
+  &quot;com.typesafe.akka&quot; %% &quot;akka-distributed-data&quot; % akkaVersion,
+  &quot;com.typesafe.akka&quot; %% &quot;akka-persistence&quot; % akkaVersion,
+  &quot;com.typesafe.akka&quot; %% &quot;akka-persistence-query&quot; % akkaVersion,
+  &quot;com.typesafe.akka&quot; %% &quot;akka-protobuf&quot; % akkaVersion,
+  &quot;com.typesafe.akka&quot; %% &quot;akka-slf4j&quot; % akkaVersion,
+  &quot;com.typesafe.akka&quot; %% &quot;akka-stream&quot; % akkaVersion,
+
+  &quot;com.typesafe.akka&quot; %% &quot;akka-http&quot; % akkaHttpVersion,
+  &quot;com.typesafe.akka&quot; %% &quot;akka-http-core&quot; % akkaHttpVersion,
+  &quot;com.typesafe.akka&quot; %% &quot;akka-http-spray-json&quot; % akkaHttpVersion,
+
+  &quot;com.typesafe.play&quot; %% &quot;play&quot; % playVersion,
+)
+</code></pre>
+<p>And also update the version of the play plugin in <code>project/plugins.sbt</code>:</p>
+<pre class="prettyprint"><code>addSbtPlugin(&quot;com.typesafe.play&quot; % &quot;sbt-plugin&quot; % playVersion)
+</code></pre>

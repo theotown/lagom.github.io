@@ -139,7 +139,7 @@
       }, {
         "title" : "Using a newer version of Akka and Play Framework",
         "url" : "UpgradingAkkaPlay.html",
-        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/scala/guide/build/UpgradingAkkaPlay.md"
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/master/docs/manual/common/guide/build/UpgradingAkkaPlay.md"
       } ]
     }, {
       "title" : "Running Lagom in development",

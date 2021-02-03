@@ -170,6 +170,10 @@
         "title" : "Increase memory for sbt and Maven",
         "url" : "JVMMemoryOnDev.html",
         "sourceUrl" : "https://github.com/lagom/lagom/edit/1.6.x/docs/manual/common/guide/build/JVMMemoryOnDev.md"
+      }, {
+        "title" : "Using a newer version of Akka and Play Framework",
+        "url" : "UpgradingAkkaPlay.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/edit/1.6.x/docs/manual/common/guide/build/UpgradingAkkaPlay.md"
       } ]
     }, {
       "title" : "Running Lagom in development",

@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/ae2bef7de7c6a3b8c68688364ac5036628cb6c8d-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/671c20a14ae8e3d997e5e8e921ca50b50e4c897a-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -194,12 +194,13 @@
 
                 <article>
                 <h1 id="Using-newer-versions-of-Akka-and-Play-Framework"><a class="section-marker" href="#Using-newer-versions-of-Akka-and-Play-Framework">§</a>Using newer versions of Akka and Play Framework</h1>
-<p>Lagom relies on Akka and Play Framework for some of its<br/>implementation.</p>
-<p>The versions of Akka and Play that ship with Lagom should<br/>usually be sufficient to run a Lagom application. However,<br/>in some cases it can be useful to upgrade them while staying<br/>on the same version of Lagom.<br/>This is usually possible when Akka and Play maintains binary<br/>compatibility between releases.</p>
-<p>When you are using sbt, you can force new versions of Akka<br/>and Play by adding the following to your <code>build.sbt</code>:</p>
-<pre class="prettyprint"><code>val akkaVersion = &quot;2.5.31&quot;
-val akkaHttpVersion = &quot;10.1.12&quot;
-val playVersion = &quot;2.7.6&quot;
+<p>Lagom relies on Akka and Play Framework for some of its implementation.</p>
+<p>The versions of Akka and Play that ship with Lagom should usually be sufficient to run a Lagom application. However, in some cases it can be useful to upgrade them while staying on the same version of Lagom. This is usually possible when Akka and Play maintains binary compatibility between releases.</p>
+<p>Bear in mind that neither Akka nor Akka HTTP allow <a href="https://doc.akka.io/docs/akka/current/common/binary-compatibility-rules.html#mixed-versioning-is-not-allowed">mixed versions</a>. As a consequence, you must make sure you override the version for all the artifacts on your dependency tree in sync.</p><h2 id="sbt"><a class="section-marker" href="#sbt">§</a>sbt</h2>
+<p>When you are using sbt, you can force new versions of Akka and Play by adding the following to your <code>build.sbt</code>:</p>
+<pre class="prettyprint"><code class="language-scala">val akkaVersion = &quot;2.6.&lt;newer-version&gt;&quot;
+val akkaHttpVersion = &quot;10.1.&lt;newer-version&gt;&quot;
+val playVersion = &quot;2.8.&lt;newer-version&gt;&quot;
 
 libraryDependencies in ThisBuild ++= Seq(
   &quot;com.typesafe.akka&quot; %% &quot;akka-discovery&quot; % akkaVersion,
@@ -222,6 +223,163 @@ libraryDependencies in ThisBuild ++= Seq(
 </code></pre>
 <p>And also update the version of the play plugin in <code>project/plugins.sbt</code>:</p>
 <pre class="prettyprint"><code>addSbtPlugin(&quot;com.typesafe.play&quot; % &quot;sbt-plugin&quot; % playVersion)
+</code></pre><h2 id="Maven"><a class="section-marker" href="#Maven">§</a>Maven</h2>
+<p>When you are using Maven, you can force new versions of Akka and Play by adding the explicit dependencies to the <code>&lt;dependencyManagement&gt;</code> section in the parent <code>pom.xml</code>. Keep in mind that in <code>dependencyManagement</code> first occurrence wins, so you list of overwrites must appear before any BOM (e.g. the lagom BOM) to take effect.</p>
+<p>Below is an example of how you would overwrite the version for some Akka, Akka HTTP and Play artifacts.</p>
+<pre class="prettyprint"><code class="language-xml">&lt;project&gt;
+    &lt;properties&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+        &lt;scala.binary.version&gt;2.12&lt;/scala.binary.version&gt;
+        &lt;akka.version&gt;2.6.newer-version&lt;/akka.version&gt;
+        &lt;akka.http.version&gt;10.1.newer-version&lt;/akka.http.version&gt;
+        &lt;play.version&gt;2.8.newer-version&lt;/play.version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencyManagement&gt;
+        &lt;dependencies&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+                &lt;artifactId&gt;akka-discovery_${scala.binary.version}&lt;/artifactId&gt;
+                &lt;version&gt;${akka.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+                &lt;artifactId&gt;akka-cluster-sharding_${scala.binary.version}&lt;/artifactId&gt;
+                &lt;version&gt;${akka.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+                &lt;artifactId&gt;akka-cluster-tools_${scala.binary.version}&lt;/artifactId&gt;
+                &lt;version&gt;${akka.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+                &lt;artifactId&gt;akka-coordination_${scala.binary.version}&lt;/artifactId&gt;
+                &lt;version&gt;${akka.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+                &lt;artifactId&gt;akka-distributed-data_${scala.binary.version}&lt;/artifactId&gt;
+                &lt;version&gt;${akka.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+                &lt;artifactId&gt;akka-persistence_${scala.binary.version}&lt;/artifactId&gt;
+                &lt;version&gt;${akka.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+                &lt;artifactId&gt;akka-persistence-query_${scala.binary.version}&lt;/artifactId&gt;
+                &lt;version&gt;${akka.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+                &lt;artifactId&gt;akka-protobuf_${scala.binary.version}&lt;/artifactId&gt;
+                &lt;version&gt;${akka.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+                &lt;artifactId&gt;akka-slf4j_${scala.binary.version}&lt;/artifactId&gt;
+                &lt;version&gt;${akka.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+                &lt;artifactId&gt;akka-stream_${scala.binary.version}&lt;/artifactId&gt;
+                &lt;version&gt;${akka.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+                &lt;artifactId&gt;akka-http_${scala.binary.version}&lt;/artifactId&gt;
+                &lt;version&gt;${akka.http.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+                &lt;artifactId&gt;akka-http-core_${scala.binary.version}&lt;/artifactId&gt;
+                &lt;version&gt;${akka.http.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+                &lt;artifactId&gt;akka-http-spray-json_${scala.binary.version}&lt;/artifactId&gt;
+                &lt;version&gt;${akka.http.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.typesafe.play&lt;/groupId&gt;
+                &lt;artifactId&gt;play_${scala.binary.version}&lt;/artifactId&gt;
+                &lt;version&gt;${play.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+          &lt;dependency&gt;
+            &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
+            &lt;artifactId&gt;lagom-maven-dependencies&lt;/artifactId&gt;
+            &lt;version&gt;${lagom.version}&lt;/version&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+          &lt;/dependency&gt;
+          &lt;dependency&gt;
+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+            &lt;version&gt;1.18.8&lt;/version&gt;
+          &lt;/dependency&gt;
+        &lt;/dependencies&gt;
+    &lt;/dependencyManagement&gt;
+
+&lt;/project&gt;
+</code></pre><h3 id="Maven-BOMs"><a class="section-marker" href="#Maven-BOMs">§</a>Maven BOMs</h3>
+<p>In latest versions of Akka you may also use the BOM provided instead of manually listing all the artifacts. Keep in mind that in <code>dependencyManagement</code> first occurrence wins, so any BOM overwriting the Lagom BOM must appear before to take effect.</p>
+<pre class="prettyprint"><code class="language-xml">&lt;project&gt;
+    &lt;properties&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+        &lt;scala.binary.version&gt;2.12&lt;/scala.binary.version&gt;
+        &lt;akka.version&gt;2.6.newer-version&lt;/akka.version&gt;
+        &lt;akka.http.version&gt;10.1.newer-version&lt;/akka.http.version&gt;
+        &lt;play.version&gt;2.8.newer-version&lt;/play.version&gt;
+    &lt;/properties&gt;
+    &lt;dependencyManagement&gt;
+      &lt;dependencies&gt;
+        &lt;dependency&gt;
+          &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+          &lt;artifactId&gt;akka-bom_${scala.binary.version}&lt;/artifactId&gt;
+          &lt;version&gt;${akka.version}&lt;/version&gt;
+          &lt;type&gt;pom&lt;/type&gt;
+          &lt;scope&gt;import&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+          &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+          &lt;artifactId&gt;akka-http_${scala.binary.version}&lt;/artifactId&gt;
+          &lt;version&gt;${akka.http.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+          &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+          &lt;artifactId&gt;akka-http-core_${scala.binary.version}&lt;/artifactId&gt;
+          &lt;version&gt;${akka.http.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+          &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
+          &lt;artifactId&gt;akka-http-spray-json_${scala.binary.version}&lt;/artifactId&gt;
+          &lt;version&gt;${akka.http.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+          &lt;groupId&gt;com.typesafe.play&lt;/groupId&gt;
+          &lt;artifactId&gt;play_${scala.binary.version}&lt;/artifactId&gt;
+          &lt;version&gt;${play.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+      &lt;/dependencies&gt;
+
+      &lt;dependency&gt;
+        &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
+        &lt;artifactId&gt;lagom-maven-dependencies&lt;/artifactId&gt;
+        &lt;version&gt;${lagom.version}&lt;/version&gt;
+        &lt;scope&gt;import&lt;/scope&gt;
+        &lt;type&gt;pom&lt;/type&gt;
+      &lt;/dependency&gt;
+      &lt;dependency&gt;
+        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+        &lt;version&gt;1.18.8&lt;/version&gt;
+      &lt;/dependency&gt;
+
+    &lt;/dependencyManagement&gt;
+&lt;/project&gt;
 </code></pre>
                 </article>
 
@@ -238,7 +396,7 @@ libraryDependencies in ThisBuild ++= Seq(
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/edit/1.6.x/docs/manual/scala/guide/build/UpgradingAkkaPlay.md">here</a>. Please feel free to edit and contribute a pull request. </p>
+                        <a href="https://github.com/lagom/lagom/edit/1.6.x/docs/manual/common/guide/build/UpgradingAkkaPlay.md">here</a>. Please feel free to edit and contribute a pull request. </p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -473,7 +631,7 @@ libraryDependencies in ThisBuild ++= Seq(
             </div>
         </div>
     </body>
-    <script src="/ae2bef7de7c6a3b8c68688364ac5036628cb6c8d-all-scripts-concat.js"></script>
+    <script src="/671c20a14ae8e3d997e5e8e921ca50b50e4c897a-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

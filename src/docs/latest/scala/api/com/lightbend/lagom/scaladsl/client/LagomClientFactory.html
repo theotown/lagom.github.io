@@ -253,13 +253,13 @@
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Convenience for constructing service clients in a non Lagom server application.</p><p><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> should be used only if your application DO have its own <a href="https://doc.akka.io/api/akka/2.6.8/akka/actor/ActorSystem.html" class="extype" name="akka.actor.ActorSystem">akka.actor.ActorSystem</a> and Akka Streams <a href="https://doc.akka.io/api/akka/2.6.8/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a>,
-in which case you should reuse then when building a <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>.</p><p>The easiest way to reuse your existing <a href="https://doc.akka.io/api/akka/2.6.8/akka/actor/ActorSystem.html" class="extype" name="akka.actor.ActorSystem">akka.actor.ActorSystem</a> and Akka Stream <a href="https://doc.akka.io/api/akka/2.6.8/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a> is to extend the <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Convenience for constructing service clients in a non Lagom server application.</p><p><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> should be used only if your application DO have its own <a href="https://doc.akka.io/api/akka/2.6.10/akka/actor/ActorSystem.html" class="extype" name="akka.actor.ActorSystem">akka.actor.ActorSystem</a> and Akka Streams <a href="https://doc.akka.io/api/akka/2.6.10/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a>,
+in which case you should reuse then when building a <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>.</p><p>The easiest way to reuse your existing <a href="https://doc.akka.io/api/akka/2.6.10/akka/actor/ActorSystem.html" class="extype" name="akka.actor.ActorSystem">akka.actor.ActorSystem</a> and Akka Stream <a href="https://doc.akka.io/api/akka/2.6.10/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a> is to extend the <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>
 and add a constructor where you can pass them as arguments (see example below).</p><p>There is one more component that you’ll need to provide when creating a <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>, that is a service locator.
 It is up to you what service locator you use, it could be a third party service locator, or a service locator created
 from static configuration.</p><p>Lagom provides a number of built-in service locators, including a <a href="StaticServiceLocator.html" class="extype" name="com.lightbend.lagom.scaladsl.client.StaticServiceLocator">StaticServiceLocator</a>, a <a href="RoundRobinServiceLocator.html" class="extype" name="com.lightbend.lagom.scaladsl.client.RoundRobinServiceLocator">RoundRobinServiceLocator</a>
 and a <a href="ConfigurationServiceLocator.html" class="extype" name="com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocator">ConfigurationServiceLocator</a>. The easiest way to use these is to mix in their respective Components traits.</p><p>For example, here’s a client factory built using the static service locator, which uses a static URI,
-and reusing an <a href="https://doc.akka.io/api/akka/2.6.8/akka/actor/ActorSystem.html" class="extype" name="akka.actor.ActorSystem">akka.actor.ActorSystem</a> and Akka Streams <a href="https://doc.akka.io/api/akka/2.6.8/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a> created outside it:</p><pre><span class="kw">import</span> java.net.URI
+and reusing an <a href="https://doc.akka.io/api/akka/2.6.10/akka/actor/ActorSystem.html" class="extype" name="akka.actor.ActorSystem">akka.actor.ActorSystem</a> and Akka Streams <a href="https://doc.akka.io/api/akka/2.6.10/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a> created outside it:</p><pre><span class="kw">import</span> java.net.URI
 <span class="kw">import</span> com.lightbend.lagom.scaladsl.client._
 <span class="kw">import</span> play.api.libs.ws.ahc.AhcWSComponents
 
@@ -274,7 +274,7 @@ and reusing an <a href="https://doc.akka.io/api/akka/2.6.8/akka/actor/ActorSyste
 
 <span class="kw">val</span> actorSystem = ActorSystem(<span class="lit">"my-app"</span>)
 <span class="kw">val</span> materializer = SystemMaterializer(actorSystem).materializer
-<span class="kw">val</span> clientFactory = <span class="kw">new</span> MyLagomClientFactory(actorSystem, materializer)</pre></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.1+691-82fc15bb//service/scaladsl/client/src/main/scala/com/lightbend/lagom/scaladsl/client/ServiceClient.scala" target="_blank">ServiceClient.scala</a></dd></dl><div class="toggleContainer block">
+<span class="kw">val</span> clientFactory = <span class="kw">new</span> MyLagomClientFactory(actorSystem, materializer)</pre></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.1+695-050461a8//service/scaladsl/client/src/main/scala/com/lightbend/lagom/scaladsl/client/ServiceClient.scala" target="_blank">ServiceClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -370,7 +370,7 @@ and reusing an <a href="https://doc.akka.io/api/akka/2.6.8/akka/actor/ActorSyste
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">actorSystem</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.8/akka/actor/ActorSystem.html#akka.actor.ActorSystem" class="extype" name="akka.actor.ActorSystem">ActorSystem</a></span>
+        <span class="name">actorSystem</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.10/akka/actor/ActorSystem.html#akka.actor.ActorSystem" class="extype" name="akka.actor.ActorSystem">ActorSystem</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
@@ -386,7 +386,7 @@ and reusing an <a href="https://doc.akka.io/api/akka/2.6.8/akka/actor/ActorSyste
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">materializer</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.8/akka/stream/Materializer.html#akka.stream.Materializer" class="extype" name="akka.stream.Materializer">Materializer</a></span>
+        <span class="name">materializer</span><span class="result">: <a href="https://doc.akka.io/api/akka/2.6.10/akka/stream/Materializer.html#akka.stream.Materializer" class="extype" name="akka.stream.Materializer">Materializer</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
@@ -418,7 +418,7 @@ and reusing an <a href="https://doc.akka.io/api/akka/2.6.8/akka/actor/ActorSyste
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wsClient</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.4/api/scala/play/api/libs/ws/WSClient.html#play.api.libs.ws.WSClient" class="extype" name="play.api.libs.ws.WSClient">WSClient</a></span>
+        <span class="name">wsClient</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.7/api/scala/play/api/libs/ws/WSClient.html#play.api.libs.ws.WSClient" class="extype" name="play.api.libs.ws.WSClient">WSClient</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
@@ -531,7 +531,7 @@ and reusing an <a href="https://doc.akka.io/api/akka/2.6.8/akka/actor/ActorSyste
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">applicationLifecycle</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.4/api/scala/play/api/inject/ApplicationLifecycle.html#play.api.inject.ApplicationLifecycle" class="extype" name="play.api.inject.ApplicationLifecycle">ApplicationLifecycle</a></span>
+        <span class="name">applicationLifecycle</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.7/api/scala/play/api/inject/ApplicationLifecycle.html#play.api.inject.ApplicationLifecycle" class="extype" name="play.api.inject.ApplicationLifecycle">ApplicationLifecycle</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
@@ -619,7 +619,7 @@ and reusing an <a href="https://doc.akka.io/api/akka/2.6.8/akka/actor/ActorSyste
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">configuration</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.4/api/scala/play/api/Configuration.html#play.api.Configuration" class="extype" name="play.api.Configuration">Configuration</a></span>
+        <span class="name">configuration</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.7/api/scala/play/api/Configuration.html#play.api.Configuration" class="extype" name="play.api.Configuration">Configuration</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> → <a href="../api/LagomConfigComponent.html" class="extype" name="com.lightbend.lagom.scaladsl.api.LagomConfigComponent">LagomConfigComponent</a></dd></dl></div>
@@ -731,7 +731,7 @@ and reusing an <a href="https://doc.akka.io/api/akka/2.6.8/akka/actor/ActorSyste
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">environment</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.4/api/scala/play/api/Environment.html#play.api.Environment" class="extype" name="play.api.Environment">Environment</a></span>
+        <span class="name">environment</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.7/api/scala/play/api/Environment.html#play.api.Environment" class="extype" name="play.api.Environment">Environment</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> → <a href="LagomServiceClientComponents.html" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomServiceClientComponents">LagomServiceClientComponents</a></dd></dl></div>
@@ -964,7 +964,7 @@ and reusing an <a href="https://doc.akka.io/api/akka/2.6.8/akka/actor/ActorSyste
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">releaseInternalResources</span><span class="params">()</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.10/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.6.8/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
+        <span class="name">releaseInternalResources</span><span class="params">()</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.10/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<a href="https://doc.akka.io/api/akka/2.6.10/akka/Done.html#akka.Done" class="extype" name="akka.Done">Done</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Releases the internal resources manages by this LagomClientFactory.</p><div class="fullcomment"><div class="comment cmt"><p>Releases the internal resources manages by this LagomClientFactory.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
@@ -1047,8 +1047,8 @@ and reusing an <a href="https://doc.akka.io/api/akka/2.6.8/akka/actor/ActorSyste
         <span class="name">stop</span><span class="params">()</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.10/scala/Unit.html#scala.Unit" class="extype" name="scala.Unit">Unit</a></span>
       </span>
       
-      <p class="shortcomment cmt">Override this method if your <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> implementation needs to free any resource.</p><div class="fullcomment"><div class="comment cmt"><p>Override this method if your <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> implementation needs to free any resource.</p><p>For example, when implementing your own <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>, you may choose to reuse an existing <a href="https://doc.akka.io/api/akka/2.6.8/akka/actor/ActorSystem.html" class="extype" name="akka.actor.ActorSystem">akka.actor.ActorSystem</a>,
-but use a internal <a href="https://doc.akka.io/api/akka/2.6.8/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a>. In which case, you can use this method to only shutdown the <a href="https://doc.akka.io/api/akka/2.6.8/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a>.</p><p>If you override this method, make sure you also release the internally managed resources
+      <p class="shortcomment cmt">Override this method if your <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> implementation needs to free any resource.</p><div class="fullcomment"><div class="comment cmt"><p>Override this method if your <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a> implementation needs to free any resource.</p><p>For example, when implementing your own <a href="" class="extype" name="com.lightbend.lagom.scaladsl.client.LagomClientFactory">LagomClientFactory</a>, you may choose to reuse an existing <a href="https://doc.akka.io/api/akka/2.6.10/akka/actor/ActorSystem.html" class="extype" name="akka.actor.ActorSystem">akka.actor.ActorSystem</a>,
+but use a internal <a href="https://doc.akka.io/api/akka/2.6.10/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a>. In which case, you can use this method to only shutdown the <a href="https://doc.akka.io/api/akka/2.6.10/akka/stream/Materializer.html" class="extype" name="akka.stream.Materializer">akka.stream.Materializer</a>.</p><p>If you override this method, make sure you also release the internally managed resources
 by calling <span class="extype" name="#releaseInternalResources()">#releaseInternalResources()</span> method.</p></div></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>

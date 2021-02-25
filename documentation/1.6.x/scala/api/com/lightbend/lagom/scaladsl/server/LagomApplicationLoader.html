@@ -253,7 +253,7 @@
 <code>application.conf</code> file using:</p><p><code><code><code>
 play.application.loader = com.example.MyApplicationLoader
 <code><code><code></code></code></code></code></code></code></p><p>This class provides an abstraction over Play's application loader that provides Lagom specific functionality.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.5-RC1+29-a9b10537//service/scaladsl/server/src/main/scala/com/lightbend/lagom/scaladsl/server/LagomApplicationLoader.scala" target="_blank">LagomApplicationLoader.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.5-RC1+33-36b9b245//service/scaladsl/server/src/main/scala/com/lightbend/lagom/scaladsl/server/LagomApplicationLoader.scala" target="_blank">LagomApplicationLoader.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -745,7 +745,7 @@ override def describeService = Some(readDescriptor[MyService])
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">load</span><span class="params">(<span name="context">context: <span class="extype" name="play.api.ApplicationLoader.Context">Context</span></span>)</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.4/api/scala/play/api/Application.html#play.api.Application" class="extype" name="play.api.Application">Application</a></span>
+        <span class="name">load</span><span class="params">(<span name="context">context: <span class="extype" name="play.api.ApplicationLoader.Context">Context</span></span>)</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.7/api/scala/play/api/Application.html#play.api.Application" class="extype" name="play.api.Application">Application</a></span>
       </span>
       
       <p class="shortcomment cmt">Implementation of Play's load method.</p><div class="fullcomment"><div class="comment cmt"><p>Implementation of Play's load method.</p><p>Since Lagom applications need to use a different wiring in dev mode, using the dev mode service locator and
@@ -783,7 +783,7 @@ dev mode service registry.
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">logger</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.4/api/scala/play/api/Logger.html#play.api.Logger" class="extype" name="play.api.Logger">Logger</a></span>
+        <span class="name">logger</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.7/api/scala/play/api/Logger.html#play.api.Logger" class="extype" name="play.api.Logger">Logger</a></span>
       </span>
       
       

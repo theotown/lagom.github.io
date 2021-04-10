@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/59d9b1dfb372460d9a151a64fd4d9ea66cc68d5d-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/a91a6c9fe4afb3193c13e5fcc2716843b140f86a-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -199,18 +199,7 @@
 <p>If you aren&rsquo;t concerned with scaling to multiple teams yet, feel free to skip this section for now.</p><h2 id="Publishing-services"><a class="section-marker" href="#Publishing-services">§</a>Publishing services</h2>
 <p>Even with multiple builds, you will still often want to run your services together in development. Lagom allows importing services published from one build into another build.</p>
 <p>Suppose you have a <code>hello</code> service that you want to publish and import into another build. You can publish this to your local repository by running <code>publishLocal</code> from sbt. This is the simplest way to publish a service, however it means every developer that wants to run a build that imports the service will need publish it to their own repository themselves, and they&rsquo;ll need to do that for each version that they want to import.</p>
-<p>More commonly, many developers can share a single Maven or Ivy repository that they can publish and pull artifacts from. There are a few options for how to do this, if you&rsquo;re happy to use a hosted repository, <a href="https://bintray.com">Bintray</a> is a good option, if you want to run the repository locally, <a href="https://www.jfrog.com/open-source/">Artifactory</a> or <a href="https://www.sonatype.com/products-overview">Nexus</a> are common solutions. For information on how to configure these in sbt, see <a href="https://www.scala-sbt.org/1.x/docs/Publishing.html">how to publish artifacts</a> .</p><h3 id="Publishing-to-Bintray"><a class="section-marker" href="#Publishing-to-Bintray">§</a>Publishing to Bintray</h3>
-<p>Bintray offers both free open source hosting, as well as a paid private hosting service.</p>
-<p>If you are using Bintray, the first thing you&rsquo;ll need to do is sign up for an account, and create an organization. In your Bintray organization, you can then create a Bintray repository, we recommend creating a Maven repository.</p>
-<p>Having set Bintray up, you now need to configure your build to publish to this.</p>
-<p>First, add the sbt-bintray plugin to your <code>project/plugins.sbt</code> file:</p>
-<pre class="prettyprint"><code class="language-sbt">addSbtPlugin(&quot;me.lessis&quot; % &quot;bintray-sbt&quot; % &quot;0.3.0&quot;)</code></pre>
-<p>The Bintray plugin manages its own credentials, this can be configured by running <code>sbt bintrayChangeCredentials</code>, which will save the credentials in <code>~/.bintray/.credentials</code>.</p>
-<p>Once you&rsquo;ve authenticated with Bintray, you can then configure your build to publish to it, by adding the following configuration to <code>build.sbt</code>:</p>
-<pre class="prettyprint"><code class="language-sbt">// Set this to the organization that you want to publish to
-bintrayOrganization in ThisBuild := Some(&quot;example-organization&quot;)
-// This is needed for projects that are not open source
-bintrayOmitLicense in ThisBuild := false</code></pre><h2 id="Importing-a-service"><a class="section-marker" href="#Importing-a-service">§</a>Importing a service</h2>
+<p>More commonly, many developers can share a single Maven or Ivy repository that they can publish and pull artifacts from. There are a few options for how to do this. If you want to run the repository locally, <a href="https://www.jfrog.com/open-source/">Artifactory</a> or <a href="https://www.sonatype.com/products-overview">Nexus</a> are common solutions. For information on how to configure these in sbt, see <a href="https://www.scala-sbt.org/1.x/docs/Publishing.html">how to publish artifacts</a> .</p><h2 id="Importing-a-service"><a class="section-marker" href="#Importing-a-service">§</a>Importing a service</h2>
 <p>The <code>hello</code> Lagom service can be imported by adding the following declaration to your build:</p>
 <pre class="prettyprint"><code class="language-sbt">lazy val hello = lagomExternalScaladslProject(&quot;hello&quot;, &quot;com.example&quot; %% &quot;hello-impl&quot; % &quot;1.0&quot;)</code></pre>
 <p>The first argument passed to <code>lagomExternalScaladslProject</code> is the name that will be used in your build to refer to this externally defined project. While, the second argument provides the dependency to the <code>hello-impl</code> JAR, using the conventional sbt syntax for declaring dependencies. Note in fact that the <code>lagomExternalScaladslProject</code> method returns a sbt <code>Project</code>, which you can further customize if needed.</p>
@@ -487,7 +476,7 @@ lazy val greetingsImpl = (project in file(&quot;greetings-impl&quot;))
             </div>
         </div>
     </body>
-    <script src="/59d9b1dfb372460d9a151a64fd4d9ea66cc68d5d-all-scripts-concat.js"></script>
+    <script src="/a91a6c9fe4afb3193c13e5fcc2716843b140f86a-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

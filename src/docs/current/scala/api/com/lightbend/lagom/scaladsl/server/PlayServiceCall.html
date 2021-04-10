@@ -252,7 +252,7 @@
 
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A service call implementation that allows plugging directly into Play's request handling.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.5-RC1+45-c0c2fdb5//service/scaladsl/server/src/main/scala/com/lightbend/lagom/scaladsl/server/PlayServiceCall.scala" target="_blank">PlayServiceCall.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.5//service/scaladsl/server/src/main/scala/com/lightbend/lagom/scaladsl/server/PlayServiceCall.scala" target="_blank">PlayServiceCall.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -323,7 +323,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">invoke</span><span class="params">(<span name="wrapCall">wrapCall: (<a href="../api/ServiceCall.html" class="extype" name="com.lightbend.lagom.scaladsl.api.ServiceCall">ServiceCall</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.server.PlayServiceCall.Request">Request</span>, <span class="extype" name="com.lightbend.lagom.scaladsl.server.PlayServiceCall.Response">Response</span>]) ⇒ <a href="https://www.playframework.com/documentation/2.8.7/api/scala/play/api/mvc/EssentialAction.html#play.api.mvc.EssentialAction" class="extype" name="play.api.mvc.EssentialAction">EssentialAction</a></span>)</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.7/api/scala/play/api/mvc/EssentialAction.html#play.api.mvc.EssentialAction" class="extype" name="play.api.mvc.EssentialAction">EssentialAction</a></span>
+        <span class="name">invoke</span><span class="params">(<span name="wrapCall">wrapCall: (<a href="../api/ServiceCall.html" class="extype" name="com.lightbend.lagom.scaladsl.api.ServiceCall">ServiceCall</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.server.PlayServiceCall.Request">Request</span>, <span class="extype" name="com.lightbend.lagom.scaladsl.server.PlayServiceCall.Response">Response</span>]) ⇒ <a href="https://www.playframework.com/documentation/2.8.8/api/scala/play/api/mvc/EssentialAction.html#play.api.mvc.EssentialAction" class="extype" name="play.api.mvc.EssentialAction">EssentialAction</a></span>)</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.8/api/scala/play/api/mvc/EssentialAction.html#play.api.mvc.EssentialAction" class="extype" name="play.api.mvc.EssentialAction">EssentialAction</a></span>
       </span>
       
       <p class="shortcomment cmt">Low level hook for implementing service calls directly in Play.</p><div class="fullcomment"><div class="comment cmt"><p>Low level hook for implementing service calls directly in Play.</p><p>This can only be used to hook into plain HTTP calls, it can't be used to hook into WebSocket calls.
@@ -739,7 +739,7 @@ implementation.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">invoke</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="evidence">evidence: <span class="extype" name="scala.Predef.=:=">=:=</span>[<a href="https://doc.akka.io/api/akka/2.6.10/akka/NotUsed.html#akka.NotUsed" class="extype" name="akka.NotUsed">NotUsed</a>, <span class="extype" name="com.lightbend.lagom.scaladsl.server.PlayServiceCall.Request">Request</span>]</span>)</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.13/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.server.PlayServiceCall.Response">Response</span>]</span>
+        <span class="name">invoke</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="evidence">evidence: <span class="extype" name="scala.Predef.=:=">=:=</span>[<a href="https://doc.akka.io/api/akka/2.6.14/akka/NotUsed.html#akka.NotUsed" class="extype" name="akka.NotUsed">NotUsed</a>, <span class="extype" name="com.lightbend.lagom.scaladsl.server.PlayServiceCall.Request">Request</span>]</span>)</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.13/scala/concurrent/Future.html#scala.concurrent.Future" class="extype" name="scala.concurrent.Future">Future</a>[<span class="extype" name="com.lightbend.lagom.scaladsl.server.PlayServiceCall.Response">Response</span>]</span>
       </span>
       
       <p class="shortcomment cmt">Invoke the service call with unit id argument and a unit request message.</p><div class="fullcomment"><div class="comment cmt"><p>Invoke the service call with unit id argument and a unit request message.</p><p>This should only be used when the request message is NotUsed.

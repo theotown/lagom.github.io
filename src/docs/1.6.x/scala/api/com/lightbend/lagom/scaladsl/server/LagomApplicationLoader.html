@@ -244,7 +244,7 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">LagomApplicationLoader</span><span class="result"> extends <a href="https://www.playframework.com/documentation/2.8.7/api/scala/play/api/ApplicationLoader.html#play.api.ApplicationLoader" class="extype" name="play.api.ApplicationLoader">ApplicationLoader</a> with <span class="extype" name="com.lightbend.lagom.internal.spi.ServiceDiscovery">ServiceDiscovery</span></span>
+        <span class="name">LagomApplicationLoader</span><span class="result"> extends <a href="https://www.playframework.com/documentation/2.8.8/api/scala/play/api/ApplicationLoader.html#play.api.ApplicationLoader" class="extype" name="play.api.ApplicationLoader">ApplicationLoader</a> with <span class="extype" name="com.lightbend.lagom.internal.spi.ServiceDiscovery">ServiceDiscovery</span></span>
       </span>
       </h4>
 
@@ -253,11 +253,11 @@
 <code>application.conf</code> file using:</p><p><code><code><code>
 play.application.loader = com.example.MyApplicationLoader
 <code><code><code></code></code></code></code></code></code></p><p>This class provides an abstraction over Play's application loader that provides Lagom specific functionality.
-</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.5-RC1+45-c0c2fdb5//service/scaladsl/server/src/main/scala/com/lightbend/lagom/scaladsl/server/LagomApplicationLoader.scala" target="_blank">LagomApplicationLoader.scala</a></dd></dl><div class="toggleContainer block">
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/lagom/lagom/tree/1.6.5//service/scaladsl/server/src/main/scala/com/lightbend/lagom/scaladsl/server/LagomApplicationLoader.scala" target="_blank">LagomApplicationLoader.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><span class="extype" name="com.lightbend.lagom.internal.spi.ServiceDiscovery">ServiceDiscovery</span>, <a href="https://www.playframework.com/documentation/2.8.7/api/scala/play/api/ApplicationLoader.html#play.api.ApplicationLoader" class="extype" name="play.api.ApplicationLoader">ApplicationLoader</a>, <a href="../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <a href="https://www.scala-lang.org/api/2.12.13/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="com.lightbend.lagom.internal.spi.ServiceDiscovery">ServiceDiscovery</span>, <a href="https://www.playframework.com/documentation/2.8.8/api/scala/play/api/ApplicationLoader.html#play.api.ApplicationLoader" class="extype" name="play.api.ApplicationLoader">ApplicationLoader</a>, <a href="../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <a href="https://www.scala-lang.org/api/2.12.13/scala/Any.html#scala.Any" class="extype" name="scala.Any">Any</a></div>
         </div></div>
         
 
@@ -745,7 +745,7 @@ override def describeService = Some(readDescriptor[MyService])
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">load</span><span class="params">(<span name="context">context: <span class="extype" name="play.api.ApplicationLoader.Context">Context</span></span>)</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.7/api/scala/play/api/Application.html#play.api.Application" class="extype" name="play.api.Application">Application</a></span>
+        <span class="name">load</span><span class="params">(<span name="context">context: <span class="extype" name="play.api.ApplicationLoader.Context">Context</span></span>)</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.8/api/scala/play/api/Application.html#play.api.Application" class="extype" name="play.api.Application">Application</a></span>
       </span>
       
       <p class="shortcomment cmt">Implementation of Play's load method.</p><div class="fullcomment"><div class="comment cmt"><p>Implementation of Play's load method.</p><p>Since Lagom applications need to use a different wiring in dev mode, using the dev mode service locator and
@@ -783,7 +783,7 @@ dev mode service registry.
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">logger</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.7/api/scala/play/api/Logger.html#play.api.Logger" class="extype" name="play.api.Logger">Logger</a></span>
+        <span class="name">logger</span><span class="result">: <a href="https://www.playframework.com/documentation/2.8.8/api/scala/play/api/Logger.html#play.api.Logger" class="extype" name="play.api.Logger">Logger</a></span>
       </span>
       
       
@@ -991,7 +991,7 @@ dev mode service registry.
         <div class="parent" name="com.lightbend.lagom.internal.spi.ServiceDiscovery">
               <h3>Inherited from <span class="extype" name="com.lightbend.lagom.internal.spi.ServiceDiscovery">ServiceDiscovery</span></h3>
             </div><div class="parent" name="play.api.ApplicationLoader">
-              <h3>Inherited from <a href="https://www.playframework.com/documentation/2.8.7/api/scala/play/api/ApplicationLoader.html#play.api.ApplicationLoader" class="extype" name="play.api.ApplicationLoader">ApplicationLoader</a></h3>
+              <h3>Inherited from <a href="https://www.playframework.com/documentation/2.8.8/api/scala/play/api/ApplicationLoader.html#play.api.ApplicationLoader" class="extype" name="play.api.ApplicationLoader">ApplicationLoader</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="../../../../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">

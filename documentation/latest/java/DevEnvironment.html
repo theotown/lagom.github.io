@@ -11,7 +11,7 @@
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/d306d192203496271f6d5c477c09279501822f1a-all-styles-concat.css" type="text/css">
+        <link rel="stylesheet" href="/d6f0a8a544eb67de382b82bb8ab44a5329b97145-all-styles-concat.css" type="text/css">
         <!-- OneTrust Cookies Consent Notice (Production Standard, lagomframework.com, en-GB) start -->
         <script src="https://optanon.blob.core.windows.net/consent/1ee3f0d6-9ed5-4b9e-bed7-ce6faaeaca5d.js" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
@@ -237,7 +237,7 @@ $ sbt
 
 val startElasticSearch = taskKey[Closeable](&quot;Starts elastic search&quot;)
 
-startElasticSearch in ThisBuild := {
+ThisBuild / startElasticSearch := {
   val esVersion     = &quot;5.4.0&quot;
   val log           = streams.value.log
   val elasticsearch = target.value / s&quot;elasticsearch-$esVersion&quot;
@@ -263,7 +263,7 @@ startElasticSearch in ThisBuild := {
   }
 }</code></pre>
 <p>Now we&rsquo;re able to start Elastic Search, we need to add this task to Lagom&rsquo;s list of infrastructure services, so that Lagom will start it when <code>runAll</code> is executed. This can be done by modifying the <code>lagomInfrastructureServices</code> setting:</p>
-<pre class="prettyprint"><code class="language-sbt">lagomInfrastructureServices in ThisBuild += (startElasticSearch in ThisBuild).taskValue</code></pre><h2 id="Behind-the-scenes"><a class="section-marker" href="#Behind-the-scenes">§</a>Behind the scenes</h2>
+<pre class="prettyprint"><code class="language-sbt">ThisBuild / lagomInfrastructureServices += ( ThisBuild / startElasticSearch ).taskValue</code></pre><h2 id="Behind-the-scenes"><a class="section-marker" href="#Behind-the-scenes">§</a>Behind the scenes</h2>
 <!-- copied this section to concepts, perhaps it can be removed later -->
 <p>What&rsquo;s happening behind the scenes when you <code>runAll</code>?</p>
 <ul>
@@ -562,7 +562,7 @@ startElasticSearch in ThisBuild := {
             </div>
         </div>
     </body>
-    <script src="/d306d192203496271f6d5c477c09279501822f1a-all-scripts-concat.js"></script>
+    <script src="/d6f0a8a544eb67de382b82bb8ab44a5329b97145-all-scripts-concat.js"></script>
     
      
     <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

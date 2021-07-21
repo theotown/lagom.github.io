@@ -47,7 +47,7 @@
 &lt;/plugin&gt;
 </code></pre>
 <p>In sbt, this can be done by modifying the project root configuration:</p>
-<pre class="prettyprint"><code class="language-sbt">lagomServicesPortRange in ThisBuild := PortRange(40000, 45000)</code></pre>
+<pre class="prettyprint"><code class="language-sbt">ThisBuild / lagomServicesPortRange := PortRange(40000, 45000)</code></pre>
 <p>After this change, your service projects will get assigned a port in the range <code>[40000,45000]</code>. But mind that the smaller is the range, the higher are the chances that two or more project will claim the same port. This is not an issue in itself (as long as there are enough ports for all projects), but it is possible that adding a new service project in your build may provoke a change to the port assigned to an existing service project, if both projects happen to claim the same port. If you don&rsquo;t want this to happen, make sure the provided port range is wide enough. Alternatively, manually assign ports to service projects as it makes sense.</p><h1 id="Using-HTTPS-in-development-mode"><a class="section-marker" href="#Using-HTTPS-in-development-mode">§</a>Using HTTPS in development mode</h1>
 <p>When running Lagom in <a href="DevEnvironment.html">Development Mode</a> it is possible to enable HTTPS via settings on your build files. In Maven you can do this by modifying the configuration of the <code>lagom-maven-plugin</code>:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
@@ -60,7 +60,7 @@
 </code></pre>
 <p>If you add the setting on the parent <code>pom.xml</code> all services will have SSL enabled. If you add the setting on only one of the service implementation projects then only that service will open the HTTPS port.</p>
 <p>To enable SSL in sbt you should use:</p>
-<pre class="prettyprint"><code class="language-sbt">lagomServiceEnableSsl in ThisBuild := true</code></pre>
+<pre class="prettyprint"><code class="language-sbt">ThisBuild / lagomServiceEnableSsl := true</code></pre>
 <p>You can also tune the port the server is bound to (similarly to the HTTP port):</p>
 <pre class="prettyprint"><code class="language-xml">&lt;plugin&gt;
     &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
